@@ -1,0 +1,36 @@
+{
+  "dependencies": {
+    "@create-figma-plugin/ui": "^3.0.2",
+    "@create-figma-plugin/utilities": "^3.0.2",
+    "@tabler/icons-react": "^2.42.0",
+    "axios": "^1.6.2",
+    "buffer": "^6.0.3",
+    "preact": ">=10",
+    "prismjs": "^1.28.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-simple-code-editor": "^0.11.2"
+  },
+  "devDependencies": {
+    "@create-figma-plugin/build": "^3.0.2",
+    "@create-figma-plugin/tsconfig": "^3.0.2",
+    "@figma/plugin-typings": "^1.81.0",
+    "@types/prismjs": "^1.26.0",
+    "@types/react": ">=18",
+    "@types/react-beautiful-dnd": "^13.1.7",
+    "react": ">=18",
+    "typescript": ">=4"
+  },
+  "scripts": {
+    "build": "build-figma-plugin --typecheck --minify",
+    "watch": "build-figma-plugin --typecheck --watch"
+  },
+  "figma-plugin": {
+    "editorType": [
+      "figma"
+    ],
+    "id": "tidy-guide-builder-v1",
+    "name": "Tidy Guide Builder v1",
+    "main": "src/main.ts",
+    "ui": "src/ui.tsx"
+  }
+}
