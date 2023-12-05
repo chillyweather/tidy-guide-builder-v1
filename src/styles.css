@@ -365,7 +365,7 @@ li {
 
 .header {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -431,6 +431,15 @@ li {
 .header .header-button:active {
   color: #000000;
 }
+
+.headerContent {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 
 body .nav-wrapper {
   border-radius: 32px;

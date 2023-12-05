@@ -12,6 +12,7 @@ declare const styles: {
   readonly "header-login": string;
   readonly "header-menu": string;
   readonly "header-title": string;
+  readonly "headerContent": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;
   readonly "inputDiv": string;
