@@ -1,4 +1,6 @@
 import { h } from "preact";
+import { useContext } from "preact/hooks";
+import BuilderContext from "../BuilderContext";
 import {
   IconSettings,
   IconList,
@@ -13,6 +15,7 @@ const Header = ({
   // resetStates,
   setIsLoginOpen,
 }: any) => {
+  const selectedElement = useContext(BuilderContext)?.selectedElement;
   return (
     <div className="header">
       <div className="headerContent">
@@ -43,7 +46,7 @@ const Header = ({
           </button>
         </div>
       </div>
-      <HeaderActions />
+      {selectedElement && <HeaderActions />}
     </div>
   );
 };

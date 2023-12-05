@@ -30,7 +30,7 @@ function Plugin() {
   const [isLoading, setIsLoading] = useState(false);
 
   //selected element
-  const selectedElementHook = useState<any>(null);
+  // const selectedElementHook = useState<any>(null);
   const [selectedElement, setSelectedElement] = useState<any>(null);
   const [selectedElementName, setSelectedElementName] = useState("");
 
@@ -93,7 +93,7 @@ function Plugin() {
 
   return (
     <div className={"container"}>
-      <BuilderContext.Provider value={{}}>
+      <BuilderContext.Provider value={{ selectedElement, setSelectedElement }}>
         {!token && (
           <Login
             setToken={setToken}
@@ -103,11 +103,9 @@ function Plugin() {
           />
         )}
         <Header setIsLoginOpen={setIsLoginPageOpen} />
-        {isLoginPageOpen && token ? (
-          <LoggedIn setToken={setToken} />
-        ) : (
-          <EmptyState />
-        )}
+        {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
+
+        {!selectedElement && <EmptyState />}
       </BuilderContext.Provider>
     </div>
   );

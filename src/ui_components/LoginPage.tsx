@@ -60,7 +60,6 @@ const Login = ({
 
   return (
     <form onSubmit={handleSubmit} className="section login">
-      {console.log("isLoginFailed :>> ", isLoginFailed)}
       <div className="navigation"></div>
       <TidyLogo />
       <p>

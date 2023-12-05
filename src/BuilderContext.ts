@@ -1,8 +1,9 @@
 import { createContext } from "preact";
+import { StateUpdater } from "preact/hooks";
 
 interface IContext {
-  // Define the shape of your context here
-  // For now, it's an empty object
+  selectedElement: any;
+  setSelectedElement: StateUpdater<any>;
 }
 
 const BuilderContext = createContext<IContext | null>(null);
