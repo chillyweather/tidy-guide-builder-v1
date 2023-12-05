@@ -2,7 +2,7 @@ import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
 import { TidyLogo } from "../images/TidyLogo";
 
-const LoggedIn = ({ setToken }: { setToken: any }) => {
+const LoggedIn = ({ setToken, path }: { setToken: any; path?: string }) => {
   return (
     <div className="section login">
       <div className="navigation"></div>

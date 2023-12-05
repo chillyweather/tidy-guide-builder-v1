@@ -7,11 +7,13 @@ import { login } from "../ui_functions/authentication";
 // import { getDocumentation } from "../auxiliaryFunctions/documentationHandlers";
 
 const Login = ({
+  path,
   setToken,
   setIsLoginFailed,
   isLoginFailed,
   setIsLoginPageOpen,
 }: {
+  path?: string;
   setToken: Function;
   setIsLoginFailed: Function;
   isLoginFailed: boolean;

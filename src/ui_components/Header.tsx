@@ -1,5 +1,6 @@
 import { h } from "preact";
 import { useContext } from "preact/hooks";
+import { route } from "preact-router";
 import BuilderContext from "../BuilderContext";
 import {
   IconSettings,
@@ -36,7 +37,8 @@ const Header = ({
           <button
             className="header-login"
             onClick={() => {
-              setIsLoginOpen(true);
+              // setIsLoginOpen(true);
+              route("/login");
             }}
           >
             <IconUser />

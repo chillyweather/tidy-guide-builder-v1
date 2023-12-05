@@ -1,9 +1,9 @@
+import { h, JSX } from "preact";
+import { Router } from "preact-router";
 import { render } from "@create-figma-plugin/ui";
-import React from "react";
+import { emit, on, once } from "@create-figma-plugin/utilities";
 
 import sectionData from "./resources/sectionData";
-import { emit, on, once } from "@create-figma-plugin/utilities";
-import { h, JSX } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import BuilderContext from "./BuilderContext";
 //dependencies
@@ -94,18 +94,18 @@ function Plugin() {
   return (
     <div className={"container"}>
       <BuilderContext.Provider value={{ selectedElement, setSelectedElement }}>
-        {!token && (
+        {token && <Header setIsLoginOpen={setIsLoginPageOpen} />}
+        <Router>
           <Login
+            path="/login"
             setToken={setToken}
             setIsLoginFailed={setIsLoginFailed}
             isLoginFailed={isLoginFailed}
             setIsLoginPageOpen={setIsLoginPageOpen}
           />
-        )}
-        <Header setIsLoginOpen={setIsLoginPageOpen} />
-        {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
-
-        {!selectedElement && <EmptyState />}
+          <LoggedIn path="/loggedin" setToken={setToken} />
+          <EmptyState default />
+        </Router>
       </BuilderContext.Provider>
     </div>
   );

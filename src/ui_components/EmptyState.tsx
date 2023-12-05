@@ -1,7 +1,13 @@
 import { emit } from "@create-figma-plugin/utilities";
 import { h } from "preact";
+import { FunctionalComponent } from "preact";
 
-export default function EmptyState() {
+interface EmptyStateProps {
+  default?: boolean;
+  // other props...
+}
+
+const EmptyState: FunctionalComponent<EmptyStateProps> = (props) => {
   return (
     <div
       style={{
@@ -27,4 +33,6 @@ export default function EmptyState() {
       </button>
     </div>
   );
-}
+};
+
+export default EmptyState;
