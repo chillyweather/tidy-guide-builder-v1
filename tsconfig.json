@@ -1,8 +1,12 @@
 {
   "extends": "@create-figma-plugin/tsconfig",
   "compilerOptions": {
-    "typeRoots": ["node_modules/@figma", "node_modules/@types"],
-    "jsxFragmentFactory": "React.Fragment"
+    "baseUrl": ".",
+    "paths": {
+      "react": ["node_modules/preact/compat"],
+      "react-dom": ["node_modules/preact/compat"]
+    },
+    "typeRoots": ["node_modules/@figma", "node_modules/@types"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src", "src/preact.d.ts"]
 }
