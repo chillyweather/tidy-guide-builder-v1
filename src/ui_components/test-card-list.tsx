@@ -90,7 +90,7 @@ export const DragAndDropList: FunctionComponent = () => {
         },
       });
     }
-  }, []); // Removed items from the dependency array
+  }, []);
 
   return (
     <div
