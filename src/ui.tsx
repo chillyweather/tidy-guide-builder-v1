@@ -1,5 +1,4 @@
 import { render } from "@create-figma-plugin/ui";
-import React from "react";
 
 import sectionData from "./resources/sectionData";
 import { emit, on, once } from "@create-figma-plugin/utilities";
@@ -7,7 +6,6 @@ import { h, JSX } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import BuilderContext from "./BuilderContext";
 //dependencies
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 //new components
 import Login from "./ui_components/LoginPage";
