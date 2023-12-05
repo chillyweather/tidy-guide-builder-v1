@@ -373,8 +373,6 @@ li {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 16px 24px;
-  gap: 6px;
   background-color: var(--tidy-background);
   z-index: 998;
 }
@@ -433,6 +431,8 @@ li {
 }
 
 .headerContent {
+  height: 48px;
+  padding: 12px 16px;
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -440,6 +440,20 @@ li {
   width: 100%;
 }
 
+.headerActions {
+  height: 42px;
+  padding: 4px 16px;
+}
+
+.mainContent {
+  width: 100%;
+  background-color: coral;
+  height: calc(100vh - 170px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
 
 body .nav-wrapper {
   border-radius: 32px;

@@ -12,6 +12,7 @@ declare const styles: {
   readonly "header-login": string;
   readonly "header-menu": string;
   readonly "header-title": string;
+  readonly "headerActions": string;
   readonly "headerContent": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;
@@ -26,6 +27,7 @@ declare const styles: {
   readonly "login-button": string;
   readonly "loginFlex": string;
   readonly "loginNew": string;
+  readonly "mainContent": string;
   readonly "nav-container": string;
   readonly "nav-wrapper": string;
   readonly "navigation": string;

@@ -12,6 +12,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 //new components
 import Login from "./ui_components/LoginPage";
 import LoggedIn from "./ui_components/LoggedInPage";
+import MainContent from "./ui_components/MainContent";
 
 //components
 // import SectionCard from "./ui_components/SectionCard";
@@ -104,8 +105,8 @@ function Plugin() {
         )}
         <Header setIsLoginOpen={setIsLoginPageOpen} />
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
-
         {!selectedElement && <EmptyState />}
+        {selectedElement && <MainContent />}
       </BuilderContext.Provider>
     </div>
   );
