@@ -5,6 +5,7 @@ import sectionData from "./resources/sectionData";
 import { emit, on, once } from "@create-figma-plugin/utilities";
 import { h, JSX } from "preact";
 import { useEffect, useState } from "preact/hooks";
+import BuilderContext from "./BuilderContext";
 //dependencies
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
@@ -29,6 +30,7 @@ function Plugin() {
   const [isLoading, setIsLoading] = useState(false);
 
   //selected element
+  const selectedElementHook = useState<any>(null);
   const [selectedElement, setSelectedElement] = useState<any>(null);
   const [selectedElementName, setSelectedElementName] = useState("");
 
@@ -91,20 +93,22 @@ function Plugin() {
 
   return (
     <div className={"container"}>
-      {!token && (
-        <Login
-          setToken={setToken}
-          setIsLoginFailed={setIsLoginFailed}
-          isLoginFailed={isLoginFailed}
-          setIsLoginPageOpen={setIsLoginPageOpen}
-        />
-      )}
-      <Header setIsLoginOpen={setIsLoginPageOpen} />
-      {isLoginPageOpen && token ? (
-        <LoggedIn setToken={setToken} />
-      ) : (
-        <EmptyState />
-      )}
+      <BuilderContext.Provider value={{}}>
+        {!token && (
+          <Login
+            setToken={setToken}
+            setIsLoginFailed={setIsLoginFailed}
+            isLoginFailed={isLoginFailed}
+            setIsLoginPageOpen={setIsLoginPageOpen}
+          />
+        )}
+        <Header setIsLoginOpen={setIsLoginPageOpen} />
+        {isLoginPageOpen && token ? (
+          <LoggedIn setToken={setToken} />
+        ) : (
+          <EmptyState />
+        )}
+      </BuilderContext.Provider>
     </div>
   );
 }
