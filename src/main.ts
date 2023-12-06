@@ -10,7 +10,8 @@ export default function () {
   // const user = figma.currentUser;
   // emit("USER", user);
 
-  const currentSelection = figma.currentPage.selection;
+  const currentSelection = checkSelection();
+  if (currentSelection) emit("SELECTION", currentSelection);
 
   once("SAVE_NEW_TOKEN", (token) => {
     tokenHandler(token);
@@ -41,14 +42,14 @@ export default function () {
   });
 
   once("BUILD", async (data, elementId) => {
-    //---------------------building documentation on canvas------------------------//
+    //----building documentation on canvas------//
     try {
       await documentationBuilder(data);
       console.log("data :>> ", data);
     } catch (error) {
       console.log("error on documentation build in Figma :>> ", error);
     }
-    //---------------------building documentation for db---------------------------//
+    //--building documentation for db--------//
     try {
       const elementData: any = {};
       elementData[elementId] = data;

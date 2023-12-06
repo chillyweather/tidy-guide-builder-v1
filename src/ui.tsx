@@ -54,49 +54,6 @@ function Plugin() {
     setSelectedElementName(name);
   });
 
-  //   function buildListOfCards(arr: any[], isAdded: boolean, setArr: any) {
-  //     const onDragEnd = (result: any) => {
-  //       if (!result.destination) return;
-  //       const items = Array.from(arr);
-  //       const [reorderedItem] = items.splice(result.source.index, 1);
-  //       items.splice(result.destination.index, 0, reorderedItem);
-  //       setArr(items); // Update your state with the new order
-  //     };
-  //
-  //     return (
-  //       <DragDropContext onDragEnd={onDragEnd}>
-  //         <Droppable droppableId="sectionCards">
-  //           {(provided) => (
-  //             <div {...provided.droppableProps} ref={provided.innerRef}>
-  //               {arr.map((section: any, index: number) => (
-  //                 <Draggable
-  //                   key={index + section.title + section.content}
-  //                   draggableId={index + section.title + section.content}
-  //                   index={index}
-  //                 >
-  //                   {(provided) => (
-  //                     //@ts-ignore
-  //                     <div
-  //                       ref={provided.innerRef}
-  //                       {...provided.draggableProps}
-  //                       {...provided.dragHandleProps}
-  //                     >
-  //                       //@ts-ignore
-  //                       <div>
-  //                         <p>Test</p>
-  //                       </div>
-  //                     </div>
-  //                   )}
-  //                 </Draggable>
-  //               ))}
-  //               {provided.placeholder}
-  //             </div>
-  //           )}
-  //         </Droppable>
-  //       </DragDropContext>
-  //     );
-  //   }
-
   return (
     <div className={"container"}>
       <BuilderContext.Provider value={{ selectedElement, setSelectedElement }}>
