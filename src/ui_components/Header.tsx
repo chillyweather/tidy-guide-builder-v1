@@ -11,10 +11,7 @@ import {
 } from "@tabler/icons-react";
 import HeaderActions from "./HeaderActions";
 
-const Header = ({
-  // resetStates,
-  setIsLoginOpen,
-}: any) => {
+const Header = ({ isLoginPageOpen, setIsLoginPageOpen }: any) => {
   const selectedElement = useContext(BuilderContext)?.selectedElement;
   return (
     <div className="header">
@@ -22,21 +19,17 @@ const Header = ({
         <button
           className="header-button"
           onClick={() => {
-            // closeMenu();
+            isLoginPageOpen && setIsLoginPageOpen(false);
           }}
         >
           <IconListTree />
-          Components index
+          {isLoginPageOpen ? "Back" : "Components index"}
         </button>
-        <div className="header-title">
-          <IconListTree />
-          Components index
-        </div>
         <div className={"side-flex"}>
           <button
             className="header-login"
             onClick={() => {
-              setIsLoginOpen(true);
+              setIsLoginPageOpen(true);
             }}
           >
             <IconUser />
@@ -46,7 +39,7 @@ const Header = ({
           </button>
         </div>
       </div>
-      {selectedElement && <HeaderActions />}
+      {selectedElement && !isLoginPageOpen && <HeaderActions />}
     </div>
   );
 };

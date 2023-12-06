@@ -108,7 +108,10 @@ function Plugin() {
             setIsLoginPageOpen={setIsLoginPageOpen}
           />
         )}
-        <Header setIsLoginOpen={setIsLoginPageOpen} />
+        <Header
+          isLoginPageOpen={isLoginPageOpen}
+          setIsLoginPageOpen={setIsLoginPageOpen}
+        />
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
         {!selectedElement && <EmptyState />}
         {selectedElement && !isLoginPageOpen && <MainContent />}

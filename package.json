@@ -9,9 +9,6 @@
     "preact": ">=10",
     "preact-feather": "^4.2.1",
     "prismjs": "^1.28.0",
-    "react-dnd": "^16.0.1",
-    "react-dnd-html5-backend": "^16.0.1",
-    "react-simple-code-editor": "^0.11.2",
     "sortablejs": "^1.15.1"
   },
   "devDependencies": {
