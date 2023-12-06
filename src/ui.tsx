@@ -56,7 +56,15 @@ function Plugin() {
 
   return (
     <div className={"container"}>
-      <BuilderContext.Provider value={{ selectedElement, setSelectedElement }}>
+      <BuilderContext.Provider
+        value={{
+          selectedElement,
+          setSelectedElement,
+          selectedSections,
+          setSelectedSections,
+          selectedElementName,
+        }}
+      >
         {!token && (
           <Login
             setToken={setToken}

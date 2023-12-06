@@ -13,6 +13,7 @@ import HeaderActions from "./HeaderActions";
 
 const Header = ({ isLoginPageOpen, setIsLoginPageOpen }: any) => {
   const selectedElement = useContext(BuilderContext)?.selectedElement;
+
   return (
     <div className="header">
       <div className="headerContent">
