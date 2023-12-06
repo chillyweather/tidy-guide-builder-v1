@@ -194,7 +194,6 @@ li {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
   padding-top: 84px;
   min-height: 100vh;
 }
@@ -1169,6 +1168,8 @@ details[open] #text-size {
   display: block;
 }
 
+
+
 .login footer {
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
   line-height: 150%;
@@ -1199,6 +1200,18 @@ summary {
 summary button {
   pointer-events: none;
 }
+
+.footer {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 16px 16px 24px 16px;
+}
+
+
 
 @media screen and (min-width: 500px) {
   .two-columns {
