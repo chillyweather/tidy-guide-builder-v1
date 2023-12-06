@@ -7,6 +7,7 @@ declare const styles: {
   readonly "componentBTN": string;
   readonly "container": string;
   readonly "disabled": string;
+  readonly "footer": string;
   readonly "header": string;
   readonly "header-button": string;
   readonly "header-login": string;

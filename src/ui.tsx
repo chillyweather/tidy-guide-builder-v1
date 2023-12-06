@@ -11,13 +11,14 @@ import BuilderContext from "./BuilderContext";
 import Login from "./ui_components/LoginPage";
 import LoggedIn from "./ui_components/LoggedInPage";
 import MainContent from "./ui_components/MainContent";
+import Header from "./ui_components/Header";
+import Footer from "./ui_components/Footer";
 
 //components
 // import SectionCard from "./ui_components/SectionCard";
 
 //styles
 import EmptyState from "./ui_components/EmptyState";
-import Header from "./ui_components/Header";
 import "!./styles.css";
 
 function Plugin() {
@@ -29,9 +30,15 @@ function Plugin() {
   const [isLoading, setIsLoading] = useState(false);
 
   //selected element
-  // const selectedElementHook = useState<any>(null);
   const [selectedElement, setSelectedElement] = useState<any>(null);
   const [selectedElementName, setSelectedElementName] = useState("");
+
+  //selected cards
+  const [selectedSections, setSelectedSections] = useState<any[]>([
+    sectionData[0],
+  ]);
+
+  console.log("selectedSections :>> ", selectedSections);
 
   //page states
   const [isLoginPageOpen, setIsLoginPageOpen] = useState(false);
@@ -104,7 +111,8 @@ function Plugin() {
         <Header setIsLoginOpen={setIsLoginPageOpen} />
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
         {!selectedElement && <EmptyState />}
-        {selectedElement && <MainContent />}
+        {selectedElement && !isLoginPageOpen && <MainContent />}
+        {selectedElement && !isLoginPageOpen && <Footer />}
       </BuilderContext.Provider>
     </div>
   );

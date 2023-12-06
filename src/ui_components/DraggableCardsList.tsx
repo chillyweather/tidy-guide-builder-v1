@@ -71,10 +71,8 @@ const DraggableItem: FunctionComponent<DraggableItemProps> = ({
   );
 };
 
-export const DragAndDropList: FunctionComponent = () => {
+export const DraggableCardList: FunctionComponent = () => {
   const [items, setItems] = useState<number[]>([0, 1, 2, 3, 4]);
-
-  console.log("items :>> ", items);
 
   useEffect(() => {
     const el = document.getElementById("sections");
@@ -104,4 +102,4 @@ export const DragAndDropList: FunctionComponent = () => {
   );
 };
 
-export default DragAndDropList;
+export default DraggableCardList;

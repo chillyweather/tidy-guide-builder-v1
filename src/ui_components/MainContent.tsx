@@ -1,10 +1,10 @@
 import { h } from "preact";
-import { DragAndDropList } from "./test-card-list";
+import { DraggableCardList } from "./DraggableCardsList";
 
 const MainContent = () => {
   return (
     <div className="mainContent">
-      <DragAndDropList />
+      <DraggableCardList />
     </div>
   );
 };
