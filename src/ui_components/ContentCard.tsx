@@ -5,18 +5,17 @@ import BuilderContext from "../BuilderContext";
 export const ContentCard = (cardData: any) => {
   const cardType = cardData.content;
 
-  const HeaderCard = (data: any) => {
+  const HeaderCard = ({ data }: { data: any }) => {
     return (
       <div>
-        <h1>{data.data.title}</h1>
-        <p>{data.data.subtitle}</p>
+        <h1>{data.title}</h1>
       </div>
     );
   };
 
   switch (cardType) {
     case "header":
-      return <div contentEditable>{cardData.title}</div>;
+      return <HeaderCard data={cardData} />;
     case "property":
       return <div contentEditable>{cardData.title}</div>;
     case "variants":
