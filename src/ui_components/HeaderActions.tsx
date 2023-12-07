@@ -4,6 +4,7 @@ import BuilderContext from "../BuilderContext";
 import { IconUnlink, IconMoodPuzzled } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
 import sectionData from "src/resources/sectionData";
+import { generateUniqueId } from "../ui_functions/generateUniqueId";
 
 const cardsForPopup = sectionData.slice(1);
 
@@ -15,6 +16,7 @@ function AddSectionPopupCard(card: any) {
       class={"addSectionCard"}
       onClick={() => {
         if (selectedSections && selectedSections.length) {
+          card.id = generateUniqueId();
           setSelectedSections((prevSections: any[]) => [...prevSections, card]);
         } else {
           setSelectedSections([card]);

@@ -13,7 +13,6 @@ export const DraggableCardList: FunctionComponent<
   DraggableCardListProps
 > = () => {
   const items = useContext(BuilderContext)?.selectedSections;
-  console.log("items", items);
   const setItems = useContext(BuilderContext)?.setSelectedSections;
 
   useEffect(() => {
@@ -44,8 +43,8 @@ export const DraggableCardList: FunctionComponent<
     >
       {items.map((item, index) => (
         <DraggableItem
-          key={index}
-          id={index}
+          key={item.id}
+          id={item.id}
           content={ContentCard}
           data={item}
         />
