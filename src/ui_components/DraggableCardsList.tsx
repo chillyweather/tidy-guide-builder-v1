@@ -13,6 +13,7 @@ export const DraggableCardList: FunctionComponent<
   DraggableCardListProps
 > = () => {
   const items = useContext(BuilderContext)?.selectedSections;
+  console.log("items", items);
   const setItems = useContext(BuilderContext)?.setSelectedSections;
 
   useEffect(() => {
@@ -21,7 +22,7 @@ export const DraggableCardList: FunctionComponent<
       Sortable.create(el, {
         onEnd: (evt) => {
           setItems((prevItems) => {
-            const newItems = [...prevItems];
+            const newItems = Array.from(prevItems);
             const itemMoving = newItems.splice(evt.oldIndex, 1)[0];
             newItems.splice(evt.newIndex, 0, itemMoving);
             return newItems;

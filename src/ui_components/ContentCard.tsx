@@ -2,9 +2,8 @@ import { h } from "preact";
 import { useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 
-export const ContentCard = (data: any) => {
-  const cardType = data.content;
-  console.log("cardType", cardType);
+export const ContentCard = (cardData: any) => {
+  const cardType = cardData.content;
 
   const HeaderCard = (data: any) => {
     return (
@@ -17,9 +16,25 @@ export const ContentCard = (data: any) => {
 
   switch (cardType) {
     case "header":
-      return <div contentEditable>Text</div>;
+      return <div contentEditable>{cardData.title}</div>;
+    case "property":
+      return <div contentEditable>{cardData.title}</div>;
+    case "variants":
+      return <div contentEditable>{cardData.title}</div>;
+    case "release-notes":
+      return <div contentEditable>{cardData.title}</div>;
     case "text":
-      return <div>Text</div>;
+      return <div contentEditable>{cardData.title}</div>;
+    case "two-columns":
+      return <div contentEditable>{cardData.title}</div>;
+    case "list":
+      return <div contentEditable>{cardData.title}</div>;
+    case "link":
+      return <div contentEditable>{cardData.title}</div>;
+    case "image":
+      return <div contentEditable>{cardData.title}</div>;
+    case "video":
+      return <div contentEditable>{cardData.title}</div>;
     default:
       return <div>Unknown card type</div>;
   }

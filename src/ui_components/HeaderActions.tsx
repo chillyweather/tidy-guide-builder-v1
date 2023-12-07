@@ -1,10 +1,48 @@
 import { h } from "preact";
-import { useContext } from "preact/hooks";
+import { useState, useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
-import { IconUnlink } from "@tabler/icons-react";
+import { IconUnlink, IconMoodPuzzled } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
+import sectionData from "src/resources/sectionData";
+
+const cardsForPopup = sectionData.slice(1);
+
+function AddSectionPopupCard(card: any) {
+  const selectedSections = useContext(BuilderContext)?.selectedSections;
+  const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
+  return (
+    <div
+      class={"addSectionCard"}
+      onClick={() => {
+        if (selectedSections && selectedSections.length) {
+          setSelectedSections((prevSections: any[]) => [...prevSections, card]);
+        } else {
+          setSelectedSections([card]);
+        }
+      }}
+    >
+      <IconMoodPuzzled class={"addSectionIcon"} />
+      <div class={"addSectionCardInfo"}>
+        <p class={"addSectionTitle"}>{card.title}</p>
+        {/* <p class={"addSectionDescription"}>{card.description}</p> */}
+      </div>
+    </div>
+  );
+}
+
+function AddSectionPopup(cards: any[], cardElement: any) {
+  return (
+    <div class={"addSectionPopup"}>
+      {cards.map((card) => {
+        return cardElement(card);
+      })}
+    </div>
+  );
+}
 
 function HeaderActions() {
+  const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
+
   const elementGroupStyle = {
     display: "flex",
     alignItems: "center",
@@ -12,8 +50,6 @@ function HeaderActions() {
   };
   const selectedElementName = useContext(BuilderContext)?.selectedElementName;
   const setSelectedElement = useContext(BuilderContext)?.setSelectedElement;
-  const selectedSections = useContext(BuilderContext)?.selectedSections;
-  const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   return (
     <div class={"headerContent headerActions"}>
       <div style={elementGroupStyle}>
@@ -31,18 +67,16 @@ function HeaderActions() {
       <div style={elementGroupStyle}>
         <button
           onClick={() => {
-            if (selectedSections && selectedSections?.length < 2) {
-              setSelectedSections((prevSections: any[]) => [
-                prevSections[0],
-                ...prevSections,
-              ]);
-            }
+            console.log("we are here");
+            setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
           }}
         >
           Add component
         </button>
         <button>Preview</button>
       </div>
+      {isAddSectionPopupOpen &&
+        AddSectionPopup(cardsForPopup, AddSectionPopupCard)}
     </div>
   );
 }

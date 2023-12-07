@@ -13,6 +13,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
   content,
   data,
 }) => {
+  console.log("data, id", data.title, id);
   const [dragging, setDragging] = useState(false);
 
   const handleDragStart = (e: DragEvent) => {

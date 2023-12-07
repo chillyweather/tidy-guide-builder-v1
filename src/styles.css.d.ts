@@ -1,4 +1,10 @@
 declare const styles: {
+  readonly "addSectionCard": string;
+  readonly "addSectionCardInfo": string;
+  readonly "addSectionDescription": string;
+  readonly "addSectionIcon": string;
+  readonly "addSectionPopup": string;
+  readonly "addSectionTitle": string;
   readonly "anchorLink": string;
   readonly "back-link": string;
   readonly "backToTop": string;

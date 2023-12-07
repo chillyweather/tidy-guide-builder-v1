@@ -1203,6 +1203,8 @@ summary button {
   pointer-events: none;
 }
 
+/* ----------------added by Dima------------------ */
+
 .footer {
   height: 80px;
   width: 100%;
@@ -1213,7 +1215,74 @@ summary button {
   padding: 16px 16px 24px 16px;
 }
 
+.addSectionPopup {
+  position: fixed;
+  top: 96;
+  right: 6;
+  width: 60vw;
+  max-height: 76%;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 14px 0px rgba(0, 0, 0, 0.15);
+  overflow: auto;
+}
 
+.addSectionCard {
+  display: flex;
+  padding: 12px 16px 12px 12px;
+  align-items: center;
+  gap: 6px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid #E8E8F7;
+}
+
+.addSectionCardInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  flex: 1 0 0;
+}
+
+.addSectionIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.addSectionTitle {
+  overflow: hidden;
+  color: #323232;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+  margin: 0
+}
+
+.addSectionDescription {
+  overflow: hidden;
+  color: #787878;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 0.12px;
+}
+
+/* -------------------------------------------- */
 
 @media screen and (min-width: 500px) {
   .two-columns {
