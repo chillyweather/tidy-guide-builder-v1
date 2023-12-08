@@ -6,7 +6,8 @@
       "react": ["node_modules/preact/compat"],
       "react-dom": ["node_modules/preact/compat"]
     },
-    "typeRoots": ["node_modules/@figma", "node_modules/@types"]
+    "typeRoots": ["node_modules/@figma", "node_modules/@types"],
+    "skipLibCheck": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src", "src/preact.d.ts"]
 }

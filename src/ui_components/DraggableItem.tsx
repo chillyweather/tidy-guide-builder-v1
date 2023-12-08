@@ -2,8 +2,8 @@ import { h, FunctionComponent } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
 interface DraggableItemProps {
-  id: number;
-  onMove?: (draggedId: string, targetId: number) => void;
+  id: string;
+  onMove?: (draggedId: string, targetId: string) => void;
   content: any;
   data?: any;
 }
@@ -13,12 +13,11 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
   content,
   data,
 }) => {
-  console.log("data, id", data.title, id);
   const [dragging, setDragging] = useState(false);
 
   const handleDragStart = (e: DragEvent) => {
     setDragging(true);
-    e.dataTransfer!.setData("text/plain", id.toString());
+    e.dataTransfer!.setData("text/plain", id);
   };
 
   const handleDragEnd = () => {
@@ -68,6 +67,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
         backgroundColor: "white",
       }}
     >
+      {console.log("data.id", data.id)}
       {content(data)}
     </div>
   );

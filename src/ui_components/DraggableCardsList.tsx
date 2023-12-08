@@ -31,6 +31,17 @@ export const DraggableCardList: FunctionComponent<
     }
   }, []);
 
+  const ListOfCards = (items: any[]) => {
+    return items.map((item, index) => (
+      <DraggableItem
+        key={item.id}
+        id={item.id}
+        content={ContentCard}
+        data={item}
+      />
+    ));
+  };
+
   return (
     <div
       id={"sections"}
@@ -41,14 +52,7 @@ export const DraggableCardList: FunctionComponent<
         padding: "12px",
       }}
     >
-      {items.map((item, index) => (
-        <DraggableItem
-          key={item.id}
-          id={item.id}
-          content={ContentCard}
-          data={item}
-        />
-      ))}
+      {ListOfCards(items)}
     </div>
   );
 };
