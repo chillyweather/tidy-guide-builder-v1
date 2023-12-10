@@ -7,6 +7,7 @@ interface DraggableItemProps {
   content: any;
   data?: any;
 }
+
 export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
   id,
   onMove,
@@ -14,7 +15,6 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
   data,
 }) => {
   const [dragging, setDragging] = useState(false);
-
   const handleDragStart = (e: DragEvent) => {
     setDragging(true);
     e.dataTransfer!.setData("text/plain", id);
@@ -60,6 +60,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
       onDragEnd={handleDragEnd}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
+      onClick={() => console.log("data.id", data.id)}
       style={{
         opacity: dragging ? 0.5 : 1,
         cursor: "move",
@@ -67,7 +68,6 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
         backgroundColor: "white",
       }}
     >
-      {console.log("data.id", data.id)}
       {content(data)}
     </div>
   );

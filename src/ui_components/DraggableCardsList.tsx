@@ -37,6 +37,7 @@ export const DraggableCardList: FunctionComponent<
         key={item.id}
         id={item.id}
         content={ContentCard}
+        index={index}
         data={item}
       />
     ));

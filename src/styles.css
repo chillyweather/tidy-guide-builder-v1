@@ -1282,6 +1282,10 @@ summary button {
   letter-spacing: 0.12px;
 }
 
+.selected {
+  background-color: lightcoral
+}
+
 /* -------------------------------------------- */
 
 @media screen and (min-width: 500px) {

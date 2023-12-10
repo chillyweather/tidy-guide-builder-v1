@@ -7,6 +7,8 @@ interface IContext {
   selectedSections: any[];
   setSelectedSections: any;
   selectedElementName: string;
+  selectedCard: string;
+  setSelectedCard: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

@@ -13,13 +13,16 @@ function AddSectionPopupCard(card: any) {
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   return (
     <div
-      class={"addSectionCard"}
+      className={"addSectionCard"}
       onClick={() => {
+        const newCard = { ...card, id: generateUniqueId() };
         if (selectedSections && selectedSections.length) {
-          card.id = generateUniqueId();
-          setSelectedSections((prevSections: any[]) => [...prevSections, card]);
+          setSelectedSections((prevSections: any[]) => [
+            ...prevSections,
+            newCard,
+          ]);
         } else {
-          setSelectedSections([card]);
+          setSelectedSections([newCard]);
         }
       }}
     >

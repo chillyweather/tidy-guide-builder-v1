@@ -32,6 +32,7 @@ function Plugin() {
   //selected element
   const [selectedElement, setSelectedElement] = useState<any>(null);
   const [selectedElementName, setSelectedElementName] = useState("");
+  const [selectedCard, setSelectedCard] = useState<any>("");
 
   //selected cards
   const [selectedSections, setSelectedSections] = useState<any[]>([
@@ -63,6 +64,8 @@ function Plugin() {
           selectedSections,
           setSelectedSections,
           selectedElementName,
+          selectedCard,
+          setSelectedCard,
         }}
       >
         {!token && (

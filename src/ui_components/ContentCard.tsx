@@ -3,11 +3,20 @@ import { useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 
 export const ContentCard = (cardData: any) => {
+  const selectedCard = useContext(BuilderContext)?.selectedCard;
+  const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
   const cardType = cardData.content;
+
+  const isSelected = selectedCard === cardData.id;
+  console.log("selectedCard", selectedCard);
 
   const HeaderCard = ({ data }: { data: any }) => {
     return (
-      <div id={"headerCard"}>
+      <div
+        className={isSelected ? "sectionCard selected" : "sectionCard"}
+        onClick={() => setSelectedCard(data.id)}
+        id={"headerCard"}
+      >
         <h1>{data.title}</h1>
       </div>
     );
@@ -15,7 +24,10 @@ export const ContentCard = (cardData: any) => {
 
   const PropertyCard = ({ data }: { data: any }) => {
     return (
-      <div>
+      <div
+        className={isSelected ? "sectionCard selected" : "sectionCard"}
+        onClick={() => setSelectedCard(data.id)}
+      >
         <h1>{data.title}</h1>
       </div>
     );
@@ -23,7 +35,10 @@ export const ContentCard = (cardData: any) => {
 
   const VariantsCard = ({ data }: { data: any }) => {
     return (
-      <div>
+      <div
+        className={isSelected ? "sectionCard selected" : "sectionCard"}
+        onClick={() => setSelectedCard(data.id)}
+      >
         <h1>{data.title}</h1>
       </div>
     );
@@ -31,7 +46,10 @@ export const ContentCard = (cardData: any) => {
 
   const ReleaseNotesCard = ({ data }: { data: any }) => {
     return (
-      <div>
+      <div
+        className={isSelected ? "sectionCard selected" : "sectionCard"}
+        onClick={() => setSelectedCard(data.id)}
+      >
         <h1>{data.title}</h1>
       </div>
     );
@@ -39,7 +57,10 @@ export const ContentCard = (cardData: any) => {
 
   const TextCard = ({ data }: { data: any }) => {
     return (
-      <div>
+      <div
+        className={isSelected ? "sectionCard selected" : "sectionCard"}
+        onClick={() => setSelectedCard(data.id)}
+      >
         <h1>{data.title}</h1>
       </div>
     );
@@ -47,7 +68,10 @@ export const ContentCard = (cardData: any) => {
 
   const TwoColumnsCard = ({ data }: { data: any }) => {
     return (
-      <div>
+      <div
+        className={isSelected ? "sectionCard selected" : "sectionCard"}
+        onClick={() => setSelectedCard(data.id)}
+      >
         <h1>{data.title}</h1>
       </div>
     );
@@ -55,7 +79,10 @@ export const ContentCard = (cardData: any) => {
 
   const ListCard = ({ data }: { data: any }) => {
     return (
-      <div>
+      <div
+        className={isSelected ? "sectionCard selected" : "sectionCard"}
+        onClick={() => setSelectedCard(data.id)}
+      >
         <h1>{data.title}</h1>
       </div>
     );
@@ -63,7 +90,10 @@ export const ContentCard = (cardData: any) => {
 
   const LinkCard = ({ data }: { data: any }) => {
     return (
-      <div>
+      <div
+        className={isSelected ? "sectionCard selected" : "sectionCard"}
+        onClick={() => setSelectedCard(data.id)}
+      >
         <h1>{data.title}</h1>
       </div>
     );
@@ -71,7 +101,10 @@ export const ContentCard = (cardData: any) => {
 
   const ImageCard = ({ data }: { data: any }) => {
     return (
-      <div>
+      <div
+        className={isSelected ? "sectionCard selected" : "sectionCard"}
+        onClick={() => setSelectedCard(data.id)}
+      >
         <h1>{data.title}</h1>
       </div>
     );
@@ -79,7 +112,10 @@ export const ContentCard = (cardData: any) => {
 
   const VideoCard = ({ data }: { data: any }) => {
     return (
-      <div>
+      <div
+        className={isSelected ? "sectionCard selected" : "sectionCard"}
+        onClick={() => setSelectedCard(data.id)}
+      >
         <h1>{data.title}</h1>
       </div>
     );
@@ -107,6 +143,6 @@ export const ContentCard = (cardData: any) => {
     case "video":
       return <VideoCard data={cardData} />;
     default:
-      return <div>Unknown card type</div>;
+      return null;
   }
 };

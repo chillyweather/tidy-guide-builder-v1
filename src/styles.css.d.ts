@@ -47,6 +47,7 @@ declare const styles: {
   readonly "searchMenu": string;
   readonly "section": string;
   readonly "sectionHeader": string;
+  readonly "selected": string;
   readonly "selectedPage": string;
   readonly "side-flex": string;
   readonly "subtitle": string;
