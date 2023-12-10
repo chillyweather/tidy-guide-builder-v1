@@ -64,8 +64,8 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
       style={{
         opacity: dragging ? 0.5 : 1,
         cursor: "move",
-        padding: 10,
         backgroundColor: "white",
+        borderRadius: "8px",
       }}
     >
       {content(data)}

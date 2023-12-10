@@ -8,9 +8,14 @@ export const ContentCard = (cardData: any) => {
   const cardType = cardData.content;
 
   const isSelected = selectedCard === cardData.id;
-  console.log("selectedCard", selectedCard);
 
-  const HeaderCard = ({ data }: { data: any }) => {
+  const HeaderCard = ({
+    data,
+    isSelected,
+  }: {
+    data: any;
+    isSelected: boolean;
+  }) => {
     return (
       <div
         className={isSelected ? "sectionCard selected" : "sectionCard"}
@@ -22,7 +27,13 @@ export const ContentCard = (cardData: any) => {
     );
   };
 
-  const PropertyCard = ({ data }: { data: any }) => {
+  const PropertyCard = ({
+    data,
+    isSelected,
+  }: {
+    data: any;
+    isSelected: boolean;
+  }) => {
     return (
       <div
         className={isSelected ? "sectionCard selected" : "sectionCard"}
@@ -33,7 +44,13 @@ export const ContentCard = (cardData: any) => {
     );
   };
 
-  const VariantsCard = ({ data }: { data: any }) => {
+  const VariantsCard = ({
+    data,
+    isSelected,
+  }: {
+    data: any;
+    isSelected: boolean;
+  }) => {
     return (
       <div
         className={isSelected ? "sectionCard selected" : "sectionCard"}
@@ -44,7 +61,13 @@ export const ContentCard = (cardData: any) => {
     );
   };
 
-  const ReleaseNotesCard = ({ data }: { data: any }) => {
+  const ReleaseNotesCard = ({
+    data,
+    isSelected,
+  }: {
+    data: any;
+    isSelected: boolean;
+  }) => {
     return (
       <div
         className={isSelected ? "sectionCard selected" : "sectionCard"}
@@ -55,7 +78,13 @@ export const ContentCard = (cardData: any) => {
     );
   };
 
-  const TextCard = ({ data }: { data: any }) => {
+  const TextCard = ({
+    data,
+    isSelected,
+  }: {
+    data: any;
+    isSelected: boolean;
+  }) => {
     return (
       <div
         className={isSelected ? "sectionCard selected" : "sectionCard"}
@@ -66,7 +95,13 @@ export const ContentCard = (cardData: any) => {
     );
   };
 
-  const TwoColumnsCard = ({ data }: { data: any }) => {
+  const TwoColumnsCard = ({
+    data,
+    isSelected,
+  }: {
+    data: any;
+    isSelected: boolean;
+  }) => {
     return (
       <div
         className={isSelected ? "sectionCard selected" : "sectionCard"}
@@ -77,7 +112,13 @@ export const ContentCard = (cardData: any) => {
     );
   };
 
-  const ListCard = ({ data }: { data: any }) => {
+  const ListCard = ({
+    data,
+    isSelected,
+  }: {
+    data: any;
+    isSelected: boolean;
+  }) => {
     return (
       <div
         className={isSelected ? "sectionCard selected" : "sectionCard"}
@@ -88,7 +129,13 @@ export const ContentCard = (cardData: any) => {
     );
   };
 
-  const LinkCard = ({ data }: { data: any }) => {
+  const LinkCard = ({
+    data,
+    isSelected,
+  }: {
+    data: any;
+    isSelected: boolean;
+  }) => {
     return (
       <div
         className={isSelected ? "sectionCard selected" : "sectionCard"}
@@ -99,7 +146,13 @@ export const ContentCard = (cardData: any) => {
     );
   };
 
-  const ImageCard = ({ data }: { data: any }) => {
+  const ImageCard = ({
+    data,
+    isSelected,
+  }: {
+    data: any;
+    isSelected: boolean;
+  }) => {
     return (
       <div
         className={isSelected ? "sectionCard selected" : "sectionCard"}
@@ -110,7 +163,13 @@ export const ContentCard = (cardData: any) => {
     );
   };
 
-  const VideoCard = ({ data }: { data: any }) => {
+  const VideoCard = ({
+    data,
+    isSelected,
+  }: {
+    data: any;
+    isSelected: boolean;
+  }) => {
     return (
       <div
         className={isSelected ? "sectionCard selected" : "sectionCard"}
@@ -123,25 +182,25 @@ export const ContentCard = (cardData: any) => {
 
   switch (cardType) {
     case "header":
-      return <HeaderCard data={cardData} />;
+      return <HeaderCard data={cardData} isSelected={isSelected} />;
     case "property":
-      return <PropertyCard data={cardData} />;
+      return <PropertyCard data={cardData} isSelected={isSelected} />;
     case "variants":
-      return <VariantsCard data={cardData} />;
+      return <VariantsCard data={cardData} isSelected={isSelected} />;
     case "release-notes":
-      return <ReleaseNotesCard data={cardData} />;
+      return <ReleaseNotesCard data={cardData} isSelected={isSelected} />;
     case "text":
-      return <TextCard data={cardData} />;
+      return <TextCard data={cardData} isSelected={isSelected} />;
     case "two-columns":
-      return <TwoColumnsCard data={cardData} />;
+      return <TwoColumnsCard data={cardData} isSelected={isSelected} />;
     case "list":
-      return <ListCard data={cardData} />;
+      return <ListCard data={cardData} isSelected={isSelected} />;
     case "link":
-      return <LinkCard data={cardData} />;
+      return <LinkCard data={cardData} isSelected={isSelected} />;
     case "image":
-      return <ImageCard data={cardData} />;
+      return <ImageCard data={cardData} isSelected={isSelected} />;
     case "video":
-      return <VideoCard data={cardData} />;
+      return <VideoCard data={cardData} isSelected={isSelected} />;
     default:
       return null;
   }

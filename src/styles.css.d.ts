@@ -46,6 +46,7 @@ declare const styles: {
   readonly "searchInput": string;
   readonly "searchMenu": string;
   readonly "section": string;
+  readonly "sectionCard": string;
   readonly "sectionHeader": string;
   readonly "selected": string;
   readonly "selectedPage": string;
