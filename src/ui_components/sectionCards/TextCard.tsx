@@ -1,5 +1,12 @@
 import { h } from "preact";
-import { useContext, useState } from "preact/hooks";
+import {
+  useContext,
+  useState,
+  useRef,
+  useMemo,
+  useCallback,
+} from "preact/hooks";
+
 import BuilderContext from "../../BuilderContext";
 import {
   IconGripVertical,
@@ -28,9 +35,9 @@ const TextCard = ({
   publish: boolean;
   setPublish: Function;
 }) => {
+  const [content, setContent] = useState("");
   const selectedCard = useContext(BuilderContext)?.selectedCard;
   const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
-  const selectedSections = useContext(BuilderContext)?.selectedSections;
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   const id = data.id;
 
@@ -103,12 +110,6 @@ const TextCard = ({
       </div>
       {isSelected && (
         <div className="cardBody">
-          <textarea
-            className="cardContentTextarea"
-            placeholder="Type your text here"
-            rows={10}
-          ></textarea>
-
           <div className="cardFooter">
             <div className="leftContent">
               {PublishToggle(publish, setPublish, "Publish to Tidy Viewer")}
