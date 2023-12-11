@@ -2,12 +2,6 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import CheckboxElement from "../Checkbox";
 
-interface HeaderCardProps {
-  data: any;
-  isSelected: boolean;
-  setSelectedCard: Function;
-}
-
 const HeaderCard = ({
   data,
   isSelected,
