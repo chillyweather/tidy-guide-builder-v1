@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState, useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
-import { IconUnlink, IconMoodPuzzled } from "@tabler/icons-react";
+import { IconX, IconMoodPuzzled } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
 import sectionData from "src/resources/sectionData";
 import { generateUniqueId } from "../ui_functions/generateUniqueId";
@@ -48,20 +48,15 @@ function AddSectionPopup(cards: any[], cardElement: any) {
 function HeaderActions() {
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
 
-  const elementGroupStyle = {
-    display: "flex",
-    alignItems: "center",
-    gap: "12px",
-  };
   const selectedElementName = useContext(BuilderContext)?.selectedElementName;
   const setSelectedElement = useContext(BuilderContext)?.setSelectedElement;
   return (
     <div class={"headerContent headerActions"}>
-      <div style={elementGroupStyle}>
+      <div className={"selectedComponentGroup"}>
         <p style={{ color: "#9747FF", padding: 0, margin: 0 }}>
           {selectedElementName}
         </p>
-        <IconUnlink
+        <IconX
           style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
           onClick={() => {
             setSelectedElement(null);
@@ -69,7 +64,7 @@ function HeaderActions() {
           }}
         />
       </div>
-      <div style={elementGroupStyle}>
+      <div className={"selectedComponentGroup"}>
         <button
           onClick={() => {
             console.log("we are here");

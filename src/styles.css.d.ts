@@ -10,6 +10,7 @@ declare const styles: {
   readonly "backToTop": string;
   readonly "btnNext": string;
   readonly "btnPrev": string;
+  readonly "checkBoxElement": string;
   readonly "componentBTN": string;
   readonly "container": string;
   readonly "disabled": string;
@@ -48,7 +49,9 @@ declare const styles: {
   readonly "section": string;
   readonly "sectionCard": string;
   readonly "sectionHeader": string;
+  readonly "sectionTitle": string;
   readonly "selected": string;
+  readonly "selectedComponentGroup": string;
   readonly "selectedPage": string;
   readonly "side-flex": string;
   readonly "subtitle": string;
@@ -57,6 +60,7 @@ declare const styles: {
   readonly "title-row": string;
   readonly "title-wrapper": string;
   readonly "top": string;
+  readonly "topContentWrapper": string;
   readonly "two-columns": string;
   readonly "videoClosed": string;
   readonly "videoDiv": string;
