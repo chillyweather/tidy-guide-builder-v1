@@ -10,10 +10,15 @@ declare const styles: {
   readonly "backToTop": string;
   readonly "btnNext": string;
   readonly "btnPrev": string;
+  readonly "cardAuxButton": string;
+  readonly "cardBody": string;
+  readonly "cardFooter": string;
+  readonly "cardHeader": string;
   readonly "checkBoxElement": string;
   readonly "componentBTN": string;
   readonly "container": string;
   readonly "disabled": string;
+  readonly "draft": string;
   readonly "footer": string;
   readonly "header": string;
   readonly "header-button": string;
@@ -26,6 +31,7 @@ declare const styles: {
   readonly "imageSection": string;
   readonly "inputDiv": string;
   readonly "invalidText": string;
+  readonly "leftContent": string;
   readonly "links-block": string;
   readonly "listContainer": string;
   readonly "listWrapper": string;
@@ -42,6 +48,7 @@ declare const styles: {
   readonly "notFilled": string;
   readonly "pagination": string;
   readonly "resources": string;
+  readonly "rightContent": string;
   readonly "search": string;
   readonly "search-icons": string;
   readonly "searchInput": string;
@@ -60,7 +67,6 @@ declare const styles: {
   readonly "title-row": string;
   readonly "title-wrapper": string;
   readonly "top": string;
-  readonly "topContentWrapper": string;
   readonly "two-columns": string;
   readonly "videoClosed": string;
   readonly "videoDiv": string;

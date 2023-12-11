@@ -5,11 +5,9 @@ import CheckboxElement from "../Checkbox";
 const HeaderCard = ({
   data,
   isSelected,
-  setSelectedCard,
 }: {
   data: any;
   isSelected: boolean;
-  setSelectedCard: Function;
 }) => {
   const [isWip, setIsWip] = useState(false);
 
@@ -21,12 +19,9 @@ const HeaderCard = ({
   return (
     <div
       className={isSelected ? "sectionCard selected" : "sectionCard"}
-      onClick={() => {
-        setSelectedCard(data.id);
-      }}
       id="headerCard"
     >
-      <div className="topContentWrapper">
+      <div className="cardHeader">
         <div className={"sectionTitle"} contentEditable>
           {data.title}
         </div>

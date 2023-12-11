@@ -51,7 +51,7 @@ const sectionData = [
     repeatable: false,
   },
   {
-    title: "Text",
+    title: "Paragraph",
     content: "text",
     description:
       "Once the number three, being the third number, be reached, then lobbest thou thy Holy Hand Grenade of Antioch towards thy foe, who, being naughty in My sight, shall snuff it.",
