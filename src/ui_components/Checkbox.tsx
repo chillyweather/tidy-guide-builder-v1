@@ -1,6 +1,5 @@
 import { Checkbox, Text } from "@create-figma-plugin/ui";
 import { h, JSX } from "preact";
-import { useState } from "preact/hooks";
 
 interface CheckboxProps {
   value: boolean;
