@@ -2,7 +2,7 @@ import { h } from "preact";
 import { Text, LoadingIndicator } from "@create-figma-plugin/ui";
 import { useEffect, useState } from "preact/hooks";
 import { videoTextBoxElement } from "../videoTextBoxElement";
-import { IconBrandYoutubeFilled } from "@tabler/icons-react";
+import { IconBrandYoutubeFilled, IconX } from "@tabler/icons-react";
 
 const videoCard = (
   foundVideoData: any,
@@ -15,6 +15,7 @@ const videoCard = (
   videoDataElements: any,
   videoLink: string
 ) => {
+  const [isValid, setIsValid]: any = useState(true);
   const VideoElementCard = ({
     element,
     name,
@@ -80,6 +81,12 @@ const videoCard = (
     }
   }, [foundVideoData]);
 
+  const handleDeleteVideo = (index: number) => {
+    const newVideoDataElements = [...videoDataElements];
+    newVideoDataElements.splice(index, 1);
+    setVideoDataElements(newVideoDataElements);
+  };
+
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <div
@@ -93,28 +100,47 @@ const videoCard = (
         }}
       >
         <h4 className={"inputLabel"}>Add link to YouTube video:</h4>
-        <div className="videoInputRow">
-          <IconBrandYoutubeFilled className={"youtubeIcon"} />
-          {videoTextBoxElement(
-            videoLink,
-            setVideoLink,
-            "Enter YouTube video link",
-            "videoLink",
-            setFoundVideoData
-          )}
+        <div className="videoInputRowWithValidation">
+          <div className="videoInputRow">
+            <IconBrandYoutubeFilled />
+            {videoTextBoxElement(
+              videoLink,
+              setVideoLink,
+              "Enter YouTube video link",
+              "videoLink",
+              setFoundVideoData,
+              false,
+              setIsValid
+            )}
+          </div>
+          <div
+            className={"validationFailedMessage"}
+            style={
+              isValid || videoLink.length === 0
+                ? { opacity: 0 }
+                : { opacity: 1 }
+            }
+          >
+            Invalid YouTube link
+          </div>
         </div>
         {videoDataElements.map((videoDataElement: any, index: number) => {
           return (
-            <VideoElementCard
-              element={videoDataElement.element}
-              name={videoDataElement.name}
-              video={videoDataElement.video}
-              thumbnail={videoDataElement.thumbnail}
-              index={index}
-              selectedVideo={selectedVideo}
-              setSelectedVideo={setSelectedVideo}
-              setSelectedVideoContent={setSelectedVideoContent}
-            />
+            <div className="videoElementWrapper">
+              <VideoElementCard
+                element={videoDataElement.element}
+                name={videoDataElement.name}
+                video={videoDataElement.video}
+                thumbnail={videoDataElement.thumbnail}
+                index={index}
+                selectedVideo={selectedVideo}
+                setSelectedVideo={setSelectedVideo}
+                setSelectedVideoContent={setSelectedVideoContent}
+              />
+              <button onClick={() => handleDeleteVideo(index)}>
+                <IconX />
+              </button>
+            </div>
           );
         })}
       </div>

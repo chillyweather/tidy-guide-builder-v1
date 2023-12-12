@@ -81,8 +81,10 @@ declare const styles: {
   readonly "top": string;
   readonly "two-columns": string;
   readonly "twoColumnCardBodyContent": string;
+  readonly "validationFailedMessage": string;
   readonly "videoClosed": string;
   readonly "videoDiv": string;
+  readonly "videoElementWrapper": string;
   readonly "videoInputRow": string;
   readonly "videoOpen": string;
   readonly "videoSection": string;
