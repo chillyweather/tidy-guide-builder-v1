@@ -35,7 +35,7 @@ const TextCard = ({
   publish: boolean;
   setPublish: Function;
 }) => {
-  const [content, setContent] = useState("");
+  const [textContent, setTextContent] = useState("");
   const selectedCard = useContext(BuilderContext)?.selectedCard;
   const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
@@ -55,7 +55,7 @@ const TextCard = ({
       <Toggle
         onChange={handleChange}
         value={publish}
-        style={{ border: "none" }}
+        style={{ border: "none", cursor: "pointer" }}
         disabled={isDraft}
       >
         <Text>{label}</Text>
@@ -110,6 +110,17 @@ const TextCard = ({
       </div>
       {isSelected && (
         <div className="cardBody">
+          <textarea
+            className="cardTextArea"
+            rows={15}
+            maxLength={1000}
+            placeholder="Type here..."
+            value={textContent}
+            onInput={(e) => setTextContent(e.currentTarget.value)}
+          />
+          <div className="textSymbolsCounterRow">
+            <div className="textSymbolsCounter">{textContent.length}/1000</div>
+          </div>
           <div className="cardFooter">
             <div className="leftContent">
               {PublishToggle(publish, setPublish, "Publish to Tidy Viewer")}

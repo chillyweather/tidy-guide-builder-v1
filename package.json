@@ -5,10 +5,12 @@
     "@tabler/icons-react": "^2.42.0",
     "axios": "^1.6.2",
     "buffer": "^6.0.3",
+    "markdown-it": "^14.0.0",
     "obj-str": "^1.1.0",
     "preact": ">=10",
     "preact-feather": "^4.2.1",
     "prismjs": "^1.28.0",
+    "react-markdown-editor-lite": "^1.3.4",
     "sortablejs": "^1.15.1"
   },
   "devDependencies": {

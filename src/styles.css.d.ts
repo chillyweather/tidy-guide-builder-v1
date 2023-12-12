@@ -14,6 +14,7 @@ declare const styles: {
   readonly "cardBody": string;
   readonly "cardFooter": string;
   readonly "cardHeader": string;
+  readonly "cardTextArea": string;
   readonly "checkBoxElement": string;
   readonly "componentBTN": string;
   readonly "container": string;
