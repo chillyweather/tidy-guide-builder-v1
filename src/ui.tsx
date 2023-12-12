@@ -3,7 +3,7 @@ import { render } from "@create-figma-plugin/ui";
 import sectionData from "./resources/sectionData";
 import { emit, on, once } from "@create-figma-plugin/utilities";
 import { h, JSX } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useState, useContext } from "preact/hooks";
 import BuilderContext from "./BuilderContext";
 //dependencies
 
@@ -13,9 +13,6 @@ import LoggedIn from "./ui_components/LoggedInPage";
 import MainContent from "./ui_components/MainContent";
 import Header from "./ui_components/Header";
 import Footer from "./ui_components/Footer";
-
-//components
-// import SectionCard from "./ui_components/SectionCard";
 
 //styles
 import EmptyState from "./ui_components/EmptyState";

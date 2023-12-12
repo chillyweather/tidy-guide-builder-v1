@@ -16,6 +16,8 @@ declare const styles: {
   readonly "cardHeader": string;
   readonly "cardTextArea": string;
   readonly "checkBoxElement": string;
+  readonly "columnTextArea": string;
+  readonly "columnTitle": string;
   readonly "componentBTN": string;
   readonly "container": string;
   readonly "disabled": string;
@@ -47,6 +49,7 @@ declare const styles: {
   readonly "nav-wrapper": string;
   readonly "navigation": string;
   readonly "notFilled": string;
+  readonly "oneColumn": string;
   readonly "pagination": string;
   readonly "resources": string;
   readonly "rightContent": string;
@@ -69,6 +72,7 @@ declare const styles: {
   readonly "title-wrapper": string;
   readonly "top": string;
   readonly "two-columns": string;
+  readonly "twoColumnCardBodyContent": string;
   readonly "videoClosed": string;
   readonly "videoDiv": string;
   readonly "videoOpen": string;

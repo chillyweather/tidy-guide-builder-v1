@@ -1,6 +1,21 @@
 import { h } from "preact";
 import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
+import {
+  IconGripVertical,
+  IconChevronDown,
+  IconMoodPuzzled,
+  IconCopy,
+  IconTrash,
+  IconEye,
+} from "@tabler/icons-react";
+import { Toggle, Text } from "@create-figma-plugin/ui";
+
+import {
+  deleteSection,
+  duplicateSection,
+  openSection,
+} from "./sectionCards/cardActions";
 
 //content cards
 import HeaderCard from "./sectionCards/HeaderCard";
@@ -10,52 +25,161 @@ import HeaderCard from "./sectionCards/HeaderCard";
 // import PropertyCard from "./sectionCards/PropertyCard";
 // import ReleaseNotesCard from "./sectionCards/ReleaseNotesCard";
 import TextCard from "./sectionCards/TextCard";
-// import TwoColumnsCard from "./sectionCards/TwoColumnsCard";
+import TwoColumnCard from "./sectionCards/TwoColumnCard";
 // import VariantsCard from "./sectionCards/VariantsCard";
 // import VideoCard from "./sectionCards/VideoCard";
 
 export const ContentCard = (cardData: any, index: number) => {
-  // states, probably temp
+  //! states
+  // general use
   const [isDraft, setIsDraft] = useState(false);
   const [publish, setPublish] = useState<boolean>(false);
-  // from context
+  // text card
+  const [paragraphTextContent, setParagraphTextContent] = useState("");
+  // two column card
+  const [leftTitle, setLeftTitle] = useState("");
+  const [leftTextContent, setLeftTextContent] = useState("");
+  const [rightTitle, setRightTitle] = useState("");
+  const [rightTextContent, setRightTextContent] = useState("");
+  //! from context
   const selectedCard = useContext(BuilderContext)?.selectedCard;
   const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
+  const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   const isSelected = selectedCard === cardData.id;
+  const id = cardData.id;
 
   const cardType = cardData.content;
-  switch (cardType) {
-    case "header":
-      return <HeaderCard data={cardData} isSelected={isSelected} />;
-    // case "property":
+
+  const currentCardContent = (cardType: string) => {
+    if (cardType === "header") {
+      return <HeaderCard data={cardData} />;
+    }
+    // else if (cardType === "property") {
     //   return <PropertyCard data={cardData} isSelected={isSelected} />;
-    // case "variants":
+    // } else if (cardType === "variants") {
     //   return <VariantsCard data={cardData} isSelected={isSelected} />;
-    // case "release-notes":
+    // } else if (cardType === "release-notes") {
     //   return <ReleaseNotesCard data={cardData} isSelected={isSelected} />;
-    case "text":
+    // }
+    else if (cardType === "text") {
       return (
         <TextCard
-          data={cardData}
-          isSelected={isSelected}
-          isDraft={isDraft}
-          setIsDraft={setIsDraft}
-          publish={publish}
-          setPublish={setPublish}
-          index={index}
+          textContent={paragraphTextContent}
+          setTextContent={setParagraphTextContent}
         />
       );
-    // case "two-columns":
-    //   return <TwoColumnsCard data={cardData} isSelected={isSelected} />;
-    // case "list":
+    } else if (cardType === "two-columns") {
+      return (
+        <TwoColumnCard
+          data={cardData}
+          leftTitle={leftTitle}
+          setLeftTitle={setLeftTitle}
+          leftTextContent={leftTextContent}
+          setLeftTextContent={setLeftTextContent}
+          rightTitle={rightTitle}
+          setRightTitle={setRightTitle}
+          rightTextContent={rightTextContent}
+          setRightTextContent={setRightTextContent}
+        />
+      );
+    }
+    // else if (cardType === "list") {
     //   return <ListCard data={cardData} isSelected={isSelected} />;
-    // case "link":
+    // } else if (cardType === "link") {
     //   return <LinkCard data={cardData} isSelected={isSelected} />;
-    // case "image":
+    // } else if (cardType === "image") {
     //   return <ImageCard data={cardData} isSelected={isSelected} />;
-    // case "video":
+    // } else if (cardType === "video") {
     //   return <VideoCard data={cardData} isSelected={isSelected} />;
-    default:
+    // }
+    else {
       return null;
+    }
+  };
+
+  function PublishToggle(
+    publish: boolean,
+    setPublish: Function,
+    label: string
+  ) {
+    function handleChange(event: any) {
+      const newValue = event.currentTarget.checked;
+      console.log(newValue);
+      setPublish(newValue);
+    }
+    return (
+      <Toggle
+        onChange={handleChange}
+        value={publish}
+        style={{ border: "none", cursor: "pointer" }}
+        disabled={isDraft}
+      >
+        <Text>{label}</Text>
+      </Toggle>
+    );
   }
+
+  const handleOpenSection = (e: MouseEvent) => {
+    openSection(e, id, selectedCard!, setSelectedCard);
+  };
+
+  const handleDeleteSection = (e: MouseEvent) => {
+    deleteSection(e, index, setSelectedSections);
+  };
+
+  const handleDuplicateSection = (e: MouseEvent) => {
+    duplicateSection(e, index, cardData, setSelectedSections);
+  };
+
+  return cardType === "header" ? (
+    <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
+      <HeaderCard data={cardData} />
+    </div>
+  ) : (
+    <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
+      <div className="cardHeader">
+        <div className="leftContent">
+          <IconGripVertical />
+          <IconMoodPuzzled style={{ color: "burntorange" }} />
+          <div className={"sectionTitle"} contentEditable>
+            {cardData.title}
+          </div>
+        </div>
+        <div className="rightContent">
+          <button className={"cardAuxButton"} onClick={handleOpenSection}>
+            <IconChevronDown />
+          </button>
+        </div>
+      </div>
+      {isSelected && (
+        <div className="cardBody">
+          {/*//!all card content here */}
+          {currentCardContent(cardType)}
+          {/*//!all card content here */}
+          <div className="cardFooter">
+            <div className="leftContent">
+              {PublishToggle(publish, setPublish, "Publish to Tidy Viewer")}
+            </div>
+            <div className="rightContent">
+              <button
+                className={"cardAuxButton"}
+                onClick={() => setIsDraft(!isDraft)}
+              >
+                <IconEye />
+              </button>
+              <button
+                className={"cardAuxButton"}
+                onClick={handleDuplicateSection}
+              >
+                <IconCopy />
+              </button>
+              <button className={"cardAuxButton"} onClick={handleDeleteSection}>
+                <IconTrash />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
