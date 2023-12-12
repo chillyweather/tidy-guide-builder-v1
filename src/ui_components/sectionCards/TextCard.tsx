@@ -16,6 +16,11 @@ import {
   IconTrash,
   IconEye,
 } from "@tabler/icons-react";
+import {
+  handleDeleteSection,
+  handleDuplicateSection,
+  handleOpenSection,
+} from "./cardActions";
 import { Toggle, Text } from "@create-figma-plugin/ui";
 
 const TextCard = ({
