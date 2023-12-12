@@ -12,9 +12,9 @@ import {
 import { Toggle, Text } from "@create-figma-plugin/ui";
 
 import {
-  handleDeleteSection,
-  handleOpenSection,
-  handleDuplicateSection,
+  deleteSection,
+  duplicateSection,
+  openSection,
 } from "./sectionCards/cardActions";
 
 //content cards
@@ -25,17 +25,23 @@ import HeaderCard from "./sectionCards/HeaderCard";
 // import PropertyCard from "./sectionCards/PropertyCard";
 // import ReleaseNotesCard from "./sectionCards/ReleaseNotesCard";
 import TextCard from "./sectionCards/TextCard";
-// import TwoColumnsCard from "./sectionCards/TwoColumnsCard";
+import TwoColumnCard from "./sectionCards/TwoColumnCard";
 // import VariantsCard from "./sectionCards/VariantsCard";
 // import VideoCard from "./sectionCards/VideoCard";
 
 export const ContentCard = (cardData: any, index: number) => {
-  // states, general use
+  //! states
+  // general use
   const [isDraft, setIsDraft] = useState(false);
   const [publish, setPublish] = useState<boolean>(false);
-  // states, text card
+  // text card
   const [paragraphTextContent, setParagraphTextContent] = useState("");
-  // from context
+  // two column card
+  const [leftTitle, setLeftTitle] = useState("");
+  const [leftTextContent, setLeftTextContent] = useState("");
+  const [rightTitle, setRightTitle] = useState("");
+  const [rightTextContent, setRightTextContent] = useState("");
+  //! from context
   const selectedCard = useContext(BuilderContext)?.selectedCard;
   const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
@@ -46,7 +52,7 @@ export const ContentCard = (cardData: any, index: number) => {
 
   const currentCardContent = (cardType: string) => {
     if (cardType === "header") {
-      return <HeaderCard data={cardData} isSelected={isSelected} />;
+      return <HeaderCard data={cardData} />;
     }
     // else if (cardType === "property") {
     //   return <PropertyCard data={cardData} isSelected={isSelected} />;
@@ -62,10 +68,22 @@ export const ContentCard = (cardData: any, index: number) => {
           setTextContent={setParagraphTextContent}
         />
       );
+    } else if (cardType === "two-columns") {
+      return (
+        <TwoColumnCard
+          data={cardData}
+          leftTitle={leftTitle}
+          setLeftTitle={setLeftTitle}
+          leftTextContent={leftTextContent}
+          setLeftTextContent={setLeftTextContent}
+          rightTitle={rightTitle}
+          setRightTitle={setRightTitle}
+          rightTextContent={rightTextContent}
+          setRightTextContent={setRightTextContent}
+        />
+      );
     }
-    // else if (cardType === "two-columns") {
-    //   return <TwoColumnsCard data={cardData} isSelected={isSelected} />;
-    // } else if (cardType === "list") {
+    // else if (cardType === "list") {
     //   return <ListCard data={cardData} isSelected={isSelected} />;
     // } else if (cardType === "link") {
     //   return <LinkCard data={cardData} isSelected={isSelected} />;
@@ -101,21 +119,34 @@ export const ContentCard = (cardData: any, index: number) => {
     );
   }
 
-  return (
+  const handleOpenSection = (e: MouseEvent) => {
+    openSection(e, id, selectedCard!, setSelectedCard);
+  };
+
+  const handleDeleteSection = (e: MouseEvent) => {
+    deleteSection(e, index, setSelectedSections);
+  };
+
+  const handleDuplicateSection = (e: MouseEvent) => {
+    duplicateSection(e, index, cardData, setSelectedSections);
+  };
+
+  return cardType === "header" ? (
+    <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
+      <HeaderCard data={cardData} />
+    </div>
+  ) : (
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
       <div className="cardHeader">
         <div className="leftContent">
           <IconGripVertical />
           <IconMoodPuzzled style={{ color: "burntorange" }} />
           <div className={"sectionTitle"} contentEditable>
-            Paragraph
+            {cardData.title}
           </div>
         </div>
         <div className="rightContent">
-          <button
-            className={"cardAuxButton"}
-            onClick={(e) => handleOpenSection(e, id)}
-          >
+          <button className={"cardAuxButton"} onClick={handleOpenSection}>
             <IconChevronDown />
           </button>
         </div>
@@ -138,14 +169,11 @@ export const ContentCard = (cardData: any, index: number) => {
               </button>
               <button
                 className={"cardAuxButton"}
-                onClick={(e) => handleDuplicateSection(e, index, cardData)}
+                onClick={handleDuplicateSection}
               >
                 <IconCopy />
               </button>
-              <button
-                className={"cardAuxButton"}
-                onClick={(e) => handleDeleteSection(e, index)}
-              >
+              <button className={"cardAuxButton"} onClick={handleDeleteSection}>
                 <IconTrash />
               </button>
             </div>

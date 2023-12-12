@@ -2,13 +2,7 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import CheckboxElement from "../Checkbox";
 
-const HeaderCard = ({
-  data,
-  isSelected,
-}: {
-  data: any;
-  isSelected: boolean;
-}) => {
+const HeaderCard = ({ data }: { data: any }) => {
   const [isWip, setIsWip] = useState(false);
 
   const handleValueChange = (newValue: boolean) => {
@@ -17,20 +11,21 @@ const HeaderCard = ({
   };
 
   return (
-    <div
-      className={isSelected ? "sectionCard selected" : "sectionCard"}
-      id="headerCard"
-    >
-      <div className="cardHeader">
-        <div className={"sectionTitle"} contentEditable>
-          {data.title}
-        </div>
-        <CheckboxElement
-          value={isWip}
-          setValue={handleValueChange}
-          label="Work in progress"
-        />
+    <div className="cardHeader" id="headerCard">
+      <div
+        className={"sectionTitle"}
+        contentEditable
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        {data.title}
       </div>
+      <CheckboxElement
+        value={isWip}
+        setValue={handleValueChange}
+        label="Work in progress"
+      />
     </div>
   );
 };
