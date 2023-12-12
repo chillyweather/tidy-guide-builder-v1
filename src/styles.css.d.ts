@@ -33,10 +33,17 @@ declare const styles: {
   readonly "image-wrapper": string;
   readonly "imageSection": string;
   readonly "inputDiv": string;
+  readonly "inputInputRowStyle": string;
   readonly "invalidText": string;
   readonly "leftContent": string;
+  readonly "leftFooterContent": string;
   readonly "links-block": string;
+  readonly "listButtonStyle": string;
+  readonly "listCardContentStyle": string;
+  readonly "listCollumnStyle": string;
   readonly "listContainer": string;
+  readonly "listInputColumnStyle": string;
+  readonly "listInputStyle": string;
   readonly "listWrapper": string;
   readonly "loader": string;
   readonly "loader-image": string;
@@ -53,6 +60,7 @@ declare const styles: {
   readonly "pagination": string;
   readonly "resources": string;
   readonly "rightContent": string;
+  readonly "rightFooterContent": string;
   readonly "search": string;
   readonly "search-icons": string;
   readonly "searchInput": string;

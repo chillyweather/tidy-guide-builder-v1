@@ -67,6 +67,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
         opacity: dragging ? 0.5 : 1,
         display: "inline-block",
         height: "fit-content",
+        // pointerEvents: "none",
       }}
     >
       {content(data, index)}

@@ -44,5 +44,3 @@ export const duplicateSection = (
     return newSections;
   });
 };
-
-export { handleOpenSection, handleDeleteSection, handleDuplicateSection };

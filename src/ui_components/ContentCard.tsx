@@ -15,13 +15,13 @@ import {
   deleteSection,
   duplicateSection,
   openSection,
-} from "./sectionCards/cardActions";
+} from "../ui_functions/cardActions";
 
 //content cards
 import HeaderCard from "./sectionCards/HeaderCard";
 // import ImageCard from "./sectionCards/ImageCard";
-// import LinkCard from "./sectionCards/LinkCard";
-// import ListCard from "./sectionCards/ListCard";
+import LinkCard from "./sectionCards/LinkCard";
+import ListCard from "./sectionCards/ListCard";
 // import PropertyCard from "./sectionCards/PropertyCard";
 // import ReleaseNotesCard from "./sectionCards/ReleaseNotesCard";
 import TextCard from "./sectionCards/TextCard";
@@ -41,6 +41,10 @@ export const ContentCard = (cardData: any, index: number) => {
   const [leftTextContent, setLeftTextContent] = useState("");
   const [rightTitle, setRightTitle] = useState("");
   const [rightTextContent, setRightTextContent] = useState("");
+  // list
+  const [listItems, setListItems] = useState<string[]>([""]);
+  // link
+  const [sources, setSources]: any[] = useState([{ source: "", link: "" }]);
   //! from context
   const selectedCard = useContext(BuilderContext)?.selectedCard;
   const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
@@ -82,12 +86,12 @@ export const ContentCard = (cardData: any, index: number) => {
           setRightTextContent={setRightTextContent}
         />
       );
+    } else if (cardType === "list") {
+      return <ListCard listItems={listItems} setListItems={setListItems} />;
+    } else if (cardType === "link") {
+      return <LinkCard sources={sources} setSources={setSources} />;
     }
-    // else if (cardType === "list") {
-    //   return <ListCard data={cardData} isSelected={isSelected} />;
-    // } else if (cardType === "link") {
-    //   return <LinkCard data={cardData} isSelected={isSelected} />;
-    // } else if (cardType === "image") {
+    // else if (cardType === "image") {
     //   return <ImageCard data={cardData} isSelected={isSelected} />;
     // } else if (cardType === "video") {
     //   return <VideoCard data={cardData} isSelected={isSelected} />;
@@ -139,7 +143,7 @@ export const ContentCard = (cardData: any, index: number) => {
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
       <div className="cardHeader">
         <div className="leftContent">
-          <IconGripVertical />
+          <IconGripVertical style={{ cursor: "grab" }} />
           <IconMoodPuzzled style={{ color: "burntorange" }} />
           <div className={"sectionTitle"} contentEditable>
             {cardData.title}
