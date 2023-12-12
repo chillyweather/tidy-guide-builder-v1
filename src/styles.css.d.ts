@@ -83,10 +83,12 @@ declare const styles: {
   readonly "twoColumnCardBodyContent": string;
   readonly "videoClosed": string;
   readonly "videoDiv": string;
+  readonly "videoInputRow": string;
   readonly "videoOpen": string;
   readonly "videoSection": string;
   readonly "videoSelected": string;
   readonly "wip": string;
+  readonly "youtubeIcon": string;
 };
 export = styles;
 

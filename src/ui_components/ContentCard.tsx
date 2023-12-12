@@ -27,7 +27,7 @@ import ListCard from "./sectionCards/ListCard";
 import TextCard from "./sectionCards/TextCard";
 import TwoColumnCard from "./sectionCards/TwoColumnCard";
 // import VariantsCard from "./sectionCards/VariantsCard";
-// import VideoCard from "./sectionCards/VideoCard";
+import VideoCard from "./sectionCards/VideoCard";
 
 export const ContentCard = (cardData: any, index: number) => {
   //! states
@@ -45,6 +45,12 @@ export const ContentCard = (cardData: any, index: number) => {
   const [listItems, setListItems] = useState<string[]>([""]);
   // link
   const [sources, setSources]: any[] = useState([{ source: "", link: "" }]);
+  //video card data
+  const [selectedVideo, setSelectedVideo] = useState(-1);
+  const [selectedVideoContent, setSelectedVideoContent] = useState({});
+  const [videoLink, setVideoLink] = useState("");
+  const [foundVideoData, setFoundVideoData]: any = useState({});
+  const [videoDataElements, setVideoDataElements]: any[] = useState([]);
   //! from context
   const selectedCard = useContext(BuilderContext)?.selectedCard;
   const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
@@ -93,10 +99,22 @@ export const ContentCard = (cardData: any, index: number) => {
     }
     // else if (cardType === "image") {
     //   return <ImageCard data={cardData} isSelected={isSelected} />;
-    // } else if (cardType === "video") {
-    //   return <VideoCard data={cardData} isSelected={isSelected} />;
     // }
-    else {
+    else if (cardType === "video") {
+      {
+        return VideoCard(
+          foundVideoData,
+          selectedVideo,
+          setFoundVideoData,
+          setSelectedVideo,
+          setSelectedVideoContent,
+          setVideoDataElements,
+          setVideoLink,
+          videoDataElements,
+          videoLink
+        );
+      }
+    } else {
       return null;
     }
   };

@@ -1,0 +1,125 @@
+import { h } from "preact";
+import { Text, LoadingIndicator } from "@create-figma-plugin/ui";
+import { useEffect, useState } from "preact/hooks";
+import { videoTextBoxElement } from "../videoTextBoxElement";
+import { IconBrandYoutubeFilled } from "@tabler/icons-react";
+
+const videoCard = (
+  foundVideoData: any,
+  selectedVideo: number,
+  setFoundVideoData: any,
+  setSelectedVideo: any,
+  setSelectedVideoContent: any,
+  setVideoDataElements: any,
+  setVideoLink: any,
+  videoDataElements: any,
+  videoLink: string
+) => {
+  const VideoElementCard = ({
+    element,
+    name,
+    video,
+    thumbnail,
+    index,
+    selectedVideo,
+    setSelectedVideo,
+    setSelectedVideoContent,
+  }: {
+    element: any;
+    name: any;
+    video: any;
+    thumbnail: any;
+    index: any;
+    selectedVideo: any;
+    setSelectedVideo: any;
+    setSelectedVideoContent: any;
+  }) => {
+    const elementType = element;
+    const videoLink = video;
+    const isSelected = index === selectedVideo;
+
+    const currentVideoContent = {
+      element: elementType,
+      name: name,
+      video: videoLink,
+      thumbnail: thumbnail,
+    };
+
+    const cardStyle = {
+      width: "100%",
+      display: "flex",
+      gap: "8px",
+      justifyContent: "flex-start",
+      alignItems: "center",
+      padding: "8px",
+      borderRadius: "8px",
+      backgroundColor: isSelected ? "#5B9598" : "#f5f5f5",
+      cursor: "pointer",
+    };
+    return (
+      <div
+        style={cardStyle}
+        onClick={(event: MouseEvent) => {
+          event.preventDefault();
+          event.stopPropagation();
+          setSelectedVideo(index);
+          setSelectedVideoContent(currentVideoContent);
+          console.log("currentVideoContent :>> ", currentVideoContent);
+        }}
+      >
+        <img style={{ height: "80px" }} src={thumbnail} alt={name} />
+        <Text style={{ color: isSelected ? "#FFF" : "#000" }}>{name}</Text>
+      </div>
+    );
+  };
+
+  useEffect(() => {
+    if (Object.keys(foundVideoData).length > 0) {
+      setVideoDataElements([foundVideoData, ...videoDataElements]);
+      console.log("newVideoData :>> ", foundVideoData);
+    }
+  }, [foundVideoData]);
+
+  return (
+    <div style={{ width: "100%", height: "100%" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          gap: "8px",
+          height: "100%",
+          width: "100%",
+        }}
+      >
+        <h4 className={"inputLabel"}>Add link to YouTube video:</h4>
+        <div className="videoInputRow">
+          <IconBrandYoutubeFilled className={"youtubeIcon"} />
+          {videoTextBoxElement(
+            videoLink,
+            setVideoLink,
+            "Enter YouTube video link",
+            "videoLink",
+            setFoundVideoData
+          )}
+        </div>
+        {videoDataElements.map((videoDataElement: any, index: number) => {
+          return (
+            <VideoElementCard
+              element={videoDataElement.element}
+              name={videoDataElement.name}
+              video={videoDataElement.video}
+              thumbnail={videoDataElement.thumbnail}
+              index={index}
+              selectedVideo={selectedVideo}
+              setSelectedVideo={setSelectedVideo}
+              setSelectedVideoContent={setSelectedVideoContent}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default videoCard;
