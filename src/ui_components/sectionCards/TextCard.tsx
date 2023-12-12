@@ -86,7 +86,7 @@ const TextCard = ({
     setSelectedSections((prevSections: any[]) => {
       const newSections = Array.from(prevSections);
       const newSection = { ...data };
-      newSection.id = Math.random().toString(36).substr(2, 9);
+      newSection.id = Math.random().toString(36).substring(2, 9);
       newSections.splice(index + 1, 0, newSection);
       return newSections;
     });
