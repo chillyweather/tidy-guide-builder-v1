@@ -33,3 +33,5 @@ const handleDuplicateSection = (e: MouseEvent, index: number, data: any) => {
     return newSections;
   });
 };
+
+export { handleOpenSection, handleDeleteSection, handleDuplicateSection };
