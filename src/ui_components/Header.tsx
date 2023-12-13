@@ -7,7 +7,7 @@ import {
   IconDots,
   IconUser,
   IconSearch,
-  IconListTree,
+  IconArrowLeft,
 } from "@tabler/icons-react";
 import HeaderActions from "./HeaderActions";
 
@@ -23,7 +23,7 @@ const Header = ({ isLoginPageOpen, setIsLoginPageOpen }: any) => {
             isLoginPageOpen && setIsLoginPageOpen(false);
           }}
         >
-          <IconListTree />
+          <IconArrowLeft />
           {isLoginPageOpen ? "Back" : "Components index"}
         </button>
         <div className={"side-flex"}>

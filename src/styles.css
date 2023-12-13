@@ -193,7 +193,7 @@ li {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding-top: 84px;
   min-height: 100vh;
 }
@@ -396,6 +396,8 @@ li {
 .header button {
   color: #323232;
   background-color: #ffffff;
+  min-height: 16px;
+  min-width: 16px;
   padding: 8px;
   border-radius: 8px;
 }
@@ -429,7 +431,6 @@ li {
 }
 
 .headerContent {
-  height: 48px;
   padding: 12px 16px;
   display: flex;
   flex-direction: row;
@@ -445,12 +446,35 @@ li {
   justify-content: space-between;
 }
 
+.empty-image{
+  width: 20vw;
+}
+
+.buttonPrimary{
+  background-color: #9C71EF;
+  padding: 16px 24px;
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 8px;
+  font-size: var(--text-size);
+}
+.buttonPrimary:hover{
+  background-color: #8C5AEC;
+}
+.buttonPrimary:active{
+  background-color: #7C4CD7;
+}
+.buttonPrimary:focus-visible{
+  outline: 4px solid #ECE3FC;
+}
+
 .mainContent {
   width: 100%;
   background-color: coral;
   height: calc(100vh - 170px);
   display: flex;
   flex-direction: column;
+  font-size: var(--text-size);
 }
 
 body .nav-wrapper {
@@ -1001,6 +1025,13 @@ a:hover {
   min-height: 40px;
 }
 
+.login ~ .empty-state{
+  display: none !important;
+}
+.login ~ .header{
+  display: none !important;
+}
+
 .login,
 .loader {
   position: absolute;
@@ -1017,6 +1048,7 @@ a:hover {
   border: none;
   height: calc(100% - 84px);
   font-weight: 400;
+  max-width: 400px;
 }
 
 .login::after,

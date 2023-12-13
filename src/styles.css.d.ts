@@ -10,6 +10,7 @@ declare const styles: {
   readonly "backToTop": string;
   readonly "btnNext": string;
   readonly "btnPrev": string;
+  readonly "buttonPrimary": string;
   readonly "cardAuxButton": string;
   readonly "cardBody": string;
   readonly "cardFooter": string;
@@ -22,6 +23,8 @@ declare const styles: {
   readonly "container": string;
   readonly "disabled": string;
   readonly "draft": string;
+  readonly "empty-image": string;
+  readonly "empty-state": string;
   readonly "footer": string;
   readonly "header": string;
   readonly "header-button": string;
