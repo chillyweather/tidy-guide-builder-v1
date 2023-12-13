@@ -4,6 +4,7 @@ import { h } from "preact";
 export default function EmptyState() {
   return (
     <div
+      className={"empty-state"}
       style={{
         display: "flex",
         flexDirection: "column",
