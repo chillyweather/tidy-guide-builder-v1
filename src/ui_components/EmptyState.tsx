@@ -16,7 +16,7 @@ export default function EmptyState() {
     >
       <img
         src={emptyImage}
-        alt="empty"
+        alt="Please select a component in Figma."
         className={"empty-image"}
       />
       <p>Before initiating the Tidy Builder, you need to select a component.</p>
