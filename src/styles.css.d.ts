@@ -23,6 +23,7 @@ declare const styles: {
   readonly "container": string;
   readonly "disabled": string;
   readonly "draft": string;
+  readonly "drag-item": string;
   readonly "empty-image": string;
   readonly "empty-state": string;
   readonly "footer": string;
@@ -72,6 +73,7 @@ declare const styles: {
   readonly "sectionCard": string;
   readonly "sectionHeader": string;
   readonly "sectionTitle": string;
+  readonly "sections": string;
   readonly "selected": string;
   readonly "selectedComponentGroup": string;
   readonly "selectedPage": string;

@@ -7,7 +7,7 @@ import Sortable from "sortablejs";
 import { DraggableItem } from "./DraggableItem";
 import { ContentCard } from "./ContentCard";
 
-interface DraggableCardListProps {}
+interface DraggableCardListProps { }
 
 export const DraggableCardList: FunctionComponent<
   DraggableCardListProps
@@ -46,12 +46,6 @@ export const DraggableCardList: FunctionComponent<
   return (
     <div
       id={"sections"}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "8px",
-        padding: "12px",
-      }}
     >
       {ListOfCards(items)}
     </div>

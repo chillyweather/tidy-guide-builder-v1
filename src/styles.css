@@ -39,7 +39,13 @@ body:has(.login) {
 ::selection {
   background-color: #e7efc5;
 }
-
+#sections{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* padding: 12px; */
+  /* padding-top: 12px; */
+}
 .section {
   position: relative;
   width: 100%;
@@ -1360,6 +1366,10 @@ summary button {
   line-height: normal;
   letter-spacing: -0.24px;
   text-transform: capitalize;
+  border-color: transparent;
+}
+.sectionTitle:focus{
+  border-color: lightgray;
 }
 
 .cardHeader {
@@ -1556,6 +1566,15 @@ summary button {
 
 .draft {
   opacity: 0.5;
+}
+
+.drag-item{
+  pointer-events: none;
+  margin: 12px;
+  margin-bottom: 0;
+}
+.drag-item:has(svg ~ svg){
+  pointer-events: all;
 }
 
 /* -------------------------------------------- */
