@@ -36,15 +36,17 @@ export async function uploadFileToServer(file: File, loggedInUser: string) {
     const uploadObject = async () => {
       try {
         const data = await s3Client.send(new PutObjectCommand(params));
-        console.log(
-          "Successfully uploaded object: " + params.Bucket + "/" + params.Key
-        );
-        return data;
+        if (data) {
+          console.log("data :>> ", data);
+          const url = `https://tidy-guide-resources.nyc3.digitaloceanspaces.com/images/${fileNameWithoutExtension}_${currentUserName}_${uid}.${fileExtension}`;
+          return url;
+        }
       } catch (err) {
         console.log("Error", err);
       }
     };
 
-    uploadObject();
+    const data = uploadObject();
+    return data;
   }
 }

@@ -7,14 +7,10 @@ const ImageCard: FunctionComponent<{
   remoteImageLink: string;
   setRemoteImageLink: any;
 }> = ({ remoteImageLink, setRemoteImageLink }) => {
-  const [localImageLink, setLocalImageLink]: any = useState(null);
-  const [localFilePath, setLocalFilePath]: any = useState(null);
   const isRemoteLink = remoteImageLink !== "";
-  const isLocalLink = localImageLink !== "";
-  let imageSource = "";
 
   function setContent() {
-    if (!isRemoteLink) {
+    if (!remoteImageLink) {
       return (
         <div
           style={{
@@ -26,7 +22,7 @@ const ImageCard: FunctionComponent<{
             width: "100%",
           }}
         >
-          {DropZone(setLocalImageLink, setLocalFilePath)}
+          {DropZone(setRemoteImageLink)}
           {textBoxElement(remoteImageLink, setRemoteImageLink, "Link")}
         </div>
       );
@@ -49,12 +45,6 @@ const ImageCard: FunctionComponent<{
       );
     }
   }
-
-  useEffect(() => {
-    if (localImageLink !== "") {
-      setLocalFilePath(imageSource);
-    }
-  }, [localImageLink, remoteImageLink]);
 
   return <div>{setContent()}</div>;
 };

@@ -4,17 +4,15 @@ import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { uploadFileToServer } from "src/ui_components/ui_functions/fileManagementFunctions";
 
-export function DropZone(
-  setLocalImageLink: (link: any) => void,
-  setLocalFilePath: any
-) {
+export function DropZone(setRemoteImageLink: Function) {
   const loggedInUser = useContext(BuilderContext)?.loggedInUser;
-  function handleDrop(event: DragEvent) {
+  async function handleDrop(event: DragEvent) {
     event.preventDefault();
     const file = event.dataTransfer?.files[0];
     if (file) {
-      console.log("file", file);
-      uploadFileToServer(file, loggedInUser!);
+      const path = await uploadFileToServer(file, loggedInUser!);
+      console.log("path", path);
+      setRemoteImageLink(path);
     }
   }
 
@@ -29,7 +27,7 @@ export function DropZone(
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        height: "480px",
+        height: "240px",
         width: "100%",
         border: "2px dashed #ccc",
         borderRadius: "8px",
@@ -55,7 +53,7 @@ export function DropZone(
       >
         Select Image
       </label>
-      <input
+      {/* <input
         id="file-input"
         type="file"
         accept="image/*"
@@ -67,7 +65,7 @@ export function DropZone(
             setLocalImageLink(file);
           }
         }}
-      />
+      /> */}
     </div>
   );
 }
