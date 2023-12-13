@@ -2,7 +2,11 @@ import { h } from "preact";
 import { Text, LoadingIndicator } from "@create-figma-plugin/ui";
 import { useEffect, useState } from "preact/hooks";
 import { videoTextBoxElement } from "../videoTextBoxElement";
-import { IconBrandYoutubeFilled, IconX } from "@tabler/icons-react";
+import {
+  IconBrandYoutubeFilled,
+  IconX,
+  IconInfoCircle,
+} from "@tabler/icons-react";
 
 const videoCard = (
   foundVideoData: any,
@@ -112,6 +116,7 @@ const videoCard = (
               false,
               setIsValid
             )}
+            <IconInfoCircle />
           </div>
           <div
             className={"validationFailedMessage"}
@@ -121,7 +126,7 @@ const videoCard = (
                 : { opacity: 1 }
             }
           >
-            Invalid YouTube link
+            Invalid YouTube link I
           </div>
         </div>
         {videoDataElements.map((videoDataElement: any, index: number) => {
