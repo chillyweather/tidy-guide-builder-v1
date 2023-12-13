@@ -65,6 +65,8 @@ declare const styles: {
   readonly "resources": string;
   readonly "rightContent": string;
   readonly "rightFooterContent": string;
+  readonly "rotate": string;
+  readonly "rotatingBucket": string;
   readonly "search": string;
   readonly "search-icons": string;
   readonly "searchInput": string;

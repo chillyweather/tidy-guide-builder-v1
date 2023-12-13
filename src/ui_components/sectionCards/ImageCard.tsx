@@ -7,11 +7,11 @@ const ImageCard: FunctionComponent<{
   remoteImageLink: string;
   setRemoteImageLink: any;
 }> = ({ remoteImageLink, setRemoteImageLink }) => {
-  const isRemoteLink = remoteImageLink !== "";
+  const [isImageLoading, setIsImageLoading] = useState(false);
 
   function setContent() {
-    if (!remoteImageLink) {
-      return (
+    {
+      return !remoteImageLink ? (
         <div
           style={{
             display: "flex",
@@ -22,12 +22,15 @@ const ImageCard: FunctionComponent<{
             width: "100%",
           }}
         >
-          {DropZone(setRemoteImageLink)}
+          {DropZone(
+            setRemoteImageLink,
+            setIsImageLoading,
+            isImageLoading,
+            remoteImageLink
+          )}
           {textBoxElement(remoteImageLink, setRemoteImageLink, "Link")}
         </div>
-      );
-    } else {
-      return (
+      ) : (
         <div
           style={{
             display: "flex",

@@ -39,13 +39,15 @@ body:has(.login) {
 ::selection {
   background-color: #e7efc5;
 }
-#sections{
+
+#sections {
   display: flex;
   flex-direction: column;
   gap: 8px;
   /* padding: 12px; */
   /* padding-top: 12px; */
 }
+
 .section {
   position: relative;
   width: 100%;
@@ -452,11 +454,11 @@ li {
   justify-content: space-between;
 }
 
-.empty-image{
+.empty-image {
   width: 20vw;
 }
 
-.buttonPrimary{
+.buttonPrimary {
   background-color: #9C71EF;
   padding: 16px 24px;
   color: #ffffff;
@@ -464,13 +466,16 @@ li {
   border-radius: 8px;
   font-size: var(--text-size);
 }
-.buttonPrimary:hover{
+
+.buttonPrimary:hover {
   background-color: #8C5AEC;
 }
-.buttonPrimary:active{
+
+.buttonPrimary:active {
   background-color: #7C4CD7;
 }
-.buttonPrimary:focus-visible{
+
+.buttonPrimary:focus-visible {
   outline: 4px solid #ECE3FC;
 }
 
@@ -1031,10 +1036,11 @@ a:hover {
   min-height: 40px;
 }
 
-.login ~ .empty-state{
+.login~.empty-state {
   display: none !important;
 }
-.login ~ .header{
+
+.login~.header {
   display: none !important;
 }
 
@@ -1368,7 +1374,8 @@ summary button {
   text-transform: capitalize;
   border-color: transparent;
 }
-.sectionTitle:focus{
+
+.sectionTitle:focus {
   border-color: lightgray;
 }
 
@@ -1568,13 +1575,37 @@ summary button {
   opacity: 0.5;
 }
 
-.drag-item{
+.drag-item {
   pointer-events: none;
   margin: 12px;
   margin-bottom: 0;
 }
-.drag-item:has(svg ~ svg){
+
+.drag-item:has(svg ~ svg) {
   pointer-events: all;
+}
+
+.loader {
+  height: 240px;
+  width: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* animation: rotate 1s infinite linear; */
+}
+
+.rotatingBucket {
+  animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* -------------------------------------------- */

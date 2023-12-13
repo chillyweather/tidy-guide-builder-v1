@@ -3,15 +3,21 @@ import { h } from "preact";
 import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { uploadFileToServer } from "src/ui_components/ui_functions/fileManagementFunctions";
+import { useEffect } from "react";
 
-export function DropZone(setRemoteImageLink: Function) {
+export function DropZone(
+  setRemoteImageLink: Function,
+  setIsImageLoading: Function,
+  isImageLoading: boolean,
+  remoteImageLink: string
+) {
   const loggedInUser = useContext(BuilderContext)?.loggedInUser;
   async function handleDrop(event: DragEvent) {
     event.preventDefault();
     const file = event.dataTransfer?.files[0];
     if (file) {
+      setIsImageLoading(true);
       const path = await uploadFileToServer(file, loggedInUser!);
-      console.log("path", path);
       setRemoteImageLink(path);
     }
   }
@@ -19,6 +25,12 @@ export function DropZone(setRemoteImageLink: Function) {
   function handleDragOver(event: DragEvent) {
     event.preventDefault();
   }
+
+  useEffect(() => {
+    if (remoteImageLink) {
+      setIsImageLoading(false);
+    }
+  }, [remoteImageLink]);
 
   return (
     <div
@@ -35,37 +47,51 @@ export function DropZone(setRemoteImageLink: Function) {
       onDrop={handleDrop}
       onDragOver={handleDragOver}
     >
-      <div style={{ textAlign: "center" }}>
-        Drop image here or click to select image
-        <br />
-        (Maximum resolution 4096 x 4096 pixels)
-      </div>
-      <VerticalSpace space="small" />
-      <label
-        htmlFor="file-input"
-        style={{
-          display: "inline-block",
-          padding: "8px 16px",
-          backgroundColor: "#ccc",
-          borderRadius: "4px",
-          cursor: "pointer",
-        }}
-      >
-        Select Image
-      </label>
-      {/* <input
-        id="file-input"
-        type="file"
-        accept="image/*"
-        style={{ display: "none" }}
-        onChange={(event) => {
-          // @ts-ignore
-          const file = event.target?.files?.[0];
-          if (file) {
-            setLocalImageLink(file);
-          }
-        }}
-      /> */}
+      {isImageLoading ? (
+        <div className={"loader"}>
+          <div className="rotatingBucket" style={{ fontSize: "80px" }}>
+            🪣
+          </div>
+        </div>
+      ) : (
+        <div>
+          <div style={{ textAlign: "center" }}>
+            Drop image here or click to select image
+            <br />
+            (Maximum resolution 4096 x 4096 pixels)
+          </div>
+          <VerticalSpace space="small" />
+          <label
+            htmlFor="file-input"
+            style={{
+              display: "inline-block",
+              padding: "8px 16px",
+              backgroundColor: "#ccc",
+              borderRadius: "4px",
+              cursor: "pointer",
+            }}
+          >
+            Select Image
+          </label>
+          <input
+            id="file-input"
+            type="file"
+            accept="image/*"
+            style={{ display: "none" }}
+            onChange={(event) => {
+              // @ts-ignore
+              const file = event.target?.files?.[0];
+              if (file) {
+                setIsImageLoading(true);
+                uploadFileToServer(file, loggedInUser!).then((path) => {
+                  setIsImageLoading(false);
+                  setRemoteImageLink(path);
+                });
+              }
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 }
