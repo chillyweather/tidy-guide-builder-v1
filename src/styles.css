@@ -1017,6 +1017,7 @@ a:hover {
   border: none;
   height: calc(100% - 84px);
   font-weight: 400;
+  max-width: 400px;
 }
 
 .login::after,
