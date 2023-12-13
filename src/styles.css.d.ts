@@ -22,6 +22,7 @@ declare const styles: {
   readonly "container": string;
   readonly "disabled": string;
   readonly "draft": string;
+  readonly "empty-state": string;
   readonly "footer": string;
   readonly "header": string;
   readonly "header-button": string;

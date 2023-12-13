@@ -1001,6 +1001,10 @@ a:hover {
   min-height: 40px;
 }
 
+.login ~ .empty-state{
+  display: none !important;
+}
+
 .login,
 .loader {
   position: absolute;
