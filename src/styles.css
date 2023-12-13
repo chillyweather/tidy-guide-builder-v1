@@ -456,6 +456,16 @@ li {
   color: #ffffff;
   font-weight: 500;
   border-radius: 8px;
+  font-size: var(--text-size);
+}
+.buttonPrimary:hover{
+  background-color: #8C5AEC;
+}
+.buttonPrimary:active{
+  background-color: #7C4CD7;
+}
+.buttonPrimary:focus-visible{
+  outline: 4px solid #ECE3FC;
 }
 
 .mainContent {

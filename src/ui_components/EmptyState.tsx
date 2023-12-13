@@ -1,5 +1,6 @@
 import { emit } from "@create-figma-plugin/utilities";
 import { h } from "preact";
+import emptyImage from "../images/empty.svg";
 
 export default function EmptyState() {
   return (
@@ -14,7 +15,7 @@ export default function EmptyState() {
       }}
     >
       <img
-        src="https://2.bp.blogspot.com/-bT_AbYgXOZM/V4avzIwwYTI/AAAAAAAAEFg/m87Jv0eDLo4E27LjX0B4RWh6T3SMtPBYgCLcB/s1600/FullSizeRender-13.jpg"
+        src={emptyImage}
         alt="empty"
         className={"empty-image"}
       />
