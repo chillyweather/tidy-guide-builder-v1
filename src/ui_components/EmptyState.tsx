@@ -16,10 +16,10 @@ export default function EmptyState() {
       <img
         src="https://2.bp.blogspot.com/-bT_AbYgXOZM/V4avzIwwYTI/AAAAAAAAEFg/m87Jv0eDLo4E27LjX0B4RWh6T3SMtPBYgCLcB/s1600/FullSizeRender-13.jpg"
         alt="empty"
-        style={{ width: "50%" }}
+        className={"empty-image"}
       />
       <p>Before initiating the Tidy Builder, you need to select a component.</p>
-      <button
+      <button className={"buttonPrimary"}
         onClick={() => {
           emit("GET_SELECTION");
         }}

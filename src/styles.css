@@ -446,12 +446,25 @@ li {
   justify-content: space-between;
 }
 
+.empty-image{
+  width: 33%;
+}
+
+.buttonPrimary{
+  background-color: #9C71EF;
+  padding: 16px 24px;
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
 .mainContent {
   width: 100%;
   background-color: coral;
   height: calc(100vh - 170px);
   display: flex;
   flex-direction: column;
+  font-size: var(--text-size);
 }
 
 body .nav-wrapper {
