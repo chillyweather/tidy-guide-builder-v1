@@ -163,9 +163,7 @@ export const ContentCard = (cardData: any, index: number) => {
         <div className="leftContent">
           <IconGripVertical style={{ cursor: "grab" }} />
           <IconMoodPuzzled style={{ color: "burntorange" }} />
-          <div className={"sectionTitle"} contentEditable>
-            {cardData.title}
-          </div>
+          <input className={"sectionTitle"} type={"text"} value={cardData.title} />
         </div>
         <div className="rightContent">
           <button className={"cardAuxButton"} onClick={handleOpenSection}>

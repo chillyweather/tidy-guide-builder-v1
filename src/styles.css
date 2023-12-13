@@ -1366,6 +1366,10 @@ summary button {
   line-height: normal;
   letter-spacing: -0.24px;
   text-transform: capitalize;
+  border-color: transparent;
+}
+.sectionTitle:focus{
+  border-color: lightgray;
 }
 
 .cardHeader {
