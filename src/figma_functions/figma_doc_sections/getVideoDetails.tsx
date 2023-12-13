@@ -1,8 +1,8 @@
-import { YOUTUBE_API } from "../../token";
+import envConfig from "src/envConfig";
 
 export async function setVideoDataElements(link: string, callback: any) {
   const source = link.split("watch?v=")[1];
-  const videoDetails = await getVideoDetails(source, YOUTUBE_API);
+  const videoDetails = await getVideoDetails(source, envConfig.YOUTUBE_API);
   if (videoDetails) {
     const newVideoData = {
       element: "video",

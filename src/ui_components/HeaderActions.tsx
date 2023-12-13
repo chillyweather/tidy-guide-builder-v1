@@ -4,7 +4,7 @@ import BuilderContext from "../BuilderContext";
 import { IconX, IconMoodPuzzled } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
 import sectionData from "src/resources/sectionData";
-import { generateUniqueId } from "../ui_functions/generateUniqueId";
+import { generateUniqueId } from "./ui_functions/generateUniqueId";
 
 const cardsForPopup = sectionData.slice(1);
 

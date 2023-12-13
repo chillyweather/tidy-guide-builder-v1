@@ -1,9 +1,10 @@
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
-import { useState } from "preact/hooks";
+import { useState, useContext } from "preact/hooks";
+import BuilderContext from "src/BuilderContext";
 import { TidyLogo } from "../images/TidyLogo";
 import { IconMail, IconEye } from "@tabler/icons-react";
-import { login } from "../ui_functions/authentication";
+import { login } from "./ui_functions/authentication";
 // import { getDocumentation } from "../auxiliaryFunctions/documentationHandlers";
 
 const Login = ({
@@ -42,6 +43,7 @@ const Login = ({
       const token = response.token;
       if (token) {
         emit("SAVE_NEW_TOKEN", token);
+        emit("SAVE_USER_EMAIL", email);
         setToken(token);
         setIsLoginPageOpen(false);
         // const data = await getDocumentation(token);

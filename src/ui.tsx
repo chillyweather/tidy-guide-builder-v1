@@ -23,6 +23,9 @@ function Plugin() {
   const [token, setToken] = useState("");
   const [isLoginFailed, setIsLoginFailed] = useState(false);
 
+  //logged in user data
+  const [loggedInUser, setLoggedInUser] = useState("");
+
   //loading state
   const [isLoading, setIsLoading] = useState(false);
 
@@ -52,6 +55,12 @@ function Plugin() {
     setSelectedElementName(name);
   });
 
+  on("USER_EMAIL", (email) => {
+    setLoggedInUser(email);
+  });
+
+  console.log("loggedInUser", loggedInUser);
+
   return (
     <div className={"container"}>
       <BuilderContext.Provider
@@ -63,6 +72,8 @@ function Plugin() {
           selectedElementName,
           selectedCard,
           setSelectedCard,
+          loggedInUser,
+          setLoggedInUser,
         }}
       >
         {!token && (

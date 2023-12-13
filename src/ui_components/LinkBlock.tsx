@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { videoTextBoxElement } from "./videoTextBoxElement";
+import { videoTextBoxElement } from "./textBoxForLinksElement";
 import { IconX } from "@tabler/icons-react";
 
 function LinkBlock(sources: any, setSources: any) {

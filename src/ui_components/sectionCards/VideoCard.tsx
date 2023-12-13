@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { Text, LoadingIndicator } from "@create-figma-plugin/ui";
 import { useEffect, useState } from "preact/hooks";
-import { videoTextBoxElement } from "../videoTextBoxElement";
+import { videoTextBoxElement } from "../textBoxForLinksElement";
 import {
   IconBrandYoutubeFilled,
   IconX,

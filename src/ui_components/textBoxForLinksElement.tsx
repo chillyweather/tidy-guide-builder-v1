@@ -1,5 +1,5 @@
 import { h, JSX } from "preact";
-import { setVideoDataElements } from "../ui_functions/getVideoDetails";
+import { setVideoDataElements } from "./ui_functions/getVideoDetails";
 import { IconInfoCircle } from "@tabler/icons-react";
 
 export function videoTextBoxElement(

@@ -15,11 +15,11 @@ import {
   deleteSection,
   duplicateSection,
   openSection,
-} from "../ui_functions/cardActions";
+} from "./ui_functions/cardActions";
 
 //content cards
 import HeaderCard from "./sectionCards/HeaderCard";
-// import ImageCard from "./sectionCards/ImageCard";
+import ImageCard from "./sectionCards/ImageCard";
 import LinkCard from "./sectionCards/LinkCard";
 import ListCard from "./sectionCards/ListCard";
 // import PropertyCard from "./sectionCards/PropertyCard";
@@ -51,6 +51,9 @@ export const ContentCard = (cardData: any, index: number) => {
   const [videoLink, setVideoLink] = useState("");
   const [foundVideoData, setFoundVideoData]: any = useState({});
   const [videoDataElements, setVideoDataElements]: any[] = useState([]);
+  //image card data
+  const [remoteImageLink, setRemoteImageLink] = useState("");
+
   //! from context
   const selectedCard = useContext(BuilderContext)?.selectedCard;
   const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
@@ -96,11 +99,14 @@ export const ContentCard = (cardData: any, index: number) => {
       return <ListCard listItems={listItems} setListItems={setListItems} />;
     } else if (cardType === "link") {
       return <LinkCard sources={sources} setSources={setSources} />;
-    }
-    // else if (cardType === "image") {
-    //   return <ImageCard data={cardData} isSelected={isSelected} />;
-    // }
-    else if (cardType === "video") {
+    } else if (cardType === "image") {
+      return (
+        <ImageCard
+          remoteImageLink={remoteImageLink}
+          setRemoteImageLink={setRemoteImageLink}
+        />
+      );
+    } else if (cardType === "video") {
       {
         return VideoCard(
           foundVideoData,

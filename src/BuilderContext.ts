@@ -8,6 +8,8 @@ interface IContext {
   selectedElementName: string;
   selectedCard: string;
   setSelectedCard: any;
+  loggedInUser: string;
+  setLoggedInUser: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

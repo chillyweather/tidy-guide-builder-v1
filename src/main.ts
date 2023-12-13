@@ -4,8 +4,10 @@ import documentationBuilder from "./figma_functions/documentationBuilder";
 import { checkSelection } from "./figma_functions/checkSelection";
 import { tokenHandler } from "./figma_functions/tokenHandler";
 
-export default function () {
+export default async function () {
   tokenHandler();
+  const email = await figma.clientStorage.getAsync("email");
+  if (email) emit("USER_EMAIL", email);
 
   // const user = figma.currentUser;
   // emit("USER", user);
@@ -15,6 +17,9 @@ export default function () {
 
   once("SAVE_NEW_TOKEN", (token) => {
     tokenHandler(token);
+  });
+  once("SAVE_USER_EMAIL", (email) => {
+    figma.clientStorage.setAsync("email", email);
   });
 
   on("LOGOUT", async () => {
