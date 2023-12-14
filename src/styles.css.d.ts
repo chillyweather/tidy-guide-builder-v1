@@ -24,6 +24,7 @@ declare const styles: {
   readonly "disabled": string;
   readonly "draft": string;
   readonly "drag-item": string;
+  readonly "dragIcon": string;
   readonly "empty-image": string;
   readonly "empty-state": string;
   readonly "flex-btn": string;
@@ -34,6 +35,7 @@ declare const styles: {
   readonly "header-menu": string;
   readonly "header-title": string;
   readonly "headerActions": string;
+  readonly "headerCard": string;
   readonly "headerContent": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;
