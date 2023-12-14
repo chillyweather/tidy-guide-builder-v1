@@ -203,8 +203,8 @@ li {
   flex-direction: column;
   align-items: center;
   /* padding-top: 84px; */
-  padding-top: 114px;
-  min-height: 100vh;
+  margin-top: 128px;
+  min-height: calc(100vh - 128px);
 }
 
 #backToTop {
@@ -1739,8 +1739,8 @@ summary button {
 
 .drag-item {
   pointer-events: none;
-  margin: 12px;
-  margin-bottom: 0;
+  margin: 0 12px;
+  /* margin-bottom: 0; */
 }
 
 .drag-item:has(svg ~ svg) {
