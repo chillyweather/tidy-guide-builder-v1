@@ -1301,8 +1301,20 @@ summary button {
   background-color: var(--tidy-primary);
   color: #ffffff;
 }
+.footer .primary:hover{
+  background-color: var(--tidy-btn-hover);
+}
+.footer .primary:active{
+  background-color: var(--tidy-btn-pressed);
+}
 .footer .second{
   background-color: #F2F0F6;
+}
+.footer .second:hover{
+  background-color: #ECE9F2;
+}
+.footer .second:active{
+  background-color: #E3DFEC;
 }
 
 .leftFooterContent {
