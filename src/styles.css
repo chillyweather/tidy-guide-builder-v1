@@ -1457,6 +1457,8 @@ summary button {
   letter-spacing: -0.24px;
   text-transform: capitalize;
   border-color: transparent;
+  font-weight: 500;
+  font-size: calc(var(--text-size) + calc(var(--text-size) / 7));
 }
 
 .sectionTitle:focus {
@@ -1469,6 +1471,10 @@ summary button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+.cardHeader svg{
+  height: 16px;
+  width: 16px;
 }
 
 .cardBody {
