@@ -1372,6 +1372,9 @@ summary button {
   cursor: pointer;
   border: 1px solid #e8e8f7;
 }
+.addSectionCard *{
+  pointer-events: none;
+}
 
 .addSectionCardInfo {
   display: flex;
