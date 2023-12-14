@@ -5,12 +5,14 @@ interface CheckboxProps {
   value: boolean;
   setValue: any;
   label: string;
+  onClick?: any;
 }
 
 export default function CheckboxElement({
   value,
   setValue,
   label,
+  onClick,
 }: CheckboxProps) {
   // const [value, setValue] = useState<boolean>(false);
   function handleChange(event: JSX.TargetedEvent<HTMLInputElement>) {
@@ -25,7 +27,7 @@ export default function CheckboxElement({
     <Checkbox
       onChange={handleChange}
       value={value}
-      onClick={(event: MouseEvent) => event.stopPropagation()}
+      onClick={onClick}
       style={{ border: "none", cursor: "pointer" }}
     >
       <Text>{label}</Text>

@@ -35,9 +35,7 @@ function Plugin() {
   const [selectedCard, setSelectedCard] = useState<any>("");
 
   //selected cards
-  const [selectedSections, setSelectedSections] = useState<any[]>([
-    sectionData[0],
-  ]);
+  const [selectedSections, setSelectedSections] = useState<any[]>([]);
 
   console.log("selectedSections :>> ", selectedSections);
 

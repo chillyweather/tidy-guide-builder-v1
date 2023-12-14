@@ -42,6 +42,7 @@ body:has(.login) {
 
 #sections {
   display: flex;
+  width: 100%;
   flex-direction: column;
   gap: 8px;
   /* padding: 12px; */
@@ -522,6 +523,7 @@ li {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
   font-size: var(--text-size);
 }
 
@@ -1290,40 +1292,49 @@ summary button {
   justify-content: space-between;
   padding: 16px 16px 24px 16px;
 }
-.footer button{
+
+.footer button {
   color: #73678A;
   padding: 12px 36px;
   border-radius: 8px;
   font-weight: 600;
   font-size: calc(var(--text-size) - calc(var(--text-size) / 7));
 }
-.footer .flex-btn{
+
+.footer .flex-btn {
   display: flex;
   gap: 6px;
   justify-content: center;
   align-items: center;
 }
-.footer button svg{
+
+.footer button svg {
   width: 16px;
   height: 16px;
 }
-.footer .primary{
+
+.footer .primary {
   background-color: var(--tidy-primary);
   color: #ffffff;
 }
-.footer .primary:hover{
+
+.footer .primary:hover {
   background-color: var(--tidy-btn-hover);
 }
-.footer .primary:active{
+
+.footer .primary:active {
   background-color: var(--tidy-btn-pressed);
 }
-.footer .second{
+
+.footer .second {
   background-color: #F2F0F6;
 }
-.footer .second:hover{
+
+.footer .second:hover {
   background-color: #ECE9F2;
 }
-.footer .second:active{
+
+.footer .second:active {
   background-color: #E3DFEC;
 }
 
@@ -1372,7 +1383,8 @@ summary button {
   cursor: pointer;
   border: 1px solid #e8e8f7;
 }
-.addSectionCard *{
+
+.addSectionCard * {
   pointer-events: none;
 }
 
@@ -1470,23 +1482,32 @@ summary button {
 }
 
 .cardHeader {
-  width: 100%;
+  width: 96%;
+  min-height: 54px;
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 16px 16px 12px 12px;
+  border-radius: 8px;
+  margin-top: 12px;
 }
-.cardHeader svg{
+
+.cardHeader svg {
   height: 16px;
   width: 16px;
 }
-#headerCard .sectionTitle{
+
+#headerCard .sectionTitle {
   margin-left: 20px;
 }
-.dragIcon{
+
+.dragIcon {
   cursor: grab;
   color: #ADAEB0;
 }
+
 .cardBody {
   width: 100%;
   height: 100%;
@@ -1506,12 +1527,14 @@ summary button {
   padding-top: 16px;
   border-top: 1px solid #EDEDED;
 }
-.cardFooter svg{
+
+.cardFooter svg {
   width: 16px;
   height: 16px;
   color: var(--tidy-text);
 }
-.cardFooter .rightContent{
+
+.cardFooter .rightContent {
   gap: 12px;
 }
 
@@ -1553,7 +1576,7 @@ summary button {
   outline: none;
 }
 
-.cardHeader ._border_1a43f_23{
+.cardHeader ._border_1a43f_23 {
   border-radius: 4px !important;
   border-color: #BFC1C7 !important;
 }
@@ -1693,7 +1716,7 @@ summary button {
 }
 
 .drag-item {
-  pointer-events: none;
+  /* pointer-events: none; */
   margin: 12px;
   margin-bottom: 0;
 }

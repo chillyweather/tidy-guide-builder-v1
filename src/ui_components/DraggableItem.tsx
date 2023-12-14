@@ -57,7 +57,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
 
   return (
     <div
-    className={"drag-item"}
+      className={"drag-item"}
       draggable
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}

@@ -21,10 +21,14 @@ const HeaderCard = ({ data }: { data: any }) => {
       >
         {data.title}
       </div>
+
       <CheckboxElement
         value={isWip}
         setValue={handleValueChange}
         label="Work in progress"
+        onClick={(e: MouseEvent) => {
+          e.stopPropagation();
+        }}
       />
     </div>
   );

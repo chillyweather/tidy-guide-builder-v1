@@ -1,13 +1,13 @@
 const sectionData = [
-  {
-    title: "Header",
-    content: "header",
-    description:
-      "First shalt thou take out the Holy Pin. Then shalt thou count to three, no more, no less.",
-    data: [],
-    id: "Header",
-    repeatable: false,
-  },
+  // {
+  //   title: "Header",
+  //   content: "header",
+  //   description:
+  //     "First shalt thou take out the Holy Pin. Then shalt thou count to three, no more, no less.",
+  //   data: [],
+  //   id: "Header",
+  //   repeatable: false,
+  // },
   // {
   //   title: "Anatomy",
   //   content: "anatomy",

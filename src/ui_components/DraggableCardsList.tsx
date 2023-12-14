@@ -7,7 +7,7 @@ import Sortable from "sortablejs";
 import { DraggableItem } from "./DraggableItem";
 import { ContentCard } from "./ContentCard";
 
-interface DraggableCardListProps { }
+interface DraggableCardListProps {}
 
 export const DraggableCardList: FunctionComponent<
   DraggableCardListProps
@@ -32,24 +32,20 @@ export const DraggableCardList: FunctionComponent<
   }, []);
 
   const ListOfCards = (items: any[]) => {
-    return items.map((item, index) => (
-      <DraggableItem
-        key={item.id}
-        id={item.id}
-        content={ContentCard}
-        index={index}
-        data={item}
-      />
-    ));
+    return items.map((item, index) => {
+      return (
+        <DraggableItem
+          key={item.id}
+          id={item.id}
+          content={ContentCard}
+          index={index}
+          data={item}
+        />
+      );
+    });
   };
 
-  return (
-    <div
-      id={"sections"}
-    >
-      {ListOfCards(items)}
-    </div>
-  );
+  return <div id={"sections"}>{ListOfCards(items)}</div>;
 };
 
 export default DraggableCardList;
