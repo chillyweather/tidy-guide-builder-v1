@@ -5,12 +5,13 @@ import { checkSelection } from "./figma_functions/checkSelection";
 import { tokenHandler } from "./figma_functions/tokenHandler";
 
 export default async function () {
-  tokenHandler();
+  await tokenHandler();
+
   const email = await figma.clientStorage.getAsync("email");
   if (email) emit("USER_EMAIL", email);
 
-  // const user = figma.currentUser;
-  // emit("USER", user);
+  const user = figma.currentUser;
+  emit("USER", user);
 
   const currentSelection = checkSelection();
   if (currentSelection) emit("SELECTION", currentSelection);

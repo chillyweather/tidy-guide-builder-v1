@@ -5,6 +5,7 @@ import { emit, on, once } from "@create-figma-plugin/utilities";
 import { h, JSX } from "preact";
 import { useEffect, useState, useContext } from "preact/hooks";
 import BuilderContext from "./BuilderContext";
+import FeedbackPopup from "./ui_components/feedbackPopup";
 //dependencies
 
 //new components
@@ -22,7 +23,8 @@ function Plugin() {
   //saved token
   const [token, setToken] = useState("");
   const [isLoginFailed, setIsLoginFailed] = useState(false);
-
+  //current user
+  const [currentUser, setCurrentUser] = useState("");
   //logged in user data
   const [loggedInUser, setLoggedInUser] = useState("");
 
@@ -36,6 +38,9 @@ function Plugin() {
 
   //selected cards
   const [selectedSections, setSelectedSections] = useState<any[]>([]);
+
+  //feedback
+  const [feedbackPage, setFeedbackPage] = useState(false);
 
   console.log("selectedSections :>> ", selectedSections);
 
@@ -57,6 +62,10 @@ function Plugin() {
     setLoggedInUser(email);
   });
 
+  on("USER", (data) => {
+    setCurrentUser(data);
+  });
+
   console.log("loggedInUser", loggedInUser);
 
   return (
@@ -74,6 +83,13 @@ function Plugin() {
           setLoggedInUser,
         }}
       >
+        {feedbackPage && (
+          <FeedbackPopup
+            show={feedbackPage}
+            setShow={setFeedbackPage}
+            user={currentUser}
+          />
+        )}
         {!token && (
           <Login
             setToken={setToken}
@@ -85,6 +101,7 @@ function Plugin() {
         <Header
           isLoginPageOpen={isLoginPageOpen}
           setIsLoginPageOpen={setIsLoginPageOpen}
+          setFeedbackPage={setFeedbackPage}
         />
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
         {!selectedElement && <EmptyState />}

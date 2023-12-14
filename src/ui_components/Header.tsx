@@ -8,10 +8,15 @@ import {
   IconUser,
   IconSearch,
   IconArrowLeft,
+  IconMessageCheck,
 } from "@tabler/icons-react";
 import HeaderActions from "./HeaderActions";
 
-const Header = ({ isLoginPageOpen, setIsLoginPageOpen }: any) => {
+const Header = ({
+  isLoginPageOpen,
+  setIsLoginPageOpen,
+  setFeedbackPage,
+}: any) => {
   const selectedElement = useContext(BuilderContext)?.selectedElement;
 
   return (
@@ -27,6 +32,14 @@ const Header = ({ isLoginPageOpen, setIsLoginPageOpen }: any) => {
           {isLoginPageOpen ? "Back" : "Components index"}
         </button>
         <div className={"side-flex"}>
+          <button
+            className="header-login"
+            onClick={() => {
+              setFeedbackPage(true);
+            }}
+          >
+            <IconMessageCheck />
+          </button>
           <button
             className="header-login"
             onClick={() => {
