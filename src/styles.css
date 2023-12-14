@@ -1537,6 +1537,11 @@ summary button {
   outline: none;
 }
 
+.cardHeader ._border_1a43f_23{
+  border-radius: 4px !important;
+  border-color: #BFC1C7 !important;
+}
+
 .checkBoxElement {
   display: flex;
   align-items: center;

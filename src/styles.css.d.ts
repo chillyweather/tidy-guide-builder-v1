@@ -1,4 +1,5 @@
 declare const styles: {
+  readonly "_border_1a43f_23": string;
   readonly "addSectionCard": string;
   readonly "addSectionCardInfo": string;
   readonly "addSectionDescription": string;
