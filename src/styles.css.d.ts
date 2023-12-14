@@ -26,6 +26,7 @@ declare const styles: {
   readonly "drag-item": string;
   readonly "empty-image": string;
   readonly "empty-state": string;
+  readonly "flex-btn": string;
   readonly "footer": string;
   readonly "header": string;
   readonly "header-button": string;

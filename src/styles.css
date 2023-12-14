@@ -1297,6 +1297,16 @@ summary button {
   font-weight: 600;
   font-size: calc(var(--text-size) - calc(var(--text-size) / 7));
 }
+.footer .flex-btn{
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+.footer button svg{
+  width: 16px;
+  height: 16px;
+}
 .footer .primary{
   background-color: var(--tidy-primary);
   color: #ffffff;
