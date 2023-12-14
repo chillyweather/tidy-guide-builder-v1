@@ -1435,7 +1435,7 @@ summary button {
   align-self: stretch;
   border-radius: 8px;
   background: #fff;
-  padding: 16px 16px 12px 12px;
+  padding: 16px;
 }
 
 .selected {
@@ -1565,7 +1565,7 @@ summary button {
 }
 
 .textCardBodyContent {
-  width: calc(100% - 40px);
+  width: calc(100% - 16px);
   border: 1px solid #F7F7F7;
   background-color: #F7F7F7;
   /* padding: 16px; */
