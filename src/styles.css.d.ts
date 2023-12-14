@@ -76,6 +76,7 @@ declare const styles: {
   readonly "sectionTitle": string;
   readonly "sections": string;
   readonly "selected": string;
+  readonly "selectedComp": string;
   readonly "selectedComponentGroup": string;
   readonly "selectedPage": string;
   readonly "side-flex": string;
