@@ -1478,6 +1478,11 @@ summary button {
 .sectionTitle:focus {
   border-color: lightgray;
 }
+.sectionTitle::placeholder{
+  font-style: italic;
+  font-weight: 400;
+  color: #B8B8B8;
+}
 
 .cardHeader {
   width: 100%;
