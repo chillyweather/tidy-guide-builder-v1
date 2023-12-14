@@ -460,6 +460,12 @@ li {
   color: #ffffff;
   margin-right: 4px;
 }
+.headerActions button:hover{
+  background-color: var(--tidy-btn-hover);
+}
+.headerActions button:active{
+  background-color: var(--tidy-btn-pressed);
+}
 .headerActions button:last-of-type{
   margin-right: 0;
 }
@@ -467,6 +473,12 @@ li {
   color: var(--tidy-primary);
   box-shadow: 0 0 0 1px var(--tidy-primary) inset;
   background-color: transparent;
+}
+.headerActions .secondary:hover{
+  background-color: #F2F0F6;
+}
+.headerActions .secondary:active{
+  background-color: #ECEBF5;
 }
 
 .empty-image{
