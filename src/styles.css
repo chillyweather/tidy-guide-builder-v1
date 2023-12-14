@@ -1301,6 +1301,9 @@ summary button {
   background-color: var(--tidy-primary);
   color: #ffffff;
 }
+.footer .second{
+  background-color: #F2F0F6;
+}
 
 .leftFooterContent {
   display: flex;

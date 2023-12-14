@@ -8,7 +8,7 @@ const Footer: FunctionComponent = () => {
         <button onClick={() => console.log("to be delete")}>Reset</button>
       </div>
       <div className="rightFooterContent">
-        <button onClick={() => console.log("to be cancel")}>Cancel</button>
+        <button className={"second"} onClick={() => console.log("to be cancel")}>Cancel</button>
         <button className={"primary"} onClick={() => console.log("to be create")}>Create</button>
       </div>
     </div>
