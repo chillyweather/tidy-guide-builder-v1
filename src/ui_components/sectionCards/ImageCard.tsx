@@ -47,9 +47,9 @@ const ImageCard: FunctionComponent<{
           <div className="dropZoneHeader">
             <button
               onClick={async () => {
+                setRemoteImageLink("");
                 const result = await deleteFileFromServer(remoteImageLink);
                 if (result) {
-                  setRemoteImageLink("");
                   setIsImageLoading(false);
                 }
               }}
