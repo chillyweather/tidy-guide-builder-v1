@@ -202,7 +202,8 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 84px;
+  /* padding-top: 84px; */
+  padding-top: 114px;
   min-height: 100vh;
 }
 
@@ -452,7 +453,6 @@ li {
 }
 
 .headerActions {
-  height: 42px;
   padding: 4px 16px;
   padding-bottom: 32px;
   align-items: center;
@@ -519,7 +519,7 @@ li {
 .mainContent {
   width: 100%;
   /* background-color: coral; */
-  height: calc(100vh - 170px);
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   font-size: var(--text-size);
@@ -1289,6 +1289,17 @@ summary button {
   gap: 12px;
   justify-content: space-between;
   padding: 16px 16px 24px 16px;
+}
+.footer button{
+  color: #73678A;
+  padding: 12px 36px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: calc(var(--text-size) - calc(var(--text-size) / 7));
+}
+.footer .primary{
+  background-color: var(--tidy-primary);
+  color: #ffffff;
 }
 
 .leftFooterContent {

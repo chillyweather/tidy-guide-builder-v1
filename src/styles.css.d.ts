@@ -62,6 +62,7 @@ declare const styles: {
   readonly "notFilled": string;
   readonly "oneColumn": string;
   readonly "pagination": string;
+  readonly "primary": string;
   readonly "resources": string;
   readonly "rightContent": string;
   readonly "rightFooterContent": string;

@@ -9,7 +9,7 @@ const Footer: FunctionComponent = () => {
       </div>
       <div className="rightFooterContent">
         <button onClick={() => console.log("to be cancel")}>Cancel</button>
-        <button onClick={() => console.log("to be create")}>Create</button>
+        <button className={"primary"} onClick={() => console.log("to be create")}>Create</button>
       </div>
     </div>
   );
