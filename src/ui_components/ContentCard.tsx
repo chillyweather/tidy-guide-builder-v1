@@ -163,7 +163,7 @@ export const ContentCard = (cardData: any, index: number) => {
         <div className="leftContent">
           <IconGripVertical className={"dragIcon"} />
           <IconMoodPuzzled style={{ color: "burntorange" }} />
-          <input className={"sectionTitle"} type={"text"} value={cardData.title} />
+          <input className={"sectionTitle"} type={"text"} value={cardData.title} placeholder={"Untitled"} />
         </div>
         <div className="rightContent">
           <button className={"cardAuxButton"} onClick={handleOpenSection}>
