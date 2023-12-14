@@ -396,8 +396,14 @@ li {
   align-items: center;
   color: #8a98c1;
 }
-
-.header button svg {
+.drag-item button{
+  min-height: 24px;
+  min-width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button svg {
   width: 16px;
   height: 16px;
 }
