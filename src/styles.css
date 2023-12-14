@@ -1568,7 +1568,7 @@ summary button {
   width: calc(100% - 40px);
   border: 1px solid #F7F7F7;
   background-color: #F7F7F7;
-  padding: 16px;
+  /* padding: 16px; */
   border-radius: 8px;
   margin-top: 24px;
 }
@@ -1589,7 +1589,7 @@ summary button {
   line-height: 130%;
   letter-spacing: 0.12px;
   color: #323232;
-  padding: 0;
+  padding: 16px;
   margin: 0;
   outline: none;
   min-height: 160px;
@@ -1605,6 +1605,8 @@ summary button {
   color: #A6A6A6;
   text-align: right;
   margin-top: 8px;
+  padding: 16px;
+  padding-top: 0;
 }
 
 .cardHeader ._border_1a43f_23 {
