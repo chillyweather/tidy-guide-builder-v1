@@ -444,6 +444,9 @@ li {
   justify-content: flex-end;
   width: 100%;
 }
+.headerContent button{
+  background-color: transparent;
+}
 
 .headerActions {
   height: 42px;
