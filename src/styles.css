@@ -1536,6 +1536,14 @@ summary button {
   padding: 0;
 }
 
+.textCardBodyContent{
+  width: calc(100% - 40px);
+  border: 1px solid #F7F7F7;
+  background-color: #F7F7F7;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 24px;
+}
 .cardTextArea {
   width: 100%;
   border: none;
