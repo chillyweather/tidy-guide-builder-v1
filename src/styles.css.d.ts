@@ -89,6 +89,7 @@ declare const styles: {
   readonly "subtitle": string;
   readonly "text-size": string;
   readonly "textCardBodyContent": string;
+  readonly "textSymbolsCounter": string;
   readonly "tidyLogo": string;
   readonly "title-row": string;
   readonly "title-wrapper": string;
