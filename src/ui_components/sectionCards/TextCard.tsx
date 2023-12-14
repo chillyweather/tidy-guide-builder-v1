@@ -13,7 +13,7 @@ const TextCard = ({
         className="cardTextArea"
         rows={15}
         maxLength={1000}
-        placeholder="Type here..."
+        placeholder="Enter text..."
         value={textContent}
         onInput={(e) => setTextContent(e.currentTarget.value)}
       />
