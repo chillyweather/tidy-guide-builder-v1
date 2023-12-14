@@ -165,7 +165,7 @@ export const ContentCard = (cardData: any, index: number) => {
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
       <div className="cardHeader">
         <div className="leftContent">
-          <IconGripVertical style={{ cursor: "grab" }} />
+          <IconGripVertical className={"dragIcon"} />
           <IconMoodPuzzled style={{ color: "burntorange" }} />
           <input
             className={"sectionTitle"}

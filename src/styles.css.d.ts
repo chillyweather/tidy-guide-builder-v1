@@ -1,4 +1,5 @@
 declare const styles: {
+  readonly "_border_1a43f_23": string;
   readonly "addSectionCard": string;
   readonly "addSectionCardInfo": string;
   readonly "addSectionDescription": string;
@@ -24,9 +25,11 @@ declare const styles: {
   readonly "disabled": string;
   readonly "draft": string;
   readonly "drag-item": string;
+  readonly "dragIcon": string;
   readonly "dropZoneHeader": string;
   readonly "empty-image": string;
   readonly "empty-state": string;
+  readonly "flex-btn": string;
   readonly "footer": string;
   readonly "header": string;
   readonly "header-button": string;
@@ -34,6 +37,7 @@ declare const styles: {
   readonly "header-menu": string;
   readonly "header-title": string;
   readonly "headerActions": string;
+  readonly "headerCard": string;
   readonly "headerContent": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;
@@ -63,6 +67,7 @@ declare const styles: {
   readonly "notFilled": string;
   readonly "oneColumn": string;
   readonly "pagination": string;
+  readonly "primary": string;
   readonly "resources": string;
   readonly "rightContent": string;
   readonly "rightFooterContent": string;
@@ -72,6 +77,7 @@ declare const styles: {
   readonly "search-icons": string;
   readonly "searchInput": string;
   readonly "searchMenu": string;
+  readonly "second": string;
   readonly "secondary": string;
   readonly "section": string;
   readonly "sectionCard": string;
@@ -79,6 +85,7 @@ declare const styles: {
   readonly "sectionTitle": string;
   readonly "sections": string;
   readonly "selected": string;
+  readonly "selectedComp": string;
   readonly "selectedComponentGroup": string;
   readonly "selectedPage": string;
   readonly "side-flex": string;

@@ -53,7 +53,7 @@ function HeaderActions() {
   return (
     <div class={"headerContent headerActions"}>
       <div className={"selectedComponentGroup"}>
-        <p style={{ color: "#9747FF", padding: 0, margin: 0 }}>
+        <p className={"selectedComp"}>
           {selectedElementName}
         </p>
         <IconX
@@ -64,7 +64,7 @@ function HeaderActions() {
           }}
         />
       </div>
-      <div className={"selectedComponentGroup"}>
+      <div className={"selectedComponentActions"}>
         <button
           onClick={() => {
             console.log("we are here");

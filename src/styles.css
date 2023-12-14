@@ -202,7 +202,8 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 84px;
+  /* padding-top: 84px; */
+  padding-top: 114px;
   min-height: 100vh;
 }
 
@@ -446,40 +447,47 @@ li {
   justify-content: flex-end;
   width: 100%;
 }
-.headerContent button{
+
+.headerContent button {
   background-color: transparent;
 }
 
 .headerActions {
-  height: 42px;
   padding: 4px 16px;
   padding-bottom: 32px;
   align-items: center;
   justify-content: space-between;
 }
-.headerActions button{
+
+.headerActions button {
   background-color: var(--tidy-primary);
   color: #ffffff;
-  margin-right: 4px;
+  margin-right: 8px;
 }
-.headerActions button:hover{
+
+.headerActions button:hover {
   background-color: var(--tidy-btn-hover);
 }
-.headerActions button:active{
+
+.headerActions button:active {
   background-color: var(--tidy-btn-pressed);
 }
-.headerActions button:last-of-type{
+
+.headerActions button:last-of-type {
   margin-right: 0;
 }
-.headerActions .secondary{
+
+.headerActions .secondary {
   color: var(--tidy-primary);
   box-shadow: 0 0 0 1px var(--tidy-primary) inset;
   background-color: transparent;
 }
-.headerActions .secondary:hover{
+
+.headerActions .secondary:hover {
   background-color: #F2F0F6;
 }
-.headerActions .secondary:active{
+
+.headerActions .secondary:active {
   background-color: #ECEBF5;
 }
 
@@ -511,7 +519,7 @@ li {
 .mainContent {
   width: 100%;
   /* background-color: coral; */
-  height: calc(100vh - 170px);
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   font-size: var(--text-size);
@@ -1282,6 +1290,42 @@ summary button {
   justify-content: space-between;
   padding: 16px 16px 24px 16px;
 }
+.footer button{
+  color: #73678A;
+  padding: 12px 36px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: calc(var(--text-size) - calc(var(--text-size) / 7));
+}
+.footer .flex-btn{
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+.footer button svg{
+  width: 16px;
+  height: 16px;
+}
+.footer .primary{
+  background-color: var(--tidy-primary);
+  color: #ffffff;
+}
+.footer .primary:hover{
+  background-color: var(--tidy-btn-hover);
+}
+.footer .primary:active{
+  background-color: var(--tidy-btn-pressed);
+}
+.footer .second{
+  background-color: #F2F0F6;
+}
+.footer .second:hover{
+  background-color: #ECE9F2;
+}
+.footer .second:active{
+  background-color: #E3DFEC;
+}
 
 .leftFooterContent {
   display: flex;
@@ -1303,7 +1347,7 @@ summary button {
   right: 6;
   width: 60vw;
   max-height: 76%;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: #ffffff;
   z-index: 9999;
   display: flex;
   flex-direction: column;
@@ -1325,7 +1369,11 @@ summary button {
   gap: 6px;
   align-self: stretch;
   border-radius: 8px;
+  cursor: pointer;
   border: 1px solid #e8e8f7;
+}
+.addSectionCard *{
+  pointer-events: none;
 }
 
 .addSectionCardInfo {
@@ -1384,10 +1432,21 @@ summary button {
   background-color: lightcoral;
 }
 
+.selectedComp {
+  color: #9747FF;
+  padding: 0;
+  margin: 0;
+}
+
 .selectedComponentGroup {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.selectedComp::before {
+  content: '❖';
+  margin-right: 8px;
 }
 
 /* section card top content */
@@ -1402,6 +1461,8 @@ summary button {
   letter-spacing: -0.24px;
   text-transform: capitalize;
   border-color: transparent;
+  font-weight: 500;
+  font-size: calc(var(--text-size) + calc(var(--text-size) / 7));
 }
 
 .sectionTitle:focus {
@@ -1415,7 +1476,17 @@ summary button {
   justify-content: space-between;
   align-items: center;
 }
-
+.cardHeader svg{
+  height: 16px;
+  width: 16px;
+}
+#headerCard .sectionTitle{
+  margin-left: 20px;
+}
+.dragIcon{
+  cursor: grab;
+  color: #ADAEB0;
+}
 .cardBody {
   width: 100%;
   height: 100%;
@@ -1430,6 +1501,18 @@ summary button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #EDEDED;
+}
+.cardFooter svg{
+  width: 16px;
+  height: 16px;
+  color: var(--tidy-text);
+}
+.cardFooter .rightContent{
+  gap: 12px;
 }
 
 .leftContent {
@@ -1468,6 +1551,11 @@ summary button {
   padding: 0;
   margin: 0;
   outline: none;
+}
+
+.cardHeader ._border_1a43f_23{
+  border-radius: 4px !important;
+  border-color: #BFC1C7 !important;
 }
 
 .checkBoxElement {
