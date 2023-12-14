@@ -1393,7 +1393,7 @@ summary button {
 }
 
 .selectedComp {
-  color: var(--tidy-primary);
+  color: #9747FF;
   padding: 0;
   margin: 0;
 }
