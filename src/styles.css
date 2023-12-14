@@ -1585,6 +1585,14 @@ summary button {
   pointer-events: all;
 }
 
+.dropZoneHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
 .loader {
   height: 240px;
   width: 240px;

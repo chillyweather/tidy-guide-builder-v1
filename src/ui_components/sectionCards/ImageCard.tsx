@@ -2,6 +2,8 @@ import { h, JSX, FunctionComponent } from "preact";
 import { textBoxElement } from "../textBoxElement";
 import { DropZone } from "../DropZone";
 import { useEffect, useState } from "preact/hooks";
+import { IconX } from "@tabler/icons-react";
+import { deleteFileFromServer } from "../ui_functions/fileManagementFunctions";
 
 const ImageCard: FunctionComponent<{
   remoteImageLink: string;
@@ -42,6 +44,19 @@ const ImageCard: FunctionComponent<{
             width: "100%",
           }}
         >
+          <div className="dropZoneHeader">
+            <button
+              onClick={async () => {
+                const result = await deleteFileFromServer(remoteImageLink);
+                if (result) {
+                  setRemoteImageLink("");
+                  setIsImageLoading(false);
+                }
+              }}
+            >
+              <IconX size={16} />
+            </button>
+          </div>
           <img style={{ width: "80%" }} src={remoteImageLink} />
           {textBoxElement(remoteImageLink, setRemoteImageLink, "Link")}
         </div>
@@ -49,7 +64,7 @@ const ImageCard: FunctionComponent<{
     }
   }
 
-  return <div>{setContent()}</div>;
+  return <div style={{ width: "100%" }}>{setContent()}</div>;
 };
 
 export default ImageCard;

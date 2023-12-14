@@ -24,6 +24,7 @@ declare const styles: {
   readonly "disabled": string;
   readonly "draft": string;
   readonly "drag-item": string;
+  readonly "dropZoneHeader": string;
   readonly "empty-image": string;
   readonly "empty-state": string;
   readonly "footer": string;
