@@ -402,6 +402,7 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 4px;
 }
 button svg {
   width: 16px;
@@ -1563,10 +1564,10 @@ summary button {
   padding: 4px;
   border-radius: 4px;
 }
-.cardAuxButton:hover{
+.cardAuxButton:hover, .drag-item button:hover{
   background-color: #F5F5F5;
 }
-.cardAuxButton:active{
+.cardAuxButton:active, .drag-item button:active{
   background-color: #ECEBF5;
 }
 
