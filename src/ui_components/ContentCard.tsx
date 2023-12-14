@@ -22,11 +22,11 @@ import HeaderCard from "./sectionCards/HeaderCard";
 import ImageCard from "./sectionCards/ImageCard";
 import LinkCard from "./sectionCards/LinkCard";
 import ListCard from "./sectionCards/ListCard";
-// import PropertyCard from "./sectionCards/PropertyCard";
-// import ReleaseNotesCard from "./sectionCards/ReleaseNotesCard";
+import PropertyCard from "./sectionCards/PropertyCard";
+import ReleaseNotesCard from "./sectionCards/ReleaseNotesCard";
 import TextCard from "./sectionCards/TextCard";
 import TwoColumnCard from "./sectionCards/TwoColumnCard";
-// import VariantsCard from "./sectionCards/VariantsCard";
+import VariantsCard from "./sectionCards/VariantsCard";
 import VideoCard from "./sectionCards/VideoCard";
 
 export const ContentCard = (cardData: any, index: number) => {
@@ -66,15 +66,13 @@ export const ContentCard = (cardData: any, index: number) => {
   const currentCardContent = (cardType: string) => {
     if (cardType === "header") {
       return <HeaderCard data={cardData} />;
-    }
-    // else if (cardType === "property") {
-    //   return <PropertyCard data={cardData} isSelected={isSelected} />;
-    // } else if (cardType === "variants") {
-    //   return <VariantsCard data={cardData} isSelected={isSelected} />;
-    // } else if (cardType === "release-notes") {
-    //   return <ReleaseNotesCard data={cardData} isSelected={isSelected} />;
-    // }
-    else if (cardType === "text") {
+    } else if (cardType === "property") {
+      return <PropertyCard />;
+    } else if (cardType === "variants") {
+      return <VariantsCard />;
+    } else if (cardType === "release-notes") {
+      return <ReleaseNotesCard />;
+    } else if (cardType === "text") {
       return (
         <TextCard
           textContent={paragraphTextContent}
@@ -169,7 +167,11 @@ export const ContentCard = (cardData: any, index: number) => {
         <div className="leftContent">
           <IconGripVertical style={{ cursor: "grab" }} />
           <IconMoodPuzzled style={{ color: "burntorange" }} />
-          <input className={"sectionTitle"} type={"text"} value={cardData.title} />
+          <input
+            className={"sectionTitle"}
+            type={"text"}
+            value={cardData.title}
+          />
         </div>
         <div className="rightContent">
           <button className={"cardAuxButton"} onClick={handleOpenSection}>
