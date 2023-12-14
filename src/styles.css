@@ -1497,6 +1497,18 @@ summary button {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #EDEDED;
+}
+.cardFooter svg{
+  width: 16px;
+  height: 16px;
+  color: var(--tidy-text);
+}
+.cardFooter .rightContent{
+  gap: 12px;
 }
 
 .leftContent {
