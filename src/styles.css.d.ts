@@ -69,6 +69,7 @@ declare const styles: {
   readonly "search-icons": string;
   readonly "searchInput": string;
   readonly "searchMenu": string;
+  readonly "secondary": string;
   readonly "section": string;
   readonly "sectionCard": string;
   readonly "sectionHeader": string;

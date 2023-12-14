@@ -455,6 +455,19 @@ li {
   align-items: center;
   justify-content: space-between;
 }
+.headerActions button{
+  background-color: var(--tidy-primary);
+  color: #ffffff;
+  margin-right: 4px;
+}
+.headerActions button:last-of-type{
+  margin-right: 0;
+}
+.headerActions .secondary{
+  color: var(--tidy-primary);
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset;
+  background-color: transparent;
+}
 
 .empty-image{
   width: 20vw;
