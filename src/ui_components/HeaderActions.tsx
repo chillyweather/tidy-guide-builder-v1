@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState, useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
-import { IconX, IconMoodPuzzled } from "@tabler/icons-react";
+import { IconX, IconMoodPuzzled, IconPlayerPlayFilled, IconPlus } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
 import sectionData from "src/resources/sectionData";
 import { generateUniqueId } from "./ui_functions/generateUniqueId";
@@ -71,9 +71,9 @@ function HeaderActions() {
             setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
           }}
         >
-          Add component
+          <IconPlus />
         </button>
-        <button>Preview</button>
+        <button className={"secondary"}><IconPlayerPlayFilled /></button>
       </div>
       {isAddSectionPopupOpen &&
         AddSectionPopup(cardsForPopup, AddSectionPopupCard)}
