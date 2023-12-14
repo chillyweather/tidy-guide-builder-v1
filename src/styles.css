@@ -1591,6 +1591,10 @@ summary button {
   height: fit-content;
   max-height: 500px;
 }
+.cardTextArea::placeholder{
+  font-style: italic;
+  color: #8E8F94;
+}
 
 .textSymbolsCounter {
   color: #A6A6A6;
