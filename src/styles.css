@@ -448,6 +448,7 @@ li {
 .headerActions {
   height: 42px;
   padding: 4px 16px;
+  padding-bottom: 32px;
   align-items: center;
   justify-content: space-between;
 }
@@ -476,7 +477,7 @@ li {
 
 .mainContent {
   width: 100%;
-  background-color: coral;
+  /* background-color: coral; */
   height: calc(100vh - 170px);
   display: flex;
   flex-direction: column;
