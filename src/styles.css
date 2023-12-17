@@ -1498,7 +1498,7 @@ summary button {
 }
 
 .cardHeader {
-  width: 96%;
+  width: 99%;
   /* min-height: 54px; */
   background-color: white;
   display: flex;
@@ -1520,6 +1520,7 @@ summary button {
 #headerCard{
   min-height: 54px;
   margin-bottom: 8px;
+  width: 96%;
 }
 #headerCard label{
   margin-right: 32px;
