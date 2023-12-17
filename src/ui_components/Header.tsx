@@ -9,6 +9,7 @@ import {
   IconSearch,
   IconArrowLeft,
   IconMessageCheck,
+  IconListTree,
 } from "@tabler/icons-react";
 import HeaderActions from "./HeaderActions";
 
@@ -22,6 +23,11 @@ const Header = ({
   return (
     <div className="header">
       <div className="headerContent">
+        <button onClick={() => console.log("index!!!!")}>
+          <IconListTree />
+          Components index
+        </button>
+
         <button
           className="header-button"
           onClick={() => {
@@ -29,7 +35,7 @@ const Header = ({
           }}
         >
           <IconArrowLeft />
-          {isLoginPageOpen ? "Back" : "Components index"}
+          Back
         </button>
         <div className={"side-flex"}>
           <button
