@@ -24,7 +24,7 @@ const Header = ({
     <div className="header">
       <div className="headerContent">
         {!isLoginPageOpen && (
-          <button onClick={() => console.log("index!!!!")}>
+          <button className="flex-button" onClick={() => console.log("index!!!!")}>
             <IconListTree />
             Components index
           </button>
