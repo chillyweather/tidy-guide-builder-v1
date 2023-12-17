@@ -171,6 +171,7 @@ export const ContentCard = (cardData: any, index: number) => {
             className={"sectionTitle"}
             type={"text"}
             value={cardData.title}
+            placeholder={"Untitled"}
           />
         </div>
         <div className="rightContent">

@@ -398,7 +398,16 @@ li {
   color: #8a98c1;
 }
 
-.header button svg {
+.drag-item button {
+  min-height: 24px;
+  min-width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+button svg {
   width: 16px;
   height: 16px;
 }
@@ -1438,7 +1447,7 @@ summary button {
   align-self: stretch;
   border-radius: 8px;
   background: #fff;
-  padding: 16px 16px 12px 12px;
+  padding: 16px;
 }
 
 .selected {
@@ -1482,6 +1491,12 @@ summary button {
   border-color: lightgray;
 }
 
+.sectionTitle::placeholder {
+  font-style: italic;
+  font-weight: 400;
+  color: #B8B8B8;
+}
+
 .cardHeader {
   width: 96%;
   min-height: 54px;
@@ -1515,6 +1530,7 @@ summary button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 24px;
 }
 
 .cardFooter {
@@ -1561,21 +1577,22 @@ summary button {
   border-radius: 4px;
 }
 
-.cardAuxButton:hover {
+.cardAuxButton:hover,
+.drag-item button:hover {
   background-color: #F5F5F5;
 }
 
-.cardAuxButton:active {
+.cardAuxButton:active,
+.drag-item button:active {
   background-color: #ECEBF5;
 }
 
 .textCardBodyContent {
-  width: calc(100% - 40px);
+  width: calc(100% - 16px);
   border: 1px solid #F7F7F7;
   background-color: #F7F7F7;
-  padding: 16px;
+  /* padding: 16px; */
   border-radius: 8px;
-  margin-top: 24px;
 }
 
 .textCardBodyContent:focus-within {
@@ -1594,7 +1611,7 @@ summary button {
   line-height: 130%;
   letter-spacing: 0.12px;
   color: #323232;
-  padding: 0;
+  padding: 16px;
   margin: 0;
   outline: none;
   min-height: 160px;
@@ -1611,6 +1628,8 @@ summary button {
   color: #A6A6A6;
   text-align: right;
   margin-top: 8px;
+  padding: 16px;
+  padding-top: 0;
 }
 
 .cardHeader ._border_1a43f_23 {
