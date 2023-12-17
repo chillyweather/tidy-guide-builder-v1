@@ -2,6 +2,7 @@
 node_modules
 /build
 build
+/src/token.ts
 /src/envConfig.ts
 .DS_Store
 build/main.js
