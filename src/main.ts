@@ -23,8 +23,9 @@ export default async function () {
 
   emit("SESSION", sessionData);
 
-  const currentSelection = checkSelection();
-  if (currentSelection) emit("SELECTION", currentSelection);
+  const selectionData = checkSelection();
+  console.log("selectionData1", selectionData);
+  if (selectionData) emit("SELECTION", selectionData);
 
   once("SAVE_NEW_TOKEN", (token) => {
     tokenHandler(token);

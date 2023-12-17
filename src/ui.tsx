@@ -38,6 +38,7 @@ function Plugin() {
 
   //selected element
   const [selectedElement, setSelectedElement] = useState<any>(null);
+  const [selectedElementKey, setSelectedElementKey] = useState<any>("");
   const [selectedElementName, setSelectedElementName] = useState("");
   const [selectedCard, setSelectedCard] = useState<any>("");
 
@@ -51,8 +52,6 @@ function Plugin() {
   const [showCancelPopup, setShowCancelPopup] = useState(false);
   const [showResetPopup, setShowResetPopup] = useState(false);
 
-  console.log("selectedSections :>> ", selectedSections);
-
   //page states
   const [isLoginPageOpen, setIsLoginPageOpen] = useState(false);
 
@@ -62,9 +61,10 @@ function Plugin() {
     }
   });
 
-  on("SELECTION", ({ defaultNode, name }) => {
+  on("SELECTION", ({ defaultNode, name, key }) => {
     setSelectedElement(defaultNode);
     setSelectedElementName(name);
+    setSelectedElementKey(key);
   });
 
   on("USER_EMAIL", (email) => {
@@ -76,8 +76,6 @@ function Plugin() {
     setCurrentDocument(document);
     setCurrentPage(page);
   });
-
-  console.log("loggedInUser", loggedInUser);
 
   return (
     <div className={"container"}>

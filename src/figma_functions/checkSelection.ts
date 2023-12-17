@@ -18,11 +18,13 @@ export function checkSelection() {
       figma.notify("Please select an instance, component or component set");
       return;
     }
+
     const defaultNode = getDefaultElement(node);
     if (!defaultNode) {
       figma.notify("Please select an instance, component or component set");
       return;
     }
+
     const name =
       defaultNode &&
       defaultNode.parent &&
@@ -30,6 +32,13 @@ export function checkSelection() {
         ? defaultNode.parent.name
         : defaultNode.name;
 
-    return { defaultNode, name };
+    const key =
+      defaultNode &&
+      defaultNode.parent &&
+      defaultNode.parent.type === "COMPONENT_SET"
+        ? defaultNode.parent.key
+        : defaultNode.key;
+
+    return { defaultNode, name, key };
   }
 }
