@@ -56,8 +56,9 @@ export const ContentCard = (cardData: any, index: number) => {
   //release notes card data
   const [releaseNotesComment, setReleaseNotesComment] = useState("");
   const [releaseNotesDate, setReleaseNotesDate] = useState("");
-  const [releaseNotesAuthor, setReleaseNotesAuthor] = useState("");
-  const [releaseNotesLocation, setReleaseNotesLocation] = useState("");
+  const currentAuthor = useContext(BuilderContext)?.currentUser.name;
+  const currentPage = useContext(BuilderContext)?.currentPage;
+  const currentDocument = useContext(BuilderContext)?.currentDocument;
 
   //tooltip
   const [showTooltip, setShowTooltip] = useState(false);
@@ -82,9 +83,8 @@ export const ContentCard = (cardData: any, index: number) => {
       return (
         <ReleaseNotesCard
           setReleaseNotesComment={setReleaseNotesComment}
-          setReleaseNotesAuthor={setReleaseNotesAuthor}
+          releaseNotesComment={releaseNotesComment}
           setReleaseNotesDate={setReleaseNotesDate}
-          setReleaseNotesLocation={setReleaseNotesLocation}
         />
       );
     } else if (cardType === "text") {

@@ -1,19 +1,14 @@
 import { h } from "preact";
-import { useContext } from "preact/hooks";
-import BuilderContext from "src/BuilderContext";
 
 const ReleaseNotesCard = ({
   setReleaseNotesComment,
+  releaseNotesComment,
   setReleaseNotesDate,
-  setReleaseNotesAuthor,
-  setReleaseNotesLocation,
 }: {
   setReleaseNotesComment: Function;
+  releaseNotesComment: string;
   setReleaseNotesDate: Function;
-  setReleaseNotesAuthor: Function;
-  setReleaseNotesLocation: Function;
 }) => {
-  const currentUserName = useContext(BuilderContext)?.currentUser.name;
   const currentDate = new Date().toISOString().slice(0, 10);
   const currentTime = new Date().toLocaleTimeString("en-US", {
     hour12: false,
@@ -21,14 +16,20 @@ const ReleaseNotesCard = ({
     minute: "numeric",
   });
   const currentDateTime = `${currentDate} ${currentTime}`;
-  console.log("currentDateTime", currentDateTime);
-  console.log("currentUserName", currentUserName);
+  setReleaseNotesDate(currentDateTime);
+
   return (
     <div className="textCardBodyContent">
-      <h2 style={{ padding: "20px 20px 6px 20px" }}>
-        We have opinions about this' card content.
-      </h2>
-      <h2 style={{ padding: "6px 20px 20px 20px" }}>But we need a decision!</h2>
+      <input
+        className={"listInputStyle"}
+        type={"text"}
+        rows={2}
+        maxLength={240}
+        placeholder="Description (optional)"
+        value={releaseNotesComment}
+        onInput={(e) => setReleaseNotesComment(e.currentTarget.value)}
+      />
+      <div className="textSymbolsCounterRow"></div>
     </div>
   );
 };

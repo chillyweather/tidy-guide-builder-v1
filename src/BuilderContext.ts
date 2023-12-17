@@ -12,6 +12,10 @@ interface IContext {
   setLoggedInUser: any;
   currentUser: any;
   setCurrentUser: any;
+  currentDocument: string;
+  setCurrentDocument: any;
+  currentPage: string;
+  setCurrentPage: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

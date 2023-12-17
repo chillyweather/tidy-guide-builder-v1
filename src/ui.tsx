@@ -25,8 +25,11 @@ function Plugin() {
   //saved token
   const [token, setToken] = useState("");
   const [isLoginFailed, setIsLoginFailed] = useState(false);
-  //current user
+  //current session user data
   const [currentUser, setCurrentUser] = useState("");
+  const [currentDocument, setCurrentDocument] = useState("");
+  const [currentPage, setCurrentPage] = useState("");
+
   //logged in user data
   const [loggedInUser, setLoggedInUser] = useState("");
 
@@ -68,8 +71,10 @@ function Plugin() {
     setLoggedInUser(email);
   });
 
-  on("USER", (data) => {
-    setCurrentUser(data);
+  on("SESSION", ({ user, document, page }) => {
+    setCurrentUser(user);
+    setCurrentDocument(document);
+    setCurrentPage(page);
   });
 
   console.log("loggedInUser", loggedInUser);
@@ -89,6 +94,10 @@ function Plugin() {
           setLoggedInUser,
           currentUser,
           setCurrentUser,
+          currentDocument,
+          setCurrentDocument,
+          currentPage,
+          setCurrentPage,
         }}
       >
         {feedbackPage && (
