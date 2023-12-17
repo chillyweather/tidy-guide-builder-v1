@@ -23,10 +23,12 @@ const Header = ({
   return (
     <div className="header">
       <div className="headerContent">
-        <button onClick={() => console.log("index!!!!")}>
-          <IconListTree />
-          Components index
-        </button>
+        {!isLoginPageOpen && (
+          <button onClick={() => console.log("index!!!!")}>
+            <IconListTree />
+            Components index
+          </button>
+        )}
 
         <button
           className="header-button"
