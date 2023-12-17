@@ -17,7 +17,7 @@ function CancelPopup({ show, setShow }: { show: boolean; setShow: any }) {
               console.log("cancel");
             }}
           >
-            Don't save
+            Cancel
           </button>
           <button
             className={"button"}

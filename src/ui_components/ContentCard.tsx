@@ -53,6 +53,11 @@ export const ContentCard = (cardData: any, index: number) => {
   const [videoDataElements, setVideoDataElements]: any[] = useState([]);
   //image card data
   const [remoteImageLink, setRemoteImageLink] = useState("");
+  //release notes card data
+  const [releaseNotesComment, setReleaseNotesComment] = useState("");
+  const [releaseNotesDate, setReleaseNotesDate] = useState("");
+  const [releaseNotesAuthor, setReleaseNotesAuthor] = useState("");
+  const [releaseNotesLocation, setReleaseNotesLocation] = useState("");
 
   //tooltip
   const [showTooltip, setShowTooltip] = useState(false);
@@ -74,7 +79,14 @@ export const ContentCard = (cardData: any, index: number) => {
     } else if (cardType === "variants") {
       return <VariantsCard />;
     } else if (cardType === "release-notes") {
-      return <ReleaseNotesCard />;
+      return (
+        <ReleaseNotesCard
+          setReleaseNotesComment={setReleaseNotesComment}
+          setReleaseNotesAuthor={setReleaseNotesAuthor}
+          setReleaseNotesDate={setReleaseNotesDate}
+          setReleaseNotesLocation={setReleaseNotesLocation}
+        />
+      );
     } else if (cardType === "text") {
       return (
         <TextCard
