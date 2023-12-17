@@ -90,6 +90,7 @@ declare const styles: {
   readonly "selectedComp": string;
   readonly "selectedComponentGroup": string;
   readonly "selectedPage": string;
+  readonly "show": string;
   readonly "side-flex": string;
   readonly "subtitle": string;
   readonly "text-size": string;
@@ -98,6 +99,8 @@ declare const styles: {
   readonly "tidyLogo": string;
   readonly "title-row": string;
   readonly "title-wrapper": string;
+  readonly "tooltip": string;
+  readonly "tooltiptext": string;
   readonly "top": string;
   readonly "two-columns": string;
   readonly "twoColumnCardBodyContent": string;

@@ -54,6 +54,9 @@ export const ContentCard = (cardData: any, index: number) => {
   //image card data
   const [remoteImageLink, setRemoteImageLink] = useState("");
 
+  //tooltip
+  const [showTooltip, setShowTooltip] = useState(false);
+
   //! from context
   const selectedCard = useContext(BuilderContext)?.selectedCard;
   const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
@@ -175,6 +178,14 @@ export const ContentCard = (cardData: any, index: number) => {
           />
         </div>
         <div className="rightContent">
+          {!isSelected && (
+            <button
+              className={"cardAuxButton"}
+              onClick={handleDuplicateSection}
+            >
+              <IconCopy />
+            </button>
+          )}
           <button className={"cardAuxButton"} onClick={handleOpenSection}>
             <IconChevronDown />
           </button>
@@ -202,9 +213,20 @@ export const ContentCard = (cardData: any, index: number) => {
               >
                 <IconCopy />
               </button>
-              <button className={"cardAuxButton"} onClick={handleDeleteSection}>
-                <IconTrash />
-              </button>
+
+              <div className="tooltip">
+                <button
+                  className="cardAuxButton"
+                  onClick={() => setShowTooltip(true)}
+                  onDblClick={handleDeleteSection}
+                  onMouseLeave={() => setShowTooltip(false)}
+                >
+                  <IconTrash />
+                </button>
+                <span className={`tooltiptext ${showTooltip ? "show" : ""}`}>
+                  Double click to delete section
+                </span>
+              </div>
             </div>
           </div>
         </div>
