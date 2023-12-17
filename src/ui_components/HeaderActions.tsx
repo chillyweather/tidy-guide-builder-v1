@@ -1,12 +1,17 @@
 import { h } from "preact";
 import { useState, useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
-import { IconX, IconMoodPuzzled, IconPlayerPlayFilled, IconPlus } from "@tabler/icons-react";
+import {
+  IconX,
+  IconMoodPuzzled,
+  IconPlayerPlayFilled,
+  IconPlus,
+} from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
 import sectionData from "src/resources/sectionData";
 import { generateUniqueId } from "./ui_functions/generateUniqueId";
 
-const cardsForPopup = sectionData.slice(1);
+const cardsForPopup = sectionData;
 
 function AddSectionPopupCard(card: any) {
   const selectedSections = useContext(BuilderContext)?.selectedSections;
@@ -53,9 +58,7 @@ function HeaderActions() {
   return (
     <div class={"headerContent headerActions"}>
       <div className={"selectedComponentGroup"}>
-        <p className={"selectedComp"}>
-          {selectedElementName}
-        </p>
+        <p className={"selectedComp"}>{selectedElementName}</p>
         <IconX
           style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
           onClick={() => {
@@ -73,7 +76,9 @@ function HeaderActions() {
         >
           <IconPlus />
         </button>
-        <button className={"secondary"}><IconPlayerPlayFilled /></button>
+        <button className={"secondary"}>
+          <IconPlayerPlayFilled />
+        </button>
       </div>
       {isAddSectionPopupOpen &&
         AddSectionPopup(cardsForPopup, AddSectionPopupCard)}

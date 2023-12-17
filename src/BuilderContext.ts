@@ -10,6 +10,8 @@ interface IContext {
   setSelectedCard: any;
   loggedInUser: string;
   setLoggedInUser: any;
+  currentUser: any;
+  setCurrentUser: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

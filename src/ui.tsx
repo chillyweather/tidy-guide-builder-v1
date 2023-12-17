@@ -87,6 +87,8 @@ function Plugin() {
           setSelectedCard,
           loggedInUser,
           setLoggedInUser,
+          currentUser,
+          setCurrentUser,
         }}
       >
         {feedbackPage && (
