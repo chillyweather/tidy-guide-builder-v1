@@ -198,6 +198,7 @@ export const ContentCard = (cardData: any, index: number) => {
               <IconCopy />
             </button>
           )}
+          {!isSelected && DeleteButtonWithTooltip()}
           <button className={"cardAuxButton"} onClick={handleOpenSection}>
             <IconChevronDown />
           </button>
@@ -225,24 +226,29 @@ export const ContentCard = (cardData: any, index: number) => {
               >
                 <IconCopy />
               </button>
-
-              <div className="tooltip">
-                <button
-                  className="cardAuxButton"
-                  onClick={() => setShowTooltip(true)}
-                  onDblClick={handleDeleteSection}
-                  onMouseLeave={() => setShowTooltip(false)}
-                >
-                  <IconTrash />
-                </button>
-                <span className={`tooltiptext ${showTooltip ? "show" : ""}`}>
-                  Double click to delete section
-                </span>
-              </div>
+              {DeleteButtonWithTooltip()}
             </div>
           </div>
         </div>
       )}
     </div>
   );
+
+  function DeleteButtonWithTooltip() {
+    return (
+      <div className="tooltip">
+        <button
+          className="cardAuxButton"
+          onClick={() => setShowTooltip(true)}
+          onDblClick={handleDeleteSection}
+          onMouseLeave={() => setShowTooltip(false)}
+        >
+          <IconTrash />
+        </button>
+        <span className={`tooltiptext ${showTooltip ? "show" : ""}`}>
+          Double click to delete section
+        </span>
+      </div>
+    );
+  }
 };
