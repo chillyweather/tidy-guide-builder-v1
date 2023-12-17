@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
-import { sendFeedback } from "./ui_functions/sendFeedback";
+import { sendFeedback } from "../ui_functions/sendFeedback";
 
 function FeedbackPopup({
   show,

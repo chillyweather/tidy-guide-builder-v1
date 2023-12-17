@@ -1828,6 +1828,14 @@ summary button {
   align-items: center;
 }
 
+.popupButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
 .loader {
   height: 240px;
   width: 240px;

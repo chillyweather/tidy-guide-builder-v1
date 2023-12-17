@@ -5,7 +5,9 @@ import { emit, on, once } from "@create-figma-plugin/utilities";
 import { h, JSX } from "preact";
 import { useEffect, useState, useContext } from "preact/hooks";
 import BuilderContext from "./BuilderContext";
-import FeedbackPopup from "./ui_components/feedbackPopup";
+import FeedbackPopup from "./ui_components/popups/feedbackPopup";
+import CancelPopup from "./ui_components/popups/cancelPopup";
+import ResetPopup from "./ui_components/popups/resetPopup";
 //dependencies
 
 //new components
@@ -41,6 +43,10 @@ function Plugin() {
 
   //feedback
   const [feedbackPage, setFeedbackPage] = useState(false);
+
+  //popups
+  const [showCancelPopup, setShowCancelPopup] = useState(false);
+  const [showResetPopup, setShowResetPopup] = useState(false);
 
   console.log("selectedSections :>> ", selectedSections);
 
@@ -90,6 +96,12 @@ function Plugin() {
             user={currentUser}
           />
         )}
+        {showCancelPopup && (
+          <CancelPopup show={showCancelPopup} setShow={setShowCancelPopup} />
+        )}
+        {showResetPopup && (
+          <ResetPopup show={showResetPopup} setShow={setShowResetPopup} />
+        )}
         {!token && (
           <Login
             setToken={setToken}
@@ -106,7 +118,12 @@ function Plugin() {
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
         {!selectedElement && <EmptyState />}
         {selectedElement && !isLoginPageOpen && <MainContent />}
-        {selectedElement && !isLoginPageOpen && <Footer />}
+        {selectedElement && !isLoginPageOpen && (
+          <Footer
+            setShowCancelPopup={setShowCancelPopup}
+            setShowResetPopup={setShowResetPopup}
+          />
+        )}
       </BuilderContext.Provider>
     </div>
   );
