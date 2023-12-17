@@ -1,6 +1,7 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
 import { sendFeedback } from "../ui_functions/sendFeedback";
+import { IconX } from "@tabler/icons-react";
 
 function FeedbackPopup({
   show,
@@ -21,6 +22,9 @@ function FeedbackPopup({
   return (
     <div className={"feedbackPopupBackground"} onClick={() => setShow(false)}>
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
+        <button className={"closePopupButton"} onClick={() => setShow(false)}>
+          <IconX />
+        </button>
         <h2 className={"dialogTitle"}>Feedback</h2>
         <label className={"dialogLabel"}>
           Add a title:

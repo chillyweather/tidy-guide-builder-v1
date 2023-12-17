@@ -24,7 +24,9 @@ import "!./styles.css";
 function Plugin() {
   //saved token
   const [token, setToken] = useState("");
+
   const [isLoginFailed, setIsLoginFailed] = useState(false);
+
   //current session user data
   const [currentUser, setCurrentUser] = useState("");
   const [currentDocument, setCurrentDocument] = useState("");

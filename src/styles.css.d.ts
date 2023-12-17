@@ -18,6 +18,7 @@ declare const styles: {
   readonly "cardHeader": string;
   readonly "cardTextArea": string;
   readonly "checkBoxElement": string;
+  readonly "closePopupButton": string;
   readonly "columnTextArea": string;
   readonly "columnTitle": string;
   readonly "componentBTN": string;
