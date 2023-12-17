@@ -1879,7 +1879,7 @@ summary button {
   position: absolute;
   z-index: 1;
   bottom: 125%;
-  left: 50%;
+  left: -125%;
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s;
@@ -1893,6 +1893,9 @@ summary button {
 .tooltip.show .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+.tooltip:has(.show) .cardAuxButton{
+  color: red;
 }
 
 
