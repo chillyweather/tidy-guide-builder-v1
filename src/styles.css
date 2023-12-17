@@ -1499,15 +1499,14 @@ summary button {
 
 .cardHeader {
   width: 96%;
-  min-height: 54px;
+  /* min-height: 54px; */
   background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 16px 12px 12px;
+  /* padding: 16px 16px 12px 12px; */
   border-radius: 8px;
-  margin-top: 12px;
 }
 
 .cardHeader svg {
@@ -1517,6 +1516,13 @@ summary button {
 
 #headerCard .sectionTitle {
   margin-left: 20px;
+}
+#headerCard{
+  min-height: 54px;
+  margin-bottom: 8px;
+}
+#headerCard label{
+  margin-right: 32px;
 }
 
 .dragIcon {
