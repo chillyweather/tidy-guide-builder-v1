@@ -11,7 +11,12 @@ export default async function () {
   if (email) emit("USER_EMAIL", email);
 
   const user = figma.currentUser;
+  const document = figma.root.name;
   emit("USER", user);
+
+  const sessionData = {
+    user: user,
+  };
 
   const currentSelection = checkSelection();
   if (currentSelection) emit("SELECTION", currentSelection);
