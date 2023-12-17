@@ -32,6 +32,7 @@ declare const styles: {
   readonly "feedbackPopup": string;
   readonly "feedbackPopupBackground": string;
   readonly "flex-btn": string;
+  readonly "flex-button": string;
   readonly "footer": string;
   readonly "header": string;
   readonly "header-button": string;

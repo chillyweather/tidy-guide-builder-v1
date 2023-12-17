@@ -582,6 +582,15 @@ body:has(.header-menu[open]) .nav-container>* {
 body:has(.header-menu[open]) .nav-wrapper {
   transform: translateX(0);
 }
+.flex-button{
+  display: flex;
+  background-color: transparent;
+  flex-grow: 0;
+  border-radius: 0;
+  padding-left: 0;
+  align-items: center;
+  gap: 4px;
+}
 
 body .header-button {
   display: none;
