@@ -1763,12 +1763,27 @@ summary button {
   width: 100%;
   gap: 8px;
 }
+.inputInputRowStyle button{
+  opacity: 0;
+}
+.inputInputRowStyle:hover button, .inputInputRowStyle:focus-within button{
+  opacity: 1;
+}
 
-.listInputStyle {
+.listInputStyle{
   width: 100%;
-  padding: 6px 12px;
-  border-radius: 4px;
-  border: 1px solid #cccccc;
+  padding: 12px;
+  background-color: #F5F5F5;
+  border: 1px solid #F5F5F5;
+  border-radius: 8px;
+}
+.listInputStyle:focus{
+  border-color: var(--tidy-primary);
+}
+.listInputStyle::placeholder{
+  font-style: italic;
+  font-weight: 400;
+  color: #8E8F94;
 }
 
 .listButtonStyle {
