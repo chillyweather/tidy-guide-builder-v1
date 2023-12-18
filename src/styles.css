@@ -1601,6 +1601,9 @@ summary button {
   cursor: grab;
   color: #ADAEB0;
 }
+.dragIcon *{
+  pointer-events: none;
+}
 
 .cardBody {
   width: 100%;
