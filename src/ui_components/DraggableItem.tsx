@@ -18,7 +18,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
 }) => {
   const [dragging, setDragging] = useState(false);
   const handleDragStart = (e: DragEvent) => {
-    // setDragging(true);
+    setDragging(true);
     e.dataTransfer!.setData("text/plain", id);
   };
 
@@ -62,7 +62,6 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
       onDragEnd={handleDragEnd}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
-      onClick={() => console.log("data.id", data.id)}
       style={{
         opacity: dragging ? 0.5 : 1,
         display: "inline-block",

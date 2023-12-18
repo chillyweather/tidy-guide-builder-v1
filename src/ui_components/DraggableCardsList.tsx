@@ -27,6 +27,8 @@ export const DraggableCardList: FunctionComponent<
             return newItems;
           });
         },
+        animation: 150,
+        handle: ".dragIcon",
       });
     }
   }, []);
