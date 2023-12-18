@@ -62,10 +62,10 @@ export function DropZone(
         </div>
       ) : (
         <div className={"drop-text"}>
-          <div style={{ textAlign: "center" }}>
-            Drop image here or click to select image
+          <div>
+            <b>Drop image here or click to upload image </b>
             <br />
-            (Maximum resolution 4096 x 4096 pixels)
+            Maximum resolution 4096 x 4096 pixels
           </div>
           <VerticalSpace space="small" />
           <label
