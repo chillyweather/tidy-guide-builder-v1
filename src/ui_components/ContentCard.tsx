@@ -223,7 +223,7 @@ export const ContentCard = (cardData: any, index: number) => {
         <div className="rightContent">
           {!isSelected && (
             <button
-              className={"cardAuxButton"}
+              className={"cardAuxButton hoverButton"}
               onClick={handleDuplicateSection}
             >
               <IconCopy />
@@ -267,7 +267,7 @@ export const ContentCard = (cardData: any, index: number) => {
 
   function DeleteButtonWithTooltip() {
     return (
-      <div className="tooltip">
+      <div className="tooltip hoverButton">
         <button
           className="cardAuxButton"
           onDblClick={handleDeleteSection}

@@ -34,7 +34,7 @@ const ListCard = ({
                 value={value}
                 onInput={(e) => handleInputChange(index, e)}
                 className={"listInputStyle"}
-                placeholder={"List item " + (index + 1)}
+                placeholder={"Enter text..."}
               />
               <button onClick={() => deleteInputField(index)}>
                 <IconX />

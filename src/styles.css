@@ -1612,12 +1612,28 @@ summary button {
   background-color: #ECEBF5;
 }
 
+.cardAuxButton:focus-visible,
+.drag-item button:focus-visible{
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset;
+}
+
+.cardHeader .hoverButton{
+  opacity: 0;
+}
+.sectionCard:hover .cardHeader .hoverButton{
+  opacity: 1;
+}
+
 .textCardBodyContent {
   width: calc(100% - 16px);
   border: 1px solid #F7F7F7;
   background-color: #F7F7F7;
   /* padding: 16px; */
   border-radius: 8px;
+  text-align: center;
+}
+.textCardBodyContent img{
+  margin: 16px 0;
 }
 
 .textCardBodyContent:focus-within {
@@ -1752,12 +1768,27 @@ summary button {
   width: 100%;
   gap: 8px;
 }
+.inputInputRowStyle button{
+  opacity: 0;
+}
+.inputInputRowStyle:hover button, .inputInputRowStyle:focus-within button{
+  opacity: 1;
+}
 
-.listInputStyle {
+.listInputStyle{
   width: 100%;
-  padding: 6px 12px;
-  border-radius: 4px;
-  border: 1px solid #cccccc;
+  padding: 12px;
+  background-color: #F5F5F5;
+  border: 1px solid #F5F5F5;
+  border-radius: 8px;
+}
+.listInputStyle:focus{
+  border-color: var(--tidy-primary);
+}
+.listInputStyle::placeholder{
+  font-style: italic;
+  font-weight: 300;
+  color: #8E8F94;
 }
 
 .listButtonStyle {
@@ -1877,11 +1908,12 @@ summary button {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
+  line-height: 1.5;
   background-color: #000;
   color: #fff;
-  text-align: center;
+  text-align: left;
   border-radius: 6px;
-  padding: 5px;
+  padding: 8px;
   position: absolute;
   z-index: 1;
   bottom: 125%;
