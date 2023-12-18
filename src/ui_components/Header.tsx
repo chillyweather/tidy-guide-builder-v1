@@ -8,7 +8,7 @@ import {
   IconUser,
   IconSearch,
   IconArrowLeft,
-  IconMessageCheck,
+  IconMessage2Check,
   IconListTree,
 } from "@tabler/icons-react";
 import HeaderActions from "./HeaderActions";
@@ -46,7 +46,7 @@ const Header = ({
               setFeedbackPage(true);
             }}
           >
-            <IconMessageCheck />
+            <IconMessage2Check />
           </button>
           <button
             className="header-login"
