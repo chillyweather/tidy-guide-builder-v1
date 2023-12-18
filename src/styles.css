@@ -1612,6 +1612,11 @@ summary button {
   background-color: #ECEBF5;
 }
 
+.cardAuxButton:focus-visible,
+.drag-item button:focus-visible{
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset;
+}
+
 .cardHeader .hoverButton{
   opacity: 0;
 }
