@@ -718,7 +718,7 @@ body:has(.navigation a) .header-login {
   display: none;
 }
 
-.container:has(.login){
+.container:has(.login) {
   margin-top: 84px;
 }
 
@@ -1179,10 +1179,13 @@ input[type="radio"] {
   margin-top: 0;
   accent-color: var(--tidy-primary);
 }
-._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:checked ~ ._fill_1a43f_22{
+
+._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:checked~._fill_1a43f_22 {
   background-color: var(--tidy-primary);
 }
-._fill_1a43f_22, ._border_1a43f_23{
+
+._fill_1a43f_22,
+._border_1a43f_23 {
   border-radius: 4px;
 }
 
@@ -1613,14 +1616,26 @@ summary button {
 }
 
 .cardAuxButton:focus-visible,
-.drag-item button:focus-visible{
+.drag-item button:focus-visible {
   box-shadow: 0 0 0 1px var(--tidy-primary) inset;
 }
 
-.cardHeader .hoverButton{
+.cardHeader .chevIcon svg {
+  transform: rotate(180deg);
+}
+
+.cardHeader:has(.hoverButton) .chevIcon svg {
+  transform: rotate(0deg);
+}
+.chevIcon svg{
+  transition: transform 200ms ease-in-out 0s;
+}
+
+.cardHeader .hoverButton {
   opacity: 0;
 }
-.sectionCard:hover .cardHeader .hoverButton{
+
+.sectionCard:hover .cardHeader .hoverButton {
   opacity: 1;
 }
 
@@ -1632,7 +1647,8 @@ summary button {
   border-radius: 8px;
   text-align: center;
 }
-.textCardBodyContent img{
+
+.textCardBodyContent img {
   margin: 16px 0;
 }
 
@@ -1768,24 +1784,29 @@ summary button {
   width: 100%;
   gap: 8px;
 }
-.inputInputRowStyle button{
+
+.inputInputRowStyle button {
   opacity: 0;
 }
-.inputInputRowStyle:hover button, .inputInputRowStyle:focus-within button{
+
+.inputInputRowStyle:hover button,
+.inputInputRowStyle:focus-within button {
   opacity: 1;
 }
 
-.listInputStyle{
+.listInputStyle {
   width: 100%;
   padding: 12px;
   background-color: #F5F5F5;
   border: 1px solid #F5F5F5;
   border-radius: 8px;
 }
-.listInputStyle:focus{
+
+.listInputStyle:focus {
   border-color: var(--tidy-primary);
 }
-.listInputStyle::placeholder{
+
+.listInputStyle::placeholder {
   font-style: italic;
   font-weight: 300;
   color: #8E8F94;
