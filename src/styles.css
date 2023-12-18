@@ -454,7 +454,8 @@ button svg {
   display: flex;
   flex-direction: row;
   gap: 8px;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -1180,6 +1181,9 @@ input[type="radio"] {
 }
 ._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:checked ~ ._fill_1a43f_22{
   background-color: var(--tidy-primary);
+}
+._fill_1a43f_22, ._border_1a43f_23{
+  border-radius: 4px;
 }
 
 #text-size {
