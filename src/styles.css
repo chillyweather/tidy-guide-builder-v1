@@ -1877,11 +1877,12 @@ summary button {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
+  line-height: 1.5;
   background-color: #000;
   color: #fff;
-  text-align: center;
+  text-align: left;
   border-radius: 6px;
-  padding: 5px;
+  padding: 8px;
   position: absolute;
   z-index: 1;
   bottom: 125%;
