@@ -717,6 +717,10 @@ body:has(.navigation a) .header-login {
   display: none;
 }
 
+.container:has(.login){
+  margin-top: 84px;
+}
+
 .header form {
   display: flex;
   height: fit-content;
@@ -1173,6 +1177,9 @@ input[type="radio"] {
   all: revert;
   margin-top: 0;
   accent-color: var(--tidy-primary);
+}
+._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:checked ~ ._fill_1a43f_22{
+  background-color: var(--tidy-primary);
 }
 
 #text-size {

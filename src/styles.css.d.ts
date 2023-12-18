@@ -1,5 +1,9 @@
 declare const styles: {
   readonly "_border_1a43f_23": string;
+  readonly "_checkbox_1a43f_1": string;
+  readonly "_disabled_1a43f_18": string;
+  readonly "_fill_1a43f_22": string;
+  readonly "_input_1a43f_6": string;
   readonly "addSectionCard": string;
   readonly "addSectionCardInfo": string;
   readonly "addSectionDescription": string;
