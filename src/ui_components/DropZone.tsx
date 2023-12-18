@@ -4,6 +4,9 @@ import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { uploadFileToServer } from "src/ui_components/ui_functions/fileManagementFunctions";
 import { useEffect } from "react";
+import {
+  IconCloudUpload,
+} from "@tabler/icons-react";
 
 export function DropZone(
   setRemoteImageLink: Function,
@@ -72,7 +75,8 @@ export function DropZone(
             htmlFor="file-input"
             className={"drop-button second"}
           >
-            Select Image
+            <IconCloudUpload />
+            Upload Image
           </label>
           <input
             id="file-input"

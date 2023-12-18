@@ -1507,12 +1507,18 @@ summary button {
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
 }
 .drop-button{
+  display: flex;
+  gap: 6px;
   color: #73678A;
-  padding: 12px 36px;
+  padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   font-size: calc(var(--text-size) - calc(var(--text-size) / 7));
+}
+.drop-button svg{
+  width: 16px;
+  height: 16px;
 }
 
 .drop-text b {
