@@ -412,6 +412,7 @@ button svg {
   height: 16px;
 }
 .mainContent button svg{
+  /* icon color */
   color: #323232;
 }
 
