@@ -1787,7 +1787,7 @@ summary button {
 }
 .listInputStyle::placeholder{
   font-style: italic;
-  font-weight: 400;
+  font-weight: 300;
   color: #8E8F94;
 }
 
