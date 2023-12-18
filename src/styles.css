@@ -1612,6 +1612,13 @@ summary button {
   background-color: #ECEBF5;
 }
 
+.cardHeader .hoverButton{
+  opacity: 0;
+}
+.sectionCard:hover .cardHeader .hoverButton{
+  opacity: 1;
+}
+
 .textCardBodyContent {
   width: calc(100% - 16px);
   border: 1px solid #F7F7F7;

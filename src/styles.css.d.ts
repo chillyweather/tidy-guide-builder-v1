@@ -47,6 +47,7 @@ declare const styles: {
   readonly "headerActions": string;
   readonly "headerCard": string;
   readonly "headerContent": string;
+  readonly "hoverButton": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;
   readonly "inputDiv": string;
