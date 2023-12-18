@@ -61,7 +61,7 @@ export function DropZone(
           </div>
         </div>
       ) : (
-        <div>
+        <div className={"drop-text"}>
           <div style={{ textAlign: "center" }}>
             Drop image here or click to select image
             <br />
