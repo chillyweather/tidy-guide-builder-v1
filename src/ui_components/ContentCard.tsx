@@ -239,7 +239,6 @@ export const ContentCard = (cardData: any, index: number) => {
       <div className="tooltip">
         <button
           className="cardAuxButton"
-          onClick={() => setShowTooltip(true)}
           onDblClick={handleDeleteSection}
           onMouseLeave={() => setShowTooltip(false)}
         >

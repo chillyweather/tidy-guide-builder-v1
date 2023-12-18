@@ -700,12 +700,6 @@ body:has(.login) .header .login-button {
   display: block;
 }
 
-.header .header-button svg,
-.header-title svg {
-  width: 12px;
-  height: 12px;
-}
-
 body .header-menu {
   display: none;
   margin-left: 0;
@@ -1894,10 +1888,6 @@ summary button {
   visibility: visible;
   opacity: 1;
 }
-.tooltip:has(.show) .cardAuxButton{
-  color: red;
-}
-
 
 @keyframes rotate {
   0% {
