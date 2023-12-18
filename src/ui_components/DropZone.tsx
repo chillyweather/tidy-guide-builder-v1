@@ -70,13 +70,7 @@ export function DropZone(
           <VerticalSpace space="small" />
           <label
             htmlFor="file-input"
-            style={{
-              display: "inline-block",
-              padding: "8px 16px",
-              backgroundColor: "#ccc",
-              borderRadius: "4px",
-              cursor: "pointer",
-            }}
+            className={"drop-button second"}
           >
             Select Image
           </label>
