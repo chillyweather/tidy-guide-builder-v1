@@ -107,7 +107,8 @@ export const ContentCard = (cardData: any, index: number) => {
       sources: sources,
       //list content
       inputs: listItems,
-      //video content
+      //image content
+      remoteImageLink: remoteImageLink,
     },
   };
   //!-------------------//
@@ -252,7 +253,10 @@ export const ContentCard = (cardData: any, index: number) => {
             </button>
           )}
           {!isSelected && DeleteButtonWithTooltip()}
-          <button className={"cardAuxButton chevIcon"} onClick={handleOpenSection}>
+          <button
+            className={"cardAuxButton chevIcon"}
+            onClick={handleOpenSection}
+          >
             <IconChevronDown />
           </button>
         </div>
