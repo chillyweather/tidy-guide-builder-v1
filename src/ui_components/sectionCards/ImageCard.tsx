@@ -30,7 +30,8 @@ const ImageCard: FunctionComponent<{
             isImageLoading,
             remoteImageLink
           )}
-          {textBoxElement(remoteImageLink, setRemoteImageLink, "Link")}
+          <div className={"bold-me"}>Or add URL</div>
+          {textBoxElement(remoteImageLink, setRemoteImageLink, "Add link")}
         </div>
       ) : (
         <div

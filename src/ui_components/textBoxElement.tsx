@@ -16,7 +16,7 @@ export function textBoxElement(
       onInput={handleInput}
       placeholder={placeholder}
       value={value}
-      className={"dialogInput"}
+      className={"dialogInput listInputStyle"}
       disabled={isDisabled}
     />
   );

@@ -18,7 +18,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
 }) => {
   const [dragging, setDragging] = useState(false);
   const handleDragStart = (e: DragEvent) => {
-    setDragging(true);
+    // setDragging(true);
     e.dataTransfer!.setData("text/plain", id);
   };
 
@@ -58,7 +58,6 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
   return (
     <div
       className={"drag-item"}
-      draggable
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       onDragOver={handleDragOver}

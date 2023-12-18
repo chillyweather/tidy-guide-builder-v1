@@ -13,6 +13,7 @@ declare const styles: {
   readonly "anchorLink": string;
   readonly "back-link": string;
   readonly "backToTop": string;
+  readonly "bold-me": string;
   readonly "btnNext": string;
   readonly "btnPrev": string;
   readonly "buttonPrimary": string;
@@ -32,6 +33,9 @@ declare const styles: {
   readonly "draft": string;
   readonly "drag-item": string;
   readonly "dragIcon": string;
+  readonly "drop-button": string;
+  readonly "drop-text": string;
+  readonly "drop-zone": string;
   readonly "dropZoneHeader": string;
   readonly "empty-image": string;
   readonly "empty-state": string;

@@ -4,6 +4,9 @@ import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { uploadFileToServer } from "src/ui_components/ui_functions/fileManagementFunctions";
 import { useEffect } from "react";
+import {
+  IconCloudUpload,
+} from "@tabler/icons-react";
 
 export function DropZone(
   setRemoteImageLink: Function,
@@ -40,17 +43,7 @@ export function DropZone(
   }, [remoteImageLink]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "240px",
-        width: "100%",
-        border: "2px dashed #ccc",
-        borderRadius: "8px",
-      }}
+    <div className={"drop-zone"}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
     >
@@ -61,24 +54,19 @@ export function DropZone(
           </div>
         </div>
       ) : (
-        <div>
-          <div style={{ textAlign: "center" }}>
-            Drop image here or click to select image
+        <div className={"drop-text"}>
+          <div>
+            <b>Drop image here or click to upload image </b>
             <br />
-            (Maximum resolution 4096 x 4096 pixels)
+            Maximum resolution 4096 x 4096 pixels
           </div>
           <VerticalSpace space="small" />
           <label
             htmlFor="file-input"
-            style={{
-              display: "inline-block",
-              padding: "8px 16px",
-              backgroundColor: "#ccc",
-              borderRadius: "4px",
-              cursor: "pointer",
-            }}
+            className={"drop-button second"}
           >
-            Select Image
+            <IconCloudUpload />
+            Upload Image
           </label>
           <input
             id="file-input"
