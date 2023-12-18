@@ -31,15 +31,6 @@ import VideoCard from "./sectionCards/VideoCard";
 import { useEffect } from "react";
 
 export const ContentCard = (cardData: any, index: number) => {
-  // cardData props interface
-  interface CardDataProps {
-    title: string;
-    index: number;
-    id: string;
-    datatype: string;
-  }
-  //! states
-
   //card title
   const [cardTitle, setCardTitle] = useState(cardData.title);
   // general use
@@ -89,11 +80,20 @@ export const ContentCard = (cardData: any, index: number) => {
   const cardType = cardData.content;
 
   //!-------------------//
+  interface CardDataProps {
+    title: string;
+    index: number;
+    id: string;
+    datatype: string;
+    text: string;
+  }
+
   const currentCardData: CardDataProps = {
     id: id,
     index: index,
     title: cardTitle,
     datatype: cardType,
+    text: paragraphTextContent,
   };
   //!-------------------//
 
@@ -207,7 +207,7 @@ export const ContentCard = (cardData: any, index: number) => {
         return newDocumentation;
       });
     }
-  }, [isBuilding, cardTitle, paragraphTextContent, listItems, sources]);
+  }, [isBuilding]);
 
   return cardType === "header" ? (
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
