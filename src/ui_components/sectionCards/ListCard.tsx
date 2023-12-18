@@ -30,7 +30,7 @@ const ListCard: FunctionComponent<ListCardProps> = ({
   };
 
   useEffect(() => {
-    if (addButtonRef.current) {
+    if (addButtonRef.current && document.activeElement?.tagName !== "INPUT") {
       addButtonRef.current.focus();
     }
   }, [listItems]);

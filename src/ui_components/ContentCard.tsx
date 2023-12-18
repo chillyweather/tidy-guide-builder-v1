@@ -83,17 +83,32 @@ export const ContentCard = (cardData: any, index: number) => {
   interface CardDataProps {
     title: string;
     index: number;
-    id: string;
+    docId: string;
     datatype: string;
+    publish: boolean;
     text: string;
+    content: any;
   }
 
   const currentCardData: CardDataProps = {
-    id: id,
+    docId: id,
     index: index,
     title: cardTitle,
     datatype: cardType,
+    publish: publish,
     text: paragraphTextContent,
+    content: {
+      //two column content
+      subtitle1: leftTitle,
+      subtitle2: rightTitle,
+      text1: leftTextContent,
+      text2: rightTextContent,
+      //link content
+      sources: sources,
+      //list content
+      inputs: listItems,
+      //video content
+    },
   };
   //!-------------------//
 
