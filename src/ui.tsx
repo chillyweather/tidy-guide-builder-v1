@@ -25,6 +25,12 @@ function Plugin() {
   //saved token
   const [token, setToken] = useState("");
 
+  //documentation title
+  const [documentationTitle, setDocumentationTitle] = useState("");
+
+  //work in progress
+  const [isWip, setIsWip] = useState(false);
+
   const [isLoginFailed, setIsLoginFailed] = useState(false);
 
   //current session user data
@@ -60,6 +66,9 @@ function Plugin() {
   //documentation
   const [documentationData, setDocumentationData] = useState<any>({});
 
+  //build documentation
+  const [isBuilding, setIsBuilding] = useState(false);
+
   on("AUTH_CHANGE", (token) => {
     if (token) {
       setToken(token);
@@ -71,7 +80,13 @@ function Plugin() {
     setSelectedElementName(name);
     setSelectedElementKey(key);
     setDocumentationData((prevDocumentation: any) => {
-      return { ...prevDocumentation, ["id"]: key, ["docs"]: [] };
+      return {
+        ...prevDocumentation,
+        ["id"]: key,
+        ["docs"]: [],
+        ["title"]: "",
+        ["wip"]: isWip,
+      };
     });
   });
 
@@ -110,6 +125,12 @@ function Plugin() {
           setCurrentPage,
           documentationData,
           setDocumentationData,
+          documentationTitle,
+          setDocumentationTitle,
+          isWip,
+          setIsWip,
+          isBuilding,
+          setIsBuilding,
         }}
       >
         {feedbackPage && (
@@ -145,6 +166,7 @@ function Plugin() {
           <Footer
             setShowCancelPopup={setShowCancelPopup}
             setShowResetPopup={setShowResetPopup}
+            setIsBuilding={setIsBuilding}
           />
         )}
       </BuilderContext.Provider>

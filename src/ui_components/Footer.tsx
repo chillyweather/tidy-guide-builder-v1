@@ -5,9 +5,11 @@ import { IconReload } from "@tabler/icons-react";
 const Footer = ({
   setShowCancelPopup,
   setShowResetPopup,
+  setIsBuilding,
 }: {
   setShowCancelPopup: Function;
   setShowResetPopup: Function;
+  setIsBuilding: Function;
 }) => {
   return (
     <div className={"footer"}>
@@ -21,10 +23,7 @@ const Footer = ({
         <button className={"second"} onClick={() => setShowCancelPopup(true)}>
           Cancel
         </button>
-        <button
-          className={"primary"}
-          onClick={() => console.log("to be create")}
-        >
+        <button className={"primary"} onClick={() => setIsBuilding(true)}>
           Create
         </button>
       </div>

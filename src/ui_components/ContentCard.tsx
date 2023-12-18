@@ -36,6 +36,7 @@ export const ContentCard = (cardData: any, index: number) => {
     title: string;
     index: number;
     id: string;
+    datatype: string;
   }
   //! states
 
@@ -77,6 +78,8 @@ export const ContentCard = (cardData: any, index: number) => {
   const selectedCard = useContext(BuilderContext)?.selectedCard;
   const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
+  const isBuilding = useContext(BuilderContext)?.isBuilding;
+  const setIsBuilding = useContext(BuilderContext)?.setIsBuilding;
   //! documentation data
   const documentationData = useContext(BuilderContext)?.documentationData;
   const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
@@ -86,10 +89,11 @@ export const ContentCard = (cardData: any, index: number) => {
   const cardType = cardData.content;
 
   //!-------------------//
-  const currentCardData = {
+  const currentCardData: CardDataProps = {
     id: id,
+    index: index,
     title: cardTitle,
-    content: cardType,
+    datatype: cardType,
   };
   //!-------------------//
 
@@ -194,13 +198,16 @@ export const ContentCard = (cardData: any, index: number) => {
   };
 
   useEffect(() => {
-    setDocumentationData((prevDocumentation: any) => {
-      const newDocumentation = { ...prevDocumentation };
-      const newDocs = newDocumentation.docs;
-      newDocs[index] = currentCardData;
-      return newDocumentation;
-    });
-  }, [cardTitle]);
+    if (isBuilding) {
+      setDocumentationData((prevDocumentation: any) => {
+        const newDocumentation = { ...prevDocumentation };
+        const newDocs = newDocumentation.docs;
+        newDocs[index] = currentCardData;
+        setIsBuilding(false);
+        return newDocumentation;
+      });
+    }
+  }, [isBuilding, cardTitle, paragraphTextContent, listItems, sources]);
 
   return cardType === "header" ? (
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>

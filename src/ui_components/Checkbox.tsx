@@ -16,10 +16,6 @@ export default function CheckboxElement({
 }: CheckboxProps) {
   // const [value, setValue] = useState<boolean>(false);
   function handleChange(event: JSX.TargetedEvent<HTMLInputElement>) {
-    console.log(
-      "event.currentTarget.checked :>> ",
-      event.currentTarget.checked
-    );
     const newValue = event.currentTarget.checked;
     setValue(newValue);
   }

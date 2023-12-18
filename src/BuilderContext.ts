@@ -18,6 +18,12 @@ interface IContext {
   setCurrentPage: any;
   documentationData: any;
   setDocumentationData: any;
+  documentationTitle: string;
+  setDocumentationTitle: any;
+  isWip: boolean;
+  setIsWip: any;
+  isBuilding: boolean;
+  setIsBuilding: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);
