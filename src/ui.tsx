@@ -57,6 +57,9 @@ function Plugin() {
   //page states
   const [isLoginPageOpen, setIsLoginPageOpen] = useState(false);
 
+  //documentation
+  const [documentationData, setDocumentationData] = useState<any>({});
+
   on("AUTH_CHANGE", (token) => {
     if (token) {
       setToken(token);
@@ -67,6 +70,9 @@ function Plugin() {
     setSelectedElement(defaultNode);
     setSelectedElementName(name);
     setSelectedElementKey(key);
+    setDocumentationData((prevDocumentation: any) => {
+      return { ...prevDocumentation, ["id"]: key, ["docs"]: [] };
+    });
   });
 
   on("USER_EMAIL", (email) => {
@@ -78,6 +84,10 @@ function Plugin() {
     setCurrentDocument(document);
     setCurrentPage(page);
   });
+
+  useEffect(() => {
+    console.log("documentationData", documentationData);
+  }, [documentationData]);
 
   return (
     <div className={"container"}>
@@ -98,6 +108,8 @@ function Plugin() {
           setCurrentDocument,
           currentPage,
           setCurrentPage,
+          documentationData,
+          setDocumentationData,
         }}
       >
         {feedbackPage && (

@@ -28,9 +28,19 @@ import TextCard from "./sectionCards/TextCard";
 import TwoColumnCard from "./sectionCards/TwoColumnCard";
 import VariantsCard from "./sectionCards/VariantsCard";
 import VideoCard from "./sectionCards/VideoCard";
+import { useEffect } from "react";
 
 export const ContentCard = (cardData: any, index: number) => {
+  // cardData props interface
+  interface CardDataProps {
+    title: string;
+    index: number;
+    id: string;
+  }
   //! states
+
+  //card title
+  const [cardTitle, setCardTitle] = useState(cardData.title);
   // general use
   const [isDraft, setIsDraft] = useState(false);
   const [publish, setPublish] = useState<boolean>(false);
@@ -67,10 +77,21 @@ export const ContentCard = (cardData: any, index: number) => {
   const selectedCard = useContext(BuilderContext)?.selectedCard;
   const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
-  const isSelected = selectedCard === cardData.id;
-  const id = cardData.id;
+  //! documentation data
+  const documentationData = useContext(BuilderContext)?.documentationData;
+  const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
 
+  const id = cardData.id;
+  const isSelected = selectedCard === id;
   const cardType = cardData.content;
+
+  //!-------------------//
+  const currentCardData = {
+    id: id,
+    title: cardTitle,
+    content: cardType,
+  };
+  //!-------------------//
 
   const currentCardContent = (cardType: string) => {
     if (cardType === "header") {
@@ -172,6 +193,15 @@ export const ContentCard = (cardData: any, index: number) => {
     duplicateSection(e, index, cardData, setSelectedSections);
   };
 
+  useEffect(() => {
+    setDocumentationData((prevDocumentation: any) => {
+      const newDocumentation = { ...prevDocumentation };
+      const newDocs = newDocumentation.docs;
+      newDocs[index] = currentCardData;
+      return newDocumentation;
+    });
+  }, [cardTitle]);
+
   return cardType === "header" ? (
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
       <HeaderCard data={cardData} />
@@ -185,8 +215,9 @@ export const ContentCard = (cardData: any, index: number) => {
           <input
             className={"sectionTitle"}
             type={"text"}
-            value={cardData.title}
+            value={cardTitle}
             placeholder={"Untitled"}
+            onInput={(e) => setCardTitle(e.currentTarget.value)}
           />
         </div>
         <div className="rightContent">

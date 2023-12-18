@@ -16,6 +16,8 @@ interface IContext {
   setCurrentDocument: any;
   currentPage: string;
   setCurrentPage: any;
+  documentationData: any;
+  setDocumentationData: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);
