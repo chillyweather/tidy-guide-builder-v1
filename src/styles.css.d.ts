@@ -13,6 +13,7 @@ declare const styles: {
   readonly "anchorLink": string;
   readonly "back-link": string;
   readonly "backToTop": string;
+  readonly "bold-me": string;
   readonly "btnNext": string;
   readonly "btnPrev": string;
   readonly "buttonPrimary": string;

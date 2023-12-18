@@ -1502,8 +1502,9 @@ summary button {
   justify-content: center;
   height: 240px;
   width: 100%;
-  border: 1.5px dashed #D4D4D4;
+  border: 2px dashed #D4D4D4;
   border-radius: 14px;
+  margin-bottom: 12px;
 }
 
 .drop-text {
@@ -1534,6 +1535,9 @@ summary button {
 .drop-text b {
   color: var(--tidy-32);
   font-size: var(--text-size);
+}
+.bold-me{
+  font-weight: 500;
 }
 
 /* section card top content */
