@@ -1502,7 +1502,7 @@ summary button {
   justify-content: center;
   height: 240px;
   width: 100%;
-  border: 2px dashed #ccc;
+  border: 1.5px dashed #D4D4D4;
   border-radius: 14px;
 }
 
