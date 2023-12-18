@@ -1,13 +1,18 @@
-import { h } from "preact";
 import { IconX, IconPlus } from "@tabler/icons-react";
+import { h, FunctionComponent } from "preact";
+import { useRef, useEffect } from "preact/hooks";
 
-const ListCard = ({
-  listItems,
-  setListItems,
-}: {
+interface ListCardProps {
   listItems: any[];
   setListItems: Function;
+}
+
+const ListCard: FunctionComponent<ListCardProps> = ({
+  listItems,
+  setListItems,
 }) => {
+  const addButtonRef = useRef<HTMLButtonElement>(null);
+
   const addInputField = () => {
     setListItems([...listItems, ""]);
   };
@@ -23,25 +28,36 @@ const ListCard = ({
     newInputs[index] = (event.target as HTMLInputElement).value;
     setListItems(newInputs);
   };
+
+  useEffect(() => {
+    if (addButtonRef.current) {
+      addButtonRef.current.focus();
+    }
+  }, [listItems]);
+
   return (
-    <div className={"listCardContentStyle"}>
-      <div className={"listInputColumnStyle"}>
+    <div className="listCardContentStyle">
+      <div className="listInputColumnStyle">
         {listItems.map((value: string, index: number) => (
-          <div key={index} className={"listCollumnStyle"}>
+          <div key={index} className="listCollumnStyle">
             <div className="inputInputRowStyle">
               <input
                 type="text"
                 value={value}
                 onInput={(e) => handleInputChange(index, e)}
-                className={"listInputStyle"}
-                placeholder={"Enter text..."}
+                className="listInputStyle"
+                placeholder="Enter text..."
               />
               <button onClick={() => deleteInputField(index)}>
                 <IconX />
               </button>
             </div>
             {index === listItems.length - 1 && (
-              <button onClick={addInputField} className={"listButtonStyle"}>
+              <button
+                ref={addButtonRef}
+                onClick={addInputField}
+                className="listButtonStyle"
+              >
                 <IconPlus />
               </button>
             )}
