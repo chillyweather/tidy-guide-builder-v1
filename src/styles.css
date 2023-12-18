@@ -1504,8 +1504,8 @@ summary button {
   font-weight: 600;
   line-height: normal;
   letter-spacing: -0.24px;
-  text-transform: capitalize;
   border-color: transparent;
+  width: calc(100vw - 240px);
   font-weight: 500;
   font-size: calc(var(--text-size) + calc(var(--text-size) / 7));
 }
