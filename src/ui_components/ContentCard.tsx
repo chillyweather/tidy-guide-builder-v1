@@ -30,6 +30,13 @@ import VariantsCard from "./sectionCards/VariantsCard";
 import VideoCard from "./sectionCards/VideoCard";
 import { useEffect } from "react";
 
+function makeDraggable(event: any){
+  event.target.parentElement.parentElement.parentElement.parentElement.setAttribute("draggable", true);
+}
+function removeDraggable(event: any){
+  event.target.parentElement.parentElement.parentElement.parentElement.setAttribute("draggable", false);
+}
+
 export const ContentCard = (cardData: any, index: number) => {
   //card title
   const [cardTitle, setCardTitle] = useState(cardData.title);
@@ -232,7 +239,14 @@ export const ContentCard = (cardData: any, index: number) => {
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
       <div className="cardHeader">
         <div className="leftContent">
-          <IconGripVertical className={"dragIcon"} />
+          <IconGripVertical className={"dragIcon"}
+          onMouseOver={() => {
+            makeDraggable(event);
+          }}
+          onMouseOut={() => {
+            removeDraggable(event);
+          }}
+          />
           <IconMoodPuzzled style={{ color: "burntorange" }} />
           <input
             className={"sectionTitle"}
