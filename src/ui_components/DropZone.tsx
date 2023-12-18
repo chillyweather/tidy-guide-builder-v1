@@ -43,17 +43,7 @@ export function DropZone(
   }, [remoteImageLink]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "240px",
-        width: "100%",
-        border: "2px dashed #ccc",
-        borderRadius: "8px",
-      }}
+    <div className={"drop-zone"}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
     >

@@ -34,6 +34,7 @@ declare const styles: {
   readonly "dragIcon": string;
   readonly "drop-button": string;
   readonly "drop-text": string;
+  readonly "drop-zone": string;
   readonly "dropZoneHeader": string;
   readonly "empty-image": string;
   readonly "empty-state": string;

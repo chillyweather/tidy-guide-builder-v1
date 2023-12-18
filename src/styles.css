@@ -1495,6 +1495,16 @@ summary button {
   content: '❖';
   margin-right: 8px;
 }
+.drop-zone{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 240px;
+  width: 100%;
+  border: 2px dashed #ccc;
+  border-radius: 14px;
+}
 
 .drop-text {
   display: flex;
