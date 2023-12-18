@@ -237,7 +237,7 @@ export const ContentCard = (cardData: any, index: number) => {
             </button>
           )}
           {!isSelected && DeleteButtonWithTooltip()}
-          <button className={"cardAuxButton"} onClick={handleOpenSection}>
+          <button className={"cardAuxButton chevIcon"} onClick={handleOpenSection}>
             <IconChevronDown />
           </button>
         </div>
