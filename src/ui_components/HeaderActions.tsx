@@ -57,6 +57,7 @@ function HeaderActions() {
   const setSelectedElement = useContext(BuilderContext)?.setSelectedElement;
   const documentationTitle = useContext(BuilderContext)?.documentationTitle;
   const isScroll = useContext(BuilderContext)?.isScroll;
+  const setIsMainContentOpen = useContext(BuilderContext)?.setIsMainContentOpen;
   return (
     <div class={"headerContent headerActions"}>
       <div id={"selectedName"} className={"selectedComponentGroup hidden"}>
@@ -75,6 +76,7 @@ function HeaderActions() {
           onClick={() => {
             setSelectedElement(null);
             emit("CLEAR_SELECTION");
+            setIsMainContentOpen(false);
           }}
         />
       </div>

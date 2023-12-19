@@ -6,7 +6,7 @@ import {
   IconList,
   IconDots,
   IconUser,
-  IconSearch,
+  IconFilePlus,
   IconArrowLeft,
   IconMessage2Check,
   IconListTree,
@@ -17,18 +17,43 @@ const Header = ({
   isLoginPageOpen,
   setIsLoginPageOpen,
   setFeedbackPage,
-}: any) => {
+  isIndexOpen,
+}: {
+  isLoginPageOpen: boolean;
+  setIsLoginPageOpen: Function;
+  setFeedbackPage: Function;
+  isIndexOpen: boolean;
+}) => {
   const selectedElement = useContext(BuilderContext)?.selectedElement;
+  const setIsMainContentOpen = useContext(BuilderContext)?.setIsMainContentOpen;
+  const setIsIndexOpen = useContext(BuilderContext)?.setIsIndexOpen;
 
   return (
     <div className="header">
       <div className="headerContent">
-        {!isLoginPageOpen && (
-          <button className="flex-button" onClick={() => console.log("index!!!!")}>
-            <IconListTree />
-            Components index
-          </button>
-        )}
+        {!isLoginPageOpen &&
+          (isIndexOpen ? (
+            <button
+              className="flex-button"
+              onClick={() => {
+                setIsIndexOpen(false);
+              }}
+            >
+              <IconFilePlus />
+              New documentation entry
+            </button>
+          ) : (
+            <button
+              className="flex-button"
+              onClick={() => {
+                setIsIndexOpen(true);
+                setIsMainContentOpen(false);
+              }}
+            >
+              <IconListTree />
+              Components index
+            </button>
+          ))}
 
         <button
           className="header-button"
@@ -61,7 +86,7 @@ const Header = ({
           </button>
         </div>
       </div>
-      {selectedElement && !isLoginPageOpen && <HeaderActions />}
+      {selectedElement && !isLoginPageOpen && !isIndexOpen && <HeaderActions />}
     </div>
   );
 };

@@ -24,7 +24,6 @@ export default async function () {
   emit("SESSION", sessionData);
 
   const selectionData = checkSelection();
-  console.log("selectionData1", selectionData);
   if (selectionData) emit("SELECTION", selectionData);
 
   once("SAVE_NEW_TOKEN", (token) => {
@@ -40,7 +39,6 @@ export default async function () {
 
   on("GET_SELECTION", async () => {
     const selectionData = checkSelection();
-    console.log("selectionData :>> ", selectionData);
     if (selectionData) emit("SELECTION", selectionData);
   });
 
@@ -69,23 +67,6 @@ export default async function () {
       console.log("data :>> ", data);
     } catch (error) {
       console.log("error on documentation build in Figma :>> ", error);
-    }
-    //--building documentation for db--------//
-    try {
-      const elementData: any = {};
-      elementData[elementId] = data;
-      const newTempData = convertFormat(elementData);
-      console.log("newTempData(converted) :>> ", newTempData);
-      emit("UPDATE_GIT", newTempData);
-      //!---------------------------------------------//
-      // data from saved object
-      // documentationBuilder(tempData);
-      // const newTempData = convertFormat(tempData);
-      // console.log("newTempData(converted) :>> ", newTempData);
-      // emit("UPDATE_GIT", newTempData);
-      //!---------------------------------------------//
-    } catch (error) {
-      console.log("error on JSON data generation :>> ", error);
     }
   });
 

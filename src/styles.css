@@ -1325,7 +1325,7 @@ summary button {
   display: flex;
   flex-direction: row;
   gap: 12px;
-  z-index: 9999;
+  z-index: 9997;
   justify-content: space-between;
   padding: 16px 16px 24px 16px;
 }
@@ -1487,11 +1487,13 @@ summary button {
   padding: 0;
   margin: 0;
 }
-#docs:empty::after{
+
+#docs:empty::after {
   content: 'Untitled';
   color: var(--tidy-disabled);
 }
-#docs{
+
+#docs {
   cursor: pointer;
   font-size: var(--text-size);
   margin-right: 12px;
@@ -1504,7 +1506,8 @@ summary button {
   text-overflow: ellipsis;
   transition: max-width 600ms linear 0s;
 }
-.hidden #docs{
+
+.hidden #docs {
   max-width: 0;
 }
 

@@ -1,4 +1,6 @@
 import { emit } from "@create-figma-plugin/utilities";
+import { useContext } from "preact/hooks";
+import BuilderContext from "../BuilderContext";
 import { h } from "preact";
 import emptyImage from "../images/empty.svg";
 
@@ -20,7 +22,8 @@ export default function EmptyState() {
         className={"empty-image"}
       />
       <p>Before initiating the Tidy Builder, you need to select a component.</p>
-      <button className={"buttonPrimary"}
+      <button
+        className={"buttonPrimary"}
         onClick={() => {
           emit("GET_SELECTION");
         }}

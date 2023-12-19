@@ -42,8 +42,6 @@ const Footer = ({
       await createDocumentation(token, data);
     }
     setIsLoading(false);
-    console.log("uploaded");
-    // emit("CLOSE");
   }
 
   useEffect(() => {

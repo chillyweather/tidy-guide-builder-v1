@@ -17,6 +17,8 @@ import MainContent from "./ui_components/MainContent";
 import Header from "./ui_components/Header";
 import Footer from "./ui_components/Footer";
 import LoaderPage from "./ui_components/LoadingPage";
+import IndexPage from "./ui_components/IndexPage";
+import { getDocumentations } from "./ui_components/ui_functions/documentationHandlers";
 
 //styles
 import EmptyState from "./ui_components/EmptyState";
@@ -73,13 +75,26 @@ function Plugin() {
   //build documentation
   const [isBuilding, setIsBuilding] = useState(false);
 
-  on("AUTH_CHANGE", (token) => {
+  //data from server
+  const [dataForUpdate, setDataForUpdate] = useState<any>({});
+
+  //set selected master id
+  const [selectedMasterId, setSelectedMasterId] = useState("");
+
+  //page navigation
+  const [isIndexOpen, setIsIndexOpen] = useState(false);
+  const [isMainContentOpen, setIsMainContentOpen] = useState(false);
+
+  on("AUTH_CHANGE", async (token) => {
     if (token) {
       setToken(token);
+      const data = await getDocumentations(token);
+      setDataForUpdate(data);
     }
   });
 
   on("SELECTION", ({ defaultNode, name, key }) => {
+    if (defaultNode) setIsMainContentOpen(true);
     setSelectedElement(defaultNode);
     setSelectedElementName(name);
     setSelectedElementKey(key);
@@ -151,6 +166,10 @@ function Plugin() {
           isLoading,
           setIsLoading,
           isScroll,
+          isMainContentOpen,
+          setIsMainContentOpen,
+          isIndexOpen,
+          setIsIndexOpen,
         }}
       >
         {feedbackPage && (
@@ -179,10 +198,18 @@ function Plugin() {
           isLoginPageOpen={isLoginPageOpen}
           setIsLoginPageOpen={setIsLoginPageOpen}
           setFeedbackPage={setFeedbackPage}
+          isIndexOpen={isIndexOpen}
         />
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
-        {!selectedElement && <EmptyState />}
-        {!isLoading && selectedElement && !isLoginPageOpen && <MainContent />}
+        {!selectedElement && (
+          <IndexPage
+            data={dataForUpdate}
+            setSelectedMasterId={setSelectedMasterId}
+            setIsIndexOpen={setIsIndexOpen}
+          />
+        )}
+        {!selectedElement && !isIndexOpen && <EmptyState />}
+        {isMainContentOpen && <MainContent />}
         {selectedElement && !isLoginPageOpen && (
           <Footer
             setShowCancelPopup={setShowCancelPopup}
@@ -198,41 +225,3 @@ function Plugin() {
 }
 
 export default render(Plugin);
-
-//! build documentation on canvas
-//   useEffect(() => {
-//     const cardsLength = selectedSections.length;
-//     const propsLength = Object.keys(documentationData).length;
-//     if (
-//       selectedElement &&
-//       buildPage &&
-//       Object.keys(documentationData).length > 0 &&
-//       propsLength === cardsLength
-//     ) {
-//       const elementId = selectedElement.id;
-//       documentationData[0].docId = docId;
-//       emit("BUILD", documentationData, elementId);
-//     }
-//   }, [documentationData, buildPage, selectedElement]);
-//
-//   //! send data to db
-//   useEffect(() => {
-//     if (Object.keys(dataForUpdate).length > 0) {
-//       handleDocumentation(token, dataForUpdate);
-//     }
-//   }, [dataForUpdate]);
-
-// async function handleDocumentation(token: string, data: any) {
-//   const id = Object.values(data)[0];
-//   if (typeof id !== "string") return;
-//   setIsLoading(true);
-//   const result = await getDocumentations(token);
-//   const isDocumented = result.some((doc: any) => doc._id === id);
-//   if (isDocumented) {
-//     await updateDocumentation(token, id, data);
-//   } else {
-//     await createDocumentation(token, data);
-//   }
-//   setIsLoading(false);
-//   emit("CLOSE");
-// }

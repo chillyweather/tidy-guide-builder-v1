@@ -30,6 +30,10 @@ interface IContext {
   isLoading: boolean;
   setIsLoading: any;
   isScroll: boolean;
+  isMainContentOpen: boolean;
+  setIsMainContentOpen: any;
+  isIndexOpen: boolean;
+  setIsIndexOpen: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);
