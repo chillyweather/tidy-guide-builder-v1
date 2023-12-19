@@ -178,7 +178,11 @@ function Plugin() {
 
 function bodyScroll(){
   document.body.onscroll = function() {
-    console.log("scrolling");
+    if(document.body.scrollTop == 0){
+      document.getElementById("selectedName")?.classList.add("hidden");
+    }else{
+      document.getElementById("selectedName")?.classList.remove("hidden");
+    }
 };
 }
 bodyScroll();

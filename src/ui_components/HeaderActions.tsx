@@ -57,7 +57,7 @@ function HeaderActions() {
   const setSelectedElement = useContext(BuilderContext)?.setSelectedElement;
   return (
     <div class={"headerContent headerActions"}>
-      <div className={"selectedComponentGroup"}>
+      <div id={"selectedName"} className={"selectedComponentGroup"}>
         <p className={"selectedComp"}>{selectedElementName}</p>
         <IconX
           style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
