@@ -58,7 +58,8 @@ function HeaderActions() {
   return (
     <div class={"headerContent headerActions"}>
       <div id={"selectedName"} className={"selectedComponentGroup hidden"}>
-        <div id="docs"
+        <div
+          id="docs"
           onClick={() => {
             document.body.scrollTo(0, 0);
           }}

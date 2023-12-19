@@ -67,6 +67,9 @@ function Plugin() {
   //documentation
   const [documentationData, setDocumentationData] = useState<any>({});
 
+  //is scroll
+  const [isScroll, setIsScroll] = useState(false);
+
   //build documentation
   const [isBuilding, setIsBuilding] = useState(false);
 
@@ -104,6 +107,30 @@ function Plugin() {
   useEffect(() => {
     console.log("documentationData", documentationData);
   }, [documentationData]);
+
+  function bodyScroll() {
+    document.body.onscroll = function () {
+      if (document.body.scrollTop == 0) {
+        document.getElementById("selectedName")?.classList.add("hidden");
+      } else {
+        document.getElementById("selectedName")?.classList.remove("hidden");
+      }
+    };
+  }
+
+  function syncContent() {
+    setTimeout(function () {
+      const docNameInput = document.getElementById(
+        "docName"
+      ) as HTMLInputElement;
+      document.getElementById("docs")!.innerText = docNameInput.value;
+      // console.log("____________________________");
+      // console.log(document.getElementById("docName"));
+      syncContent();
+    }, 150);
+  }
+  bodyScroll();
+  syncContent();
 
   return (
     <div className={"container"}>
@@ -182,28 +209,6 @@ function Plugin() {
     </div>
   );
 }
-
-function bodyScroll() {
-  document.body.onscroll = function () {
-    if (document.body.scrollTop == 0) {
-      document.getElementById("selectedName")?.classList.add("hidden");
-    } else {
-      document.getElementById("selectedName")?.classList.remove("hidden");
-    }
-  };
-}
-
-function syncContent() {
-  setTimeout(function () {
-    const docNameInput = document.getElementById("docName") as HTMLInputElement;
-    document.getElementById("docs")!.innerText = docNameInput.value;
-    // console.log("____________________________");
-    // console.log(document.getElementById("docName"));
-    syncContent();
-  }, 150);
-}
-bodyScroll();
-syncContent();
 
 export default render(Plugin);
 
