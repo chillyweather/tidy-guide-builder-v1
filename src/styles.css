@@ -1488,6 +1488,14 @@ summary button {
   padding: 0;
   margin: 0;
 }
+#docs{
+  font-weight: 400;
+  font-size: var(--text-size);
+  margin-right: 12px;
+}
+.hidden #docs{
+  display: none;
+}
 
 .selectedComponentGroup {
   display: flex;

@@ -188,7 +188,7 @@ function bodyScroll(){
 
 function syncContent(){
   setTimeout(function(){
-    document.getElementById("selectedName").innerText = document.getElementById("docName").value;
+    document.getElementById("docs").innerText = document.getElementById("docName").value;
     syncContent();
 }, 150);
 }
