@@ -1322,6 +1322,7 @@ summary button {
   bottom: 0;
   height: 80px;
   width: 100%;
+  background-color: var(--tidy-background);
   display: flex;
   flex-direction: row;
   gap: 12px;
