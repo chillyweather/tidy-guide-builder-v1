@@ -183,23 +183,24 @@ function Plugin() {
   );
 }
 
-function bodyScroll(){
-  document.body.onscroll = function() {
-    if(document.body.scrollTop == 0){
+function bodyScroll() {
+  document.body.onscroll = function () {
+    if (document.body.scrollTop == 0) {
       document.getElementById("selectedName")?.classList.add("hidden");
-    }else{
+    } else {
       document.getElementById("selectedName")?.classList.remove("hidden");
     }
-};
+  };
 }
 
-function syncContent(){
-  setTimeout(function(){
-    document.getElementById("docs").innerText = document.getElementById("docName").value;
+function syncContent() {
+  setTimeout(function () {
+    const docNameInput = document.getElementById("docName") as HTMLInputElement;
+    document.getElementById("docs")!.innerText = docNameInput.value;
     // console.log("____________________________");
     // console.log(document.getElementById("docName"));
     syncContent();
-}, 150);
+  }, 150);
 }
 bodyScroll();
 syncContent();
