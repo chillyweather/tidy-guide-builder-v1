@@ -29,6 +29,7 @@ const HeaderCard = ({ data }: { data: any }) => {
     <div className="cardHeader" id="headerCard">
       <input
         className={"sectionTitle"}
+        id={"docName"}
         type={"text"}
         value={documentationTitle}
         placeholder={"Untitled"}

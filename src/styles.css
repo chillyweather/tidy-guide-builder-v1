@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=block");
 
 :root {
-  --tidy-background: #f7f6fd;
+  --tidy-background: #F7F8FB;
   --tidy-primary: #9c71ef;
   --tidy-btn-hover: #8c5aec;
   --tidy-btn-pressed: #7c4cd7;
@@ -206,7 +206,8 @@ li {
   align-items: center;
   /* padding-top: 84px; */
   margin-top: 128px;
-  min-height: calc(100vh - 128px);
+  margin-bottom: 80px;
+  min-height: calc(100vh - 208px);
 }
 
 #backToTop {
@@ -1316,11 +1317,15 @@ summary button {
 /* ----------------added by Dima------------------ */
 
 .footer {
+  position: fixed;
+  bottom: 0;
   height: 80px;
   width: 100%;
+  background-color: var(--tidy-background);
   display: flex;
   flex-direction: row;
   gap: 12px;
+  z-index: 9999;
   justify-content: space-between;
   padding: 16px 16px 24px 16px;
 }
@@ -1481,6 +1486,26 @@ summary button {
   color: #9747FF;
   padding: 0;
   margin: 0;
+}
+#docs:empty::after{
+  content: 'Untitled';
+  color: var(--tidy-disabled);
+}
+#docs{
+  cursor: pointer;
+  font-size: var(--text-size);
+  margin-right: 12px;
+  display: block;
+  max-width: 300px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: max-width 600ms linear 0s;
+}
+.hidden #docs{
+  max-width: 0;
 }
 
 .selectedComponentGroup {
@@ -1703,6 +1728,7 @@ summary button {
   background-color: #F7F7F7;
   /* padding: 16px; */
   border-radius: 8px;
+  overflow: hidden;
   text-align: center;
 }
 

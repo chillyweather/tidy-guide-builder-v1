@@ -30,6 +30,7 @@ declare const styles: {
   readonly "componentBTN": string;
   readonly "container": string;
   readonly "disabled": string;
+  readonly "docs": string;
   readonly "draft": string;
   readonly "drag-item": string;
   readonly "dragIcon": string;
@@ -52,6 +53,7 @@ declare const styles: {
   readonly "headerActions": string;
   readonly "headerCard": string;
   readonly "headerContent": string;
+  readonly "hidden": string;
   readonly "hoverButton": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;

@@ -183,6 +183,27 @@ function Plugin() {
   );
 }
 
+function bodyScroll(){
+  document.body.onscroll = function() {
+    if(document.body.scrollTop == 0){
+      document.getElementById("selectedName")?.classList.add("hidden");
+    }else{
+      document.getElementById("selectedName")?.classList.remove("hidden");
+    }
+};
+}
+
+function syncContent(){
+  setTimeout(function(){
+    document.getElementById("docs").innerText = document.getElementById("docName").value;
+    // console.log("____________________________");
+    // console.log(document.getElementById("docName"));
+    syncContent();
+}, 150);
+}
+bodyScroll();
+syncContent();
+
 export default render(Plugin);
 
 //! build documentation on canvas
