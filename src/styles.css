@@ -1488,6 +1488,10 @@ summary button {
   padding: 0;
   margin: 0;
 }
+#docs:empty::after{
+  content: 'Untitled';
+  color: var(--tidy-disabled);
+}
 #docs{
   font-weight: 400;
   font-size: var(--text-size);
