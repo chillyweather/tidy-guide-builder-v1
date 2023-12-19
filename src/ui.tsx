@@ -185,7 +185,15 @@ function bodyScroll(){
     }
 };
 }
+
+function syncContent(){
+  setTimeout(function(){
+    document.getElementById("selectedName").innerText = document.getElementById("docName").value;
+    syncContent();
+}, 150);
+}
 bodyScroll();
+syncContent();
 
 export default render(Plugin);
 
