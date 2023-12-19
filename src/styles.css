@@ -1493,7 +1493,7 @@ summary button {
   color: var(--tidy-disabled);
 }
 #docs{
-  font-weight: 400;
+  cursor: pointer;
   font-size: var(--text-size);
   margin-right: 12px;
 }
