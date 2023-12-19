@@ -58,6 +58,7 @@ function HeaderActions() {
   return (
     <div class={"headerContent headerActions"}>
       <div id={"selectedName"} className={"selectedComponentGroup hidden"}>
+        <b></b>
         <p className={"selectedComp"}>{selectedElementName}</p>
         <IconX
           style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
