@@ -16,6 +16,7 @@ import LoggedIn from "./ui_components/LoggedInPage";
 import MainContent from "./ui_components/MainContent";
 import Header from "./ui_components/Header";
 import Footer from "./ui_components/Footer";
+import LoaderPage from "./ui_components/LoadingPage";
 
 //styles
 import EmptyState from "./ui_components/EmptyState";
@@ -82,10 +83,10 @@ function Plugin() {
     setDocumentationData((prevDocumentation: any) => {
       return {
         ...prevDocumentation,
-        ["id"]: key,
+        ["_id"]: key,
         ["docs"]: [],
         ["title"]: "",
-        ["wip"]: isWip,
+        ["inProgress"]: isWip,
       };
     });
   });
@@ -133,6 +134,9 @@ function Plugin() {
           setIsBuilding,
           selectedElementKey,
           setSelectedElementKey,
+          token,
+          isLoading,
+          setIsLoading,
         }}
       >
         {feedbackPage && (
@@ -142,6 +146,7 @@ function Plugin() {
             user={currentUser}
           />
         )}
+        {isLoading && <LoaderPage />}
         {showCancelPopup && (
           <CancelPopup show={showCancelPopup} setShow={setShowCancelPopup} />
         )}
@@ -163,12 +168,14 @@ function Plugin() {
         />
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
         {!selectedElement && <EmptyState />}
-        {selectedElement && !isLoginPageOpen && <MainContent />}
+        {!isLoading && selectedElement && !isLoginPageOpen && <MainContent />}
         {selectedElement && !isLoginPageOpen && (
           <Footer
             setShowCancelPopup={setShowCancelPopup}
             setShowResetPopup={setShowResetPopup}
             setIsBuilding={setIsBuilding}
+            isBuilding={isBuilding}
+            documentationData={documentationData}
           />
         )}
       </BuilderContext.Provider>

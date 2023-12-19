@@ -1110,7 +1110,6 @@ a:hover {
 .login,
 .loader {
   position: absolute;
-  background-color: #ffffff;
   width: calc(100% - 48px);
   padding: 24px;
   display: flex;
@@ -1495,7 +1494,8 @@ summary button {
   content: '❖';
   margin-right: 8px;
 }
-.drop-zone{
+
+.drop-zone {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1517,7 +1517,8 @@ summary button {
   color: #5C5C5C;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
 }
-.drop-button{
+
+.drop-button {
   display: flex;
   gap: 6px;
   color: #73678A;
@@ -1527,7 +1528,8 @@ summary button {
   cursor: pointer;
   font-size: calc(var(--text-size) - calc(var(--text-size) / 7));
 }
-.drop-button svg{
+
+.drop-button svg {
   width: 16px;
   height: 16px;
 }
@@ -1536,7 +1538,8 @@ summary button {
   color: var(--tidy-32);
   font-size: var(--text-size);
 }
-.bold-me{
+
+.bold-me {
   font-weight: 500;
 }
 
@@ -1601,7 +1604,8 @@ summary button {
   cursor: grab;
   color: #ADAEB0;
 }
-.dragIcon *{
+
+.dragIcon * {
   pointer-events: none;
 }
 
@@ -1962,8 +1966,9 @@ summary button {
 }
 
 .loader {
-  height: 240px;
-  width: 240px;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;

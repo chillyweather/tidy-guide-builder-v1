@@ -26,6 +26,9 @@ interface IContext {
   setIsBuilding: any;
   selectedElementKey: string;
   setSelectedElementKey: any;
+  token: string;
+  isLoading: boolean;
+  setIsLoading: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

@@ -44,6 +44,10 @@ export default async function () {
     if (selectionData) emit("SELECTION", selectionData);
   });
 
+  on("CLOSE", () => {
+    figma.closePlugin();
+  });
+
   //! maybe change originalObj structure???
   function convertFormat(originalObj: any) {
     const newObj: any = {};

@@ -48,7 +48,7 @@ export const ContentCard = (cardData: any, index: number) => {
   const [cardTitle, setCardTitle] = useState(cardData.title);
   // general use
   const [isDraft, setIsDraft] = useState(false);
-  const [publish, setPublish] = useState<boolean>(false);
+  const [publish, setPublish] = useState<boolean>(true);
   // text card
   const [paragraphTextContent, setParagraphTextContent] = useState("");
   // two column card
