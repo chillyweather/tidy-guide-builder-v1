@@ -55,15 +55,20 @@ function HeaderActions() {
 
   const selectedElementName = useContext(BuilderContext)?.selectedElementName;
   const setSelectedElement = useContext(BuilderContext)?.setSelectedElement;
+  const documentationTitle = useContext(BuilderContext)?.documentationTitle;
+  const isScroll = useContext(BuilderContext)?.isScroll;
   return (
     <div class={"headerContent headerActions"}>
       <div id={"selectedName"} className={"selectedComponentGroup hidden"}>
-        <div
-          id="docs"
-          onClick={() => {
-            document.body.scrollTo(0, 0);
-          }}
-        ></div>
+        {isScroll && (
+          <div
+            onClick={() => {
+              document.body.scrollTo(0, 0);
+            }}
+          >
+            {documentationTitle}
+          </div>
+        )}
         <p className={"selectedComp"}>{selectedElementName}</p>
         <IconX
           style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}

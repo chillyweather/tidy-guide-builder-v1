@@ -29,6 +29,7 @@ interface IContext {
   token: string;
   isLoading: boolean;
   setIsLoading: any;
+  isScroll: boolean;
 }
 
 const BuilderContext = createContext<IContext | null>(null);
