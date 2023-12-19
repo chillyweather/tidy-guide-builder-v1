@@ -1496,12 +1496,12 @@ summary button {
   cursor: pointer;
   font-size: var(--text-size);
   margin-right: 12px;
-  max-width: 800px;
+  display: block;
+  max-width: 400px;
   overflow: hidden;
-  transition: all 300ms linear 0s;
+  transition: max-width 600ms linear 0s;
 }
 .hidden #docs{
-  width: 0;
   max-width: 0;
 }
 
@@ -1720,6 +1720,7 @@ summary button {
   background-color: #F7F7F7;
   /* padding: 16px; */
   border-radius: 8px;
+  overflow: hidden;
   text-align: center;
 }
 
