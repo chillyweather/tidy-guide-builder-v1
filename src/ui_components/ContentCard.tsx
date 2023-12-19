@@ -69,7 +69,7 @@ export const ContentCard = (cardData: any, index: number) => {
   //image card data
   const [remoteImageLink, setRemoteImageLink] = useState("");
   //release notes card data
-  const [releaseNotesComment, setReleaseNotesComment] = useState("");
+  const [releaseNotesMessage, setReleaseNotesMessage] = useState("");
   const [releaseNotesDate, setReleaseNotesDate] = useState("");
   const currentAuthor = useContext(BuilderContext)?.currentUser.name;
   const currentPage = useContext(BuilderContext)?.currentPage;
@@ -124,6 +124,12 @@ export const ContentCard = (cardData: any, index: number) => {
       remoteImageLink: remoteImageLink,
       //video content
       videoDataElements: videoDataElements,
+      //release notes content
+      releaseNotesMessage: releaseNotesMessage,
+      releaseNotesDate: releaseNotesDate,
+      currentAuthor: currentAuthor,
+      currentDocument: currentDocument,
+      currentPage: currentPage,
     },
   };
   //!-------------------//
@@ -138,8 +144,8 @@ export const ContentCard = (cardData: any, index: number) => {
     } else if (cardType === "release-notes") {
       return (
         <ReleaseNotesCard
-          setReleaseNotesComment={setReleaseNotesComment}
-          releaseNotesComment={releaseNotesComment}
+          setReleaseNotesComment={setReleaseNotesMessage}
+          releaseNotesComment={releaseNotesMessage}
           setReleaseNotesDate={setReleaseNotesDate}
         />
       );
