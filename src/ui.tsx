@@ -108,29 +108,15 @@ function Plugin() {
     console.log("documentationData", documentationData);
   }, [documentationData]);
 
-  function bodyScroll() {
+  (function bodyScroll() {
     document.body.onscroll = function () {
       if (document.body.scrollTop == 0) {
-        document.getElementById("selectedName")?.classList.add("hidden");
+        setIsScroll(false);
       } else {
-        document.getElementById("selectedName")?.classList.remove("hidden");
+        setIsScroll(true);
       }
     };
-  }
-
-  function syncContent() {
-    setTimeout(function () {
-      const docNameInput = document.getElementById(
-        "docName"
-      ) as HTMLInputElement;
-      document.getElementById("docs")!.innerText = docNameInput.value;
-      // console.log("____________________________");
-      // console.log(document.getElementById("docName"));
-      syncContent();
-    }, 150);
-  }
-  bodyScroll();
-  syncContent();
+  })();
 
   return (
     <div className={"container"}>
@@ -164,6 +150,7 @@ function Plugin() {
           token,
           isLoading,
           setIsLoading,
+          isScroll,
         }}
       >
         {feedbackPage && (
