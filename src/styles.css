@@ -1496,9 +1496,13 @@ summary button {
   cursor: pointer;
   font-size: var(--text-size);
   margin-right: 12px;
+  max-width: 800px;
+  overflow: hidden;
+  transition: all 300ms linear 0s;
 }
 .hidden #docs{
-  display: none;
+  width: 0;
+  max-width: 0;
 }
 
 .selectedComponentGroup {
