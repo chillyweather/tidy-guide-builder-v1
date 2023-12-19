@@ -206,7 +206,8 @@ li {
   align-items: center;
   /* padding-top: 84px; */
   margin-top: 128px;
-  min-height: calc(100vh - 128px);
+  margin-bottom: 80px;
+  min-height: calc(100vh - 208px);
 }
 
 #backToTop {
@@ -1317,6 +1318,8 @@ summary button {
 /* ----------------added by Dima------------------ */
 
 .footer {
+  position: fixed;
+  bottom: 0;
   height: 80px;
   width: 100%;
   display: flex;
