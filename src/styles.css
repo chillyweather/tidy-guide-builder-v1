@@ -1326,6 +1326,7 @@ summary button {
   display: flex;
   flex-direction: row;
   gap: 12px;
+  z-index: 9999;
   justify-content: space-between;
   padding: 16px 16px 24px 16px;
 }
