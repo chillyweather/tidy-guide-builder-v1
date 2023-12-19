@@ -1497,8 +1497,12 @@ summary button {
   font-size: var(--text-size);
   margin-right: 12px;
   display: block;
-  max-width: 400px;
+  max-width: 300px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
   overflow: hidden;
+  text-overflow: ellipsis;
   transition: max-width 600ms linear 0s;
 }
 .hidden #docs{
