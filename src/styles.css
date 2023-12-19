@@ -29,7 +29,6 @@ a {
 }
 
 body {
-  /* --tidy-background: #f7f6fd; */
   background-color: var(--tidy-background);
 }
 
