@@ -122,6 +122,8 @@ export const ContentCard = (cardData: any, index: number) => {
       inputs: listItems,
       //image content
       remoteImageLink: remoteImageLink,
+      //video content
+      videoDataElements: videoDataElements,
     },
   };
   //!-------------------//
