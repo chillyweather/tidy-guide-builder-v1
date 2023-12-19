@@ -176,6 +176,13 @@ function Plugin() {
   );
 }
 
+function bodyScroll(){
+  document.body.onscroll = function() {
+    console.log("scrolling");
+};
+}
+bodyScroll();
+
 export default render(Plugin);
 
 //! build documentation on canvas
