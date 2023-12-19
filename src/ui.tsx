@@ -131,6 +131,8 @@ function Plugin() {
           setIsWip,
           isBuilding,
           setIsBuilding,
+          selectedElementKey,
+          setSelectedElementKey,
         }}
       >
         {feedbackPage && (

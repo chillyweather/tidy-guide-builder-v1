@@ -45,6 +45,9 @@ const ListCard: FunctionComponent<ListCardProps> = ({
                 type="text"
                 value={value}
                 onInput={(e) => handleInputChange(index, e)}
+                // onKeyDown={(e) => {
+                //   e.key === "Enter" && addInputField();
+                // }}
                 className="listInputStyle"
                 placeholder="Enter text..."
               />

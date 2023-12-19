@@ -25,48 +25,47 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
   const handleDragEnd = () => {
     setDragging(false);
   };
+  //
+  //   const handleDragOver = (e: DragEvent) => {
+  //     e.preventDefault();
+  //   };
+  //
+  //   const handleDrop = (e: DragEvent) => {
+  //     e.preventDefault();
+  //     if (typeof onMove === "function") {
+  //       onMove(e.dataTransfer!.getData("text/plain"), id);
+  //     }
+  //   };
 
-  const handleDragOver = (e: DragEvent) => {
-    e.preventDefault();
-  };
-
-  const handleDrop = (e: DragEvent) => {
-    e.preventDefault();
-    if (typeof onMove === "function") {
-      onMove(e.dataTransfer!.getData("text/plain"), id);
-    }
-  };
-
-  useEffect(() => {
-    const handleDragEnter = (e: Event) => {
-      e.preventDefault();
-    };
-
-    const handleDragLeave = (e: Event) => {
-      e.preventDefault();
-    };
-
-    document.addEventListener("dragenter", handleDragEnter);
-    document.addEventListener("dragleave", handleDragLeave);
-
-    return () => {
-      document.removeEventListener("dragenter", handleDragEnter);
-      document.removeEventListener("dragleave", handleDragLeave);
-    };
-  }, []);
+  //   useEffect(() => {
+  //     const handleDragEnter = (e: Event) => {
+  //       e.preventDefault();
+  //     };
+  //
+  //     const handleDragLeave = (e: Event) => {
+  //       e.preventDefault();
+  //     };
+  //
+  //     document.addEventListener("dragenter", handleDragEnter);
+  //     document.addEventListener("dragleave", handleDragLeave);
+  //
+  //     return () => {
+  //       document.removeEventListener("dragenter", handleDragEnter);
+  //       document.removeEventListener("dragleave", handleDragLeave);
+  //     };
+  //   }, []);
 
   return (
     <div
       className={"drag-item"}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
-      onDragOver={handleDragOver}
-      onDrop={handleDrop}
+      // onDragOver={handleDragOver}
+      // onDrop={handleDrop}
       style={{
         opacity: dragging ? 0.5 : 1,
         display: "inline-block",
         height: "fit-content",
-        // pointerEvents: "none",
       }}
     >
       {content(data, index)}

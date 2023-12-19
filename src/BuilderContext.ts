@@ -24,6 +24,8 @@ interface IContext {
   setIsWip: any;
   isBuilding: boolean;
   setIsBuilding: any;
+  selectedElementKey: string;
+  setSelectedElementKey: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);
