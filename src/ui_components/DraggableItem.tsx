@@ -7,6 +7,7 @@ interface DraggableItemProps {
   content: any;
   data?: any;
   index?: number;
+  initialItems?: any[];
 }
 
 export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
@@ -15,6 +16,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
   content,
   data,
   index,
+  initialItems,
 }) => {
   const [dragging, setDragging] = useState(false);
   const handleDragStart = (e: DragEvent) => {
@@ -68,7 +70,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
         height: "fit-content",
       }}
     >
-      {content(data, index)}
+      {content(data, index, initialItems)}
     </div>
   );
 };

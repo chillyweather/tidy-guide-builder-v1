@@ -238,7 +238,12 @@ function Plugin() {
           />
         )}
         {isMainContentOpen && <MainContent />}
-        {selectedMasterId && <ContentFromServer data={sectionData} />}
+        {selectedMasterId && (
+          <ContentFromServer
+            data={dataForUpdate}
+            selectedMasterId={selectedMasterId}
+          />
+        )}
 
         {/* login */}
         {!isLoginPageOpen && !isIndexOpen && (

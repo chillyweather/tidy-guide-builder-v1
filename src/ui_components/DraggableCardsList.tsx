@@ -12,9 +12,11 @@ interface DraggableCardListProps {}
 export const DraggableCardList = ({
   items,
   setItems,
+  initialItems,
 }: {
   items: any[] | undefined;
   setItems: any;
+  initialItems?: any[];
 }) => {
   useEffect(() => {
     const el = document.getElementById("sections");
@@ -43,6 +45,7 @@ export const DraggableCardList = ({
           content={ContentCard}
           index={index}
           data={item}
+          initialItems={initialItems}
         />
       );
     });

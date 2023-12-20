@@ -43,7 +43,12 @@ function removeDraggable(event: any) {
   );
 }
 
-export const ContentCard = (cardData: any, index: number) => {
+export const ContentCard = (
+  cardData: any,
+  index: number,
+  initialItems?: any[]
+) => {
+  console.log("initialItems in ContentCard", initialItems);
   //card title
   const [cardTitle, setCardTitle] = useState(cardData.title);
   // general use
