@@ -75,7 +75,7 @@ const Login = ({
           placeholder="Email"
           id="inputMail"
           required
-          spellCheck={false}
+          spellcheck={false}
           value={email}
           onChange={handleEmailChange}
           className={invalidEmailClass}
