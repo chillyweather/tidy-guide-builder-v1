@@ -33,7 +33,7 @@ const HeaderCard = ({ data }: { data: any }) => {
         type={"text"}
         value={documentationTitle}
         placeholder={"Untitled"}
-        spellCheck={"false"}
+        spellcheck={false}
         onInput={(e) => setDocumentationTitle(e.currentTarget.value)}
       />
 
