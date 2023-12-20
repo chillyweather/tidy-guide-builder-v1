@@ -1497,15 +1497,14 @@ summary button {
   font-size: var(--text-size);
   margin-right: 12px;
   display: block;
-  max-width: 200px;
   white-space: pre;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: max-width 600ms linear 0s;
+  animation: loadName 600ms linear forwards;
 }
-
-.hidden div {
-  max-width: 0;
+@keyframes loadName {
+  0%{max-width: 0;}
+  100%{max-width: 200px;}
 }
 
 .selectedComponentGroup {

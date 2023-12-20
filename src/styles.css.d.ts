@@ -52,7 +52,6 @@ declare const styles: {
   readonly "headerActions": string;
   readonly "headerCard": string;
   readonly "headerContent": string;
-  readonly "hidden": string;
   readonly "hoverButton": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;
@@ -69,6 +68,7 @@ declare const styles: {
   readonly "listInputColumnStyle": string;
   readonly "listInputStyle": string;
   readonly "listWrapper": string;
+  readonly "loadName": string;
   readonly "loader": string;
   readonly "loader-image": string;
   readonly "login": string;
