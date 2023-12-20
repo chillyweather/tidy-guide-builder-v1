@@ -37,6 +37,7 @@ const Header = ({
               className="flex-button"
               onClick={() => {
                 setIsIndexOpen(false);
+                setIsMainContentOpen(true);
               }}
             >
               <IconFilePlus />

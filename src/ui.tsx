@@ -81,6 +81,9 @@ function Plugin() {
   //set selected master id
   const [selectedMasterId, setSelectedMasterId] = useState("");
 
+  //is plugin first time open
+  const [isFirstTime, setIsFirstTime] = useState(true);
+
   //page navigation
   const [isIndexOpen, setIsIndexOpen] = useState(false);
   const [isMainContentOpen, setIsMainContentOpen] = useState(false);
@@ -132,6 +135,12 @@ function Plugin() {
       }
     };
   })();
+
+  useEffect(() => {
+    if (isMainContentOpen) {
+      setIsFirstTime(false);
+    }
+  }, [isMainContentOpen]);
 
   return (
     <div className={"container"}>
@@ -201,7 +210,7 @@ function Plugin() {
           isIndexOpen={isIndexOpen}
         />
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
-        {!selectedElement && (
+        {(!selectedElement || !isFirstTime) && isIndexOpen && (
           <IndexPage
             data={dataForUpdate}
             setSelectedMasterId={setSelectedMasterId}

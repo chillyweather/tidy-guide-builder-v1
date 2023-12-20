@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { useState, useContext } from "preact/hooks";
+import { useState, useContext, useRef } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import {
   IconX,
@@ -59,7 +59,12 @@ function HeaderActions() {
   const isScroll = useContext(BuilderContext)?.isScroll;
   const setIsMainContentOpen = useContext(BuilderContext)?.setIsMainContentOpen;
   return (
-    <div class={"headerContent headerActions"}>
+    <div
+      class={"headerContent headerActions"}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") setIsAddSectionPopupOpen(false);
+      }}
+    >
       <div id={"selectedName"} className={"selectedComponentGroup hidden"}>
         {isScroll && (
           <div
