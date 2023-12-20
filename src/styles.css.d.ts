@@ -56,6 +56,7 @@ declare const styles: {
   readonly "headerContent": string;
   readonly "hoverButton": string;
   readonly "image-container": string;
+  readonly "image-loader": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;
   readonly "inputDiv": string;

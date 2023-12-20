@@ -48,7 +48,7 @@ export function DropZone(
       onDragOver={handleDragOver}
     >
       {isImageLoading ? (
-        <div className={"loader"}>
+        <div className={"loader image-loader"}>
           <div className={"rotatingBucket"} style={{ fontSize: "80px" }}>
             🪣
           </div>

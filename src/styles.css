@@ -1124,6 +1124,10 @@ a:hover {
   font-weight: 400;
   max-width: 400px;
 }
+.image-loader{
+  width: 80px;
+  height: 80px;
+}
 
 .login::after,
 .loader::after {
