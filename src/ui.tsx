@@ -219,7 +219,7 @@ function Plugin() {
         )}
         {!selectedElement && !isIndexOpen && <EmptyState />}
         {isMainContentOpen && <MainContent />}
-        {selectedElement && !isLoginPageOpen && (
+        {selectedElement && !isLoginPageOpen && !isIndexOpen && (
           <Footer
             setShowCancelPopup={setShowCancelPopup}
             setShowResetPopup={setShowResetPopup}
