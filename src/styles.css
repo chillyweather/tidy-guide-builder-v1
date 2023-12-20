@@ -1502,9 +1502,23 @@ summary button {
   text-overflow: ellipsis;
   animation: loadName 600ms linear forwards;
 }
+
 @keyframes loadName {
-  0%{max-width: 0;}
-  100%{max-width: 200px;}
+  0% {
+    max-width: 0;
+  }
+
+  100% {
+    max-width: 200px;
+  }
+}
+
+.connect-element-button {
+  background-color: #D9D9F2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
 }
 
 .selectedComponentGroup {
@@ -1583,10 +1597,12 @@ summary button {
   font-size: calc(var(--text-size) + calc(var(--text-size) / 7));
   font-size: var(--text-size);
 }
-#headerCard{
+
+#headerCard {
   padding: 16px;
 }
-#headerCard .sectionTitle{
+
+#headerCard .sectionTitle {
   font-size: calc(var(--text-size) + calc(var(--text-size) / 3.5));
 }
 

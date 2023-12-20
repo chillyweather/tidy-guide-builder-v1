@@ -85,7 +85,7 @@ function Plugin() {
   const [isFirstTime, setIsFirstTime] = useState(true);
 
   //page navigation
-  const [isIndexOpen, setIsIndexOpen] = useState(false);
+  const [isIndexOpen, setIsIndexOpen] = useState(true);
   const [isMainContentOpen, setIsMainContentOpen] = useState(false);
 
   on("AUTH_CHANGE", async (token) => {
@@ -151,6 +151,7 @@ function Plugin() {
           selectedSections,
           setSelectedSections,
           selectedElementName,
+          setSelectedElementName,
           selectedCard,
           setSelectedCard,
           loggedInUser,
@@ -217,9 +218,11 @@ function Plugin() {
             setIsIndexOpen={setIsIndexOpen}
           />
         )}
-        {!selectedElement && !isIndexOpen && <EmptyState />}
+        {/* {!selectedElement && !isIndexOpen && !isMainContentOpen && (
+          <EmptyState />
+        )} */}
         {isMainContentOpen && <MainContent />}
-        {selectedElement && !isLoginPageOpen && !isIndexOpen && (
+        {!isLoginPageOpen && !isIndexOpen && (
           <Footer
             setShowCancelPopup={setShowCancelPopup}
             setShowResetPopup={setShowResetPopup}

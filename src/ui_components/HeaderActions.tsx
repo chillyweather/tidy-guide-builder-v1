@@ -3,6 +3,7 @@ import { useState, useContext, useRef } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import {
   IconX,
+  IconLink,
   IconMoodPuzzled,
   IconPlayerPlayFilled,
   IconPlus,
@@ -54,6 +55,8 @@ function HeaderActions() {
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
 
   const selectedElementName = useContext(BuilderContext)?.selectedElementName;
+  const setSelectedElementName =
+    useContext(BuilderContext)?.setSelectedElementName;
   const setSelectedElement = useContext(BuilderContext)?.setSelectedElement;
   const documentationTitle = useContext(BuilderContext)?.documentationTitle;
   const isScroll = useContext(BuilderContext)?.isScroll;
@@ -66,7 +69,7 @@ function HeaderActions() {
       }}
     >
       <div id={"selectedName"} className={"selectedComponentGroup hidden"}>
-        {isScroll && (
+        {isScroll && selectedElementName && (
           <div
             onClick={() => {
               document.body.scrollTo(0, 0);
@@ -75,15 +78,35 @@ function HeaderActions() {
             {documentationTitle}
           </div>
         )}
-        <p className={"selectedComp"}>{selectedElementName}</p>
-        <IconX
-          style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
-          onClick={() => {
-            setSelectedElement(null);
-            emit("CLEAR_SELECTION");
-            setIsMainContentOpen(false);
-          }}
-        />
+        {console.log("selectedElementName", selectedElementName)}
+        {!!selectedElementName && (
+          <p className={"selectedComp"}>{selectedElementName}</p>
+        )}
+        {!selectedElementName && <p>No selected compontent</p>}
+
+        {selectedElementName ? (
+          <IconX
+            style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
+            onClick={() => {
+              setSelectedElement(null);
+              setSelectedElementName("");
+              emit("CLEAR_SELECTION");
+              // setIsMainContentOpen(false);
+            }}
+          />
+        ) : (
+          <button
+            className="connect-element-button"
+            onClick={() => {
+              emit("GET_SELECTION");
+            }}
+          >
+            <IconLink
+              style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
+            />
+            Get component
+          </button>
+        )}
       </div>
       <div className={"selectedComponentActions"}>
         <button

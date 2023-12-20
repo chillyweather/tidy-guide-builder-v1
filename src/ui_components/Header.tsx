@@ -26,6 +26,7 @@ const Header = ({
 }) => {
   const selectedElement = useContext(BuilderContext)?.selectedElement;
   const setIsMainContentOpen = useContext(BuilderContext)?.setIsMainContentOpen;
+  const isMainContentOpen = useContext(BuilderContext)?.isMainContentOpen;
   const setIsIndexOpen = useContext(BuilderContext)?.setIsIndexOpen;
 
   return (
@@ -87,7 +88,9 @@ const Header = ({
           </button>
         </div>
       </div>
-      {selectedElement && !isLoginPageOpen && !isIndexOpen && <HeaderActions />}
+      {(selectedElement || isMainContentOpen) &&
+        !isLoginPageOpen &&
+        !isIndexOpen && <HeaderActions />}
     </div>
   );
 };

@@ -28,6 +28,7 @@ declare const styles: {
   readonly "columnTextArea": string;
   readonly "columnTitle": string;
   readonly "componentBTN": string;
+  readonly "connect-element-button": string;
   readonly "container": string;
   readonly "disabled": string;
   readonly "draft": string;

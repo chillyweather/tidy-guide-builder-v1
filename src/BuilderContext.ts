@@ -6,6 +6,7 @@ interface IContext {
   selectedSections: any[];
   setSelectedSections: any;
   selectedElementName: string;
+  setSelectedElementName: any;
   selectedCard: string;
   setSelectedCard: any;
   loggedInUser: string;
