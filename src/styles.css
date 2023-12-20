@@ -1498,9 +1498,7 @@ summary button {
   margin-right: 12px;
   display: block;
   max-width: 200px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  white-space: pre;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: max-width 600ms linear 0s;
