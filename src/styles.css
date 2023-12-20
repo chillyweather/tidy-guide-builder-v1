@@ -1828,6 +1828,10 @@ summary button {
 .sectionCard .cardHeader .hoverButton:focus, .sectionCard .cardHeader .hoverButton:focus-within {
   opacity: 1;
 }
+.sectionCard .cardHeader .hoverButton:focus-within .tooltiptext{
+  visibility: visible !important;
+  opacity: 1 !important;
+}
 .unselected{
   pointer-events: none;
 }
