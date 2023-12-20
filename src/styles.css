@@ -1492,6 +1492,10 @@ summary button {
   color: var(--tidy-disabled);
 }
 
+#selectedName p{
+  margin-bottom: 0;
+}
+
 #selectedName div {
   cursor: pointer;
   font-size: var(--text-size);
@@ -1513,12 +1517,30 @@ summary button {
   }
 }
 
-.connect-element-button {
+.headerActions .connect-element-button {
   background-color: #D9D9F2;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  padding: 6px 10px;
+  color: unset;
+  font-size: calc(var(--text-size) - (var(--text-size) / 7));
+  background-color: #F0F0FA;
+  border-radius: 9999px;
+}
+.headerActions .connect-element-button:hover{
+  color: unset;
+  background-color: #E8E8F7;
+}
+.headerActions .connect-element-button:focus-visible{
+  color: unset;
+  background-color: #F0F0FA;
+  box-shadow: 0 0 0 3px #ECE3FC;
+}
+.headerActions .connect-element-button:active{
+  color: unset;
+  background-color: #D9D9F2;
 }
 
 .selectedComponentGroup {
