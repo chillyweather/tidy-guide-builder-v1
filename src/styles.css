@@ -1127,6 +1127,7 @@ a:hover {
 .image-loader{
   width: 80px;
   height: 80px;
+  max-height: 80px;
 }
 
 .login::after,
@@ -2075,7 +2076,7 @@ summary button {
 }
 
 .rotatingBucket {
-  animation: rotate 1s infinite linear;
+  animation: rotateAnim 1000ms infinite linear;
 }
 
 /* tooltip test */
@@ -2112,7 +2113,7 @@ summary button {
   opacity: 1;
 }
 
-@keyframes rotate {
+@keyframes rotateAnim {
   0% {
     transform: rotate(0deg);
   }

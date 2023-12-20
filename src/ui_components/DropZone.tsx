@@ -4,6 +4,7 @@ import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { uploadFileToServer } from "src/ui_components/ui_functions/fileManagementFunctions";
 import { useEffect } from "react";
+import imageLoader from "../images/loader-spinner.png";
 import {
   IconCloudUpload,
 } from "@tabler/icons-react";
@@ -49,8 +50,8 @@ export function DropZone(
     >
       {isImageLoading ? (
         <div className={"loader image-loader"}>
-          <div className={"rotatingBucket"} style={{ fontSize: "80px" }}>
-            🪣
+          <div className={"rotatingBucket"}>
+            <img src={imageLoader} />
           </div>
         </div>
       ) : (
