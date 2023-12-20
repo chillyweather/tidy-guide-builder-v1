@@ -49,7 +49,7 @@ export function DropZone(
     >
       {isImageLoading ? (
         <div className={"loader"}>
-          <div className="rotatingBucket" style={{ fontSize: "80px" }}>
+          <div className={"rotatingBucket"} style={{ fontSize: "80px" }}>
             🪣
           </div>
         </div>
