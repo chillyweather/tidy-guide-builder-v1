@@ -30,7 +30,6 @@ declare const styles: {
   readonly "componentBTN": string;
   readonly "container": string;
   readonly "disabled": string;
-  readonly "docs": string;
   readonly "draft": string;
   readonly "drag-item": string;
   readonly "dragIcon": string;
@@ -104,6 +103,7 @@ declare const styles: {
   readonly "selected": string;
   readonly "selectedComp": string;
   readonly "selectedComponentGroup": string;
+  readonly "selectedName": string;
   readonly "selectedPage": string;
   readonly "show": string;
   readonly "side-flex": string;
