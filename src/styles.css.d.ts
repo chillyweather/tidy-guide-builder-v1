@@ -30,6 +30,7 @@ declare const styles: {
   readonly "componentBTN": string;
   readonly "connect-element-button": string;
   readonly "container": string;
+  readonly "dialogInput": string;
   readonly "disabled": string;
   readonly "draft": string;
   readonly "drag-item": string;
@@ -54,6 +55,7 @@ declare const styles: {
   readonly "headerCard": string;
   readonly "headerContent": string;
   readonly "hoverButton": string;
+  readonly "image-container": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;
   readonly "inputDiv": string;

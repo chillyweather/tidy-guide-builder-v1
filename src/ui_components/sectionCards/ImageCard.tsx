@@ -14,16 +14,7 @@ const ImageCard: FunctionComponent<{
   function setContent() {
     {
       return !remoteImageLink ? (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            gap: "8px",
-            height: "100%",
-            width: "100%",
-          }}
-        >
+        <div className={"image-container"}>
           {DropZone(
             setRemoteImageLink,
             setIsImageLoading,
@@ -58,7 +49,7 @@ const ImageCard: FunctionComponent<{
               <IconX size={16} />
             </button>
           </div>
-          <img style={{ width: "80%" }} src={remoteImageLink} />
+          <img style={{ height: "200px" }} src={remoteImageLink} />
           {textBoxElement(remoteImageLink, setRemoteImageLink, "Link")}
         </div>
       );
