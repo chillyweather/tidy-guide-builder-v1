@@ -1592,7 +1592,7 @@ summary button {
   line-height: normal;
   letter-spacing: -0.24px;
   border-color: transparent;
-  width: calc(100vw - 240px);
+  width: calc(100vw - 280px);
   font-weight: 500;
   font-size: calc(var(--text-size) + calc(var(--text-size) / 7));
   font-size: var(--text-size);
