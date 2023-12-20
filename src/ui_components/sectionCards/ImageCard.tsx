@@ -25,17 +25,7 @@ const ImageCard: FunctionComponent<{
           {textBoxElement(remoteImageLink, setRemoteImageLink, "Add link")}
         </div>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "8px",
-            height: "100%",
-            width: "100%",
-          }}
-        >
+        <div className={"outer-image"}>
           <div className="dropZoneHeader">
             <button
               onClick={async () => {

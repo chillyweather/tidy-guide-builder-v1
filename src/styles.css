@@ -1552,7 +1552,7 @@ summary button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #5C5C5C;
+  color: #757575;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
 }
 
@@ -1576,6 +1576,11 @@ summary button {
   color: var(--tidy-32);
   font-size: var(--text-size);
 }
+.drop-text u{
+  text-decoration: none;
+  color: var(--tidy-32);
+  font-size: calc(var(--text-size) - (var(--text-size) / 7));
+}
 
 .bold-me {
   font-weight: 500;
@@ -1589,8 +1594,17 @@ summary button {
   height: 100%;
   width: 100%;
 }
-.image-container img > .dialogInput{
-  opacity: 0.1;
+.outer-image{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 100%;
+  width: 100%;
+}
+.outer-image img ~ .dialogInput{
+  display: none;
 }
 /* section card top content */
 

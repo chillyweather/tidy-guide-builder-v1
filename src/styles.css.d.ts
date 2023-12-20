@@ -84,6 +84,7 @@ declare const styles: {
   readonly "navigation": string;
   readonly "notFilled": string;
   readonly "oneColumn": string;
+  readonly "outer-image": string;
   readonly "pagination": string;
   readonly "popupButtons": string;
   readonly "primary": string;

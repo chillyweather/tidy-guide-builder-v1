@@ -59,6 +59,8 @@ export function DropZone(
             <b>Drop image here or click to upload image </b>
             <br />
             Maximum resolution 4096 x 4096 pixels
+            <br />
+            <u>Up to 1MB in size</u>
           </div>
           <VerticalSpace space="small" />
           <label
