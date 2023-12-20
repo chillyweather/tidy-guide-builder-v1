@@ -1,15 +1,20 @@
 import { h } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useContext } from "preact/hooks";
+import BuilderContext from "../BuilderContext";
 import { DraggableCardList } from "./DraggableCardsList";
 import HeaderCard from "./sectionCards/HeaderCard";
 
 const MainContent = () => {
-  const [currentElement, setCurrentElement] = useState<any>(null);
-  const [documentationTitle, setDocumentationTitle] = useState("");
+  const selectedSections = useContext(BuilderContext)?.selectedSections;
+  const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   return (
     <div className="mainContent">
+      {console.log("selectedSections", selectedSections)}
       <HeaderCard data={{ title: "Documentation Title" }} />
-      <DraggableCardList />
+      <DraggableCardList
+        items={selectedSections}
+        setItems={setSelectedSections}
+      />
     </div>
   );
 };

@@ -1,11 +1,10 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
 import { DraggableCardList } from "./DraggableCardsList";
+//content cards
 import HeaderCard from "./sectionCards/HeaderCard";
 
-const MainContent = () => {
-  const [currentElement, setCurrentElement] = useState<any>(null);
-  const [documentationTitle, setDocumentationTitle] = useState("");
+const ContentFromServer = ({ data }: { data: any }) => {
   return (
     <div className="mainContent">
       {/* <HeaderCard data={{ title: "Documentation Title" }} />
@@ -14,4 +13,4 @@ const MainContent = () => {
   );
 };
 
-export default MainContent;
+export default ContentFromServer;

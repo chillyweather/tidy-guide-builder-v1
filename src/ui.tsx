@@ -14,7 +14,7 @@ import ResetPopup from "./ui_components/popups/resetPopup";
 import Login from "./ui_components/LoginPage";
 import LoggedIn from "./ui_components/LoggedInPage";
 import MainContent from "./ui_components/MainContent";
-import ContentFromServerData from "./ui_components/ContentFromServerData";
+import ContentFromServer from "./ui_components/ContentFromServer";
 import Header from "./ui_components/Header";
 import Footer from "./ui_components/Footer";
 import LoaderPage from "./ui_components/LoadingPage";
@@ -238,6 +238,7 @@ function Plugin() {
           />
         )}
         {isMainContentOpen && <MainContent />}
+        {selectedMasterId && <ContentFromServer data={sectionData} />}
 
         {/* login */}
         {!isLoginPageOpen && !isIndexOpen && (

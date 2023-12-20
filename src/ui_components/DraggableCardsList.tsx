@@ -9,12 +9,13 @@ import { ContentCard } from "./ContentCard";
 
 interface DraggableCardListProps {}
 
-export const DraggableCardList: FunctionComponent<
-  DraggableCardListProps
-> = () => {
-  const items = useContext(BuilderContext)?.selectedSections;
-  const setItems = useContext(BuilderContext)?.setSelectedSections;
-
+export const DraggableCardList = ({
+  items,
+  setItems,
+}: {
+  items: any[] | undefined;
+  setItems: any;
+}) => {
   useEffect(() => {
     const el = document.getElementById("sections");
     if (el) {
