@@ -204,7 +204,7 @@ li {
   flex-direction: column;
   align-items: center;
   /* padding-top: 84px; */
-  margin-top: 128px;
+  margin-top: 108px;
   margin-bottom: 80px;
   min-height: calc(100vh - 208px);
 }
@@ -479,7 +479,7 @@ button svg {
 .headerActions button {
   background-color: var(--tidy-primary);
   color: #ffffff;
-  margin-right: 8px;
+  margin-right: 6px;
 }
 
 .headerActions button:hover {
@@ -1466,7 +1466,7 @@ summary button {
 .sectionCard {
   display: flex;
   flex-direction: column;
-  min-height: 50px;
+  /* min-height: 50px; */
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -1474,7 +1474,7 @@ summary button {
   align-self: stretch;
   border-radius: 8px;
   background: #fff;
-  padding: 16px;
+  padding: 12px;
 }
 
 .selected {
@@ -1487,27 +1487,24 @@ summary button {
   margin: 0;
 }
 
-#docs:empty::after {
+#selectedName div:empty::after {
   content: 'Untitled';
   color: var(--tidy-disabled);
 }
 
-#docs {
+#selectedName div {
   cursor: pointer;
   font-size: var(--text-size);
   margin-right: 12px;
   display: block;
-  max-width: 300px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  white-space: pre;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: max-width 600ms linear 0s;
+  animation: loadName 600ms linear forwards;
 }
-
-.hidden #docs {
-  max-width: 0;
+@keyframes loadName {
+  0%{max-width: 0;}
+  100%{max-width: 200px;}
 }
 
 .selectedComponentGroup {
@@ -1584,6 +1581,13 @@ summary button {
   width: calc(100vw - 240px);
   font-weight: 500;
   font-size: calc(var(--text-size) + calc(var(--text-size) / 7));
+  font-size: var(--text-size);
+}
+#headerCard{
+  padding: 16px;
+}
+#headerCard .sectionTitle{
+  font-size: calc(var(--text-size) + calc(var(--text-size) / 3.5));
 }
 
 .sectionTitle:focus {
