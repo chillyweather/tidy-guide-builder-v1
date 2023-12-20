@@ -43,12 +43,7 @@ function removeDraggable(event: any) {
   );
 }
 
-export const ContentCard = (
-  cardData: any,
-  index: number,
-  initialItems?: any[]
-) => {
-  console.log("initialItems in ContentCard", initialItems);
+export const ContentCard = (cardData: any, index: number) => {
   //card title
   const [cardTitle, setCardTitle] = useState(cardData.title);
   // general use
@@ -92,6 +87,13 @@ export const ContentCard = (
   //! documentation data
   const documentationData = useContext(BuilderContext)?.documentationData;
   const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
+  const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
+
+  if (isFromSavedData) {
+    console.log("from saved data", cardData);
+  } else {
+    console.log("not from saved data", cardData);
+  }
 
   const id = cardData.id;
   const isSelected = selectedCard === id;

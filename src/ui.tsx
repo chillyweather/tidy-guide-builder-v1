@@ -85,9 +85,13 @@ function Plugin() {
   //is plugin first time open
   const [isFirstTime, setIsFirstTime] = useState(true);
 
+  //is content from server
+  const [isFromSavedData, setIsFromSavedData] = useState(false);
+
   //page navigation
   const [isIndexOpen, setIsIndexOpen] = useState(true);
   const [isMainContentOpen, setIsMainContentOpen] = useState(false);
+  const [isContenFromServerOpen, setIsContenFromServerOpen] = useState(false);
 
   on("AUTH_CHANGE", async (token) => {
     if (token) {
@@ -187,6 +191,8 @@ function Plugin() {
           setIsMainContentOpen,
           isIndexOpen,
           setIsIndexOpen,
+          isFromSavedData: isFromSavedData,
+          setIsFromSavedData: setIsFromSavedData,
         }}
       >
         {feedbackPage && (
@@ -225,6 +231,8 @@ function Plugin() {
             data={dataForUpdate}
             setSelectedMasterId={setSelectedMasterId}
             setIsIndexOpen={setIsIndexOpen}
+            setIsContenFromServerOpen={setIsContenFromServerOpen}
+            setIsFromSavedData={setIsFromSavedData}
           />
         )}
         {isFirstTime && selectedElement && <MainContent />}
@@ -235,10 +243,12 @@ function Plugin() {
             data={dataForUpdate}
             setSelectedMasterId={setSelectedMasterId}
             setIsIndexOpen={setIsIndexOpen}
+            setIsContenFromServerOpen={setIsContenFromServerOpen}
+            setIsFromSavedData={setIsFromSavedData}
           />
         )}
         {isMainContentOpen && <MainContent />}
-        {selectedMasterId && (
+        {selectedMasterId && !isMainContentOpen && (
           <ContentFromServer
             data={dataForUpdate}
             selectedMasterId={selectedMasterId}

@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { useState, useContext } from "preact/hooks";
+import { useState, useContext, useEffect } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { DraggableCardList } from "./DraggableCardsList";
 //content cards
@@ -12,17 +12,18 @@ const ContentFromServer = ({
   data: any;
   selectedMasterId: string;
 }) => {
+  const selectedSections = useContext(BuilderContext)?.selectedSections;
+  const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   const foundData = data.find((item: any) => item._id === selectedMasterId);
-  if (!foundData) {
-    return <div>stuck...</div>;
-  }
-  console.log("data in CFS", data);
-  console.log("foundData in CFS", foundData);
+  if (foundData) setSelectedSections(foundData.docs);
+
   return (
     <div className="mainContent">
-      <p>{JSON.stringify(foundData, null, 2)}</p>
-      {/* <HeaderCard data={{ title: "Documentation Title" }} />
-      <DraggableCardList /> */}
+      <HeaderCard data={foundData.title} />
+      <DraggableCardList
+        items={selectedSections}
+        setItems={setSelectedSections}
+      />
     </div>
   );
 };

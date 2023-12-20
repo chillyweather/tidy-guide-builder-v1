@@ -35,6 +35,8 @@ interface IContext {
   setIsMainContentOpen: any;
   isIndexOpen: boolean;
   setIsIndexOpen: any;
+  isFromSavedData: boolean;
+  setIsFromSavedData: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

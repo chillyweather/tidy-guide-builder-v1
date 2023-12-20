@@ -4,10 +4,14 @@ const IndexPage = ({
   data,
   setSelectedMasterId,
   setIsIndexOpen,
+  setIsContenFromServerOpen,
+  setIsFromSavedData,
 }: {
   data: any;
   setSelectedMasterId: Function;
   setIsIndexOpen: Function;
+  setIsContenFromServerOpen: Function;
+  setIsFromSavedData: Function;
 }) => {
   if (Object.keys(data).length === 0) return;
   return data.map((element: any, index: number) => {
@@ -18,7 +22,9 @@ const IndexPage = ({
         className={"componentBTN"}
         onClick={() => {
           setSelectedMasterId(element._id);
+          setIsFromSavedData(true);
           setIsIndexOpen(false);
+          setIsContenFromServerOpen(true);
         }}
       >
         {title}

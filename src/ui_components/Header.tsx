@@ -28,6 +28,7 @@ const Header = ({
   const setIsMainContentOpen = useContext(BuilderContext)?.setIsMainContentOpen;
   const isMainContentOpen = useContext(BuilderContext)?.isMainContentOpen;
   const setIsIndexOpen = useContext(BuilderContext)?.setIsIndexOpen;
+  const setIsFromSavedData = useContext(BuilderContext)?.setIsFromSavedData;
 
   return (
     <div className="header">
@@ -39,6 +40,7 @@ const Header = ({
               onClick={() => {
                 setIsIndexOpen(false);
                 setIsMainContentOpen(true);
+                setIsFromSavedData(false);
               }}
             >
               <IconFilePlus />
