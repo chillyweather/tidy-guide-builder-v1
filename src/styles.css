@@ -1504,7 +1504,7 @@ summary button {
   transition: max-width 600ms linear 0s;
 }
 
-.hidden #selectedName {
+.hidden div {
   max-width: 0;
 }
 
