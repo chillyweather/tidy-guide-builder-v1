@@ -126,6 +126,7 @@ declare const styles: {
   readonly "top": string;
   readonly "two-columns": string;
   readonly "twoColumnCardBodyContent": string;
+  readonly "unselected": string;
   readonly "validationFailedMessage": string;
   readonly "videoClosed": string;
   readonly "videoDiv": string;

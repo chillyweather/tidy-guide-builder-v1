@@ -1825,6 +1825,12 @@ summary button {
 .sectionCard:hover .cardHeader .hoverButton {
   opacity: 1;
 }
+.sectionCard .cardHeader .hoverButton:focus, .sectionCard .cardHeader .hoverButton:focus-within {
+  opacity: 1;
+}
+.unselected{
+  pointer-events: none;
+}
 
 .textCardBodyContent {
   width: calc(100% - 16px);
