@@ -479,7 +479,7 @@ button svg {
 .headerActions button {
   background-color: var(--tidy-primary);
   color: #ffffff;
-  margin-right: 8px;
+  margin-right: 6px;
 }
 
 .headerActions button:hover {
@@ -1466,7 +1466,7 @@ summary button {
 .sectionCard {
   display: flex;
   flex-direction: column;
-  min-height: 50px;
+  /* min-height: 50px; */
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -1474,7 +1474,7 @@ summary button {
   align-self: stretch;
   border-radius: 8px;
   background: #fff;
-  padding: 16px;
+  padding: 12px;
 }
 
 .selected {
@@ -1581,6 +1581,13 @@ summary button {
   width: calc(100vw - 240px);
   font-weight: 500;
   font-size: calc(var(--text-size) + calc(var(--text-size) / 7));
+  font-size: var(--text-size);
+}
+#headerCard{
+  padding: 16px;
+}
+#headerCard .sectionTitle{
+  font-size: calc(var(--text-size) + calc(var(--text-size) / 3.5));
 }
 
 .sectionTitle:focus {
