@@ -1124,7 +1124,8 @@ a:hover {
   font-weight: 400;
   max-width: 400px;
 }
-.image-loader{
+
+.image-loader {
   width: 80px;
   height: 80px;
   max-height: 80px;
@@ -1190,8 +1191,30 @@ input[type="radio"] {
   accent-color: var(--tidy-primary);
 }
 
-._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:checked~._fill_1a43f_22 {
+/* toggle */
+._box_1rqu7_22 {
+  border: none;
+  box-shadow: 0 0 0 2px var(--tidy-primary);
+}
+._toggle_1rqu7_1:not(._disabled_1rqu7_18) ._input_1rqu7_6:focus ~ ._box_1rqu7_22{
+  border: none;
+  outline: none;
+  box-shadow: 0 0 0 2px var(--tidy-primary);
+}
+._switch_1rqu7_46{
   background-color: var(--tidy-primary);
+  transform: scale(.8);
+}
+._input_1rqu7_6:checked ~ ._switch_1rqu7_46{
+  background-color: #ffffff;
+}
+
+._toggle_1rqu7_1:not(._disabled_1rqu7_18) ._input_1rqu7_6:checked~._box_1rqu7_22 {
+  background-color: var(--tidy-primary);
+}
+
+._switch_1rqu7_46 {
+  border: none;
 }
 
 ._fill_1a43f_22,
@@ -1497,7 +1520,7 @@ summary button {
   color: var(--tidy-disabled);
 }
 
-#selectedName p{
+#selectedName p {
   margin-bottom: 0;
 }
 
@@ -1534,16 +1557,19 @@ summary button {
   background-color: #F0F0FA;
   border-radius: 9999px;
 }
-.headerActions .connect-element-button:hover{
+
+.headerActions .connect-element-button:hover {
   color: unset;
   background-color: #E8E8F7;
 }
-.headerActions .connect-element-button:focus-visible{
+
+.headerActions .connect-element-button:focus-visible {
   color: unset;
   background-color: #F0F0FA;
   box-shadow: 0 0 0 3px #ECE3FC;
 }
-.headerActions .connect-element-button:active{
+
+.headerActions .connect-element-button:active {
   color: unset;
   background-color: #D9D9F2;
 }
@@ -1603,7 +1629,8 @@ summary button {
   color: var(--tidy-32);
   font-size: var(--text-size);
 }
-.drop-text u{
+
+.drop-text u {
   text-decoration: none;
   color: var(--tidy-32);
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
@@ -1613,7 +1640,7 @@ summary button {
   font-weight: 500;
 }
 
-.image-container{
+.image-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1621,7 +1648,8 @@ summary button {
   height: 100%;
   width: 100%;
 }
-.outer-image{
+
+.outer-image {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1630,9 +1658,11 @@ summary button {
   height: 100%;
   width: 100%;
 }
-.outer-image img ~ .dialogInput{
+
+.outer-image img~.dialogInput {
   display: none;
 }
+
 /* section card top content */
 
 .sectionTitle {
