@@ -97,7 +97,12 @@ body:has(.login) {
   text-overflow: ellipsis;
   display: none;
 }
-
+.container:has(.componentBTN){
+  display: flex;
+  gap: 20px;
+  padding-right: 32px;
+  padding-left: 32px;
+}
 .componentBTN {
   position: relative;
   font-family: "Space Mono", monospace;
