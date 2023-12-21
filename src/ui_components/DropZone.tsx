@@ -57,7 +57,7 @@ export function DropZone(
       ) : (
         <div className={"drop-text"}>
           <div>
-            <b>Drop image here or click to upload image </b>
+            <b>Drop a file here or click to upload image </b>
             <br />
             Maximum resolution 4096 x 4096 pixels
             <br />
