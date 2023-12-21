@@ -1678,6 +1678,20 @@ summary button {
   display: block;
 }
 
+.listCardContentStyle .listInputColumnStyle button {
+  pointer-events: none;
+  visibility: hidden;
+}
+.listCardContentStyle .listInputColumnStyle:has(.listCollumnStyle+.listCollumnStyle) button{
+  pointer-events: all;
+  visibility: visible;
+}
+
+.listButtonStyle{
+  pointer-events: all !important;
+  visibility: visible !important;
+}
+
 /* section card top content */
 
 .sectionTitle {
