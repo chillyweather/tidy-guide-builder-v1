@@ -44,20 +44,35 @@ function removeDraggable(event: any) {
 }
 
 export const ContentCard = (cardData: any, index: number) => {
+  const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
   //card title
   const [cardTitle, setCardTitle] = useState(cardData.title);
   // general use
   const [isDraft, setIsDraft] = useState(false);
-  const [publish, setPublish] = useState<boolean>(true);
+  const [publish, setPublish] = useState<boolean>(
+    isFromSavedData ? cardData.publish : true
+  );
   // text card
-  const [paragraphTextContent, setParagraphTextContent] = useState("");
+  const [paragraphTextContent, setParagraphTextContent] = useState(
+    isFromSavedData ? cardData.text : ""
+  );
   // two column card
-  const [leftTitle, setLeftTitle] = useState("");
-  const [leftTextContent, setLeftTextContent] = useState("");
-  const [rightTitle, setRightTitle] = useState("");
-  const [rightTextContent, setRightTextContent] = useState("");
+  const [leftTitle, setLeftTitle] = useState(
+    isFromSavedData ? cardData.content.subtitle1 : ""
+  );
+  const [leftTextContent, setLeftTextContent] = useState(
+    isFromSavedData ? cardData.content.text1 : ""
+  );
+  const [rightTitle, setRightTitle] = useState(
+    isFromSavedData ? cardData.content.subtitle2 : ""
+  );
+  const [rightTextContent, setRightTextContent] = useState(
+    isFromSavedData ? cardData.content.text2 : ""
+  );
   // list
-  const [listItems, setListItems] = useState<string[]>([""]);
+  const [listItems, setListItems] = useState<string[]>(
+    isFromSavedData ? cardData.content.inputs : [""]
+  );
   // link
   const [sources, setSources]: any[] = useState([{ source: "", link: "" }]);
   //video card data
@@ -67,7 +82,9 @@ export const ContentCard = (cardData: any, index: number) => {
   const [foundVideoData, setFoundVideoData]: any = useState({});
   const [videoDataElements, setVideoDataElements]: any[] = useState([]);
   //image card data
-  const [remoteImageLink, setRemoteImageLink] = useState("");
+  const [remoteImageLink, setRemoteImageLink] = useState(
+    isFromSavedData ? cardData.content.remoteImageLink : ""
+  );
   //release notes card data
   const [releaseNotesMessage, setReleaseNotesMessage] = useState("");
   const [releaseNotesDate, setReleaseNotesDate] = useState("");
@@ -87,19 +104,22 @@ export const ContentCard = (cardData: any, index: number) => {
   //! documentation data
   const documentationData = useContext(BuilderContext)?.documentationData;
   const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
-  const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
 
-  if (isFromSavedData) {
-    console.log("from saved data", cardData);
-  } else {
-    console.log("not from saved data", cardData);
-  }
+  // if (isFromSavedData) {
+  //   console.log("from saved data", cardData);
+  // } else {
+  //   console.log("not from saved data", cardData);
+  // }
 
-  const id = cardData.id;
+  //!-------------------------------------------------------------------------------//
+  //!-------from here content changes depending on isFromSavedData state------------//
+  //!-------------------------------------------------------------------------------//
+
+  const id = isFromSavedData ? cardData.docId : cardData.id;
   const isSelected = selectedCard === id;
-  const cardType = cardData.content;
+  const cardType = isFromSavedData ? cardData.datatype : cardData.content;
 
-  //!-------------------//
+  //data for export
   interface CardDataProps {
     title: string;
     index: number;
@@ -139,11 +159,10 @@ export const ContentCard = (cardData: any, index: number) => {
       currentPage: currentPage,
     },
   };
-  //!-------------------//
 
   const currentCardContent = (cardType: string) => {
     if (cardType === "header") {
-      return <HeaderCard data={cardData} />;
+      return <HeaderCard />;
     } else if (cardType === "property") {
       return <PropertyCard />;
     } else if (cardType === "variants") {
@@ -243,6 +262,7 @@ export const ContentCard = (cardData: any, index: number) => {
 
   useEffect(() => {
     if (isBuilding) {
+      console.log("is building");
       setDocumentationData((prevDocumentation: any) => {
         const newDocumentation = { ...prevDocumentation };
         const newDocs = newDocumentation.docs;
@@ -255,7 +275,7 @@ export const ContentCard = (cardData: any, index: number) => {
 
   return cardType === "header" ? (
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
-      <HeaderCard data={cardData} />
+      <HeaderCard />
     </div>
   ) : (
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>

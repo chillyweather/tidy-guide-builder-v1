@@ -14,12 +14,20 @@ const ContentFromServer = ({
 }) => {
   const selectedSections = useContext(BuilderContext)?.selectedSections;
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
+  const setDocumentationTitle =
+    useContext(BuilderContext)?.setDocumentationTitle;
+  const setIsWip = useContext(BuilderContext)?.setIsWip;
+
   const foundData = data.find((item: any) => item._id === selectedMasterId);
-  if (foundData) setSelectedSections(foundData.docs);
+  if (foundData) {
+    setSelectedSections(foundData.docs);
+    setDocumentationTitle(foundData.title);
+    setIsWip(foundData.inProgress);
+  }
 
   return (
     <div className="mainContent">
-      <HeaderCard data={foundData.title} />
+      <HeaderCard />
       <DraggableCardList
         items={selectedSections}
         setItems={setSelectedSections}

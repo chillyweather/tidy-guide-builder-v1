@@ -3,7 +3,7 @@ import { useState, useContext, useEffect } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 import CheckboxElement from "../Checkbox";
 
-const HeaderCard = ({ data }: { data: any }) => {
+const HeaderCard = () => {
   const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
   const documentationTitle = useContext(BuilderContext)?.documentationTitle;
   const setDocumentationTitle =
