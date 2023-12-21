@@ -1196,16 +1196,19 @@ input[type="radio"] {
   border: none;
   box-shadow: 0 0 0 2px var(--tidy-primary);
 }
-._toggle_1rqu7_1:not(._disabled_1rqu7_18) ._input_1rqu7_6:focus ~ ._box_1rqu7_22{
+
+._toggle_1rqu7_1:not(._disabled_1rqu7_18) ._input_1rqu7_6:focus~._box_1rqu7_22 {
   border: none;
   outline: none;
   box-shadow: 0 0 0 2px var(--tidy-primary);
 }
-._switch_1rqu7_46{
+
+._switch_1rqu7_46 {
   background-color: var(--tidy-primary);
   transform: scale(.8);
 }
-._input_1rqu7_6:checked ~ ._switch_1rqu7_46{
+
+._input_1rqu7_6:checked~._switch_1rqu7_46 {
   background-color: #ffffff;
 }
 
@@ -1659,8 +1662,20 @@ summary button {
   width: 100%;
 }
 
-.outer-image img~.dialogInput {
+.outer-image img[src*="http://"]~.dialogInput,
+.outer-image img[src*="https://"]~.dialogInput,
+.outer-image img[src*="www."]~.dialogInput {
   display: none;
+}
+
+.outer-image img {
+  display: none;
+}
+
+.outer-image img[src*="http://"],
+.outer-image img[src*="https://"],
+.outer-image img[src*="www."] {
+  display: block;
 }
 
 /* section card top content */
@@ -1825,14 +1840,18 @@ summary button {
 .sectionCard:hover .cardHeader .hoverButton {
   opacity: 1;
 }
-.sectionCard .cardHeader .hoverButton:focus, .sectionCard .cardHeader .hoverButton:focus-within {
+
+.sectionCard .cardHeader .hoverButton:focus,
+.sectionCard .cardHeader .hoverButton:focus-within {
   opacity: 1;
 }
-.sectionCard .cardHeader .hoverButton:focus-within .tooltiptext{
+
+.sectionCard .cardHeader .hoverButton:focus-within .tooltiptext {
   visibility: visible !important;
   opacity: 1 !important;
 }
-.unselected{
+
+.unselected {
   pointer-events: none;
 }
 
