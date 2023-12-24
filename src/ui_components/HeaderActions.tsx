@@ -116,9 +116,9 @@ function HeaderActions() {
         >
           <IconPlus />
         </button>
-        <button className={"secondary"}>
+        {/* <button className={"secondary"}>
           <IconPlayerPlayFilled />
-        </button>
+        </button> */}
       </div>
       {isAddSectionPopupOpen &&
         AddSectionPopup(cardsForPopup, AddSectionPopupCard)}
