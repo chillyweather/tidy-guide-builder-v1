@@ -142,10 +142,10 @@ function Plugin() {
   })();
 
   useEffect(() => {
-    if (isMainContentOpen) {
+    if (isMainContentOpen || isContenFromServerOpen) {
       setIsFirstTime(false);
     }
-  }, [isMainContentOpen]);
+  }, [isMainContentOpen, isContenFromServerOpen]);
 
   useEffect(() => {
     if (selectedElement) {
