@@ -97,16 +97,19 @@ body:has(.login) {
   text-overflow: ellipsis;
   display: none;
 }
-.container:has(.componentBTN){
+
+.container:has(.componentBTN) {
   display: flex;
   gap: 20px;
   padding-right: 32px;
   padding-left: 32px;
 }
+
 .componentBTN {
   position: relative;
-  font-family: "Space Mono", monospace;
-  font-size: calc(var(--text-size) - (var(--text-size) / 7));
+  color: var(--tidy-32);
+  font-size: var(--text-size);
+  font-weight: 300;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -123,8 +126,8 @@ body:has(.login) {
 }
 
 .componentBTN:active {
-  background-color: #494848;
-  color: #ffffff;
+  background-color: #ecebf5;
+  box-shadow: 0 0 0 1.5px #9C71EF inset;
 }
 
 .componentBTN::after {
@@ -1076,10 +1079,10 @@ li::before {
   font-family: "Space Mono", monospace;
   background-color: #f0f66e;
   color: var(--tidy-32);
-  padding: 4px 6px;
+  padding: 2px 6px;
   border-radius: 9999px;
-  font-weight: bold;
-  font-size: calc(var(--text-size) - (var(--text-size) / 3.5));
+  /* font-weight: bold; */
+  font-size: calc(var(--text-size) - (var(--text-size) / 7));
   word-break: keep-all;
   white-space: pre;
   pointer-events: none;
@@ -1224,7 +1227,8 @@ input[type="radio"] {
 ._switch_1rqu7_46 {
   border: none;
 }
-._checkbox_1a43f_1{
+
+._checkbox_1a43f_1 {
   --figma-color-bg-brand: var(--tidy-primary);
 }
 
@@ -1232,7 +1236,9 @@ input[type="radio"] {
 ._border_1a43f_23 {
   border-radius: 4px;
 }
-._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:checked:focus ~ ._border_1a43f_23, ._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:focus ~ ._border_1a43f_23{
+
+._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:checked:focus~._border_1a43f_23,
+._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:focus~._border_1a43f_23 {
   box-shadow: none;
   box-shadow: 0 0 0 2px #ECE3FC;
 }
@@ -1524,6 +1530,13 @@ summary button {
   background-color: lightcoral;
 }
 
+.noSelected {
+  color: #757575;
+  font-size: calc(var(--text-size) - (var(--text-size) / 7));
+  font-style: italic;
+  font-weight: 400;
+}
+
 .selectedComp {
   color: #9747FF;
   padding: 0;
@@ -1554,19 +1567,23 @@ summary button {
   text-overflow: ellipsis;
   animation: loadName 600ms linear forwards;
 }
-#selectedName svg{
+
+#selectedName svg {
   height: 16px;
   width: 16px;
   color: var(--tidy-32);
   cursor: pointer;
 }
-#selectedName svg:hover{
+
+#selectedName svg:hover {
   color: #616161;
 }
-#selectedName svg:active{
+
+#selectedName svg:active {
   color: #141414;
 }
-#selectedName svg:focus{
+
+#selectedName svg:focus {
   border: 2px solid #ECE3FC;
   border-radius: 4px;
   outline: none;
@@ -1695,7 +1712,8 @@ summary button {
   height: 100%;
   width: 100%;
 }
-.outer-image img{
+
+.outer-image img {
   border: 1px solid rgba(0, 0, 0, 0.3);
   box-sizing: content-box;
 }
@@ -1720,12 +1738,13 @@ summary button {
   pointer-events: none;
   visibility: hidden;
 }
-.listCardContentStyle .listInputColumnStyle:has(.listCollumnStyle+.listCollumnStyle) button{
+
+.listCardContentStyle .listInputColumnStyle:has(.listCollumnStyle+.listCollumnStyle) button {
   pointer-events: all;
   visibility: visible;
 }
 
-.listButtonStyle{
+.listButtonStyle {
   pointer-events: all !important;
   visibility: visible !important;
 }
@@ -2118,41 +2137,55 @@ summary button {
   background-color: #F5F6FA;
   box-shadow: 0 0 0 1px #DCE0EF inset;
 }
-.draft .cardHeader, .draft .cardHeader input{
+
+.draft .cardHeader,
+.draft .cardHeader input {
   background-color: #F5F6FA;
 }
-.draft .cardHeader .leftContent, .draft .cardHeader input{
+
+.draft .cardHeader .leftContent,
+.draft .cardHeader input {
   color: #B1B1B9;
 }
-.draft .textCardBodyContent{
+
+.draft .textCardBodyContent {
   background-color: #EEF0F6;
 }
-.draft textarea{
+
+.draft textarea {
   color: #B6B6BA;
 }
-.draft input::placeholder, .draft textarea::placeholder{
+
+.draft input::placeholder,
+.draft textarea::placeholder {
   color: #bcbcc1;
 }
-.draft .textSymbolsCounter{
+
+.draft .textSymbolsCounter {
   color: #cccccc;
 }
-.draft button svg{
+
+.draft button svg {
   color: var(--tidy-32) !important;
 }
-.draft .cardFooter{
+
+.draft .cardFooter {
   --tidy-primary: #E7DBFF;
 }
 
-.eyeIcon svg{
+.eyeIcon svg {
   display: none;
 }
-.eyeIcon svg:first-of-type{
+
+.eyeIcon svg:first-of-type {
   display: block;
 }
-.draft .eyeIcon svg:first-of-type{
+
+.draft .eyeIcon svg:first-of-type {
   display: none;
 }
-.draft .eyeIcon svg:nth-of-type(2){
+
+.draft .eyeIcon svg:nth-of-type(2) {
   display: block;
 }
 

@@ -89,6 +89,7 @@ declare const styles: {
   readonly "nav-container": string;
   readonly "nav-wrapper": string;
   readonly "navigation": string;
+  readonly "noSelected": string;
   readonly "notFilled": string;
   readonly "oneColumn": string;
   readonly "outer-image": string;

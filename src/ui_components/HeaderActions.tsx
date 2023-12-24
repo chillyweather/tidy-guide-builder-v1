@@ -82,7 +82,7 @@ function HeaderActions() {
         {!!selectedElementName && (
           <p className={"selectedComp"}>{selectedElementName}</p>
         )}
-        {!selectedElementName && <p>No selected compontent</p>}
+        {!selectedElementName && <p className={"noSelected"}>No selected compontent</p>}
 
         {selectedElementName ? (
           <IconX
