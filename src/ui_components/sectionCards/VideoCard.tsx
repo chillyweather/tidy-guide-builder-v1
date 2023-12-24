@@ -19,6 +19,7 @@ const videoCard = (
   videoDataElements: any,
   videoLink: string
 ) => {
+  console.log("foundVideoData", foundVideoData);
   const [isValid, setIsValid]: any = useState(true);
   const VideoElementCard = ({
     element,

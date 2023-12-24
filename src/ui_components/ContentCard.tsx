@@ -82,7 +82,9 @@ export const ContentCard = (cardData: any, index: number) => {
   const [selectedVideoContent, setSelectedVideoContent] = useState({});
   const [videoLink, setVideoLink] = useState("");
   const [foundVideoData, setFoundVideoData]: any = useState({});
-  const [videoDataElements, setVideoDataElements]: any[] = useState([]);
+  const [videoDataElements, setVideoDataElements]: any[] = useState(
+    isFromSavedData ? cardData.content.videoDataElements : []
+  );
   //image card data
   const [remoteImageLink, setRemoteImageLink] = useState(
     isFromSavedData ? cardData.content.remoteImageLink : ""
