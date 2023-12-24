@@ -475,6 +475,7 @@ button svg {
 }
 
 .headerContent {
+  position: relative;
   padding: 12px 16px;
   display: flex;
   flex-direction: row;
@@ -2255,6 +2256,7 @@ summary button {
   position: absolute;
 }
 .menuDiv{
+  position: absolute;
 }
 .menuDiv:has(.addSectionCard) .modal-bg{
   display: block;
