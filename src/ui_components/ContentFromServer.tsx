@@ -22,21 +22,21 @@ const ContentFromServer = ({
   const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
 
   const foundData = data.find((item: any) => item._id === selectedMasterId);
-  if (foundData) {
-    setSelectedSections(foundData.docs);
-    setDocumentationTitle(foundData.title);
-    setSelectedElementKey(selectedMasterId);
-    setIsWip(foundData.inProgress);
-    // setDocumentationData((prevDocumentation: any) => {
-    //   return {
-    //     ...prevDocumentation,
-    //     ["_id"]: key,
-    //     ["docs"]: [],
-    //     ["title"]: "",
-    //     ["inProgress"]: isWip,
-    //   };
-    // });
-  }
+
+  useEffect(() => {
+    if (foundData && foundData._id) {
+      setSelectedSections(foundData.docs);
+      setDocumentationTitle(foundData.title);
+      setSelectedElementKey(selectedMasterId);
+      setIsWip(foundData.inProgress);
+      setDocumentationData((prevDocumentation: any) => {
+        return {
+          ...prevDocumentation,
+          _id: foundData._id,
+        };
+      });
+    }
+  }, [foundData._id]);
 
   return (
     <div className="mainContent">
