@@ -9,6 +9,7 @@ declare const styles: {
   readonly "_input_1rqu7_6": string;
   readonly "_switch_1rqu7_46": string;
   readonly "_toggle_1rqu7_1": string;
+  readonly "absDiv": string;
   readonly "add-button": string;
   readonly "addSectionCard": string;
   readonly "addSectionCardInfo": string;

@@ -2251,6 +2251,9 @@ summary button {
   align-items: center;
   z-index: 998;
 }
+.absDiv{
+  position: absolute;
+}
 .modal-bg{
   position: fixed;
   top: 0;

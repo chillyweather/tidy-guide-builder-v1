@@ -43,10 +43,13 @@ function AddSectionPopupCard(card: any) {
 
 function AddSectionPopup(cards: any[], cardElement: any) {
   return (
-    <div class={"addSectionPopup"}>
+    <div className={"absDiv"} onClick={}>
+      <div className={"modal-bg"}></div>
+      <div class={"addSectionPopup"}>
       {cards.map((card) => {
         return cardElement(card);
       })}
+    </div>
     </div>
   );
 }
