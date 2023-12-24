@@ -50,10 +50,10 @@ async function closeMenu(event: Event) {
 function AddSectionPopup(cards: any[], cardElement: any) {
   return (
     <div class={"addSectionPopup"}>
-        {cards.map((card) => {
-          return cardElement(card);
-        })}
-      </div>
+      {cards.map((card) => {
+        return cardElement(card);
+      })}
+    </div>
   );
 }
 
@@ -127,9 +127,14 @@ function HeaderActions() {
         </button> */}
       </div>
       <div className={"menuDiv"}>
-        <div className="modal-bg"></div>
-      {isAddSectionPopupOpen &&
-        AddSectionPopup(cardsForPopup, AddSectionPopupCard)}
+        <div className="modal-bg"
+          onClick={() => {
+            console.log("we are here");
+            setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
+          }}
+        ></div>
+        {isAddSectionPopupOpen &&
+          AddSectionPopup(cardsForPopup, AddSectionPopupCard)}
       </div>
     </div>
   );
