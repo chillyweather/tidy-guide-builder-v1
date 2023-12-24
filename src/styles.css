@@ -1931,7 +1931,12 @@ summary button {
 .cardHeader .hoverButton {
   opacity: 0;
 }
-
+.sectionCard:hover{
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset;
+}
+.sectionCard:has(.cardBody):hover{
+  box-shadow: none;
+}
 .sectionCard:hover .cardHeader .hoverButton {
   opacity: 1;
 }
