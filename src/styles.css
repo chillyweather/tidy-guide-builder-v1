@@ -1224,10 +1224,16 @@ input[type="radio"] {
 ._switch_1rqu7_46 {
   border: none;
 }
+._checkbox_1a43f_1{
+  --figma-color-bg-brand: var(--tidy-primary);
+}
 
 ._fill_1a43f_22,
 ._border_1a43f_23 {
   border-radius: 4px;
+}
+._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:checked:focus ~ ._border_1a43f_23, ._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:focus ~ ._border_1a43f_23{
+  box-shadow: none;
 }
 
 #text-size {
