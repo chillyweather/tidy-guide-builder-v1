@@ -1172,10 +1172,10 @@ a:hover {
   color: var(--tidy-disabled-ic);
 }
 
-input,
+/* input,
 input+svg {
   transition: all 150ms linear 0s;
-}
+} */
 
 .login input {
   font-size: var(--text-size);
@@ -2081,7 +2081,27 @@ summary button {
 }
 
 .draft {
-  opacity: 0.5;
+  /* opacity: 0.5; */
+  background-color: #F5F6FA;
+  box-shadow: 0 0 0 1px #DCE0EF inset;
+}
+.draft .cardHeader, .draft .cardHeader input{
+  background-color: #F5F6FA;
+}
+.draft .cardHeader .leftContent, .draft .cardHeader input{
+  color: #B1B1B9;
+}
+.draft .textCardBodyContent{
+  background-color: #EEF0F6;
+}
+.draft textarea{
+  color: #B6B6BA;
+}
+.draft input::placeholder, .draft textarea::placeholder{
+  color: #bcbcc1;
+}
+.draft .textSymbolsCounter{
+  color: #cccccc;
 }
 
 .drag-item {
