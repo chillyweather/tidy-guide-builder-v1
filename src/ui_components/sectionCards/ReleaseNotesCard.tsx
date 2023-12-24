@@ -20,15 +20,15 @@ const ReleaseNotesCard = ({
 
   return (
     <div className="textCardBodyContent">
-      <input
-        className={"listInputStyle"}
-        type={"text"}
-        rows={2}
-        maxLength={240}
+      <textarea
+        className={"cardTextArea"}
+        rows={4}
+        maxLength={600}
         placeholder="Description (optional)"
         value={releaseNotesComment}
         onInput={(e) => setReleaseNotesComment(e.currentTarget.value)}
-      />
+      >
+        </textarea>
       <div className="textSymbolsCounterRow"></div>
     </div>
   );
