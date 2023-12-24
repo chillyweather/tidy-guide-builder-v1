@@ -2106,6 +2106,9 @@ summary button {
 .draft button svg{
   color: #323232 !important;
 }
+.draft .cardFooter{
+  --tidy-primary: #E7DBFF;
+}
 
 .drag-item {
   pointer-events: none;
