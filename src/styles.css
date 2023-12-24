@@ -45,8 +45,6 @@ body:has(.login) {
   width: 100%;
   flex-direction: column;
   gap: 8px;
-  /* padding: 12px; */
-  /* padding-top: 12px; */
 }
 
 .section {
@@ -222,7 +220,6 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding-top: 84px; */
   margin-top: 108px;
   margin-bottom: 80px;
   min-height: calc(100vh - 208px);
@@ -480,7 +477,6 @@ button svg {
   display: flex;
   flex-direction: row;
   gap: 8px;
-  /* justify-content: flex-end; */
   justify-content: space-between;
   width: 100%;
 }
@@ -2252,16 +2248,20 @@ summary button {
   align-items: center;
   z-index: 998;
 }
-.absDiv{
+
+.absDiv {
   position: absolute;
 }
-.menuDiv{
+
+.menuDiv {
   position: absolute;
 }
-.menuDiv:has(.addSectionCard) .modal-bg{
+
+.menuDiv:has(.addSectionCard) .modal-bg {
   display: block;
 }
-.modal-bg{
+
+.modal-bg {
   display: none;
   position: fixed;
   top: 0;
@@ -2307,14 +2307,12 @@ summary button {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* animation: rotate 1s infinite linear; */
 }
 
 .rotatingBucket {
   animation: rotateAnim 1000ms infinite linear;
 }
 
-/* tooltip test */
 .tooltip {
   position: relative;
   display: inline-block;
