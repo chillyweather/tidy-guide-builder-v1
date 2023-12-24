@@ -28,8 +28,10 @@ const ReleaseNotesCard = ({
         value={releaseNotesComment}
         onInput={(e) => setReleaseNotesComment(e.currentTarget.value)}
       >
-        </textarea>
-      <div className="textSymbolsCounterRow"></div>
+      </textarea>
+      <div className="textSymbolsCounterRow">
+        <div className="textSymbolsCounter">{releaseNotesComment.length}/600</div>
+      </div>
     </div>
   );
 };
