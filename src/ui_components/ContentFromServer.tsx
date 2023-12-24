@@ -16,13 +16,26 @@ const ContentFromServer = ({
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   const setDocumentationTitle =
     useContext(BuilderContext)?.setDocumentationTitle;
+  const setSelectedElementKey =
+    useContext(BuilderContext)?.setSelectedElementKey;
   const setIsWip = useContext(BuilderContext)?.setIsWip;
+  const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
 
   const foundData = data.find((item: any) => item._id === selectedMasterId);
   if (foundData) {
     setSelectedSections(foundData.docs);
     setDocumentationTitle(foundData.title);
+    setSelectedElementKey(selectedMasterId);
     setIsWip(foundData.inProgress);
+    // setDocumentationData((prevDocumentation: any) => {
+    //   return {
+    //     ...prevDocumentation,
+    //     ["_id"]: key,
+    //     ["docs"]: [],
+    //     ["title"]: "",
+    //     ["inProgress"]: isWip,
+    //   };
+    // });
   }
 
   return (

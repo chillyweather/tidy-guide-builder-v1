@@ -268,6 +268,7 @@ export const ContentCard = (cardData: any, index: number) => {
     if (isBuilding) {
       console.log("is building");
       setDocumentationData((prevDocumentation: any) => {
+        console.log("prevDocumentation", prevDocumentation);
         const newDocumentation = { ...prevDocumentation };
         const newDocs = newDocumentation.docs;
         newDocs[index] = currentCardData;

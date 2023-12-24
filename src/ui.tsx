@@ -68,7 +68,7 @@ function Plugin() {
   const [isLoginPageOpen, setIsLoginPageOpen] = useState(false);
 
   //documentation
-  const [documentationData, setDocumentationData] = useState<any>({});
+  const [documentationData, setDocumentationData] = useState<any>({ docs: [] });
 
   //is scroll
   const [isScroll, setIsScroll] = useState(false);
