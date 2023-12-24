@@ -86,7 +86,6 @@ function HeaderActions() {
 
         {selectedElementName ? (
           <IconX
-            style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
             onClick={() => {
               setSelectedElement(null);
               setSelectedElementName("");

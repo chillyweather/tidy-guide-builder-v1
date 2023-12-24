@@ -1234,7 +1234,7 @@ input[type="radio"] {
 }
 ._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:checked:focus ~ ._border_1a43f_23, ._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:focus ~ ._border_1a43f_23{
   box-shadow: none;
-  box-shadow: 0 0 0 2px #ECEBF5;
+  box-shadow: 0 0 0 2px #ECE3FC;
 }
 
 #text-size {
@@ -1554,6 +1554,23 @@ summary button {
   text-overflow: ellipsis;
   animation: loadName 600ms linear forwards;
 }
+#selectedName svg{
+  height: 16px;
+  width: 16px;
+  color: var(--tidy-32);
+  cursor: pointer;
+}
+#selectedName svg:hover{
+  color: #616161;
+}
+#selectedName svg:active{
+  color: #141414;
+}
+#selectedName svg:focus{
+  border: 2px solid #ECE3FC;
+  border-radius: 4px;
+  outline: none;
+}
 
 @keyframes loadName {
   0% {
@@ -1597,13 +1614,13 @@ summary button {
 .selectedComponentGroup {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   margin-left: 12px;
 }
 
 .selectedComp::before {
   content: '❖';
-  margin-right: 8px;
+  margin-right: 2px;
 }
 
 .drop-zone {
@@ -2120,7 +2137,7 @@ summary button {
   color: #cccccc;
 }
 .draft button svg{
-  color: #323232 !important;
+  color: var(--tidy-32) !important;
 }
 .draft .cardFooter{
   --tidy-primary: #E7DBFF;
