@@ -302,7 +302,10 @@ export const ContentCard = (cardData: any, index: number) => {
             <div className="rightContent">
               <button
                 className={"cardAuxButton"}
-                onClick={() => setIsDraft(!isDraft)}
+                onClick={() => {
+                  setIsDraft(!isDraft);
+                  setPublish(false);
+                }}
               >
                 <IconEye />
               </button>
