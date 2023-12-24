@@ -1234,6 +1234,7 @@ input[type="radio"] {
 }
 ._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:checked:focus ~ ._border_1a43f_23, ._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:focus ~ ._border_1a43f_23{
   box-shadow: none;
+  box-shadow: 0 0 0 2px #ECEBF5;
 }
 
 #text-size {
