@@ -46,6 +46,7 @@ declare const styles: {
   readonly "dropZoneHeader": string;
   readonly "empty-image": string;
   readonly "empty-state": string;
+  readonly "eyeIcon": string;
   readonly "feedbackPopup": string;
   readonly "feedbackPopupBackground": string;
   readonly "flex-btn": string;

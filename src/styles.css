@@ -2117,6 +2117,19 @@ summary button {
   --tidy-primary: #E7DBFF;
 }
 
+.eyeIcon svg{
+  display: none;
+}
+.eyeIcon svg:first-of-type{
+  display: block;
+}
+.draft .eyeIcon svg:first-of-type{
+  display: none;
+}
+.draft .eyeIcon svg:nth-of-type(2){
+  display: block;
+}
+
 .drag-item {
   pointer-events: none;
   margin: 0 12px;
