@@ -1932,12 +1932,15 @@ summary button {
 .cardHeader .hoverButton {
   opacity: 0;
 }
-.sectionCard:hover{
+
+.sectionCard:hover {
   box-shadow: 0 0 0 1px var(--tidy-primary) inset;
 }
-.sectionCard:has(.cardBody):hover{
+
+.sectionCard:has(.cardBody):hover {
   box-shadow: none;
 }
+
 .sectionCard:hover .cardHeader .hoverButton {
   opacity: 1;
 }
@@ -2300,10 +2303,13 @@ summary button {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
-  line-height: 1.5;
-  background-color: #000;
-  color: #fff;
+  width: 14ch;
+  text-wrap: balance;
+  line-height: 1.3;
+  font-size: calc(var(--text-size) - (var(--text-size) / 7));
+  background-color: #DEDEE8;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 4%);
+  color: var(--tidy-32);
   text-align: left;
   border-radius: 6px;
   padding: 8px;
