@@ -74,7 +74,9 @@ export const ContentCard = (cardData: any, index: number) => {
     isFromSavedData ? cardData.content.inputs : [""]
   );
   // link
-  const [sources, setSources]: any[] = useState([{ source: "", link: "" }]);
+  const [sources, setSources]: any[] = useState(
+    isFromSavedData ? cardData.content.sources : [{ source: "", link: "" }]
+  );
   //video card data
   const [selectedVideo, setSelectedVideo] = useState(-1);
   const [selectedVideoContent, setSelectedVideoContent] = useState({});
