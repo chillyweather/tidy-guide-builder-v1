@@ -87,6 +87,7 @@ declare const styles: {
   readonly "loginFlex": string;
   readonly "loginNew": string;
   readonly "mainContent": string;
+  readonly "modal-bg": string;
   readonly "nav-container": string;
   readonly "nav-wrapper": string;
   readonly "navigation": string;
