@@ -1092,6 +1092,10 @@ li::before {
 .wip::before {
   content: "🚧 ";
 }
+.header .add-button{
+  background-color: var(--tidy-primary);
+  color: #ffffff;
+}
 
 a {
   cursor: pointer;

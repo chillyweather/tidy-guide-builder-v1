@@ -35,7 +35,7 @@ const Header = ({
         {!isLoginPageOpen &&
           (isIndexOpen ? (
             <button
-              className="flex-button"
+              className="flex-button add-button"
               onClick={() => {
                 setIsIndexOpen(false);
                 setIsMainContentOpen(true);
