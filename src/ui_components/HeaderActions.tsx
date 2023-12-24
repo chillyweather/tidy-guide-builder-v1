@@ -49,17 +49,11 @@ async function closeMenu(event: Event) {
 
 function AddSectionPopup(cards: any[], cardElement: any) {
   return (
-    <div className={"absDiv"}>
-      <div className={"modal-bg"} onClick={async (event) => {
-        await closeMenu(event);
-      }}
-      ></div>
-      <div class={"addSectionPopup"}>
+    <div class={"addSectionPopup"}>
         {cards.map((card) => {
           return cardElement(card);
         })}
       </div>
-    </div >
   );
 }
 
@@ -132,8 +126,11 @@ function HeaderActions() {
           <IconPlayerPlayFilled />
         </button> */}
       </div>
+      <div className={"menuDiv"}>
+        <div className="modal-bg"></div>
       {isAddSectionPopupOpen &&
         AddSectionPopup(cardsForPopup, AddSectionPopupCard)}
+      </div>
     </div>
   );
 }
