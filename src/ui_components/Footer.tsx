@@ -60,7 +60,7 @@ const Footer = ({
       </div>
       <div className="rightFooterContent">
         <button className={"second"} onClick={() => setShowCancelPopup(true)}>
-          Cancel
+          Save Changes
         </button>
         <button
           className={isValid ? "primary" : "primary primary-disabled"}
