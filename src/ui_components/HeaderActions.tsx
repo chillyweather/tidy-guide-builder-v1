@@ -41,16 +41,25 @@ function AddSectionPopupCard(card: any) {
   );
 }
 
+async function closeMenu(event: Event) {
+  console.log(event.target);
+  //@ts-ignore
+  event.target.parentElement.remove();
+}
+
 function AddSectionPopup(cards: any[], cardElement: any) {
   return (
-    <div className={"absDiv"} onClick={}>
-      <div className={"modal-bg"}></div>
+    <div className={"absDiv"}>
+      <div className={"modal-bg"} onClick={async (event) => {
+        await closeMenu(event);
+      }}
+      ></div>
       <div class={"addSectionPopup"}>
-      {cards.map((card) => {
-        return cardElement(card);
-      })}
-    </div>
-    </div>
+        {cards.map((card) => {
+          return cardElement(card);
+        })}
+      </div>
+    </div >
   );
 }
 
