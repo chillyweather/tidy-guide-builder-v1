@@ -1674,8 +1674,8 @@ summary button {
   width: 100%;
 }
 .outer-image img{
-  box-sizing: border-box;
-  border: 1px solid rgba(0,0,0,0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-sizing: content-box;
 }
 
 .outer-image img[src*="http://"]~.dialogInput,
