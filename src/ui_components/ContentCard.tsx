@@ -8,6 +8,7 @@ import {
   IconCopy,
   IconTrash,
   IconEye,
+  IconEyeOff,
 } from "@tabler/icons-react";
 import { Toggle, Text } from "@create-figma-plugin/ui";
 
@@ -301,13 +302,14 @@ export const ContentCard = (cardData: any, index: number) => {
             </div>
             <div className="rightContent">
               <button
-                className={"cardAuxButton"}
+                className={"cardAuxButton eyeIcon"}
                 onClick={() => {
                   setIsDraft(!isDraft);
                   setPublish(false);
                 }}
               >
                 <IconEye />
+                <IconEyeOff />
               </button>
               <button
                 className={"cardAuxButton"}
