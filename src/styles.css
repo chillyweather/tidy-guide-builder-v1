@@ -2103,6 +2103,9 @@ summary button {
 .draft .textSymbolsCounter{
   color: #cccccc;
 }
+.draft button svg{
+  color: #323232 !important;
+}
 
 .drag-item {
   pointer-events: none;
