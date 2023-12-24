@@ -6,7 +6,7 @@ import {
   IconList,
   IconDots,
   IconUser,
-  IconFilePlus,
+  IconPlus,
   IconArrowLeft,
   IconMessage2Check,
   IconListTree,
@@ -41,8 +41,8 @@ const Header = ({
                 setIsMainContentOpen(true);
               }}
             >
-              <IconFilePlus />
-              New documentation entry
+              <IconPlus />
+              Add Component
             </button>
           ) : (
             <button

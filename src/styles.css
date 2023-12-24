@@ -1093,8 +1093,16 @@ li::before {
   content: "🚧 ";
 }
 .header .add-button{
+  transform: translate(484px, 48px);
   background-color: var(--tidy-primary);
   color: #ffffff;
+}
+.header .add-button:hover {
+  background-color: var(--tidy-btn-hover);
+}
+
+.header .add-button:active {
+  background-color: var(--tidy-btn-pressed);
 }
 
 a {
