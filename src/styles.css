@@ -108,6 +108,7 @@ body:has(.login) {
 .componentBTN:first-of-type::before {
   content: 'Component index';
   position: absolute;
+  pointer-events: none;
   top: -40px;
   left: 0;
   font-weight: 600;
