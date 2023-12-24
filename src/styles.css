@@ -105,6 +105,16 @@ body:has(.login) {
   padding-left: 32px;
 }
 
+.componentBTN:first-of-type::before {
+  content: 'Component index';
+  position: absolute;
+  top: -40px;
+  left: 0;
+  font-weight: 600;
+  font-size: calc(var(--text-size) + (var(--text-size) / 2.5));
+
+}
+
 .componentBTN {
   position: relative;
   color: var(--tidy-32);
@@ -1092,11 +1102,13 @@ li::before {
 .wip::before {
   content: "🚧 ";
 }
-.header .add-button{
-  transform: translate(484px, 48px);
+
+.header .add-button {
+  transform: translate(470px, 48px);
   background-color: var(--tidy-primary);
   color: #ffffff;
 }
+
 .header .add-button:hover {
   background-color: var(--tidy-btn-hover);
 }
