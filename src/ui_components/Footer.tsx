@@ -30,7 +30,9 @@ const Footer = ({
   const setIsLoading = useContext(BuilderContext)?.setIsLoading;
 
   async function handleDocumentation(token: string, data: any) {
-    const id = Object.values(data)[0];
+    // const id = Object.values(data)[0];
+    const id = data._id;
+    console.log("id", id);
     if (typeof id !== "string") return;
     setIsLoading(true);
     const result = await getDocumentations(token);
@@ -45,6 +47,7 @@ const Footer = ({
   }
 
   useEffect(() => {
+    console.log("try to build");
     if (Object.keys(documentationData).length > 0 && isBuilding && token) {
       handleDocumentation(token, documentationData);
     }

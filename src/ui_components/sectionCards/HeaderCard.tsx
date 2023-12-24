@@ -20,7 +20,7 @@ const HeaderCard = () => {
     setDocumentationData((prevDocumentation: any) => {
       const newDocumentation = { ...prevDocumentation };
       newDocumentation.title = documentationTitle;
-      newDocumentation.wip = isWip;
+      newDocumentation.inProgress = isWip;
       return newDocumentation;
     });
   }, [documentationTitle, isWip]);

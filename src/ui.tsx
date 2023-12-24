@@ -271,12 +271,3 @@ function Plugin() {
 }
 
 export default render(Plugin);
-
-{
-  /* {selectedMasterId && <ContentFromServerData data={sectionData} />} */
-}
-{
-  /* {!selectedElement && !isIndexOpen && !isMainContentOpen && (
-  <EmptyState />
-)} */
-}
