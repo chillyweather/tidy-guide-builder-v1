@@ -1,6 +1,7 @@
 import { IconX, IconPlus } from "@tabler/icons-react";
 import { h, FunctionComponent } from "preact";
-import { useRef, useEffect } from "preact/hooks";
+import { useRef, useEffect, useContext } from "preact/hooks";
+import BuilderContext from "../../BuilderContext";
 
 interface ListCardProps {
   listItems: any[];

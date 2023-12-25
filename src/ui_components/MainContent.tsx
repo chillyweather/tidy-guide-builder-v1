@@ -10,7 +10,7 @@ const MainContent = () => {
   return (
     <div className="mainContent">
       {console.log("selectedSections", selectedSections)}
-      <HeaderCard data={{ title: "Documentation Title" }} />
+      <HeaderCard />
       <DraggableCardList
         items={selectedSections}
         setItems={setSelectedSections}

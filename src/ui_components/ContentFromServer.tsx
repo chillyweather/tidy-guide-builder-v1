@@ -1,14 +1,50 @@
 import { h } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useContext, useEffect } from "preact/hooks";
+import BuilderContext from "../BuilderContext";
 import { DraggableCardList } from "./DraggableCardsList";
 //content cards
 import HeaderCard from "./sectionCards/HeaderCard";
 
-const ContentFromServer = ({ data }: { data: any }) => {
+const ContentFromServer = ({
+  data,
+  selectedMasterId,
+}: {
+  data: any;
+  selectedMasterId: string;
+}) => {
+  const selectedSections = useContext(BuilderContext)?.selectedSections;
+  const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
+  const setDocumentationTitle =
+    useContext(BuilderContext)?.setDocumentationTitle;
+  const setSelectedElementKey =
+    useContext(BuilderContext)?.setSelectedElementKey;
+  const setIsWip = useContext(BuilderContext)?.setIsWip;
+  const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
+
+  const foundData = data.find((item: any) => item._id === selectedMasterId);
+
+  useEffect(() => {
+    if (foundData && foundData._id) {
+      setSelectedSections(foundData.docs);
+      setDocumentationTitle(foundData.title);
+      setSelectedElementKey(selectedMasterId);
+      setIsWip(foundData.inProgress);
+      setDocumentationData((prevDocumentation: any) => {
+        return {
+          ...prevDocumentation,
+          _id: foundData._id,
+        };
+      });
+    }
+  }, [foundData._id]);
+
   return (
     <div className="mainContent">
-      {/* <HeaderCard data={{ title: "Documentation Title" }} />
-      <DraggableCardList /> */}
+      <HeaderCard />
+      <DraggableCardList
+        items={selectedSections}
+        setItems={setSelectedSections}
+      />
     </div>
   );
 };

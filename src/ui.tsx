@@ -1,29 +1,29 @@
 import { render } from "@create-figma-plugin/ui";
 
-import sectionData from "./resources/sectionData";
 import { emit, on, once } from "@create-figma-plugin/utilities";
-import { h, JSX } from "preact";
-import { useEffect, useState, useContext } from "preact/hooks";
+import { JSX, h } from "preact";
+import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "./BuilderContext";
-import FeedbackPopup from "./ui_components/popups/feedbackPopup";
+import sectionData from "./resources/sectionData";
 import CancelPopup from "./ui_components/popups/cancelPopup";
+import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
 //dependencies
 
 //new components
-import Login from "./ui_components/LoginPage";
-import LoggedIn from "./ui_components/LoggedInPage";
-import MainContent from "./ui_components/MainContent";
 import ContentFromServer from "./ui_components/ContentFromServer";
-import Header from "./ui_components/Header";
 import Footer from "./ui_components/Footer";
-import LoaderPage from "./ui_components/LoadingPage";
+import Header from "./ui_components/Header";
 import IndexPage from "./ui_components/IndexPage";
+import LoaderPage from "./ui_components/LoadingPage";
+import LoggedIn from "./ui_components/LoggedInPage";
+import Login from "./ui_components/LoginPage";
+import MainContent from "./ui_components/MainContent";
 import { getDocumentations } from "./ui_components/ui_functions/documentationHandlers";
 
 //styles
-import EmptyState from "./ui_components/EmptyState";
 import "!./styles.css";
+import EmptyState from "./ui_components/EmptyState";
 
 function Plugin() {
   //saved token
@@ -68,7 +68,7 @@ function Plugin() {
   const [isLoginPageOpen, setIsLoginPageOpen] = useState(false);
 
   //documentation
-  const [documentationData, setDocumentationData] = useState<any>({});
+  const [documentationData, setDocumentationData] = useState<any>({ docs: [] });
 
   //is scroll
   const [isScroll, setIsScroll] = useState(false);
@@ -85,9 +85,13 @@ function Plugin() {
   //is plugin first time open
   const [isFirstTime, setIsFirstTime] = useState(true);
 
+  //is content from server
+  const [isFromSavedData, setIsFromSavedData] = useState(false);
+
   //page navigation
   const [isIndexOpen, setIsIndexOpen] = useState(true);
   const [isMainContentOpen, setIsMainContentOpen] = useState(false);
+  const [isContenFromServerOpen, setIsContenFromServerOpen] = useState(false);
 
   on("AUTH_CHANGE", async (token) => {
     if (token) {
@@ -138,10 +142,10 @@ function Plugin() {
   })();
 
   useEffect(() => {
-    if (isMainContentOpen) {
+    if (isMainContentOpen || isContenFromServerOpen) {
       setIsFirstTime(false);
     }
-  }, [isMainContentOpen]);
+  }, [isMainContentOpen, isContenFromServerOpen]);
 
   useEffect(() => {
     if (selectedElement) {
@@ -187,6 +191,10 @@ function Plugin() {
           setIsMainContentOpen,
           isIndexOpen,
           setIsIndexOpen,
+          isFromSavedData,
+          setIsFromSavedData,
+          isContenFromServerOpen,
+          setIsContenFromServerOpen,
         }}
       >
         {feedbackPage && (
@@ -225,6 +233,8 @@ function Plugin() {
             data={dataForUpdate}
             setSelectedMasterId={setSelectedMasterId}
             setIsIndexOpen={setIsIndexOpen}
+            setIsContenFromServerOpen={setIsContenFromServerOpen}
+            setIsFromSavedData={setIsFromSavedData}
           />
         )}
         {isFirstTime && selectedElement && <MainContent />}
@@ -235,10 +245,17 @@ function Plugin() {
             data={dataForUpdate}
             setSelectedMasterId={setSelectedMasterId}
             setIsIndexOpen={setIsIndexOpen}
+            setIsContenFromServerOpen={setIsContenFromServerOpen}
+            setIsFromSavedData={setIsFromSavedData}
           />
         )}
         {isMainContentOpen && <MainContent />}
-        {selectedMasterId && <ContentFromServer data={sectionData} />}
+        {selectedMasterId && !isMainContentOpen && isContenFromServerOpen && (
+          <ContentFromServer
+            data={dataForUpdate}
+            selectedMasterId={selectedMasterId}
+          />
+        )}
 
         {/* login */}
         {!isLoginPageOpen && !isIndexOpen && (
@@ -256,12 +273,3 @@ function Plugin() {
 }
 
 export default render(Plugin);
-
-{
-  /* {selectedMasterId && <ContentFromServerData data={sectionData} />} */
-}
-{
-  /* {!selectedElement && !isIndexOpen && !isMainContentOpen && (
-  <EmptyState />
-)} */
-}
