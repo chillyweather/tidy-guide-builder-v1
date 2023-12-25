@@ -25,35 +25,6 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
   const handleDragEnd = () => {
     setDragging(false);
   };
-  //
-  //   const handleDragOver = (e: DragEvent) => {
-  //     e.preventDefault();
-  //   };
-  //
-  //   const handleDrop = (e: DragEvent) => {
-  //     e.preventDefault();
-  //     if (typeof onMove === "function") {
-  //       onMove(e.dataTransfer!.getData("text/plain"), id);
-  //     }
-  //   };
-
-  //   useEffect(() => {
-  //     const handleDragEnter = (e: Event) => {
-  //       e.preventDefault();
-  //     };
-  //
-  //     const handleDragLeave = (e: Event) => {
-  //       e.preventDefault();
-  //     };
-  //
-  //     document.addEventListener("dragenter", handleDragEnter);
-  //     document.addEventListener("dragleave", handleDragLeave);
-  //
-  //     return () => {
-  //       document.removeEventListener("dragenter", handleDragEnter);
-  //       document.removeEventListener("dragleave", handleDragLeave);
-  //     };
-  //   }, []);
 
   return (
     <div

@@ -8,22 +8,24 @@ const sectionData = [
   //   id: "Header",
   //   repeatable: false,
   // },
-  // {
-  //   title: "Anatomy",
-  //   content: "anatomy",
-  // description: 'First shalt thou take out the Holy Pin. Then shalt thou count to three, no more, no less.',
-  //   data: [],
-  // id: '0',
-  //   repeatable: false,
-  // },
-  // {
-  //   title: "Spacing",
-  //   content: "spacing",
-  // description: 'First shalt thou take out the Holy Pin. Then shalt thou count to three, no more, no less.',
-  //data: [],
-  // id: '0',
-  //   repeatable: false,
-  // },
+  {
+    title: "Anatomy",
+    content: "anatomy",
+    description:
+      "First shalt thou take out the Holy Pin. Then shalt thou count to three, no more, no less.",
+    data: [],
+    id: "0",
+    repeatable: false,
+  },
+  {
+    title: "Spacing",
+    content: "spacing",
+    description:
+      "First shalt thou take out the Holy Pin. Then shalt thou count to three, no more, no less.",
+    data: [],
+    id: "0",
+    repeatable: false,
+  },
   {
     title: "Property",
     content: "property",

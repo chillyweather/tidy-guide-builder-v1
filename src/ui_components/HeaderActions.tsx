@@ -88,7 +88,9 @@ function HeaderActions() {
         {!!selectedElementName && (
           <p className={"selectedComp"}>{selectedElementName}</p>
         )}
-        {!selectedElementName && <p className={"noSelected"}>No selected compontent</p>}
+        {!selectedElementName && (
+          <p className={"noSelected"}>No selected compontent</p>
+        )}
 
         {selectedElementName ? (
           <IconX
@@ -116,18 +118,15 @@ function HeaderActions() {
       <div className={"selectedComponentActions"}>
         <button
           onClick={() => {
-            console.log("we are here");
             setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
           }}
         >
           <IconPlus />
         </button>
-        {/* <button className={"secondary"}>
-          <IconPlayerPlayFilled />
-        </button> */}
       </div>
       <div className={"menuDiv"}>
-        <div className="modal-bg"
+        <div
+          className="modal-bg"
           onClick={() => {
             console.log("we are here");
             setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
