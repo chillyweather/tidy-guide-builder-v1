@@ -9,7 +9,6 @@ const MainContent = () => {
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   return (
     <div className="mainContent">
-      {console.log("selectedSections", selectedSections)}
       <HeaderCard />
       <DraggableCardList
         items={selectedSections}

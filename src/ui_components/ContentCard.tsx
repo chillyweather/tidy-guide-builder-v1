@@ -291,34 +291,27 @@ export const ContentCard = (cardData: any, index: number) => {
     }
   }, [isBuilding]);
 
-  useEffect(() => {
-    if (isReset) {
-      setCardTitle("");
-      setParagraphTextContent("");
-      setLeftTitle("");
-      setLeftTextContent("");
-      setRightTitle("");
-      setRightTextContent("");
-      setListItems([""]);
-      setSources([{ source: "", link: "" }]);
-      setRemoteImageLink("");
-      setReleaseNotesMessage("");
-      setReleaseNotesDate("");
-      setSelectedVideo(-1);
-      setSelectedVideoContent({});
-      setVideoLink("");
-      setFoundVideoData({});
-      setVideoDataElements([]);
-      setIsReset(false);
-      setSelectedSections([]);
-      setDocumentationTitle("");
-      setSelectedElementKey("");
-      setIsWip(false);
-      setSelectedElement(null);
-      setSelectedElementName("");
-      setDocumentationData({});
-    }
-  }, [isReset, setIsReset]);
+  // useEffect(() => {
+  //   if (isReset) {
+  //     setCardTitle("");
+  //     setParagraphTextContent("");
+  //     setLeftTitle("");
+  //     setLeftTextContent("");
+  //     setRightTitle("");
+  //     setRightTextContent("");
+  //     setListItems([""]);
+  //     setSources([{ source: "", link: "" }]);
+  //     setRemoteImageLink("");
+  //     setReleaseNotesMessage("");
+  //     setReleaseNotesDate("");
+  //     setSelectedVideo(-1);
+  //     setSelectedVideoContent({});
+  //     setVideoLink("");
+  //     setFoundVideoData({});
+  //     setVideoDataElements([]);
+  //     setIsReset(false);
+  //   }
+  // }, [isReset, setIsReset]);
 
   return cardType === "header" ? (
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>

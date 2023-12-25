@@ -28,6 +28,18 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
     setDragging(false);
   };
 
+  const handleDragOver = (e: DragEvent) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (e: DragEvent) => {
+    e.preventDefault();
+    const targetId = e.dataTransfer!.getData("text/plain");
+    if (onMove) {
+      onMove(targetId, docId);
+    }
+  };
+
   return (
     <div
       className={"drag-item"}
@@ -35,6 +47,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
       onDragEnd={handleDragEnd}
       // onDragOver={handleDragOver}
       // onDrop={handleDrop}
+      draggable
       style={{
         opacity: dragging ? 0.5 : 1,
         display: "inline-block",

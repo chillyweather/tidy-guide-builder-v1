@@ -1,5 +1,8 @@
 import { h } from "preact";
 import { IconTrash } from "@tabler/icons-react";
+import { useContext } from "preact/hooks";
+import BuilderContext from "../BuilderContext";
+import { deleteDocumentation } from "./ui_functions/documentationHandlers";
 
 const IndexPage = ({
   data,
@@ -14,32 +17,40 @@ const IndexPage = ({
   setIsContenFromServerOpen: Function;
   setIsFromSavedData: Function;
 }) => {
-  if (Object.keys(data).length === 0) return;
-  return data.map((element: any, index: number) => {
-    const title = element.title;
-    const wip = element.inProgress;
-    return (
-      <button
-        className={"componentBTN"}
-        onClick={() => {
-          setSelectedMasterId(element._id);
-          setIsFromSavedData(true);
-          setIsIndexOpen(false);
-          setIsContenFromServerOpen(true);
-        }}
-      >
-        {title}
-        {wip && <div className={"wip"}>WIP</div>}
-        <IconTrash
-          className={"trashIcon"}
-          onClick={(e) => {
-            e.stopPropagation();
-            console.log("delete");
-          }}
-        />
-      </button>
-    );
-  });
+  const token = useContext(BuilderContext)?.token;
+  if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
+  return (
+    <div style={{ width: "100%", height: "100%" }}>
+      {data.map((element: any, index: number) => {
+        const title = element.title;
+        const wip = element.inProgress;
+        return (
+          <div className={"componentBTN"}>
+            <div
+              style={{ display: "flex" }}
+              onClick={() => {
+                setSelectedMasterId(element._id);
+                setIsFromSavedData(true);
+                setIsIndexOpen(false);
+                setIsContenFromServerOpen(true);
+              }}
+            >
+              {title}
+              {wip && <div className={"wip"}>WIP</div>}
+            </div>
+            <IconTrash
+              className={"trashIcon"}
+              onDblClick={async (e) => {
+                e.stopPropagation();
+                await deleteDocumentation(token!, element._id);
+                console.log("deleted");
+              }}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default IndexPage;

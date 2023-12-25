@@ -46,7 +46,7 @@ function Plugin() {
   const [loggedInUser, setLoggedInUser] = useState("");
 
   //loading state
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   //selected element
   const [selectedElement, setSelectedElement] = useState<any>(null);
@@ -96,16 +96,19 @@ function Plugin() {
   //reset documentation
   const [isReset, setIsReset] = useState(false);
 
+  console.log("documentationTitle", documentationTitle);
+
   on("AUTH_CHANGE", async (token) => {
     if (token) {
       setToken(token);
       const data = await getDocumentations(token);
       setDataForUpdate(data);
+      setIsLoading(false);
     }
   });
 
   on("SELECTION", ({ defaultNode, name, key }) => {
-    if (defaultNode) setIsMainContentOpen(true);
+    // if (defaultNode) setIsMainContentOpen(true);
     setSelectedElement(defaultNode);
     setSelectedElementName(name);
     setSelectedElementKey(key);
@@ -150,11 +153,25 @@ function Plugin() {
     }
   }, [isMainContentOpen, isContenFromServerOpen]);
 
+  // useEffect(() => {
+  //   if (selectedElement) {
+  //     setIsIndexOpen(false);
+  //   }
+  // }, [selectedElement]);
+
   useEffect(() => {
-    if (selectedElement) {
-      setIsIndexOpen(false);
+    if (isReset) {
+      setDocumentationTitle("");
+      setIsWip(false);
+      setSelectedElement(null);
+      setSelectedElementName("");
+      setSelectedCard("");
+      setSelectedElementKey("");
+      setSelectedSections([]);
+      setDocumentationData({ docs: [] });
+      setIsReset(false);
     }
-  }, [selectedElement]);
+  }, [isReset]);
 
   return (
     <div className={"container"}>
@@ -203,6 +220,8 @@ function Plugin() {
           setIsReset,
           showResetPopup,
           setShowResetPopup,
+          showCancelPopup,
+          setShowCancelPopup,
         }}
       >
         {feedbackPage && (
@@ -213,9 +232,7 @@ function Plugin() {
           />
         )}
         {isLoading && <LoaderPage />}
-        {showCancelPopup && (
-          <CancelPopup show={showCancelPopup} setShow={setShowCancelPopup} />
-        )}
+        {showCancelPopup && <CancelPopup />}
         {showResetPopup && <ResetPopup />}
         {!token && (
           <Login
@@ -234,7 +251,7 @@ function Plugin() {
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
 
         {/* on startup */}
-        {!isLoginPageOpen && isFirstTime && !selectedElement && (
+        {!isLoginPageOpen && isFirstTime && !isMainContentOpen && (
           <IndexPage
             data={dataForUpdate}
             setSelectedMasterId={setSelectedMasterId}
@@ -243,7 +260,7 @@ function Plugin() {
             setIsFromSavedData={setIsFromSavedData}
           />
         )}
-        {isFirstTime && selectedElement && <MainContent />}
+        {/* {isFirstTime && selectedElement && <MainContent />} */}
 
         {/* not on startup */}
         {!isLoginPageOpen && !isFirstTime && isIndexOpen && (

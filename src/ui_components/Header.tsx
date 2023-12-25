@@ -33,6 +33,8 @@ const Header = ({
     useContext(BuilderContext)?.setIsContenFromServerOpen;
   const isContenFromServerOpen =
     useContext(BuilderContext)?.isContenFromServerOpen;
+  const showCancelPopup = useContext(BuilderContext)?.showCancelPopup;
+  const setShowCancelPopup = useContext(BuilderContext)?.setShowCancelPopup;
 
   return (
     <div className="header">
@@ -54,13 +56,11 @@ const Header = ({
             <button
               className="flex-button"
               onClick={() => {
-                setIsIndexOpen(true);
-                setIsMainContentOpen(false);
-                setIsContenFromServerOpen(false);
+                setShowCancelPopup(true);
               }}
             >
               <IconListTree />
-              Components index
+              Back to components index
             </button>
           ))}
 

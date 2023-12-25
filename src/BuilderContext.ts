@@ -44,6 +44,8 @@ interface IContext {
   setIsReset: any;
   showResetPopup: boolean;
   setShowResetPopup: any;
+  showCancelPopup: boolean;
+  setShowCancelPopup: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

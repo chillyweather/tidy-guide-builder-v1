@@ -16,10 +16,8 @@ export const DraggableCardList = ({
   items: any[] | undefined;
   setItems: any;
 }) => {
-  const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
   useEffect(() => {
     const el = document.getElementById("sections");
-    console.log("el", el);
     if (el) {
       Sortable.create(el, {
         onEnd: (evt) => {

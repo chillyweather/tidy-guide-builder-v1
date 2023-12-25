@@ -1,15 +1,31 @@
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
+import { useContext } from "preact/hooks";
+import BuilderContext from "../../BuilderContext";
 
-function CancelPopup({ show, setShow }: { show: boolean; setShow: any }) {
-  if (!show) {
+function CancelPopup() {
+  const showCancelPopup = useContext(BuilderContext)?.showCancelPopup;
+  const setShowCancelPopup = useContext(BuilderContext)?.setShowCancelPopup;
+  const setIsIndexOpen = useContext(BuilderContext)?.setIsIndexOpen;
+  const setIsMainContentOpen = useContext(BuilderContext)?.setIsMainContentOpen;
+  const setIsContenFromServerOpen =
+    useContext(BuilderContext)?.setIsContenFromServerOpen;
+  const setIsReset = useContext(BuilderContext)?.setIsReset;
+
+  if (!showCancelPopup) {
     return null;
   }
 
   return (
-    <div className={"feedbackPopupBackground"} onClick={() => setShow(false)}>
+    <div
+      className={"feedbackPopupBackground"}
+      onClick={() => setShowCancelPopup(false)}
+    >
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
-        <button className={"closePopupButton"} onClick={() => setShow(false)}>
+        <button
+          className={"closePopupButton"}
+          onClick={() => setShowCancelPopup(false)}
+        >
           <IconX />
         </button>
         <h2 className={"dialogTitle"}>You have unsaved changes</h2>
@@ -19,14 +35,20 @@ function CancelPopup({ show, setShow }: { show: boolean; setShow: any }) {
             className={"button"}
             onClick={() => {
               console.log("cancel");
+              setIsIndexOpen(true);
+              setIsMainContentOpen(false);
+              setIsContenFromServerOpen(false);
+              setIsReset(true);
+              setShowCancelPopup(false);
             }}
           >
-            Cancel
+            Exit without saving
           </button>
           <button
             className={"button"}
             onClick={() => {
               console.log("save");
+              setShowCancelPopup(false);
             }}
           >
             Save changes
