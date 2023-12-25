@@ -31,6 +31,8 @@ const Header = ({
   const setIsFromSavedData = useContext(BuilderContext)?.setIsFromSavedData;
   const setIsContenFromServerOpen =
     useContext(BuilderContext)?.setIsContenFromServerOpen;
+  const isContenFromServerOpen =
+    useContext(BuilderContext)?.isContenFromServerOpen;
 
   return (
     <div className="header">
@@ -93,7 +95,7 @@ const Header = ({
           </button>
         </div>
       </div>
-      {(selectedElement || isMainContentOpen) &&
+      {(selectedElement || isMainContentOpen || isContenFromServerOpen) &&
         !isLoginPageOpen &&
         !isIndexOpen && <HeaderActions />}
     </div>
