@@ -191,8 +191,10 @@ function Plugin() {
           setIsMainContentOpen,
           isIndexOpen,
           setIsIndexOpen,
-          isFromSavedData: isFromSavedData,
-          setIsFromSavedData: setIsFromSavedData,
+          isFromSavedData,
+          setIsFromSavedData,
+          isContenFromServerOpen,
+          setIsContenFromServerOpen,
         }}
       >
         {feedbackPage && (
@@ -248,7 +250,7 @@ function Plugin() {
           />
         )}
         {isMainContentOpen && <MainContent />}
-        {selectedMasterId && !isMainContentOpen && (
+        {selectedMasterId && !isMainContentOpen && isContenFromServerOpen && (
           <ContentFromServer
             data={dataForUpdate}
             selectedMasterId={selectedMasterId}
