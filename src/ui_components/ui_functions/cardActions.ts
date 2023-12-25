@@ -41,6 +41,7 @@ export const duplicateSection = (
     const newSections = Array.from(prevSections);
     const newSection = { ...cardData };
     newSection.id = Math.random().toString(36).substring(2, 9);
+    newSection.docId = Math.random().toString(36).substring(2, 9);
     newSections.splice(index + 1, 0, newSection);
     return newSections;
   });

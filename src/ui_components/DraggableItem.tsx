@@ -2,7 +2,8 @@ import { h, FunctionComponent } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
 interface DraggableItemProps {
-  id: string;
+  id: string; //! delete this later
+  docId: string;
   onMove?: (draggedId: string, targetId: string) => void;
   content: any;
   data?: any;
@@ -10,7 +11,8 @@ interface DraggableItemProps {
 }
 
 export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
-  id,
+  id, //! delete this later
+  docId,
   onMove,
   content,
   data,
@@ -19,7 +21,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
   const [dragging, setDragging] = useState(false);
   const handleDragStart = (e: DragEvent) => {
     setDragging(true);
-    e.dataTransfer!.setData("text/plain", id);
+    e.dataTransfer!.setData("text/plain", docId);
   };
 
   const handleDragEnd = () => {

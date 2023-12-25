@@ -39,6 +39,7 @@ interface IContext {
   setIsFromSavedData: any;
   isContenFromServerOpen: boolean;
   setIsContenFromServerOpen: any;
+  isLoginPageOpen: boolean;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

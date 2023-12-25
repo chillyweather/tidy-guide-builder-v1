@@ -19,6 +19,7 @@ export const DraggableCardList = ({
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
   useEffect(() => {
     const el = document.getElementById("sections");
+    console.log("el", el);
     if (el) {
       Sortable.create(el, {
         onEnd: (evt) => {
@@ -39,8 +40,9 @@ export const DraggableCardList = ({
     return items.map((item, index) => {
       return (
         <DraggableItem
-          key={item.id}
-          id={item.id}
+          key={item.docId}
+          id={item.id} //! delete this later
+          docId={item.docId}
           content={ContentCard}
           index={index}
           data={item}

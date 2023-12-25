@@ -120,7 +120,7 @@ export const ContentCard = (cardData: any, index: number) => {
   //!-------from here content changes depending on isFromSavedData state------------//
   //!-------------------------------------------------------------------------------//
 
-  const id = isFromSavedData ? cardData.docId : cardData.id;
+  const id = cardData.docId;
   const isSelected = selectedCard === id;
   const cardType = isFromSavedData ? cardData.datatype : cardData.content;
 

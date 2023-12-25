@@ -195,6 +195,7 @@ function Plugin() {
           setIsFromSavedData,
           isContenFromServerOpen,
           setIsContenFromServerOpen,
+          isLoginPageOpen,
         }}
       >
         {feedbackPage && (
@@ -228,7 +229,7 @@ function Plugin() {
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
 
         {/* on startup */}
-        {isFirstTime && !selectedElement && (
+        {!isLoginPageOpen && isFirstTime && !selectedElement && (
           <IndexPage
             data={dataForUpdate}
             setSelectedMasterId={setSelectedMasterId}
@@ -240,7 +241,7 @@ function Plugin() {
         {isFirstTime && selectedElement && <MainContent />}
 
         {/* not on startup */}
-        {!isFirstTime && isIndexOpen && (
+        {!isLoginPageOpen && !isFirstTime && isIndexOpen && (
           <IndexPage
             data={dataForUpdate}
             setSelectedMasterId={setSelectedMasterId}
@@ -250,12 +251,15 @@ function Plugin() {
           />
         )}
         {isMainContentOpen && <MainContent />}
-        {selectedMasterId && !isMainContentOpen && isContenFromServerOpen && (
-          <ContentFromServer
-            data={dataForUpdate}
-            selectedMasterId={selectedMasterId}
-          />
-        )}
+        {selectedMasterId &&
+          !isMainContentOpen &&
+          isContenFromServerOpen &&
+          !isLoginPageOpen && (
+            <ContentFromServer
+              data={dataForUpdate}
+              selectedMasterId={selectedMasterId}
+            />
+          )}
 
         {/* login */}
         {!isLoginPageOpen && !isIndexOpen && (

@@ -21,7 +21,11 @@ function AddSectionPopupCard(card: any) {
     <div
       className={"addSectionCard"}
       onClick={() => {
-        const newCard = { ...card, id: generateUniqueId() };
+        const newCard = {
+          ...card,
+          id: generateUniqueId(), //! remove this later
+          docId: generateUniqueId(),
+        };
         if (selectedSections && selectedSections.length) {
           setSelectedSections((prevSections: any[]) => [
             ...prevSections,
