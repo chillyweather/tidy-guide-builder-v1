@@ -19,9 +19,13 @@ const IndexPage = ({
 }) => {
   const token = useContext(BuilderContext)?.token;
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
+  const sortedData = data.sort((a: any, b: any) =>
+    a.title.localeCompare(b.title)
+  );
+
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      {data.map((element: any, index: number) => {
+      {sortedData.map((element: any, index: number) => {
         const title = element.title;
         const wip = element.inProgress;
         return (
