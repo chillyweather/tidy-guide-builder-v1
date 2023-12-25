@@ -1,15 +1,26 @@
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
+import { useContext } from "preact/hooks";
+import BuilderContext from "../../BuilderContext";
 
-function ResetPopup({ show, setShow }: { show: boolean; setShow: any }) {
-  if (!show) {
+function ResetPopup() {
+  const setIsReset = useContext(BuilderContext)?.setIsReset;
+  const showResetPopup = useContext(BuilderContext)?.showResetPopup;
+  const setShowResetPopup = useContext(BuilderContext)?.setShowResetPopup;
+  if (!showResetPopup) {
     return null;
   }
 
   return (
-    <div className={"feedbackPopupBackground"} onClick={() => setShow(false)}>
+    <div
+      className={"feedbackPopupBackground"}
+      onClick={() => setShowResetPopup(false)}
+    >
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
-        <button className={"closePopupButton"} onClick={() => setShow(false)}>
+        <button
+          className={"closePopupButton"}
+          onClick={() => setShowResetPopup(false)}
+        >
           <IconX />
         </button>
         <h2 className={"dialogTitle"}>Reset all Elements</h2>
@@ -18,7 +29,7 @@ function ResetPopup({ show, setShow }: { show: boolean; setShow: any }) {
           <button
             className={"button"}
             onClick={() => {
-              console.log("cancel");
+              setShowResetPopup(false);
             }}
           >
             Cancel
@@ -26,7 +37,8 @@ function ResetPopup({ show, setShow }: { show: boolean; setShow: any }) {
           <button
             className={"button"}
             onClick={() => {
-              console.log("save");
+              setIsReset(true);
+              setShowResetPopup(false);
             }}
           >
             Reset

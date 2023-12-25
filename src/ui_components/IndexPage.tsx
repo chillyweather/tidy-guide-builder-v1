@@ -1,4 +1,5 @@
 import { h } from "preact";
+import { IconTrash } from "@tabler/icons-react";
 
 const IndexPage = ({
   data,
@@ -29,6 +30,13 @@ const IndexPage = ({
       >
         {title}
         {wip && <div className={"wip"}>WIP</div>}
+        <IconTrash
+          className={"trashIcon"}
+          onClick={(e) => {
+            e.stopPropagation();
+            console.log("delete");
+          }}
+        />
       </button>
     );
   });

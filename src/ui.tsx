@@ -93,6 +93,9 @@ function Plugin() {
   const [isMainContentOpen, setIsMainContentOpen] = useState(false);
   const [isContenFromServerOpen, setIsContenFromServerOpen] = useState(false);
 
+  //reset documentation
+  const [isReset, setIsReset] = useState(false);
+
   on("AUTH_CHANGE", async (token) => {
     if (token) {
       setToken(token);
@@ -196,6 +199,10 @@ function Plugin() {
           isContenFromServerOpen,
           setIsContenFromServerOpen,
           isLoginPageOpen,
+          isReset,
+          setIsReset,
+          showResetPopup,
+          setShowResetPopup,
         }}
       >
         {feedbackPage && (
@@ -209,9 +216,7 @@ function Plugin() {
         {showCancelPopup && (
           <CancelPopup show={showCancelPopup} setShow={setShowCancelPopup} />
         )}
-        {showResetPopup && (
-          <ResetPopup show={showResetPopup} setShow={setShowResetPopup} />
-        )}
+        {showResetPopup && <ResetPopup />}
         {!token && (
           <Login
             setToken={setToken}
@@ -265,7 +270,6 @@ function Plugin() {
         {!isLoginPageOpen && !isIndexOpen && (
           <Footer
             setShowCancelPopup={setShowCancelPopup}
-            setShowResetPopup={setShowResetPopup}
             setIsBuilding={setIsBuilding}
             isBuilding={isBuilding}
             documentationData={documentationData}

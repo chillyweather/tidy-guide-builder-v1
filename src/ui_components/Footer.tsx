@@ -11,13 +11,11 @@ import {
 
 const Footer = ({
   setShowCancelPopup,
-  setShowResetPopup,
   setIsBuilding,
   isBuilding,
   documentationData,
 }: {
   setShowCancelPopup: Function;
-  setShowResetPopup: Function;
   setIsBuilding: Function;
   isBuilding: boolean;
   documentationData: any;
@@ -28,6 +26,7 @@ const Footer = ({
   const token = useContext(BuilderContext)?.token;
   const isLoading = useContext(BuilderContext)?.isLoading;
   const setIsLoading = useContext(BuilderContext)?.setIsLoading;
+  const setShowResetPopup = useContext(BuilderContext)?.setShowResetPopup;
 
   async function handleDocumentation(token: string, data: any) {
     // const id = Object.values(data)[0];
@@ -62,7 +61,12 @@ const Footer = ({
         </button>
       </div>
       <div className="rightFooterContent">
-        <button className={"second"} onClick={() => setShowCancelPopup(true)}>
+        <button
+          className={"second"}
+          onClick={() => {
+            setIsBuilding(true);
+          }}
+        >
           Save Changes
         </button>
         <button

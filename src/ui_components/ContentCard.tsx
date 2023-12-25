@@ -45,6 +45,7 @@ function removeDraggable(event: any) {
 }
 
 export const ContentCard = (cardData: any, index: number) => {
+  console.log("cardData", cardData);
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
   //card title
   const [cardTitle, setCardTitle] = useState(cardData.title);
@@ -55,7 +56,7 @@ export const ContentCard = (cardData: any, index: number) => {
   );
   // text card
   const [paragraphTextContent, setParagraphTextContent] = useState(
-    isFromSavedData ? cardData.text : ""
+    isFromSavedData && cardData.text ? cardData.text : ""
   );
   // two column card
   const [leftTitle, setLeftTitle] = useState(
@@ -109,6 +110,16 @@ export const ContentCard = (cardData: any, index: number) => {
   //! documentation data
   const documentationData = useContext(BuilderContext)?.documentationData;
   const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
+  const setDocumentationTitle =
+    useContext(BuilderContext)?.setDocumentationTitle;
+  const setIsWip = useContext(BuilderContext)?.setIsWip;
+  const isReset = useContext(BuilderContext)?.isReset;
+  const setIsReset = useContext(BuilderContext)?.setIsReset;
+  const setSelectedElementKey =
+    useContext(BuilderContext)?.setSelectedElementKey;
+  const setSelectedElement = useContext(BuilderContext)?.setSelectedElement;
+  const setSelectedElementName =
+    useContext(BuilderContext)?.setSelectedElementName;
 
   // if (isFromSavedData) {
   //   console.log("from saved data", cardData);
@@ -122,7 +133,10 @@ export const ContentCard = (cardData: any, index: number) => {
 
   const id = cardData.docId;
   const isSelected = selectedCard === id;
-  const cardType = isFromSavedData ? cardData.datatype : cardData.content;
+  const cardType = cardData.datatype;
+
+  console.log("cardData", cardData);
+  console.log("cardType", cardType);
 
   //data for export
   interface CardDataProps {
@@ -267,17 +281,44 @@ export const ContentCard = (cardData: any, index: number) => {
 
   useEffect(() => {
     if (isBuilding) {
-      console.log("is building");
       setDocumentationData((prevDocumentation: any) => {
         const newDocumentation = { ...prevDocumentation };
         const newDocs = newDocumentation.docs;
         newDocs[index] = currentCardData;
         setIsBuilding(false);
-        console.log("newDocumentation", newDocumentation);
         return newDocumentation;
       });
     }
   }, [isBuilding]);
+
+  useEffect(() => {
+    if (isReset) {
+      setCardTitle("");
+      setParagraphTextContent("");
+      setLeftTitle("");
+      setLeftTextContent("");
+      setRightTitle("");
+      setRightTextContent("");
+      setListItems([""]);
+      setSources([{ source: "", link: "" }]);
+      setRemoteImageLink("");
+      setReleaseNotesMessage("");
+      setReleaseNotesDate("");
+      setSelectedVideo(-1);
+      setSelectedVideoContent({});
+      setVideoLink("");
+      setFoundVideoData({});
+      setVideoDataElements([]);
+      setIsReset(false);
+      setSelectedSections([]);
+      setDocumentationTitle("");
+      setSelectedElementKey("");
+      setIsWip(false);
+      setSelectedElement(null);
+      setSelectedElementName("");
+      setDocumentationData({});
+    }
+  }, [isReset, setIsReset]);
 
   return cardType === "header" ? (
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>

@@ -88,7 +88,6 @@ function HeaderActions() {
             {documentationTitle}
           </div>
         )}
-        {console.log("selectedElementName", selectedElementName)}
         {!!selectedElementName && (
           <p className={"selectedComp"}>{selectedElementName}</p>
         )}

@@ -40,6 +40,10 @@ interface IContext {
   isContenFromServerOpen: boolean;
   setIsContenFromServerOpen: any;
   isLoginPageOpen: boolean;
+  isReset: boolean;
+  setIsReset: any;
+  showResetPopup: boolean;
+  setShowResetPopup: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);
