@@ -1,29 +1,29 @@
 import { render } from "@create-figma-plugin/ui";
 
-import sectionData from "./resources/sectionData";
 import { emit, on, once } from "@create-figma-plugin/utilities";
-import { h, JSX } from "preact";
-import { useEffect, useState, useContext } from "preact/hooks";
+import { JSX, h } from "preact";
+import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "./BuilderContext";
-import FeedbackPopup from "./ui_components/popups/feedbackPopup";
+import sectionData from "./resources/sectionData";
 import CancelPopup from "./ui_components/popups/cancelPopup";
+import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
 //dependencies
 
 //new components
-import Login from "./ui_components/LoginPage";
-import LoggedIn from "./ui_components/LoggedInPage";
-import MainContent from "./ui_components/MainContent";
 import ContentFromServer from "./ui_components/ContentFromServer";
-import Header from "./ui_components/Header";
 import Footer from "./ui_components/Footer";
-import LoaderPage from "./ui_components/LoadingPage";
+import Header from "./ui_components/Header";
 import IndexPage from "./ui_components/IndexPage";
+import LoaderPage from "./ui_components/LoadingPage";
+import LoggedIn from "./ui_components/LoggedInPage";
+import Login from "./ui_components/LoginPage";
+import MainContent from "./ui_components/MainContent";
 import { getDocumentations } from "./ui_components/ui_functions/documentationHandlers";
 
 //styles
-import EmptyState from "./ui_components/EmptyState";
 import "!./styles.css";
+import EmptyState from "./ui_components/EmptyState";
 
 function Plugin() {
   //saved token
