@@ -234,6 +234,7 @@ function Plugin() {
           setShowResetPopup,
           showCancelPopup,
           setShowCancelPopup,
+          setDataForUpdate,
         }}
       >
         {feedbackPage && (

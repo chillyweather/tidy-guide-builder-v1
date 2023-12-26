@@ -17,6 +17,7 @@ const IndexPage = ({
   setIsContenFromServerOpen: Function;
   setIsFromSavedData: Function;
 }) => {
+  const setDataForUpdate = useContext(BuilderContext)?.setDataForUpdate;
   const token = useContext(BuilderContext)?.token;
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
   const sortedData = data.sort((a: any, b: any) =>
@@ -47,7 +48,12 @@ const IndexPage = ({
               onDblClick={async (e) => {
                 e.stopPropagation();
                 await deleteDocumentation(token!, element._id);
-                console.log("deleted");
+                setDataForUpdate((prevData: any) => {
+                  const newData = prevData.filter(
+                    (el: any) => el._id !== element._id
+                  );
+                  return newData;
+                });
               }}
             />
           </div>

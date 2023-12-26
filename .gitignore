@@ -8,3 +8,4 @@ build
 build/main.js
 build/ui.js
 .env
+.vscode/settings.json

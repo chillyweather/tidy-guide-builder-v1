@@ -46,6 +46,7 @@ interface IContext {
   setShowResetPopup: any;
   showCancelPopup: boolean;
   setShowCancelPopup: any;
+  setDataForUpdate: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);
