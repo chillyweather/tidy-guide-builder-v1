@@ -328,7 +328,9 @@ export const ContentCard = (cardData: any, index: number) => {
               removeDraggable(event);
             }}
           />
-          <IconMoodPuzzled style={{ color: "burntorange" }} />
+          <div className="addSectionIcon">
+            <IconMoodPuzzled />
+          </div>
           <input
             className={"sectionTitle"}
             type={"text"}
