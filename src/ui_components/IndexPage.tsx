@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { IconTrash } from "@tabler/icons-react";
-import { useContext, useState } from "preact/hooks";
+import { useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { deleteDocumentation } from "./ui_functions/documentationHandlers";
 

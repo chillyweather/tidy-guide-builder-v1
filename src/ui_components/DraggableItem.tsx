@@ -47,7 +47,7 @@ export const DraggableItem: FunctionComponent<DraggableItemProps> = ({
       onDragEnd={handleDragEnd}
       // onDragOver={handleDragOver}
       // onDrop={handleDrop}
-      draggable
+      // draggable
       style={{
         opacity: dragging ? 0.5 : 1,
         display: "inline-block",
