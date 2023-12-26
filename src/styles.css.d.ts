@@ -35,6 +35,7 @@ declare const styles: {
   readonly "columnTextArea": string;
   readonly "columnTitle": string;
   readonly "componentBTN": string;
+  readonly "componentBTN-wrapper": string;
   readonly "connect-element-button": string;
   readonly "container": string;
   readonly "dialogInput": string;
