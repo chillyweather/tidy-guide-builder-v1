@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { useContext } from "preact/hooks";
+import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import {
   IconSettings,
@@ -18,13 +18,22 @@ const Header = ({
   setIsLoginPageOpen,
   setFeedbackPage,
   isIndexOpen,
+  isDocJustOpened,
+  setIsDocJustOpened,
 }: {
   isLoginPageOpen: boolean;
   setIsLoginPageOpen: Function;
   setFeedbackPage: Function;
   isIndexOpen: boolean;
+  isDocJustOpened: boolean;
+  setIsDocJustOpened: Function;
 }) => {
+  const [initialSelectedSections, setInitialSelectedSections] = useState(null);
+  const [initialDocumentationData, setInitialDocumentationData] =
+    useState(null);
   const selectedElement = useContext(BuilderContext)?.selectedElement;
+  const selectedSections = useContext(BuilderContext)?.selectedSections;
+  const setIsReset = useContext(BuilderContext)?.setIsReset;
   const setIsMainContentOpen = useContext(BuilderContext)?.setIsMainContentOpen;
   const isMainContentOpen = useContext(BuilderContext)?.isMainContentOpen;
   const setIsIndexOpen = useContext(BuilderContext)?.setIsIndexOpen;
@@ -35,6 +44,31 @@ const Header = ({
     useContext(BuilderContext)?.isContenFromServerOpen;
   const showCancelPopup = useContext(BuilderContext)?.showCancelPopup;
   const setShowCancelPopup = useContext(BuilderContext)?.setShowCancelPopup;
+  const documentationData = useContext(BuilderContext)?.documentationData;
+
+  function backToIndex() {
+    setIsIndexOpen(true);
+    setIsMainContentOpen(false);
+    setIsContenFromServerOpen(false);
+    setIsDocJustOpened(true);
+    setIsReset(true);
+  }
+
+  console.log("isDocJustOpened", isDocJustOpened);
+  useEffect(() => {
+    if (documentationData && documentationData.title && isDocJustOpened) {
+      setInitialDocumentationData(
+        JSON.parse(JSON.stringify(documentationData))
+      );
+      setIsDocJustOpened(false);
+    }
+  }, [documentationData]);
+
+  console.log(
+    "initialDocumentationData",
+    JSON.stringify(initialDocumentationData)
+  );
+  console.log("documentationData", JSON.stringify(documentationData));
 
   return (
     <div className="header">
@@ -56,7 +90,10 @@ const Header = ({
             <button
               className="flex-button"
               onClick={() => {
-                setShowCancelPopup(true);
+                JSON.stringify(documentationData) !==
+                JSON.stringify(initialDocumentationData)
+                  ? setShowCancelPopup(true)
+                  : backToIndex();
               }}
             >
               <IconListTree />

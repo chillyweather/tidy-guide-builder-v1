@@ -85,6 +85,7 @@ function Plugin() {
 
   //is plugin first time open
   const [isFirstTime, setIsFirstTime] = useState(true);
+  const [isDocJustOpened, setIsDocJustOpened] = useState(true);
 
   //is content from server
   const [isFromSavedData, setIsFromSavedData] = useState(false);
@@ -282,10 +283,10 @@ function Plugin() {
         {showResetPopup && <ResetPopup />}
         {isToastOpen && (
           <Toast
-            message={`Documentation for this element already exists (${
+            message={`Documentation for this element already exists **${
               //@ts-ignore
               foundDocumentation.title
-            }). Please choose another element or edit the existing documentation.`}
+            }**. Please choose another element or edit the existing documentation.`}
             onClose={closePopup}
           />
         )}
@@ -302,6 +303,8 @@ function Plugin() {
           setIsLoginPageOpen={setIsLoginPageOpen}
           setFeedbackPage={setFeedbackPage}
           isIndexOpen={isIndexOpen}
+          isDocJustOpened={isDocJustOpened}
+          setIsDocJustOpened={setIsDocJustOpened}
         />
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
 
