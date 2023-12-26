@@ -93,6 +93,9 @@ function Plugin() {
   const [isMainContentOpen, setIsMainContentOpen] = useState(false);
   const [isContenFromServerOpen, setIsContenFromServerOpen] = useState(false);
 
+  //found existing documentation
+  const [foundDocumentation, setFoundDocumentation] = useState(null);
+
   //reset documentation
   const [isReset, setIsReset] = useState(false);
 
@@ -130,6 +133,24 @@ function Plugin() {
     setCurrentDocument(document);
     setCurrentPage(page);
   });
+
+  function checkIfDocumentationExists(docs: any[], id: string) {
+    if (docs.length && id) {
+      return docs.find((doc) => doc._id === id);
+    }
+  }
+
+  useEffect(() => {
+    const found = checkIfDocumentationExists(dataForUpdate, selectedElementKey);
+    if (found && isMainContentOpen) {
+      alert(
+        `Documentation for this element already exists (${found.title}). Please choose another element or edit the existing documentation.`
+      );
+      setSelectedElement(null);
+      setSelectedElementName("");
+    }
+    console.log("found", found);
+  }, [selectedElementKey, dataForUpdate, isMainContentOpen]);
 
   useEffect(() => {
     console.log("documentationData", documentationData);
