@@ -54,9 +54,11 @@ async function closeMenu(event: Event) {
 function AddSectionPopup(cards: any[], cardElement: any) {
   return (
     <div class={"addSectionPopup"}>
-      {cards.map((card) => {
-        return cardElement(card);
-      })}
+      <div className="addSectionPupup-inner">
+        {cards.map((card) => {
+          return cardElement(card);
+        })}
+      </div>
     </div>
   );
 }

@@ -136,12 +136,21 @@ body:has(.login) {
   height: 36px;
   cursor: pointer;
 }
+
+.inner-componentBTN{
+  display: flex;
+  width: 100%;
+}
 .componentBTN div, .componentBTN svg{
   cursor: pointer;
 }
 .componentBTN svg{
+  display: none;
   width: 16px;
   height: 16px;
+}
+.componentBTN:hover svg{
+  display: block;
 }
 .componentBTN:hover {
   background-color: #ecebf5;
@@ -157,7 +166,7 @@ body:has(.login) {
   position: absolute;
   width: calc(100vw - 64px);
   left: 0;
-  bottom: -12px;
+  bottom: -10px;
   border-bottom: 1px solid var(--tidy-divider);
 }
 
@@ -1472,15 +1481,19 @@ summary button {
   max-height: 76%;
   background-color: #ffffff;
   z-index: 9999;
+  border-radius: 12px;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 14px 0px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.addSectionPupup-inner{
+  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 8px;
   padding: 12px;
-  border-radius: 12px;
-  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 14px 0px rgba(0, 0, 0, 0.15);
-  overflow: auto;
+  max-height: 76vh;
 }
 
 .addSectionCard {

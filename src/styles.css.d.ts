@@ -16,6 +16,7 @@ declare const styles: {
   readonly "addSectionDescription": string;
   readonly "addSectionIcon": string;
   readonly "addSectionPopup": string;
+  readonly "addSectionPupup-inner": string;
   readonly "addSectionTitle": string;
   readonly "anchorLink": string;
   readonly "back-link": string;
@@ -68,6 +69,7 @@ declare const styles: {
   readonly "image-loader": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;
+  readonly "inner-componentBTN": string;
   readonly "inputDiv": string;
   readonly "inputInputRowStyle": string;
   readonly "invalidText": string;

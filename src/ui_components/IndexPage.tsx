@@ -32,6 +32,7 @@ const IndexPage = ({
         return (
           <div className={"componentBTN"}>
             <div
+            className={"inner-componentBTN"}
               onClick={() => {
                 setSelectedMasterId(element._id);
                 setIsFromSavedData(true);
