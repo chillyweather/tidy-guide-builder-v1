@@ -65,6 +65,7 @@ declare const styles: {
   readonly "headerCard": string;
   readonly "headerContent": string;
   readonly "hoverButton": string;
+  readonly "image": string;
   readonly "image-container": string;
   readonly "image-loader": string;
   readonly "image-wrapper": string;
@@ -75,6 +76,7 @@ declare const styles: {
   readonly "invalidText": string;
   readonly "leftContent": string;
   readonly "leftFooterContent": string;
+  readonly "link": string;
   readonly "links-block": string;
   readonly "listButtonStyle": string;
   readonly "listCardContentStyle": string;
@@ -96,11 +98,13 @@ declare const styles: {
   readonly "nav-container": string;
   readonly "nav-wrapper": string;
   readonly "navigation": string;
+  readonly "noIcon": string;
   readonly "noSelected": string;
   readonly "notFilled": string;
   readonly "oneColumn": string;
   readonly "outer-image": string;
   readonly "pagination": string;
+  readonly "paragraph": string;
   readonly "popupButtons": string;
   readonly "primary": string;
   readonly "resources": string;
@@ -138,8 +142,10 @@ declare const styles: {
   readonly "top": string;
   readonly "two-columns": string;
   readonly "twoColumnCardBodyContent": string;
+  readonly "twoColumns": string;
   readonly "unselected": string;
   readonly "validationFailedMessage": string;
+  readonly "video": string;
   readonly "videoClosed": string;
   readonly "videoDiv": string;
   readonly "videoElementWrapper": string;

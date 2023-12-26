@@ -113,13 +113,15 @@ body:has(.login) {
   font-size: calc(var(--text-size) + (var(--text-size) / 2.5));
 
 }
-.componentBTN-wrapper{
+
+.componentBTN-wrapper {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 .componentBTN {
   position: relative;
   color: var(--tidy-32);
@@ -137,21 +139,26 @@ body:has(.login) {
   cursor: pointer;
 }
 
-.inner-componentBTN{
+.inner-componentBTN {
   display: flex;
   width: 100%;
 }
-.componentBTN div, .componentBTN svg{
+
+.componentBTN div,
+.componentBTN svg {
   cursor: pointer;
 }
-.componentBTN svg{
+
+.componentBTN svg {
   display: none;
   width: 16px;
   height: 16px;
 }
-.componentBTN:hover svg{
+
+.componentBTN:hover svg {
   display: block;
 }
+
 .componentBTN:hover {
   background-color: #ecebf5;
 }
@@ -1485,7 +1492,8 @@ summary button {
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 14px 0px rgba(0, 0, 0, 0.15);
   overflow: hidden;
 }
-.addSectionPupup-inner{
+
+.addSectionPupup-inner {
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -1518,15 +1526,80 @@ summary button {
   gap: 4px;
   flex: 1 0 0;
 }
-.addSectionIcon{
+
+.addSectionIcon {
   padding: 3px;
   border-radius: 4px;
   color: #92A1B9;
   background-color: #DCE0EF;
 }
+
 .addSectionIcon svg {
   width: 18px;
   height: 16px;
+  display: none;
+}
+
+.addSectionIcon[type="Paragraph"] {
+  background-color: #E6FFFB;
+  color: #2E777A;
+}
+
+.addSectionIcon[type="Paragraph"] .paragraph {
+  display: block;
+}
+
+.addSectionIcon[type="Video"] {
+  background-color: #EBF8FF;
+  color: #2C6CAF;
+}
+
+.addSectionIcon[type="Video"] .video {
+  display: block;
+}
+
+.addSectionIcon[type="Two Columns (Do's and Don'ts)"] {
+  background-color: #EBFDEF;
+  color: #26694A;
+}
+
+.addSectionIcon[type="Two Columns (Do's and Don'ts)"] .twoColumns {
+  display: block;
+}
+
+.addSectionIcon[type="List"] {
+  background-color: #FFF5F6;
+  color: #BA3082;
+}
+
+.addSectionIcon[type="List"] .twoColumns {
+  display: block;
+}
+
+.addSectionIcon[type="Link"] {
+  background-color: #FBF5FF;
+  color: #6D47C2;
+}
+
+.addSectionIcon[type="Link"] .link {
+  display: block;
+}
+
+.addSectionIcon[type="Image"] {
+  background-color: #FFFFBD;
+  color: #945C18;
+}
+
+.addSectionIcon[type="Image"] .image {
+  display: block;
+}
+
+.addSectionIcon[type="Anatomy"] .noIcon,
+.addSectionIcon[type="Spacing"] .noIcon,
+.addSectionIcon[type="Property"] .noIcon,
+.addSectionIcon[type="Variants"] .noIcon,
+.addSectionIcon[type="Release Notes"] .noIcon {
+  display: block;
 }
 
 .addSectionTitle {

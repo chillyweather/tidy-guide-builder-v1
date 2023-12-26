@@ -4,7 +4,12 @@ import BuilderContext from "../BuilderContext";
 import {
   IconX,
   IconLink,
-  IconMoodPuzzled,
+  IconCalendarEvent,
+  IconPilcrow,
+  IconVideo,
+  IconColumns,
+  IconListDetails,
+  IconPhoto,
   IconPlayerPlayFilled,
   IconPlus,
 } from "@tabler/icons-react";
@@ -36,8 +41,14 @@ function AddSectionPopupCard(card: any) {
         }
       }}
     >
-      <div className={"addSectionIcon"}>
-        <IconMoodPuzzled />
+      <div className={"addSectionIcon"} type={card.title}>
+        <IconCalendarEvent className={"noIcon"} />
+        <IconPilcrow className={"paragraph"}/>
+        <IconVideo className={"video"}/>
+        <IconColumns className={"twoColumns"} />
+        <IconListDetails className={"list"} />
+        <IconLink className={"link"} />
+        <IconPhoto className={"image"} />
       </div>
       <div class={"addSectionCardInfo"}>
         <p class={"addSectionTitle"}>{card.title}</p>
