@@ -274,7 +274,7 @@ function Plugin() {
         {isLoading && <LoaderPage />}
         {showCancelPopup && <CancelPopup />}
         {showResetPopup && <ResetPopup />}
-        {isToastOpen && <Toast />}
+        {/* {isToastOpen && <Toast />} */}
         {!token && (
           <Login
             setToken={setToken}
