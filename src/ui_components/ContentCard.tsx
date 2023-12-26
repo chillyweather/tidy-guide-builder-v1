@@ -110,6 +110,7 @@ export const ContentCard = (cardData: any, index: number) => {
   //! documentation data
   const documentationData = useContext(BuilderContext)?.documentationData;
   const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
+  const documentationTitle = useContext(BuilderContext)?.documentationTitle;
   const setDocumentationTitle =
     useContext(BuilderContext)?.setDocumentationTitle;
   const setIsWip = useContext(BuilderContext)?.setIsWip;
@@ -284,6 +285,7 @@ export const ContentCard = (cardData: any, index: number) => {
       setDocumentationData((prevDocumentation: any) => {
         const newDocumentation = { ...prevDocumentation };
         const newDocs = newDocumentation.docs;
+        newDocs["title"] = documentationTitle;
         newDocs[index] = currentCardData;
         setIsBuilding(false);
         return newDocumentation;
