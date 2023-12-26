@@ -136,7 +136,9 @@ body:has(.login) {
   height: 36px;
   cursor: pointer;
 }
-
+.componentBTN div, .componentBTN svg{
+  cursor: pointer;
+}
 .componentBTN:hover {
   background-color: #ecebf5;
 }
