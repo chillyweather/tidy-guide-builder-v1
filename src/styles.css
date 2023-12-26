@@ -1540,12 +1540,12 @@ summary button {
   display: none;
 }
 
-.addSectionIcon[type="Paragraph"] {
+.addSectionIcon[type="text"] {
   background-color: #E6FFFB;
   color: #2E777A;
 }
 
-.addSectionIcon[type="Paragraph"] .paragraph {
+.addSectionIcon[type="text"] .paragraph {
   display: block;
 }
 
@@ -1598,7 +1598,8 @@ summary button {
 .addSectionIcon[type="Spacing"] .noIcon,
 .addSectionIcon[type="Property"] .noIcon,
 .addSectionIcon[type="Variants"] .noIcon,
-.addSectionIcon[type="Release Notes"] .noIcon, .addSectionIcon[type=""] .noIcon {
+.addSectionIcon[type="Release Notes"] .noIcon,
+.addSectionIcon[type=""] .noIcon {
   display: block;
 }
 

@@ -334,7 +334,7 @@ export const ContentCard = (cardData: any, index: number) => {
               removeDraggable(event);
             }}
           />
-          <div className="addSectionIcon" type={cardTitle}>
+          <div className="addSectionIcon" type={cardType}>
             <IconCalendarEvent className={"noIcon"} />
             <IconPilcrow className={"paragraph"} />
             <IconVideo className={"video"} />

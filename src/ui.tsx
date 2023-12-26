@@ -8,6 +8,7 @@ import sectionData from "./resources/sectionData";
 import CancelPopup from "./ui_components/popups/cancelPopup";
 import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
+import Toast from "./ui_components/Toast";
 //dependencies
 
 //new components
@@ -95,6 +96,9 @@ function Plugin() {
 
   //found existing documentation
   const [foundDocumentation, setFoundDocumentation] = useState(null);
+
+  //show toast
+  const [isToastOpen, setIsToastOpen] = useState(false);
 
   //reset documentation
   const [isReset, setIsReset] = useState(false);
@@ -270,6 +274,7 @@ function Plugin() {
         {isLoading && <LoaderPage />}
         {showCancelPopup && <CancelPopup />}
         {showResetPopup && <ResetPopup />}
+        {/* {isToastOpen && <Toast />} */}
         {!token && (
           <Login
             setToken={setToken}
