@@ -46,7 +46,6 @@ const Footer = ({
   }
 
   useEffect(() => {
-    console.log("try to build");
     if (Object.keys(documentationData).length > 0 && isBuilding && token) {
       handleDocumentation(token, documentationData);
     }
