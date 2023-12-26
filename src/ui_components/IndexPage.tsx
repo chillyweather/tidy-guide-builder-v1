@@ -25,7 +25,7 @@ const IndexPage = ({
   );
 
   return (
-    <div style={{ width: "100%", height: "100%" }}>
+    <div className={"componentBTN-wrapper"}>
       {sortedData.map((element: any, index: number) => {
         const title = element.title;
         const wip = element.inProgress;
