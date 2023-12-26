@@ -1598,7 +1598,7 @@ summary button {
 .addSectionIcon[type="Spacing"] .noIcon,
 .addSectionIcon[type="Property"] .noIcon,
 .addSectionIcon[type="Variants"] .noIcon,
-.addSectionIcon[type="Release Notes"] .noIcon {
+.addSectionIcon[type="Release Notes"] .noIcon, .addSectionIcon[type=""] .noIcon {
   display: block;
 }
 

@@ -328,8 +328,8 @@ export const ContentCard = (cardData: any, index: number) => {
               removeDraggable(event);
             }}
           />
-          <div className="addSectionIcon">
-            <IconMoodPuzzled />
+          <div className="addSectionIcon" type="">
+            <IconMoodPuzzled className={"noIcon"} />
           </div>
           <input
             className={"sectionTitle"}
