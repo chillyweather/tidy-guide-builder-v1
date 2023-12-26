@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
-import { useContext } from "preact/hooks";
+import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 
 function CancelPopup() {
