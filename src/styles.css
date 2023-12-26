@@ -1518,10 +1518,15 @@ summary button {
   gap: 4px;
   flex: 1 0 0;
 }
-
-.addSectionIcon {
-  width: 24px;
-  height: 24px;
+.addSectionIcon{
+  padding: 3px;
+  border-radius: 4px;
+  color: #92A1B9;
+  background-color: #DCE0EF;
+}
+.addSectionIcon svg {
+  width: 18px;
+  height: 16px;
 }
 
 .addSectionTitle {
@@ -2230,7 +2235,7 @@ summary button {
 }
 
 .drag-item {
-  pointer-events: none;
+  /* pointer-events: none; */
   margin: 0 12px;
   /* margin-bottom: 0; */
 }

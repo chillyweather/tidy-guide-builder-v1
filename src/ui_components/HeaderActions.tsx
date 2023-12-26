@@ -36,11 +36,14 @@ function AddSectionPopupCard(card: any) {
         }
       }}
     >
-      <IconMoodPuzzled class={"addSectionIcon"} />
+      <div className={"addSectionIcon"}>
+        <IconMoodPuzzled />
+      </div>
       <div class={"addSectionCardInfo"}>
         <p class={"addSectionTitle"}>{card.title}</p>
         {/* <p class={"addSectionDescription"}>{card.description}</p> */}
       </div>
+
     </div>
   );
 }
