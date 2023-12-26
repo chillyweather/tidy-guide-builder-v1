@@ -142,15 +142,19 @@ function Plugin() {
 
   useEffect(() => {
     const found = checkIfDocumentationExists(dataForUpdate, selectedElementKey);
-    if (found && isMainContentOpen) {
+    if (found && isMainContentOpen && selectedElementName.length) {
       alert(
         `Documentation for this element already exists (${found.title}). Please choose another element or edit the existing documentation.`
       );
       setSelectedElement(null);
       setSelectedElementName("");
     }
-    console.log("found", found);
-  }, [selectedElementKey, dataForUpdate, isMainContentOpen]);
+  }, [
+    selectedElementKey,
+    dataForUpdate,
+    isMainContentOpen,
+    selectedElementName,
+  ]);
 
   useEffect(() => {
     console.log("documentationData", documentationData);
