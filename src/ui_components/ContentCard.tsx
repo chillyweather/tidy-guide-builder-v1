@@ -335,13 +335,13 @@ export const ContentCard = (cardData: any, index: number) => {
             }}
           />
           <div className="addSectionIcon" type={cardTitle}>
-          <IconCalendarEvent className={"noIcon"} />
-        <IconPilcrow className={"paragraph"}/>
-        <IconVideo className={"video"}/>
-        <IconColumns className={"twoColumns"} />
-        <IconListDetails className={"list"} />
-        <IconLink className={"link"} />
-        <IconPhoto className={"image"} />
+            <IconCalendarEvent className={"noIcon"} />
+            <IconPilcrow className={"paragraph"} />
+            <IconVideo className={"video"} />
+            <IconColumns className={"twoColumns"} />
+            <IconListDetails className={"list"} />
+            <IconLink className={"link"} />
+            <IconPhoto className={"image"} />
           </div>
           <input
             className={"sectionTitle"}
