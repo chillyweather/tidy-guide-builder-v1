@@ -1549,56 +1549,56 @@ summary button {
   display: block;
 }
 
-.addSectionIcon[type="Video"] {
+.addSectionIcon[type="video"] {
   background-color: #EBF8FF;
   color: #2C6CAF;
 }
 
-.addSectionIcon[type="Video"] .video {
+.addSectionIcon[type="video"] .video {
   display: block;
 }
 
-.addSectionIcon[type="Two Columns (Do's and Don'ts)"] {
+.addSectionIcon[type="two-columns"] {
   background-color: #EBFDEF;
   color: #26694A;
 }
 
-.addSectionIcon[type="Two Columns (Do's and Don'ts)"] .twoColumns {
+.addSectionIcon[type="two-columns"] .twoColumns {
   display: block;
 }
 
-.addSectionIcon[type="List"] {
+.addSectionIcon[type="list"] {
   background-color: #FFF5F6;
   color: #BA3082;
 }
 
-.addSectionIcon[type="List"] .twoColumns {
+.addSectionIcon[type="list"] .twoColumns {
   display: block;
 }
 
-.addSectionIcon[type="Link"] {
+.addSectionIcon[type="link"] {
   background-color: #FBF5FF;
   color: #6D47C2;
 }
 
-.addSectionIcon[type="Link"] .link {
+.addSectionIcon[type="link"] .link {
   display: block;
 }
 
-.addSectionIcon[type="Image"] {
+.addSectionIcon[type="image"] {
   background-color: #FFFFBD;
   color: #945C18;
 }
 
-.addSectionIcon[type="Image"] .image {
+.addSectionIcon[type="image"] .image {
   display: block;
 }
 
-.addSectionIcon[type="Anatomy"] .noIcon,
-.addSectionIcon[type="Spacing"] .noIcon,
-.addSectionIcon[type="Property"] .noIcon,
-.addSectionIcon[type="Variants"] .noIcon,
-.addSectionIcon[type="Release Notes"] .noIcon,
+.addSectionIcon[type="anatomy"] .noIcon,
+.addSectionIcon[type="spacing"] .noIcon,
+.addSectionIcon[type="property"] .noIcon,
+.addSectionIcon[type="variants"] .noIcon,
+.addSectionIcon[type="release-notes"] .noIcon,
 .addSectionIcon[type=""] .noIcon {
   display: block;
 }
