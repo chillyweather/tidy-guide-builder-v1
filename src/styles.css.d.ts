@@ -68,6 +68,7 @@ declare const styles: {
   readonly "image-loader": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;
+  readonly "inner-componentBTN": string;
   readonly "inputDiv": string;
   readonly "inputInputRowStyle": string;
   readonly "invalidText": string;

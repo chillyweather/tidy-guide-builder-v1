@@ -136,12 +136,21 @@ body:has(.login) {
   height: 36px;
   cursor: pointer;
 }
+
+.inner-componentBTN{
+  display: flex;
+  width: 100%;
+}
 .componentBTN div, .componentBTN svg{
   cursor: pointer;
 }
 .componentBTN svg{
+  display: none;
   width: 16px;
   height: 16px;
+}
+.componentBTN:hover svg{
+  display: block;
 }
 .componentBTN:hover {
   background-color: #ecebf5;
@@ -157,7 +166,7 @@ body:has(.login) {
   position: absolute;
   width: calc(100vw - 64px);
   left: 0;
-  bottom: -12px;
+  bottom: -10px;
   border-bottom: 1px solid var(--tidy-divider);
 }
 
