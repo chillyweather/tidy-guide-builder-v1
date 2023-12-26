@@ -139,6 +139,10 @@ body:has(.login) {
 .componentBTN div, .componentBTN svg{
   cursor: pointer;
 }
+.componentBTN svg{
+  width: 16px;
+  height: 16px;
+}
 .componentBTN:hover {
   background-color: #ecebf5;
 }
