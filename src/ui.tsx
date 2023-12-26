@@ -173,6 +173,18 @@ function Plugin() {
     }
   }, [isReset]);
 
+  useEffect(() => {
+    if (documentationTitle) {
+      setDocumentationData((prevDocumentation: any) => {
+        return {
+          ...prevDocumentation,
+          ["title"]: documentationTitle,
+          ["inProgress"]: isWip,
+        };
+      });
+    }
+  }, [documentationTitle, isWip]);
+
   return (
     <div className={"container"}>
       <BuilderContext.Provider
