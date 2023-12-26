@@ -16,6 +16,7 @@ declare const styles: {
   readonly "addSectionDescription": string;
   readonly "addSectionIcon": string;
   readonly "addSectionPopup": string;
+  readonly "addSectionPupup-inner": string;
   readonly "addSectionTitle": string;
   readonly "anchorLink": string;
   readonly "back-link": string;
