@@ -71,6 +71,7 @@ function HeaderActions() {
   const documentationTitle = useContext(BuilderContext)?.documentationTitle;
   const isScroll = useContext(BuilderContext)?.isScroll;
   const setIsMainContentOpen = useContext(BuilderContext)?.setIsMainContentOpen;
+  const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
   return (
     <div
       class={"headerContent headerActions"}
@@ -88,14 +89,14 @@ function HeaderActions() {
             {documentationTitle}
           </div>
         )}
-        {!!selectedElementName && (
+        {!!selectedElementName && !isFromSavedData && (
           <p className={"selectedComp"}>{selectedElementName}</p>
         )}
-        {!selectedElementName && (
+        {!selectedElementName && !isFromSavedData && (
           <p className={"noSelected"}>No selected compontent</p>
         )}
 
-        {selectedElementName ? (
+        {selectedElementName && !isFromSavedData ? (
           <IconX
             onClick={() => {
               setSelectedElement(null);
@@ -105,17 +106,19 @@ function HeaderActions() {
             }}
           />
         ) : (
-          <button
-            className="connect-element-button"
-            onClick={() => {
-              emit("GET_SELECTION");
-            }}
-          >
-            <IconLink
-              style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
-            />
-            Get component
-          </button>
+          !isFromSavedData && (
+            <button
+              className="connect-element-button"
+              onClick={() => {
+                emit("GET_SELECTION");
+              }}
+            >
+              <IconLink
+                style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
+              />
+              Get component
+            </button>
+          )
         )}
       </div>
       <div className={"selectedComponentActions"}>
