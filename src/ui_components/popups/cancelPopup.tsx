@@ -11,6 +11,7 @@ function CancelPopup() {
   const setIsContenFromServerOpen =
     useContext(BuilderContext)?.setIsContenFromServerOpen;
   const setIsReset = useContext(BuilderContext)?.setIsReset;
+  const setIsBuilding = useContext(BuilderContext)?.setIsBuilding;
 
   if (!showCancelPopup) {
     return null;
@@ -34,7 +35,6 @@ function CancelPopup() {
           <button
             className={"button"}
             onClick={() => {
-              console.log("cancel");
               setIsIndexOpen(true);
               setIsMainContentOpen(false);
               setIsContenFromServerOpen(false);
@@ -47,7 +47,7 @@ function CancelPopup() {
           <button
             className={"button"}
             onClick={() => {
-              console.log("save");
+              setIsBuilding(true);
               setShowCancelPopup(false);
             }}
           >

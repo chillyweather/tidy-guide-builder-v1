@@ -96,8 +96,6 @@ function Plugin() {
   //reset documentation
   const [isReset, setIsReset] = useState(false);
 
-  console.log("documentationTitle", documentationTitle);
-
   on("AUTH_CHANGE", async (token) => {
     if (token) {
       setToken(token);
