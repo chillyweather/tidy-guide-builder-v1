@@ -1,7 +1,6 @@
 import { h } from "preact";
 import { useEffect } from "preact/hooks";
 import { createPortal } from "preact/compat";
-import "./CustomToast.css";
 
 const Toast = ({
   message,
@@ -13,7 +12,7 @@ const Toast = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();
-    }, 2000);
+    }, 3000);
 
     return () => {
       clearTimeout(timer);

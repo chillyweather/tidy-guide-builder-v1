@@ -147,9 +147,11 @@ function Plugin() {
   useEffect(() => {
     const found = checkIfDocumentationExists(dataForUpdate, selectedElementKey);
     if (found && isMainContentOpen && selectedElementName.length) {
-      alert(
-        `Documentation for this element already exists (${found.title}). Please choose another element or edit the existing documentation.`
-      );
+      setFoundDocumentation(found);
+      setIsToastOpen(true);
+      // alert(
+      //   `Documentation for this element already exists (${found.title}). Please choose another element or edit the existing documentation.`
+      // );
       setSelectedElement(null);
       setSelectedElementName("");
     }
@@ -211,6 +213,10 @@ function Plugin() {
       });
     }
   }, [documentationTitle, isWip]);
+
+  function closePopup() {
+    setIsToastOpen(false);
+  }
 
   return (
     <div className={"container"}>
@@ -274,7 +280,15 @@ function Plugin() {
         {isLoading && <LoaderPage />}
         {showCancelPopup && <CancelPopup />}
         {showResetPopup && <ResetPopup />}
-        {/* {isToastOpen && <Toast />} */}
+        {isToastOpen && (
+          <Toast
+            message={`Documentation for this element already exists (${
+              //@ts-ignore
+              foundDocumentation.title
+            }). Please choose another element or edit the existing documentation.`}
+            onClose={closePopup}
+          />
+        )}
         {!token && (
           <Login
             setToken={setToken}
