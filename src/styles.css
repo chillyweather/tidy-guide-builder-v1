@@ -134,6 +134,7 @@ body:has(.login) {
   border-radius: 8px;
   width: 100%;
   height: 36px;
+  cursor: pointer;
 }
 
 .componentBTN:hover {
