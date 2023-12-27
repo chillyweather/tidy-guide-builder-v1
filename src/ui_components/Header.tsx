@@ -60,6 +60,7 @@ const Header = ({
       setInitialDocumentationData(
         JSON.parse(JSON.stringify(documentationData))
       );
+      setInitialSelectedSections(JSON.parse(JSON.stringify(selectedSections)));
       setIsDocJustOpened(false);
     }
   }, [documentationData]);
@@ -91,7 +92,9 @@ const Header = ({
               className="flex-button"
               onClick={() => {
                 JSON.stringify(documentationData) !==
-                JSON.stringify(initialDocumentationData)
+                  JSON.stringify(initialDocumentationData) &&
+                JSON.stringify(selectedSections) !==
+                  JSON.stringify(initialSelectedSections)
                   ? setShowCancelPopup(true)
                   : backToIndex();
               }}
