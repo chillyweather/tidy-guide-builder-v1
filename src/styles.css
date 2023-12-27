@@ -1670,6 +1670,66 @@ body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.a
   margin: 0;
 }
 
+body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) {
+  max-height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 300ms ease-in-out 0s;
+}
+body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) .noIcon {
+  width: 24px;
+  height: 24px;
+}
+body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) .addSectionDescription {
+  max-height: 0;
+  margin: 0;
+}
+
+body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) {
+  max-height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 300ms ease-in-out 0s;
+}
+body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) .noIcon {
+  width: 24px;
+  height: 24px;
+}
+body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) .addSectionDescription {
+  max-height: 0;
+  margin: 0;
+}
+
+body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) {
+  max-height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 300ms ease-in-out 0s;
+}
+body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) .noIcon {
+  width: 24px;
+  height: 24px;
+}
+body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) .addSectionDescription {
+  max-height: 0;
+  margin: 0;
+}
+
+body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) {
+  max-height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 300ms ease-in-out 0s;
+}
+body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .noIcon {
+  width: 24px;
+  height: 24px;
+}
+body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .addSectionDescription {
+  max-height: 0;
+  margin: 0;
+}
+
 .addSectionTitle {
   overflow: hidden;
   color: var(--tidy-32);
