@@ -1508,6 +1508,7 @@ summary button {
   color: #787878;
   margin-top: 16px;
   margin-bottom: 4px;
+  padding-left: 10px;
 }
 
 .addSectionCard {
@@ -1524,8 +1525,13 @@ summary button {
 .addSectionCard * {
   pointer-events: none;
 }
-.addSectionCard:has(.addSectionIcon[type="paragraph"])::after{
+.addSection-outer:has(.addSectionIcon[type="paragraph"])::before{
   content: 'Elements';
+  font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
+  color: #787878;
+  margin-top: 16px;
+  margin-bottom: 4px;
+  padding-left: 10px;
 }
 
 .addSectionCardInfo {
@@ -1534,6 +1540,11 @@ summary button {
   align-items: flex-start;
   gap: 4px;
   flex: 1 0 0;
+}
+.addSection-outer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .addSectionIcon {

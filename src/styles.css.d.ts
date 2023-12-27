@@ -11,6 +11,7 @@ declare const styles: {
   readonly "_toggle_1rqu7_1": string;
   readonly "absDiv": string;
   readonly "add-button": string;
+  readonly "addSection-outer": string;
   readonly "addSectionCard": string;
   readonly "addSectionCardInfo": string;
   readonly "addSectionDescription": string;
