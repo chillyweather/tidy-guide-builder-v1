@@ -28,9 +28,6 @@ const Header = ({
   isDocJustOpened: boolean;
   setIsDocJustOpened: Function;
 }) => {
-  const [initialSelectedSections, setInitialSelectedSections] = useState(null);
-  const [initialDocumentationData, setInitialDocumentationData] =
-    useState(null);
   const selectedElement = useContext(BuilderContext)?.selectedElement;
   const selectedSections = useContext(BuilderContext)?.selectedSections;
   const setIsReset = useContext(BuilderContext)?.setIsReset;
@@ -45,6 +42,11 @@ const Header = ({
   const showCancelPopup = useContext(BuilderContext)?.showCancelPopup;
   const setShowCancelPopup = useContext(BuilderContext)?.setShowCancelPopup;
   const documentationData = useContext(BuilderContext)?.documentationData;
+  const [initialSelectedSections, setInitialSelectedSections] = useState(null);
+  const [initialDocumentationData, setInitialDocumentationData] =
+    useState(null);
+  const [initialSelectedSectionsLength, setInitialSelectedSectionsLength] =
+    useState(0);
 
   function backToIndex() {
     setIsIndexOpen(true);
@@ -54,13 +56,13 @@ const Header = ({
     setIsReset(true);
   }
 
-  console.log("isDocJustOpened", isDocJustOpened);
   useEffect(() => {
     if (documentationData && documentationData.title && isDocJustOpened) {
       setInitialDocumentationData(
         JSON.parse(JSON.stringify(documentationData))
       );
       setInitialSelectedSections(JSON.parse(JSON.stringify(selectedSections)));
+      setInitialSelectedSectionsLength(selectedSections!.length || 0);
       setIsDocJustOpened(false);
     }
   }, [documentationData]);
@@ -70,6 +72,16 @@ const Header = ({
     JSON.stringify(initialDocumentationData)
   );
   console.log("documentationData", JSON.stringify(documentationData));
+
+  function isDataChanged() {
+    return (
+      JSON.stringify(documentationData) !==
+        JSON.stringify(initialDocumentationData) ||
+      JSON.stringify(selectedSections) !==
+        JSON.stringify(initialSelectedSections) ||
+      selectedSections?.length !== initialSelectedSectionsLength
+    );
+  }
 
   return (
     <div className="header">
@@ -91,12 +103,8 @@ const Header = ({
             <button
               className="flex-button"
               onClick={() => {
-                JSON.stringify(documentationData) !==
-                  JSON.stringify(initialDocumentationData) &&
-                JSON.stringify(selectedSections) !==
-                  JSON.stringify(initialSelectedSections)
-                  ? setShowCancelPopup(true)
-                  : backToIndex();
+                // isDataChanged() ? setShowCancelPopup(true) :
+                backToIndex();
               }}
             >
               <IconListTree />
