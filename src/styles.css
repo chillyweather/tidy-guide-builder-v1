@@ -1540,12 +1540,14 @@ summary button {
   display: none;
 }
 
-.addSectionIcon[type="text"] {
+.addSectionIcon[type="text"],
+.addSectionIcon[type="paragraph"] {
   background-color: #E6FFFB;
   color: #2E777A;
 }
 
-.addSectionIcon[type="text"] .paragraph {
+.addSectionIcon[type="text"] .paragraph,
+.addSectionIcon[type="paragraph"] .paragraph {
   display: block;
 }
 
@@ -1558,12 +1560,14 @@ summary button {
   display: block;
 }
 
-.addSectionIcon[type="two-columns"] {
+.addSectionIcon[type="two-columns"],
+.addSectionIcon[type="Two Columns (Do's and Don'ts)"] {
   background-color: #EBFDEF;
   color: #26694A;
 }
 
-.addSectionIcon[type="two-columns"] .twoColumns {
+.addSectionIcon[type="two-columns"] .twoColumns,
+.addSectionIcon[type="Two Columns (Do's and Don'ts)"] .twoColumns {
   display: block;
 }
 
@@ -1599,6 +1603,7 @@ summary button {
 .addSectionIcon[type="property"] .noIcon,
 .addSectionIcon[type="variants"] .noIcon,
 .addSectionIcon[type="release-notes"] .noIcon,
+.addSectionIcon[type="release notes"] .noIcon,
 .addSectionIcon[type=""] .noIcon {
   display: block;
 }
