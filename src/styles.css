@@ -1524,6 +1524,9 @@ summary button {
 .addSectionCard * {
   pointer-events: none;
 }
+.addSectionCard:has(.addSectionIcon[type="paragraph"])::after{
+  content: 'Elements';
+}
 
 .addSectionCardInfo {
   display: flex;
