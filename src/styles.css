@@ -1630,12 +1630,23 @@ summary button {
 .addSectionIcon[type=""] .noIcon {
   display: block;
 }
-.addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]),
-.addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]),
-.addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]),
-.addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]),
-.addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]){
-  background-color: red;
+.addSectionDescription{
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: none;
+}
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) .addSectionDescription,
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) .addSectionDescription,
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) .addSectionDescription,
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) .addSectionDescription,
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .addSectionDescription{
+  display: -webkit-box;
+}
+.addSectionPopup .addSectionIcon .noIcon{
+  width: 64px;
+  height: 64px;
 }
 
 .addSectionTitle {

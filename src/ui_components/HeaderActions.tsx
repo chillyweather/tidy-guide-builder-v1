@@ -53,7 +53,7 @@ function AddSectionPopupCard(card: any) {
         </div>
         <div class={"addSectionCardInfo"}>
           <p class={"addSectionTitle"}>{card.title}</p>
-          {/* <p class={"addSectionDescription"}>{card.description}</p> */}
+          <p class={"addSectionDescription"}>{card.description}</p>
         </div>
 
       </div>
