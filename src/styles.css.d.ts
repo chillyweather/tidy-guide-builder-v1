@@ -41,7 +41,6 @@ declare const styles: {
   readonly "connect-element-button": string;
   readonly "container": string;
   readonly "custom-toast": string;
-  readonly "custom-toast-message": string;
   readonly "dialogInput": string;
   readonly "disabled": string;
   readonly "draft": string;

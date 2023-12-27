@@ -1456,7 +1456,7 @@ summary button {
 .footer .primary-disabled{
   pointer-events: none;
   background-color: #ECE9F2;
-  color: #A6A8AD;
+  color: #A6A8AD
 }
 
 .second {
@@ -2617,16 +2617,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   top: 8px;
   left: 20%;
   width: 60%;
-  /* transform: translateX(-50%); */
   background-color: #4D4D4D;
   color: #ECEBF5;
   padding: 8px 12px;
   border-radius: 8px;
   z-index: 9999;
-}
-
-.custom-toast-message {
-  font-size: 14px;
+  font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
 }
 
 @keyframes rotateAnim {
