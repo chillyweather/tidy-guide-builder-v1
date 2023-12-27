@@ -75,7 +75,7 @@ const Footer = ({
           }}
           disabled={!isValid}
         >
-          Create
+          Publish
         </button>
       </div>
     </div>
