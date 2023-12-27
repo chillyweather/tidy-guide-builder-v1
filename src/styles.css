@@ -1455,7 +1455,11 @@ summary button {
 }
 
 .second {
-  background-color: #F2F0F6;
+  /* background-color: #F2F0F6; */
+  background-color: var(--tidy-background);
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset;
+  color: var(--tidy-primary) !important;
+  padding: 12px 16px !important;
 }
 
 .second:hover {
@@ -1463,7 +1467,10 @@ summary button {
 }
 
 .second:active {
-  background-color: #E3DFEC;
+  /* background-color: #E3DFEC; */
+  background-color: var(--tidy-background);
+  color: var(--tidy-btn-hover) !important;
+  box-shadow: 0 0 0 1px var(--tidy-btn-hover) inset;
 }
 
 .leftFooterContent {
