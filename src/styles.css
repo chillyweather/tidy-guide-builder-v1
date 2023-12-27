@@ -1453,6 +1453,10 @@ summary button {
 .footer .primary:active {
   background-color: var(--tidy-btn-pressed);
 }
+.footer .primary-disabled{
+  pointer-events: none;
+  opacity: 0.5;
+}
 
 .second {
   /* background-color: #F2F0F6; */

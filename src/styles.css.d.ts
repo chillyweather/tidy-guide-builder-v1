@@ -110,6 +110,7 @@ declare const styles: {
   readonly "paragraph": string;
   readonly "popupButtons": string;
   readonly "primary": string;
+  readonly "primary-disabled": string;
   readonly "resources": string;
   readonly "rightContent": string;
   readonly "rightFooterContent": string;
