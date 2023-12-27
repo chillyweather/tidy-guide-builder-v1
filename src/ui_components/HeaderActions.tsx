@@ -23,7 +23,7 @@ function AddSectionPopupCard(card: any) {
   const selectedSections = useContext(BuilderContext)?.selectedSections;
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   return (
-    <div className="addSection-outer">
+    <div className={"addSection-outer"}>
       <div
         className={"addSectionCard"}
         onClick={() => {
