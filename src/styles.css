@@ -1503,6 +1503,10 @@ summary button {
   padding: 12px;
   max-height: 76vh;
 }
+.addSectionPupup-inner h2{
+  font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
+  color: #787878;
+}
 
 .addSectionCard {
   display: flex;
