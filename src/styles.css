@@ -1503,7 +1503,8 @@ summary button {
   padding: 12px;
   max-height: 76vh;
 }
-.addSectionPupup-inner h2{
+
+.addSectionPupup-inner h2 {
   font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
   color: #787878;
   margin-top: 16px;
@@ -1525,7 +1526,8 @@ summary button {
 .addSectionCard * {
   pointer-events: none;
 }
-.addSection-outer:has(.addSectionIcon[type="paragraph"])::before{
+
+.addSection-outer:has(.addSectionIcon[type="paragraph"])::before {
   content: 'Elements';
   font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
   color: #787878;
@@ -1541,7 +1543,8 @@ summary button {
   gap: 4px;
   flex: 1 0 0;
 }
-.addSection-outer{
+
+.addSection-outer {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -1626,6 +1629,13 @@ summary button {
 .addSectionIcon[type="release notes"] .noIcon,
 .addSectionIcon[type=""] .noIcon {
   display: block;
+}
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]),
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]),
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]),
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]),
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]){
+  background-color: red;
 }
 
 .addSectionTitle {
