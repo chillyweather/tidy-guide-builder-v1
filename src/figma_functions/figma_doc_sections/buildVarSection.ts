@@ -10,6 +10,7 @@ const allBasicFrames: FrameNode[] = [];
 
 export function buildVarSection(node: InstanceNode, parentFrame: FrameNode) {
   const variantProps = findAllVariantProps(node);
+  if (Object.keys(variantProps).length === 0) return;
   const variantKeys = Object.keys(variantProps).filter(
     (key) => key.toLocaleLowerCase() !== "size"
   );

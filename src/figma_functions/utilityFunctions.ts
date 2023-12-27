@@ -37,6 +37,7 @@ export function buildAutoLayoutFrame(
  */
 export function findMasterComponent(node: InstanceNode) {
   const immediateMaster = node.mainComponent;
+  const isMasterRemote = immediateMaster?.remote;
   const masterParent = immediateMaster?.parent;
   const trueMaster =
     masterParent?.type === "COMPONENT_SET" ? masterParent : immediateMaster;

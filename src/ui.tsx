@@ -20,7 +20,11 @@ import LoaderPage from "./ui_components/LoadingPage";
 import LoggedIn from "./ui_components/LoggedInPage";
 import Login from "./ui_components/LoginPage";
 import MainContent from "./ui_components/MainContent";
-import { getDocumentations } from "./ui_components/ui_functions/documentationHandlers";
+import {
+  getDocumentations,
+  updateDocumentation,
+  createDocumentation,
+} from "./ui_components/ui_functions/documentationHandlers";
 
 //styles
 import "!./styles.css";
@@ -104,6 +108,9 @@ function Plugin() {
   //reset documentation
   const [isReset, setIsReset] = useState(false);
 
+  //if we need to build on canvas
+  const [isBuildingOnCanvas, setIsBuildingOnCanvas] = useState(true);
+
   on("AUTH_CHANGE", async (token) => {
     if (token) {
       setToken(token);
@@ -115,6 +122,7 @@ function Plugin() {
 
   on("SELECTION", ({ defaultNode, name, key }) => {
     // if (defaultNode) setIsMainContentOpen(true);
+    console.log("defaultNode", defaultNode.id);
     setSelectedElement(defaultNode);
     setSelectedElementName(name);
     setSelectedElementKey(key);
@@ -122,6 +130,7 @@ function Plugin() {
       return {
         ...prevDocumentation,
         ["_id"]: key,
+        ["nodeId"]: defaultNode.id,
         ["docs"]: [],
         ["title"]: "",
         ["inProgress"]: isWip,
@@ -164,7 +173,7 @@ function Plugin() {
   ]);
 
   useEffect(() => {
-    console.log("documentationData", documentationData);
+    // console.log("documentationData", documentationData);
   }, [documentationData]);
 
   (function bodyScroll() {
@@ -182,12 +191,6 @@ function Plugin() {
       setIsFirstTime(false);
     }
   }, [isMainContentOpen, isContenFromServerOpen]);
-
-  // useEffect(() => {
-  //   if (selectedElement) {
-  //     setIsIndexOpen(false);
-  //   }
-  // }, [selectedElement]);
 
   useEffect(() => {
     if (isReset) {
@@ -218,6 +221,33 @@ function Plugin() {
   function closePopup() {
     setIsToastOpen(false);
   }
+
+  async function handleAddDocumentation(token: string, data: any) {
+    const id = data._id;
+    if (typeof id !== "string") return;
+    setIsLoading(true);
+    //! temp commented out for testing
+    try {
+      const result = await getDocumentations(token);
+      const isDocumented = result.some((doc: any) => doc._id === id);
+      if (isDocumented) {
+        const response = await updateDocumentation(token, id, data);
+        if (isBuildingOnCanvas) emit("BUILD", response);
+      } else {
+        const response = await createDocumentation(token, data);
+        if (isBuildingOnCanvas) emit("BUILD", response);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    if (Object.keys(documentationData).length > 0 && isBuilding && token) {
+      handleAddDocumentation(token, documentationData);
+    }
+  }, [documentationData, isBuilding, token]);
 
   return (
     <div className={"container"}>
@@ -344,10 +374,8 @@ function Plugin() {
         {/* login */}
         {!isLoginPageOpen && !isIndexOpen && (
           <Footer
-            setShowCancelPopup={setShowCancelPopup}
             setIsBuilding={setIsBuilding}
-            isBuilding={isBuilding}
-            documentationData={documentationData}
+            setIsBuildingOnCanvas={setIsBuildingOnCanvas}
           />
         )}
       </BuilderContext.Provider>

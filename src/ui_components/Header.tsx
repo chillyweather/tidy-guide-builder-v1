@@ -56,6 +56,7 @@ const Header = ({
     setIsReset(true);
   }
 
+  //! find a better way to track data changes
   useEffect(() => {
     if (documentationData && documentationData.title && isDocJustOpened) {
       setInitialDocumentationData(
@@ -66,12 +67,12 @@ const Header = ({
       setIsDocJustOpened(false);
     }
   }, [documentationData]);
-
-  console.log(
-    "initialDocumentationData",
-    JSON.stringify(initialDocumentationData)
-  );
-  console.log("documentationData", JSON.stringify(documentationData));
+  //
+  //   console.log(
+  //     "initialDocumentationData",
+  //     JSON.stringify(initialDocumentationData)
+  //   );
+  //   console.log("documentationData", JSON.stringify(documentationData));
 
   function isDataChanged() {
     return (

@@ -10,6 +10,7 @@ export function getVariantsArray(
   variantProperties: any,
   variantKeys: string[]
 ) {
+  console.log("variantProperties", variantProperties);
   //! we need this for later splitting
   const secondProp = variantKeys[variantKeys.length - 2];
   //@ts-ignore

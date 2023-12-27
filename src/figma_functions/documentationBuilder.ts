@@ -12,6 +12,7 @@ import {
 } from "./figma_doc_sections/elementBuildingFunctions";
 import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
 import { emit } from "@create-figma-plugin/utilities";
+import { h } from "preact";
 
 interface ElementData {
   node?: SceneNode;
@@ -36,8 +37,46 @@ function getElement(id: string) {
   if (component) return component;
 }
 
+async function getNode(id: string, key: string) {
+  const node = figma.getNodeById(id);
+  if (
+    node &&
+    (node.type === "COMPONENT" || node?.type === "COMPONENT_SET") &&
+    node.key === key
+  )
+    return node;
+  else
+    try {
+      try {
+        const importedComponent = await figma.importComponentByKeyAsync(key);
+        return importedComponent;
+      } catch (error) {
+        console.log("error", error);
+      }
+      try {
+        const importedComponentSet =
+          await figma.importComponentSetByKeyAsync(key);
+        return importedComponentSet;
+      } catch (error) {
+        console.log("error", error);
+      }
+    } catch (error) {
+      figma.closePlugin(
+        "Error: No component found for this section. Please import it from the library."
+      );
+      return;
+    }
+}
+
 export default async function documentationBuilder(data: any) {
+  console.log("data in docBuilder", data);
   const page = figma.currentPage;
+  const node = await getNode(data.nodeId, data._id);
+  if (!node) return;
+
+  const defaultElement = getDefaultElement(node);
+  if (!defaultElement) return;
+
   const documentationFrame = buildAutoLayoutFrame(
     "Documentation",
     "VERTICAL",
@@ -45,174 +84,146 @@ export default async function documentationBuilder(data: any) {
     documentationPadding,
     40
   );
-  emit("DOC_ID", documentationFrame.id);
-  //   documentationFrame.resize(documentationWidth, documentationFrame.height);
-  //   documentationFrame.fills = [
-  //     {
-  //       type: "SOLID",
-  //       visible: true,
-  //       opacity: 1,
-  //       blendMode: "NORMAL",
-  //       color: {
-  //         r: 0.7166666388511658,
-  //         g: 0.7166666388511658,
-  //         b: 0.7166666388511658,
-  //       },
-  //       boundVariables: {},
-  //     },
-  //   ];
-  //   documentationFrame.topLeftRadius = documentationCornerRadius;
-  //   documentationFrame.topRightRadius = documentationCornerRadius;
-  //   documentationFrame.bottomLeftRadius = documentationCornerRadius;
-  //   documentationFrame.bottomRightRadius = documentationCornerRadius;
-  //   page.appendChild(documentationFrame);
-  //
-  //   const dataKeys = Object.keys(data).sort((a, b) => Number(a) - Number(b));
-  //   const currentElementData: ElementData = {};
-  //
-  //   await loadFonts();
-  //   for (const key of dataKeys) {
-  //     const element = data[key];
-  //     const sectionFrame = buildAutoLayoutFrame(
-  //       element.title,
-  //       "VERTICAL",
-  //       20,
-  //       20,
-  //       24
-  //     );
-  //
-  //     sectionFrame.topLeftRadius = sectionCornerRadius;
-  //     sectionFrame.topRightRadius = sectionCornerRadius;
-  //     sectionFrame.bottomLeftRadius = sectionCornerRadius;
-  //     sectionFrame.bottomRightRadius = sectionCornerRadius;
-  //
-  //     documentationFrame.appendChild(sectionFrame);
-  //     sectionFrame.layoutSizingHorizontal = "FILL";
-  //     const title = element.title;
-  //     if (title) {
-  //       const titleFrame = buildTitle(title);
-  //       sectionFrame.appendChild(titleFrame);
-  //     }
-  //
-  //     switch (element.datatype) {
-  //       case "header":
-  //         console.log("element :>> ", element);
-  //         elementId = element.element.id;
-  //         const selectedNode = getElement(elementId);
-  //         if (!selectedNode) return;
-  //         currentElementData.node =
-  //           //@ts-ignore
-  //           getDefaultElement(selectedNode).createInstance();
-  //         if (!currentElementData.node) {
-  //           figma.closePlugin("Error: No component found for this section.");
-  //           return;
-  //         }
-  //         sectionFrame.appendChild(currentElementData.node);
-  //         if (
-  //           element.content.firstResource &&
-  //           element.content.firstResourceLink
-  //         ) {
-  //           const firstResource = buildLinkText(
-  //             element.content.firstResource,
-  //             element.content.firstResourceLink
-  //           );
-  //           sectionFrame.appendChild(firstResource);
-  //         }
-  //         if (
-  //           element.content.secondResource &&
-  //           element.content.secondResourceLink
-  //         ) {
-  //           const secondResource = buildLinkText(
-  //             element.content.secondResource,
-  //             element.content.secondResourceLink
-  //           );
-  //           sectionFrame.appendChild(secondResource);
-  //         }
-  //         break;
-  //
-  //       case "link":
-  //         const inputs = element.content.sources;
-  //         if (!inputs.length) return;
-  //         inputs.forEach((input: any) => {
-  //           const link = buildLinkText(input.source, input.link);
-  //           sectionFrame.appendChild(link);
-  //         });
-  //         break;
-  //
-  //       case "element":
-  //         if (element.title === "Anatomy") {
-  //           console.log("no Anatomy for now");
-  //         } else if (element.title === "Spacing") {
-  //           console.log("no Spacing for now");
-  //         } else if (element.title === "Property") {
-  //           buildPropSection(
-  //             currentElementData.node as InstanceNode,
-  //             sectionFrame
-  //           );
-  //         } else if (element.title === "Variants") {
-  //           buildVarSection(
-  //             currentElementData.node as InstanceNode,
-  //             sectionFrame
-  //           );
-  //         } else if (element.title === "Release Notes") {
-  //           buildReleaseNotes(sectionFrame);
-  //         }
-  //         break;
-  //
-  //       case "text":
-  //         const text = element.content;
-  //         if (text) {
-  //           const textFrame = buildText(text);
-  //           sectionFrame.appendChild(textFrame);
-  //           textFrame.layoutSizingHorizontal = "FILL";
-  //         }
-  //         break;
-  //
-  //       case "two-columns":
-  //         buildTwoColumns(element, sectionFrame);
-  //         break;
-  //
-  //       case "list":
-  //         const list = element.content.inputs.join("\n");
-  //         if (list.length) {
-  //           const listFrame = buildListText(list, element.content.listType);
-  //           sectionFrame.appendChild(listFrame);
-  //           listFrame.layoutSizingHorizontal = "FILL";
-  //         }
-  //         break;
-  //
-  //       case "image":
-  //         if (
-  //           element.content.localFilePath.lenght === 0 &&
-  //           element.content.remoteImageLink.lenght === 0
-  //         ) {
-  //           return;
-  //         } else {
-  //           if (element.content.localFilePath !== "") {
-  //             const imageLink = element.content.localFilePath;
-  //             const image = await buildImageFromLocalSource(imageLink);
-  //             sectionFrame.appendChild(image);
-  //           } else {
-  //             const imageLink = element.content.remoteImageLink;
-  //             const image = await buildImageFromRemoteSource(imageLink);
-  //             sectionFrame.appendChild(image);
-  //           }
-  //         }
-  //         break;
-  //       case "video":
-  //         const textVideo = element.content.selectedVideoContent.name;
-  //         const linkVideo = element.content.selectedVideoContent.video;
-  //         if (!textVideo || !linkVideo) return;
-  //         const videoFrame = buildLinkText(textVideo, linkVideo);
-  //         sectionFrame.appendChild(videoFrame);
-  //         //
-  //         break;
-  //       default:
-  //         throw new Error(
-  //           "Error: No datatype found for this section. Please check the section data."
-  //         );
-  //     }
-  //
-  //     documentationFrame.layoutSizingHorizontal = "HUG";
-  //   }
+
+  documentationFrame.resize(documentationWidth, documentationFrame.height);
+  documentationFrame.fills = [
+    {
+      type: "SOLID",
+      visible: true,
+      opacity: 1,
+      blendMode: "NORMAL",
+      color: {
+        r: 0.7166666388511658,
+        g: 0.7166666388511658,
+        b: 0.7166666388511658,
+      },
+      boundVariables: {},
+    },
+  ];
+  documentationFrame.topLeftRadius = documentationCornerRadius;
+  documentationFrame.topRightRadius = documentationCornerRadius;
+  documentationFrame.bottomLeftRadius = documentationCornerRadius;
+  documentationFrame.bottomRightRadius = documentationCornerRadius;
+  page.appendChild(documentationFrame);
+
+  const elements = data.docs;
+
+  const currentElementData: ElementData = {};
+
+  await loadFonts();
+
+  function buildSectionFrame() {
+    const sectionFrame = buildAutoLayoutFrame(
+      "sectionFrame",
+      "VERTICAL",
+      20,
+      20,
+      24
+    );
+
+    sectionFrame.topLeftRadius = sectionCornerRadius;
+    sectionFrame.topRightRadius = sectionCornerRadius;
+    sectionFrame.bottomLeftRadius = sectionCornerRadius;
+    sectionFrame.bottomRightRadius = sectionCornerRadius;
+
+    documentationFrame.appendChild(sectionFrame);
+    sectionFrame.layoutSizingHorizontal = "FILL";
+    return sectionFrame;
+  }
+
+  const headerSectionFrame = buildSectionFrame();
+  const title = buildTitle(data.title);
+  const currentNode = defaultElement.createInstance();
+  headerSectionFrame.appendChild(title);
+  headerSectionFrame.appendChild(currentNode);
+
+  for (const element of elements) {
+    const sectionFrame = buildSectionFrame();
+    const title = element.title;
+    if (title) {
+      const titleFrame = buildTitle(title);
+      sectionFrame.appendChild(titleFrame);
+    }
+    const content = element.content;
+
+    switch (element.datatype) {
+      case "link":
+        const inputs = content.sources;
+        if (!inputs.length) return;
+        inputs.forEach((input: any) => {
+          const link = buildLinkText(input.source, input.link);
+          sectionFrame.appendChild(link);
+        });
+        break;
+
+      case "anatomy":
+        console.log("no anatomy for now");
+        break;
+
+      case "spacing":
+        console.log("no spacing for now");
+        break;
+
+      case "property":
+        buildPropSection(currentNode, sectionFrame);
+        break;
+
+      case "variants":
+        buildVarSection(currentNode, sectionFrame);
+        break;
+
+      case "release-notes":
+        buildReleaseNotes(sectionFrame);
+        break;
+
+      case "text":
+        const text = element.text;
+        if (text) {
+          const textFrame = buildText(text);
+          sectionFrame.appendChild(textFrame);
+          textFrame.layoutSizingHorizontal = "FILL";
+        }
+        break;
+
+      case "two-columns":
+        buildTwoColumns(element, sectionFrame);
+        break;
+
+      case "list":
+        const list = content.inputs.join("\n");
+        if (list.length) {
+          const listFrame = buildListText(list, content.listType);
+          sectionFrame.appendChild(listFrame);
+          listFrame.layoutSizingHorizontal = "FILL";
+        }
+        break;
+
+      case "image":
+        if (content.remoteImageLink.lenght === 0) {
+          return;
+        } else {
+          const imageLink = content.remoteImageLink;
+          const image = await buildImageFromRemoteSource(imageLink);
+          sectionFrame.appendChild(image);
+        }
+        break;
+
+      case "video":
+        const videoDataElements = content.videoDataElements;
+        for (const videoDataElement of videoDataElements) {
+          const textVideo = videoDataElement.name;
+          const linkVideo = videoDataElement.video;
+          if (!textVideo || !linkVideo) return;
+          const videoFrame = buildLinkText(textVideo, linkVideo);
+          sectionFrame.appendChild(videoFrame);
+        }
+        break;
+      default:
+        throw new Error(
+          "Error: No datatype found for this section. Please check the section data."
+        );
+    }
+
+    documentationFrame.layoutSizingHorizontal = "HUG";
+  }
 }
