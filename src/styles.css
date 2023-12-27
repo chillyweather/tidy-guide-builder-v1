@@ -1499,14 +1499,14 @@ summary button {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 8px;
+  gap: 6px;
   padding: 12px;
   max-height: 76vh;
 }
 
 .addSectionCard {
   display: flex;
-  padding: 12px 16px 12px 12px;
+  padding: 8px;
   align-items: center;
   gap: 6px;
   align-self: stretch;
