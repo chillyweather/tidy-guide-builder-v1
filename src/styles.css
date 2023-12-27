@@ -1455,7 +1455,8 @@ summary button {
 }
 .footer .primary-disabled{
   pointer-events: none;
-  opacity: 0.5;
+  background-color: #ECE9F2;
+  color: #A6A8AD;
 }
 
 .second {
