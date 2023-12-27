@@ -69,7 +69,7 @@ function AddSectionPopup(cards: any[], cardElement: any) {
   return (
     <div class={"addSectionPopup"}>
       <div className="addSectionPupup-inner">
-        <h2>predefined elements</h2>
+        <h2>Predefined Elements</h2>
         {cards.map((card) => {
           return cardElement(card);
         })}

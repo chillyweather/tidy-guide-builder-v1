@@ -1506,6 +1506,8 @@ summary button {
 .addSectionPupup-inner h2{
   font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
   color: #787878;
+  margin-top: 16px;
+  margin-bottom: 4px;
 }
 
 .addSectionCard {
