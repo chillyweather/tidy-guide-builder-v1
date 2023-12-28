@@ -2028,18 +2028,41 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   width: 100%;
   color: #8E8F94;
 }
-.videoInputRow .inputWithValidation::after{
+.videoInputRow .videoInfo{
   content: '';
   position: absolute;
   width: 16px;
   height: 16px;
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 9h.01" /><path d="M11 12h1v4h1" /></svg>');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  left: 12px;
+  left: 56px;
   top: 12px;
-  opacity: 0.3;
+  z-index: 1;
+  color: #8E8F94;
+}
+.videoInputRow .videoInfo:hover::after{
+  content: 'At the moment,We currently only support YouTube videos. Large video my take a few minutes to appear.';
+  /* visibility: hidden; */
+  position: absolute;
+  width: 41ch;
+  text-wrap: balance;
+  line-height: 1.3;
+  font-size: calc(var(--text-size) - (var(--text-size) / 7));
+  background-color: #DEDEE8;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 4%);
+  color: var(--tidy-32);
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px;
+  z-index: 1;
+  bottom: 125%;
+  left: -125%;
+  /* transform: translateX(-50%); */
+  /* opacity: 0; */
+  /* transition: opacity 0.3s; */
+
+}
+.videoInfo svg{
+  width: 100%;
+  height: 100%;
 }
 .videoInputRow .inputWithValidation input{
   padding-left: 36px;
@@ -2421,6 +2444,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 }
 
 .videoInputRow {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;

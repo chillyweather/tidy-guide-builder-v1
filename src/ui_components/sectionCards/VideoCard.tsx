@@ -108,6 +108,9 @@ const videoCard = (
         <div className="videoInputRowWithValidation">
           <div className="videoInputRow">
             <img src={youtube} />
+            <div className={"videoInfo"}>
+              <IconInfoCircle />
+            </div>
             {videoTextBoxElement(
               videoLink,
               setVideoLink,

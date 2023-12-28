@@ -153,6 +153,7 @@ declare const styles: {
   readonly "videoClosed": string;
   readonly "videoDiv": string;
   readonly "videoElementWrapper": string;
+  readonly "videoInfo": string;
   readonly "videoInputRow": string;
   readonly "videoOpen": string;
   readonly "videoSection": string;
