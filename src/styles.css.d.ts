@@ -75,6 +75,7 @@ declare const styles: {
   readonly "inner-componentBTN": string;
   readonly "inputDiv": string;
   readonly "inputInputRowStyle": string;
+  readonly "inputWithValidation": string;
   readonly "invalidText": string;
   readonly "leftContent": string;
   readonly "leftFooterContent": string;
