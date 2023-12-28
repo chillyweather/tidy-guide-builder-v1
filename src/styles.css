@@ -1620,8 +1620,7 @@ summary button {
   background-color: #FFF5F6;
   color: #BA3082;
 }
-
-.addSectionIcon[type="list"] .twoColumns {
+.addSectionIcon[type="list"] .list {
   display: block;
 }
 
