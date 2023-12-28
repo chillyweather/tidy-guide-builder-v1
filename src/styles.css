@@ -2509,10 +2509,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .linkBlock .singleLink button {
   height: fit-content;
   visibility: hidden;
+  pointer-events: none;
 }
 
 .linkBlock:has(.singleLink + .singleLink) .singleLink:hover button {
   visibility: visible;
+  pointer-events: all;
 }
 
 .linkBlock .singleLink {
