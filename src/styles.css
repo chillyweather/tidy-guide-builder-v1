@@ -2489,22 +2489,36 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   border-radius: 4px !important;
 }
 
-.videoElementWrapper:hover button{
+.videoElementWrapper:hover button {
   visibility: visible;
 }
-.videoElementWrapper:hover div{
+
+.videoElementWrapper:hover div {
   background-color: #F7F7F7 !important;
 }
 
-.linkBlockColumn{
+.linkBlock .inputWithValidation:first-of-type {
+  width: 60%;
+}
+
+.linkBlock button {
+  height: fit-content;
+}
+.linkBlock div{
+  align-items: center;
+}
+
+.linkBlockColumn {
   width: 100%;
 }
-.linkBlock{
+
+.linkBlock {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.addLink{
+
+.addLink {
   margin-right: 34px;
   margin-top: 12px;
   float: right;
