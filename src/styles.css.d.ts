@@ -137,6 +137,7 @@ declare const styles: {
   readonly "selectedPage": string;
   readonly "show": string;
   readonly "side-flex": string;
+  readonly "singleLink": string;
   readonly "subtitle": string;
   readonly "text-size": string;
   readonly "textCardBodyContent": string;

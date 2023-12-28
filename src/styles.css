@@ -785,6 +785,12 @@ input {
   cursor: text;
 }
 
+input.disabled,
+input[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 #btnPrev {
   order: 1;
 }
@@ -2501,10 +2507,19 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   width: 60%;
 }
 
-.linkBlock button {
+.linkBlock .singleLink button {
   height: fit-content;
+  visibility: hidden;
 }
-.linkBlock div{
+
+.linkBlock:has(.singleLink + .singleLink) .singleLink:hover button {
+  visibility: visible;
+}
+
+.linkBlock .singleLink {
+  display: flex;
+  gap: 8px;
+  width: 100%;
   align-items: center;
 }
 

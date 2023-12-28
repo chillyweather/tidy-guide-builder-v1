@@ -26,7 +26,7 @@ function LinkBlock(sources: any, setSources: any) {
   return (
     <div className={"linkBlock"}>
       {sources.map((source: any, index: number) => (
-        <div key={index} style={{ display: "flex", gap: "8px", width: "100%" }}>
+        <div key={index} className={"singleLink"}>
           {videoTextBoxElement(
             source.source,
             (value: any) => updateSource(index, "source", value),
