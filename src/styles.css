@@ -1785,7 +1785,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   color: var(--tidy-32);
   text-overflow: ellipsis;
   font-family: Inter;
-  font-size: 14px;
+  font-size: var(--tidy-text);
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -1798,7 +1798,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   color: #787878;
   text-overflow: ellipsis;
   font-family: Inter;
-  font-size: 12px;
+  font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
