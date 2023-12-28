@@ -2028,7 +2028,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   width: 100%;
   color: #8E8F94;
 }
-.videoInputRow .videoInfo{
+
+.videoInputRow .videoInfo {
   content: '';
   position: absolute;
   width: 16px;
@@ -2038,7 +2039,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   z-index: 1;
   color: #8E8F94;
 }
-.videoInputRow .videoInfo:hover::after{
+
+.videoInputRow .videoInfo:hover::after {
   content: 'At the moment,We currently only support YouTube videos. Large video my take a few minutes to appear.';
   /* visibility: hidden; */
   position: absolute;
@@ -2060,11 +2062,13 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   /* transition: opacity 0.3s; */
 
 }
-.videoInfo svg{
+
+.videoInfo svg {
   width: 100%;
   height: 100%;
 }
-.videoInputRow .inputWithValidation input{
+
+.videoInputRow .inputWithValidation input {
   padding-left: 36px;
 }
 
@@ -2471,11 +2475,25 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   align-items: center;
   gap: 8px;
 }
-.videoElementWrapper div{
+
+.videoElementWrapper div {
+  pointer-events: none;
   background-color: transparent !important;
 }
-.videoElementWrapper img{
+
+.videoElementWrapper button {
+  visibility: hidden;
+}
+
+.videoElementWrapper img {
   border-radius: 4px !important;
+}
+
+.videoElementWrapper:hover button{
+  visibility: visible;
+}
+.videoElementWrapper:hover div{
+  background-color: #F7F7F7 !important;
 }
 
 .draft {
