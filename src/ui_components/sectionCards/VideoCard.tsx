@@ -117,7 +117,6 @@ const videoCard = (
               false,
               setIsValid
             )}
-            <IconInfoCircle />
           </div>
           <div
             className={"validationFailedMessage"}
