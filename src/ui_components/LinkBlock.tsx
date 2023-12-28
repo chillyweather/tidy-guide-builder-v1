@@ -30,12 +30,12 @@ function LinkBlock(sources: any, setSources: any) {
           {videoTextBoxElement(
             source.source,
             (value: any) => updateSource(index, "source", value),
-            `Source ${index + 1}`
+            `Add title...`
           )}
           {videoTextBoxElement(
             source.link,
             (value: any) => updateSource(index, "link", value),
-            `Source ${index + 1} Link`,
+            `Paste URL...`,
             "link",
             addSource,
             source.source.length === 0 ? true : false

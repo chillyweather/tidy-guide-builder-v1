@@ -80,6 +80,8 @@ declare const styles: {
   readonly "leftContent": string;
   readonly "leftFooterContent": string;
   readonly "link": string;
+  readonly "linkBlock": string;
+  readonly "linkBlockColumn": string;
   readonly "links-block": string;
   readonly "listButtonStyle": string;
   readonly "listCardContentStyle": string;
