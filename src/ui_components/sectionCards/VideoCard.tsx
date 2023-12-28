@@ -114,7 +114,7 @@ const videoCard = (
             {videoTextBoxElement(
               videoLink,
               setVideoLink,
-              "Paste YouTube URL here",
+              "Paste YouTube URL, Enter to add",
               "videoLink",
               setFoundVideoData,
               false,
