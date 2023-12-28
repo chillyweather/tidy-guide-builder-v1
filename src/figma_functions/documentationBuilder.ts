@@ -1,6 +1,7 @@
-import { buildPropSection } from "./figma_doc_sections/buildPropSection";
-import { buildVarSection } from "./figma_doc_sections/buildVarSection";
-import { buildReleaseNotes } from "./figma_doc_sections/buildReleaseNotes";
+import { buildPropSection } from "../figma_doc_sections/buildPropSection";
+import { buildVarSection } from "../figma_doc_sections/buildVarSection";
+import { buildAnatomySection } from "../figma_doc_sections/buildAnatomySection";
+import { buildReleaseNotes } from "../figma_doc_sections/buildReleaseNotes";
 import {
   buildTitle,
   buildLinkText,
@@ -9,7 +10,7 @@ import {
   buildListText,
   buildImageFromLocalSource,
   buildImageFromRemoteSource,
-} from "./figma_doc_sections/elementBuildingFunctions";
+} from "../figma_doc_sections/elementBuildingFunctions";
 import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
 import { emit } from "@create-figma-plugin/utilities";
 import { h } from "preact";
@@ -21,7 +22,8 @@ interface ElementData {
 const loadFonts = async () => {
   await figma.loadFontAsync({ family: "Inter", style: "Regular" });
   await figma.loadFontAsync({ family: "Inter", style: "Bold" });
-  await figma.loadFontAsync({ family: "Roboto", style: "Bold" });
+  await figma.loadFontAsync({ family: "Inter", style: "Semi Bold" });
+  await figma.loadFontAsync({ family: "Inter", style: "Medium" });
 };
 
 let elementId: string;
@@ -67,7 +69,6 @@ async function getNode(id: string, key: string) {
 }
 
 export default async function documentationBuilder(data: any) {
-  console.log("data in docBuilder", data);
   const page = figma.currentPage;
   const node = await getNode(data.nodeId, data._id);
   if (!node) return;
@@ -155,7 +156,7 @@ export default async function documentationBuilder(data: any) {
         break;
 
       case "anatomy":
-        console.log("no anatomy for now");
+        buildAnatomySection(currentNode, sectionFrame);
         break;
 
       case "spacing":

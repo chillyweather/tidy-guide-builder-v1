@@ -1,5 +1,5 @@
-import { getDate } from "./getDate";
-import { buildAutoLayoutFrame } from "../utilityFunctions";
+import { getDate } from "../figma_functions/getDate";
+import { buildAutoLayoutFrame } from "../figma_functions/utilityFunctions";
 
 const date = getDate();
 

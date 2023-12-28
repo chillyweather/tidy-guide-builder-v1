@@ -1,5 +1,5 @@
 import { getVariantsArray } from "./getVariantsArray";
-import { findAllVariantProps } from "../utilityFunctions";
+import { findAllVariantProps } from "../figma_functions/utilityFunctions";
 import { buildVariantFrames } from "./buildVariantFrames";
 import { buildBasicGridLabels } from "./buildBasicGridLabels";
 import { buildTopLevelLabels } from "./buildTopLevelLabels";

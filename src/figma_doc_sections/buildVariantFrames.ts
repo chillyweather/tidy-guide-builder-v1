@@ -1,4 +1,4 @@
-import { buildAutoLayoutFrame } from "../utilityFunctions";
+import { buildAutoLayoutFrame } from "../figma_functions/utilityFunctions";
 
 export type Direction = "HORIZONTAL" | "VERTICAL";
 

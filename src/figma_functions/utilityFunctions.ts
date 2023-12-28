@@ -185,6 +185,27 @@ export function setBooleanProps(
   }
 }
 
+/**
+ * Sets the text of a text node.
+ * @param element - The text node to set the text on.
+ * @param name - The name of the property to set.
+ * @param value - The value to set the property to.
+ */
+export function setTextProps(
+  element: InstanceNode,
+  name: string,
+  value: string
+) {
+  const propList = element.componentProperties;
+  for (const property in propList) {
+    if (property.startsWith(`${name}`)) {
+      const newProps: any = {};
+      newProps[property] = `${value}`;
+      element.setProperties(newProps);
+    }
+  }
+}
+
 export function turnAllBooleansOn(
   element: InstanceNode,
   booleanProperties: any
@@ -200,5 +221,55 @@ export function turnAllBooleansOff(
 ) {
   for (const property in booleanProperties) {
     setBooleanProps(element, property, false);
+  }
+}
+
+//!color styles
+//& convert hex to rgb
+export function hexToRGB(hex: string) {
+  const r = parseInt(hex.slice(0, 2), 16) / 255;
+  const g = parseInt(hex.slice(2, 4), 16) / 255;
+  const b = parseInt(hex.slice(4, 6), 16) / 255;
+
+  const colors = {
+    r: r,
+    g: g,
+    b: b,
+  };
+  return colors;
+}
+
+//& color style creation
+function createPaintStyle(name: string, hex: string) {
+  const baseStyle = figma.createPaintStyle();
+  baseStyle.name = name;
+  const paint: Paint = {
+    type: "SOLID",
+    color: hexToRGB(hex),
+  };
+  baseStyle.paints = [paint];
+  return baseStyle;
+}
+
+//& check if new styles already were created earlier
+function ifStyleExists(name: string) {
+  const styles = figma.getLocalPaintStyles();
+  return styles.some((style) => style.name === name);
+}
+
+//& find by name and return local style
+export function getLocalColorStyle(name: string) {
+  const styles = figma.getLocalPaintStyles();
+  const newStyle = styles.find((style) => style.name === name);
+  return newStyle;
+}
+
+export function setColorStyle(name: string, hex: string): PaintStyle {
+  const existingStyle = getLocalColorStyle(name);
+  if (existingStyle) {
+    return existingStyle;
+  } else {
+    const newStyle = createPaintStyle(name, hex);
+    return newStyle;
   }
 }

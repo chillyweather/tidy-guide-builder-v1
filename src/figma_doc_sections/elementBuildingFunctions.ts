@@ -1,8 +1,8 @@
-import { buildAutoLayoutFrame } from "../utilityFunctions";
+import { buildAutoLayoutFrame } from "../figma_functions/utilityFunctions";
 import {
   documentationWidth,
   documentationPadding,
-} from "../documentationBuilder";
+} from "../figma_functions/documentationBuilder";
 
 export function buildTitle(title: string) {
   const titleFrame = buildAutoLayoutFrame("title", "HORIZONTAL", 0, 0, 0);

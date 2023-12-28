@@ -6,7 +6,7 @@ import {
   setVariantProps,
   setBooleanProps,
   turnAllBooleansOff,
-} from "../utilityFunctions";
+} from "../figma_functions/utilityFunctions";
 
 type Direction = "VERTICAL" | "HORIZONTAL";
 
