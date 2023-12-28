@@ -61,7 +61,7 @@ export function videoTextBoxElement(
         }}
         placeholder={placeholder}
         value={value}
-        className={"dialogInput"}
+        className={"dialogInput listInputStyle"}
         disabled={isDisabled}
       />
     </div>
