@@ -4,7 +4,6 @@ import { useEffect, useState } from "preact/hooks";
 import { videoTextBoxElement } from "../textBoxForLinksElement";
 import youtube from "../../images/youtube.svg";
 import {
-  IconBrandYoutubeFilled,
   IconX,
   IconInfoCircle,
 } from "@tabler/icons-react";
