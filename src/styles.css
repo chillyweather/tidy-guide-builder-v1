@@ -2471,6 +2471,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   align-items: center;
   gap: 8px;
 }
+.videoElementWrapper div{
+  background-color: transparent !important;
+}
+.videoElementWrapper img{
+  border-radius: 4px !important;
+}
 
 .draft {
   background-color: #F5F6FA;
