@@ -11,6 +11,7 @@ declare const styles: {
   readonly "_toggle_1rqu7_1": string;
   readonly "absDiv": string;
   readonly "add-button": string;
+  readonly "addSection-outer": string;
   readonly "addSectionCard": string;
   readonly "addSectionCardInfo": string;
   readonly "addSectionDescription": string;
@@ -40,7 +41,6 @@ declare const styles: {
   readonly "connect-element-button": string;
   readonly "container": string;
   readonly "custom-toast": string;
-  readonly "custom-toast-message": string;
   readonly "dialogInput": string;
   readonly "disabled": string;
   readonly "draft": string;
@@ -109,6 +109,7 @@ declare const styles: {
   readonly "paragraph": string;
   readonly "popupButtons": string;
   readonly "primary": string;
+  readonly "primary-disabled": string;
   readonly "resources": string;
   readonly "rightContent": string;
   readonly "rightFooterContent": string;

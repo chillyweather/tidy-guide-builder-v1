@@ -23,38 +23,40 @@ function AddSectionPopupCard(card: any) {
   const selectedSections = useContext(BuilderContext)?.selectedSections;
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   return (
-    <div
-      className={"addSectionCard"}
-      onClick={() => {
-        const newCard = {
-          ...card,
-          id: generateUniqueId(), //! remove this later
-          docId: generateUniqueId(),
-        };
-        if (selectedSections && selectedSections.length) {
-          setSelectedSections((prevSections: any[]) => [
-            ...prevSections,
-            newCard,
-          ]);
-        } else {
-          setSelectedSections([newCard]);
-        }
-      }}
-    >
-      <div className={"addSectionIcon"} type={card.title}>
-        <IconCalendarEvent className={"noIcon"} />
-        <IconPilcrow className={"paragraph"}/>
-        <IconVideo className={"video"}/>
-        <IconColumns className={"twoColumns"} />
-        <IconListDetails className={"list"} />
-        <IconLink className={"link"} />
-        <IconPhoto className={"image"} />
-      </div>
-      <div class={"addSectionCardInfo"}>
-        <p class={"addSectionTitle"}>{card.title}</p>
-        {/* <p class={"addSectionDescription"}>{card.description}</p> */}
-      </div>
+    <div className={"addSection-outer"}>
+      <div
+        className={"addSectionCard"}
+        onClick={() => {
+          const newCard = {
+            ...card,
+            id: generateUniqueId(), //! remove this later
+            docId: generateUniqueId(),
+          };
+          if (selectedSections && selectedSections.length) {
+            setSelectedSections((prevSections: any[]) => [
+              ...prevSections,
+              newCard,
+            ]);
+          } else {
+            setSelectedSections([newCard]);
+          }
+        }}
+      >
+        <div className={"addSectionIcon"} type={card.title}>
+          <IconCalendarEvent className={"noIcon"} />
+          <IconPilcrow className={"paragraph"} />
+          <IconVideo className={"video"} />
+          <IconColumns className={"twoColumns"} />
+          <IconListDetails className={"list"} />
+          <IconLink className={"link"} />
+          <IconPhoto className={"image"} />
+        </div>
+        <div class={"addSectionCardInfo"}>
+          <p class={"addSectionTitle"}>{card.title}</p>
+          <p class={"addSectionDescription"}>{card.description}</p>
+        </div>
 
+      </div>
     </div>
   );
 }
@@ -69,6 +71,7 @@ function AddSectionPopup(cards: any[], cardElement: any) {
   return (
     <div class={"addSectionPopup"}>
       <div className="addSectionPupup-inner">
+        <h2>Predefined Elements</h2>
         {cards.map((card) => {
           return cardElement(card);
         })}

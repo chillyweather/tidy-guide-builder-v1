@@ -1453,9 +1453,18 @@ summary button {
 .footer .primary:active {
   background-color: var(--tidy-btn-pressed);
 }
+.footer .primary-disabled{
+  pointer-events: none;
+  background-color: #ECE9F2;
+  color: #A6A8AD
+}
 
 .second {
-  background-color: #F2F0F6;
+  /* background-color: #F2F0F6; */
+  background-color: var(--tidy-background);
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset;
+  color: var(--tidy-primary) !important;
+  padding: 12px 16px !important;
 }
 
 .second:hover {
@@ -1463,7 +1472,10 @@ summary button {
 }
 
 .second:active {
-  background-color: #E3DFEC;
+  /* background-color: #E3DFEC; */
+  background-color: var(--tidy-background);
+  color: var(--tidy-btn-hover) !important;
+  box-shadow: 0 0 0 1px var(--tidy-btn-hover) inset;
 }
 
 .leftFooterContent {
@@ -1499,16 +1511,25 @@ summary button {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 8px;
+  gap: 6px;
   padding: 12px;
   max-height: 76vh;
 }
 
+.addSectionPupup-inner h2 {
+  font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
+  color: #787878;
+  margin-top: 16px;
+  margin-bottom: 4px;
+  padding-left: 10px;
+}
+
 .addSectionCard {
   display: flex;
-  padding: 12px 16px 12px 12px;
+  padding: 8px;
   align-items: center;
   gap: 6px;
+  max-height: 400px;
   align-self: stretch;
   border-radius: 8px;
   cursor: pointer;
@@ -1519,12 +1540,28 @@ summary button {
   pointer-events: none;
 }
 
+.addSection-outer:has(.addSectionIcon[type="paragraph"])::before {
+  content: 'Elements';
+  font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
+  color: #787878;
+  margin-top: 16px;
+  margin-bottom: 4px;
+  padding-left: 10px;
+}
+
 .addSectionCardInfo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
   flex: 1 0 0;
+  transition: all 300ms linear 0s;
+}
+
+.addSection-outer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .addSectionIcon {
@@ -1608,6 +1645,134 @@ summary button {
   display: block;
 }
 
+.addSectionDescription {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: none;
+  transition: all 300ms linear 0s;
+}
+
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) .addSectionDescription,
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) .addSectionDescription,
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) .addSectionDescription,
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) .addSectionDescription,
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .addSectionDescription {
+  display: -webkit-box;
+}
+
+.addSectionPopup .addSectionIcon .noIcon {
+  height: 64px;
+  width: 64px;
+  transition: all 300ms ease-in-out 0s;
+}
+
+body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) {
+  max-height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 300ms ease-in-out 0s;
+}
+
+body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) .noIcon {
+  width: 24px;
+  height: 22px;
+}
+
+body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) .addSectionCardInfo {
+  gap: 0;
+}
+
+body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) .addSectionDescription {
+  max-height: 0;
+  margin: 0;
+}
+
+body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) {
+  max-height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 300ms ease-in-out 0s;
+}
+
+body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) .noIcon {
+  width: 24px;
+  height: 22px;
+}
+
+body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) .addSectionCardInfo {
+  gap: 0;
+}
+
+body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) .addSectionDescription {
+  max-height: 0;
+  margin: 0;
+}
+
+body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) {
+  max-height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 300ms ease-in-out 0s;
+}
+
+body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) .noIcon {
+  width: 24px;
+  height: 22px;
+}
+
+body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) .addSectionCardInfo {
+  gap: 0;
+}
+
+body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) .addSectionDescription {
+  max-height: 0;
+  margin: 0;
+}
+
+body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) {
+  max-height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 300ms ease-in-out 0s;
+}
+
+body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) .noIcon {
+  width: 24px;
+  height: 22px;
+}
+
+body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) .addSectionCardInfo {
+  gap: 0;
+}
+
+body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) .addSectionDescription {
+  max-height: 0;
+  margin: 0;
+}
+
+body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) {
+  max-height: 40px;
+  overflow: hidden;
+  pointer-events: none;
+  transition: all 300ms ease-in-out 0s;
+}
+
+body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .noIcon {
+  width: 24px;
+  height: 22px;
+}
+
+body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .addSectionCardInfo {
+  gap: 0;
+}
+
+body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .addSectionDescription {
+  max-height: 0;
+  margin: 0;
+}
+
 .addSectionTitle {
   overflow: hidden;
   color: var(--tidy-32);
@@ -1630,6 +1795,8 @@ summary button {
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
+  max-height: 32px;
+  height: fit-content;
   letter-spacing: 0.12px;
 }
 
@@ -2365,7 +2532,7 @@ summary button {
   z-index: 100;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0);
   z-index: 998;
 }
 
@@ -2447,17 +2614,15 @@ summary button {
 
 .custom-toast {
   position: fixed;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #D92121;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 4px;
-}
-
-.custom-toast-message {
-  font-size: 14px;
+  top: 8px;
+  left: 20%;
+  width: 60%;
+  background-color: #4D4D4D;
+  color: #ECEBF5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  z-index: 9999;
+  font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
 }
 
 @keyframes rotateAnim {
