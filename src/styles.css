@@ -2362,7 +2362,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 24px;
   width: 100%;
 }
 
@@ -2371,7 +2371,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
 }
 
 .columnTitle {
@@ -2453,6 +2453,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: #F5F5F5;
   border: 1px solid #F5F5F5;
   border-radius: 8px;
+  cursor: text;
 }
 
 .listInputStyle:focus {

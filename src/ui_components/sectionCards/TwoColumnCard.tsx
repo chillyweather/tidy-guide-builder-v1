@@ -25,17 +25,17 @@ const TwoColumnCard = ({
     <div className="twoColumnCardBodyContent">
       <div className="oneColumn">
         <input
-          className="columnTitle"
+          className="columnTitle listInputStyle"
           type="text"
-          placeholder="Title"
+          placeholder="Type title..."
           value={leftTitle}
           onInput={(e) => setLeftTitle(e.currentTarget.value)}
         />
         <textarea
-          className="columnTextArea"
+          className="columnTextArea listInputStyle"
           rows={15}
           maxLength={1000}
-          placeholder="Type here..."
+          placeholder="Type text..."
           value={leftTextContent}
           onInput={(e) => setLeftTextContent(e.currentTarget.value)}
         />
@@ -45,19 +45,20 @@ const TwoColumnCard = ({
           </div>
         </div>
       </div>
+      <div className="divider"></div>
       <div className="oneColumn">
         <input
-          className="columnTitle"
+          className="columnTitle listInputStyle"
           type="text"
-          placeholder="Title"
+          placeholder="Type title..."
           value={rightTitle}
           onInput={(e) => setRightTitle(e.currentTarget.value)}
         />
         <textarea
-          className="columnTextArea"
+          className="columnTextArea listInputStyle"
           rows={15}
           maxLength={1000}
-          placeholder="Type here..."
+          placeholder="Type text..."
           value={rightTextContent}
           onInput={(e) => setRightTextContent(e.currentTarget.value)}
         />
