@@ -1464,7 +1464,16 @@ summary button {
 .footer .split-disabled button {
   pointer-events: none;
   background-color: #ECE9F2;
-  color: #A6A8AD
+  color: #A6A8AD;
+}
+.footer .split button{
+  padding: 12px;
+  border-radius: 0 8px 8px 0;
+}
+.footer .split button:first-of-type{
+  padding: 12px 19px;
+  border-radius: 8px 0 0 8px;
+  border-right: 1px solid #ffffff;
 }
 
 .second {

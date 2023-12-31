@@ -138,6 +138,7 @@ declare const styles: {
   readonly "show": string;
   readonly "side-flex": string;
   readonly "singleLink": string;
+  readonly "split": string;
   readonly "split-disabled": string;
   readonly "subtitle": string;
   readonly "text-size": string;
