@@ -1460,7 +1460,9 @@ summary button {
 .footer .primary:active {
   background-color: var(--tidy-btn-pressed);
 }
-
+.footer .split{
+  display: flex;
+}
 .footer .split-disabled button {
   pointer-events: none;
   background-color: #ECE9F2;

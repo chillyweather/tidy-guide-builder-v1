@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useContext, useEffect } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
-import { IconReload } from "@tabler/icons-react";
+import { IconReload, IconChevronDown } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
 import {
   getDocumentations,
@@ -78,7 +78,7 @@ const Footer = ({
           Publish
         </button>
         <button className={"primary"}>
-          A
+          <IconChevronDown />
         </button>
         </div>
       </div>
