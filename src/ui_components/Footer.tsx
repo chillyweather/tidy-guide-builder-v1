@@ -69,7 +69,7 @@ const Footer = ({
           Save Changes
         </button>
         <button
-          className={isValid ? "primary" : "primary primary-disabled"}
+          className={isValid ? "primary" : "primary primary-disabled split"}
           onClick={() => {
             setIsBuilding(true);
           }}
