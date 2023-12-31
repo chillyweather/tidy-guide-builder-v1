@@ -10,6 +10,7 @@ import {
   IconColumns,
   IconListDetails,
   IconPhoto,
+  IconInfoCircle,
   IconPlayerPlayFilled,
   IconPlus,
 } from "@tabler/icons-react";
@@ -56,7 +57,7 @@ function AddSectionPopupCard(card: any) {
           <p class={"addSectionDescription"}>{card.description}</p>
         </div>
         <div>
-          <IconCalendarEvent className={"tooltipIcon"} />
+          <IconInfoCircle className={"tooltipIcon"} />
         </div>
       </div>
     </div>
