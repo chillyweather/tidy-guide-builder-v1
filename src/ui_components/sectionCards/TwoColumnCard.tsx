@@ -45,7 +45,6 @@ const TwoColumnCard = ({
           </div>
         </div>
       </div>
-      <div className="divider"></div>
       <div className="oneColumn">
         <input
           className="columnTitle listInputStyle"
