@@ -2721,8 +2721,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .tooltipIcon::after{
   content: attr(tooltip);
   visibility: hidden;
-  width: 32ch;
-  text-wrap: balance;
+  width: 30ch;
+  /* text-wrap: balance; */
   line-height: 1.3;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
   background-color: #DEDEE8;
@@ -2734,8 +2734,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   position: absolute;
   z-index: 1;
   bottom: 125%;
-  left: -125%;
-  transform: translateX(-50%);
+  right: 0;
+  /* transform: translateX(-50%); */
   opacity: 0;
   transition: opacity 0.3s;
 }
