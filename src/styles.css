@@ -2315,7 +2315,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: transparent;
   resize: none;
   font-family: Inter;
-  font-size: 14px;
+  font-size: var(--text-size);
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
@@ -2398,7 +2398,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .columnTitle {
   color: var(--tidy-32);
   font-family: Inter;
-  font-size: 14px;
+  font-size: var(--text-size);
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -2412,7 +2412,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: transparent;
   resize: none;
   font-family: Inter;
-  font-size: 14px;
+  font-size: var(--text-size);
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
