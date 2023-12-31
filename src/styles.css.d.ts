@@ -147,6 +147,7 @@ declare const styles: {
   readonly "title-row": string;
   readonly "title-wrapper": string;
   readonly "tooltip": string;
+  readonly "tooltipIcon": string;
   readonly "tooltiptext": string;
   readonly "top": string;
   readonly "two-columns": string;
