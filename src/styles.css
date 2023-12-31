@@ -1135,7 +1135,7 @@ li::before {
 }
 
 .header .add-button {
-  transform: translate(470px, 48px);
+  transform: translate(450px, 48px);
   background-color: var(--tidy-primary);
   color: #ffffff;
 }
