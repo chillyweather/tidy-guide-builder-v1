@@ -2719,7 +2719,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   height: 16px;
 }
 .tooltipIcon::after{
-  content: attr(tooltip);
+  content: attr(alt);
   visibility: hidden;
   width: 30ch;
   /* text-wrap: balance; */

@@ -56,7 +56,7 @@ function AddSectionPopupCard(card: any) {
           <p class={"addSectionTitle"}>{card.title}</p>
           <p class={"addSectionDescription"}>{card.description}</p>
         </div>
-        <div className={"tooltipIcon"} tooltip={"This element is already in use and can be selected only once."}>
+        <div className={"tooltipIcon"} alt={"This element is already in use and can be selected only once."}>
           <IconInfoCircle />
         </div>
       </div>
