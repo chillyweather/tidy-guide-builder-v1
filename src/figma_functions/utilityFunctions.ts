@@ -197,10 +197,14 @@ export function setTextProps(
   value: string
 ) {
   const propList = element.componentProperties;
+  if (name === "index") console.log("propList", propList);
+
   for (const property in propList) {
+    // console.log("property", property);
     if (property.startsWith(`${name}`)) {
       const newProps: any = {};
       newProps[property] = `${value}`;
+      // console.log("newProps", newProps);
       element.setProperties(newProps);
     }
   }
@@ -271,5 +275,62 @@ export function setColorStyle(name: string, hex: string): PaintStyle {
   } else {
     const newStyle = createPaintStyle(name, hex);
     return newStyle;
+  }
+}
+
+export function setTextContent(
+  element: InstanceNode,
+  layerName: string,
+  text: string
+) {
+  try {
+    const textNode = element.findOne((node) => node.name === layerName);
+    if (!textNode)
+      throw new Error(
+        `Text node with name ${layerName} doesn't exist on node ${element.name}`
+      );
+    if (textNode && textNode.type === "TEXT") {
+      textNode.characters = text;
+    }
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+
+/*
+ * Finds the master page of a given node.
+ * @param node - The node to find the master page of.
+ * @returns The master page of the given node, or null if no master page was found.
+ */
+export function findMasterPage(node: any): PageNode | null {
+  if (node.type === "PAGE") {
+    return node;
+  } else {
+    if (node.parent) {
+      const newNode = node.parent;
+      return findMasterPage(newNode);
+    } else {
+      return null;
+    }
+  }
+}
+
+/*
+ * Finds the documentation frame of a given node.
+ * @param node - The node to find the documentation frame of.
+ * @returns The documentation frame of the given node, or null if no documentation frame was found.
+ */
+export function findDocFrame(node: InstanceNode) {
+  const master = node.mainComponent;
+  if (master) {
+    const masterPage = findMasterPage(master);
+    if (masterPage) {
+      const docFrame = masterPage.children.find((node) =>
+        /(\.)?documentation/i.test(node.name)
+      );
+      return docFrame;
+    } else {
+      return null;
+    }
   }
 }

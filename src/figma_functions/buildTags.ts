@@ -1,5 +1,4 @@
 import { computeMaximumBounds } from "@create-figma-plugin/utilities";
-import { setTextProps } from "./utilityFunctions";
 import { buildIndexesFrame } from "./tns_subFunctions";
 import {
   newABC,
@@ -8,28 +7,27 @@ import {
   getTagInstance,
   addLink,
 } from "./tagBuilgingFunctions";
-import { setVariantProps } from "../../plugin-utility-functions/setVariantProps";
+import { setVariantProps } from "./utilityFunctions";
 import { getEffects } from "./getEffects";
-import { makeLabelTextFlow } from "../../tidy_doc/src/buildDocumentationBlock";
+import { setTextContent } from "./utilityFunctions";
 
 export default function buildTags(
-  tagComponent: ComponentNode | ComponentSetNode | undefined,
-  frame,
-  start,
-  tagDirection,
-  instances,
-  textElements,
-  elementMaxWidth?
+  tagComponent: ComponentSetNode | undefined,
+  frame: any,
+  start: string,
+  tagDirection: string,
+  instances: any,
+  textElements: any,
+  elementMaxWidth?: number
 ) {
+  if (!tagComponent) return;
   const abc = "abcdefghijklmnopqrstuvwxyz0123456789♠♣♥♦●■▲▼○□◆◇◊★☆";
   const minSizeProperty = frame.minWidth ? frame.minWidth : null;
 
   // const minSizeElement = elementMinSize ? findMinSizeElement(frame) : null;
-  const tagElements = [];
+  const tagElements: any[] = [];
   const stringOfIndexes = newABC(abc, start);
   const frameMidPoint = frame.y + frame.height / 2;
-
-  const tagComp = tagComponent;
 
   elementsCoordinatesAndDimensions.length = 0;
 
@@ -51,6 +49,16 @@ export default function buildTags(
       elementStyleName,
       elementFontName,
       elementFontSize,
+    ]: [
+      number,
+      number,
+      number,
+      number,
+      string,
+      string,
+      string,
+      FontName,
+      number,
     ] = element;
 
     const midX = elementX + elementWidth / 2;
@@ -59,7 +67,7 @@ export default function buildTags(
 
     const tag = buildTagElements(
       tagDirection,
-      tagComp,
+      tagComponent,
       frame,
       midY,
       midX,
@@ -72,8 +80,11 @@ export default function buildTags(
       elementHeight
     );
 
-    const indexWithLabel = tagComp
-      .findOne((node) => node.name === "type=text")
+    const indexWithLabel = tagComponent
+      .findOne(
+        (node) => node.name === "type=text" && node.type === "COMPONENT"
+      )!
+      //@ts-ignore
       .createInstance();
     indexes.appendChild(indexWithLabel);
 
@@ -81,46 +92,46 @@ export default function buildTags(
     if (linkTarget) {
       addLink({ component: indexWithLabel, link: linkTarget });
     } else {
-      setTextProps(indexWithLabel, "link", "");
+      setTextContent(indexWithLabel, "link", "");
     }
 
     // set component props
-    setTextProps(tag, "index", `${stringOfIndexes[index]}`);
-    setTextProps(indexWithLabel, "index", `${stringOfIndexes[index]}`);
+    setTextContent(tag, "elementIndex", `${abc[index]}`);
+    setTextContent(indexWithLabel, "elementIndex", `${abc[index]}`);
 
     if (elementStyleName) {
-      setTextProps(
+      setTextContent(
         indexWithLabel,
-        "label",
+        "Text",
         `${elementName}, ${elementStyleName} (${elementFontName.family} ${elementFontName.style} - ${elementFontSize}px)`
       );
     } else {
-      setTextProps(indexWithLabel, "label", elementName);
+      setTextContent(indexWithLabel, "Text", elementName);
     }
 
     if (linkTarget) {
-      setTextProps(indexWithLabel, "link", `see documentation`);
+      setTextContent(indexWithLabel, "link", `see documentation`);
     }
 
     if (elementName === "Icon") {
-      setTextProps(indexWithLabel, "label", `Icon - ${elementWidth}px`);
-      setTextProps(indexWithLabel, "link", "");
+      setTextContent(indexWithLabel, "Text", `Icon - ${elementWidth}px`);
+      setTextContent(indexWithLabel, "link", "");
     }
     // set up proper naming for tag and index instances
     tag.name = `.tag`;
     // tag.name = `${stringOfIndexes[index]}_${elementName}`;
-    indexWithLabel.name = `.${stringOfIndexes[index]}_${elementName}`;
+    indexWithLabel.name = `.${abc[index]}_${elementName}`;
     tagElements.push(tag);
   });
 
   if (minSizeProperty)
-    addMinSizeIndex(minSizeProperty, tagComp, indexes, frame);
+    addMinSizeIndex(minSizeProperty, tagComponent, indexes, frame);
 
   if (elementMaxWidth && elementMaxWidth > 0)
-    addMaxWidth(frame, tagComp, indexes, elementMaxWidth);
-  addBorderRadius(frame, tagComp, indexes);
-  addEffectsInfo(frame, tagComp, indexes);
-  addStrokeInfo(frame, tagComp, indexes);
+    addMaxWidth(frame, tagComponent, indexes, elementMaxWidth);
+  addBorderRadius(frame, tagComponent, indexes);
+  addEffectsInfo(frame, tagComponent, indexes);
+  addStrokeInfo(frame, tagComponent, indexes);
 
   //! find size of all tags (and frame) together
   const tagBounds = computeMaximumBounds(tagElements);
@@ -130,32 +141,34 @@ export default function buildTags(
       : frame.absoluteBoundingBox.y + frame.height;
   indexes.y = yLimit + 52;
 
-  tagElements.push(indexes);
-  indexes.children.forEach((child) => {
-    if (child.type === "INSTANCE") {
-      makeLabelTextFlow(child);
-    }
-  });
-  return tagElements;
+  // tagElements.push(indexes);
+  // indexes.children.forEach((child) => {
+  //   if (child.type === "INSTANCE") {
+  //     makeLabelTextFlow(child);
+  //   }
+  // });
+  // console.log("tagElements", tagElements);
+  return { tagElements, indexes };
 }
 
 function addMinSizeIndex(
   minSize: number,
-  tagComp: ComponentSetNode | ComponentNode | null | undefined,
+  tagComponent: ComponentSetNode,
   indexes: FrameNode,
   frame: any
 ) {
-  const indexWithLabel = tagComp
-    .findOne((node) => node.name === "type=size")
+  const indexWithLabel = tagComponent
+    .findOne((node) => node.name === "type=size" && node.type === "COMPONENT")!
+    //@ts-ignore
     .createInstance();
 
   indexes.appendChild(indexWithLabel);
 
   setVariantProps(indexWithLabel, "type", "size");
   if (minSize) {
-    setTextProps(indexWithLabel, "label", `Minimal width - ${minSize}px`);
+    setTextContent(indexWithLabel, "Text", `Minimal width - ${minSize}px`);
   } else {
-    setTextProps(indexWithLabel, "label", `Minimal width - Not determined`);
+    setTextContent(indexWithLabel, "Text", `Minimal width - Not determined`);
   }
 }
 
@@ -185,7 +198,9 @@ function buildTagElements(
         tag,
         midX,
         elementX,
-        elementY
+        elementY,
+        elementWidth, //maybe should be removed
+        elementHeight
       );
       return tag;
     }
@@ -278,10 +293,10 @@ export function placeTags(
   midY: number,
   tag: any,
   midX: number,
-  elementX?: number,
-  elementY?: number,
-  elementWidth?: number,
-  elementHeight?: number
+  elementX: number,
+  elementY: number,
+  elementWidth: number,
+  elementHeight: number
 ) {
   const frameLeftX = frame.absoluteBoundingBox.x;
   const frameRightX = frameLeftX + frame.width;
@@ -316,71 +331,89 @@ export function placeTags(
 
 function addEffectsInfo(
   frame: any,
-  tagComp: ComponentNode | ComponentSetNode | undefined,
+  tagComponent: ComponentSetNode,
   indexes: FrameNode
 ) {
-  const effects = getEffects(frame);
-  if (effects) {
-    const tag = tagComp.findOne((node) => node.name === "type=info");
-    const effectNames = Object.keys(effects);
-    effectNames.forEach((effectName) => {
-      const indexInfo = tag.createInstance();
-      indexInfo.name = `.${effectName}`;
-      setTextProps(indexInfo, "label", `${effects[effectName]}`);
-      const indexLink = indexInfo.findOne((node) => node.name === "link");
-      indexLink.visible = false;
-      if (effectName === "innerShadow" || effectName === "dropShadow") {
-        indexInfo.counterAxisAlignItems = "MIN";
-        const indexText = indexInfo.findOne((node) => node.name === "Text");
-        indexText.paragraphSpacing = 3;
-      }
-      indexes.appendChild(indexInfo);
-    });
-  }
+  const effects: any = getEffects(frame);
+  if (!effects) return;
+
+  const tag = tagComponent.findOne((node) => node.name === "type=info");
+  if (!(tag && tag.type === "COMPONENT")) return;
+  const effectNames = Object.keys(effects);
+  effectNames.forEach((effectName) => {
+    const indexInfo = tag.createInstance();
+    indexInfo.name = `.${effectName}`;
+    setTextContent(indexInfo, "Text", `${effects[effectName]}`);
+    const indexLink = indexInfo.findOne((node) => node.name === "link");
+    if (!indexLink) return;
+    indexLink.visible = false;
+    if (effectName === "innerShadow" || effectName === "dropShadow") {
+      indexInfo.counterAxisAlignItems = "MIN";
+      const indexText = indexInfo.findOne((node) => node.name === "Text");
+      if (!(indexText && indexText.type === "TEXT")) return;
+      indexText.paragraphSpacing = 3;
+    }
+    indexes.appendChild(indexInfo);
+  });
 }
 
 function addBorderRadius(
   frame: any,
-  tagComp: ComponentNode | ComponentSetNode | undefined,
+  tagComponent: ComponentSetNode,
   indexes: FrameNode
 ) {
   if (frame.cornerRadius !== 0) {
-    const tag = tagComp.findOne((node) => node.name === "type=cornerRadius");
+    const tag = tagComponent.findOne(
+      (node) => node.name === "type=cornerRadius"
+    );
+    if (!(tag && tag.type === "COMPONENT")) return;
     if (frame.cornerRadius !== figma.mixed) {
-      (function () {
-        const indexInfo = tag.createInstance();
-        indexInfo.name = ".corner-radius";
-        const cornerRadius = frame.cornerRadius;
-        setTextProps(indexInfo, "label", `Border radius - ${cornerRadius}px`);
-        indexes.appendChild(indexInfo);
-        return;
-      })();
-    } else if (frame.cornerRadius == figma.mixed) {
+      const indexInfo = tag.createInstance();
+      indexInfo.name = ".corner-radius";
+      // console.log("frame", frame);
+      const cornerRadius = frame.cornerRadius;
+      // console.log(indexInfo);
+      // setTextContent(indexInfo, "Text", "test");
+      //@ts-ignore
+      indexInfo.children[1].characters = `Border radius - ${cornerRadius}px`;
+      // setTextContent(indexInfo, "Text", `Border radius - ${cornerRadius}px`);
+      indexes.appendChild(indexInfo);
+      return;
+    } else if (frame.cornerRadius === figma.mixed) {
       const ltRadiusIndex = tag.createInstance();
       const rtRadiusIndex = tag.createInstance();
       const rbRadiusIndex = tag.createInstance();
       const lbRadiusIndex = tag.createInstance();
 
-      setTextProps(
-        ltRadiusIndex,
-        "label",
-        `Top left corner radius - ${frame.topLeftRadius}px`
-      );
-      setTextProps(
-        rtRadiusIndex,
-        "label",
-        `Top right corner radius - ${frame.topRightRadius}px`
-      );
-      setTextProps(
-        rbRadiusIndex,
-        "label",
-        `Bottom right corner radius - ${frame.bottomRightRadius}px`
-      );
-      setTextProps(
-        lbRadiusIndex,
-        "label",
-        `Bottom left corner radius - ${frame.bottomLeftRadius}px`
-      );
+      //@ts-ignore
+      ltRadiusIndex.children[1].characters = `Top left corner radius - ${frame.topLeftRadius}px`;
+      //@ts-ignore
+      rtRadiusIndex.children[1].characters = `Top right corner radius - ${frame.topRightRadius}px`;
+      //@ts-ignore
+      rbRadiusIndex.children[1].characters = `Bottom right corner radius - ${frame.bottomRightRadius}px`;
+      //@ts-ignore
+      lbRadiusIndex.children[1].characters = `Bottom left corner radius - ${frame.bottomLeftRadius}px`;
+
+      // setTextContent(
+      //   ltRadiusIndex,
+      //   "Text",
+      //   `Top left corner radius - ${frame.topLeftRadius}px`
+      // );
+      // setTextContent(
+      //   rtRadiusIndex,
+      //   "Text",
+      //   `Top right corner radius - ${frame.topRightRadius}px`
+      // );
+      // setTextContent(
+      //   rbRadiusIndex,
+      //   "Text",
+      //   `Bottom right corner radius - ${frame.bottomRightRadius}px`
+      // );
+      // setTextContent(
+      //   lbRadiusIndex,
+      //   "Text",
+      //   `Bottom left corner radius - ${frame.bottomLeftRadius}px`
+      // );
       const cornerIndexes = [
         ltRadiusIndex,
         rtRadiusIndex,
@@ -398,23 +431,26 @@ function addBorderRadius(
 
 function addMaxWidth(
   frame: any,
-  tagComp: ComponentNode | ComponentSetNode | undefined,
+  tagComponent: ComponentSetNode,
   indexes: FrameNode,
   maxWidth: number
 ) {
   if (maxWidth && maxWidth > 0) {
-    const tag = tagComp
-      .findOne((node) => node.name === "type=size")
+    const tag = tagComponent
+      .findOne(
+        (node) => node.name === "type=size" && node.type === "COMPONENT"
+      )!
+      //@ts-ignore
       .createInstance();
 
-    setTextProps(tag, "label", `Maximal width - ${maxWidth}px`);
+    setTextContent(tag, "Text", `Maximal width - ${maxWidth}px`);
     indexes.appendChild(tag);
   }
 }
 
 function addStrokeInfo(
   frame: any,
-  tagComp: ComponentNode | ComponentSetNode | undefined,
+  tagComp: ComponentSetNode,
   indexes: FrameNode
 ) {
   if (frame.strokes.length > 0) {
@@ -422,7 +458,7 @@ function addStrokeInfo(
     let strokeWeight = "";
 
     if (frame.strokeWeight === figma.mixed) {
-      const result = {};
+      const result: any = {};
       result["Left stroke"] = frame.strokeLeftWeight;
       result["Right stroke"] = frame.strokeRightWeight;
       result["Top stroke"] = frame.strokeTopWeight;
@@ -430,7 +466,10 @@ function addStrokeInfo(
       for (const res in result) {
         if (result[res] > 0) {
           const tag = tagComp
-            .findOne((node) => node.name === "type=info")
+            .findOne(
+              (node) => node.name === "type=info" && node.type === "COMPONENT"
+            )!
+            //@ts-ignore
             .createInstance();
           strokeWeight = result[res];
           setStrokeProps(tag, strokeWeight, strokeAlign, indexes, res);
@@ -438,7 +477,10 @@ function addStrokeInfo(
       }
     } else {
       const tag = tagComp
-        .findOne((node) => node.name === "type=info")
+        .findOne(
+          (node) => node.name === "type=info" && node.type === "COMPONENT"
+        )!
+        //@ts-ignore
         .createInstance();
       strokeWeight = frame.strokeWeight;
       setStrokeProps(tag, strokeWeight, strokeAlign, indexes, "Stroke");
@@ -453,12 +495,23 @@ function setStrokeProps(
   indexes: FrameNode,
   strokeKind: string
 ) {
-  setTextProps(
+  setTextContent(
     tag,
-    "label",
+    "Text",
     `${strokeKind} - ${strokeWeight}px, ${strokeAlign}`
   );
-  const indexLink = tag.findOne((element) => element.name === "link");
+  const indexLink = tag.findOne((element: any) => element.name === "link");
   indexLink.visible = false;
   indexes.appendChild(tag);
+}
+
+export function makeLabelTextFlow(labelInstance: InstanceNode) {
+  labelInstance.primaryAxisSizingMode = "FIXED";
+  labelInstance.layoutAlign = "STRETCH";
+  labelInstance.children.forEach((child) => {
+    if (child.type === "TEXT" && child.characters !== "") {
+      child.layoutGrow = 1;
+      child.textAutoResize = "HEIGHT";
+    }
+  });
 }

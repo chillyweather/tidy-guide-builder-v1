@@ -60,7 +60,7 @@ function buildOneTag(
   labelComponent?: ComponentNode,
   size?: string
 ) {
-  const resultFrame = buildAutoLayoutFrame("tagFrame", "HORIZONTAL", 160, 0);
+  const resultFrame = buildAutoLayoutFrame("tagFrame", "HORIZONTAL", 20, 0);
   const group = buildElementTags(element, booleanProperties, tagComponentSet);
   resultFrame.appendChild(group);
   resultFrame.fillStyleId = TGGray100.id;
@@ -120,8 +120,30 @@ function buildElementTags(
 ) {
   const currentAtom = element.clone();
   turnAllBooleansOn(currentAtom, booleanProperties);
-  const tags = buildTags(tagComponentSet, currentAtom, "A", "auto", true, true);
-  const tagGroup = figma.group([currentAtom, ...tags], figma.currentPage);
-  tagGroup.name = `${element}-tags`;
-  return tagGroup;
+  const tagBuildResults = buildTags(
+    tagComponentSet,
+    currentAtom,
+    "A",
+    "auto",
+    true,
+    true
+  );
+  if (!tagBuildResults) return currentAtom;
+  const tagElements = tagBuildResults.tagElements;
+  const indexes = tagBuildResults.indexes;
+  const tagGroup = figma.group(
+    [currentAtom, ...tagElements],
+    figma.currentPage
+  );
+  tagGroup.name = `${element.name}-with-tags`;
+  const tagAutoLayoutFrame = buildAutoLayoutFrame(
+    "tagAutoLayoutFrame",
+    "HORIZONTAL",
+    20,
+    20,
+    12
+  );
+  tagAutoLayoutFrame.appendChild(indexes);
+  tagAutoLayoutFrame.appendChild(tagGroup);
+  return tagAutoLayoutFrame;
 }

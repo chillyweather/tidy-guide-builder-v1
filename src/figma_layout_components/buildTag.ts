@@ -157,6 +157,7 @@ export function buildTag(
   isLink = true
 ) {
   const index = addText(`${letter}`);
+  index.name = "elementIndex";
   const ellipse = createEllipse(index);
   const tag = figma.createComponent();
   tag.layoutPositioning = "AUTO";

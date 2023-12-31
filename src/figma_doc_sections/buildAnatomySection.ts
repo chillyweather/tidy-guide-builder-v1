@@ -25,5 +25,12 @@ export async function buildAnatomySection(
     tagComponent
   );
 
+  tags.forEach((tag) => {
+    parentFrame.appendChild(tag);
+  });
+
+  labelComponent.remove();
+  tagComponent!.remove();
+
   return tags;
 }
