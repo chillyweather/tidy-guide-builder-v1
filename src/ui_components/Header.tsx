@@ -98,7 +98,7 @@ const Header = ({
               }}
             >
               <IconPlus />
-              Add Component
+              New Documentation
             </button>
           ) : (
             <button

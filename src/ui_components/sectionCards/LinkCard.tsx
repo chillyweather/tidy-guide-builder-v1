@@ -16,7 +16,7 @@ const LinkCard = ({
   return (
     <div className={"linkBlockColumn"}>
       {LinkBlock(sources, setSources)}
-      <button onClick={addSource} style={{ marginRight: "2px" }}>
+      <button onClick={addSource} className={"addLink"}>
         <IconPlus />
       </button>
     </div>

@@ -11,6 +11,7 @@ declare const styles: {
   readonly "_toggle_1rqu7_1": string;
   readonly "absDiv": string;
   readonly "add-button": string;
+  readonly "addLink": string;
   readonly "addSection-outer": string;
   readonly "addSectionCard": string;
   readonly "addSectionCardInfo": string;
@@ -75,11 +76,15 @@ declare const styles: {
   readonly "inner-componentBTN": string;
   readonly "inputDiv": string;
   readonly "inputInputRowStyle": string;
+  readonly "inputWithValidation": string;
   readonly "invalidText": string;
   readonly "leftContent": string;
   readonly "leftFooterContent": string;
   readonly "link": string;
+  readonly "linkBlock": string;
+  readonly "linkBlockColumn": string;
   readonly "links-block": string;
+  readonly "list": string;
   readonly "listButtonStyle": string;
   readonly "listCardContentStyle": string;
   readonly "listCollumnStyle": string;
@@ -133,6 +138,7 @@ declare const styles: {
   readonly "selectedPage": string;
   readonly "show": string;
   readonly "side-flex": string;
+  readonly "singleLink": string;
   readonly "subtitle": string;
   readonly "text-size": string;
   readonly "textCardBodyContent": string;
@@ -152,6 +158,7 @@ declare const styles: {
   readonly "videoClosed": string;
   readonly "videoDiv": string;
   readonly "videoElementWrapper": string;
+  readonly "videoInfo": string;
   readonly "videoInputRow": string;
   readonly "videoOpen": string;
   readonly "videoSection": string;

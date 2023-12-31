@@ -2,8 +2,8 @@ import { h } from "preact";
 import { Text, LoadingIndicator } from "@create-figma-plugin/ui";
 import { useEffect, useState } from "preact/hooks";
 import { videoTextBoxElement } from "../textBoxForLinksElement";
+import youtube from "../../images/youtube.svg";
 import {
-  IconBrandYoutubeFilled,
   IconX,
   IconInfoCircle,
 } from "@tabler/icons-react";
@@ -107,17 +107,19 @@ const videoCard = (
         <h4 className={"inputLabel"}>Add link to YouTube video:</h4>
         <div className="videoInputRowWithValidation">
           <div className="videoInputRow">
-            <IconBrandYoutubeFilled />
+            <img src={youtube} />
+            <div className={"videoInfo"}>
+              <IconInfoCircle />
+            </div>
             {videoTextBoxElement(
               videoLink,
               setVideoLink,
-              "Enter YouTube video link",
+              "Paste YouTube URL, Enter to add",
               "videoLink",
               setFoundVideoData,
               false,
               setIsValid
             )}
-            <IconInfoCircle />
           </div>
           <div
             className={"validationFailedMessage"}

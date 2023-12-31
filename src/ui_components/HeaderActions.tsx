@@ -55,7 +55,9 @@ function AddSectionPopupCard(card: any) {
           <p class={"addSectionTitle"}>{card.title}</p>
           <p class={"addSectionDescription"}>{card.description}</p>
         </div>
-
+        <div>
+          <IconCalendarEvent className={"tooltipIcon"} />
+        </div>
       </div>
     </div>
   );
