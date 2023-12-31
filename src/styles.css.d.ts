@@ -143,6 +143,7 @@ declare const styles: {
   readonly "text-size": string;
   readonly "textCardBodyContent": string;
   readonly "textSymbolsCounter": string;
+  readonly "textSymbolsCounterRow": string;
   readonly "tidyLogo": string;
   readonly "title-row": string;
   readonly "title-wrapper": string;
