@@ -1461,7 +1461,7 @@ summary button {
   background-color: var(--tidy-btn-pressed);
 }
 
-.footer .primary-disabled {
+.footer .split-disabled button {
   pointer-events: none;
   background-color: #ECE9F2;
   color: #A6A8AD

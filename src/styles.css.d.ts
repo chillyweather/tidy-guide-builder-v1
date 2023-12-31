@@ -114,7 +114,6 @@ declare const styles: {
   readonly "paragraph": string;
   readonly "popupButtons": string;
   readonly "primary": string;
-  readonly "primary-disabled": string;
   readonly "resources": string;
   readonly "rightContent": string;
   readonly "rightFooterContent": string;
@@ -139,6 +138,7 @@ declare const styles: {
   readonly "show": string;
   readonly "side-flex": string;
   readonly "singleLink": string;
+  readonly "split-disabled": string;
   readonly "subtitle": string;
   readonly "text-size": string;
   readonly "textCardBodyContent": string;
