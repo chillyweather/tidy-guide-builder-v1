@@ -107,6 +107,7 @@ declare const styles: {
   readonly "nav-wrapper": string;
   readonly "navigation": string;
   readonly "noIcon": string;
+  readonly "noPredefined": string;
   readonly "noSelected": string;
   readonly "notFilled": string;
   readonly "oneColumn": string;

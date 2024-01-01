@@ -354,7 +354,7 @@ export const ContentCard = (cardData: any, index: number) => {
         <div className="rightContent">
           {!isSelected && (
             <button
-              className={"cardAuxButton hoverButton"}
+              className={"cardAuxButton hoverButton noPredefined"}
               onClick={handleDuplicateSection}
             >
               <IconCopy />

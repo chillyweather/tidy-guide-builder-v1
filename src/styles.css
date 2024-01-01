@@ -1714,14 +1714,14 @@ body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.a
   max-height: 0;
   margin: 0;
 }
-.leftContent:has(.addSectionIcon[type="anatomy"]) + .rightContent .hoverButton, .leftContent:has(.addSectionIcon[type="property"]) + .rightContent .hoverButton, .leftContent:has(.addSectionIcon[type="spacing"]) + .rightContent .hoverButton, .leftContent:has(.addSectionIcon[type="variants"]) + .rightContent .hoverButton, .leftContent:has(.addSectionIcon[type="release-notes"]) + .rightContent .hoverButton{
+.sectionCard:has(.addSectionIcon[type="anatomy"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="property"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="spacing"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="variants"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="release-notes"]) .noPredefined{
   visibility: hidden;
   pointer-events: none;
 }
-.leftContent + .rightContent .hoverButton.tooltip{
+/* .leftContent + .rightContent .hoverButton.tooltip{
   visibility: visible !important;
   pointer-events: all !important;
-}
+} */
 
 body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) {
   max-height: 40px;
