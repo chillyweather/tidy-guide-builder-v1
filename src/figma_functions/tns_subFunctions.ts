@@ -48,15 +48,16 @@ function getMarkerShift(marker: InstanceNode) {
   const markerHandWidth = marker.children[1].width;
   if (markerHandWidth) {
     const markerText = marker.findOne((node) => node.type === "TEXT");
-    if (!markerText) return;
+    if (!markerText) return 0;
     const difference = 16 - markerText.width;
     return markerHandWidth + 20 - difference;
   } else {
     const markerText = marker.findOne((node) => node.type === "TEXT");
-    if (!markerText) return;
+    if (!markerText) return 0;
     const difference = 16 - markerText.width;
     return 40 - difference;
   }
+  return 0;
 }
 
 function buildPages(pages: string[]) {

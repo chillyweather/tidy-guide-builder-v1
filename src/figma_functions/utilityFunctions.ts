@@ -334,3 +334,26 @@ export function findDocFrame(node: InstanceNode) {
     }
   }
 }
+
+/*
+ * Clones a frame node or instance node and appends it to the current page.
+ * If the cloned node is an instance, it will be detached before appending.
+ * The position of the cloned node will be set to match the original node.
+ *
+ * @param frame - The frame node or instance node to clone.
+ * @returns The cloned frame node.
+ */
+export function cloneFrame(frame: FrameNode | InstanceNode) {
+  let newFrame = frame.clone();
+  if (newFrame.type === "INSTANCE") {
+    newFrame = newFrame.detachInstance();
+  }
+  const parent = figma.currentPage;
+  parent.appendChild(newFrame);
+  if (frame.absoluteBoundingBox) {
+    newFrame.x = frame.absoluteBoundingBox.x;
+    newFrame.y = frame.absoluteBoundingBox.y;
+  }
+
+  return newFrame;
+}

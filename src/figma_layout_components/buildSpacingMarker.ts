@@ -1,6 +1,6 @@
 import { setColorStyle } from "../figma_functions/utilityFunctions";
 
-const TG_SPACING_MARKER = ".DS-spacing-marker";
+const TG_SPACING_MARKER = ".TG-spacing-marker";
 const TG_SPACING_MARKER_HAND_LENGTH = 40;
 
 const dsGray900 = setColorStyle("ds-admin/gray/gray-900", "292929");
