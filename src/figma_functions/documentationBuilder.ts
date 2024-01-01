@@ -2,18 +2,16 @@ import { buildPropSection } from "../figma_doc_sections/buildPropSection";
 import { buildVarSection } from "../figma_doc_sections/buildVarSection";
 import { buildAnatomySection } from "../figma_doc_sections/buildAnatomySection";
 import { buildReleaseNotes } from "../figma_doc_sections/buildReleaseNotes";
+import { buildSpacingSection } from "src/figma_doc_sections/buildSpacingSection";
 import {
   buildTitle,
   buildLinkText,
   buildText,
   buildTwoColumns,
   buildListText,
-  buildImageFromLocalSource,
   buildImageFromRemoteSource,
 } from "../figma_doc_sections/elementBuildingFunctions";
 import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
-import { emit } from "@create-figma-plugin/utilities";
-import { h } from "preact";
 
 interface ElementData {
   node?: SceneNode;
@@ -160,7 +158,7 @@ export default async function documentationBuilder(data: any) {
         break;
 
       case "spacing":
-        console.log("no spacing for now");
+        buildSpacingSection();
         break;
 
       case "property":
