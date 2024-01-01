@@ -158,7 +158,7 @@ export default async function documentationBuilder(data: any) {
         break;
 
       case "spacing":
-        buildSpacingSection();
+        buildSpacingSection(currentNode, sectionFrame);
         break;
 
       case "property":
