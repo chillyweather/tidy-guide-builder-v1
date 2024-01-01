@@ -12,7 +12,7 @@ const Toast = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();
-    }, 30000);
+    }, 3000);
 
     return () => {
       clearTimeout(timer);
