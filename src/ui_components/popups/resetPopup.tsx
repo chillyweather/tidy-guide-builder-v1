@@ -15,6 +15,9 @@ function ResetPopup() {
     <div
       className={"feedbackPopupBackground"}
       onClick={() => setShowResetPopup(false)}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") setShowResetPopup(false);
+      }}
     >
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
         <button

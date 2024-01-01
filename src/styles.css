@@ -15,6 +15,7 @@
   --tidy-divider: #ededed;
   --tidy-32: #323232;
   --tidy-f5: #F5F5F5;
+  --tidy-ec: #ECEBF5;
   --text-size: 12px;
 }
 
@@ -162,11 +163,11 @@ body:has(.login) {
 }
 
 .componentBTN:hover {
-  background-color: #ecebf5;
+  background-color: var(--tidy-ec);
 }
 
 .componentBTN:active {
-  background-color: #ecebf5;
+  background-color: var(--tidy-ec);
   box-shadow: 0 0 0 1.5px #9C71EF inset;
 }
 
@@ -551,7 +552,7 @@ button svg {
 }
 
 .headerActions .secondary:active {
-  background-color: #ECEBF5;
+  background-color: var(--tidy-ec);
 }
 
 .empty-image {
@@ -2254,7 +2255,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 .cardAuxButton:active,
 .drag-item button:active {
-  background-color: #ECEBF5;
+  background-color: var(--tidy-ec);
 }
 
 .cardAuxButton:focus-visible,
@@ -2752,7 +2753,10 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   color: var(--tidy-32);
 }
 .closePopupButton:hover{
-  background-color: var(--tidy-f5)
+  background-color: var(--tidy-f5);
+}
+.closePopupButton:active{
+  background-color: var(--tidy-ec);
 }
 
 .loader {
@@ -2845,7 +2849,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   left: 20%;
   width: 60%;
   background-color: #4D4D4D;
-  color: #ECEBF5;
+  color: var(--tidy-ec);
   padding: 8px 12px;
   border-radius: 8px;
   z-index: 9999;
