@@ -26,4 +26,8 @@ export function buildSpacingSection(node: InstanceNode, frame: FrameNode) {
     sizeMarker,
     spacingMarker
   );
+  atomSpacings.forEach((node) => {
+    if (!node) return;
+    frame.appendChild(node);
+  }
 }
