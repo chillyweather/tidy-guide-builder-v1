@@ -773,6 +773,9 @@ body:has(.navigation a) .header-login {
 .container:has(.login) {
   margin-top: 84px;
 }
+.container:has(.login) .mainContent{
+  display: none;
+}
 
 .header form {
   display: flex;
