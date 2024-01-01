@@ -773,7 +773,8 @@ body:has(.navigation a) .header-login {
 .container:has(.login) {
   margin-top: 84px;
 }
-.container:has(.login) .mainContent{
+
+.container:has(.login) .mainContent {
   display: none;
 }
 
@@ -1465,19 +1466,23 @@ summary button {
 .footer .primary:active {
   background-color: var(--tidy-btn-pressed);
 }
-.footer .split{
+
+.footer .split {
   display: flex;
 }
+
 .footer .split-disabled button {
   pointer-events: none;
   background-color: #ECE9F2;
   color: #A6A8AD;
 }
-.footer .split button{
+
+.footer .split button {
   padding: 12px;
   border-radius: 0 8px 8px 0;
 }
-.footer .split button:first-of-type{
+
+.footer .split button:first-of-type {
   padding: 12px 19px;
   border-radius: 8px 0 0 8px;
   border-right: 1px solid #ffffff;
@@ -1636,6 +1641,7 @@ summary button {
   background-color: #FFF5F6;
   color: #BA3082;
 }
+
 .addSectionIcon[type="list"] .list {
   display: block;
 }
@@ -1702,7 +1708,8 @@ body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.a
   width: 24px;
   height: 22px;
 }
-body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) > .tooltipIcon {
+
+body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"])>.tooltipIcon {
   visibility: visible;
 }
 
@@ -1714,11 +1721,21 @@ body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.a
   max-height: 0;
   margin: 0;
 }
-.sectionCard:has(.addSectionIcon[type="anatomy"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="property"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="spacing"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="variants"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="release-notes"]) .noPredefined{
+
+.sectionCard:has(.addSectionIcon[type="anatomy"]) .noPredefined,
+.sectionCard:has(.addSectionIcon[type="property"]) .noPredefined,
+.sectionCard:has(.addSectionIcon[type="spacing"]) .noPredefined,
+.sectionCard:has(.addSectionIcon[type="variants"]) .noPredefined,
+.sectionCard:has(.addSectionIcon[type="release-notes"]) .noPredefined {
   display: none !important;
   pointer-events: none;
 }
-.sectionCard:has(.addSectionIcon[type="anatomy"]) .hidePredefined, .sectionCard:has(.addSectionIcon[type="property"]) .hidePredefined, .sectionCard:has(.addSectionIcon[type="spacing"]) .hidePredefined, .sectionCard:has(.addSectionIcon[type="variants"]) .hidePredefined, .sectionCard:has(.addSectionIcon[type="release-notes"]) .hidePredefined{
+
+.sectionCard:has(.addSectionIcon[type="anatomy"]) .hidePredefined,
+.sectionCard:has(.addSectionIcon[type="property"]) .hidePredefined,
+.sectionCard:has(.addSectionIcon[type="spacing"]) .hidePredefined,
+.sectionCard:has(.addSectionIcon[type="variants"]) .hidePredefined,
+.sectionCard:has(.addSectionIcon[type="release-notes"]) .hidePredefined {
   visibility: hidden;
   pointer-events: none;
 }
@@ -1735,7 +1752,7 @@ body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.a
   height: 22px;
 }
 
-body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) > .tooltipIcon {
+body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"])>.tooltipIcon {
   visibility: visible;
 }
 
@@ -1760,7 +1777,7 @@ body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.
   height: 22px;
 }
 
-body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) > .tooltipIcon {
+body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"])>.tooltipIcon {
   visibility: visible;
 }
 
@@ -1784,7 +1801,8 @@ body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.
   width: 24px;
   height: 22px;
 }
-body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) > .tooltipIcon {
+
+body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"])>.tooltipIcon {
   visibility: visible;
 }
 
@@ -1808,7 +1826,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   width: 24px;
   height: 22px;
 }
-body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) > .tooltipIcon {
+
+body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"])>.tooltipIcon {
   visibility: visible;
 }
 
@@ -2391,7 +2410,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   width: 100%;
   margin-bottom: 18px;
 }
-.twoColumnCardBodyContent .textSymbolsCounterRow{
+
+.twoColumnCardBodyContent .textSymbolsCounterRow {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -2405,7 +2425,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   flex-direction: column;
   gap: 12px;
 }
-.twoColumnCardBodyContent::after{
+
+.twoColumnCardBodyContent::after {
   content: '';
   position: absolute;
   height: 100%;
@@ -2414,7 +2435,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   left: 50%;
   background-color: var(--tidy-divider);
 }
-.oneColumn input{
+
+.oneColumn input {
   text-transform: none;
   font-weight: 400;
 }
@@ -2605,7 +2627,26 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 .draft {
   background-color: #F5F6FA;
-  box-shadow: 0 0 0 1px #DCE0EF inset;
+  box-shadow: 0 0 0 1px #DCE0EF inset !important;
+}
+
+.draft .videoInputRow img {
+  filter: hue-rotate(198deg) grayscale(52%);
+  opacity: 0.25;
+}
+
+.draft input,
+.draft textarea {
+  background-color: #EEF0F6;
+}
+
+.draft input[type="checkbox"] {
+  background-color: transparent;
+}
+
+.draft .addSectionIcon {
+  background-color: #E8EDFC;
+  color: #92A1B9;
 }
 
 .draft .cardHeader,
@@ -2732,7 +2773,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   color: var(--tidy-32);
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.28), 0px 2px 20px 0px rgba(0, 0, 0, 0.15);
 }
-.dialogTitle{
+
+.dialogTitle {
   font-size: calc(var(--text-size) + (var(--text-size) / 3.5));
   font-weight: 600;
   margin-bottom: 12px;
@@ -2763,10 +2805,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   border-radius: 4px;
   color: var(--tidy-32);
 }
-.closePopupButton:hover{
+
+.closePopupButton:hover {
   background-color: var(--tidy-f5);
 }
-.closePopupButton:active{
+
+.closePopupButton:active {
   background-color: var(--tidy-ec);
 }
 
@@ -2782,17 +2826,20 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .rotatingBucket {
   animation: rotateAnim 1000ms infinite linear;
 }
-.tooltipIcon{
+
+.tooltipIcon {
   position: relative;
   color: #787878;
   pointer-events: all !important;
   visibility: hidden;
 }
-.tooltipIcon svg{
+
+.tooltipIcon svg {
   width: 16px;
   height: 16px;
 }
-.tooltipIcon::after{
+
+.tooltipIcon::after {
   content: attr(alt);
   visibility: hidden;
   width: 30ch;
@@ -2813,7 +2860,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   opacity: 0;
   transition: opacity 0.3s;
 }
-.tooltipIcon:hover::after{
+
+.tooltipIcon:hover::after {
   visibility: visible;
   opacity: 1;
 }
@@ -2866,11 +2914,13 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   z-index: 9999;
   font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
 }
-.custom-toast div{
+
+.custom-toast div {
   white-space: pre;
   font-weight: 800;
 }
-.custom-toast div::first-line{
+
+.custom-toast div::first-line {
   font-weight: 400;
 }
 
