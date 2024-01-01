@@ -14,6 +14,7 @@
   --tidy-link: #7948d6;
   --tidy-divider: #ededed;
   --tidy-32: #323232;
+  --tidy-f5: #F5F5F5;
   --text-size: 12px;
 }
 
@@ -2248,7 +2249,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 .cardAuxButton:hover,
 .drag-item button:hover {
-  background-color: #F5F5F5;
+  background-color: var(--tidy-f5);
 }
 
 .cardAuxButton:active,
@@ -2482,8 +2483,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .listInputStyle {
   width: 100%;
   padding: 12px;
-  background-color: #F5F5F5;
-  border: 1px solid #F5F5F5;
+  background-color: var(--tidy-f5);
+  border: 1px solid var(--tidy-f5);
   border-radius: 8px;
   cursor: text;
 }
@@ -2671,11 +2672,13 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   z-index: 100;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: #fcfcfea6;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 998;
+  backdrop-filter: blur(2px);
 }
 
 .absDiv {
@@ -2705,28 +2708,51 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .feedbackPopup {
   position: relative;
   width: 400px;
-  height: 400px;
+  /* height: 400px; */
   border-radius: 10px;
-  background-color: coral;
+  background-color: #ffffff;
   padding: 20px;
+  padding-top: 48px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  color: var(--tidy-32);
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.28), 0px 2px 20px 0px rgba(0, 0, 0, 0.15);
+}
+.dialogTitle{
+  font-size: calc(var(--text-size) + (var(--text-size) / 3.5));
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .popupButtons {
+  position: relative;
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  height: fit-content;
+  padding: 0;
+  margin-top: 12px;
 }
 
 .closePopupButton {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 12px;
+  right: 16px;
+  min-height: 24px;
+  min-width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  color: var(--tidy-32);
+}
+.closePopupButton:hover{
+  background-color: var(--tidy-f5)
 }
 
 .loader {

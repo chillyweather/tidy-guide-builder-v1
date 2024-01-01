@@ -43,6 +43,7 @@ declare const styles: {
   readonly "container": string;
   readonly "custom-toast": string;
   readonly "dialogInput": string;
+  readonly "dialogTitle": string;
   readonly "disabled": string;
   readonly "draft": string;
   readonly "drag-item": string;
