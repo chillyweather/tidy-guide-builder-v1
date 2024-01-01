@@ -2679,7 +2679,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   justify-content: center;
   align-items: center;
   z-index: 998;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
 }
 
 .absDiv {
