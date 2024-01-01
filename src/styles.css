@@ -1714,6 +1714,14 @@ body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.a
   max-height: 0;
   margin: 0;
 }
+.leftContent:has(.addSectionIcon[type="anatomy"]) + .rightContent .hoverButton, .leftContent:has(.addSectionIcon[type="property"]) + .rightContent .hoverButton, .leftContent:has(.addSectionIcon[type="spacing"]) + .rightContent .hoverButton, .leftContent:has(.addSectionIcon[type="variants"]) + .rightContent .hoverButton, .leftContent:has(.addSectionIcon[type="release-notes"]) + .rightContent .hoverButton{
+  visibility: hidden;
+  pointer-events: none;
+}
+.leftContent + .rightContent .hoverButton.tooltip{
+  visibility: visible !important;
+  pointer-events: all !important;
+}
 
 body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) {
   max-height: 40px;
