@@ -1718,10 +1718,10 @@ body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.a
   display: none !important;
   pointer-events: none;
 }
-/* .leftContent + .rightContent .hoverButton.tooltip{
-  visibility: visible !important;
-  pointer-events: all !important;
-} */
+.sectionCard:has(.addSectionIcon[type="anatomy"]) .hidePredefined, .sectionCard:has(.addSectionIcon[type="property"]) .hidePredefined, .sectionCard:has(.addSectionIcon[type="spacing"]) .hidePredefined, .sectionCard:has(.addSectionIcon[type="variants"]) .hidePredefined, .sectionCard:has(.addSectionIcon[type="release-notes"]) .hidePredefined{
+  visibility: hidden;
+  pointer-events: none;
+}
 
 body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) {
   max-height: 40px;

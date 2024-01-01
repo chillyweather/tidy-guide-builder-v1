@@ -375,7 +375,7 @@ export const ContentCard = (cardData: any, index: number) => {
           {currentCardContent(cardType)}
           {/*//!all card content here */}
           <div className="cardFooter">
-            <div className="leftContent">
+            <div className="leftContent hidePredefined">
               {PublishToggle(publish, setPublish, "Publish to Tidy Viewer")}
             </div>
             <div className="rightContent">
