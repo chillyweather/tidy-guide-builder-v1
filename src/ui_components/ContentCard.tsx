@@ -390,7 +390,7 @@ export const ContentCard = (cardData: any, index: number) => {
                 <IconEyeOff />
               </button>
               <button
-                className={"cardAuxButton"}
+                className={"cardAuxButton noPredefined"}
                 onClick={handleDuplicateSection}
               >
                 <IconCopy />

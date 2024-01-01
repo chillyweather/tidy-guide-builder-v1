@@ -1715,7 +1715,7 @@ body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.a
   margin: 0;
 }
 .sectionCard:has(.addSectionIcon[type="anatomy"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="property"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="spacing"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="variants"]) .noPredefined, .sectionCard:has(.addSectionIcon[type="release-notes"]) .noPredefined{
-  visibility: hidden;
+  display: none !important;
   pointer-events: none;
 }
 /* .leftContent + .rightContent .hoverButton.tooltip{
