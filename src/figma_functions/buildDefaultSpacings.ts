@@ -1,10 +1,15 @@
 import { buildAutoLayoutFrame } from "../figma_functions/utilityFunctions";
-import buildSpacingMarks from "../../tidy_tags_and_spaces/src/buildSpacingMarks";
-import { changeSizingMarkerCharacters } from "./setSizingMarkerValue";
-import { setTextProps } from "../../plugin-utility-functions/micro_utils";
-import { setVariantProps } from "../../plugin-utility-functions/setVariantProps";
-import { turnAllBooleansOn } from "./turnAllBooleansOn";
-import { dsGray100, dsGray600 } from "../../plugin-constants/color-styles";
+import buildSpacingMarks from "./buildSpacingMarks";
+import {
+  setColorStyle,
+  setTextProps,
+  setVariantProps,
+  turnAllBooleansOn,
+} from "./utilityFunctions";
+import { setSizingMarkerValue } from "./setSizingMarkerValue";
+
+const dsGray100 = setColorStyle("ds-admin/gray/gray-100", "F5F5F5");
+const dsGray600 = setColorStyle("ds-admin/gray/gray-600", "707070");
 
 export function buildAtomSpacings(
   element: InstanceNode,
@@ -12,7 +17,9 @@ export function buildAtomSpacings(
   labelComponent: ComponentNode,
   elementType: string,
   buttonSizes: string[],
-  variantProperties: any
+  variantProperties: any,
+  sizeMarker: ComponentSetNode,
+  spacingMarker: ComponentSetNode
 ) {
   turnAllBooleansOn(element, booleanProperties);
   const page = figma.currentPage;
@@ -28,7 +35,9 @@ export function buildAtomSpacings(
       elementType,
       page,
       labelComponent,
-      spacingGroups
+      spacingGroups,
+      sizeMarker,
+      spacingMarker
     );
   } else {
     const spacingGroup = buildOneSpacingGroup(
@@ -36,7 +45,9 @@ export function buildAtomSpacings(
       booleanProperties,
       elementType,
       page,
-      labelComponent
+      labelComponent,
+      sizeMarker,
+      spacingMarker
     );
     spacingGroups.push(spacingGroup);
   }
@@ -52,7 +63,9 @@ function buildForManySizes(
   elementType: string,
   page: PageNode,
   labelComponent: ComponentNode,
-  spacingGroups: FrameNode[]
+  spacingGroups: FrameNode[],
+  sizeMarker: ComponentSetNode,
+  spacingMarker: ComponentSetNode
 ) {
   buttonSizes.forEach((size) => {
     const propNames = Object.keys(variantProperties);
@@ -69,6 +82,8 @@ function buildForManySizes(
       elementType,
       page,
       labelComponent,
+      sizeMarker,
+      spacingMarker,
       size
     );
     spacingGroups.push(spacingGroup);
@@ -83,15 +98,26 @@ function buildOneSpacingGroup(
   elementType: string,
   page: PageNode,
   labelComponent: ComponentNode,
+  sizeMarker: ComponentSetNode,
+  spacingMarker: ComponentSetNode,
   size?: string
 ) {
   const elementSize = element.clone();
   const elementPadding = element.clone();
   const elementHSpacing = element.clone();
 
-  const sizes = buildSizeMarkers(elementSize);
-  const paddings = buildPaddingMarkers(elementPadding);
-  const spacings = buildSpacingMarkers(elementHSpacing, elementType);
+  const sizes = buildSizeMarkers(elementSize, sizeMarker, spacingMarker);
+  const paddings = buildPaddingMarkers(
+    elementPadding,
+    sizeMarker,
+    spacingMarker
+  );
+  const spacings = buildSpacingMarkers(
+    elementHSpacing,
+    elementType,
+    sizeMarker,
+    spacingMarker
+  );
 
   const sizingMarksFrame = arrangeFrameContents(
     elementSize,
@@ -278,52 +304,80 @@ function buildLabels(labelComponent: ComponentNode, page: PageNode) {
   return { sizeTitle, paddingsTitle, spacingsTitle };
 }
 
-export function buildSizeMarkers(elementSize: InstanceNode) {
-  const sizeMarkers = buildSpacingMarks(elementSize, {
-    size: true,
-    paddings: false,
-    itemspacings: false,
-    sameSpacingsColor: true,
-  });
-  sizeMarkers?.forEach((marker) => {
-    const position = `${marker.componentProperties.position.value}`;
-    changeSizingMarkerCharacters(marker, position);
-    if (position === "bottom") {
-      try {
-        setMinSizeMarkerValue(elementSize, marker);
-      } catch (error) {
-        console.log("error :>> ", error);
+export function buildSizeMarkers(
+  elementSize: InstanceNode,
+  sizeMarker: ComponentSetNode,
+  spacingMarker: ComponentSetNode
+) {
+  const sizeMarkers = buildSpacingMarks(
+    elementSize,
+    {
+      size: true,
+      paddings: false,
+      itemspacings: false,
+      sameSpacingsColor: true,
+    },
+    sizeMarker,
+    spacingMarker
+  );
+  if (!sizeMarkers) return;
+  sizeMarkers.forEach((marker) => {
+    if (marker) {
+      const position = `${marker.componentProperties.position.value}`;
+      setSizingMarkerValue(marker, position);
+      if (position === "bottom") {
+        try {
+          setMinSizeMarkerValue(elementSize, marker);
+        } catch (error) {
+          console.log("error :>> ", error);
+        }
       }
     }
   });
   return sizeMarkers;
 }
 
-function buildPaddingMarkers(elementPadding: InstanceNode) {
-  const paddingMarkers = buildSpacingMarks(elementPadding, {
-    size: false,
-    paddings: true,
-    itemspacings: false,
-    sameSpacingsColor: false,
-    isShallow: true,
-  });
-  paddingMarkers?.forEach((marker) =>
-    modifyMarkers(elementPadding, marker, changeSizingMarkerCharacters)
+function buildPaddingMarkers(
+  elementPadding: InstanceNode,
+  sizeMarker: ComponentSetNode,
+  spacingMarker: ComponentSetNode
+) {
+  const paddingMarkers = buildSpacingMarks(
+    elementPadding,
+    {
+      size: false,
+      paddings: true,
+      itemspacings: false,
+      sameSpacingsColor: false,
+      isShallow: true,
+    },
+    sizeMarker,
+    spacingMarker
   );
+  paddingMarkers?.forEach((marker) => {
+    if (marker) modifyMarkers(elementPadding, marker, setSizingMarkerValue);
+  });
   return paddingMarkers;
 }
 
 function buildSpacingMarkers(
   elementHSpacing: InstanceNode,
-  elementType: string
+  elementType: string,
+  sizeMarker: ComponentSetNode,
+  spacingMarker: ComponentSetNode
 ) {
-  const spacingMarkers = buildSpacingMarks(elementHSpacing, {
-    size: false,
-    paddings: false,
-    itemspacings: true,
-    sameSpacingsColor: true,
-    isShallow: true,
-  });
+  const spacingMarkers = buildSpacingMarks(
+    elementHSpacing,
+    {
+      size: false,
+      paddings: false,
+      itemspacings: true,
+      sameSpacingsColor: true,
+      isShallow: true,
+    },
+    sizeMarker,
+    spacingMarker
+  );
   // spacingMarkers?.forEach((marker) => {
   //   modifyMarkers(elementHSpacing, marker, changeSizingMarkerCharacters);
   // });
@@ -337,7 +391,7 @@ function modifyMarkers(
 ) {
   const position = `${marker.componentProperties.position.value}`;
 
-  changeSizingMarkerCharacters(marker, position);
+  setSizingMarkerValue(marker, position);
   //   const barMarker = marker.findOne(
   //     (node) => node.name === ".DS-spacing-marker-bar"
   //   );
