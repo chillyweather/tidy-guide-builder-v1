@@ -2825,6 +2825,13 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   z-index: 9999;
   font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
 }
+.custom-toast div{
+  white-space: pre;
+  font-weight: 800;
+}
+.custom-toast div::first-line{
+  font-weight: 400;
+}
 
 @keyframes rotateAnim {
   0% {
