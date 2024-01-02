@@ -45,7 +45,7 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--tidy-disabled);
+  background-color: #c2c8d1;
 }
 
 html {
