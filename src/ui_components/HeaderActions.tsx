@@ -100,6 +100,8 @@ function HeaderActions() {
   const setSelectedElement = useContext(BuilderContext)?.setSelectedElement;
   const documentationTitle = useContext(BuilderContext)?.documentationTitle;
   const isScroll = useContext(BuilderContext)?.isScroll;
+  const setSelectedElementKey =
+    useContext(BuilderContext)?.setSelectedElementKey;
   const setIsMainContentOpen = useContext(BuilderContext)?.setIsMainContentOpen;
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
   return (
@@ -131,6 +133,7 @@ function HeaderActions() {
             onClick={() => {
               setSelectedElement(null);
               setSelectedElementName("");
+              setSelectedElementKey("");
               emit("CLEAR_SELECTION");
               // setIsMainContentOpen(false);
             }}
