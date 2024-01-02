@@ -1579,7 +1579,7 @@ summary button {
   max-height: 76%;
   background-color: #ffffff;
   z-index: 9999;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.30), 0px 2px 14px 0px rgba(0, 0, 0, 0.15);
   overflow: hidden;
 }
