@@ -145,6 +145,7 @@ body:has(.login) {
   top: 58px;
   left: 28px;
   font-weight: 600;
+  color: var(--tidy-32);
   font-size: calc(var(--text-size) + (var(--text-size) / 2.5));
 
 }
