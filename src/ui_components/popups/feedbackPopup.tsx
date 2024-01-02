@@ -14,6 +14,7 @@ function FeedbackPopup({
 }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [feedbackText, setFeedbackText] = useState("");
 
   if (!show) {
     return null;
@@ -49,12 +50,19 @@ function FeedbackPopup({
           <textarea
             className={"dialogTextarea"}
             value={body}
+            maxLength={1500}
             placeholder={"Type text..."}
             onInput={(e) => {
               //@ts-ignore
               setBody(e.target.value);
+              setFeedbackText(e.currentTarget.value);
             }}
           />
+          <div className="textSymbolsCounterRow">
+          <div className="textSymbolsCounter">
+            {feedbackText.length}/1500
+          </div>
+        </div>
         </label>
         <button
           className={"button submitButton primary"}

@@ -2401,10 +2401,15 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   margin-bottom: 18px;
 }
 
-.twoColumnCardBodyContent .textSymbolsCounterRow {
+.twoColumnCardBodyContent .textSymbolsCounterRow, .feedbackPopup .textSymbolsCounterRow {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 1px;
+  right: 1px;
+  width: fit-content;
+  border-radius: 8px;
+}
+.textSymbolsCounterRow:hover{
+  background-color: var(--tidy-f5);
 }
 
 .oneColumn {
@@ -2765,6 +2770,9 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   gap: 12px;
   color: var(--tidy-32);
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.28), 0px 2px 20px 0px rgba(0, 0, 0, 0.15);
+}
+.feedbackPopup label{
+  position: relative;
 }
 
 .feedbackPopup * {
