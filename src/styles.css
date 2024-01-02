@@ -19,7 +19,7 @@
   --text-size: 12px;
 }
 
-#create-figma-plugin{
+#create-figma-plugin {
   max-height: calc(100vh - 184px);
 }
 
@@ -2834,6 +2834,16 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .feedbackPopup p {
   margin-bottom: 0;
   white-space: pre;
+}
+
+.feedbackPopup img {
+  width: 86px;
+}
+
+.feedbackPopup .image-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .divider {

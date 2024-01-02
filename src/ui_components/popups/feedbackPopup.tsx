@@ -2,6 +2,7 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import { sendFeedback } from "../ui_functions/sendFeedback";
 import { IconX } from "@tabler/icons-react";
+import feedbackLoader from "../../images/feedback.gif";
 
 function FeedbackPopup({
   show,
@@ -86,7 +87,9 @@ function FeedbackPopup({
         >
           Submit
         </button>
-        <div className="divider short" hidden={!isHidden}></div>
+        <div className={"image-flex"}>
+          <img src={feedbackLoader} hidden={!isHidden}></img>
+        </div>
       </div>
     </div >
   );
