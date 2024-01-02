@@ -5,6 +5,7 @@ import { buildAtomSpacings } from "src/figma_functions/buildDefaultSpacings";
 import { findAllBooleanProps } from "src/figma_functions/utilityFunctions";
 import { findAllVariantProps } from "src/figma_functions/utilityFunctions";
 import { getElementSizes } from "src/figma_functions/utilityFunctions";
+import { buildAnatomySpacings } from "./buildAnatomySpacing";
 
 export function buildSpacingSection(node: InstanceNode, frame: FrameNode) {
   const sizeMarker = buildSizeMarkerComponentSet();
@@ -26,8 +27,26 @@ export function buildSpacingSection(node: InstanceNode, frame: FrameNode) {
     sizeMarker,
     spacingMarker
   );
+
+  const anatomySpacing = buildAnatomySpacings(
+    node,
+    booleanProps,
+    elementSizes,
+    variantProps,
+    sizeMarker,
+    spacingMarker
+  );
+
   atomSpacings.forEach((node) => {
     if (!node) return;
     frame.appendChild(node);
-  }
+  });
+  console.log("anatomySpacing", anatomySpacing);
+  // anatomySpacing.forEach((node) => {
+  //   if (!node) return;
+  //   frame.appendChild(node);
+  // });
+  sizeMarker.remove();
+  spacingMarker.remove();
+  labelComponent.remove();
 }
