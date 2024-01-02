@@ -27,12 +27,15 @@ const IndexPage = ({
   return (
     <div className={"componentBTN-wrapper"}>
       {sortedData.map((element: any, index: number) => {
+        console.log("element", element);
         const title = element.title;
         const wip = element.inProgress;
+        const draft = element.draft || false;
         return (
           <div className={"componentBTN"}>
             <div
-            className={"inner-componentBTN"}
+              className={"inner-componentBTN"}
+              style={{ opacity: draft ? 0.5 : 1 }}
               onClick={() => {
                 setSelectedMasterId(element._id);
                 setIsFromSavedData(true);

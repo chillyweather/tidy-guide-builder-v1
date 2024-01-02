@@ -14,6 +14,7 @@ const Footer = ({
   const selectedElementKey = useContext(BuilderContext)?.selectedElementKey;
   const isValid = !!documentationTitle?.length && !!selectedElementKey?.length;
   const setShowResetPopup = useContext(BuilderContext)?.setShowResetPopup;
+  const setIsDraft = useContext(BuilderContext)?.setIsDraft;
 
   return (
     <div className={"footer"}>
@@ -27,10 +28,11 @@ const Footer = ({
         <button
           className={"second"}
           onClick={() => {
+            setIsDraft(true);
             setIsBuilding(true);
           }}
         >
-          Publish
+          Save changes
         </button>
         <button
           className={isValid ? "primary" : "primary primary-disabled"}

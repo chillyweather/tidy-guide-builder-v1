@@ -47,6 +47,8 @@ interface IContext {
   showCancelPopup: boolean;
   setShowCancelPopup: any;
   setDataForUpdate: any;
+  isDraft: boolean;
+  setIsDraft: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

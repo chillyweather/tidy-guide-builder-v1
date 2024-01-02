@@ -108,6 +108,9 @@ function Plugin() {
   //reset documentation
   const [isReset, setIsReset] = useState(false);
 
+  //is draft
+  const [isDraft, setIsDraft] = useState(false);
+
   //if we need to build on canvas
   const [isBuildingOnCanvas, setIsBuildingOnCanvas] = useState(true);
 
@@ -133,6 +136,7 @@ function Plugin() {
         ["nodeId"]: defaultNode.id,
         ["docs"]: [],
         ["title"]: "",
+        ["draft"]: isDraft,
         ["inProgress"]: isWip,
       };
     });
@@ -299,6 +303,8 @@ function Plugin() {
           setSelectedSections,
           setShowCancelPopup,
           setShowResetPopup,
+          isDraft,
+          setIsDraft,
         }}
       >
         {feedbackPage && (
