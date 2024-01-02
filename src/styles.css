@@ -1567,15 +1567,6 @@ summary button {
   pointer-events: none;
 }
 
-/* .addSection-outer:has(.addSectionIcon[type="paragraph"])::before {
-  content: 'Elements';
-  font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
-  color: #787878;
-  margin-top: 16px;
-  margin-bottom: 4px;
-  padding-left: 10px;
-} */
-
 .addSectionCardInfo {
   display: flex;
   flex-direction: column;
