@@ -46,6 +46,7 @@ declare const styles: {
   readonly "custom-toast": string;
   readonly "dialogFlex": string;
   readonly "dialogInput": string;
+  readonly "dialogLabel": string;
   readonly "dialogTitle": string;
   readonly "disabled": string;
   readonly "divider": string;

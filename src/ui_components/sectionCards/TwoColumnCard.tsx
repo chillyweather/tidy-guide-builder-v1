@@ -31,17 +31,19 @@ const TwoColumnCard = ({
           value={leftTitle}
           onInput={(e) => setLeftTitle(e.currentTarget.value)}
         />
-        <textarea
-          className="columnTextArea listInputStyle"
-          rows={15}
-          maxLength={1000}
-          placeholder="Type text..."
-          value={leftTextContent}
-          onInput={(e) => setLeftTextContent(e.currentTarget.value)}
-        />
-        <div className="textSymbolsCounterRow">
-          <div className="textSymbolsCounter">
-            {leftTextContent.length}/1000
+        <div className="dialogFlex">
+          <textarea
+            className="columnTextArea listInputStyle"
+            rows={15}
+            maxLength={1000}
+            placeholder="Type text..."
+            value={leftTextContent}
+            onInput={(e) => setLeftTextContent(e.currentTarget.value)}
+          />
+          <div className="textSymbolsCounterRow">
+            <div className="textSymbolsCounter">
+              {leftTextContent.length}/1000
+            </div>
           </div>
         </div>
       </div>
@@ -53,17 +55,19 @@ const TwoColumnCard = ({
           value={rightTitle}
           onInput={(e) => setRightTitle(e.currentTarget.value)}
         />
-        <textarea
-          className="columnTextArea listInputStyle"
-          rows={15}
-          maxLength={1000}
-          placeholder="Type text..."
-          value={rightTextContent}
-          onInput={(e) => setRightTextContent(e.currentTarget.value)}
-        />
-        <div className="textSymbolsCounterRow">
-          <div className="textSymbolsCounter">
-            {rightTextContent.length}/1000
+        <div className="dialogFlex">
+          <textarea
+            className="columnTextArea listInputStyle"
+            rows={15}
+            maxLength={1000}
+            placeholder="Type text..."
+            value={rightTextContent}
+            onInput={(e) => setRightTextContent(e.currentTarget.value)}
+          />
+          <div className="textSymbolsCounterRow">
+            <div className="textSymbolsCounter">
+              {rightTextContent.length}/1000
+            </div>
           </div>
         </div>
       </div>
