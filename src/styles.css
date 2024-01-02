@@ -2496,7 +2496,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   opacity: 1;
 }
 
-.listInputStyle {
+.listInputStyle,  .feedbackPopup input, .feedbackPopup textarea{
   width: 100%;
   padding: 12px;
   background-color: var(--tidy-f5);
@@ -2747,7 +2747,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+  gap: 12px;
   color: var(--tidy-32);
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.28), 0px 2px 20px 0px rgba(0, 0, 0, 0.15);
 }

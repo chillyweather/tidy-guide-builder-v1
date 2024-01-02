@@ -25,22 +25,27 @@ function FeedbackPopup({
         <button className={"closePopupButton"} onClick={() => setShow(false)}>
           <IconX />
         </button>
-        <h2 className={"dialogTitle"}>Feedback</h2>
+        <h2 className={"dialogTitle"}>Give feedback</h2>
+        <p>
+        Do you a suggestion ot had any problem?
+        <br/>
+        Let us know in the fields below
+        </p>
         <label className={"dialogLabel"}>
-          Add a title:
           <input
             className={"dialogInput"}
             type="text"
+            placeholder={"Type title..."}
             value={title}
             //@ts-ignore
             onInput={(e) => setTitle(e.target.value)}
           />
         </label>
         <label className={"dialogLabel"}>
-          Add a description:
           <textarea
             className={"dialogTextarea"}
             value={body}
+            placeholder={"Type text..."}
             onInput={(e) => {
               //@ts-ignore
               setBody(e.target.value);
