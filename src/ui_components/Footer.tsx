@@ -51,7 +51,7 @@ const Footer = ({
               setIsBuildingOnCanvas(true);
             }}
           >
-            Publish & Build
+            Publish
           </button>
           <button className={"primary"}>
             <IconChevronDown />
