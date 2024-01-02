@@ -157,7 +157,6 @@ function Plugin() {
   });
 
   on("FOUND_ELEMENT", (foundElement, foundElementName, key) => {
-    console.log("foundElement", foundElement);
     setIsNewElementFound(true);
     setSelectedElement(foundElement);
     setSelectedElementName(foundElementName);
@@ -170,35 +169,11 @@ function Plugin() {
     }
   }
 
-  // useEffect(() => {
-  //   if (isNewElementFound && foundElementData) {
-  //     if (
-  //       selectedElement !== foundElementData.foundElement ||
-  //       selectedElementName !== foundElementData.foundElementName ||
-  //       selectedElementKey !== foundElementData.key
-  //     ) {
-  //       setSelectedElement(foundElementData.foundElement);
-  //       setSelectedElementName(foundElementData.foundElementName);
-  //       setSelectedElementKey(foundElementData.key);
-  //       setIsNewElementFound(false);
-  //     }
-  //   }
-  // }, [
-  //   isNewElementFound,
-  //   foundElementData,
-  //   selectedElement,
-  //   selectedElementName,
-  //   selectedElementKey,
-  // ]);
-
   useEffect(() => {
     const found = checkIfDocumentationExists(dataForUpdate, selectedElementKey);
     if (found && isMainContentOpen && selectedElementName.length) {
       setFoundDocumentation(found);
       setIsToastOpen(true);
-      // alert(
-      //   `Documentation for this element already exists (${found.title}). Please choose another element or edit the existing documentation.`
-      // );
       setSelectedElement(null);
       setSelectedElementName("");
     }
@@ -209,9 +184,7 @@ function Plugin() {
     selectedElementName,
   ]);
 
-  useEffect(() => {
-    // console.log("documentationData", documentationData);
-  }, [documentationData]);
+  useEffect(() => {}, [documentationData]);
 
   (function bodyScroll() {
     document.body.onscroll = function () {
@@ -228,17 +201,6 @@ function Plugin() {
       setIsFirstTime(false);
     }
   }, [isMainContentOpen, isContenFromServerOpen]);
-
-  // useEffect(() => {
-  //   if (isFromSavedData && selectedMasterId) {
-  //     emit(
-  //       "GET_NEW_SELECTION",
-  //       selectedMasterId,
-  //       dataForUpdate,
-  //       selectedMasterId
-  //     );
-  //   }
-  // }, [isFromSavedData, selectedMasterId, dataForUpdate]);
 
   useEffect(() => {
     if (isReset) {

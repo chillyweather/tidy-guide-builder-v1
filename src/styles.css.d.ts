@@ -118,6 +118,9 @@ declare const styles: {
   readonly "paragraph": string;
   readonly "popupButtons": string;
   readonly "primary": string;
+  readonly "publish-content-wrapper": string;
+  readonly "publish-dropdown": string;
+  readonly "publish-dropdown-item": string;
   readonly "resources": string;
   readonly "rightContent": string;
   readonly "rightFooterContent": string;
