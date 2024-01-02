@@ -41,6 +41,7 @@ declare const styles: {
   readonly "componentBTN-wrapper": string;
   readonly "connect-element-button": string;
   readonly "container": string;
+  readonly "create-figma-plugin": string;
   readonly "custom-toast": string;
   readonly "dialogInput": string;
   readonly "dialogTitle": string;

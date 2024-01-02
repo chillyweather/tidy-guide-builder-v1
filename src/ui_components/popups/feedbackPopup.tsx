@@ -13,8 +13,12 @@ function FeedbackPopup({
   setShow: any;
 }) {
   const [title, setTitle] = useState("");
+  const [titleText, setTitleText] = useState("Give feedback");
+  const [bodyText, setBodyText] = useState("Do you a suggestion ot had any problem?\nLet us know in the fields below");
+  const [actionText, setActionText] = useState("Please leave your feedback below");
   const [body, setBody] = useState("");
   const [feedbackText, setFeedbackText] = useState("");
+  // Give feedback
 
   if (!show) {
     return null;
@@ -23,18 +27,16 @@ function FeedbackPopup({
   return (
     <div className={"feedbackPopupBackground"} onClick={() => setShow(false)}>
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
-        <button className={"closePopupButton"} onClick={() => setShow(false)}>
+        <button className={"closePopupButton"} onClick={() => setTitleText("Thanks for your feedback")}>
           <IconX />
         </button>
-        <h2 className={"dialogTitle"}>Give feedback</h2>
+        <h2 className={"dialogTitle"}>{titleText}</h2>
         <p>
-          Do you a suggestion ot had any problem?
-          <br />
-          Let us know in the fields below
+          {bodyText}
         </p>
         <div className={"divider"}></div>
         <p>
-          Please leave your feedback below
+          {actionText}
         </p>
         <label className={"dialogLabel"}>
           <input
