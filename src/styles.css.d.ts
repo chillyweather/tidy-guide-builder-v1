@@ -74,6 +74,7 @@ declare const styles: {
   readonly "hoverButton": string;
   readonly "image": string;
   readonly "image-container": string;
+  readonly "image-flex": string;
   readonly "image-loader": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;

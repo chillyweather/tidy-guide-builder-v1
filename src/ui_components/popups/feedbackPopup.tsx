@@ -2,6 +2,7 @@ import { h } from "preact";
 import { useState } from "preact/hooks";
 import { sendFeedback } from "../ui_functions/sendFeedback";
 import { IconX } from "@tabler/icons-react";
+import feedbackLoader from "../../images/feedback.gif";
 
 function FeedbackPopup({
   show,
@@ -30,11 +31,7 @@ function FeedbackPopup({
     <div className={"feedbackPopupBackground"} onClick={() => setShow(false)}>
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()} style={{ textAlign: align }}>
         <button className={"closePopupButton"} onClick={() => {
-          setTitleText("Thanks for your feedback")
-          setBodyText("Your feedback means a lot to us")
-          setActionText("")
-          setAlign("center")
-          setIsHidden(true)
+          setShow(false);
         }}>
           <IconX />
         </button>
@@ -81,12 +78,18 @@ function FeedbackPopup({
           className={"button submitButton primary"}
           onClick={async () => {
             await sendFeedback(title, `${body} \n ----- \n ${user.name}`);
-            setShow(false);
+            setTitleText("Thanks for your feedback")
+            setBodyText("Your feedback means a lot to us")
+            setActionText("")
+            setAlign("center")
+            setIsHidden(true)
           }}
         >
           Submit
         </button>
-        <div className="divider short" hidden={!isHidden}></div>
+        <div className={"image-flex"}>
+          <img src={feedbackLoader} hidden={!isHidden}></img>
+        </div>
       </div>
     </div >
   );
