@@ -87,6 +87,10 @@ function Plugin() {
   //set selected master id
   const [selectedMasterId, setSelectedMasterId] = useState("");
 
+  //is new element found
+  const [isNewElementFound, setIsNewElementFound] = useState(false);
+  const [foundElementData, setFoundElementData] = useState<any>(null);
+
   //is plugin first time open
   const [isFirstTime, setIsFirstTime] = useState(true);
   const [isDocJustOpened, setIsDocJustOpened] = useState(true);
@@ -152,11 +156,40 @@ function Plugin() {
     setCurrentPage(page);
   });
 
+  on("FOUND_ELEMENT", (foundElement, foundElementName, key) => {
+    console.log("foundElement", foundElement);
+    setIsNewElementFound(true);
+    setSelectedElement(foundElement);
+    setSelectedElementName(foundElementName);
+    setSelectedElementKey(key);
+  });
+
   function checkIfDocumentationExists(docs: any[], id: string) {
     if (docs.length && id) {
       return docs.find((doc) => doc._id === id);
     }
   }
+
+  // useEffect(() => {
+  //   if (isNewElementFound && foundElementData) {
+  //     if (
+  //       selectedElement !== foundElementData.foundElement ||
+  //       selectedElementName !== foundElementData.foundElementName ||
+  //       selectedElementKey !== foundElementData.key
+  //     ) {
+  //       setSelectedElement(foundElementData.foundElement);
+  //       setSelectedElementName(foundElementData.foundElementName);
+  //       setSelectedElementKey(foundElementData.key);
+  //       setIsNewElementFound(false);
+  //     }
+  //   }
+  // }, [
+  //   isNewElementFound,
+  //   foundElementData,
+  //   selectedElement,
+  //   selectedElementName,
+  //   selectedElementKey,
+  // ]);
 
   useEffect(() => {
     const found = checkIfDocumentationExists(dataForUpdate, selectedElementKey);
@@ -195,6 +228,17 @@ function Plugin() {
       setIsFirstTime(false);
     }
   }, [isMainContentOpen, isContenFromServerOpen]);
+
+  // useEffect(() => {
+  //   if (isFromSavedData && selectedMasterId) {
+  //     emit(
+  //       "GET_NEW_SELECTION",
+  //       selectedMasterId,
+  //       dataForUpdate,
+  //       selectedMasterId
+  //     );
+  //   }
+  // }, [isFromSavedData, selectedMasterId, dataForUpdate]);
 
   useEffect(() => {
     if (isReset) {

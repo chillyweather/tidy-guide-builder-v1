@@ -3,6 +3,7 @@ import documentationBuilder from "./figma_functions/documentationBuilder";
 // import { tempData } from "./tempData";
 import { checkSelection } from "./figma_functions/checkSelection";
 import { tokenHandler } from "./figma_functions/tokenHandler";
+import { findElement } from "./figma_functions/findElement";
 
 export default async function () {
   await tokenHandler();
@@ -60,10 +61,19 @@ export default async function () {
     figma.currentPage.selection = [];
   });
 
+  on("GET_NEW_SELECTION", async (key, id) => {
+    console.log("get new selection", key, id);
+    const foundElement = await findElement(key, id);
+    if (foundElement) {
+      const foundElementName = foundElement.name;
+      emit("FOUND_ELEMENT", foundElement, foundElementName, key);
+    }
+  });
+
   once("BUILD", async (data, elementId) => {
     //----building documentation on canvas------//
     try {
-      // await documentationBuilder(data);
+      await documentationBuilder(data);
       console.log("will build documentation");
     } catch (error) {
       console.log("error on documentation build in Figma :>> ", error);

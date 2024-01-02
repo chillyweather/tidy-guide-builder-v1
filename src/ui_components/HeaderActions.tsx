@@ -118,14 +118,14 @@ function HeaderActions() {
             {documentationTitle}
           </div>
         )}
-        {!!selectedElementName && !isFromSavedData && (
+        {!!selectedElementName && (
           <p className={"selectedComp"}>{selectedElementName}</p>
         )}
-        {!selectedElementName && !isFromSavedData && (
+        {!selectedElementName && (
           <p className={"noSelected"}>No selected compontent</p>
         )}
 
-        {selectedElementName && !isFromSavedData ? (
+        {selectedElementName ? (
           <IconX
             onClick={() => {
               setSelectedElement(null);
@@ -135,19 +135,17 @@ function HeaderActions() {
             }}
           />
         ) : (
-          !isFromSavedData && (
-            <button
-              className="connect-element-button"
-              onClick={() => {
-                emit("GET_SELECTION");
-              }}
-            >
-              <IconLink
-                style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
-              />
-              Get component
-            </button>
-          )
+          <button
+            className="connect-element-button"
+            onClick={() => {
+              emit("GET_SELECTION");
+            }}
+          >
+            <IconLink
+              style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
+            />
+            Get component
+          </button>
         )}
       </div>
       <div className={"selectedComponentActions"}>

@@ -4,6 +4,7 @@ import BuilderContext from "../BuilderContext";
 import { DraggableCardList } from "./DraggableCardsList";
 //content cards
 import HeaderCard from "./sectionCards/HeaderCard";
+import { emit } from "@create-figma-plugin/utilities";
 
 const ContentFromServer = ({
   data,
@@ -12,6 +13,10 @@ const ContentFromServer = ({
   data: any;
   selectedMasterId: string;
 }) => {
+  const currentElementId = data.find(
+    (item: any) => item._id === selectedMasterId
+  ).nodeId;
+
   const selectedSections = useContext(BuilderContext)?.selectedSections;
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   const setDocumentationTitle =
@@ -22,6 +27,11 @@ const ContentFromServer = ({
   const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
 
   const foundData = data.find((item: any) => item._id === selectedMasterId);
+
+  useEffect(() => {
+    console.log("first render");
+    emit("GET_NEW_SELECTION", selectedMasterId, data, currentElementId);
+  }, [selectedMasterId, data, currentElementId]);
 
   useEffect(() => {
     if (foundData && foundData._id) {
