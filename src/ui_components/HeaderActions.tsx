@@ -15,7 +15,8 @@ import {
   IconPlus,
 } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
-import sectionData from "src/resources/sectionData";
+// import sectionData from "src/resources/sectionData";
+import { sectionData, PDSectionData } from "src/resources/dataForElements";
 import { generateUniqueId } from "./ui_functions/generateUniqueId";
 
 const cardsForPopup = sectionData;
@@ -56,7 +57,10 @@ function AddSectionPopupCard(card: any) {
           <p class={"addSectionTitle"}>{card.title}</p>
           <p class={"addSectionDescription"}>{card.description}</p>
         </div>
-        <div className={"tooltipIcon"} alt={"This element is already in use and can be selected only once."}>
+        <div
+          className={"tooltipIcon"}
+          alt={"This element is already in use and can be selected only once."}
+        >
           <IconInfoCircle />
         </div>
       </div>
@@ -70,11 +74,14 @@ async function closeMenu(event: Event) {
   event.target.parentElement.remove();
 }
 
-function AddSectionPopup(cards: any[], cardElement: any) {
+function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
   return (
     <div class={"addSectionPopup"}>
       <div className="addSectionPupup-inner">
         <h2>Predefined Elements</h2>
+        {pdcards.map((card) => {
+          return cardElement(card);
+        })}
         {cards.map((card) => {
           return cardElement(card);
         })}
@@ -161,7 +168,7 @@ function HeaderActions() {
           }}
         ></div>
         {isAddSectionPopupOpen &&
-          AddSectionPopup(cardsForPopup, AddSectionPopupCard)}
+          AddSectionPopup(PDSectionData, cardsForPopup, AddSectionPopupCard)}
       </div>
     </div>
   );
