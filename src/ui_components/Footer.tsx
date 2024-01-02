@@ -48,7 +48,6 @@ const Footer = ({
             className={isValid ? "primary" : "primary primary-disabled"}
             onClick={() => {
               setIsBuilding(true);
-              setIsBuildingOnCanvas(true);
             }}
           >
             Publish
