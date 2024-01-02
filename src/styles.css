@@ -19,6 +19,31 @@
   --text-size: 12px;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: transparent;
+  padding-right: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: var(--tidy-disabled);
+  border-radius: 9999px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--tidy-disabled);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -1457,7 +1482,8 @@ summary button {
   height: 16px;
 }
 
-.footer .primary, .feedbackPopup .primary {
+.footer .primary,
+.feedbackPopup .primary {
   background-color: var(--tidy-primary);
   color: #ffffff;
   min-height: 16px;
@@ -1465,16 +1491,19 @@ summary button {
   padding: 8px;
   border-radius: 6px;
 }
-.feedbackPopup .primary{
+
+.feedbackPopup .primary {
   padding: 8px 24px;
   margin-top: 8px;
 }
 
-.footer .primary:hover, .feedbackPopup .primary:hover {
+.footer .primary:hover,
+.feedbackPopup .primary:hover {
   background-color: var(--tidy-btn-hover);
 }
 
-.footer .primary:active, .feedbackPopup .primary:active {
+.footer .primary:active,
+.feedbackPopup .primary:active {
   background-color: var(--tidy-btn-pressed);
 }
 
@@ -2401,14 +2430,16 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   margin-bottom: 18px;
 }
 
-.twoColumnCardBodyContent .textSymbolsCounterRow, .feedbackPopup .textSymbolsCounterRow {
+.twoColumnCardBodyContent .textSymbolsCounterRow,
+.feedbackPopup .textSymbolsCounterRow {
   position: absolute;
   bottom: 1px;
   right: 1px;
   width: fit-content;
   border-radius: 8px;
 }
-.textSymbolsCounterRow:hover{
+
+.textSymbolsCounterRow:hover {
   background-color: var(--tidy-f5);
 }
 
@@ -2520,15 +2551,23 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   cursor: text;
   resize: none;
 }
-.feedbackPopup textarea{
+
+.feedbackPopup textarea {
   min-height: 160px;
+}
+
+.feedbackPopup input:focus,
+.feedbackPopup textarea:focus {
+  border-color: var(--tidy-primary);
 }
 
 .listInputStyle:focus {
   border-color: var(--tidy-primary);
 }
 
-.listInputStyle::placeholder, .feedbackPopup input::placeholder, .feedbackPopup textarea::placeholder {
+.listInputStyle::placeholder,
+.feedbackPopup input::placeholder,
+.feedbackPopup textarea::placeholder {
   font-style: italic;
   font-weight: 300;
   color: #8E8F94;
@@ -2771,7 +2810,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   color: var(--tidy-32);
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.28), 0px 2px 20px 0px rgba(0, 0, 0, 0.15);
 }
-.feedbackPopup label{
+
+.feedbackPopup label {
   position: relative;
 }
 
@@ -2786,7 +2826,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .feedbackPopup p {
   margin-bottom: 0;
 }
-.feedbackPopup .divider{
+
+.feedbackPopup .divider {
   border-bottom: 1px solid var(--tidy-divider);
   margin: 6px 0;
 }
