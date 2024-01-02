@@ -19,7 +19,7 @@
   --text-size: 12px;
 }
 
-#create-figma-plugin{
+#create-figma-plugin {
   max-height: calc(100vh - 184px);
 }
 
@@ -3005,7 +3005,9 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .publish-dropdown-item {
   display: flex;
   align-items: center;
-  gap: 8px
+  gap: 8px;
+  padding: 12px;
+  cursor: pointer !important;
 }
 
 .publish-content-wrapper {
@@ -3014,6 +3016,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   align-items: flex-start;
   gap: 8px;
   flex: 1 0 0;
+  cursor: pointer !important;
 }
 
 @keyframes rotateAnim {
