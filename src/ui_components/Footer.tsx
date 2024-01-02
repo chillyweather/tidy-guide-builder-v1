@@ -1,7 +1,11 @@
 import { h } from "preact";
-import { useContext, useEffect } from "preact/hooks";
+import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
-import { IconReload, IconChevronDown } from "@tabler/icons-react";
+import {
+  IconReload,
+  IconChevronDown,
+  Icon3dCubeSphere,
+} from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
 import {
   getDocumentations,
@@ -16,11 +20,34 @@ const Footer = ({
   setIsBuilding: Function;
   setIsBuildingOnCanvas: Function;
 }) => {
+  const [isPublisDropdownOpen, setIsPublisDropdownOpen] = useState(false);
   const documentationTitle = useContext(BuilderContext)?.documentationTitle;
   const selectedElementKey = useContext(BuilderContext)?.selectedElementKey;
   const isValid = !!documentationTitle?.length && !!selectedElementKey?.length;
   const setShowResetPopup = useContext(BuilderContext)?.setShowResetPopup;
   const setIsDraft = useContext(BuilderContext)?.setIsDraft;
+
+  function PublishButtonDropdown() {
+    return (
+      <div className={"publish-dropdown"}>
+        <div className={"publish-dropdown-item"}>
+          <div className="publish-content-wrapper">
+            <h2>Build on canvas</h2>
+            <p>Publish to Tidy Viewer and Build on Canvas</p>
+          </div>
+          <Icon3dCubeSphere />
+        </div>
+        <div className="divider"></div>
+        <div className={"publish-dropdown-item"}>
+          <div className={"publish-content-wrapper"}>
+            <h2>Publish to viewer</h2>
+            <p>Publish to Tidy Viewer</p>
+          </div>
+          <Icon3dCubeSphere />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={"footer"}>
@@ -40,6 +67,7 @@ const Footer = ({
         >
           Save changes
         </button>
+        {isPublisDropdownOpen && <PublishButtonDropdown />}
         <div
           className={isValid ? "split" : "split split-disabled"}
           disabled={!isValid}
@@ -52,7 +80,10 @@ const Footer = ({
           >
             Publish
           </button>
-          <button className={"primary"}>
+          <button
+            className={"primary"}
+            onClick={() => setIsPublisDropdownOpen(true)}
+          >
             <IconChevronDown />
           </button>
         </div>

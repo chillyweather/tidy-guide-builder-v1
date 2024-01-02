@@ -162,7 +162,6 @@ function HeaderActions() {
         <div
           className="modal-bg"
           onClick={() => {
-            console.log("we are here");
             setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
           }}
         ></div>

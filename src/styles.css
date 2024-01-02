@@ -2988,6 +2988,34 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   font-weight: 400;
 }
 
+.publish-dropdown {
+  position: absolute;
+  right: 16px;
+  bottom: 75px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 6px;
+  background: #FFF;
+  box-shadow: -7px 0px 15px 0px rgba(143, 143, 143, 0.10), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -109px 0px 44px 0px rgba(143, 143, 143, 0.01);
+  padding: 6px;
+  gap: 6px
+}
+
+.publish-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px
+}
+
+.publish-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1 0 0;
+}
+
 @keyframes rotateAnim {
   0% {
     transform: rotate(0deg);
