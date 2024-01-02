@@ -32,16 +32,17 @@ const IndexPage = ({
         const wip = element.inProgress;
         const draft = element.draft || false;
         return (
-          <div className={"componentBTN"}>
+          <div className={"componentBTN"}
+            onClick={() => {
+              setSelectedMasterId(element._id);
+              setIsFromSavedData(true);
+              setIsIndexOpen(false);
+              setIsContenFromServerOpen(true);
+            }}
+          >
             <div
               className={"inner-componentBTN"}
               style={{ opacity: draft ? 0.5 : 1 }}
-              onClick={() => {
-                setSelectedMasterId(element._id);
-                setIsFromSavedData(true);
-                setIsIndexOpen(false);
-                setIsContenFromServerOpen(true);
-              }}
             >
               {title}
               {wip && <div className={"wip"}>WIP</div>}
