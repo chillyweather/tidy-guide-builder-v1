@@ -141,7 +141,6 @@ body:has(.login) {
 }
 
 .componentHeader h2 {
-  /* content: 'Component index'; */
   position: absolute;
   pointer-events: none;
   top: 58px;
