@@ -10,6 +10,7 @@ import {
   IconColumns,
   IconListDetails,
   IconPhoto,
+  IconInfoCircle,
   IconPlayerPlayFilled,
   IconPlus,
 } from "@tabler/icons-react";
@@ -55,8 +56,8 @@ function AddSectionPopupCard(card: any) {
           <p class={"addSectionTitle"}>{card.title}</p>
           <p class={"addSectionDescription"}>{card.description}</p>
         </div>
-        <div>
-          <IconCalendarEvent className={"tooltipIcon"} />
+        <div className={"tooltipIcon"} alt={"This element is already in use and can be selected only once."}>
+          <IconInfoCircle />
         </div>
       </div>
     </div>

@@ -15,6 +15,9 @@ function ResetPopup() {
     <div
       className={"feedbackPopupBackground"}
       onClick={() => setShowResetPopup(false)}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") setShowResetPopup(false);
+      }}
     >
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
         <button
@@ -25,7 +28,7 @@ function ResetPopup() {
         </button>
         <h2 className={"dialogTitle"}>Reset all Elements</h2>
         <p>This will reset all selected elements. </p>
-        <div className="popupButtons">
+        <div className="popupButtons footer">
           <button
             className={"button"}
             onClick={() => {
@@ -35,7 +38,7 @@ function ResetPopup() {
             Cancel
           </button>
           <button
-            className={"button"}
+            className={"button primary"}
             onClick={() => {
               setIsReset(true);
               setShowResetPopup(false);

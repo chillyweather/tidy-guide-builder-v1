@@ -14,6 +14,8 @@
   --tidy-link: #7948d6;
   --tidy-divider: #ededed;
   --tidy-32: #323232;
+  --tidy-f5: #F5F5F5;
+  --tidy-ec: #ECEBF5;
   --text-size: 12px;
 }
 
@@ -161,11 +163,11 @@ body:has(.login) {
 }
 
 .componentBTN:hover {
-  background-color: #ecebf5;
+  background-color: var(--tidy-ec);
 }
 
 .componentBTN:active {
-  background-color: #ecebf5;
+  background-color: var(--tidy-ec);
   box-shadow: 0 0 0 1.5px #9C71EF inset;
 }
 
@@ -550,7 +552,7 @@ button svg {
 }
 
 .headerActions .secondary:active {
-  background-color: #ECEBF5;
+  background-color: var(--tidy-ec);
 }
 
 .empty-image {
@@ -770,6 +772,10 @@ body:has(.navigation a) .header-login {
 
 .container:has(.login) {
   margin-top: 84px;
+}
+
+.container:has(.login) .mainContent {
+  display: none;
 }
 
 .header form {
@@ -1135,7 +1141,7 @@ li::before {
 }
 
 .header .add-button {
-  transform: translate(470px, 48px);
+  transform: translate(450px, 48px);
   background-color: var(--tidy-primary);
   color: #ffffff;
 }
@@ -1461,14 +1467,28 @@ summary button {
   background-color: var(--tidy-btn-pressed);
 }
 
-.footer .primary-disabled {
+.footer .split {
+  display: flex;
+}
+
+.footer .split-disabled button {
   pointer-events: none;
   background-color: #ECE9F2;
-  color: #A6A8AD
+  color: #A6A8AD;
+}
+
+.footer .split button {
+  padding: 12px;
+  border-radius: 0 8px 8px 0;
+}
+
+.footer .split button:first-of-type {
+  padding: 12px 19px;
+  border-radius: 8px 0 0 8px;
+  border-right: 1px solid #ffffff;
 }
 
 .second {
-  /* background-color: #F2F0F6; */
   background-color: var(--tidy-background);
   box-shadow: 0 0 0 1px var(--tidy-primary) inset;
   color: var(--tidy-primary) !important;
@@ -1480,7 +1500,6 @@ summary button {
 }
 
 .second:active {
-  /* background-color: #E3DFEC; */
   background-color: var(--tidy-background);
   color: var(--tidy-btn-hover) !important;
   box-shadow: 0 0 0 1px var(--tidy-btn-hover) inset;
@@ -1620,6 +1639,7 @@ summary button {
   background-color: #FFF5F6;
   color: #BA3082;
 }
+
 .addSectionIcon[type="list"] .list {
   display: block;
 }
@@ -1677,7 +1697,6 @@ summary button {
 
 body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) {
   max-height: 40px;
-  overflow: hidden;
   pointer-events: none;
   transition: all 300ms ease-in-out 0s;
 }
@@ -1685,6 +1704,10 @@ body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.a
 body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) .noIcon {
   width: 24px;
   height: 22px;
+}
+
+body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"])>.tooltipIcon {
+  visibility: visible;
 }
 
 body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) .addSectionCardInfo {
@@ -1696,9 +1719,27 @@ body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.a
   margin: 0;
 }
 
+.sectionCard:has(.addSectionIcon[type="anatomy"]) .noPredefined,
+.sectionCard:has(.addSectionIcon[type="property"]) .noPredefined,
+.sectionCard:has(.addSectionIcon[type="spacing"]) .noPredefined,
+.sectionCard:has(.addSectionIcon[type="variants"]) .noPredefined,
+.sectionCard:has(.addSectionIcon[type="release-notes"]) .noPredefined {
+  display: none !important;
+  pointer-events: none;
+}
+
+.sectionCard:has(.addSectionIcon[type="anatomy"]) .hidePredefined,
+.sectionCard:has(.addSectionIcon[type="property"]) .hidePredefined,
+.sectionCard:has(.addSectionIcon[type="spacing"]) .hidePredefined,
+.sectionCard:has(.addSectionIcon[type="variants"]) .hidePredefined,
+.sectionCard:has(.addSectionIcon[type="release-notes"]) .hidePredefined {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) {
   max-height: 40px;
-  overflow: hidden;
+  /* overflow: hidden; */
   pointer-events: none;
   transition: all 300ms ease-in-out 0s;
 }
@@ -1706,6 +1747,10 @@ body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.a
 body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) .noIcon {
   width: 24px;
   height: 22px;
+}
+
+body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"])>.tooltipIcon {
+  visibility: visible;
 }
 
 body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) .addSectionCardInfo {
@@ -1719,7 +1764,7 @@ body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.a
 
 body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) {
   max-height: 40px;
-  overflow: hidden;
+  /* overflow: hidden; */
   pointer-events: none;
   transition: all 300ms ease-in-out 0s;
 }
@@ -1727,6 +1772,10 @@ body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.
 body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) .noIcon {
   width: 24px;
   height: 22px;
+}
+
+body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"])>.tooltipIcon {
+  visibility: visible;
 }
 
 body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) .addSectionCardInfo {
@@ -1740,7 +1789,7 @@ body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.
 
 body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) {
   max-height: 40px;
-  overflow: hidden;
+  /* overflow: hidden; */
   pointer-events: none;
   transition: all 300ms ease-in-out 0s;
 }
@@ -1748,6 +1797,10 @@ body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.
 body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) .noIcon {
   width: 24px;
   height: 22px;
+}
+
+body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"])>.tooltipIcon {
+  visibility: visible;
 }
 
 body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) .addSectionCardInfo {
@@ -1761,7 +1814,7 @@ body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.
 
 body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) {
   max-height: 40px;
-  overflow: hidden;
+  /* overflow: hidden; */
   pointer-events: none;
   transition: all 300ms ease-in-out 0s;
 }
@@ -1769,6 +1822,10 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .noIcon {
   width: 24px;
   height: 22px;
+}
+
+body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"])>.tooltipIcon {
+  visibility: visible;
 }
 
 body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .addSectionCardInfo {
@@ -2220,12 +2277,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 .cardAuxButton:hover,
 .drag-item button:hover {
-  background-color: #F5F5F5;
+  background-color: var(--tidy-f5);
 }
 
 .cardAuxButton:active,
 .drag-item button:active {
-  background-color: #ECEBF5;
+  background-color: var(--tidy-ec);
 }
 
 .cardAuxButton:focus-visible,
@@ -2298,7 +2355,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: transparent;
   resize: none;
   font-family: Inter;
-  font-size: 14px;
+  font-size: var(--text-size);
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
@@ -2341,26 +2398,50 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 /* two columns card */
 .twoColumnCardBodyContent {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 48px;
   width: 100%;
+  margin-bottom: 18px;
+}
+
+.twoColumnCardBodyContent .textSymbolsCounterRow {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .oneColumn {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
+}
+
+.twoColumnCardBodyContent::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  top: 0;
+  left: 50%;
+  background-color: var(--tidy-divider);
+}
+
+.oneColumn input {
+  text-transform: none;
+  font-weight: 400;
 }
 
 .columnTitle {
   color: var(--tidy-32);
   font-family: Inter;
-  font-size: 14px;
+  font-size: var(--text-size);
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -2374,7 +2455,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: transparent;
   resize: none;
   font-family: Inter;
-  font-size: 14px;
+  font-size: var(--text-size);
   font-style: normal;
   font-weight: 400;
   line-height: 130%;
@@ -2433,9 +2514,10 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .listInputStyle {
   width: 100%;
   padding: 12px;
-  background-color: #F5F5F5;
-  border: 1px solid #F5F5F5;
+  background-color: var(--tidy-f5);
+  border: 1px solid var(--tidy-f5);
   border-radius: 8px;
+  cursor: text;
 }
 
 .listInputStyle:focus {
@@ -2542,7 +2624,26 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 .draft {
   background-color: #F5F6FA;
-  box-shadow: 0 0 0 1px #DCE0EF inset;
+  box-shadow: 0 0 0 1px #DCE0EF inset !important;
+}
+
+.draft .videoInputRow img {
+  filter: hue-rotate(198deg) grayscale(52%);
+  opacity: 0.25;
+}
+
+.draft input,
+.draft textarea {
+  background-color: #EEF0F6;
+}
+
+.draft input[type="checkbox"] {
+  background-color: transparent;
+}
+
+.draft .addSectionIcon {
+  background-color: #E8EDFC;
+  color: #92A1B9;
 }
 
 .draft .cardHeader,
@@ -2597,9 +2698,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 }
 
 .drag-item {
-  /* pointer-events: none; */
   margin: 0 12px;
-  /* margin-bottom: 0; */
 }
 
 .drag-item:has(svg ~ svg) {
@@ -2621,11 +2720,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   z-index: 100;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #fcfcfea6;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 998;
+  backdrop-filter: blur(1px);
 }
 
 .absDiv {
@@ -2655,28 +2755,56 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .feedbackPopup {
   position: relative;
   width: 400px;
-  height: 400px;
   border-radius: 10px;
-  background-color: coral;
+  background-color: #ffffff;
   padding: 20px;
+  padding-top: 48px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  color: var(--tidy-32);
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.28), 0px 2px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+.dialogTitle {
+  font-size: calc(var(--text-size) + (var(--text-size) / 3.5));
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .popupButtons {
+  position: relative;
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  height: fit-content;
+  padding: 0;
+  margin-top: 12px;
 }
 
 .closePopupButton {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 12px;
+  right: 16px;
+  min-height: 24px;
+  min-width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  color: var(--tidy-32);
+}
+
+.closePopupButton:hover {
+  background-color: var(--tidy-f5);
+}
+
+.closePopupButton:active {
+  background-color: var(--tidy-ec);
 }
 
 .loader {
@@ -2690,6 +2818,43 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 .rotatingBucket {
   animation: rotateAnim 1000ms infinite linear;
+}
+
+.tooltipIcon {
+  position: relative;
+  color: #787878;
+  pointer-events: all !important;
+  visibility: hidden;
+}
+
+.tooltipIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.tooltipIcon::after {
+  content: attr(alt);
+  visibility: hidden;
+  width: 30ch;
+  line-height: 1.3;
+  font-size: calc(var(--text-size) - (var(--text-size) / 7));
+  background-color: #DEDEE8;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 4%);
+  color: var(--tidy-32);
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltipIcon:hover::after {
+  visibility: visible;
+  opacity: 1;
 }
 
 .tooltip {
@@ -2734,11 +2899,20 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   left: 20%;
   width: 60%;
   background-color: #4D4D4D;
-  color: #ECEBF5;
+  color: var(--tidy-ec);
   padding: 8px 12px;
   border-radius: 8px;
   z-index: 9999;
   font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
+}
+
+.custom-toast div {
+  white-space: pre;
+  font-weight: 800;
+}
+
+.custom-toast div::first-line {
+  font-weight: 400;
 }
 
 @keyframes rotateAnim {

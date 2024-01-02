@@ -43,6 +43,7 @@ declare const styles: {
   readonly "container": string;
   readonly "custom-toast": string;
   readonly "dialogInput": string;
+  readonly "dialogTitle": string;
   readonly "disabled": string;
   readonly "draft": string;
   readonly "drag-item": string;
@@ -67,6 +68,7 @@ declare const styles: {
   readonly "headerActions": string;
   readonly "headerCard": string;
   readonly "headerContent": string;
+  readonly "hidePredefined": string;
   readonly "hoverButton": string;
   readonly "image": string;
   readonly "image-container": string;
@@ -106,6 +108,7 @@ declare const styles: {
   readonly "nav-wrapper": string;
   readonly "navigation": string;
   readonly "noIcon": string;
+  readonly "noPredefined": string;
   readonly "noSelected": string;
   readonly "notFilled": string;
   readonly "oneColumn": string;
@@ -114,7 +117,6 @@ declare const styles: {
   readonly "paragraph": string;
   readonly "popupButtons": string;
   readonly "primary": string;
-  readonly "primary-disabled": string;
   readonly "resources": string;
   readonly "rightContent": string;
   readonly "rightFooterContent": string;
@@ -139,14 +141,18 @@ declare const styles: {
   readonly "show": string;
   readonly "side-flex": string;
   readonly "singleLink": string;
+  readonly "split": string;
+  readonly "split-disabled": string;
   readonly "subtitle": string;
   readonly "text-size": string;
   readonly "textCardBodyContent": string;
   readonly "textSymbolsCounter": string;
+  readonly "textSymbolsCounterRow": string;
   readonly "tidyLogo": string;
   readonly "title-row": string;
   readonly "title-wrapper": string;
   readonly "tooltip": string;
+  readonly "tooltipIcon": string;
   readonly "tooltiptext": string;
   readonly "top": string;
   readonly "two-columns": string;

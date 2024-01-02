@@ -354,7 +354,7 @@ export const ContentCard = (cardData: any, index: number) => {
         <div className="rightContent">
           {!isSelected && (
             <button
-              className={"cardAuxButton hoverButton"}
+              className={"cardAuxButton hoverButton noPredefined"}
               onClick={handleDuplicateSection}
             >
               <IconCopy />
@@ -375,7 +375,7 @@ export const ContentCard = (cardData: any, index: number) => {
           {currentCardContent(cardType)}
           {/*//!all card content here */}
           <div className="cardFooter">
-            <div className="leftContent">
+            <div className="leftContent hidePredefined">
               {PublishToggle(publish, setPublish, "Publish to Tidy Viewer")}
             </div>
             <div className="rightContent">
@@ -390,7 +390,7 @@ export const ContentCard = (cardData: any, index: number) => {
                 <IconEyeOff />
               </button>
               <button
-                className={"cardAuxButton"}
+                className={"cardAuxButton noPredefined"}
                 onClick={handleDuplicateSection}
               >
                 <IconCopy />

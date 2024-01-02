@@ -1,7 +1,13 @@
 import { h } from "preact";
 import { useContext, useEffect } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
-import { IconReload } from "@tabler/icons-react";
+import { IconReload, IconChevronDown } from "@tabler/icons-react";
+import { emit } from "@create-figma-plugin/utilities";
+import {
+  getDocumentations,
+  updateDocumentation,
+  createDocumentation,
+} from "./ui_functions/documentationHandlers";
 
 const Footer = ({
   setIsBuilding,
@@ -34,16 +40,23 @@ const Footer = ({
         >
           Save changes
         </button>
-        <button
-          className={isValid ? "primary" : "primary primary-disabled"}
-          onClick={() => {
-            setIsBuilding(true);
-            setIsBuildingOnCanvas(true);
-          }}
+        <div
+          className={isValid ? "split" : "split split-disabled"}
           disabled={!isValid}
         >
-          Publish & Build
-        </button>
+          <button
+            className={isValid ? "primary" : "primary primary-disabled"}
+            onClick={() => {
+              setIsBuilding(true);
+              setIsBuildingOnCanvas(true);
+            }}
+          >
+            Publish & Build
+          </button>
+          <button className={"primary"}>
+            <IconChevronDown />
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -319,10 +319,10 @@ function Plugin() {
         {showResetPopup && <ResetPopup />}
         {isToastOpen && (
           <Toast
-            message={`Documentation for this element already exists <b>${
+            message={`Documentations must be unique, this element already have one in: \n${
               //@ts-ignore
               foundDocumentation.title
-            }</b>. Please choose another element or edit the existing documentation.`}
+            }`}
             onClose={closePopup}
           />
         )}
