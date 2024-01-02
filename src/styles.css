@@ -134,17 +134,22 @@ body:has(.login) {
   align-items: center;
   text-align: left;
   gap: 8px;
-  padding: 8px 16px;
+  padding-right: 16px;
+  /* padding: 8px 16px; */
   border-radius: 8px;
   width: 100%;
-  height: 36px;
+  /* height: 36px; */
   cursor: pointer;
 }
 
 .inner-componentBTN {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
   gap: 8px;
+  height: 36px;
+  padding: 8px 16px;
 }
 
 .componentBTN div,
