@@ -39,6 +39,7 @@ declare const styles: {
   readonly "columnTitle": string;
   readonly "componentBTN": string;
   readonly "componentBTN-wrapper": string;
+  readonly "componentHeader": string;
   readonly "connect-element-button": string;
   readonly "container": string;
   readonly "create-figma-plugin": string;

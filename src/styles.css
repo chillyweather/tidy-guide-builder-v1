@@ -134,13 +134,16 @@ body:has(.login) {
   padding-right: 32px;
   padding-left: 32px;
 }
-
-.componentBTN:first-of-type::before {
-  content: 'Component index';
+.componentHeader{
+  position: relative;
+  width: 100%;
+}
+.componentHeader h2 {
+  /* content: 'Component index'; */
   position: absolute;
   pointer-events: none;
-  top: -40px;
-  left: 0;
+  top: 58px;
+  left: 28px;
   font-weight: 600;
   font-size: calc(var(--text-size) + (var(--text-size) / 2.5));
 
