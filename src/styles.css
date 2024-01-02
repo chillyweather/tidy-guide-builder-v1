@@ -3028,6 +3028,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   flex: 1 0 0;
   cursor: pointer !important;
 }
+.split .primary svg{
+  transition: transform 200ms ease-in-out 0s;
+}
+.publish-dropdown + .split .primary svg{
+  transform: rotate(180deg);
+}
 
 @keyframes rotateAnim {
   0% {
