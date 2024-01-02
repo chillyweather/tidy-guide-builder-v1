@@ -45,6 +45,7 @@ declare const styles: {
   readonly "dialogInput": string;
   readonly "dialogTitle": string;
   readonly "disabled": string;
+  readonly "divider": string;
   readonly "draft": string;
   readonly "drag-item": string;
   readonly "dragIcon": string;

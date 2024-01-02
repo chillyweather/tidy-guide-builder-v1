@@ -82,6 +82,7 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
         {pdcards.map((card) => {
           return cardElement(card);
         })}
+        <h2>Elements</h2>
         {cards.map((card) => {
           return cardElement(card);
         })}

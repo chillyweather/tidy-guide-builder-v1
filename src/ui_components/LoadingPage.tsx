@@ -1,5 +1,5 @@
 import { h } from "preact";
-import loader from "../images/tidy-Loader-x2.gif";
+import loader from "../images/loader-v1-b.gif";
 import { VerticalSpace, Text, Muted } from "@create-figma-plugin/ui";
 const LoaderPage = () => {
   return (
