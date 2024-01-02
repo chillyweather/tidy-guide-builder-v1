@@ -86,6 +86,7 @@ function FeedbackPopup({
         >
           Submit
         </button>
+        <div className="divider short" hidden={!isHidden}></div>
       </div>
     </div >
   );
