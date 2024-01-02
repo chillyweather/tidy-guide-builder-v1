@@ -89,7 +89,9 @@ const Header = ({
       <div className="headerContent">
         {!isLoginPageOpen &&
           (isIndexOpen ? (
-            <button
+            <div className="componentHeader">
+              <h2>Component Index</h2>
+              <button
               className="flex-button add-button"
               onClick={() => {
                 setIsIndexOpen(false);
@@ -100,6 +102,7 @@ const Header = ({
               <IconPlus />
               New Documentation
             </button>
+            </div>
           ) : (
             <button
               className="flex-button"
