@@ -38,8 +38,8 @@ const Footer = ({
           }}
         >
           <div className="publish-content-wrapper">
-            <h2>Build on canvas</h2>
-            <p>Publish to Tidy Viewer and Build on Canvas</p>
+            <h4>Build on Canvas</h4>
+            <p>Build on Canvas and publish to Tidy Viewer</p>
           </div>
           <Icon3dCubeSphere />
         </div>
@@ -52,7 +52,7 @@ const Footer = ({
           }}
         >
           <div className={"publish-content-wrapper"}>
-            <h2>Publish to viewer</h2>
+            <h4>Publish to Viewer</h4>
             <p>Publish to Tidy Viewer</p>
           </div>
           <Icon3dCubeSphere />
