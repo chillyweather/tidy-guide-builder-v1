@@ -54,7 +54,7 @@ function FeedbackPopup({
             onInput={(e) => setTitle(e.target.value)}
           />
         </label>
-        <label className={"dialogLabel"} hidden={isHidden}>
+        <label className={"dialogLabel dialogFlex"} hidden={isHidden}>
           <textarea
             hidden={isHidden}
             className={"dialogTextarea"}

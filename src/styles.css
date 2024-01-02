@@ -134,10 +134,12 @@ body:has(.login) {
   padding-right: 32px;
   padding-left: 32px;
 }
-.componentHeader{
+
+.componentHeader {
   position: relative;
   width: 100%;
 }
+
 .componentHeader h2 {
   /* content: 'Component index'; */
   position: absolute;
@@ -2444,11 +2446,11 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 .twoColumnCardBodyContent .textSymbolsCounterRow,
 .feedbackPopup .textSymbolsCounterRow {
-  position: absolute;
+  /* position: absolute;
   bottom: 1px;
   right: 1px;
   width: fit-content;
-  border-radius: 8px;
+  border-radius: 8px; */
 }
 
 .textSymbolsCounterRow:hover {
@@ -2858,6 +2860,22 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .dialogTitle {
   font-size: calc(var(--text-size) + (var(--text-size) / 3.5));
   font-weight: 600;
+}
+
+.dialogFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background-color: var(--tidy-f5);
+  border: 1px solid var(--tidy-f5);
+  border-radius: 8px;
+}
+
+.dialogFlex:focus-within {
+  border-color: var(--tidy-primary);
+}
+.dialogFlex textarea:focus{
+  border-color: transparent;
 }
 
 .popupButtons {
