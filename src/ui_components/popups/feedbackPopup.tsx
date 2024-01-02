@@ -27,9 +27,13 @@ function FeedbackPopup({
         </button>
         <h2 className={"dialogTitle"}>Give feedback</h2>
         <p>
-        Do you a suggestion ot had any problem?
-        <br/>
-        Let us know in the fields below
+          Do you a suggestion ot had any problem?
+          <br />
+          Let us know in the fields below
+        </p>
+        <div className={"divider"}></div>
+        <p>
+          Please leave your feedback below
         </p>
         <label className={"dialogLabel"}>
           <input
@@ -53,7 +57,7 @@ function FeedbackPopup({
           />
         </label>
         <button
-          className={"button submitButton"}
+          className={"button submitButton primary"}
           onClick={async () => {
             await sendFeedback(title, `${body} \n ----- \n ${user.name}`);
             setShow(false);

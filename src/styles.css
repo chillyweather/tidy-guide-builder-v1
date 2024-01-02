@@ -1457,16 +1457,24 @@ summary button {
   height: 16px;
 }
 
-.footer .primary {
+.footer .primary, .feedbackPopup .primary {
   background-color: var(--tidy-primary);
   color: #ffffff;
+  min-height: 16px;
+  min-width: 16px;
+  padding: 8px;
+  border-radius: 8px;
+}
+.feedbackPopup .primary{
+  padding: 8px 32px;
+  margin-top: 8px;
 }
 
-.footer .primary:hover {
+.footer .primary:hover, .feedbackPopup .primary:hover {
   background-color: var(--tidy-btn-hover);
 }
 
-.footer .primary:active {
+.footer .primary:active, .feedbackPopup .primary:active {
   background-color: var(--tidy-btn-pressed);
 }
 
@@ -2496,7 +2504,9 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   opacity: 1;
 }
 
-.listInputStyle,  .feedbackPopup input, .feedbackPopup textarea{
+.listInputStyle,
+.feedbackPopup input,
+.feedbackPopup textarea {
   width: 100%;
   padding: 12px;
   background-color: var(--tidy-f5);
@@ -2505,12 +2515,15 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   cursor: text;
   resize: none;
 }
+.feedbackPopup textarea{
+  min-height: 160px;
+}
 
 .listInputStyle:focus {
   border-color: var(--tidy-primary);
 }
 
-.listInputStyle::placeholder {
+.listInputStyle::placeholder, .feedbackPopup input::placeholder, .feedbackPopup textarea::placeholder {
   font-style: italic;
   font-weight: 300;
   color: #8E8F94;
@@ -2748,22 +2761,30 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 12px;
   color: var(--tidy-32);
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.28), 0px 2px 20px 0px rgba(0, 0, 0, 0.15);
 }
-.feedbackPopup *{
+
+.feedbackPopup * {
   width: 100%;
 }
-.feedbackPopup button{
+
+.feedbackPopup button {
   width: fit-content;
+}
+
+.feedbackPopup p {
+  margin-bottom: 0;
+}
+.feedbackPopup .divider{
+  border-bottom: 1px solid var(--tidy-divider);
 }
 
 .dialogTitle {
   font-size: calc(var(--text-size) + (var(--text-size) / 3.5));
   font-weight: 600;
-  margin-bottom: 12px;
 }
 
 .popupButtons {
