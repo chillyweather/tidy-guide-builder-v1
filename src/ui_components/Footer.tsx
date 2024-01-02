@@ -69,17 +69,17 @@ const Footer = ({
           Save Changes
         </button>
         <div className={isValid ? "split" : "split split-disabled"} disabled={!isValid}>
-        <button
-          className={isValid ? "primary" : "primary primary-disabled"}
-          onClick={() => {
-            setIsBuilding(true);
-          }}
-        >
-          Publish
-        </button>
-        <button className={"primary"}>
-          <IconChevronDown />
-        </button>
+          <button
+            className={isValid ? "primary" : "primary primary-disabled"}
+            onClick={() => {
+              setIsBuilding(true);
+            }}
+          >
+            Publish
+          </button>
+          <button className={"primary"}>
+            <IconChevronDown />
+          </button>
         </div>
       </div>
     </div>
