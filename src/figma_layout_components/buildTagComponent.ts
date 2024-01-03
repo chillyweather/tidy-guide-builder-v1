@@ -19,7 +19,6 @@ export default function buildAllTags() {
   tagIndex!.name = "type=index only";
   const tagText = buildTag("F", "text", "Text");
   tagText!.name = "type=text";
-  console.log("🦊");
   const tagImportant = buildTag("!", "important", "Text");
   tagImportant!.name = "type=important";
   const tagInfo = buildTag("»", "info", "Text");
