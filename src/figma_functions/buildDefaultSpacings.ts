@@ -114,7 +114,7 @@ function buildOneSpacingGroup(
   );
   const spacings = buildSpacingMarkers(
     elementHSpacing,
-    elementType,
+    // elementType,
     sizeMarker,
     spacingMarker
   );
@@ -364,7 +364,7 @@ function buildPaddingMarkers(
 
 function buildSpacingMarkers(
   elementHSpacing: InstanceNode,
-  elementType: string,
+  // elementType: string,
   sizeMarker: ComponentSetNode,
   spacingMarker: ComponentSetNode
 ) {
