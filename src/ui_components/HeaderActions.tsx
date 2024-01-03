@@ -51,7 +51,6 @@ function AddSectionPopupCard(card: any) {
         }}
       >
         <div className={"addSectionIcon"} type={card.title}>
-          {/* <IconCalendarEvent className={"noIcon"} /> */}
           <img src={DefinedAnatomy} className={"anatomy"} />
           <img src={DefinedSpacing} className={"spacing"} />
           <img src={DefinedProperty} className={"property"} />
