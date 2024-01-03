@@ -97,6 +97,7 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
             for={"elementsMenu"}
             className={"flex-label"}
             onClick={() => setIsPdSectionOpen(!isPdSectionOpen)}
+            //@ts-ignore
             pd={!isPdSectionOpen}
           >
             <h2>Predefined Elements</h2>
