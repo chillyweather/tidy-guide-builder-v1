@@ -1688,6 +1688,10 @@ summary button {
   display: none;
 }
 
+.addSectionIcon img{
+  border-radius: 8px;
+}
+
 .addSectionIcon[type="text"],
 .addSectionIcon[type="paragraph"] {
   background-color: #E6FFFB;
