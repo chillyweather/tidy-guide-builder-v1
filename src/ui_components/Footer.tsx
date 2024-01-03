@@ -48,6 +48,7 @@ const Footer = ({
         <div
           className={"publish-dropdown-item"}
           onClick={() => {
+            setIsBuildingOnCanvas(false);
             setIsBuilding(true);
             setIsPublisDropdownOpen(false);
           }}
