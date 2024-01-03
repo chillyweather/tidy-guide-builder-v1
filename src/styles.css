@@ -1794,7 +1794,7 @@ body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.a
   transition: all 300ms ease-in-out 0s;
 }
 
-body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) .noIcon {
+body:has(.addSectionIcon[alt="anatomy"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="anatomy"]) img {
   width: 24px;
   height: 22px;
 }
@@ -1836,7 +1836,7 @@ body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.a
   transition: all 300ms ease-in-out 0s;
 }
 
-body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) .noIcon {
+body:has(.addSectionIcon[alt="spacing"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) img {
   width: 24px;
   height: 22px;
 }
@@ -1860,7 +1860,7 @@ body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.
   transition: all 300ms ease-in-out 0s;
 }
 
-body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) .noIcon {
+body:has(.addSectionIcon[alt="property"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) img {
   width: 24px;
   height: 22px;
 }
@@ -1884,7 +1884,7 @@ body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.
   transition: all 300ms ease-in-out 0s;
 }
 
-body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) .noIcon {
+body:has(.addSectionIcon[alt="variants"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) img {
   width: 24px;
   height: 22px;
 }
@@ -1908,7 +1908,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   transition: all 300ms ease-in-out 0s;
 }
 
-body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .noIcon {
+body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) img {
   width: 24px;
   height: 22px;
 }
