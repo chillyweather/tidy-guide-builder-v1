@@ -32,6 +32,7 @@ declare const styles: {
   readonly "cardFooter": string;
   readonly "cardHeader": string;
   readonly "cardTextArea": string;
+  readonly "cards": string;
   readonly "checkBoxElement": string;
   readonly "chevIcon": string;
   readonly "closePopupButton": string;
