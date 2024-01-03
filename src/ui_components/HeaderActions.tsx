@@ -19,11 +19,11 @@ import { emit } from "@create-figma-plugin/utilities";
 // import sectionData from "src/resources/sectionData";
 import { sectionData, PDSectionData } from "src/resources/dataForElements";
 import { generateUniqueId } from "./ui_functions/generateUniqueId";
-import DefinedAnatomy from "./../images/predefined.gif";
-import DefinedSpacing from "./../images/predefined.gif";
-import DefinedProperty from "./../images/predefined.gif";
-import DefinedVariants from "./../images/predefined.gif";
-import DefinedReleaseNotes from "./../images/predefined.gif";
+import DefinedAnatomy from "./../images/Icon-Anatomy.gif";
+import DefinedSpacing from "./../images/Icon-Spacing.gif";
+import DefinedProperty from "./../images/Icon-Property.gif";
+import DefinedVariants from "./../images/Icon-Variant-V2.gif";
+import DefinedReleaseNotes from "./../images/Icon-Release_Notes.gif";
 
 const cardsForPopup = sectionData;
 
