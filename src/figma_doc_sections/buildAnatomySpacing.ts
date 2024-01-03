@@ -19,7 +19,7 @@ export function buildAnatomySpacings(
   sizeMarker: ComponentSetNode,
   spacingMarker: ComponentSetNode
 ) {
-  const anatomyGroups = [];
+  const anatomyGroups: (FrameNode[] | null)[] = [];
   if (elementSizes.length) {
     elementSizes.forEach((size) => {
       const propNames = Object.keys(variantProperties);
