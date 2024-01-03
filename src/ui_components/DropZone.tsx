@@ -5,9 +5,7 @@ import BuilderContext from "../BuilderContext";
 import { uploadFileToServer } from "src/ui_components/ui_functions/fileManagementFunctions";
 import { useEffect } from "react";
 import imageLoader from "../images/loader-spinner.png";
-import {
-  IconCloudUpload,
-} from "@tabler/icons-react";
+import { IconCloudUpload } from "@tabler/icons-react";
 
 export function DropZone(
   setRemoteImageLink: Function,
@@ -18,7 +16,10 @@ export function DropZone(
   const loggedInUser = useContext(BuilderContext)?.loggedInUser;
   async function handleDrop(event: DragEvent) {
     event.preventDefault();
+    console.log("event.dataTransfer.files[0]", event.dataTransfer!.files[0]);
     const file = event.dataTransfer?.files[0];
+    console.log("file", file);
+
     if (
       file &&
       (file.type === "image/jpeg" ||
@@ -44,7 +45,8 @@ export function DropZone(
   }, [remoteImageLink]);
 
   return (
-    <div className={"drop-zone"}
+    <div
+      className={"drop-zone"}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
     >
@@ -64,10 +66,7 @@ export function DropZone(
             <u>Up to 1MB in size</u>
           </div>
           <VerticalSpace space="small" />
-          <label
-            htmlFor="file-input"
-            className={"drop-button second"}
-          >
+          <label htmlFor="file-input" className={"drop-button second"}>
             <IconCloudUpload />
             Upload Image
           </label>
@@ -79,12 +78,45 @@ export function DropZone(
             onChange={(event) => {
               // @ts-ignore
               const file = event.target?.files?.[0];
-              if (file) {
+              const reader = new FileReader();
+              const { width, height, sizeInBytes } = handleFileDrop(
+                file,
+                reader
+              );
+              if (
+                file &&
+                (file.type === "image/jpeg" ||
+                  file.type === "image/png" ||
+                  file.type === "image/svg+xml") &&
+                sizeInBytes < 1024000 &&
+                width < 4096 &&
+                height < 4096
+              ) {
+                console.log("file", file);
                 setIsImageLoading(true);
                 uploadFileToServer(file, loggedInUser!).then((path) => {
                   setIsImageLoading(false);
                   setRemoteImageLink(path);
                 });
+              } else {
+                alert("Please upload a valid image file");
+              }
+
+              function handleFileDrop(file: File, reader: FileReader) {
+                let width = 0;
+                let height = 0;
+                let sizeInBytes = 0;
+                reader.onload = function (e) {
+                  const image = new Image();
+                  image.onload = function () {
+                    width = image.width;
+                    height = image.height;
+                    sizeInBytes = file.size;
+                  };
+                  image.src = e.target!.result as string;
+                };
+                reader.readAsDataURL(file);
+                return { width, height, sizeInBytes };
               }
             }}
           />
