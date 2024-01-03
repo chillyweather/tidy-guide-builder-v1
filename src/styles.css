@@ -1682,7 +1682,7 @@ summary button {
   background-color: #DCE0EF;
 }
 
-.addSectionIcon svg {
+.addSectionIcon svg, .addSectionIcon img {
   width: 18px;
   height: 16px;
   display: none;
@@ -1745,8 +1745,23 @@ summary button {
 .addSectionIcon[type="image"] .image {
   display: block;
 }
+.addSectionIcon[type="anatomy"] .anatomy {
+  display: block;
+}
+.addSectionIcon[type="spacing"] .spacing {
+  display: block;
+}
+.addSectionIcon[type="property"] .property {
+  display: block;
+}
+.addSectionIcon[type="variants"] .variants {
+  display: block;
+}
+.addSectionIcon[type="release notes"] .releasenotes {
+  display: block;
+}
 
-.addSectionIcon[type="anatomy"] .noIcon,
+/* .addSectionIcon[type="anatomy"] .noIcon,
 .addSectionIcon[type="spacing"] .noIcon,
 .addSectionIcon[type="property"] .noIcon,
 .addSectionIcon[type="variants"] .noIcon,
@@ -1754,7 +1769,7 @@ summary button {
 .addSectionIcon[type="release notes"] .noIcon,
 .addSectionIcon[type=""] .noIcon {
   display: block;
-}
+} */
 
 .addSectionDescription {
   -webkit-box-orient: vertical;
@@ -1773,7 +1788,7 @@ summary button {
   display: -webkit-box;
 }
 
-.addSectionPopup .addSectionIcon .noIcon {
+.addSectionPopup .addSectionIcon .noIcon, .addSectionPopup .addSectionIcon img {
   height: 64px;
   width: 64px;
   transition: all 300ms ease-in-out 0s;

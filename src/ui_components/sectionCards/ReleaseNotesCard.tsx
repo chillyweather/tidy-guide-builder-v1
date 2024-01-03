@@ -19,19 +19,23 @@ const ReleaseNotesCard = ({
   setReleaseNotesDate(currentDateTime);
 
   return (
-    <div className="textCardBodyContent">
-      <textarea
-        className={"cardTextArea"}
-        rows={4}
-        maxLength={600}
-        placeholder="Description (optional)"
-        value={releaseNotesComment}
-        onInput={(e) => setReleaseNotesComment(e.currentTarget.value)}
-      >
-      </textarea>
-      <div className="textSymbolsCounterRow">
-        <div className="textSymbolsCounter">{releaseNotesComment.length}/600</div>
-      </div>
+    // <div className="textCardBodyContent">
+    //   <textarea
+    //     className={"cardTextArea"}
+    //     rows={4}
+    //     maxLength={600}
+    //     placeholder="Description (optional)"
+    //     value={releaseNotesComment}
+    //     onInput={(e) => setReleaseNotesComment(e.currentTarget.value)}
+    //   >
+    //   </textarea>
+    //   <div className="textSymbolsCounterRow">
+    //     <div className="textSymbolsCounter">{releaseNotesComment.length}/600</div>
+    //   </div>
+    // </div>
+    
+    <div className="nothingCards">
+      <p>This element will only be visible on canvas</p>
     </div>
   );
 };
