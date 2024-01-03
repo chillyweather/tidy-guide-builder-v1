@@ -1618,6 +1618,7 @@ summary button {
 }
 .cards.open{
   max-height: calc(var(--text-size) * 3);
+  overflow: hidden;
 }
 
 .addSectionCard {
