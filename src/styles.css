@@ -1626,13 +1626,6 @@ summary button {
   transform: rotate(-90deg);
 }
 
-.cards:has(#elementsMenu:checked) {
-  max-height: calc(var(--text-size) * 3);
-}
-.cards:has(#elementsMenu:checked) .flex-label svg{
-  transform: rotate(-90deg);
-}
-
 .flex-label {
   display: flex;
   width: 100%;
