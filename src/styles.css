@@ -1627,6 +1627,9 @@ summary button {
 .cards:has(#elementsMenu:checked) {
   max-height: calc(var(--text-size) * 3);
 }
+.cards:has(#elementsMenu:checked) .flex-label svg{
+  transform: rotate(-90deg);
+}
 
 .flex-label {
   display: flex;
@@ -1640,6 +1643,7 @@ summary button {
   height: 16px;
   width: 16px;
   color: var(--tidy-32);
+  transition: transform 200ms ease-in-out 0s;
 }
 
 .addSectionCard {
