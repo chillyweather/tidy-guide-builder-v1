@@ -10,6 +10,7 @@ export function buildMarksForHorizontal(
   sizeMarker: ComponentSetNode,
   spacingMarker: ComponentSetNode
 ) {
+  console.log("elementsDimensions", elementsDimensions);
   const spacings: InstanceNode[] = [];
   elementsDimensions.forEach((element, index, array) => {
     if (index < array.length - 1) {

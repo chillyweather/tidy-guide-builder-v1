@@ -6,10 +6,18 @@ function researchNodes(
 ) {
   if (frame && frame.children) {
     frame.children.forEach((node) => {
-      if (!(node.type === "INSTANCE" || node.type === "FRAME")) return;
+      if (
+        !(
+          node.type === "INSTANCE" ||
+          node.type === "FRAME" ||
+          node.type === "TEXT"
+        )
+      )
+        return;
       if (node.visible === true) {
         if (
           // !node.children ||
+          node.type === "TEXT" ||
           node.children.length === 0 ||
           node.type === "INSTANCE" ||
           node.layoutMode !== frame.layoutMode ||
