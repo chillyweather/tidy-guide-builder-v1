@@ -83,20 +83,21 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
     <div class={"addSectionPopup"}>
       <div className="addSectionPupup-inner">
         <div className="cards predefined">
-          <input
+          {/* <input
             type={"checkbox"}
             id={"elementsMenu"}
             checked={isPdSectionOpen}
-          />
-          <label
+          /> */}
+          <div
             class=""
             for={"elementsMenu"}
             className={"flex-label"}
             onClick={() => setIsPdSectionOpen(!isPdSectionOpen)}
+            pd={!isPdSectionOpen}
           >
             <h2>Predefined Elements</h2>
             <IconChevronDown />
-          </label>
+          </div>
           {pdcards.map((card) => {
             return cardElement(card);
           })}

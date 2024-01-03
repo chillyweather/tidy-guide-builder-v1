@@ -1619,6 +1619,13 @@ summary button {
   height: 0;
 }
 
+.cards:has(.flex-label[pd]) {
+  max-height: calc(var(--text-size) * 3);
+}
+.cards:has(.flex-label[pd]) .flex-label svg{
+  transform: rotate(-90deg);
+}
+
 .cards:has(#elementsMenu:checked) {
   max-height: calc(var(--text-size) * 3);
 }
