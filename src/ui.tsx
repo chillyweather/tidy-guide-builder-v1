@@ -260,7 +260,15 @@ function Plugin() {
   }, [documentationData, isBuilding, token]);
 
   return (
-    <div className={"container"}>
+    <div
+      className={"container"}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") {
+          setShowResetPopup(false);
+          setShowCancelPopup(false);
+        }
+      }}
+    >
       <BuilderContext.Provider
         value={{
           currentDocument,
