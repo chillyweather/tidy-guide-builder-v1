@@ -74,7 +74,6 @@ export default async function () {
     //----building documentation on canvas------//
     try {
       await documentationBuilder(data);
-      console.log("will build documentation");
     } catch (error) {
       console.log("error on documentation build in Figma :>> ", error);
     }
