@@ -1,6 +1,7 @@
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
-import { useContext } from "preact/hooks";
+
+import { useContext, useRef, useEffect } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 
 function ResetPopup() {
@@ -15,9 +16,7 @@ function ResetPopup() {
     <div
       className={"feedbackPopupBackground"}
       onClick={() => setShowResetPopup(false)}
-      onKeyDown={(e) => {
-        if (e.key === "Escape") setShowResetPopup(false);
-      }}
+      tabIndex={0}
     >
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
         <button
@@ -33,6 +32,9 @@ function ResetPopup() {
             className={"button"}
             onClick={() => {
               setShowResetPopup(false);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") setShowResetPopup(false);
             }}
           >
             Cancel
