@@ -35,6 +35,8 @@ import TextCard from "./sectionCards/TextCard";
 import TwoColumnCard from "./sectionCards/TwoColumnCard";
 import VariantsCard from "./sectionCards/VariantsCard";
 import VideoCard from "./sectionCards/VideoCard";
+import AnatomyCard from "./sectionCards/AnatomyCard";
+import SpacingsCard from "./sectionCards/SpacingsCard";
 import { useEffect } from "react";
 
 function makeDraggable(event: any) {
@@ -189,6 +191,10 @@ export const ContentCard = (cardData: any, index: number) => {
       return <PropertyCard />;
     } else if (cardType === "variants") {
       return <VariantsCard />;
+    } else if (cardType === "anatomy") {
+      return <AnatomyCard />;
+    } else if (cardType === "spacing") {
+      return <SpacingsCard />;
     } else if (cardType === "release-notes") {
       return (
         <ReleaseNotesCard
