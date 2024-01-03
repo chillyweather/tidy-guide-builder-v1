@@ -12,6 +12,7 @@ import {
   IconPhoto,
   IconInfoCircle,
   IconPlayerPlayFilled,
+  IconChevronDown,
   IconPlus,
 } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
@@ -79,7 +80,11 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
     <div class={"addSectionPopup"}>
       <div className="addSectionPupup-inner">
         <div className="cards predefined">
+          <input type={"checkbox"} id={"elementsMenu"} checked />
+          <label class="" for={"elementsMenu"} className={"flex-label"}>
           <h2>Predefined Elements</h2>
+          <IconChevronDown />
+          </label>
           {pdcards.map((card) => {
             return cardElement(card);
           })}

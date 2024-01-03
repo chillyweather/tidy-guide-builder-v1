@@ -58,6 +58,7 @@ declare const styles: {
   readonly "drop-text": string;
   readonly "drop-zone": string;
   readonly "dropZoneHeader": string;
+  readonly "elementsMenu": string;
   readonly "empty-image": string;
   readonly "empty-state": string;
   readonly "eyeIcon": string;
@@ -65,6 +66,7 @@ declare const styles: {
   readonly "feedbackPopupBackground": string;
   readonly "flex-btn": string;
   readonly "flex-button": string;
+  readonly "flex-label": string;
   readonly "footer": string;
   readonly "header": string;
   readonly "header-button": string;
@@ -119,7 +121,6 @@ declare const styles: {
   readonly "noSelected": string;
   readonly "notFilled": string;
   readonly "oneColumn": string;
-  readonly "open": string;
   readonly "outer-image": string;
   readonly "pagination": string;
   readonly "paragraph": string;

@@ -1587,11 +1587,11 @@ summary button {
 
 .addSectionPupup-inner {
   overflow: auto;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 6px;
+  gap: 6px; */
   padding: 12px;
   max-height: 76vh;
 }
@@ -1612,13 +1612,34 @@ summary button {
   gap: 6px;
   width: 100%;
   background-color: #ffffff;
-  /* overflow: hidden; */
-  max-height: 400px;
-  transition: max-height 300ms linear 0s;
-}
-.cards.open{
-  max-height: calc(var(--text-size) * 3);
   overflow: hidden;
+  max-height: 520px;
+  transition: max-height 300ms ease-in-out 0s;
+}
+
+#elementsMenu {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.cards:has(#elementsMenu:checked) {
+  max-height: calc(var(--text-size) * 3);
+}
+
+.flex-label {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.flex-label svg {
+  height: 16px;
+  width: 16px;
+  color: var(--tidy-32);
 }
 
 .addSectionCard {
