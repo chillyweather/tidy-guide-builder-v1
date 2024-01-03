@@ -76,12 +76,13 @@ async function closeMenu(event: Event) {
 }
 
 function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <div class={"addSectionPopup"}>
       <div className="addSectionPupup-inner">
         <div className="cards predefined">
-          <input type={"checkbox"} id={"elementsMenu"} />
-          <label class="" for={"elementsMenu"} className={"flex-label"}>
+          <input type={"checkbox"} id={"elementsMenu"} checked={isChecked}/>
+          <label class="" for={"elementsMenu"} className={"flex-label"} onClick={()=>setIsChecked(!isChecked)}>
           <h2>Predefined Elements</h2>
           <IconChevronDown />
           </label>
