@@ -6,7 +6,7 @@
   --tidy-primary: #9c71ef;
   --tidy-btn-hover: #8c5aec;
   --tidy-btn-pressed: #7c4cd7;
-  --tidy-disabled: #8e8f94;
+  --tidy-disabled: #8E8F94;
   --tidy-disabled-btn: #f2f0f6;
   --tidy-disabled-btn-text: #a6a8ad;
   --tidy-disabled-ic: #c5c6c8;
@@ -1638,6 +1638,9 @@ summary button {
   align-items: center;
   cursor: pointer;
 }
+.flex-label:hover{
+  opacity: .8;
+}
 
 .flex-label svg {
   height: 16px;
@@ -2170,7 +2173,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .inputWithValidation {
   position: relative;
   width: 100%;
-  color: #8E8F94;
+  color: var(--tidy-disabled);
 }
 
 .videoInputRow .videoInfo {
@@ -2181,7 +2184,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   left: 56px;
   top: 12px;
   z-index: 1;
-  color: #8E8F94;
+  color: var(--tidy-disabled);
 }
 
 .videoInputRow .videoInfo:hover::after {
@@ -2408,6 +2411,15 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .unselected {
   pointer-events: none;
 }
+.nothingCards{
+  width: 100%;
+}
+.nothingCards p{
+  text-align: left;
+  margin: 0 58px;
+  color: var(--tidy-disabled);
+  font-style: italic;
+}
 
 .textCardBodyContent {
   width: calc(100% - 16px);
@@ -2448,7 +2460,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 .cardTextArea::placeholder {
   font-style: italic;
-  color: #8E8F94;
+  color: var(--tidy-disabled);
 }
 
 .textSymbolsCounter {
@@ -2612,7 +2624,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .feedbackPopup textarea::placeholder {
   font-style: italic;
   font-weight: 300;
-  color: #8E8F94;
+  color: var(--tidy-disabled);
 }
 
 .listButtonStyle {

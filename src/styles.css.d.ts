@@ -120,6 +120,7 @@ declare const styles: {
   readonly "noPredefined": string;
   readonly "noSelected": string;
   readonly "notFilled": string;
+  readonly "nothingCards": string;
   readonly "oneColumn": string;
   readonly "outer-image": string;
   readonly "pagination": string;
