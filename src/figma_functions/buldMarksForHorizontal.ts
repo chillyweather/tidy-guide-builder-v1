@@ -11,11 +11,12 @@ export function buildMarksForHorizontal(
   sizeMarker: ComponentSetNode,
   spacingMarker: ComponentSetNode
 ) {
+  console.log("elementsDimensions", elementsDimensions);
   const spacings: InstanceNode[] = [];
   console.log("elementsDimensions", elementsDimensions);
   elementsDimensions.forEach((element, index, array) => {
     if (index < array.length - 1) {
-      const space = array[index + 1][0] - array[index][1];
+      const space = array[index + 1] - array[index];
       if (space > 0) {
         const marker = getMarkerComponent(sizeMarker, spacingMarker, "top");
         if (!marker) return;
