@@ -42,12 +42,18 @@ export function buildSpacingSection(node: InstanceNode, frame: FrameNode) {
   atomSpacings.forEach((node) => {
     if (!node) return;
     frame.appendChild(node);
+    node.layoutSizingHorizontal = "FILL";
+    node.primaryAxisAlignItems = "CENTER";
   });
   console.log("anatomySpacing", anatomySpacing);
-  // anatomySpacing.forEach((node) => {
-  //   if (!node) return;
-  //   frame.appendChild(node);
-  // });
+  anatomySpacing.forEach((node) => {
+    if (!node) return;
+    node.forEach((child) => {
+      frame.appendChild(child);
+      child.layoutSizingHorizontal = "FILL";
+      child.primaryAxisAlignItems = "CENTER";
+    });
+  });
   sizeMarker.remove();
   spacingMarker.remove();
   labelComponent.remove();
