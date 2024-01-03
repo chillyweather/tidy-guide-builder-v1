@@ -34,6 +34,7 @@ import ReleaseNotesCard from "./sectionCards/ReleaseNotesCard";
 import TextCard from "./sectionCards/TextCard";
 import TwoColumnCard from "./sectionCards/TwoColumnCard";
 import VariantsCard from "./sectionCards/VariantsCard";
+import AnatomyCard from "./sectionCards/AnatomyCard";
 import VideoCard from "./sectionCards/VideoCard";
 import { useEffect } from "react";
 
@@ -189,6 +190,8 @@ export const ContentCard = (cardData: any, index: number) => {
       return <PropertyCard />;
     } else if (cardType === "variants") {
       return <VariantsCard />;
+    } else if (cardType === "anatomy") {
+      return <AnatomyCard />;
     } else if (cardType === "release-notes") {
       return (
         <ReleaseNotesCard
