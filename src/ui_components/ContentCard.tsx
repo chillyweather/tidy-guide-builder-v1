@@ -34,6 +34,7 @@ import ReleaseNotesCard from "./sectionCards/ReleaseNotesCard";
 import TextCard from "./sectionCards/TextCard";
 import TwoColumnCard from "./sectionCards/TwoColumnCard";
 import VariantsCard from "./sectionCards/VariantsCard";
+import AnatomyCard from "./sectionCards/AnatomyCard";
 import VideoCard from "./sectionCards/VideoCard";
 import AnatomyCard from "./sectionCards/AnatomyCard";
 import SpacingsCard from "./sectionCards/SpacingsCard";
