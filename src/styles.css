@@ -1761,16 +1761,6 @@ summary button {
   display: block;
 }
 
-/* .addSectionIcon[type="anatomy"] .noIcon,
-.addSectionIcon[type="spacing"] .noIcon,
-.addSectionIcon[type="property"] .noIcon,
-.addSectionIcon[type="variants"] .noIcon,
-.addSectionIcon[type="release-notes"] .noIcon,
-.addSectionIcon[type="release notes"] .noIcon,
-.addSectionIcon[type=""] .noIcon {
-  display: block;
-} */
-
 .addSectionDescription {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
