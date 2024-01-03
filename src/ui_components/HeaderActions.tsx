@@ -84,8 +84,8 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
             return cardElement(card);
           })}
         </div>
-        <div className="cards elements">
-          <h2>Elements</h2>
+        <div className="cards custom">
+          <h2>Custom Elements</h2>
           {cards.map((card) => {
             return cardElement(card);
           })}
