@@ -1587,11 +1587,6 @@ summary button {
 
 .addSectionPupup-inner {
   overflow: auto;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 6px; */
   padding: 12px;
   max-height: 76vh;
 }
