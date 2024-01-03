@@ -14,25 +14,6 @@ export function DropZone(
   remoteImageLink: string
 ) {
   const loggedInUser = useContext(BuilderContext)?.loggedInUser;
-  async function handleDrop(event: DragEvent) {
-    event.preventDefault();
-    console.log("event.dataTransfer.files[0]", event.dataTransfer!.files[0]);
-    const file = event.dataTransfer?.files[0];
-    console.log("file", file);
-
-    if (
-      file &&
-      (file.type === "image/jpeg" ||
-        file.type === "image/png" ||
-        file.type === "image/svg+xml")
-    ) {
-      setIsImageLoading(true);
-      const path = await uploadFileToServer(file, loggedInUser!);
-      setRemoteImageLink(path);
-    } else {
-      alert("Please upload a valid image file");
-    }
-  }
 
   function handleDragOver(event: DragEvent) {
     event.preventDefault();
@@ -44,12 +25,35 @@ export function DropZone(
     }
   }, [remoteImageLink]);
 
+  function getImageSizes(
+    file: File
+  ): Promise<{ width: number; height: number; sizeInBytes: number }> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const image = new Image();
+        image.onload = function () {
+          const imageSizes = {
+            width: image.width,
+            height: image.height,
+            sizeInBytes: file.size,
+          };
+          resolve(imageSizes);
+        };
+        image.onerror = function () {
+          reject(new Error("Failed to load image."));
+        };
+        image.src = e.target!.result as string;
+      };
+      reader.onerror = function () {
+        reject(new Error("Failed to read file."));
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
   return (
-    <div
-      className={"drop-zone"}
-      onDrop={handleDrop}
-      onDragOver={handleDragOver}
-    >
+    <div className={"drop-zone"} onDragOver={handleDragOver}>
       {isImageLoading ? (
         <div className={"loader image-loader"}>
           <div className={"rotatingBucket"}>
@@ -75,14 +79,13 @@ export function DropZone(
             type="file"
             accept="image/*"
             style={{ display: "none" }}
-            onChange={(event) => {
-              // @ts-ignore
-              const file = event.target?.files?.[0];
-              const reader = new FileReader();
-              const { width, height, sizeInBytes } = handleFileDrop(
-                file,
-                reader
-              );
+            onChange={async (event) => {
+              const file = (event.target as HTMLInputElement)?.files?.[0];
+              if (!file) return;
+              const { width, height, sizeInBytes } = await getImageSizes(file);
+              console.log("width", width);
+              console.log("height", height);
+              console.log("sizeInBytes", sizeInBytes);
               if (
                 file &&
                 (file.type === "image/jpeg" ||
@@ -100,23 +103,6 @@ export function DropZone(
                 });
               } else {
                 alert("Please upload a valid image file");
-              }
-
-              function handleFileDrop(file: File, reader: FileReader) {
-                let width = 0;
-                let height = 0;
-                let sizeInBytes = 0;
-                reader.onload = function (e) {
-                  const image = new Image();
-                  image.onload = function () {
-                    width = image.width;
-                    height = image.height;
-                    sizeInBytes = file.size;
-                  };
-                  image.src = e.target!.result as string;
-                };
-                reader.readAsDataURL(file);
-                return { width, height, sizeInBytes };
               }
             }}
           />

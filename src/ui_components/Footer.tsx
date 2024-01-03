@@ -33,7 +33,8 @@ const Footer = ({
         <div
           className={"publish-dropdown-item"}
           onClick={() => {
-            console.log("Build & Publish to viewer");
+            setIsBuilding(true);
+            setIsBuildingOnCanvas(true);
             setIsPublisDropdownOpen(false);
           }}
         >
@@ -47,7 +48,7 @@ const Footer = ({
         <div
           className={"publish-dropdown-item"}
           onClick={() => {
-            console.log("Publish to viewer");
+            setIsBuilding(true);
             setIsPublisDropdownOpen(false);
           }}
         >
