@@ -119,6 +119,7 @@ declare const styles: {
   readonly "noSelected": string;
   readonly "notFilled": string;
   readonly "oneColumn": string;
+  readonly "open": string;
   readonly "outer-image": string;
   readonly "pagination": string;
   readonly "paragraph": string;

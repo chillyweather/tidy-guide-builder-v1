@@ -1611,6 +1611,13 @@ summary button {
   align-items: flex-start;
   gap: 6px;
   width: 100%;
+  background-color: #ffffff;
+  /* overflow: hidden; */
+  max-height: 400px;
+  transition: max-height 300ms linear 0s;
+}
+.cards.open{
+  max-height: calc(var(--text-size) * 3);
 }
 
 .addSectionCard {
