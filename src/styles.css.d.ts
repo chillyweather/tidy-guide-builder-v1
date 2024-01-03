@@ -20,6 +20,7 @@ declare const styles: {
   readonly "addSectionPopup": string;
   readonly "addSectionPupup-inner": string;
   readonly "addSectionTitle": string;
+  readonly "anatomy": string;
   readonly "anchorLink": string;
   readonly "back-link": string;
   readonly "backToTop": string;
@@ -127,9 +128,11 @@ declare const styles: {
   readonly "paragraph": string;
   readonly "popupButtons": string;
   readonly "primary": string;
+  readonly "property": string;
   readonly "publish-content-wrapper": string;
   readonly "publish-dropdown": string;
   readonly "publish-dropdown-item": string;
+  readonly "releasenotes": string;
   readonly "resources": string;
   readonly "rightContent": string;
   readonly "rightFooterContent": string;
@@ -154,6 +157,7 @@ declare const styles: {
   readonly "show": string;
   readonly "side-flex": string;
   readonly "singleLink": string;
+  readonly "spacing": string;
   readonly "split": string;
   readonly "split-disabled": string;
   readonly "subtitle": string;
@@ -172,6 +176,7 @@ declare const styles: {
   readonly "twoColumns": string;
   readonly "unselected": string;
   readonly "validationFailedMessage": string;
+  readonly "variants": string;
   readonly "video": string;
   readonly "videoClosed": string;
   readonly "videoDiv": string;

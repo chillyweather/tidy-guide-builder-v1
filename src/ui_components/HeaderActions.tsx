@@ -19,6 +19,11 @@ import { emit } from "@create-figma-plugin/utilities";
 // import sectionData from "src/resources/sectionData";
 import { sectionData, PDSectionData } from "src/resources/dataForElements";
 import { generateUniqueId } from "./ui_functions/generateUniqueId";
+import DefinedAnatomy from "./../images/predefined.gif";
+import DefinedSpacing from "./../images/predefined.gif";
+import DefinedProperty from "./../images/predefined.gif";
+import DefinedVariants from "./../images/predefined.gif";
+import DefinedReleaseNotes from "./../images/predefined.gif";
 
 const cardsForPopup = sectionData;
 
@@ -46,7 +51,12 @@ function AddSectionPopupCard(card: any) {
         }}
       >
         <div className={"addSectionIcon"} type={card.title}>
-          <IconCalendarEvent className={"noIcon"} />
+          {/* <IconCalendarEvent className={"noIcon"} /> */}
+          <img src={DefinedAnatomy} className={"anatomy"} />
+          <img src={DefinedSpacing} className={"spacing"} />
+          <img src={DefinedProperty} className={"property"} />
+          <img src={DefinedVariants} className={"variants"} />
+          <img src={DefinedReleaseNotes} className={"releasenotes"} />
           <IconPilcrow className={"paragraph"} />
           <IconVideo className={"video"} />
           <IconColumns className={"twoColumns"} />
