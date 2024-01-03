@@ -64,7 +64,7 @@ export async function getDocumentation(token: string, documentId: string) {
 
 //! get all documentations
 export async function getDocumentations(token: string) {
-  console.log("token :>> ", token);
+  // console.log("token :>> ", token);
   let myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
 
@@ -89,7 +89,7 @@ export async function getDocumentations(token: string) {
 
 //! get IDs and names of all documentations
 export async function getTitlesAndIds(token: string) {
-  console.log("token :>> ", token);
+  // console.log("token :>> ", token);
   let myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
 

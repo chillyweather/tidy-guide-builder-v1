@@ -26,7 +26,7 @@ export function buildAtomSpacings(
 
   const spacingGroups: FrameNode[] = [];
 
-  if (buttonSizes) {
+  if (buttonSizes.length) {
     buildForManySizes(
       buttonSizes,
       variantProperties,
