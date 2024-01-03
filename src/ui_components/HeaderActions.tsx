@@ -76,15 +76,26 @@ async function closeMenu(event: Event) {
 }
 
 function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
-  const [isChecked, setIsChecked] = useState(false);
+  const isPdSectionOpen = useContext(BuilderContext)?.isPdSectionOpen;
+  const setIsPdSectionOpen = useContext(BuilderContext)?.setIsPdSectionOpen;
+  console.log("isPdSectionOpen", isPdSectionOpen);
   return (
     <div class={"addSectionPopup"}>
       <div className="addSectionPupup-inner">
         <div className="cards predefined">
-          <input type={"checkbox"} id={"elementsMenu"} checked={isChecked}/>
-          <label class="" for={"elementsMenu"} className={"flex-label"} onClick={()=>setIsChecked(!isChecked)}>
-          <h2>Predefined Elements</h2>
-          <IconChevronDown />
+          <input
+            type={"checkbox"}
+            id={"elementsMenu"}
+            checked={isPdSectionOpen}
+          />
+          <label
+            class=""
+            for={"elementsMenu"}
+            className={"flex-label"}
+            onClick={() => setIsPdSectionOpen(!isPdSectionOpen)}
+          >
+            <h2>Predefined Elements</h2>
+            <IconChevronDown />
           </label>
           {pdcards.map((card) => {
             return cardElement(card);

@@ -49,6 +49,8 @@ interface IContext {
   setDataForUpdate: any;
   isDraft: boolean;
   setIsDraft: any;
+  isPdSectionOpen: boolean;
+  setIsPdSectionOpen: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

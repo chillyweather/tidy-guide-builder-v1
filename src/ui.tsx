@@ -118,6 +118,9 @@ function Plugin() {
   //if we need to build on canvas
   const [isBuildingOnCanvas, setIsBuildingOnCanvas] = useState(true);
 
+  //is pd section open
+  const [isPdSectionOpen, setIsPdSectionOpen] = useState(true);
+
   on("AUTH_CHANGE", async (token) => {
     if (token) {
       setToken(token);
@@ -319,6 +322,8 @@ function Plugin() {
           setShowResetPopup,
           isDraft,
           setIsDraft,
+          isPdSectionOpen,
+          setIsPdSectionOpen,
         }}
       >
         {feedbackPage && (
