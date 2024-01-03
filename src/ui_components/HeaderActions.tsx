@@ -80,7 +80,7 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
     <div class={"addSectionPopup"}>
       <div className="addSectionPupup-inner">
         <div className="cards predefined">
-          <input type={"checkbox"} id={"elementsMenu"} checked />
+          <input type={"checkbox"} id={"elementsMenu"} />
           <label class="" for={"elementsMenu"} className={"flex-label"}>
           <h2>Predefined Elements</h2>
           <IconChevronDown />
