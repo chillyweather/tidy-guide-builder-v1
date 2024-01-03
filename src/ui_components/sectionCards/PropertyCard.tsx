@@ -3,13 +3,8 @@ import emptyImage from "../../images/empty.svg";
 
 const PropertyCard = ({}: {}) => {
   return (
-    <div className="textCardBodyContent">
-      <img
-        src={emptyImage}
-        alt="Please select a component in Figma."
-        className={"empty-image"}
-      />
-      <p>Some useful stuff in the next version</p>
+    <div className="nothingCards">
+      <p>This element will only be visible on canvas</p>
     </div>
   );
 };
