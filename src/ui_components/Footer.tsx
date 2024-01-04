@@ -92,7 +92,7 @@ const Footer = ({
             onClick={() => {
               {
                 setIsBuilding(true);
-                setIsBuildingOnCanvas(true);
+                setIsBuildingOnCanvas(false);
               }
             }}
           >
