@@ -58,7 +58,6 @@ function AddSectionPopupCard(card: any) {
         onMouseOver={(event: any) => {
           //@ts-ignore
           document.getElementById(event.target.id + "-" + event.target.id + "-img").src = document.getElementById(event.target.id + "-" + event.target.id + "-img").alt;
-          // console.log(event.target.id + "-img");
         }}
       >
         <div className={"addSectionIcon"} type={card.title}>
