@@ -17,6 +17,7 @@ import {
   IconEyeOff,
 } from "@tabler/icons-react";
 import { Toggle, Text } from "@create-figma-plugin/ui";
+import PropertyIcon from "./../images/property.svg";
 
 import {
   deleteSection,
@@ -342,6 +343,7 @@ export const ContentCard = (cardData: any, index: number) => {
           />
           <div className="addSectionIcon" type={cardType} alt={cardType}>
             <IconCalendarEvent className={"noIcon"} />
+            <img src={PropertyIcon} className={"property"} />
             <IconPilcrow className={"paragraph"} />
             <IconVideo className={"video"} />
             <IconColumns className={"twoColumns"} />
