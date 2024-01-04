@@ -1690,7 +1690,8 @@ summary button {
 }
 
 .addSectionIcon img{
-  border-radius: 8px;
+  /* border-radius: 8px; */
+  transform: scale(1.4);
 }
 
 .addSectionIcon[type="text"],
