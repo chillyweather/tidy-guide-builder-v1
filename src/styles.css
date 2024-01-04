@@ -1762,7 +1762,7 @@ summary button {
 .addSectionIcon[type="variants"] .variants {
   display: block;
 }
-.addSectionIcon[type="release notes"] .releasenotes {
+.addSectionIcon[type="release notes"] .releasenotes, .addSectionIcon[type="release-notes"] .releasenotes {
   display: block;
 }
 
