@@ -101,7 +101,8 @@ export function buildVariantFrames(
     thirdLevelFrame.layoutSizingHorizontal = "HUG";
     allElementsFrame.appendChild(thirdLevelFrame);
   }
-  return figma.ungroup(allElementsFrame)[0];
+  const result = figma.ungroup(allElementsFrame)[0];
+  return result;
 }
 
 export function buildLowestLevelFrames(

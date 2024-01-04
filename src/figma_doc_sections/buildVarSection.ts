@@ -1,5 +1,8 @@
 import { getVariantsArray } from "./getVariantsArray";
-import { findAllVariantProps } from "../figma_functions/utilityFunctions";
+import {
+  buildAutoLayoutFrame,
+  findAllVariantProps,
+} from "../figma_functions/utilityFunctions";
 import { buildVariantFrames } from "./buildVariantFrames";
 import { buildBasicGridLabels } from "./buildBasicGridLabels";
 import { buildTopLevelLabels } from "./buildTopLevelLabels";
@@ -33,6 +36,30 @@ export function buildVarSection(node: InstanceNode, parentFrame: FrameNode) {
     [variantFrames, ...(labels as GroupNode[])],
     parentFrame
   );
+  const resultFrame = buildAutoLayoutFrame(
+    "variantsFrame",
+    "VERTICAL",
+    160,
+    40,
+    10
+  );
+  resultFrame.fills = [
+    {
+      type: "SOLID",
+      visible: true,
+      opacity: 1,
+      blendMode: "NORMAL",
+      color: {
+        r: 0.9607843160629272,
+        g: 0.9607843160629272,
+        b: 0.9607843160629272,
+      },
+      boundVariables: {},
+    },
+  ];
+  resultFrame.appendChild(varsWithLabels);
 
-  parentFrame.appendChild(varsWithLabels);
+  parentFrame.appendChild(resultFrame);
+  resultFrame.layoutSizingHorizontal = "FILL";
+  resultFrame.counterAxisAlignItems = "CENTER";
 }

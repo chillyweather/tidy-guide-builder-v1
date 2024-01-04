@@ -7,6 +7,7 @@ import {
   setBooleanProps,
   turnAllBooleansOff,
 } from "../figma_functions/utilityFunctions";
+import { all } from "axios";
 
 type Direction = "VERTICAL" | "HORIZONTAL";
 
@@ -53,26 +54,50 @@ export function buildPropSection(node: InstanceNode, parentFrame: FrameNode) {
     const allElementsFrame = buildContentFrame("allElementsFrame", "VERTICAL");
 
     parentFrame.appendChild(propertyFrame);
+    propertyFrame.layoutSizingHorizontal = "FILL";
     const subtitle = buildSubtitle("Boolean properties");
     propertyFrame.appendChild(subtitle);
     booleanPropsKeys.forEach((key) => {
       const propName = key.split("#")[0];
       const currentNode = node.clone();
-      const elementFrame = buildContentFrame(
+      const elementFrame = buildAutoLayoutFrame(
         "booleanPropFrame",
         "VERTICAL",
-        12
+        160,
+        40,
+        10
       );
+      elementFrame.fills = [
+        {
+          type: "SOLID",
+          visible: true,
+          opacity: 1,
+          blendMode: "NORMAL",
+          color: {
+            r: 0.9607843160629272,
+            g: 0.9607843160629272,
+            b: 0.9607843160629272,
+          },
+          boundVariables: {},
+        },
+      ];
       propertyFrame.appendChild(elementFrame);
       const booleanPropText = figma.createText();
       booleanPropText.characters = `${propName}`;
-      booleanPropText.fontSize = 12;
+      booleanPropText.fontSize = 14;
+      booleanPropText.fontName = { family: "Inter", style: "Bold" };
       setBooleanProps(currentNode, propName, true);
       elementFrame.appendChild(booleanPropText);
+      booleanPropText.layoutPositioning = "ABSOLUTE";
+      booleanPropText.x = 16;
+      booleanPropText.y = 8;
       elementFrame.appendChild(currentNode);
       allElementsFrame.appendChild(elementFrame);
+      elementFrame.layoutSizingHorizontal = "FILL";
+      elementFrame.counterAxisAlignItems = "CENTER";
     });
     propertyFrame.appendChild(allElementsFrame);
+    allElementsFrame.layoutSizingHorizontal = "FILL";
   }
 }
 
