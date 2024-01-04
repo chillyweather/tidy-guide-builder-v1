@@ -63,7 +63,6 @@ function buildOneTag(
   const resultFrame = buildAutoLayoutFrame("tagFrame", "HORIZONTAL", 20, 0);
   const group = buildElementTags(element, booleanProperties, tagComponentSet);
   resultFrame.appendChild(group);
-  resultFrame.fillStyleId = TGGray100.id;
   resultFrame.paddingBottom = 40;
   resultFrame.paddingTop = 40;
   resultFrame.counterAxisAlignItems = "CENTER";
