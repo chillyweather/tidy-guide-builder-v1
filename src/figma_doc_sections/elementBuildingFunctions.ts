@@ -8,7 +8,7 @@ export function buildTitle(title: string) {
   const titleFrame = buildAutoLayoutFrame("title", "HORIZONTAL", 0, 0, 0);
   const titleText = figma.createText();
   titleText.characters = title;
-  titleText.fontSize = 70;
+  titleText.fontSize = 40;
   titleText.fontName = { family: "Inter", style: "Semi Bold" };
   titleFrame.appendChild(titleText);
   return titleFrame;
@@ -25,9 +25,11 @@ export function buildSubtitle(subtitle: string) {
 
 export function buildText(text: string) {
   const textFrame = buildAutoLayoutFrame("text", "VERTICAL", 0, 0, 0);
+  textFrame.maxWidth = 650;
   const textContent = figma.createText();
   textContent.characters = text;
-  textContent.fontSize = 12;
+  textContent.fontSize = 14;
+  textContent.lineHeight = { value: 164, unit: "PERCENT" };
   textContent.fontName = { family: "Inter", style: "Regular" };
   textFrame.appendChild(textContent);
   textContent.layoutSizingHorizontal = "FILL";
