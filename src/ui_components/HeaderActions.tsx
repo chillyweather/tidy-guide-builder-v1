@@ -19,11 +19,16 @@ import { emit } from "@create-figma-plugin/utilities";
 // import sectionData from "src/resources/sectionData";
 import { sectionData, PDSectionData } from "src/resources/dataForElements";
 import { generateUniqueId } from "./ui_functions/generateUniqueId";
-import DefinedAnatomy from "./../images/Icon-Anatomy.gif";
-import DefinedSpacing from "./../images/Icon-Spacing.gif";
-import DefinedProperty from "./../images/Icon-Property.gif";
-import DefinedVariants from "./../images/Icon-Variant-V2.gif";
-import DefinedReleaseNotes from "./../images/Icon-Release_Notes.gif";
+import DefinedAnatomy from "./../images/icon_anatomy.png";
+import DefinedAnatomyGif from "./../images/icon_anatomy.gif";
+import DefinedSpacing from "./../images/icon_spacing.png";
+import DefinedSpacingGif from "./../images/icon_spacing.gif";
+import DefinedProperty from "./../images/icon_property.png";
+import DefinedPropertyGif from "./../images/icon_property.gif";
+import DefinedVariants from "./../images/icon_variant.png";
+import DefinedVariantsGif from "./../images/icon_variant.gif";
+import DefinedReleaseNotes from "./../images/icon_release_notes.png";
+import DefinedReleaseNotesGif from "./../images/icon_release_notes.gif";
 
 const cardsForPopup = sectionData;
 
