@@ -1182,9 +1182,10 @@ li::before {
 }
 
 .header .add-button {
-  transform: translate(450px, 48px);
+  transform: translate(442px, 48px);
   background-color: var(--tidy-primary);
   color: #ffffff;
+  padding: 8px 12px;
 }
 
 .header .add-button:hover {
