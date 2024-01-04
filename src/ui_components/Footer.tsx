@@ -6,12 +6,6 @@ import {
   IconChevronDown,
   Icon3dCubeSphere,
 } from "@tabler/icons-react";
-import { emit } from "@create-figma-plugin/utilities";
-import {
-  getDocumentations,
-  updateDocumentation,
-  createDocumentation,
-} from "./ui_functions/documentationHandlers";
 
 const Footer = ({
   setIsBuilding,
@@ -20,7 +14,7 @@ const Footer = ({
   setIsBuilding: Function;
   setIsBuildingOnCanvas: Function;
 }) => {
-  const [isPublisDropdownOpen, setIsPublisDropdownOpen] = useState(false);
+  const [isPublishDropdownOpen, setIsPublishDropdownOpen] = useState(false);
   const documentationTitle = useContext(BuilderContext)?.documentationTitle;
   const selectedElementKey = useContext(BuilderContext)?.selectedElementKey;
   const isValid = !!documentationTitle?.length && !!selectedElementKey?.length;
@@ -35,7 +29,7 @@ const Footer = ({
           onClick={() => {
             setIsBuilding(true);
             setIsBuildingOnCanvas(true);
-            setIsPublisDropdownOpen(false);
+            setIsPublishDropdownOpen(false);
           }}
         >
           <div className="publish-content-wrapper">
@@ -50,7 +44,7 @@ const Footer = ({
           onClick={() => {
             setIsBuildingOnCanvas(false);
             setIsBuilding(true);
-            setIsPublisDropdownOpen(false);
+            setIsPublishDropdownOpen(false);
           }}
         >
           <div className={"publish-content-wrapper"}>
@@ -63,6 +57,12 @@ const Footer = ({
     );
   }
 
+  useEffect(() => {
+    if (!isValid) {
+      setIsPublishDropdownOpen(false);
+    }
+  }, [isValid, setIsPublishDropdownOpen]);
+
   return (
     <div className={"footer"}>
       <div className="leftFooterContent">
@@ -73,6 +73,7 @@ const Footer = ({
       </div>
       <div className="rightFooterContent">
         <button
+          disabled
           className={"second"}
           onClick={() => {
             setIsDraft(true);
@@ -81,7 +82,7 @@ const Footer = ({
         >
           Save changes
         </button>
-        {isPublisDropdownOpen && <PublishButtonDropdown />}
+        {isPublishDropdownOpen && <PublishButtonDropdown />}
         <div
           className={isValid ? "split" : "split split-disabled"}
           disabled={!isValid}
@@ -91,19 +92,19 @@ const Footer = ({
             onClick={() => {
               {
                 setIsBuilding(true);
-                setIsBuildingOnCanvas(true);
+                setIsBuildingOnCanvas(false);
               }
             }}
           >
             Publish
           </button>
           <button
-            className={"primary"}
+            className={isValid ? "primary" : "primary primary-disabled"}
             onClick={() => {
-              setIsPublisDropdownOpen(!isPublisDropdownOpen);
+              setIsPublishDropdownOpen(!isPublishDropdownOpen);
             }}
             onKeyDown={(e) => {
-              if (e.key === "Escape") setIsPublisDropdownOpen(false);
+              if (e.key === "Escape") setIsPublishDropdownOpen(false);
             }}
           >
             <IconChevronDown />
