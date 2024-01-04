@@ -111,8 +111,8 @@ const Header = ({
                 backToIndex();
               }}
             >
-              <IconListTree />
-              Back to components index
+              <IconArrowLeft />
+              Back
             </button>
           ))}
 
