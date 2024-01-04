@@ -13,6 +13,7 @@ export function buildTitle(title: string) {
   titleFrame.appendChild(titleText);
   return titleFrame;
 }
+
 export function buildSubtitle(subtitle: string) {
   const titleFrame = buildAutoLayoutFrame("subtitle", "HORIZONTAL", 0, 0, 0);
   const titleText = figma.createText();
@@ -104,6 +105,7 @@ export function buildListText(text: string, type: string) {
   }
   return textFrame;
 }
+
 export function buildLinkText(text: string, link: string) {
   const textFrame = buildAutoLayoutFrame("link", "VERTICAL", 0, 0, 0);
   const textContent = figma.createText();
@@ -128,6 +130,7 @@ export function buildLinkText(text: string, link: string) {
   });
   return textFrame;
 }
+
 export async function buildImageFromRemoteSource(link: string) {
   // Get an image from a URL.
   const node = figma.createImageAsync(link).then(async (image: Image) => {
