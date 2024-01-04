@@ -39,6 +39,7 @@ function AddSectionPopupCard(card: any) {
     <div className={"addSection-outer"}>
       <div
         className={"addSectionCard"}
+        id={card.title}
         onClick={() => {
           const newCard = {
             ...card,
@@ -54,13 +55,17 @@ function AddSectionPopupCard(card: any) {
             setSelectedSections([newCard]);
           }
         }}
+        onMouseOver={(event: any) => {
+          //@ts-ignore
+          document.getElementById(event.target.id + "-" + event.target.id + "-img").src = document.getElementById(event.target.id + "-" + event.target.id + "-img").alt;
+        }}
       >
         <div className={"addSectionIcon"} type={card.title}>
-          <img src={DefinedAnatomy} className={"anatomy"} />
-          <img src={DefinedSpacing} className={"spacing"} />
-          <img src={DefinedProperty} className={"property"} />
-          <img src={DefinedVariants} className={"variants"} />
-          <img src={DefinedReleaseNotes} className={"releasenotes"} />
+          <img src={DefinedAnatomy} alt={DefinedAnatomyGif} className={"anatomy"} id={card.title + "-Anatomy-img"} />
+          <img src={DefinedSpacing} alt={DefinedSpacingGif} className={"spacing"} id={card.title + "-Spacing-img"} />
+          <img src={DefinedProperty} alt={DefinedPropertyGif} className={"property"} id={card.title + "-Property-img"} />
+          <img src={DefinedVariants} alt={DefinedVariantsGif} className={"variants"} id={card.title + "-Variants-img"} />
+          <img src={DefinedReleaseNotes} alt={DefinedReleaseNotesGif} className={"releasenotes"} id={card.title + "-Release Notes-img"} />
           <IconPilcrow className={"paragraph"} />
           <IconVideo className={"video"} />
           <IconColumns className={"twoColumns"} />
