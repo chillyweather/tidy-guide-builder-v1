@@ -17,6 +17,11 @@ import {
   IconEyeOff,
 } from "@tabler/icons-react";
 import { Toggle, Text } from "@create-figma-plugin/ui";
+import AnatomyIcon from "./../images/anatomy.svg";
+import SpacingIcon from "./../images/spacing.svg";
+import PropertyIcon from "./../images/property.svg";
+import VariantsIcon from "./../images/variants.svg";
+import ReleaseNotesIcon from "./../images/release-notes.svg";
 
 import {
   deleteSection,
@@ -341,7 +346,11 @@ export const ContentCard = (cardData: any, index: number) => {
             }}
           />
           <div className="addSectionIcon" type={cardType} alt={cardType}>
-            <IconCalendarEvent className={"noIcon"} />
+            <img src={AnatomyIcon} className={"anatomy"} />
+            <img src={SpacingIcon} className={"spacing"} />
+            <img src={PropertyIcon} className={"property"} />
+            <img src={VariantsIcon} className={"variants"} />
+            <img src={ReleaseNotesIcon} className={"releasenotes"} />
             <IconPilcrow className={"paragraph"} />
             <IconVideo className={"video"} />
             <IconColumns className={"twoColumns"} />

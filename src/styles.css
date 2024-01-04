@@ -1690,7 +1690,8 @@ summary button {
 }
 
 .addSectionIcon img{
-  border-radius: 8px;
+  /* border-radius: 8px; */
+  transform: scale(1.4);
 }
 
 .addSectionIcon[type="text"],
@@ -1762,7 +1763,7 @@ summary button {
 .addSectionIcon[type="variants"] .variants {
   display: block;
 }
-.addSectionIcon[type="release notes"] .releasenotes {
+.addSectionIcon[type="release notes"] .releasenotes, .addSectionIcon[type="release-notes"] .releasenotes {
   display: block;
 }
 
@@ -2746,6 +2747,10 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .draft .addSectionIcon {
   background-color: #E8EDFC;
   color: #92A1B9;
+}
+.draft .addSectionIcon img{
+  filter: brightness(96%) grayscale(20%) hue-rotate(-25deg);
+  opacity: 0.6;
 }
 
 .draft .cardHeader,
