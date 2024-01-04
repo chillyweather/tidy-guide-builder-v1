@@ -246,9 +246,13 @@ function Plugin() {
       if (isDocumented) {
         const response = await updateDocumentation(token, id, data);
         if (isBuildingOnCanvas) emit("BUILD", response);
+        const newData = await getDocumentations(token);
+        setDataForUpdate(newData);
       } else {
         const response = await createDocumentation(token, data);
         if (isBuildingOnCanvas) emit("BUILD", response);
+        const newData = await getDocumentations(token);
+        setDataForUpdate(newData);
       }
     } catch (error) {
       console.log("error", error);
