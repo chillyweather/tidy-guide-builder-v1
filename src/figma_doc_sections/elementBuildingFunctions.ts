@@ -8,26 +8,29 @@ export function buildTitle(title: string) {
   const titleFrame = buildAutoLayoutFrame("title", "HORIZONTAL", 0, 0, 0);
   const titleText = figma.createText();
   titleText.characters = title;
-  titleText.fontSize = 70;
+  titleText.fontSize = 40;
   titleText.fontName = { family: "Inter", style: "Semi Bold" };
   titleFrame.appendChild(titleText);
   return titleFrame;
 }
+
 export function buildSubtitle(subtitle: string) {
   const titleFrame = buildAutoLayoutFrame("subtitle", "HORIZONTAL", 0, 0, 0);
   const titleText = figma.createText();
   titleText.characters = subtitle;
-  titleText.fontSize = 12;
-  titleText.fontName = { family: "Inter", style: "Bold" };
+  titleText.fontSize = 28;
+  titleText.fontName = { family: "Inter", style: "Regular" };
   titleFrame.appendChild(titleText);
   return titleFrame;
 }
 
 export function buildText(text: string) {
   const textFrame = buildAutoLayoutFrame("text", "VERTICAL", 0, 0, 0);
+  textFrame.maxWidth = 650;
   const textContent = figma.createText();
   textContent.characters = text;
-  textContent.fontSize = 12;
+  textContent.fontSize = 14;
+  textContent.lineHeight = { value: 164, unit: "PERCENT" };
   textContent.fontName = { family: "Inter", style: "Regular" };
   textFrame.appendChild(textContent);
   textContent.layoutSizingHorizontal = "FILL";
@@ -55,9 +58,9 @@ export function buildTwoColumns(element: any, parentFrame: FrameNode) {
   title1Frame.resize(columnWidth, title1Frame.height);
   const title2Frame = buildSubtitle(title2);
   title2Frame.resize(columnWidth, title2Frame.height);
-  const text1Frame = buildText(text1);
+  const text1Frame = buildListText(text1, "unordered");
   text1Frame.resize(columnWidth, text1Frame.height);
-  const text2Frame = buildText(text2);
+  const text2Frame = buildListText(text2, "unordered");
   text2Frame.resize(columnWidth, text2Frame.height);
   const titleWrapper = buildAutoLayoutFrame(
     "titleWrapper",
@@ -85,7 +88,9 @@ export function buildListText(text: string, type: string) {
   const textFrame = buildAutoLayoutFrame("text", "VERTICAL", 0, 0, 0);
   const textContent = figma.createText();
   textContent.characters = text;
-  textContent.fontSize = 16;
+  textContent.fontSize = 14;
+  textContent.lineHeight = { value: 164, unit: "PERCENT" };
+  textContent.listSpacing = 16;
   textContent.fontName = { family: "Inter", style: "Regular" };
   textFrame.appendChild(textContent);
   textContent.layoutSizingHorizontal = "FILL";
@@ -100,6 +105,7 @@ export function buildListText(text: string, type: string) {
   }
   return textFrame;
 }
+
 export function buildLinkText(text: string, link: string) {
   const textFrame = buildAutoLayoutFrame("link", "VERTICAL", 0, 0, 0);
   const textContent = figma.createText();
@@ -124,6 +130,7 @@ export function buildLinkText(text: string, link: string) {
   });
   return textFrame;
 }
+
 export async function buildImageFromRemoteSource(link: string) {
   // Get an image from a URL.
   const node = figma.createImageAsync(link).then(async (image: Image) => {

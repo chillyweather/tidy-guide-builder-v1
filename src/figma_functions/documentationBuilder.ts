@@ -77,10 +77,13 @@ export default async function documentationBuilder(data: any) {
   const documentationFrame = buildAutoLayoutFrame(
     "Documentation",
     "VERTICAL",
-    documentationPadding,
-    documentationPadding,
+    50,
+    60,
     40
   );
+  const divider = figma.createRectangle();
+  divider.name = "divider";
+  divider.resize(documentationWidth, 1.5);
 
   documentationFrame.resize(documentationWidth, documentationFrame.height);
   documentationFrame.fills = [
@@ -124,6 +127,7 @@ export default async function documentationBuilder(data: any) {
     sectionFrame.bottomRightRadius = sectionCornerRadius;
 
     documentationFrame.appendChild(sectionFrame);
+    documentationFrame.appendChild(divider.clone());
     sectionFrame.layoutSizingHorizontal = "FILL";
     return sectionFrame;
   }
@@ -220,7 +224,22 @@ export default async function documentationBuilder(data: any) {
           "Error: No datatype found for this section. Please check the section data."
         );
     }
-
     documentationFrame.layoutSizingHorizontal = "HUG";
   }
+
+  //resize documentation title
+  const docTitle = documentationFrame.findOne((node) => node.name === "title");
+  if (!docTitle || docTitle.type !== "FRAME") return;
+  const titleText = docTitle.children[0] as TextNode;
+  titleText.fontSize = 70;
+
+  const dividers = documentationFrame.findAll(
+    (node) => node.name === "divider"
+  );
+  dividers.forEach((divider) => {
+    if (divider.type === "RECTANGLE") {
+      divider.layoutAlign = "STRETCH";
+    }
+  });
+  divider.remove();
 }
