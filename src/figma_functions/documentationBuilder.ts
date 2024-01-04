@@ -90,9 +90,9 @@ export default async function documentationBuilder(data: any) {
       opacity: 1,
       blendMode: "NORMAL",
       color: {
-        r: 0.7166666388511658,
-        g: 0.7166666388511658,
-        b: 0.7166666388511658,
+        r: 1,
+        g: 1,
+        b: 1,
       },
       boundVariables: {},
     },

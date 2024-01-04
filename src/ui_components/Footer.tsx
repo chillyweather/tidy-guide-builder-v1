@@ -89,8 +89,11 @@ const Footer = ({
         >
           <button
             className={isValid ? "primary" : "primary primary-disabled"}
-            onClick={() => {
-              {
+            onClick={(e) => {
+              if (e.metaKey || e.ctrlKey) {
+                setIsBuilding(true);
+                setIsBuildingOnCanvas(true);
+              } else {
                 setIsBuilding(true);
                 setIsBuildingOnCanvas(false);
               }

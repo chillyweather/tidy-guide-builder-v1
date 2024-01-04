@@ -8,8 +8,8 @@ export function buildTitle(title: string) {
   const titleFrame = buildAutoLayoutFrame("title", "HORIZONTAL", 0, 0, 0);
   const titleText = figma.createText();
   titleText.characters = title;
-  titleText.fontSize = 16;
-  titleText.fontName = { family: "Inter", style: "Bold" };
+  titleText.fontSize = 70;
+  titleText.fontName = { family: "Inter", style: "Semi Bold" };
   titleFrame.appendChild(titleText);
   return titleFrame;
 }
@@ -22,6 +22,7 @@ export function buildSubtitle(subtitle: string) {
   titleFrame.appendChild(titleText);
   return titleFrame;
 }
+
 export function buildText(text: string) {
   const textFrame = buildAutoLayoutFrame("text", "VERTICAL", 0, 0, 0);
   const textContent = figma.createText();
@@ -32,6 +33,7 @@ export function buildText(text: string) {
   textContent.layoutSizingHorizontal = "FILL";
   return textFrame;
 }
+
 export function buildTwoColumns(element: any, parentFrame: FrameNode) {
   if (
     !element.content.subtitle1 ||
@@ -78,6 +80,7 @@ export function buildTwoColumns(element: any, parentFrame: FrameNode) {
   parentFrame.appendChild(titleWrapper);
   parentFrame.appendChild(textWrapper);
 }
+
 export function buildListText(text: string, type: string) {
   const textFrame = buildAutoLayoutFrame("text", "VERTICAL", 0, 0, 0);
   const textContent = figma.createText();
@@ -92,7 +95,7 @@ export function buildListText(text: string, type: string) {
     });
   } else {
     textContent.setRangeListOptions(0, textContent.characters.length, {
-      type: "ORDERED",
+      type: "UNORDERED",
     });
   }
   return textFrame;
