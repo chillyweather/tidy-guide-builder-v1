@@ -41,7 +41,7 @@ const Footer = ({
             <h4>Build on Canvas</h4>
             <p>Build on Canvas and publish to Tidy Viewer</p>
           </div>
-          {/* <Icon3dCubeSphere /> */}
+          <Icon3dCubeSphere className={"hideMe"} />
         </div>
         <div className="divider"></div>
         <div
@@ -56,7 +56,7 @@ const Footer = ({
             <h4>Publish to Viewer</h4>
             <p>Publish to Tidy Viewer</p>
           </div>
-          {/* <Icon3dCubeSphere /> */}
+          <Icon3dCubeSphere className={"hideMe"} />
         </div>
       </div>
       </div>
