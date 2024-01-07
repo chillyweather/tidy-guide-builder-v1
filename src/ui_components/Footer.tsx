@@ -17,7 +17,11 @@ const Footer = ({
   const [isPublishDropdownOpen, setIsPublishDropdownOpen] = useState(false);
   const documentationTitle = useContext(BuilderContext)?.documentationTitle;
   const selectedElementKey = useContext(BuilderContext)?.selectedElementKey;
-  const isValid = !!documentationTitle?.length && !!selectedElementKey?.length;
+  const selectedElementName = useContext(BuilderContext)?.selectedElementName;
+  const isValid =
+    !!documentationTitle?.length &&
+    !!selectedElementKey?.length &&
+    !!selectedElementName?.length;
   const setShowResetPopup = useContext(BuilderContext)?.setShowResetPopup;
   const setIsDraft = useContext(BuilderContext)?.setIsDraft;
 
