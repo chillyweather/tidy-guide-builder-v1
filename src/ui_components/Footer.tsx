@@ -27,7 +27,12 @@ const Footer = ({
 
   function PublishButtonDropdown() {
     return (
-      <div className={"publish-dropdown"}>
+      <div className={"feedbackPopupBackground invisible"}
+      onClick={() => {
+        setIsPublishDropdownOpen(false);
+      }}
+      >
+        <div className={"publish-dropdown"}>
         <div
           className={"publish-dropdown-item"}
           onClick={() => {
@@ -40,7 +45,7 @@ const Footer = ({
             <h4>Build on Canvas</h4>
             <p>Build on Canvas and publish to Tidy Viewer</p>
           </div>
-          <Icon3dCubeSphere />
+          {/* <Icon3dCubeSphere /> */}
         </div>
         <div className="divider"></div>
         <div
@@ -55,8 +60,9 @@ const Footer = ({
             <h4>Publish to Viewer</h4>
             <p>Publish to Tidy Viewer</p>
           </div>
-          <Icon3dCubeSphere />
+          {/* <Icon3dCubeSphere /> */}
         </div>
+      </div>
       </div>
     );
   }

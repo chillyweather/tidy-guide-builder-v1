@@ -90,6 +90,7 @@ declare const styles: {
   readonly "inputInputRowStyle": string;
   readonly "inputWithValidation": string;
   readonly "invalidText": string;
+  readonly "invisible": string;
   readonly "leftContent": string;
   readonly "leftFooterContent": string;
   readonly "link": string;

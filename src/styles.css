@@ -1623,7 +1623,8 @@ summary button {
 .cards:has(.flex-label[pd]) {
   max-height: calc(var(--text-size) * 3);
 }
-.cards:has(.flex-label[pd]) .flex-label svg{
+
+.cards:has(.flex-label[pd]) .flex-label svg {
   transform: rotate(-90deg);
 }
 
@@ -1634,7 +1635,8 @@ summary button {
   align-items: center;
   cursor: pointer;
 }
-.flex-label:hover{
+
+.flex-label:hover {
   opacity: .8;
 }
 
@@ -1656,7 +1658,8 @@ summary button {
   cursor: pointer;
   border: 1px solid #e8e8f7;
 }
-.addSectionCard:active{
+
+.addSectionCard:active {
   border-color: #9C71EF;
 }
 
@@ -1686,13 +1689,14 @@ summary button {
   background-color: #F6F6FC;
 }
 
-.addSectionIcon svg, .addSectionIcon img {
+.addSectionIcon svg,
+.addSectionIcon img {
   width: 18px;
   height: 16px;
   display: none;
 }
 
-.addSectionIcon img{
+.addSectionIcon img {
   /* border-radius: 8px; */
   transform: scale(1.4);
 }
@@ -1754,19 +1758,25 @@ summary button {
 .addSectionIcon[type="image"] .image {
   display: block;
 }
+
 .addSectionIcon[type="anatomy"] .anatomy {
   display: block;
 }
+
 .addSectionIcon[type="spacing"] .spacing {
   display: block;
 }
+
 .addSectionIcon[type="property"] .property {
   display: block;
 }
+
 .addSectionIcon[type="variants"] .variants {
   display: block;
 }
-.addSectionIcon[type="release notes"] .releasenotes, .addSectionIcon[type="release-notes"] .releasenotes {
+
+.addSectionIcon[type="release notes"] .releasenotes,
+.addSectionIcon[type="release-notes"] .releasenotes {
   display: block;
 }
 
@@ -1787,7 +1797,8 @@ summary button {
   display: -webkit-box;
 }
 
-.addSectionPopup .addSectionIcon .noIcon, .addSectionPopup .addSectionIcon img {
+.addSectionPopup .addSectionIcon .noIcon,
+.addSectionPopup .addSectionIcon img {
   height: 64px;
   width: 64px;
   transition: all 300ms ease-in-out 0s;
@@ -2420,10 +2431,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .unselected {
   pointer-events: none;
 }
-.nothingCards{
+
+.nothingCards {
   width: 100%;
 }
-.nothingCards p{
+
+.nothingCards p {
   text-align: left;
   margin: 0 58px;
   color: var(--tidy-disabled);
@@ -2751,7 +2764,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: #E8EDFC;
   color: #92A1B9;
 }
-.draft .addSectionIcon img{
+
+.draft .addSectionIcon img {
   filter: brightness(96%) grayscale(20%) hue-rotate(-25deg);
   opacity: 0.6;
 }
@@ -2836,6 +2850,11 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   align-items: center;
   z-index: 998;
   backdrop-filter: blur(1px);
+}
+
+.invisible {
+  background-color: transparent;
+  backdrop-filter: none;
 }
 
 .absDiv {
