@@ -23,7 +23,12 @@ const Footer = ({
 
   function PublishButtonDropdown() {
     return (
-      <div className={"publish-dropdown"}>
+      <div className={"feedbackPopupBackground invisible"}
+      onClick={() => {
+        setIsPublishDropdownOpen(false);
+      }}
+      >
+        <div className={"publish-dropdown"}>
         <div
           className={"publish-dropdown-item"}
           onClick={() => {
@@ -53,6 +58,7 @@ const Footer = ({
           </div>
           {/* <Icon3dCubeSphere /> */}
         </div>
+      </div>
       </div>
     );
   }
