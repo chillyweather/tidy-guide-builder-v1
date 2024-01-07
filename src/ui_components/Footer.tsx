@@ -14,6 +14,7 @@ const Footer = ({
   setIsBuilding: Function;
   setIsBuildingOnCanvas: Function;
 }) => {
+  const [saveData, setSaveData] = useState(false);
   const [isPublishDropdownOpen, setIsPublishDropdownOpen] = useState(false);
   const documentationTitle = useContext(BuilderContext)?.documentationTitle;
   const selectedElementKey = useContext(BuilderContext)?.selectedElementKey;
@@ -24,45 +25,49 @@ const Footer = ({
     !!selectedElementName?.length;
   const setShowResetPopup = useContext(BuilderContext)?.setShowResetPopup;
   const setIsDraft = useContext(BuilderContext)?.setIsDraft;
+  const isDraft = useContext(BuilderContext)?.isDraft;
+
+  console.log("isDraft", isDraft);
 
   function PublishButtonDropdown() {
     return (
-      <div className={"feedbackPopupBackground invisible"}
-      onClick={() => {
-        setIsPublishDropdownOpen(false);
-      }}
+      <div
+        className={"feedbackPopupBackground invisible"}
+        onClick={() => {
+          setIsPublishDropdownOpen(false);
+        }}
       >
         <div className={"publish-dropdown"}>
-        <div
-          className={"publish-dropdown-item"}
-          onClick={() => {
-            setIsBuilding(true);
-            setIsBuildingOnCanvas(true);
-            setIsPublishDropdownOpen(false);
-          }}
-        >
-          <div className="publish-content-wrapper">
-            <h4>Build on Canvas</h4>
-            <p>Build on Canvas and publish to Tidy Viewer</p>
+          <div
+            className={"publish-dropdown-item"}
+            onClick={() => {
+              setIsBuilding(true);
+              setIsBuildingOnCanvas(true);
+              setIsPublishDropdownOpen(false);
+            }}
+          >
+            <div className="publish-content-wrapper">
+              <h4>Build on Canvas</h4>
+              <p>Build on Canvas and publish to Tidy Viewer</p>
+            </div>
+            {/* <Icon3dCubeSphere /> */}
           </div>
-          {/* <Icon3dCubeSphere /> */}
-        </div>
-        <div className="divider"></div>
-        <div
-          className={"publish-dropdown-item"}
-          onClick={() => {
-            setIsBuildingOnCanvas(false);
-            setIsBuilding(true);
-            setIsPublishDropdownOpen(false);
-          }}
-        >
-          <div className={"publish-content-wrapper"}>
-            <h4>Publish to Viewer</h4>
-            <p>Publish to Tidy Viewer</p>
+          <div className="divider"></div>
+          <div
+            className={"publish-dropdown-item"}
+            onClick={() => {
+              setIsBuildingOnCanvas(false);
+              setIsBuilding(true);
+              setIsPublishDropdownOpen(false);
+            }}
+          >
+            <div className={"publish-content-wrapper"}>
+              <h4>Publish to Viewer</h4>
+              <p>Publish to Tidy Viewer</p>
+            </div>
+            {/* <Icon3dCubeSphere /> */}
           </div>
-          {/* <Icon3dCubeSphere /> */}
         </div>
-      </div>
       </div>
     );
   }
@@ -72,6 +77,13 @@ const Footer = ({
       setIsPublishDropdownOpen(false);
     }
   }, [isValid, setIsPublishDropdownOpen]);
+
+  useEffect(() => {
+    if (isDraft && saveData) {
+      setIsBuilding(true);
+      setIsBuildingOnCanvas(false);
+    }
+  }, [isDraft, saveData, setIsBuilding, setIsBuildingOnCanvas]);
 
   return (
     <div className={"footer"}>
@@ -86,8 +98,8 @@ const Footer = ({
           disabled
           className={"second"}
           onClick={() => {
+            setSaveData(true);
             setIsDraft(true);
-            setIsBuilding(true);
           }}
         >
           Save changes

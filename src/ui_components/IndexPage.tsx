@@ -18,6 +18,7 @@ const IndexPage = ({
   setIsFromSavedData: Function;
 }) => {
   const setDataForUpdate = useContext(BuilderContext)?.setDataForUpdate;
+  const isDraft = useContext(BuilderContext)?.isDraft;
   const token = useContext(BuilderContext)?.token;
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
   const sortedData = data.sort((a: any, b: any) =>
@@ -29,12 +30,13 @@ const IndexPage = ({
       {sortedData.map((element: any, index: number) => {
         const title = element.title;
         const wip = element.inProgress;
-        const draft = element.draft || false;
+        const draft = element.draft;
+        console.log("draft", draft);
         return (
           <div className={"componentBTN"}>
             <div
               className={"inner-componentBTN"}
-              style={{ opacity: draft ? 0.5 : 1 }}
+              // style={{ opacity: draft ? 0.5 : 1 }}
               onClick={() => {
                 setSelectedMasterId(element._id);
                 setIsFromSavedData(true);

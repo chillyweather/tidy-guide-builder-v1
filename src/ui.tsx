@@ -172,22 +172,22 @@ function Plugin() {
     }
   }
 
-  useEffect(() => {
-    const found = checkIfDocumentationExists(dataForUpdate, selectedElementKey);
-    if (found && isMainContentOpen && selectedElementName.length) {
-      setFoundDocumentation(found);
-      setIsToastOpen(true);
-      setSelectedElement(null);
-      setSelectedElementName("");
-    }
-  }, [
-    selectedElementKey,
-    dataForUpdate,
-    isMainContentOpen,
-    selectedElementName,
-  ]);
+  // useEffect(() => {
+  //   const found = checkIfDocumentationExists(dataForUpdate, selectedElementKey);
+  //   if (found && isMainContentOpen && selectedElementName.length) {
+  //     setFoundDocumentation(found);
+  //     setIsToastOpen(true);
+  //     setSelectedElement(null);
+  //     setSelectedElementName("");
+  //   }
+  // }, [
+  //   selectedElementKey,
+  //   dataForUpdate,
+  //   isMainContentOpen,
+  //   selectedElementName,
+  // ]);
 
-  useEffect(() => {}, [documentationData]);
+  // useEffect(() => {}, [documentationData]);
 
   (function bodyScroll() {
     document.body.onscroll = function () {
