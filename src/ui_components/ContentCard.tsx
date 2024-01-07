@@ -64,7 +64,7 @@ export const ContentCard = (cardData: any, index: number) => {
   // general use
   const [isDraft, setIsDraft] = useState(false);
   const [publish, setPublish] = useState<boolean>(
-    isFromSavedData ? cardData.publish : true
+    isFromSavedData ? cardData.publish || true : true
   );
   // text card
   const [paragraphTextContent, setParagraphTextContent] = useState(
@@ -299,6 +299,7 @@ export const ContentCard = (cardData: any, index: number) => {
         const newDocumentation = { ...prevDocumentation };
         const newDocs = newDocumentation.docs;
         newDocs["title"] = documentationTitle;
+        console.log("currentCardData", currentCardData);
         newDocs[index] = currentCardData;
         setIsBuilding(false);
         return newDocumentation;
