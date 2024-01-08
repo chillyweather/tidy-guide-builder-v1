@@ -16,7 +16,6 @@ import {
   IconPlus,
 } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
-// import sectionData from "src/resources/sectionData";
 import { sectionData, PDSectionData } from "src/resources/dataForElements";
 import { generateUniqueId } from "./ui_functions/generateUniqueId";
 import DefinedAnatomy from "./../images/icon_anatomy.png";
@@ -42,19 +41,7 @@ function AddSectionPopupCard(card: any) {
         className={"addSectionCard"}
         id={card.title}
         onClick={() => {
-          const newCard = {
-            ...card,
-            id: generateUniqueId(), //! remove this later
-            docId: generateUniqueId(),
-          };
-          if (selectedSections && selectedSections.length) {
-            setSelectedSections((prevSections: any[]) => [
-              ...prevSections,
-              newCard,
-            ]);
-          } else {
-            setSelectedSections([newCard]);
-          }
+          addSection();
         }}
         onMouseOut={() => {
           setIsHovering(false);
@@ -67,27 +54,22 @@ function AddSectionPopupCard(card: any) {
           <img
             src={isHovering ? DefinedAnatomyGif : DefinedAnatomy}
             className={"anatomy"}
-            id={card.title + "-Anatomy-img"}
           />
           <img
             src={isHovering ? DefinedSpacingGif : DefinedSpacing}
             className={"spacing"}
-            id={card.title + "-Spacing-img"}
           />
           <img
             src={isHovering ? DefinedPropertyGif : DefinedProperty}
             className={"property"}
-            id={card.title + "-Property-img"}
           />
           <img
             src={isHovering ? DefinedVariantsGif : DefinedVariants}
             className={"variants"}
-            id={card.title + "-Variants-img"}
           />
           <img
             src={isHovering ? DefinedReleaseNotesGif : DefinedReleaseNotes}
             className={"releasenotes"}
-            id={card.title + "-Release Notes-img"}
           />
           <IconPilcrow className={"paragraph"} />
           <IconVideo className={"video"} />
@@ -109,12 +91,19 @@ function AddSectionPopupCard(card: any) {
       </div>
     </div>
   );
-}
 
-async function closeMenu(event: Event) {
-  console.log(event.target);
-  //@ts-ignore
-  event.target.parentElement.remove();
+  function addSection() {
+    const newCard = {
+      ...card,
+      id: generateUniqueId(), //! remove this later
+      docId: generateUniqueId(),
+    };
+    if (selectedSections && selectedSections.length) {
+      setSelectedSections((prevSections: any[]) => [...prevSections, newCard]);
+    } else {
+      setSelectedSections([newCard]);
+    }
+  }
 }
 
 function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
@@ -153,7 +142,6 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
 
 function HeaderActions() {
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
-
   const selectedElementName = useContext(BuilderContext)?.selectedElementName;
   const setSelectedElementName =
     useContext(BuilderContext)?.setSelectedElementName;
@@ -162,8 +150,6 @@ function HeaderActions() {
   const isScroll = useContext(BuilderContext)?.isScroll;
   const setSelectedElementKey =
     useContext(BuilderContext)?.setSelectedElementKey;
-  const setIsMainContentOpen = useContext(BuilderContext)?.setIsMainContentOpen;
-  const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
   return (
     <div
       class={"headerContent headerActions"}
@@ -195,7 +181,6 @@ function HeaderActions() {
               setSelectedElementName("");
               setSelectedElementKey("");
               emit("CLEAR_SELECTION");
-              // setIsMainContentOpen(false);
             }}
           />
         ) : (
