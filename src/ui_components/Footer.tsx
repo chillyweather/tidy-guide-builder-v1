@@ -16,18 +16,20 @@ const Footer = ({
 }) => {
   const [saveData, setSaveData] = useState(false);
   const [isPublishDropdownOpen, setIsPublishDropdownOpen] = useState(false);
-  const documentationTitle = useContext(BuilderContext)?.documentationTitle;
-  const selectedElementKey = useContext(BuilderContext)?.selectedElementKey;
-  const selectedElementName = useContext(BuilderContext)?.selectedElementName;
+
+  const {
+    documentationTitle,
+    selectedElementKey,
+    selectedElementName,
+    setShowResetPopup,
+    setIsDraft,
+    isDraft,
+  } = useContext(BuilderContext) || {};
+
   const isValid =
     !!documentationTitle?.length &&
     !!selectedElementKey?.length &&
     !!selectedElementName?.length;
-  const setShowResetPopup = useContext(BuilderContext)?.setShowResetPopup;
-  const setIsDraft = useContext(BuilderContext)?.setIsDraft;
-  const isDraft = useContext(BuilderContext)?.isDraft;
-
-  console.log("isDraft", isDraft);
 
   function PublishButtonDropdown() {
     return (

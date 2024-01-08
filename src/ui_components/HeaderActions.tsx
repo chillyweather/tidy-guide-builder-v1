@@ -107,9 +107,9 @@ function AddSectionPopupCard(card: any) {
 }
 
 function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
-  const isPdSectionOpen = useContext(BuilderContext)?.isPdSectionOpen;
-  const setIsPdSectionOpen = useContext(BuilderContext)?.setIsPdSectionOpen;
-  console.log("isPdSectionOpen", isPdSectionOpen);
+  const { isPdSectionOpen, setIsPdSectionOpen } =
+    useContext(BuilderContext) || {};
+
   return (
     <div class={"addSectionPopup"}>
       <div className="addSectionPupup-inner">
@@ -142,14 +142,16 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
 
 function HeaderActions() {
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
-  const selectedElementName = useContext(BuilderContext)?.selectedElementName;
-  const setSelectedElementName =
-    useContext(BuilderContext)?.setSelectedElementName;
-  const setSelectedElement = useContext(BuilderContext)?.setSelectedElement;
-  const documentationTitle = useContext(BuilderContext)?.documentationTitle;
-  const isScroll = useContext(BuilderContext)?.isScroll;
-  const setSelectedElementKey =
-    useContext(BuilderContext)?.setSelectedElementKey;
+
+  const {
+    selectedElementName,
+    setSelectedElementName,
+    setSelectedElement,
+    documentationTitle,
+    isScroll,
+    setSelectedElementKey,
+  } = useContext(BuilderContext) || {};
+
   return (
     <div
       class={"headerContent headerActions"}

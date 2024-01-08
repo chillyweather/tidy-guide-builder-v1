@@ -29,9 +29,8 @@ const ContentFromServer = ({
   const foundData = data.find((item: any) => item._id === selectedMasterId);
 
   useEffect(() => {
-    console.log("first render");
-    emit("GET_NEW_SELECTION", selectedMasterId, data, currentElementId);
-  }, [selectedMasterId, data, currentElementId]);
+    emit("GET_NEW_SELECTION", selectedMasterId, currentElementId);
+  }, [selectedMasterId, currentElementId]);
 
   useEffect(() => {
     if (foundData && foundData._id) {

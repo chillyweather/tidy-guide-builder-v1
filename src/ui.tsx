@@ -180,14 +180,12 @@ function Plugin() {
       setSelectedElement(null);
       setSelectedElementName("");
     }
-  }, [
-    selectedElementKey,
-    dataForUpdate,
-    isMainContentOpen,
-    selectedElementName,
-  ]);
+  }, [selectedElementKey]);
 
-  useEffect(() => {}, [documentationData]);
+  useEffect(() => {
+    console.log("selectedMasterId", selectedMasterId);
+    console.log("selectedElementName", selectedElementName);
+  }, [selectedMasterId, selectedElementName]);
 
   (function bodyScroll() {
     document.body.onscroll = function () {
@@ -259,6 +257,8 @@ function Plugin() {
       console.log("error", error);
     }
     setIsLoading(false);
+    setIsBuilding(false);
+    setIsBuildingOnCanvas(false);
   }
 
   useEffect(() => {

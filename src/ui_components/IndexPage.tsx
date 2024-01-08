@@ -31,7 +31,6 @@ const IndexPage = ({
         const title = element.title;
         const wip = element.inProgress;
         const draft = element.draft;
-        console.log("draft", draft);
         return (
           <div className={"componentBTN"}>
             <div
