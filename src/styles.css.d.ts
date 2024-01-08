@@ -77,6 +77,7 @@ declare const styles: {
   readonly "headerActions": string;
   readonly "headerCard": string;
   readonly "headerContent": string;
+  readonly "hideMe": string;
   readonly "hidePredefined": string;
   readonly "hoverButton": string;
   readonly "image": string;

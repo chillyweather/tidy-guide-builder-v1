@@ -2856,6 +2856,9 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: transparent;
   backdrop-filter: none;
 }
+.hideMe{
+  opacity: 0;
+}
 
 .absDiv {
   position: absolute;
