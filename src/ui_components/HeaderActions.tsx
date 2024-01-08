@@ -56,10 +56,10 @@ function AddSectionPopupCard(card: any) {
             setSelectedSections([newCard]);
           }
         }}
-        onMouseOut={(event: any) => {
+        onMouseOut={() => {
           setIsHovering(false);
         }}
-        onMouseOver={(event: any) => {
+        onMouseOver={() => {
           setIsHovering(true);
         }}
       >
