@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { h } from "preact";
 import { useState, useContext, useRef } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
@@ -34,6 +33,7 @@ import DefinedReleaseNotesGif from "./../images/icon_release_notes.gif";
 const cardsForPopup = sectionData;
 
 function AddSectionPopupCard(card: any) {
+  const [isHovering, setIsHovering] = useState(false);
   const selectedSections = useContext(BuilderContext)?.selectedSections;
   const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
   return (
@@ -56,42 +56,36 @@ function AddSectionPopupCard(card: any) {
             setSelectedSections([newCard]);
           }
         }}
+        onMouseOut={(event: any) => {
+          setIsHovering(false);
+        }}
         onMouseOver={(event: any) => {
-          document.getElementById(
-            event.target.id + "-" + event.target.id + "-img"
-          ).src = document.getElementById(
-            event.target.id + "-" + event.target.id + "-img"
-          ).alt;
+          setIsHovering(true);
         }}
       >
         <div className={"addSectionIcon"} type={card.title}>
           <img
-            src={DefinedAnatomy}
-            alt={DefinedAnatomyGif}
+            src={isHovering ? DefinedAnatomyGif : DefinedAnatomy}
             className={"anatomy"}
             id={card.title + "-Anatomy-img"}
           />
           <img
-            src={DefinedSpacing}
-            alt={DefinedSpacingGif}
+            src={isHovering ? DefinedSpacingGif : DefinedSpacing}
             className={"spacing"}
             id={card.title + "-Spacing-img"}
           />
           <img
-            src={DefinedProperty}
-            alt={DefinedPropertyGif}
+            src={isHovering ? DefinedPropertyGif : DefinedProperty}
             className={"property"}
             id={card.title + "-Property-img"}
           />
           <img
-            src={DefinedVariants}
-            alt={DefinedVariantsGif}
+            src={isHovering ? DefinedVariantsGif : DefinedVariants}
             className={"variants"}
             id={card.title + "-Variants-img"}
           />
           <img
-            src={DefinedReleaseNotes}
-            alt={DefinedReleaseNotesGif}
+            src={isHovering ? DefinedReleaseNotesGif : DefinedReleaseNotes}
             className={"releasenotes"}
             id={card.title + "-Release Notes-img"}
           />
