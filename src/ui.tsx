@@ -229,6 +229,16 @@ function Plugin() {
     }
   }, [documentationTitle, isWip]);
 
+  // useEffect(() => {
+  //   if (token && selectedElementKey && selectedElement) {
+  //     emit("PIC_FROM_FIGMA", {
+  //       type: "anatomy",
+  //       nodeId: selectedElement.id,
+  //       key: selectedElementKey,
+  //     });
+  //   }
+  // }, [token, selectedElementKey, selectedElement]);
+
   function closePopup() {
     setIsToastOpen(false);
   }
@@ -237,7 +247,6 @@ function Plugin() {
     const id = data._id;
     if (typeof id !== "string") return;
     setIsLoading(true);
-    //! temp commented out for testing
     try {
       const result = await getDocumentations(token);
       const isDocumented = result.some((doc: any) => doc._id === id);

@@ -12,17 +12,18 @@ import {
   buildImageFromRemoteSource,
 } from "../figma_doc_sections/elementBuildingFunctions";
 import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
+import { getNode } from "./getNode";
 
 interface ElementData {
   node?: SceneNode;
 }
 
-const loadFonts = async () => {
-  await figma.loadFontAsync({ family: "Inter", style: "Regular" });
-  await figma.loadFontAsync({ family: "Inter", style: "Bold" });
-  await figma.loadFontAsync({ family: "Inter", style: "Semi Bold" });
-  await figma.loadFontAsync({ family: "Inter", style: "Medium" });
-};
+// const loadFonts = async () => {
+//   await figma.loadFontAsync({ family: "Inter", style: "Regular" });
+//   await figma.loadFontAsync({ family: "Inter", style: "Bold" });
+//   await figma.loadFontAsync({ family: "Inter", style: "Semi Bold" });
+//   await figma.loadFontAsync({ family: "Inter", style: "Medium" });
+// };
 
 let elementId: string;
 
@@ -37,36 +38,10 @@ function getElement(id: string) {
   if (component) return component;
 }
 
-async function getNode(id: string, key: string) {
-  const node = figma.getNodeById(id);
-  if (
-    node &&
-    (node.type === "COMPONENT" || node.type === "COMPONENT_SET") &&
-    node.key === key
-  ) {
-    return node;
-  }
-
-  try {
-    const importedComponentSet = await figma.importComponentSetByKeyAsync(key);
-    return importedComponentSet;
-  } catch (error) {
-    console.log("error", error);
-  }
-
-  try {
-    const importedComponent = await figma.importComponentByKeyAsync(key);
-    return importedComponent;
-  } catch (error) {
-    console.log("error", error);
-  }
-
-  figma.closePlugin(
-    "Error: No component found for this section. Please import it from the library."
-  );
-}
-
-export default async function documentationBuilder(data: any) {
+export default async function documentationBuilder(
+  data: any,
+  loadFonts: Function
+) {
   const page = figma.currentPage;
   const node = await getNode(data.nodeId, data._id);
   if (!node) return;

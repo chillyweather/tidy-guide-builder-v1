@@ -4,6 +4,14 @@ import documentationBuilder from "./figma_functions/documentationBuilder";
 import { checkSelection } from "./figma_functions/checkSelection";
 import { tokenHandler } from "./figma_functions/tokenHandler";
 import { findElement } from "./figma_functions/findElement";
+import imageFromFigma from "./figma_functions/imageFromFigma";
+
+const loadFonts = async () => {
+  await figma.loadFontAsync({ family: "Inter", style: "Regular" });
+  await figma.loadFontAsync({ family: "Inter", style: "Bold" });
+  await figma.loadFontAsync({ family: "Inter", style: "Semi Bold" });
+  await figma.loadFontAsync({ family: "Inter", style: "Medium" });
+};
 
 export default async function () {
   await tokenHandler();
@@ -14,7 +22,6 @@ export default async function () {
   const user = figma.currentUser;
   const document = figma.root.name;
   const page = figma.currentPage.name;
-  // emit("USER", user);
 
   const sessionData = {
     user: user,
@@ -47,15 +54,9 @@ export default async function () {
     figma.closePlugin();
   });
 
-  //! maybe change originalObj structure???
-  function convertFormat(originalObj: any) {
-    const newObj: any = {};
-    for (const key in originalObj) {
-      newObj._id = key;
-      newObj.docs = Object.values(originalObj[key]);
-    }
-    return newObj;
-  }
+  on("PIC_FROM_FIGMA", async ({ type, key, nodeId }) => {
+    imageFromFigma(loadFonts, type, key, nodeId);
+  });
 
   on("CLEAR_SELECTION", () => {
     figma.currentPage.selection = [];
@@ -70,10 +71,10 @@ export default async function () {
   });
 
   on("BUILD", async (data, elementId) => {
-    //----building documentation on canvas------//
+    //!----building documentation on canvas----//
     try {
       console.log("data in main", data);
-      await documentationBuilder(data);
+      await documentationBuilder(data, loadFonts);
     } catch (error) {
       console.log("error on documentation build in Figma :>> ", error);
     }
