@@ -1697,6 +1697,10 @@ summary button {
   display: none;
 }
 
+#sections .addSectionIcon img{
+  transform: scale(1.4);
+}
+
 .addSectionIcon[type="text"],
 .addSectionIcon[type="paragraph"] {
   background-color: #E6FFFB;
