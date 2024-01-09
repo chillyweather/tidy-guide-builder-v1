@@ -15,6 +15,24 @@ export function DropZone(
 ) {
   const loggedInUser = useContext(BuilderContext)?.loggedInUser;
 
+  async function handleDrop(event: DragEvent) {
+    event.preventDefault();
+    const file = event.dataTransfer?.files[0];
+
+    if (
+      file &&
+      (file.type === "image/jpeg" ||
+        file.type === "image/png" ||
+        file.type === "image/svg+xml")
+    ) {
+      setIsImageLoading(true);
+      const path = await uploadFileToServer(file, loggedInUser!);
+      setRemoteImageLink(path);
+    } else {
+      alert("Please upload a valid image file");
+    }
+  }
+
   function handleDragOver(event: DragEvent) {
     event.preventDefault();
   }
@@ -53,7 +71,11 @@ export function DropZone(
   }
 
   return (
-    <div className={"drop-zone"} onDragOver={handleDragOver}>
+    <div
+      className={"drop-zone"}
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+    >
       {isImageLoading ? (
         <div className={"loader image-loader"}>
           <div className={"rotatingBucket"}>

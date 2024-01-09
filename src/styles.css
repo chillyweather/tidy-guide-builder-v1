@@ -686,6 +686,17 @@ body:has(.header-menu[open]) .nav-wrapper {
   align-items: center;
   gap: 4px;
 }
+.header .back-button{
+  color: var(--tidy-text);
+}
+.header .back-button:hover{
+  color: #414857;
+  background-color: transparent;
+}
+.header .back-button:active{
+  color: #3E1C7D;
+  background-color: transparent;
+}
 
 body .header-button {
   display: none;
@@ -1588,8 +1599,9 @@ summary button {
 
 .addSectionPupup-inner {
   overflow: auto;
-  padding: 12px;
-  max-height: 76vh;
+  padding: 0 12px;
+  margin: 12px 0;
+  max-height: calc(76vh - 24px);
 }
 
 .addSectionPupup-inner h2 {
@@ -1696,8 +1708,7 @@ summary button {
   display: none;
 }
 
-.addSectionIcon img {
-  /* border-radius: 8px; */
+#sections .addSectionIcon img{
   transform: scale(1.4);
 }
 
@@ -2680,11 +2691,14 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   flex-direction: row;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
 }
 
 .videoElementWrapper div {
-  pointer-events: none;
   background-color: transparent !important;
+}
+.videoElementWrapper:hover div{
+  text-decoration: underline;
 }
 
 .videoElementWrapper button {
