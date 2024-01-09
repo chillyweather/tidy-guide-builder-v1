@@ -1696,11 +1696,6 @@ summary button {
   display: none;
 }
 
-.addSectionIcon img {
-  /* border-radius: 8px; */
-  transform: scale(1.4);
-}
-
 .addSectionIcon[type="text"],
 .addSectionIcon[type="paragraph"] {
   background-color: #E6FFFB;
