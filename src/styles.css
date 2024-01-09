@@ -2684,7 +2684,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 }
 
 .videoElementWrapper div {
-  pointer-events: none;
+  /* pointer-events: none; */
   background-color: transparent !important;
 }
 .videoElementWrapper:hover div{
