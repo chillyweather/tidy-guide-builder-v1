@@ -30,7 +30,6 @@ import {
 
 //styles
 import "!./styles.css";
-import EmptyState from "./ui_components/EmptyState";
 
 function Plugin() {
   //saved token
@@ -146,8 +145,6 @@ function Plugin() {
   });
 
   on("SELECTION", ({ defaultNode, name, key }) => {
-    // if (defaultNode) setIsMainContentOpen(true);
-    console.log("defaultNode", defaultNode.id);
     setSelectedElement(defaultNode);
     setSelectedElementName(name);
     setSelectedElementKey(key);
@@ -255,15 +252,15 @@ function Plugin() {
     }
   }, [documentationTitle, isWip]);
 
-  useEffect(() => {
-    if (token && selectedElementKey && selectedElement) {
-      emit("PIC_FROM_FIGMA", {
-        type: "anatomy",
-        nodeId: selectedElement.id,
-        key: selectedElementKey,
-      });
-    }
-  }, [token, selectedElementKey, selectedElement]);
+  // useEffect(() => {
+  //   if (token && selectedElementKey && selectedElement) {
+  //     emit("PIC_FROM_FIGMA", {
+  //       type: "anatomy",
+  //       nodeId: selectedElement.id,
+  //       key: selectedElementKey,
+  //     });
+  //   }
+  // }, [token, selectedElementKey, selectedElement]);
 
   function closePopup() {
     setIsToastOpen(false);
@@ -302,6 +299,67 @@ function Plugin() {
     }
   }, [documentationData, isBuilding, token]);
 
+  const contextStates = {
+    anatomySectionImage,
+    currentDocument,
+    currentPage,
+    currentUser,
+    documentationData,
+    documentationTitle,
+    isBuilding,
+    isContenFromServerOpen,
+    isDraft,
+    isFromSavedData,
+    isIndexOpen,
+    isLoading,
+    isLoginPageOpen,
+    isMainContentOpen,
+    isPdSectionOpen,
+    isReset,
+    isScroll,
+    isWip,
+    loggedInUser,
+    propertySectionImage,
+    selectedCard,
+    selectedElement,
+    selectedElementKey,
+    selectedElementName,
+    selectedSections,
+    showCancelPopup,
+    showResetPopup,
+    spacingSectionImage,
+    token,
+    variantsSectionImage,
+    setAnatomySectionImage,
+    setCurrentDocument,
+    setCurrentPage,
+    setCurrentUser,
+    setDataForUpdate,
+    setDocumentationData,
+    setDocumentationTitle,
+    setIsBuilding,
+    setIsContenFromServerOpen,
+    setIsDraft,
+    setIsFromSavedData,
+    setIsIndexOpen,
+    setIsLoading,
+    setIsMainContentOpen,
+    setIsPdSectionOpen,
+    setIsReset,
+    setIsWip,
+    setLoggedInUser,
+    setPropertySectionImage,
+    setSelectedCard,
+    setSelectedElement,
+    setSelectedElementKey,
+    setSelectedElementName,
+    setSelectedSections,
+    setShowCancelPopup,
+    setShowResetPopup,
+    setSpacingSectionImage,
+    setVariantsSectionImage,
+  };
+
   return (
     <div
       className={"container"}
@@ -312,68 +370,7 @@ function Plugin() {
         }
       }}
     >
-      <BuilderContext.Provider
-        value={{
-          anatomySectionImage,
-          currentDocument,
-          currentPage,
-          currentUser,
-          documentationData,
-          documentationTitle,
-          isBuilding,
-          isContenFromServerOpen,
-          isDraft,
-          isFromSavedData,
-          isIndexOpen,
-          isLoading,
-          isLoginPageOpen,
-          isMainContentOpen,
-          isPdSectionOpen,
-          isReset,
-          isScroll,
-          isWip,
-          loggedInUser,
-          propertySectionImage,
-          selectedCard,
-          selectedElement,
-          selectedElementKey,
-          selectedElementName,
-          selectedSections,
-          showCancelPopup,
-          showResetPopup,
-          spacingSectionImage,
-          token,
-          variantsSectionImage,
-          setAnatomySectionImage,
-          setCurrentDocument,
-          setCurrentPage,
-          setCurrentUser,
-          setDataForUpdate,
-          setDocumentationData,
-          setDocumentationTitle,
-          setIsBuilding,
-          setIsContenFromServerOpen,
-          setIsDraft,
-          setIsFromSavedData,
-          setIsIndexOpen,
-          setIsLoading,
-          setIsMainContentOpen,
-          setIsPdSectionOpen,
-          setIsReset,
-          setIsWip,
-          setLoggedInUser,
-          setPropertySectionImage,
-          setSelectedCard,
-          setSelectedElement,
-          setSelectedElementKey,
-          setSelectedElementName,
-          setSelectedSections,
-          setShowCancelPopup,
-          setShowResetPopup,
-          setSpacingSectionImage,
-          setVariantsSectionImage,
-        }}
-      >
+      <BuilderContext.Provider value={contextStates}>
         {feedbackPage && (
           <FeedbackPopup
             show={feedbackPage}
@@ -411,7 +408,6 @@ function Plugin() {
         />
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
 
-        {/* on startup */}
         {!isLoginPageOpen && isFirstTime && !isMainContentOpen && (
           <IndexPage
             data={dataForUpdate}
@@ -421,9 +417,7 @@ function Plugin() {
             setIsFromSavedData={setIsFromSavedData}
           />
         )}
-        {/* {isFirstTime && selectedElement && <MainContent />} */}
 
-        {/* not on startup */}
         {!isLoginPageOpen && !isFirstTime && isIndexOpen && (
           <IndexPage
             data={dataForUpdate}
@@ -444,7 +438,6 @@ function Plugin() {
             />
           )}
 
-        {/* login */}
         {!isLoginPageOpen && !isIndexOpen && (
           <Footer
             setIsBuilding={setIsBuilding}
