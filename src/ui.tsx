@@ -125,6 +125,16 @@ function Plugin() {
 
   //anatomy section image
   const [anatomySectionImage, setAnatomySectionImage] = useState("");
+  const [spacingSectionImage, setSpacingSectionImage] = useState("");
+  const [propertySectionImage, setPropertySectionImage] = useState("");
+  const [variantsSectionImage, setVariantsSectionImage] = useState("");
+
+  //current image array
+  const [currentImageArray, setCurrentImageArray] = useState<Uint8Array | null>(
+    null
+  );
+  //current image type
+  const [currentImageType, setCurrentImageType] = useState("");
 
   on("AUTH_CHANGE", async (token) => {
     if (token) {
@@ -172,7 +182,8 @@ function Plugin() {
   });
 
   on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
-    sendRaster(bytes, loggedInUser, type);
+    setCurrentImageArray(bytes);
+    setCurrentImageType(type);
   });
 
   function checkIfDocumentationExists(docs: any[], id: string) {
@@ -192,9 +203,15 @@ function Plugin() {
   }, [selectedElementKey]);
 
   useEffect(() => {
-    console.log("selectedMasterId", selectedMasterId);
-    console.log("selectedElementName", selectedElementName);
-  }, [selectedMasterId, selectedElementName]);
+    if (
+      loggedInUser &&
+      currentImageArray &&
+      currentImageArray.length &&
+      currentImageType
+    ) {
+      sendRaster(currentImageArray, loggedInUser, currentImageType);
+    }
+  }, [loggedInUser, currentImageArray, currentImageType]);
 
   (function bodyScroll() {
     document.body.onscroll = function () {
@@ -297,6 +314,7 @@ function Plugin() {
     >
       <BuilderContext.Provider
         value={{
+          anatomySectionImage,
           currentDocument,
           currentPage,
           currentUser,
@@ -304,15 +322,18 @@ function Plugin() {
           documentationTitle,
           isBuilding,
           isContenFromServerOpen,
+          isDraft,
           isFromSavedData,
           isIndexOpen,
           isLoading,
           isLoginPageOpen,
           isMainContentOpen,
+          isPdSectionOpen,
           isReset,
           isScroll,
           isWip,
           loggedInUser,
+          propertySectionImage,
           selectedCard,
           selectedElement,
           selectedElementKey,
@@ -320,7 +341,10 @@ function Plugin() {
           selectedSections,
           showCancelPopup,
           showResetPopup,
+          spacingSectionImage,
           token,
+          variantsSectionImage,
+          setAnatomySectionImage,
           setCurrentDocument,
           setCurrentPage,
           setCurrentUser,
@@ -329,13 +353,16 @@ function Plugin() {
           setDocumentationTitle,
           setIsBuilding,
           setIsContenFromServerOpen,
+          setIsDraft,
           setIsFromSavedData,
           setIsIndexOpen,
           setIsLoading,
           setIsMainContentOpen,
+          setIsPdSectionOpen,
           setIsReset,
           setIsWip,
           setLoggedInUser,
+          setPropertySectionImage,
           setSelectedCard,
           setSelectedElement,
           setSelectedElementKey,
@@ -343,10 +370,8 @@ function Plugin() {
           setSelectedSections,
           setShowCancelPopup,
           setShowResetPopup,
-          isDraft,
-          setIsDraft,
-          isPdSectionOpen,
-          setIsPdSectionOpen,
+          setSpacingSectionImage,
+          setVariantsSectionImage,
         }}
       >
         {feedbackPage && (

@@ -9,7 +9,6 @@ export async function tokenHandler(token?: string) {
     const savedToken = await figma.clientStorage.getAsync("token");
     if (savedToken) {
       emit("AUTH_CHANGE", savedToken);
-      console.log("savedToken :>> ", savedToken);
       return savedToken;
     } else {
       emit("AUTH_CHANGE", null);

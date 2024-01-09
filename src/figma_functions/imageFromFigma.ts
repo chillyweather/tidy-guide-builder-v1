@@ -26,10 +26,8 @@ const imageFromFigma = async (
   defaultElement.remove();
 
   const bytes = await resultFrame.exportAsync({
-    format: "PNG",
-    constraint: { type: "SCALE", value: 2 },
+    format: "SVG",
   });
-  console.log("bytes", bytes);
   emit("IMAGE_ARRAY_FOR_UPLOAD", { bytes, type });
 
   resultFrame.remove();
