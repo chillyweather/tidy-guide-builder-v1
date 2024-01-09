@@ -75,11 +75,7 @@ const videoCard = (
         // }}
       >
         <img style={{ height: "80px" }} src={thumbnail} alt={name} />
-        <Text style={{ color: isSelected ? "#FFF" : "#000" }}
-          onClick={() => {
-            window.open('http://example.com', '_blank')
-          }}
-        >{name}</Text>
+        <Text style={{ color: isSelected ? "#FFF" : "#000" }}>{name}</Text>
       </div>
     );
   };
