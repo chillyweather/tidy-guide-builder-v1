@@ -1588,8 +1588,9 @@ summary button {
 
 .addSectionPupup-inner {
   overflow: auto;
-  padding: 12px;
-  max-height: 76vh;
+  padding: 0 12px;
+  margin: 12px 0;
+  max-height: calc(76vh - 24px);
 }
 
 .addSectionPupup-inner h2 {
