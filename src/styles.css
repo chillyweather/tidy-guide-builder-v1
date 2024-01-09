@@ -2680,11 +2680,15 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   flex-direction: row;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
 }
 
 .videoElementWrapper div {
   pointer-events: none;
   background-color: transparent !important;
+}
+.videoElementWrapper:hover div{
+  text-decoration: underline;
 }
 
 .videoElementWrapper button {
