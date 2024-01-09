@@ -28,6 +28,7 @@ const imageFromFigma = async (
   const bytes = await resultFrame.exportAsync({
     format: "SVG",
   });
+
   emit("IMAGE_ARRAY_FOR_UPLOAD", { bytes, type });
 
   resultFrame.remove();
