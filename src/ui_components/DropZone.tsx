@@ -17,9 +17,7 @@ export function DropZone(
 
   async function handleDrop(event: DragEvent) {
     event.preventDefault();
-    console.log("event.dataTransfer.files[0]", event.dataTransfer!.files[0]);
     const file = event.dataTransfer?.files[0];
-    console.log("file", file);
 
     if (
       file &&
