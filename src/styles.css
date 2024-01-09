@@ -685,6 +685,15 @@ body:has(.header-menu[open]) .nav-wrapper {
   padding-left: 0;
   align-items: center;
   gap: 4px;
+  color: var(--tidy-text);
+}
+.header .flex-button:hover{
+  color: #414857;
+  background-color: transparent;
+}
+.header .flex-button:active{
+  color: #3E1C7D;
+  background-color: transparent;
 }
 
 body .header-button {
