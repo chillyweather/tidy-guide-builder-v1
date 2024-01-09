@@ -62,17 +62,19 @@ const videoCard = (
     return (
       <div
         style={cardStyle}
-        onClick={(event: MouseEvent) => {
-          event.preventDefault();
-          event.stopPropagation();
-          setSelectedVideo(index);
-          setSelectedVideoContent(currentVideoContent);
+        onClick={() => {
           window.open(video, '_blank')
-          console.log("currentVideoContent :>> ", currentVideoContent);
         }}
+        // onClick={(event: MouseEvent) => {
+        //   event.preventDefault();
+        //   event.stopPropagation();
+        //   setSelectedVideo(index);
+        //   setSelectedVideoContent(currentVideoContent);
+        //   console.log("currentVideoContent :>> ", currentVideoContent);
+        // }}
       >
         <img style={{ height: "80px" }} src={thumbnail} alt={name} />
-        <Text style={{ color: isSelected ? "#000" : "#000" }}
+        <Text style={{ color: isSelected ? "#FFF" : "#000" }}
           onClick={() => {
             window.open('http://example.com', '_blank')
           }}
