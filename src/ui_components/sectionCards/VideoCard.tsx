@@ -3,10 +3,7 @@ import { Text, LoadingIndicator } from "@create-figma-plugin/ui";
 import { useEffect, useState } from "preact/hooks";
 import { videoTextBoxElement } from "../textBoxForLinksElement";
 import youtube from "../../images/youtube.svg";
-import {
-  IconX,
-  IconInfoCircle,
-} from "@tabler/icons-react";
+import { IconX, IconInfoCircle, IconVideo } from "@tabler/icons-react";
 
 const videoCard = (
   foundVideoData: any,
@@ -145,6 +142,7 @@ const videoCard = (
                 setSelectedVideo={setSelectedVideo}
                 setSelectedVideoContent={setSelectedVideoContent}
               />
+              <IconVideo onClick={() => console.log(videoDataElement.video)} />
               <button onClick={() => handleDeleteVideo(index)}>
                 <IconX />
               </button>
