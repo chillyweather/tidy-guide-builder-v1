@@ -685,13 +685,15 @@ body:has(.header-menu[open]) .nav-wrapper {
   padding-left: 0;
   align-items: center;
   gap: 4px;
+}
+.header .back-button{
   color: var(--tidy-text);
 }
-.header .flex-button:hover{
+.header .back-button:hover{
   color: #414857;
   background-color: transparent;
 }
-.header .flex-button:active{
+.header .back-button:active{
   color: #3E1C7D;
   background-color: transparent;
 }

@@ -64,7 +64,7 @@ const videoCard = (
         style={cardStyle}
         onClick={() => {
           const videoTemp = video.replace("embed/", "watch?v=");
-          window.open(videoTemp, '_blank')
+          window.open(videoTemp, '_blank');
         }}
         // onClick={(event: MouseEvent) => {
         //   event.preventDefault();
