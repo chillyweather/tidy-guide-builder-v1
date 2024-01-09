@@ -10,6 +10,8 @@ import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
 import Toast from "./ui_components/Toast";
 //dependencies
+import { uploadFileToServer } from "./ui_components/ui_functions/fileManagementFunctions";
+import { sendRaster } from "./ui_components/ui_functions/sendRaster";
 
 //new components
 import ContentFromServer from "./ui_components/ContentFromServer";
@@ -121,6 +123,9 @@ function Plugin() {
   //is pd section open
   const [isPdSectionOpen, setIsPdSectionOpen] = useState(true);
 
+  //anatomy section image
+  const [anatomySectionImage, setAnatomySectionImage] = useState("");
+
   on("AUTH_CHANGE", async (token) => {
     if (token) {
       setToken(token);
@@ -164,6 +169,10 @@ function Plugin() {
     setSelectedElement(foundElement);
     setSelectedElementName(foundElementName);
     setSelectedElementKey(key);
+  });
+
+  on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
+    sendRaster(bytes, loggedInUser, type);
   });
 
   function checkIfDocumentationExists(docs: any[], id: string) {
@@ -229,15 +238,15 @@ function Plugin() {
     }
   }, [documentationTitle, isWip]);
 
-  // useEffect(() => {
-  //   if (token && selectedElementKey && selectedElement) {
-  //     emit("PIC_FROM_FIGMA", {
-  //       type: "anatomy",
-  //       nodeId: selectedElement.id,
-  //       key: selectedElementKey,
-  //     });
-  //   }
-  // }, [token, selectedElementKey, selectedElement]);
+  useEffect(() => {
+    if (token && selectedElementKey && selectedElement) {
+      emit("PIC_FROM_FIGMA", {
+        type: "anatomy",
+        nodeId: selectedElement.id,
+        key: selectedElementKey,
+      });
+    }
+  }, [token, selectedElementKey, selectedElement]);
 
   function closePopup() {
     setIsToastOpen(false);

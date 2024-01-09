@@ -83,9 +83,6 @@ export function DropZone(
               const file = (event.target as HTMLInputElement)?.files?.[0];
               if (!file) return;
               const { width, height, sizeInBytes } = await getImageSizes(file);
-              console.log("width", width);
-              console.log("height", height);
-              console.log("sizeInBytes", sizeInBytes);
               if (
                 file &&
                 (file.type === "image/jpeg" ||
@@ -95,7 +92,6 @@ export function DropZone(
                 width < 4096 &&
                 height < 4096
               ) {
-                console.log("file", file);
                 setIsImageLoading(true);
                 uploadFileToServer(file, loggedInUser!).then((path) => {
                   setIsImageLoading(false);
