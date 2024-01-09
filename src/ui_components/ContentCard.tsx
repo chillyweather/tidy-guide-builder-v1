@@ -134,12 +134,6 @@ export const ContentCard = (cardData: any, index: number) => {
   const setSelectedElementName =
     useContext(BuilderContext)?.setSelectedElementName;
 
-  // if (isFromSavedData) {
-  //   console.log("from saved data", cardData);
-  // } else {
-  //   console.log("not from saved data", cardData);
-  // }
-
   //!-------------------------------------------------------------------------------//
   //!-------from here content changes depending on isFromSavedData state------------//
   //!-------------------------------------------------------------------------------//
