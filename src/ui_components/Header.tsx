@@ -105,7 +105,7 @@ const Header = ({
             </div>
           ) : (
             <button
-              className="flex-button"
+              className="flex-button back-button"
               onClick={() => {
                 // isDataChanged() ? setShowCancelPopup(true) :
                 backToIndex();
