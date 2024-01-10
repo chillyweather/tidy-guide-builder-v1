@@ -283,11 +283,13 @@ function Plugin() {
 
   useEffect(() => {
     if (documentationTitle && dataForUpdate.length) {
-      const isFound = dataForUpdate.some(
+      const foundDoc = dataForUpdate.find(
         (doc: any) =>
           doc.title.toLowerCase() === documentationTitle.toLowerCase()
       );
-      if (isFound) {
+      const foundDocId = foundDoc?._id;
+      const foundDocTitle = foundDoc?.title;
+      if (foundDocId && foundDocTitle && foundDocId !== selectedElementKey) {
         setIsCurrentNameValid(false);
         setIsToastOpen(true);
         setToastMessage("Documentation title must be unique");
@@ -296,7 +298,7 @@ function Plugin() {
         setIsCurrentNameValid(true);
       }
     }
-  }, [dataForUpdate, isCurrentNameValid, documentationTitle]);
+  }, [documentationTitle]);
 
   async function handleAddDocumentation(token: string, data: any) {
     const id = data._id;
