@@ -4,7 +4,7 @@ import { useState } from "preact/hooks";
 import { useContext, useRef, useEffect } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 
-function deletePopup() {
+function deletePopup(e: any) {
   return (
     <div
       className={"feedbackPopupBackground hidden"}
@@ -15,12 +15,12 @@ function deletePopup() {
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
         <button
           className={"closePopupButton"}
-          onClick={() => document.getElementById("deletePopup")?.classList.add("hidden") }
+          onClick={() => document.getElementById("deletePopup")?.classList.add("hidden")}
         >
           <IconX />
         </button>
         <h2 className={"dialogTitle"}>Delete element?</h2>
-        <p>Are you sure you want to delete this element?<br/>
+        <p>Are you sure you want to delete this element?<br />
           This action cannot be undone. </p>
         <div className="popupButtons footer">
           <button

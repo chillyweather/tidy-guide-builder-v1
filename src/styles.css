@@ -1556,7 +1556,7 @@ summary button {
   border-right: 1px solid #ffffff;
 }
 
-.hidden {
+#deletePopup.hidden {
   display: none !important;
 }
 
