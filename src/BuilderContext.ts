@@ -51,6 +51,16 @@ interface IContext {
   setIsDraft: any;
   isPdSectionOpen: boolean;
   setIsPdSectionOpen: any;
+  anatomySectionImage: string;
+  setAnatomySectionImage: any;
+  spacingSectionImage: string;
+  setSpacingSectionImage: any;
+  propertySectionImage: string;
+  setPropertySectionImage: any;
+  variantsSectionImage: string;
+  setVariantsSectionImage: any;
+  isCurrentNameValid: boolean;
+  setIsCurrentNameValid: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

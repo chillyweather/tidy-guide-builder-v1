@@ -12,11 +12,13 @@ const Login = ({
   setIsLoginFailed,
   isLoginFailed,
   setIsLoginPageOpen,
+  setIsLoading,
 }: {
   setToken: Function;
   setIsLoginFailed: Function;
   isLoginFailed: boolean;
   setIsLoginPageOpen: Function;
+  setIsLoading: Function;
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

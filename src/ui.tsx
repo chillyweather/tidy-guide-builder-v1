@@ -10,6 +10,8 @@ import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
 import Toast from "./ui_components/Toast";
 //dependencies
+import { uploadFileToServer } from "./ui_components/ui_functions/fileManagementFunctions";
+import { sendRaster } from "./ui_components/ui_functions/sendRaster";
 
 //new components
 import ContentFromServer from "./ui_components/ContentFromServer";
@@ -28,7 +30,6 @@ import {
 
 //styles
 import "!./styles.css";
-import EmptyState from "./ui_components/EmptyState";
 
 function Plugin() {
   //saved token
@@ -104,10 +105,12 @@ function Plugin() {
   const [isContenFromServerOpen, setIsContenFromServerOpen] = useState(false);
 
   //found existing documentation
-  const [foundDocumentation, setFoundDocumentation] = useState(null);
+  const [foundDocumentation, setFoundDocumentation]: any = useState(null);
 
   //show toast
   const [isToastOpen, setIsToastOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastType, setToastType] = useState("");
 
   //reset documentation
   const [isReset, setIsReset] = useState(false);
@@ -121,18 +124,39 @@ function Plugin() {
   //is pd section open
   const [isPdSectionOpen, setIsPdSectionOpen] = useState(true);
 
+  //anatomy section image
+  const [anatomySectionImage, setAnatomySectionImage] = useState("");
+  const [spacingSectionImage, setSpacingSectionImage] = useState("");
+  const [propertySectionImage, setPropertySectionImage] = useState("");
+  const [variantsSectionImage, setVariantsSectionImage] = useState("");
+
+  //current image array
+  const [currentImageArray, setCurrentImageArray] = useState<Uint8Array | null>(
+    null
+  );
+
+  //current image type
+  const [currentImageType, setCurrentImageType] = useState("");
+
+  //is current name valid
+  const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
+  const [isErrorToastOpen, setIsErrorToastOpen] = useState(false);
+
+  console.log("token", token);
+
   on("AUTH_CHANGE", async (token) => {
     if (token) {
       setToken(token);
       const data = await getDocumentations(token);
       setDataForUpdate(data);
       setIsLoading(false);
+    } else {
+      setIsLoginPageOpen(true);
+      setIsLoading(false);
     }
   });
 
   on("SELECTION", ({ defaultNode, name, key }) => {
-    // if (defaultNode) setIsMainContentOpen(true);
-    console.log("defaultNode", defaultNode.id);
     setSelectedElement(defaultNode);
     setSelectedElementName(name);
     setSelectedElementKey(key);
@@ -166,6 +190,11 @@ function Plugin() {
     setSelectedElementKey(key);
   });
 
+  on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
+    setCurrentImageArray(bytes);
+    setCurrentImageType(type);
+  });
+
   function checkIfDocumentationExists(docs: any[], id: string) {
     if (docs.length && id) {
       return docs.find((doc) => doc._id === id);
@@ -177,15 +206,24 @@ function Plugin() {
     if (found && isMainContentOpen && selectedElementName.length) {
       setFoundDocumentation(found);
       setIsToastOpen(true);
+      setToastMessage(
+        `Documentations must be unique, this element already have one in: \n${found.title}`
+      );
       setSelectedElement(null);
       setSelectedElementName("");
     }
   }, [selectedElementKey]);
 
   useEffect(() => {
-    console.log("selectedMasterId", selectedMasterId);
-    console.log("selectedElementName", selectedElementName);
-  }, [selectedMasterId, selectedElementName]);
+    if (
+      loggedInUser &&
+      currentImageArray &&
+      currentImageArray.length &&
+      currentImageType
+    ) {
+      sendRaster(currentImageArray, loggedInUser, currentImageType);
+    }
+  }, [loggedInUser, currentImageArray, currentImageType]);
 
   (function bodyScroll() {
     document.body.onscroll = function () {
@@ -243,6 +281,25 @@ function Plugin() {
     setIsToastOpen(false);
   }
 
+  useEffect(() => {
+    if (documentationTitle && dataForUpdate.length) {
+      const foundDoc = dataForUpdate.find(
+        (doc: any) =>
+          doc.title.toLowerCase() === documentationTitle.toLowerCase()
+      );
+      const foundDocId = foundDoc?._id;
+      const foundDocTitle = foundDoc?.title;
+      if (foundDocId && foundDocTitle && foundDocId !== selectedElementKey) {
+        setIsCurrentNameValid(false);
+        setIsToastOpen(true);
+        setToastMessage("Documentation title must be unique");
+        setToastType("error");
+      } else {
+        setIsCurrentNameValid(true);
+      }
+    }
+  }, [documentationTitle]);
+
   async function handleAddDocumentation(token: string, data: any) {
     const id = data._id;
     if (typeof id !== "string") return;
@@ -276,6 +333,69 @@ function Plugin() {
     }
   }, [documentationData, isBuilding, token]);
 
+  const contextStates = {
+    anatomySectionImage,
+    currentDocument,
+    currentPage,
+    currentUser,
+    documentationData,
+    documentationTitle,
+    isBuilding,
+    isContenFromServerOpen,
+    isDraft,
+    isFromSavedData,
+    isIndexOpen,
+    isLoading,
+    isLoginPageOpen,
+    isMainContentOpen,
+    isPdSectionOpen,
+    isReset,
+    isScroll,
+    isWip,
+    loggedInUser,
+    propertySectionImage,
+    selectedCard,
+    selectedElement,
+    selectedElementKey,
+    selectedElementName,
+    selectedSections,
+    showCancelPopup,
+    showResetPopup,
+    spacingSectionImage,
+    token,
+    variantsSectionImage,
+    isCurrentNameValid,
+    setAnatomySectionImage,
+    setCurrentDocument,
+    setCurrentPage,
+    setCurrentUser,
+    setDataForUpdate,
+    setDocumentationData,
+    setDocumentationTitle,
+    setIsBuilding,
+    setIsContenFromServerOpen,
+    setIsDraft,
+    setIsFromSavedData,
+    setIsIndexOpen,
+    setIsLoading,
+    setIsMainContentOpen,
+    setIsPdSectionOpen,
+    setIsReset,
+    setIsWip,
+    setLoggedInUser,
+    setPropertySectionImage,
+    setSelectedCard,
+    setSelectedElement,
+    setSelectedElementKey,
+    setSelectedElementName,
+    setSelectedSections,
+    setShowCancelPopup,
+    setShowResetPopup,
+    setSpacingSectionImage,
+    setVariantsSectionImage,
+    setIsCurrentNameValid,
+  };
+
   return (
     <div
       className={"container"}
@@ -286,60 +406,7 @@ function Plugin() {
         }
       }}
     >
-      <BuilderContext.Provider
-        value={{
-          currentDocument,
-          currentPage,
-          currentUser,
-          documentationData,
-          documentationTitle,
-          isBuilding,
-          isContenFromServerOpen,
-          isFromSavedData,
-          isIndexOpen,
-          isLoading,
-          isLoginPageOpen,
-          isMainContentOpen,
-          isReset,
-          isScroll,
-          isWip,
-          loggedInUser,
-          selectedCard,
-          selectedElement,
-          selectedElementKey,
-          selectedElementName,
-          selectedSections,
-          showCancelPopup,
-          showResetPopup,
-          token,
-          setCurrentDocument,
-          setCurrentPage,
-          setCurrentUser,
-          setDataForUpdate,
-          setDocumentationData,
-          setDocumentationTitle,
-          setIsBuilding,
-          setIsContenFromServerOpen,
-          setIsFromSavedData,
-          setIsIndexOpen,
-          setIsLoading,
-          setIsMainContentOpen,
-          setIsReset,
-          setIsWip,
-          setLoggedInUser,
-          setSelectedCard,
-          setSelectedElement,
-          setSelectedElementKey,
-          setSelectedElementName,
-          setSelectedSections,
-          setShowCancelPopup,
-          setShowResetPopup,
-          isDraft,
-          setIsDraft,
-          isPdSectionOpen,
-          setIsPdSectionOpen,
-        }}
-      >
+      <BuilderContext.Provider value={contextStates}>
         {feedbackPage && (
           <FeedbackPopup
             show={feedbackPage}
@@ -350,14 +417,15 @@ function Plugin() {
         {isLoading && <LoaderPage />}
         {showCancelPopup && <CancelPopup />}
         {showResetPopup && <ResetPopup />}
-        {isToastOpen && (
+        {/* {!isCurrentNameValid && (
           <Toast
-            message={`Documentations must be unique, this element already have one in: \n${
-              //@ts-ignore
-              foundDocumentation.title
-            }`}
+            message={`Documentation title must be unique, this name is already taken`}
             onClose={closePopup}
+            type="error"
           />
+        )} */}
+        {isToastOpen && toastMessage && (
+          <Toast message={toastMessage} onClose={closePopup} type={toastType} />
         )}
         {!token && (
           <Login
@@ -365,6 +433,7 @@ function Plugin() {
             setIsLoginFailed={setIsLoginFailed}
             isLoginFailed={isLoginFailed}
             setIsLoginPageOpen={setIsLoginPageOpen}
+            setIsLoading={setIsLoading}
           />
         )}
         <Header
@@ -377,7 +446,6 @@ function Plugin() {
         />
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
 
-        {/* on startup */}
         {!isLoginPageOpen && isFirstTime && !isMainContentOpen && (
           <IndexPage
             data={dataForUpdate}
@@ -387,9 +455,7 @@ function Plugin() {
             setIsFromSavedData={setIsFromSavedData}
           />
         )}
-        {/* {isFirstTime && selectedElement && <MainContent />} */}
 
-        {/* not on startup */}
         {!isLoginPageOpen && !isFirstTime && isIndexOpen && (
           <IndexPage
             data={dataForUpdate}
@@ -410,7 +476,6 @@ function Plugin() {
             />
           )}
 
-        {/* login */}
         {!isLoginPageOpen && !isIndexOpen && (
           <Footer
             setIsBuilding={setIsBuilding}

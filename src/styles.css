@@ -3118,6 +3118,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
 }
 
+.custom-toast-error {
+  background-color: #F9DBDB;
+  color: #DB3B21;
+  border: 1px solid #ED9797;
+}
+
 .custom-toast div {
   white-space: pre;
   font-weight: 800;

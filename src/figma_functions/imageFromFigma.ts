@@ -1,6 +1,7 @@
 import { buildAnatomySection } from "src/figma_doc_sections/buildAnatomySection";
 import { getNode } from "./getNode";
 import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
+import { emit } from "@create-figma-plugin/utilities";
 
 const imageFromFigma = async (
   loadFonts: Function,
@@ -21,9 +22,16 @@ const imageFromFigma = async (
   if (!node) return;
   const defaultElement = getDefaultElement(node)?.createInstance();
   if (!defaultElement) return;
-  const anatomySection = await buildAnatomySection(defaultElement, resultFrame);
+  await buildAnatomySection(defaultElement, resultFrame);
   defaultElement.remove();
 
+  const bytes = await resultFrame.exportAsync({
+    format: "SVG",
+  });
+
+  emit("IMAGE_ARRAY_FOR_UPLOAD", { bytes, type });
+
+  resultFrame.remove();
   return;
 };
 

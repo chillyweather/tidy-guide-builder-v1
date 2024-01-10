@@ -24,12 +24,14 @@ const Footer = ({
     setShowResetPopup,
     setIsDraft,
     isDraft,
+    isCurrentNameValid,
   } = useContext(BuilderContext) || {};
 
   const isValid =
     !!documentationTitle?.length &&
     !!selectedElementKey?.length &&
-    !!selectedElementName?.length;
+    !!selectedElementName?.length &&
+    isCurrentNameValid;
 
   function PublishButtonDropdown() {
     return (

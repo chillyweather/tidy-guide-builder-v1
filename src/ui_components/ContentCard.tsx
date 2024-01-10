@@ -113,26 +113,19 @@ export const ContentCard = (cardData: any, index: number) => {
   //tooltip
   const [showTooltip, setShowTooltip] = useState(false);
 
-  //! from context
-  const selectedCard = useContext(BuilderContext)?.selectedCard;
-  const setSelectedCard = useContext(BuilderContext)?.setSelectedCard;
-  const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
-  const isBuilding = useContext(BuilderContext)?.isBuilding;
-  const setIsBuilding = useContext(BuilderContext)?.setIsBuilding;
-  //! documentation data
-  const documentationData = useContext(BuilderContext)?.documentationData;
-  const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
-  const documentationTitle = useContext(BuilderContext)?.documentationTitle;
-  const setDocumentationTitle =
-    useContext(BuilderContext)?.setDocumentationTitle;
-  const setIsWip = useContext(BuilderContext)?.setIsWip;
-  const isReset = useContext(BuilderContext)?.isReset;
-  const setIsReset = useContext(BuilderContext)?.setIsReset;
-  const setSelectedElementKey =
-    useContext(BuilderContext)?.setSelectedElementKey;
-  const setSelectedElement = useContext(BuilderContext)?.setSelectedElement;
-  const setSelectedElementName =
-    useContext(BuilderContext)?.setSelectedElementName;
+  const {
+    selectedCard,
+    setSelectedCard,
+    setSelectedSections,
+    isBuilding,
+    setIsBuilding,
+    setDocumentationData,
+    documentationTitle,
+    anatomySectionImage,
+    spacingSectionImage,
+    propertySectionImage,
+    variantsSectionImage,
+  } = useContext(BuilderContext) || {};
 
   //!-------------------------------------------------------------------------------//
   //!-------from here content changes depending on isFromSavedData state------------//
@@ -180,6 +173,10 @@ export const ContentCard = (cardData: any, index: number) => {
       currentAuthor: currentAuthor,
       currentDocument: currentDocument,
       currentPage: currentPage,
+      anatomySectionImage: anatomySectionImage,
+      spacingSectionImage: spacingSectionImage,
+      propertySectionImage: propertySectionImage,
+      variantsSectionImage: variantsSectionImage,
     },
   };
 
