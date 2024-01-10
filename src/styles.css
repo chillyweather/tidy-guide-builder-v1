@@ -1557,7 +1557,7 @@ summary button {
 }
 
 #deletePopup.hidden {
-  display: none !important;
+  display: none;
 }
 
 .second {
