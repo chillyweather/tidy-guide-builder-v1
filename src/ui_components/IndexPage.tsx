@@ -20,6 +20,10 @@ const IndexPage = ({
   const setDataForUpdate = useContext(BuilderContext)?.setDataForUpdate;
   const isDraft = useContext(BuilderContext)?.isDraft;
   const token = useContext(BuilderContext)?.token;
+
+  const{
+    setShowResetPopup,
+  } = useContext(BuilderContext) || {};
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
   const sortedData = data.sort((a: any, b: any) =>
     a.title.localeCompare(b.title)
@@ -48,6 +52,10 @@ const IndexPage = ({
             </div>
             <IconTrash
               className={"trashIcon"}
+              // onClick={async (e) => {
+              //   console.log('delete-me ' + element._id);
+              //   setShowResetPopup(true);
+              // }}
               onDblClick={async (e) => {
                 e.stopPropagation();
                 await deleteDocumentation(token!, element._id);
