@@ -2,7 +2,9 @@ import { h } from "preact";
 import { IconTrash } from "@tabler/icons-react";
 import { useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
+import { useState } from "preact/hooks";
 import { deleteDocumentation } from "./ui_functions/documentationHandlers";
+import DeletePopup from "../ui_components/popups/deletePopup";
 
 const IndexPage = ({
   data,
@@ -20,6 +22,7 @@ const IndexPage = ({
   const setDataForUpdate = useContext(BuilderContext)?.setDataForUpdate;
   const isDraft = useContext(BuilderContext)?.isDraft;
   const token = useContext(BuilderContext)?.token;
+  const [primary, setPrimary] = useState("Reset");
 
   const{
     setShowResetPopup,
@@ -31,6 +34,7 @@ const IndexPage = ({
 
   return (
     <div className={"componentBTN-wrapper"}>
+      <DeletePopup />
       {sortedData.map((element: any, index: number) => {
         const title = element.title;
         const wip = element.inProgress;
@@ -52,10 +56,10 @@ const IndexPage = ({
             </div>
             <IconTrash
               className={"trashIcon"}
-              // onClick={async (e) => {
-              //   console.log('delete-me ' + element._id);
-              //   setShowResetPopup(true);
-              // }}
+              onClick={async (e) => {
+                console.log('delete-me ' + element._id);
+                document.getElementById("deletePopup")?.classList.remove("hidden");
+              }}
               onDblClick={async (e) => {
                 e.stopPropagation();
                 await deleteDocumentation(token!, element._id);

@@ -4,37 +4,32 @@ import { useState } from "preact/hooks";
 import { useContext, useRef, useEffect } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 
-function ResetPopup() {
-  const setIsReset = useContext(BuilderContext)?.setIsReset;
-  const showResetPopup = useContext(BuilderContext)?.showResetPopup;
-  const setShowResetPopup = useContext(BuilderContext)?.setShowResetPopup;
-  if (!showResetPopup) {
-    return null;
-  }
-
+function deletePopup() {
   return (
     <div
-      className={"feedbackPopupBackground"}
-      onClick={() => setShowResetPopup(false)}
+      className={"feedbackPopupBackground hidden"}
+      id={"deletePopup"}
+      onClick={() => document.getElementById("deletePopup")?.classList.add("hidden")}
       tabIndex={0}
     >
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
         <button
           className={"closePopupButton"}
-          onClick={() => setShowResetPopup(false)}
+          onClick={() => document.getElementById("deletePopup")?.classList.add("hidden") }
         >
           <IconX />
         </button>
-        <h2 className={"dialogTitle"}>Reset all Elements</h2>
-        <p>This will reset all selected elements. </p>
+        <h2 className={"dialogTitle"}>Delete element?</h2>
+        <p>Are you sure you want to delete this element?<br/>
+          This action cannot be undone. </p>
         <div className="popupButtons footer">
           <button
             className={"button"}
             onClick={() => {
-              setShowResetPopup(false);
+              document.getElementById("deletePopup")?.classList.add("hidden");
             }}
             onKeyDown={(e) => {
-              if (e.key === "Escape") setShowResetPopup(false);
+              if (e.key === "Escape") document.getElementById("deletePopup")?.classList.add("hidden");
             }}
           >
             Cancel
@@ -46,7 +41,7 @@ function ResetPopup() {
               setShowResetPopup(false);
             }}
           >
-            Reset
+            Delete
           </button>
         </div>
       </div>
@@ -54,4 +49,4 @@ function ResetPopup() {
   );
 }
 
-export default ResetPopup;
+export default deletePopup;
