@@ -9,13 +9,13 @@ function deletePopup() {
     <div
       className={"feedbackPopupBackground hidden"}
       id={"deletePopup"}
-      onClick={() => setShowResetPopup(false)}
+      onClick={() => document.getElementById("deletePopup")?.classList.add("hidden")}
       tabIndex={0}
     >
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
         <button
           className={"closePopupButton"}
-          onClick={() => setShowResetPopup(false)}
+          onClick={() => document.getElementById("deletePopup")?.classList.add("hidden") }
         >
           <IconX />
         </button>
@@ -26,10 +26,10 @@ function deletePopup() {
           <button
             className={"button"}
             onClick={() => {
-              setShowResetPopup(false);
+              document.getElementById("deletePopup")?.classList.add("hidden");
             }}
             onKeyDown={(e) => {
-              if (e.key === "Escape") setShowResetPopup(false);
+              if (e.key === "Escape") document.getElementById("deletePopup")?.classList.add("hidden");
             }}
           >
             Cancel

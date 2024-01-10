@@ -60,16 +60,16 @@ const IndexPage = ({
                 console.log('delete-me ' + element._id);
                 document.getElementById("deletePopup")?.classList.remove("hidden");
               }}
-              // onDblClick={async (e) => {
-              //   e.stopPropagation();
-              //   await deleteDocumentation(token!, element._id);
-              //   setDataForUpdate((prevData: any) => {
-              //     const newData = prevData.filter(
-              //       (el: any) => el._id !== element._id
-              //     );
-              //     return newData;
-              //   });
-              // }}
+              onDblClick={async (e) => {
+                e.stopPropagation();
+                await deleteDocumentation(token!, element._id);
+                setDataForUpdate((prevData: any) => {
+                  const newData = prevData.filter(
+                    (el: any) => el._id !== element._id
+                  );
+                  return newData;
+                });
+              }}
             />
           </div>
         );
