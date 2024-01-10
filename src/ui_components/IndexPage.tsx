@@ -4,7 +4,7 @@ import { useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { useState } from "preact/hooks";
 import { deleteDocumentation } from "./ui_functions/documentationHandlers";
-// import setPrimary from "../ui_components/popups/resetPopup";
+import DeletePopup from "../ui_components/popups/deletePopup";
 
 const IndexPage = ({
   data,
@@ -34,6 +34,7 @@ const IndexPage = ({
 
   return (
     <div className={"componentBTN-wrapper"}>
+      <DeletePopup />
       {sortedData.map((element: any, index: number) => {
         const title = element.title;
         const wip = element.inProgress;

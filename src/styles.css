@@ -686,14 +686,17 @@ body:has(.header-menu[open]) .nav-wrapper {
   align-items: center;
   gap: 4px;
 }
-.header .back-button{
+
+.header .back-button {
   color: var(--tidy-text);
 }
-.header .back-button:hover{
+
+.header .back-button:hover {
   color: #414857;
   background-color: transparent;
 }
-.header .back-button:active{
+
+.header .back-button:active {
   color: #3E1C7D;
   background-color: transparent;
 }
@@ -1553,6 +1556,10 @@ summary button {
   border-right: 1px solid #ffffff;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .second {
   background-color: var(--tidy-background);
   box-shadow: 0 0 0 1px var(--tidy-primary) inset;
@@ -1708,7 +1715,7 @@ summary button {
   display: none;
 }
 
-#sections .addSectionIcon img{
+#sections .addSectionIcon img {
   transform: scale(1.4);
 }
 
@@ -2697,7 +2704,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .videoElementWrapper div {
   background-color: transparent !important;
 }
-.videoElementWrapper:hover div{
+
+.videoElementWrapper:hover div {
   text-decoration: underline;
 }
 
@@ -2870,7 +2878,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: transparent;
   backdrop-filter: none;
 }
-.hideMe{
+
+.hideMe {
   opacity: 0;
 }
 
