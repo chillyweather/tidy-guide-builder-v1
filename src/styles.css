@@ -686,14 +686,17 @@ body:has(.header-menu[open]) .nav-wrapper {
   align-items: center;
   gap: 4px;
 }
-.header .back-button{
+
+.header .back-button {
   color: var(--tidy-text);
 }
-.header .back-button:hover{
+
+.header .back-button:hover {
   color: #414857;
   background-color: transparent;
 }
-.header .back-button:active{
+
+.header .back-button:active {
   color: #3E1C7D;
   background-color: transparent;
 }
@@ -1708,7 +1711,7 @@ summary button {
   display: none;
 }
 
-#sections .addSectionIcon img{
+#sections .addSectionIcon img {
   transform: scale(1.4);
 }
 
@@ -2697,7 +2700,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .videoElementWrapper div {
   background-color: transparent !important;
 }
-.videoElementWrapper:hover div{
+
+.videoElementWrapper:hover div {
   text-decoration: underline;
 }
 
@@ -2870,7 +2874,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: transparent;
   backdrop-filter: none;
 }
-.hideMe{
+
+.hideMe {
   opacity: 0;
 }
 
@@ -3107,6 +3112,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   border-radius: 8px;
   z-index: 9999;
   font-size: calc(var(--tidy-text) - (var(--tidy-text) / 7));
+}
+
+.custom-toast-error {
+  background-color: #F9DBDB;
+  color: #DB3B21;
+  border: 1px solid #ED9797;
 }
 
 .custom-toast div {

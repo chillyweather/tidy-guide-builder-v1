@@ -5,9 +5,11 @@ import { createPortal } from "preact/compat";
 const Toast = ({
   message,
   onClose,
+  type,
 }: {
   message: string;
   onClose: Function;
+  type?: string;
 }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -19,8 +21,12 @@ const Toast = ({
     };
   }, [onClose]);
 
+  const isError = type === "error";
+
   return createPortal(
-    <div className="custom-toast">
+    <div
+      className={isError ? "custom-toast custom-toast-error" : "custom-toast"}
+    >
       <div className="custom-toast-message">{message}</div>
     </div>,
     document.body

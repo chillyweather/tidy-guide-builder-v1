@@ -59,6 +59,8 @@ interface IContext {
   setPropertySectionImage: any;
   variantsSectionImage: string;
   setVariantsSectionImage: any;
+  isCurrentNameValid: boolean;
+  setIsCurrentNameValid: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

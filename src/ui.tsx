@@ -105,10 +105,12 @@ function Plugin() {
   const [isContenFromServerOpen, setIsContenFromServerOpen] = useState(false);
 
   //found existing documentation
-  const [foundDocumentation, setFoundDocumentation] = useState(null);
+  const [foundDocumentation, setFoundDocumentation]: any = useState(null);
 
   //show toast
   const [isToastOpen, setIsToastOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastType, setToastType] = useState("");
 
   //reset documentation
   const [isReset, setIsReset] = useState(false);
@@ -132,8 +134,13 @@ function Plugin() {
   const [currentImageArray, setCurrentImageArray] = useState<Uint8Array | null>(
     null
   );
+
   //current image type
   const [currentImageType, setCurrentImageType] = useState("");
+
+  //is current name valid
+  const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
+  const [isErrorToastOpen, setIsErrorToastOpen] = useState(false);
 
   console.log("token", token);
 
@@ -199,6 +206,9 @@ function Plugin() {
     if (found && isMainContentOpen && selectedElementName.length) {
       setFoundDocumentation(found);
       setIsToastOpen(true);
+      setToastMessage(
+        `Documentations must be unique, this element already have one in: \n${found.title}`
+      );
       setSelectedElement(null);
       setSelectedElementName("");
     }
@@ -271,6 +281,23 @@ function Plugin() {
     setIsToastOpen(false);
   }
 
+  useEffect(() => {
+    if (documentationTitle && dataForUpdate.length) {
+      const isFound = dataForUpdate.some(
+        (doc: any) =>
+          doc.title.toLowerCase() === documentationTitle.toLowerCase()
+      );
+      if (isFound) {
+        setIsCurrentNameValid(false);
+        setIsToastOpen(true);
+        setToastMessage("Documentation title must be unique");
+        setToastType("error");
+      } else {
+        setIsCurrentNameValid(true);
+      }
+    }
+  }, [dataForUpdate, isCurrentNameValid, documentationTitle]);
+
   async function handleAddDocumentation(token: string, data: any) {
     const id = data._id;
     if (typeof id !== "string") return;
@@ -335,6 +362,7 @@ function Plugin() {
     spacingSectionImage,
     token,
     variantsSectionImage,
+    isCurrentNameValid,
     setAnatomySectionImage,
     setCurrentDocument,
     setCurrentPage,
@@ -363,6 +391,7 @@ function Plugin() {
     setShowResetPopup,
     setSpacingSectionImage,
     setVariantsSectionImage,
+    setIsCurrentNameValid,
   };
 
   return (
@@ -386,14 +415,15 @@ function Plugin() {
         {isLoading && <LoaderPage />}
         {showCancelPopup && <CancelPopup />}
         {showResetPopup && <ResetPopup />}
-        {isToastOpen && (
+        {/* {!isCurrentNameValid && (
           <Toast
-            message={`Documentations must be unique, this element already have one in: \n${
-              //@ts-ignore
-              foundDocumentation.title
-            }`}
+            message={`Documentation title must be unique, this name is already taken`}
             onClose={closePopup}
+            type="error"
           />
+        )} */}
+        {isToastOpen && toastMessage && (
+          <Toast message={toastMessage} onClose={closePopup} type={toastType} />
         )}
         {!token && (
           <Login
