@@ -52,10 +52,10 @@ const IndexPage = ({
             </div>
             <IconTrash
               className={"trashIcon"}
-              onClick={async (e) => {
-                console.log('delete-me ' + element._id);
-                setShowResetPopup(true);
-              }}
+              // onClick={async (e) => {
+              //   console.log('delete-me ' + element._id);
+              //   setShowResetPopup(true);
+              // }}
               onDblClick={async (e) => {
                 e.stopPropagation();
                 await deleteDocumentation(token!, element._id);
