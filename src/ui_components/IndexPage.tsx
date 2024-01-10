@@ -2,7 +2,9 @@ import { h } from "preact";
 import { IconTrash } from "@tabler/icons-react";
 import { useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
+import { useState } from "preact/hooks";
 import { deleteDocumentation } from "./ui_functions/documentationHandlers";
+// import setPrimary from "../ui_components/popups/resetPopup";
 
 const IndexPage = ({
   data,
@@ -20,6 +22,7 @@ const IndexPage = ({
   const setDataForUpdate = useContext(BuilderContext)?.setDataForUpdate;
   const isDraft = useContext(BuilderContext)?.isDraft;
   const token = useContext(BuilderContext)?.token;
+  const [primary, setPrimary] = useState("Reset");
 
   const{
     setShowResetPopup,
@@ -52,20 +55,19 @@ const IndexPage = ({
             </div>
             <IconTrash
               className={"trashIcon"}
-              // onClick={async (e) => {
-              //   console.log('delete-me ' + element._id);
-              //   setShowResetPopup(true);
-              // }}
-              onDblClick={async (e) => {
-                e.stopPropagation();
-                await deleteDocumentation(token!, element._id);
-                setDataForUpdate((prevData: any) => {
-                  const newData = prevData.filter(
-                    (el: any) => el._id !== element._id
-                  );
-                  return newData;
-                });
+              onClick={async (e) => {
+                console.log('delete-me ' + element._id);
               }}
+              // onDblClick={async (e) => {
+              //   e.stopPropagation();
+              //   await deleteDocumentation(token!, element._id);
+              //   setDataForUpdate((prevData: any) => {
+              //     const newData = prevData.filter(
+              //       (el: any) => el._id !== element._id
+              //     );
+              //     return newData;
+              //   });
+              // }}
             />
           </div>
         );
