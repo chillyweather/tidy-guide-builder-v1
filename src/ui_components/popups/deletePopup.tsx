@@ -37,8 +37,7 @@ function deletePopup(e: any) {
           <button
             className={"button primary"}
             onClick={() => {
-              setIsReset(true);
-              setShowResetPopup(false);
+              alert("Dima, HELP !");
             }}
           >
             Delete
