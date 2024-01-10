@@ -135,11 +135,16 @@ function Plugin() {
   //current image type
   const [currentImageType, setCurrentImageType] = useState("");
 
+  console.log("token", token);
+
   on("AUTH_CHANGE", async (token) => {
     if (token) {
       setToken(token);
       const data = await getDocumentations(token);
       setDataForUpdate(data);
+      setIsLoading(false);
+    } else {
+      setIsLoginPageOpen(true);
       setIsLoading(false);
     }
   });
@@ -396,6 +401,7 @@ function Plugin() {
             setIsLoginFailed={setIsLoginFailed}
             isLoginFailed={isLoginFailed}
             setIsLoginPageOpen={setIsLoginPageOpen}
+            setIsLoading={setIsLoading}
           />
         )}
         <Header

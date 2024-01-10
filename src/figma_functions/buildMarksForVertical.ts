@@ -11,8 +11,6 @@ function buildMarksForVertical(
   sizeMarker: ComponentSetNode,
   spacingMarker: ComponentSetNode
 ) {
-  console.log("elementsDimensions", elementsDimensions);
-
   const spacings: InstanceNode[] = [];
   elementsDimensions.forEach((element, index, array) => {
     if (index < array.length - 1) {
@@ -22,7 +20,6 @@ function buildMarksForVertical(
         if (!marker) return;
         marker.x = xPos;
         marker.y = array[index][1];
-        // setMarkerProps(marker, space);
         setMarkerSizeProps(
           rootElementSize,
           space,

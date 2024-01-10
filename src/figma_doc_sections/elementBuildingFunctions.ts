@@ -84,10 +84,16 @@ export function buildTwoColumns(element: any, parentFrame: FrameNode) {
   parentFrame.appendChild(textWrapper);
 }
 
+const removeEmptyLines = (text: string) => {
+  let result = text.replace(/^\s*[\r\n]/gm, "");
+  result = result.replace(/\n+$/, "");
+  return result;
+};
+
 export function buildListText(text: string, type: string) {
   const textFrame = buildAutoLayoutFrame("text", "VERTICAL", 0, 0, 0);
   const textContent = figma.createText();
-  textContent.characters = text;
+  textContent.characters = removeEmptyLines(text);
   textContent.fontSize = 14;
   textContent.lineHeight = { value: 164, unit: "PERCENT" };
   textContent.listSpacing = 16;
