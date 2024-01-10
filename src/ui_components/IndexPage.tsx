@@ -58,6 +58,7 @@ const IndexPage = ({
               className={"trashIcon"}
               onClick={async (e) => {
                 console.log('delete-me ' + element._id);
+                document.getElementById("deletePopup")?.classList.remove("hidden");
               }}
               // onDblClick={async (e) => {
               //   e.stopPropagation();

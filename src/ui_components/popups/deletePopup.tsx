@@ -8,6 +8,7 @@ function deletePopup() {
   return (
     <div
       className={"feedbackPopupBackground hidden"}
+      id={"deletePopup"}
       onClick={() => setShowResetPopup(false)}
       tabIndex={0}
     >
@@ -18,8 +19,9 @@ function deletePopup() {
         >
           <IconX />
         </button>
-        <h2 className={"dialogTitle"}>Reset all Elements</h2>
-        <p>This will reset all selected elements. </p>
+        <h2 className={"dialogTitle"}>Delete element?</h2>
+        <p>Are you sure you want to delete this element?<br/>
+          This action cannot be undone. </p>
         <div className="popupButtons footer">
           <button
             className={"button"}
