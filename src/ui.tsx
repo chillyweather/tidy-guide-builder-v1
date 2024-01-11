@@ -95,7 +95,6 @@ function Plugin() {
 
   //is new element found
   const [isNewElementFound, setIsNewElementFound] = useState(false);
-  const [foundElementData, setFoundElementData] = useState<any>(null);
 
   //is plugin first time open
   const [isFirstTime, setIsFirstTime] = useState(true);
@@ -145,7 +144,6 @@ function Plugin() {
 
   //is current name valid
   const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
-  const [isErrorToastOpen, setIsErrorToastOpen] = useState(false);
 
   on("AUTH_CHANGE", async (token) => {
     if (token) {
