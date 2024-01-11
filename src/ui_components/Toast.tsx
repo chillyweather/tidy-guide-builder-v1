@@ -23,6 +23,21 @@ const Toast = ({
 
   const isError = type === "error";
 
+  function setToastClass(type: string) {
+    switch (type) {
+      case "error":
+        return "custom-toast custom-toast-error";
+      case "success":
+        return "custom-toast custom-toast-success";
+      case "warning":
+        return "custom-toast custom-toast-warning";
+      case "idle":
+        return "custom-toast";
+      default:
+        return "custom-toast";
+    }
+  }
+
   return createPortal(
     <div
       className={isError ? "custom-toast custom-toast-error" : "custom-toast"}
