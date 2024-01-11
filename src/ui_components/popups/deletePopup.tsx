@@ -4,6 +4,7 @@ import { useState } from "preact/hooks";
 import { useContext, useRef, useEffect } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 import { deleteDocumentation } from "../ui_functions/documentationHandlers";
+import Spinner from "../../images/loader-spinner-white.png";
 
 function DeletePopup({
   setShowDeletePopup,
