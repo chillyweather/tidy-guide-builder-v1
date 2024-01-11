@@ -48,6 +48,7 @@ declare const styles: {
   readonly "create-figma-plugin": string;
   readonly "custom-toast": string;
   readonly "custom-toast-error": string;
+  readonly "delete-button": string;
   readonly "deletePopup": string;
   readonly "dialogFlex": string;
   readonly "dialogInput": string;

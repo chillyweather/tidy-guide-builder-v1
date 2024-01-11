@@ -47,13 +47,14 @@ function DeletePopup({
             Cancel
           </button>
           <button
-            className={"button primary"}
+            className={"button primary delete-button"}
             onClick={async () => {
               handleDelete(token, elementToDelete, setDataForUpdate);
               setShowDeletePopup(false);
             }}
           >
-            Delete
+            <span>Delete</span>
+            <img src={Spinner} />
           </button>
         </div>
       </div>

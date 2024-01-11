@@ -599,6 +599,16 @@ button svg {
 .empty-image {
   width: 20vw;
 }
+.delete-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.delete-button img{
+  display: none;
+  max-height: var(--text-size);
+  max-width: var(--text-size);
+}
 
 .buttonPrimary {
   background-color: #9C71EF;
