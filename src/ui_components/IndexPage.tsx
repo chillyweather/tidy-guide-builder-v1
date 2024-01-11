@@ -25,8 +25,8 @@ const IndexPage = ({
   const token = useContext(BuilderContext)?.token;
   const [primary, setPrimary] = useState("Reset");
 
-  const { setShowResetPopup } = useContext(BuilderContext) || {};
-  const { setShowResetPopup } = useContext(BuilderContext) || {};
+  // const { setShowResetPopup } = useContext(BuilderContext) || {};
+  // const { setShowResetPopup } = useContext(BuilderContext) || {};
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
   const sortedData = data.sort((a: any, b: any) =>
     a.title.localeCompare(b.title)
