@@ -35,7 +35,6 @@ const IndexPage = ({
 
   return (
     <div className={"componentBTN-wrapper"}>
-      {/* <DeletePopup /> */}
       {sortedData.map((element: any, index: number) => {
         const title = element.title;
         const wip = element.inProgress;
