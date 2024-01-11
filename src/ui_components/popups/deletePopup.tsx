@@ -3,6 +3,7 @@ import { IconX } from "@tabler/icons-react";
 import { useState } from "preact/hooks";
 import { useContext, useRef, useEffect } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
+import { deleteDocumentation } from "../ui_functions/documentationHandlers";
 
 function DeletePopup({
   setShowDeletePopup,
@@ -11,7 +12,7 @@ function DeletePopup({
   setShowDeletePopup: Function;
   elementToDelete: string;
 }) {
-  console.log("elementToDelete", elementToDelete);
+  const { token, setDataForUpdate } = useContext(BuilderContext) || {};
   return (
     <div
       className={"feedbackPopupBackground"}
@@ -46,8 +47,9 @@ function DeletePopup({
           </button>
           <button
             className={"button primary"}
-            onClick={() => {
-              alert("Dima, HELP !");
+            onClick={async () => {
+              handleDelete(token, elementToDelete, setDataForUpdate);
+              setShowDeletePopup(false);
             }}
           >
             Delete
@@ -56,6 +58,23 @@ function DeletePopup({
       </div>
     </div>
   );
+}
+
+async function handleDelete(
+  token: string | undefined,
+  elementId: string,
+  setDataForUpdate: Function
+) {
+  const result = await deleteDocumentation(token!, elementId);
+
+  if (result) {
+    setDataForUpdate((prevData: any) => {
+      const newData = prevData.filter((el: any) => el._id !== elementId);
+      return newData;
+    });
+  } else {
+    alert("Something went wrong, please try again later.");
+  }
 }
 
 export default DeletePopup;

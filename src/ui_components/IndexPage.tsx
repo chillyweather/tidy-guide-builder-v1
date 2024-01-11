@@ -71,16 +71,3 @@ const IndexPage = ({
 };
 
 export default IndexPage;
-
-async function handleDelete(
-  token: string | undefined,
-  element: any,
-  setDataForUpdate: any
-) {
-  await deleteDocumentation(token!, element._id); //delet on server
-
-  setDataForUpdate((prevData: any) => {
-    const newData = prevData.filter((el: any) => el._id !== element._id);
-    return newData;
-  });
-}

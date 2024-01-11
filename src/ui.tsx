@@ -434,13 +434,6 @@ function Plugin() {
             elementToDelete={elementToDelete}
           />
         )}
-        {/* {!isCurrentNameValid && (
-          <Toast
-            message={`Documentation title must be unique, this name is already taken`}
-            onClose={closePopup}
-            type="error"
-          />
-        )} */}
         {isToastOpen && toastMessage && (
           <Toast message={toastMessage} onClose={closePopup} type={toastType} />
         )}
