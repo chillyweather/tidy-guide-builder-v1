@@ -4,6 +4,7 @@ import { useState } from "preact/hooks";
 import { useContext, useRef, useEffect } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 import { deleteDocumentation } from "../ui_functions/documentationHandlers";
+import Spinner from "../../images/loader-spinner-white.png";
 
 function DeletePopup({
   setShowDeletePopup,
@@ -47,12 +48,14 @@ function DeletePopup({
           </button>
           <button
             className={"button primary"}
+            id={"delete-button"}
             onClick={async () => {
-              handleDelete(token, elementToDelete, setDataForUpdate);
-              setShowDeletePopup(false);
+              document.getElementById("delete-button")?.classList.add("spinner");
+              handleDelete(token, elementToDelete, setDataForUpdate, setShowDeletePopup);
             }}
           >
-            Delete
+            <img src={Spinner} />
+            <span>Delete</span>
           </button>
         </div>
       </div>
@@ -63,7 +66,8 @@ function DeletePopup({
 async function handleDelete(
   token: string | undefined,
   elementId: string,
-  setDataForUpdate: Function
+  setDataForUpdate: Function,
+  setShowDeletePopup: Function
 ) {
   console.log("deleting element");
   const result = await deleteDocumentation(token!, elementId);
@@ -74,6 +78,7 @@ async function handleDelete(
       return newData;
     });
     console.log("deleted element");
+    setShowDeletePopup(false);
   } else {
     alert("Something went wrong, please try again later.");
   }

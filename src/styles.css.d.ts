@@ -48,6 +48,7 @@ declare const styles: {
   readonly "create-figma-plugin": string;
   readonly "custom-toast": string;
   readonly "custom-toast-error": string;
+  readonly "delete-button": string;
   readonly "deletePopup": string;
   readonly "dialogFlex": string;
   readonly "dialogInput": string;
@@ -164,6 +165,7 @@ declare const styles: {
   readonly "side-flex": string;
   readonly "singleLink": string;
   readonly "spacing": string;
+  readonly "spinner": string;
   readonly "split": string;
   readonly "split-disabled": string;
   readonly "subtitle": string;
