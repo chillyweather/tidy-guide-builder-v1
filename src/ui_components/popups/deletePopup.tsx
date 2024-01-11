@@ -53,8 +53,8 @@ function DeletePopup({
               setShowDeletePopup(false);
             }}
           >
-            <span>Delete</span>
             <img src={Spinner} />
+            <span>Delete</span>
           </button>
         </div>
       </div>
