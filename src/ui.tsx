@@ -115,7 +115,7 @@ function Plugin() {
   //show toast
   const [isToastOpen, setIsToastOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
-  const [toastType, setToastType] = useState("");
+  const [toastType, setToastType] = useState("idle");
 
   //reset documentation
   const [isReset, setIsReset] = useState(false);
@@ -209,6 +209,7 @@ function Plugin() {
     if (found && isMainContentOpen && selectedElementName.length) {
       setFoundDocumentation(found);
       setIsToastOpen(true);
+      setToastType("idle");
       setToastMessage(
         `Documentations must be unique, this element already have one in: \n${found.title}`
       );
