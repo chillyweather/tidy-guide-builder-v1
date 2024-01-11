@@ -8,6 +8,7 @@ import sectionData from "./resources/sectionData";
 import CancelPopup from "./ui_components/popups/cancelPopup";
 import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
+import DeletePopup from "./ui_components/popups/deletePopup";
 import Toast from "./ui_components/Toast";
 //dependencies
 import { uploadFileToServer } from "./ui_components/ui_functions/fileManagementFunctions";
@@ -69,6 +70,10 @@ function Plugin() {
   //popups
   const [showCancelPopup, setShowCancelPopup] = useState(false);
   const [showResetPopup, setShowResetPopup] = useState(false);
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
+
+  //element to delete
+  const [elementToDelete, setElementToDelete] = useState("");
 
   //page states
   const [isLoginPageOpen, setIsLoginPageOpen] = useState(false);
@@ -141,8 +146,6 @@ function Plugin() {
   //is current name valid
   const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
   const [isErrorToastOpen, setIsErrorToastOpen] = useState(false);
-
-  console.log("token", token);
 
   on("AUTH_CHANGE", async (token) => {
     if (token) {
@@ -396,13 +399,20 @@ function Plugin() {
     setIsCurrentNameValid,
   };
 
+  // function closeAllPopups() {
+  //   setShowCancelPopup(false);
+  //   setShowResetPopup(false);
+  //   setShowDeletePopup(false);
+  // }
+
   return (
     <div
       className={"container"}
       onKeyDown={(e) => {
         if (e.key === "Escape") {
-          setShowResetPopup(false);
           setShowCancelPopup(false);
+          setShowResetPopup(false);
+          setShowDeletePopup(false);
         }
       }}
     >
@@ -417,6 +427,12 @@ function Plugin() {
         {isLoading && <LoaderPage />}
         {showCancelPopup && <CancelPopup />}
         {showResetPopup && <ResetPopup />}
+        {showDeletePopup && (
+          <DeletePopup
+            setShowDeletePopup={setShowDeletePopup}
+            elementToDelete={elementToDelete}
+          />
+        )}
         {/* {!isCurrentNameValid && (
           <Toast
             message={`Documentation title must be unique, this name is already taken`}
@@ -453,6 +469,8 @@ function Plugin() {
             setIsIndexOpen={setIsIndexOpen}
             setIsContenFromServerOpen={setIsContenFromServerOpen}
             setIsFromSavedData={setIsFromSavedData}
+            setShowDeletePopup={setShowDeletePopup}
+            setElementToDelete={setElementToDelete}
           />
         )}
 
@@ -463,6 +481,8 @@ function Plugin() {
             setIsIndexOpen={setIsIndexOpen}
             setIsContenFromServerOpen={setIsContenFromServerOpen}
             setIsFromSavedData={setIsFromSavedData}
+            setShowDeletePopup={setShowDeletePopup}
+            setElementToDelete={setElementToDelete}
           />
         )}
         {isMainContentOpen && <MainContent />}

@@ -33,9 +33,9 @@ function ResetPopup() {
             onClick={() => {
               setShowResetPopup(false);
             }}
-            onKeyDown={(e) => {
-              if (e.key === "Escape") setShowResetPopup(false);
-            }}
+            // onKeyDown={(e) => {
+            //   if (e.key === "Escape") setShowResetPopup(false);
+            // }}
           >
             Cancel
           </button>

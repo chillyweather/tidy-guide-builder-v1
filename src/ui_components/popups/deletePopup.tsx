@@ -4,33 +4,43 @@ import { useState } from "preact/hooks";
 import { useContext, useRef, useEffect } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 
-function deletePopup(e: any) {
+function DeletePopup({
+  setShowDeletePopup,
+  elementToDelete,
+}: {
+  setShowDeletePopup: Function;
+  elementToDelete: string;
+}) {
+  console.log("elementToDelete", elementToDelete);
   return (
     <div
-      className={"feedbackPopupBackground hidden"}
+      className={"feedbackPopupBackground"}
       id={"deletePopup"}
-      onClick={() => document.getElementById("deletePopup")?.classList.add("hidden")}
+      onClick={() => setShowDeletePopup(false)}
       tabIndex={0}
     >
       <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
         <button
           className={"closePopupButton"}
-          onClick={() => document.getElementById("deletePopup")?.classList.add("hidden")}
+          onClick={() => setShowDeletePopup(false)}
         >
           <IconX />
         </button>
         <h2 className={"dialogTitle"}>Delete element?</h2>
-        <p>Are you sure you want to delete this element?<br />
-          This action cannot be undone. </p>
+        <p>
+          Are you sure you want to delete this element?
+          <br />
+          This action cannot be undone.{" "}
+        </p>
         <div className="popupButtons footer">
           <button
             className={"button"}
             onClick={() => {
-              document.getElementById("deletePopup")?.classList.add("hidden");
+              setShowDeletePopup(false);
             }}
-            onKeyDown={(e) => {
-              if (e.key === "Escape") document.getElementById("deletePopup")?.classList.add("hidden");
-            }}
+            // onKeyDown={(e) => {
+            //   if (e.key === "Escape") setShowDeletePopup(false);
+            // }}
           >
             Cancel
           </button>
@@ -48,4 +58,4 @@ function deletePopup(e: any) {
   );
 }
 
-export default deletePopup;
+export default DeletePopup;
