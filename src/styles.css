@@ -602,7 +602,9 @@ button svg {
 #delete-button{
   position: relative;
   background-color: rgb(230, 61, 61);
-  cursor: pointer;
+}
+#delete-button span{
+  pointer-events: none;
 }
 
 #delete-button img {
