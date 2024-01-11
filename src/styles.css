@@ -599,15 +599,26 @@ button svg {
 .empty-image {
   width: 20vw;
 }
-.delete-button{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#delete-button{
+  position: relative;
 }
-.delete-button img{
+
+#delete-button img {
+  position: absolute;
   display: none;
   max-height: var(--text-size);
   max-width: var(--text-size);
+  top: calc(50% - (var(--text-size) / 2));
+  left: calc(50% - (var(--text-size) / 2));
+}
+
+#delete-button.spinner img {
+  display: block;
+  animation: rotateAnim 1000ms infinite linear;
+}
+
+#delete-button.spinner span {
+  visibility: hidden;
 }
 
 .buttonPrimary {

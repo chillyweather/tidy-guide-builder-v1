@@ -165,6 +165,7 @@ declare const styles: {
   readonly "side-flex": string;
   readonly "singleLink": string;
   readonly "spacing": string;
+  readonly "spinner": string;
   readonly "split": string;
   readonly "split-disabled": string;
   readonly "subtitle": string;
