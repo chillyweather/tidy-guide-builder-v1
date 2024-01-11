@@ -65,6 +65,7 @@ async function handleDelete(
   elementId: string,
   setDataForUpdate: Function
 ) {
+  console.log("deleting element");
   const result = await deleteDocumentation(token!, elementId);
 
   if (result) {
@@ -72,6 +73,7 @@ async function handleDelete(
       const newData = prevData.filter((el: any) => el._id !== elementId);
       return newData;
     });
+    console.log("deleted element");
   } else {
     alert("Something went wrong, please try again later.");
   }
