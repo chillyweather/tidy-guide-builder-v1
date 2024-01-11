@@ -216,7 +216,7 @@ function Plugin() {
       setSelectedElement(null);
       setSelectedElementName("");
     }
-  }, [selectedElementKey]);
+  }, [selectedElementKey, selectedElement]);
 
   useEffect(() => {
     if (
@@ -228,6 +228,25 @@ function Plugin() {
       sendRaster(currentImageArray, loggedInUser, currentImageType);
     }
   }, [loggedInUser, currentImageArray, currentImageType]);
+
+  // if selected element's name in data for update
+  useEffect(() => {
+    if (
+      selectedElementName.length &&
+      dataForUpdate.length &&
+      !isMainContentOpen &&
+      !isContenFromServerOpen
+    ) {
+      const found = dataForUpdate.find(
+        (doc: any) => doc._id === selectedElementKey
+      );
+      if (found) {
+        setIsIndexOpen(false);
+        setIsContenFromServerOpen(true);
+        setSelectedMasterId(selectedElementKey);
+      }
+    }
+  }, [selectedElementName, dataForUpdate]);
 
   (function bodyScroll() {
     document.body.onscroll = function () {

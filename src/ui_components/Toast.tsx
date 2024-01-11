@@ -12,7 +12,6 @@ const Toast = ({
   type?: string;
 }) => {
   useEffect(() => {
-    console.log("isError", type);
     const timer = setTimeout(() => {
       onClose();
     }, 3000);
