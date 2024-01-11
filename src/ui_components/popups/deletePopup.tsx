@@ -47,8 +47,10 @@ function DeletePopup({
             Cancel
           </button>
           <button
-            className={"button primary delete-button"}
+            className={"button primary"}
+            id={"delete-button"}
             onClick={async () => {
+              document.getElementById("delete-button")?.classList.add("spinner");
               handleDelete(token, elementToDelete, setDataForUpdate);
               setShowDeletePopup(false);
             }}
