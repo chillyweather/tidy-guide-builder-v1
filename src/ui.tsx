@@ -9,6 +9,7 @@ import CancelPopup from "./ui_components/popups/cancelPopup";
 import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
 import DeletePopup from "./ui_components/popups/deletePopup";
+import PreviewPopup from "./ui_components/popups/previewPopup";
 import Toast from "./ui_components/Toast";
 //dependencies
 import { uploadFileToServer } from "./ui_components/ui_functions/fileManagementFunctions";
@@ -71,6 +72,7 @@ function Plugin() {
   const [showCancelPopup, setShowCancelPopup] = useState(false);
   const [showResetPopup, setShowResetPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const [showPreviewPopup, setShowPreviewPopup] = useState(false);
 
   //element to delete
   const [elementToDelete, setElementToDelete] = useState("");
@@ -80,6 +82,10 @@ function Plugin() {
 
   //documentation
   const [documentationData, setDocumentationData] = useState<any>({ docs: [] });
+
+  //preview data
+  const [previewData, setPreviewData] = useState<any>({});
+  const [isPreviewing, setIsPreviewing] = useState(false);
 
   //is scroll
   const [isScroll, setIsScroll] = useState(false);
@@ -386,6 +392,10 @@ function Plugin() {
     token,
     variantsSectionImage,
     isCurrentNameValid,
+    showPreviewPopup,
+    selectedMasterId,
+    previewData,
+    isPreviewing,
     setAnatomySectionImage,
     setCurrentDocument,
     setCurrentPage,
@@ -415,6 +425,9 @@ function Plugin() {
     setSpacingSectionImage,
     setVariantsSectionImage,
     setIsCurrentNameValid,
+    setShowPreviewPopup,
+    setPreviewData,
+    setIsPreviewing,
   };
 
   // function closeAllPopups() {
@@ -422,6 +435,8 @@ function Plugin() {
   //   setShowResetPopup(false);
   //   setShowDeletePopup(false);
   // }
+
+  const isPreviewDataExists = Object.keys(previewData).length > 0;
 
   return (
     <div
@@ -443,6 +458,7 @@ function Plugin() {
           />
         )}
         {isLoading && <LoaderPage />}
+        {showPreviewPopup && isPreviewDataExists && <PreviewPopup />}
         {showCancelPopup && <CancelPopup />}
         {showResetPopup && <ResetPopup />}
         {showDeletePopup && (

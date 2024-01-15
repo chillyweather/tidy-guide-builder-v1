@@ -113,6 +113,9 @@ export const ContentCard = (cardData: any, index: number) => {
   //tooltip
   const [showTooltip, setShowTooltip] = useState(false);
 
+  //preview global state
+  const [previewIncommingData, setPreviewIncommingData] = useState({} as any);
+
   const {
     selectedCard,
     setSelectedCard,
@@ -120,12 +123,19 @@ export const ContentCard = (cardData: any, index: number) => {
     isBuilding,
     setIsBuilding,
     setDocumentationData,
+    documentationData,
     documentationTitle,
     anatomySectionImage,
     spacingSectionImage,
     propertySectionImage,
     variantsSectionImage,
+    setPreviewData,
+    isPreviewing,
+    setIsPreviewing,
+    previewData,
   } = useContext(BuilderContext) || {};
+
+  console.log("isPreviewing", isPreviewing);
 
   //!-------------------------------------------------------------------------------//
   //!-------from here content changes depending on isFromSavedData state------------//
@@ -290,7 +300,6 @@ export const ContentCard = (cardData: any, index: number) => {
         const newDocumentation = { ...prevDocumentation };
         const newDocs = newDocumentation.docs;
         newDocs["title"] = documentationTitle;
-        console.log("currentCardData", currentCardData);
         newDocs[index] = currentCardData;
         setIsBuilding(false);
         return newDocumentation;
@@ -298,27 +307,29 @@ export const ContentCard = (cardData: any, index: number) => {
     }
   }, [isBuilding]);
 
-  // useEffect(() => {
-  //   if (isReset) {
-  //     setCardTitle("");
-  //     setParagraphTextContent("");
-  //     setLeftTitle("");
-  //     setLeftTextContent("");
-  //     setRightTitle("");
-  //     setRightTextContent("");
-  //     setListItems([""]);
-  //     setSources([{ source: "", link: "" }]);
-  //     setRemoteImageLink("");
-  //     setReleaseNotesMessage("");
-  //     setReleaseNotesDate("");
-  //     setSelectedVideo(-1);
-  //     setSelectedVideoContent({});
-  //     setVideoLink("");
-  //     setFoundVideoData({});
-  //     setVideoDataElements([]);
-  //     setIsReset(false);
-  //   }
-  // }, [isReset, setIsReset]);
+  console.log("previewData", previewData);
+
+  useEffect(() => {
+    if (Object.keys(documentationData).length > 0)
+      setPreviewData(JSON.parse(JSON.stringify(documentationData)));
+  }, [documentationData]);
+
+  //! test for preview
+  useEffect(() => {
+    const isPrevData = Object.keys(previewData).length > 0;
+    if (isPreviewing && isPrevData) {
+      setPreviewData((prevData: any) => {
+        const newDocumentation = { ...prevData };
+        const newDocs = newDocumentation.docs;
+        newDocs["title"] = documentationTitle;
+        newDocs[index] = currentCardData;
+        setIsPreviewing(false);
+        console.log("newDocumentation", newDocumentation);
+        return newDocumentation;
+      });
+    }
+  }, [isPreviewing]);
+  //!-------------------
 
   return cardType === "header" ? (
     <div className={isDraft ? "sectionCard draft" : "sectionCard"}>

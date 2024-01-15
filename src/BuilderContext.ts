@@ -61,6 +61,13 @@ interface IContext {
   setVariantsSectionImage: any;
   isCurrentNameValid: boolean;
   setIsCurrentNameValid: any;
+  showPreviewPopup: boolean;
+  setShowPreviewPopup: any;
+  selectedMasterId: string;
+  previewData: any;
+  setPreviewData: any;
+  isPreviewing: boolean;
+  setIsPreviewing: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

@@ -134,6 +134,8 @@ declare const styles: {
   readonly "pagination": string;
   readonly "paragraph": string;
   readonly "popupButtons": string;
+  readonly "previewContent": string;
+  readonly "previewPopup": string;
   readonly "primary": string;
   readonly "property": string;
   readonly "publish-content-wrapper": string;

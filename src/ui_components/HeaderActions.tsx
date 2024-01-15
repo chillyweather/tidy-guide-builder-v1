@@ -33,8 +33,8 @@ const cardsForPopup = sectionData;
 
 function AddSectionPopupCard(card: any) {
   const [isHovering, setIsHovering] = useState(false);
-  const selectedSections = useContext(BuilderContext)?.selectedSections;
-  const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
+  const { setSelectedSections, selectedSections } =
+    useContext(BuilderContext) || {};
   return (
     <div className={"addSection-outer"}>
       <div
@@ -150,6 +150,8 @@ function HeaderActions() {
     documentationTitle,
     isScroll,
     setSelectedElementKey,
+    setShowPreviewPopup,
+    setIsPreviewing,
   } = useContext(BuilderContext) || {};
 
   return (
@@ -200,6 +202,14 @@ function HeaderActions() {
         )}
       </div>
       <div className={"selectedComponentActions"}>
+        <button
+          onClick={() => {
+            setIsPreviewing(true);
+            setShowPreviewPopup(true);
+          }}
+        >
+          <IconPlayerPlayFilled />
+        </button>
         <button
           onClick={() => {
             setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
