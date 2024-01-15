@@ -6,6 +6,15 @@ import { tokenHandler } from "./figma_functions/tokenHandler";
 import { findElement } from "./figma_functions/findElement";
 import imageFromFigma from "./figma_functions/imageFromFigma";
 
+//! time check
+const time = new Date().getTime();
+if (time > 1709244000000) {
+  figma.closePlugin(
+    "this version of plugin is no longer supported, please download it from the Figma Community"
+  );
+}
+//! ----------
+
 const loadFonts = async () => {
   await figma.loadFontAsync({ family: "Inter", style: "Regular" });
   await figma.loadFontAsync({ family: "Inter", style: "Bold" });

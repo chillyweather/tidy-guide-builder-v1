@@ -152,7 +152,10 @@ function HeaderActions() {
     setSelectedElementKey,
     setShowPreviewPopup,
     setIsPreviewing,
+    selectedSections,
   } = useContext(BuilderContext) || {};
+
+  const isEmpty = selectedSections && selectedSections.length === 0;
 
   return (
     <div
@@ -203,6 +206,7 @@ function HeaderActions() {
       </div>
       <div className={"selectedComponentActions"}>
         <button
+          disabled={isEmpty}
           onClick={() => {
             setIsPreviewing(true);
             setShowPreviewPopup(true);
