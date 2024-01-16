@@ -594,7 +594,8 @@ button svg {
 .headerActions .secondary:active {
   background-color: var(--tidy-ec);
 }
-.headerActions .secondary[disabled]{
+
+.headerActions .secondary[disabled] {
   color: #C4CCD9;
   box-shadow: none;
   pointer-events: none;
@@ -606,7 +607,15 @@ button svg {
 
 #delete-button {
   position: relative;
-  background-color: rgb(230, 61, 61);
+  background-color: #DB3B21;
+}
+
+#delete-button:hover {
+  background-color: #E56752;
+}
+
+#delete-button:active {
+  background-color: #BA321C;
 }
 
 #delete-button span {
@@ -3263,11 +3272,15 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 /* -------------------------------------------- */
 /* Preview (Viewer) Popup */
 
-.previewPopup div, .previewPopup p, .previewPopup li, .previewPopup h1{
+.previewPopup div,
+.previewPopup p,
+.previewPopup li,
+.previewPopup h1 {
   /* all: unset !important; */
   white-space: unset !important;
 }
-.feedbackPopup.previewPopup{
+
+.feedbackPopup.previewPopup {
   justify-content: flex-start;
 }
 
@@ -3962,7 +3975,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   z-index: 999 !important;
-  border-radius:  0 0 10px 10px !important;
+  border-radius: 0 0 10px 10px !important;
 }
 
 .previewPopup a[href^="#"]:hover::after {
