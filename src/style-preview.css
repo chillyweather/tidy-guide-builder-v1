@@ -32,6 +32,11 @@ body {
   background-color: var(--tidy-background);
 }
 
+.container .previewPopup .previewContent p{
+  color: red;
+  white-space: unset;
+}
+
 body:has(.login) {
   --tidy-background: #ffffff;
 }
