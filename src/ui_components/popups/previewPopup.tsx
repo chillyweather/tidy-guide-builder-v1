@@ -4,6 +4,7 @@ import { useState } from "preact/hooks";
 import { useContext, useRef, useEffect } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 import DetailsPage from "../previewElements/DetailsPage";
+import "../../style-preview.css";
 
 function PreviewPopup() {
   const {
@@ -20,6 +21,7 @@ function PreviewPopup() {
       onClick={() => setShowPreviewPopup(false)}
       tabIndex={0}
     >
+      {/* <link rel="stylesheet" href={PreviewStyles} /> */}
       <div
         className={"feedbackPopup previewPopup"}
         onClick={(e) => e.stopPropagation()}
