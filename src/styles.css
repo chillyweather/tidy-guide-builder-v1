@@ -3954,14 +3954,15 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   color: #666666 !important;
   border-top: 1px solid #dddddd !important;
   padding: 8px 24px !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  width: calc(100% - 48px) !important;
+  bottom: 34px !important;
+  left: 110px !important;
+  width: 372px !important;
   word-break: break-all !important;
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   z-index: 999 !important;
+  border-radius:  0 0 10px 10px !important;
 }
 
 .previewPopup a[href^="#"]:hover::after {
