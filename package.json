@@ -13,7 +13,8 @@
     "preact-feather": "^4.2.1",
     "prismjs": "^1.28.0",
     "react-markdown-editor-lite": "^1.3.4",
-    "sortablejs": "^1.15.1"
+    "sortablejs": "^1.15.1",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@create-figma-plugin/build": "^3.0.2",
