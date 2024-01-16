@@ -33,7 +33,6 @@ declare const styles: {
   readonly "navigation": string;
   readonly "notFilled": string;
   readonly "pagination": string;
-  readonly "previewContent": string;
   readonly "previewPopup": string;
   readonly "resources": string;
   readonly "search": string;
