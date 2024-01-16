@@ -605,6 +605,10 @@ button svg {
   width: 20vw;
 }
 
+#deletePopup, .resetPopup{
+  text-align: center;
+}
+
 #delete-button {
   position: relative;
   background-color: #DB3B21;

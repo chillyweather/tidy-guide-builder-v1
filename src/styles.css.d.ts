@@ -145,6 +145,7 @@ declare const styles: {
   readonly "publish-dropdown": string;
   readonly "publish-dropdown-item": string;
   readonly "releasenotes": string;
+  readonly "resetPopup": string;
   readonly "resources": string;
   readonly "rightContent": string;
   readonly "rightFooterContent": string;

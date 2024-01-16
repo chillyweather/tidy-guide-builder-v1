@@ -18,7 +18,7 @@ function ResetPopup() {
       onClick={() => setShowResetPopup(false)}
       tabIndex={0}
     >
-      <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
+      <div className={"feedbackPopup resetPopup"} onClick={(e) => e.stopPropagation()}>
         <button
           className={"closePopupButton"}
           onClick={() => setShowResetPopup(false)}
