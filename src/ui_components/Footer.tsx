@@ -106,7 +106,7 @@ const Footer = ({
             setIsDraft(true);
           }}
         >
-          Save changes
+          Save as draft
         </button>
         {isPublishDropdownOpen && <PublishButtonDropdown />}
         <div
