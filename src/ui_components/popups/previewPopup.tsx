@@ -12,7 +12,6 @@ function PreviewPopup() {
     previewData,
     documentationData,
   } = useContext(BuilderContext) || {};
-  console.log("previewData", previewData);
 
   return (
     <div

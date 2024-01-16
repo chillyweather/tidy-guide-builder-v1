@@ -173,7 +173,7 @@ function Plugin() {
         ["_id"]: key,
         ["nodeId"]: defaultNode.id,
         ["docs"]: [],
-        ["title"]: "",
+        ["title"]: documentationTitle,
         ["draft"]: isDraft,
         ["inProgress"]: isWip,
       };
