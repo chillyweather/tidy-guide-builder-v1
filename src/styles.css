@@ -4139,7 +4139,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   flex-direction: row !important;
   gap: 60px !important;
   width: 100% !important;
-  overflow-x: auto !important;
+  overflow-x: hidden !important;
   scroll-snap-type: x mandatory !important;
   scroll-behavior: smooth !important;
 }
@@ -4183,6 +4183,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   font-size: calc(var(--text-size) + (var(--text-size) / 2.333)) !important;
   justify-content: center !important;
   align-items: center !important;
+  width: fit-content !important;
 }
 
 .previewPopup .pagination .disabled {
