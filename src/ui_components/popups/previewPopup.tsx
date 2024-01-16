@@ -5,6 +5,7 @@ import { useContext, useRef, useEffect } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 import DetailsPage from "../previewElements/DetailsPage";
 import "../../style-preview.css";
+import PreviewStyles from '../../style-preview.css';
 
 function PreviewPopup() {
   const {
