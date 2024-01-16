@@ -2995,6 +2995,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   width: 100%;
   height: 100%;
   overflow: auto;
+  overflow-x: hidden;
 }
 
 .divider {
@@ -3246,7 +3247,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 /* -------------------------------------------- */
 
-@media screen and (min-width: 500px) {
+/* @media screen and (min-width: 500px) {
   .two-columns {
     flex-direction: row;
     gap: 32px;
@@ -3255,7 +3256,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   .two-columns>div {
     width: 50%;
   }
-}
+} */
 
 /* -------------------------------------------- */
 /* Preview (Viewer) Popup */
@@ -4479,12 +4480,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 }
 
 @media screen and (min-width: 500px) {
-  .two-columns {
+  /* .two-columns {
     flex-direction: row !important;
     gap: 32px !important;
   }
 
   .two-columns>div {
     width: 50% !important;
-  }
+  } */
 }
