@@ -13,6 +13,7 @@ import {
 } from "../figma_doc_sections/elementBuildingFunctions";
 import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
 import { getNode } from "./getNode";
+import { emit } from "@create-figma-plugin/utilities";
 
 interface ElementData {
   node?: SceneNode;
@@ -44,6 +45,9 @@ export default async function documentationBuilder(
 ) {
   const page = figma.currentPage;
   const node = await getNode(data.nodeId, data._id);
+  if (node) {
+    emit("FOUND_ELEMENT", node, node.name, node.key);
+  }
   if (!node) return;
 
   const defaultElement = getDefaultElement(node);
