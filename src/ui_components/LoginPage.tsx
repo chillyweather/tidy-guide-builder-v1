@@ -48,13 +48,6 @@ const Login = ({
         emit("SAVE_USER_EMAIL", email);
         setToken(token);
         setIsLoginPageOpen(false);
-        // const data = await getDocumentation(token);
-        // if (data) {
-        //   setDocData(data);
-        // }
-        // setIsLoginFailed(false);
-        // setIsLoading(false);
-        // setIndexOpen(true);
       }
     } catch (error) {
       console.log("Login failed:", error);
