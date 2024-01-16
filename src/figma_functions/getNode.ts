@@ -1,11 +1,12 @@
+import { findMasterComponent } from "./utilityFunctions";
 export async function getNode(id: string, key: string) {
   const node = figma.getNodeById(id);
-  if (
-    node &&
-    (node.type === "COMPONENT" || node.type === "COMPONENT_SET") &&
-    node.key === key
-  ) {
-    return node;
+  if (node && node.type === "COMPONENT_SET") return node;
+  else if (node && node.type === "COMPONENT") {
+    if (node.parent && node.parent.type === "COMPONENT_SET") return node.parent;
+  } else if (node && node.type === "INSTANCE") {
+    const masterComponent = await findMasterComponent(node);
+    return masterComponent;
   }
 
   try {

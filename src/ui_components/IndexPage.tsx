@@ -6,6 +6,7 @@ import { useState } from "preact/hooks";
 import { IconX } from "@tabler/icons-react";
 import { deleteDocumentation } from "./ui_functions/documentationHandlers";
 import DeletePopup from "../ui_components/popups/deletePopup";
+import { emit } from "@create-figma-plugin/utilities";
 
 const IndexPage = ({
   data,
@@ -46,6 +47,7 @@ const IndexPage = ({
               // style={{ opacity: draft ? 0.5 : 1 }}
               onClick={() => {
                 setSelectedMasterId(element._id);
+                emit("GET_NEW_SELECTION", element._id, element.nodeId);
                 setIsFromSavedData(true);
                 setIsIndexOpen(false);
                 setIsContenFromServerOpen(true);

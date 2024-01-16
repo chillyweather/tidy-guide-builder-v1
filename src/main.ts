@@ -3,7 +3,7 @@ import documentationBuilder from "./figma_functions/documentationBuilder";
 // import { tempData } from "./tempData";
 import { checkSelection } from "./figma_functions/checkSelection";
 import { tokenHandler } from "./figma_functions/tokenHandler";
-import { findElement } from "./figma_functions/findElement";
+import { getNode } from "./figma_functions/getNode";
 import imageFromFigma from "./figma_functions/imageFromFigma";
 
 //! time check
@@ -72,7 +72,7 @@ export default async function () {
   });
 
   on("GET_NEW_SELECTION", async (key, id) => {
-    const foundElement = await findElement(key, id);
+    const foundElement = await getNode(id, key);
     if (foundElement) {
       const foundElementName = foundElement.name;
       emit("FOUND_ELEMENT", foundElement, foundElementName, key);

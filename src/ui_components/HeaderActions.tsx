@@ -157,6 +157,8 @@ function HeaderActions() {
 
   const isEmpty = selectedSections && selectedSections.length === 0;
 
+  console.log("selectedElementName", selectedElementName);
+
   return (
     <div
       class={"headerContent headerActions"}
