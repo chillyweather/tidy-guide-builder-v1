@@ -206,6 +206,13 @@ function HeaderActions() {
       </div>
       <div className={"selectedComponentActions"}>
         <button
+          onClick={() => {
+            setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
+          }}
+        >
+          <IconPlus />
+        </button>
+        <button
           disabled={isEmpty}
           onClick={() => {
             setIsPreviewing(true);
@@ -213,13 +220,6 @@ function HeaderActions() {
           }}
         >
           <IconPlayerPlayFilled />
-        </button>
-        <button
-          onClick={() => {
-            setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
-          }}
-        >
-          <IconPlus />
         </button>
       </div>
       <div className={"menuDiv"}>
