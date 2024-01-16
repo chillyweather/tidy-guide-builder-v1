@@ -596,8 +596,8 @@ button svg {
   background-color: var(--tidy-ec);
 }
 .headerActions .secondary[disabled]{
-  color: var(--tidy-disabled-btn-text);
-  box-shadow: 0 0 0 1px var(--tidy-disabled-btn-text) inset;
+  color: #C4CCD9;
+  box-shadow: none;
   pointer-events: none;
 }
 
