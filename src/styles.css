@@ -4147,7 +4147,6 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .previewPopup .section>.listWrapper .listContainer {
   min-width: calc(420px - 96px) !important;
   width: calc(420px - 96px) !important;
-  /* KKKKK */
 }
 
 .previewPopup .section>.listWrapper::-webkit-scrollbar {
