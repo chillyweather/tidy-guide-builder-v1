@@ -307,8 +307,6 @@ export const ContentCard = (cardData: any, index: number) => {
     }
   }, [isBuilding]);
 
-  console.log("previewData", previewData);
-
   useEffect(() => {
     if (Object.keys(documentationData).length > 0)
       setPreviewData(JSON.parse(JSON.stringify(documentationData)));
