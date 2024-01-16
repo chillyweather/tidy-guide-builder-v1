@@ -595,6 +595,11 @@ button svg {
 .headerActions .secondary:active {
   background-color: var(--tidy-ec);
 }
+.headerActions .secondary[disabled]{
+  color: var(--tidy-disabled-btn-text);
+  box-shadow: 0 0 0 1px var(--tidy-disabled-btn-text) inset;
+  pointer-events: none;
+}
 
 .empty-image {
   width: 20vw;
