@@ -218,6 +218,7 @@ function HeaderActions() {
             setIsPreviewing(true);
             setShowPreviewPopup(true);
           }}
+          className={"secondary"}
         >
           <IconPlayerPlayFilled />
         </button>
