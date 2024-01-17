@@ -17,6 +17,8 @@ const Footer = ({
   setIsBuildingOnCanvas: Function;
 }) => {
   const [saveData, setSaveData] = useState(false);
+  const [buildOnCanvas, setBuildOnCanvas] = useState(false);
+  const [publishToViewer, setPublishToViewer] = useState(false);
   const [isPublishDropdownOpen, setIsPublishDropdownOpen] = useState(false);
 
   const {
@@ -47,8 +49,9 @@ const Footer = ({
           <div
             className={"publish-dropdown-item"}
             onClick={() => {
-              setIsBuilding(true);
-              setIsBuildingOnCanvas(true);
+              setSaveData(true);
+              setIsDraft(false);
+              setBuildOnCanvas(true);
               setIsPublishDropdownOpen(false);
             }}
           >
@@ -62,8 +65,9 @@ const Footer = ({
           <div
             className={"publish-dropdown-item"}
             onClick={() => {
-              setIsBuildingOnCanvas(false);
-              setIsBuilding(true);
+              setSaveData(true);
+              setIsDraft(false);
+              setPublishToViewer(true);
               setIsPublishDropdownOpen(false);
             }}
           >
@@ -85,11 +89,18 @@ const Footer = ({
   }, [isValid, setIsPublishDropdownOpen]);
 
   useEffect(() => {
-    if (isDraft && saveData) {
-      setIsBuilding(true);
-      setIsBuildingOnCanvas(false);
-    }
-  }, [isDraft, saveData, setIsBuilding, setIsBuildingOnCanvas]);
+    handlePublish(
+      saveData,
+      isDraft,
+      setIsBuilding,
+      setIsBuildingOnCanvas,
+      buildOnCanvas,
+      publishToViewer,
+      setPublishToViewer,
+      setBuildOnCanvas,
+      setSaveData
+    );
+  }, [saveData]);
 
   return (
     <div className={"footer"}>
@@ -102,10 +113,11 @@ const Footer = ({
       <div className="rightFooterContent">
         {!isDraft && (
           <button
-            disabled
+            // disabled
             className={"second"}
             onClick={() => {
               setIsDraft(true);
+              setSaveData(true);
             }}
           >
             Save as draft
@@ -120,11 +132,13 @@ const Footer = ({
             className={isValid ? "primary" : "primary primary-disabled"}
             onClick={(e) => {
               if (e.metaKey || e.ctrlKey) {
-                setIsBuilding(true);
-                setIsBuildingOnCanvas(true);
+                setSaveData(true);
+                setIsDraft(false);
+                setBuildOnCanvas(true);
               } else {
-                setIsBuilding(true);
-                setIsBuildingOnCanvas(false);
+                setSaveData(true);
+                setIsDraft(false);
+                setPublishToViewer(true);
               }
             }}
           >
@@ -148,3 +162,31 @@ const Footer = ({
 };
 
 export default Footer;
+
+function handlePublish(
+  saveData: boolean,
+  isDraft: boolean | undefined,
+  setIsBuilding: Function,
+  setIsBuildingOnCanvas: Function,
+  buildOnCanvas: boolean,
+  publishToViewer: boolean,
+  setPublishToViewer: Function,
+  setBuildOnCanvas: Function,
+  setSaveData: Function
+) {
+  if (saveData) {
+    if (isDraft) {
+      setIsBuilding(true);
+      setIsBuildingOnCanvas(false);
+    } else if (!isDraft && buildOnCanvas) {
+      setIsBuilding(true);
+      setIsBuildingOnCanvas(true);
+      setBuildOnCanvas(false);
+    } else if (!isDraft && publishToViewer) {
+      setIsBuilding(true);
+      setIsBuildingOnCanvas(false);
+      setPublishToViewer(false);
+    }
+    setSaveData(false);
+  }
+}

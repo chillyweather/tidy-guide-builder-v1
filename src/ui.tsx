@@ -289,10 +289,11 @@ function Plugin() {
           ...prevDocumentation,
           ["title"]: documentationTitle,
           ["inProgress"]: isWip,
+          ["draft"]: isDraft,
         };
       });
     }
-  }, [documentationTitle, isWip]);
+  }, [documentationTitle, isWip, isDraft]);
 
   // useEffect(() => {
   //   if (token && selectedElementKey && selectedElement) {
