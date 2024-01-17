@@ -890,6 +890,7 @@ input {
   padding: 2px 4px;
   border-radius: 4px;
   cursor: text;
+  color: var(--tidy-text);
   background-color: #ffffff;
 }
 
@@ -2227,6 +2228,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   gap: 8px;
   height: 100%;
   width: 100%;
+  color: var(--tidy-text);
 }
 
 .outer-image {
@@ -2696,6 +2698,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   border-radius: 8px;
   cursor: text;
   resize: none;
+  color: var(--tidy-text);
 }
 
 .feedbackPopup textarea {
