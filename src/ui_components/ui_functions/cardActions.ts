@@ -37,7 +37,6 @@ export const duplicateSection = (
 ) => {
   e.stopPropagation();
   setSelectedSections((prevSections: any[]) => {
-    console.log("prevSections", prevSections);
     const newSections = Array.from(prevSections);
     const newSection = { ...cardData };
     newSection.id = Math.random().toString(36).substring(2, 9);

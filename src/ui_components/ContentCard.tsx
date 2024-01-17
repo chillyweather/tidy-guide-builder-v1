@@ -320,7 +320,6 @@ export const ContentCard = (cardData: any, index: number) => {
         newDocs["title"] = documentationTitle;
         newDocs[index] = currentCardData;
         setIsPreviewing(false);
-        console.log("newDocumentation", newDocumentation);
         return newDocumentation;
       });
     }

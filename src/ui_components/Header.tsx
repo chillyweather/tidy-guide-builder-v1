@@ -67,12 +67,6 @@ const Header = ({
       setIsDocJustOpened(false);
     }
   }, [documentationData]);
-  //
-  //   console.log(
-  //     "initialDocumentationData",
-  //     JSON.stringify(initialDocumentationData)
-  //   );
-  //   console.log("documentationData", JSON.stringify(documentationData));
 
   function isDataChanged() {
     return (
@@ -92,16 +86,16 @@ const Header = ({
             <div className="componentHeader">
               <h2>Component Index</h2>
               <button
-              className="flex-button add-button"
-              onClick={() => {
-                setIsIndexOpen(false);
-                setIsMainContentOpen(true);
-                setIsFromSavedData(false);
-              }}
-            >
-              <IconPlus />
-              New Documentation
-            </button>
+                className="flex-button add-button"
+                onClick={() => {
+                  setIsIndexOpen(false);
+                  setIsMainContentOpen(true);
+                  setIsFromSavedData(false);
+                }}
+              >
+                <IconPlus />
+                New Documentation
+              </button>
             </div>
           ) : (
             <button

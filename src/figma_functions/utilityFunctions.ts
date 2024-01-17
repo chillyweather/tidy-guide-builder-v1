@@ -197,14 +197,11 @@ export function setTextProps(
   value: string
 ) {
   const propList = element.componentProperties;
-  if (name === "index") console.log("propList", propList);
 
   for (const property in propList) {
-    // console.log("property", property);
     if (property.startsWith(`${name}`)) {
       const newProps: any = {};
       newProps[property] = `${value}`;
-      // console.log("newProps", newProps);
       element.setProperties(newProps);
     }
   }

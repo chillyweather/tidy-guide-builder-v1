@@ -12,7 +12,6 @@ const HeaderCard = () => {
   const setIsWip = useContext(BuilderContext)?.setIsWip;
 
   const handleValueChange = (newValue: boolean) => {
-    console.log("newValue", newValue);
     setIsWip(newValue);
   };
 

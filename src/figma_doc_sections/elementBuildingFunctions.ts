@@ -44,7 +44,6 @@ export function buildTwoColumns(element: any, parentFrame: FrameNode) {
     !element.content.text1 ||
     !element.content.text2
   ) {
-    console.log("Missing content");
     return;
   }
   const columnSpacing = 20;

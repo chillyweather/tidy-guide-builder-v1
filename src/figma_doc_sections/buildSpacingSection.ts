@@ -37,15 +37,12 @@ export function buildSpacingSection(node: InstanceNode, frame: FrameNode) {
   //   spacingMarker
   // );
 
-  console.log("atomSpacings", atomSpacings);
-
   atomSpacings.forEach((node) => {
     if (!node) return;
     frame.appendChild(node);
     node.layoutSizingHorizontal = "FILL";
     node.primaryAxisAlignItems = "CENTER";
   });
-  // console.log("anatomySpacing", anatomySpacing);
   // anatomySpacing.forEach((node) => {
   //   if (!node) return;
   //   node.forEach((child) => {

@@ -16,7 +16,6 @@ const videoCard = (
   videoDataElements: any,
   videoLink: string
 ) => {
-  console.log("foundVideoData", foundVideoData);
   const [isValid, setIsValid]: any = useState(true);
   const VideoElementCard = ({
     element,
@@ -64,15 +63,8 @@ const videoCard = (
         style={cardStyle}
         onClick={() => {
           const videoTemp = video.replace("embed/", "watch?v=");
-          window.open(videoTemp, '_blank');
+          window.open(videoTemp, "_blank");
         }}
-        // onClick={(event: MouseEvent) => {
-        //   event.preventDefault();
-        //   event.stopPropagation();
-        //   setSelectedVideo(index);
-        //   setSelectedVideoContent(currentVideoContent);
-        //   console.log("currentVideoContent :>> ", currentVideoContent);
-        // }}
       >
         <img style={{ height: "80px" }} src={thumbnail} alt={name} />
         <Text style={{ color: isSelected ? "#FFF" : "#000" }}>{name}</Text>
@@ -83,7 +75,6 @@ const videoCard = (
   useEffect(() => {
     if (Object.keys(foundVideoData).length > 0) {
       setVideoDataElements([foundVideoData, ...videoDataElements]);
-      console.log("newVideoData :>> ", foundVideoData);
     }
   }, [foundVideoData]);
 

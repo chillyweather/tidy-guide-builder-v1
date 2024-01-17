@@ -20,7 +20,6 @@ export function buildMarksForHorizontal(
         const markerHandLength = marker.children[1].width;
 
         marker.resize(space, frame.height + markerHandLength + 21);
-        console.log("space", space);
         marker.x = array[index][1];
         marker.y = yPos - markerHandLength - 21;
         setMarkerSizeProps(

@@ -50,8 +50,15 @@ function DeletePopup({
             className={"button primary"}
             id={"delete-button"}
             onClick={async () => {
-              document.getElementById("delete-button")?.classList.add("spinner");
-              handleDelete(token, elementToDelete, setDataForUpdate, setShowDeletePopup);
+              document
+                .getElementById("delete-button")
+                ?.classList.add("spinner");
+              handleDelete(
+                token,
+                elementToDelete,
+                setDataForUpdate,
+                setShowDeletePopup
+              );
             }}
           >
             <img src={Spinner} />
@@ -69,7 +76,6 @@ async function handleDelete(
   setDataForUpdate: Function,
   setShowDeletePopup: Function
 ) {
-  console.log("deleting element");
   const result = await deleteDocumentation(token!, elementId);
 
   if (result) {
@@ -77,7 +83,6 @@ async function handleDelete(
       const newData = prevData.filter((el: any) => el._id !== elementId);
       return newData;
     });
-    console.log("deleted element");
     setShowDeletePopup(false);
   } else {
     alert("Something went wrong, please try again later.");

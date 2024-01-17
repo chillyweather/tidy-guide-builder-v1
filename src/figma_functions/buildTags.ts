@@ -147,7 +147,6 @@ export default function buildTags(
   //     makeLabelTextFlow(child);
   //   }
   // });
-  // console.log("tagElements", tagElements);
   return { tagElements, indexes };
 }
 
@@ -370,13 +369,9 @@ function addBorderRadius(
     if (frame.cornerRadius !== figma.mixed) {
       const indexInfo = tag.createInstance();
       indexInfo.name = ".corner-radius";
-      // console.log("frame", frame);
       const cornerRadius = frame.cornerRadius;
-      // console.log(indexInfo);
-      // setTextContent(indexInfo, "Text", "test");
       //@ts-ignore
       indexInfo.children[1].characters = `Border radius - ${cornerRadius}px`;
-      // setTextContent(indexInfo, "Text", `Border radius - ${cornerRadius}px`);
       indexes.appendChild(indexInfo);
       return;
     } else if (frame.cornerRadius === figma.mixed) {

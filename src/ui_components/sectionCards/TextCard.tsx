@@ -7,7 +7,6 @@ const TextCard = ({
   textContent: string;
   setTextContent: Function;
 }) => {
-  console.log("textContent in card", textContent);
   return (
     <div className="textCardBodyContent">
       <textarea

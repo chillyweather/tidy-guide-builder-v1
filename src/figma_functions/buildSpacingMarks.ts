@@ -63,8 +63,6 @@ function buildSpacingMarks(
           sizeMarker,
           spacingMarker
         );
-        console.log("horizontalMarkers", horizontalMarkers);
-
         spacingMarkers.push(...horizontalMarkers);
       }
     }

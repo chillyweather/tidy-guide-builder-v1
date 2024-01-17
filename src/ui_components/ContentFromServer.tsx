@@ -40,10 +40,6 @@ const ContentFromServer = ({
   }, [foundData.draft]);
 
   useEffect(() => {
-    console.log("isDraft", isDraft);
-  }, [isDraft]);
-
-  useEffect(() => {
     emit("GET_NEW_SELECTION", selectedMasterId, currentElementId);
   }, [selectedMasterId, currentElementId]);
 

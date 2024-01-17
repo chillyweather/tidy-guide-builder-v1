@@ -119,8 +119,6 @@ function buildOneSpacingGroup(
     spacingMarker
   );
 
-  console.log("spacings", spacings);
-
   const sizingMarksFrame = arrangeFrameContents(
     elementSize,
     elementPadding,
