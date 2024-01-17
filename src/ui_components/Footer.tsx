@@ -21,12 +21,12 @@ const Footer = ({
 
   const {
     documentationTitle,
+    isCurrentNameValid,
+    isDraft,
     selectedElementKey,
     selectedElementName,
-    setShowResetPopup,
     setIsDraft,
-    isDraft,
-    isCurrentNameValid,
+    setShowResetPopup,
   } = useContext(BuilderContext) || {};
 
   const isValid =
@@ -100,15 +100,17 @@ const Footer = ({
         </button>
       </div>
       <div className="rightFooterContent">
-        <button
-          disabled
-          className={"second"}
-          onClick={() => {
-            setIsDraft(true);
-          }}
-        >
-          Save as draft
-        </button>
+        {!isDraft && (
+          <button
+            disabled
+            className={"second"}
+            onClick={() => {
+              setIsDraft(true);
+            }}
+          >
+            Save as draft
+          </button>
+        )}
         {isPublishDropdownOpen && <PublishButtonDropdown />}
         <div
           className={isValid ? "split" : "split split-disabled"}

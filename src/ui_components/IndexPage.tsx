@@ -39,11 +39,12 @@ const IndexPage = ({
         const title = element.title;
         const wip = element.inProgress;
         const draft = element.draft;
+
         return (
           <div className={"componentBTN"}>
             <div
               className={"inner-componentBTN"}
-              // style={{ opacity: draft ? 0.5 : 1 }}
+              style={{ opacity: draft ? 0.5 : 1 }}
               onClick={() => {
                 setSelectedMasterId(element._id);
                 emit("GET_NEW_SELECTION", element._id, element.nodeId);

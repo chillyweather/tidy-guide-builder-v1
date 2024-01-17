@@ -62,7 +62,7 @@ export const ContentCard = (cardData: any, index: number) => {
   //card title
   const [cardTitle, setCardTitle] = useState(cardData.title);
   // general use
-  const [isDraft, setIsDraft] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const [publish, setPublish] = useState<boolean>(
     isFromSavedData ? cardData.publish || true : true
   );
@@ -273,7 +273,7 @@ export const ContentCard = (cardData: any, index: number) => {
         onChange={handleChange}
         value={publish}
         style={{ border: "none", cursor: "pointer" }}
-        disabled={isDraft}
+        disabled={isHidden}
       >
         <Text>{label}</Text>
       </Toggle>
@@ -328,11 +328,11 @@ export const ContentCard = (cardData: any, index: number) => {
   //!-------------------
 
   return cardType === "header" ? (
-    <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
+    <div className={isHidden ? "sectionCard draft" : "sectionCard"}>
       <HeaderCard />
     </div>
   ) : (
-    <div className={isDraft ? "sectionCard draft" : "sectionCard"}>
+    <div className={isHidden ? "sectionCard draft" : "sectionCard"}>
       <div className="cardHeader">
         <div className="leftContent">
           <IconGripVertical
@@ -396,7 +396,7 @@ export const ContentCard = (cardData: any, index: number) => {
               <button
                 className={"cardAuxButton eyeIcon"}
                 onClick={() => {
-                  setIsDraft(!isDraft);
+                  setIsHidden(!isHidden);
                   setPublish(false);
                 }}
               >

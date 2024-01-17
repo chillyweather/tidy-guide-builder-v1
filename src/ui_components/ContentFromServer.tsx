@@ -13,20 +13,35 @@ const ContentFromServer = ({
   data: any;
   selectedMasterId: string;
 }) => {
+  const [thisCardIsDraft, setThisCardIsDraft] = useState(false);
   const currentElementId = data.find(
     (item: any) => item._id === selectedMasterId
   ).nodeId;
 
-  const selectedSections = useContext(BuilderContext)?.selectedSections;
-  const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
-  const setDocumentationTitle =
-    useContext(BuilderContext)?.setDocumentationTitle;
-  const setSelectedElementKey =
-    useContext(BuilderContext)?.setSelectedElementKey;
-  const setIsWip = useContext(BuilderContext)?.setIsWip;
-  const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
+  const {
+    isDraft,
+    setIsDraft,
+    selectedSections,
+    setSelectedSections,
+    setDocumentationTitle,
+    setSelectedElementKey,
+    setIsWip,
+    setDocumentationData,
+  } = useContext(BuilderContext) || {};
 
   const foundData = data.find((item: any) => item._id === selectedMasterId);
+
+  useEffect(() => {
+    setIsDraft(thisCardIsDraft);
+  }, [thisCardIsDraft]);
+
+  useEffect(() => {
+    setThisCardIsDraft(foundData.draft);
+  }, [foundData.draft]);
+
+  useEffect(() => {
+    console.log("isDraft", isDraft);
+  }, [isDraft]);
 
   useEffect(() => {
     emit("GET_NEW_SELECTION", selectedMasterId, currentElementId);
