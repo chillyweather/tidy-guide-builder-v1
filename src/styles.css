@@ -3252,6 +3252,7 @@ input[type="checkbox"] {
 .publish-content-wrapper p {
   margin: 0;
   color: var(--tidy-32) !important;
+  max-width: 20ch;
 }
 
 .publish-content-wrapper h4 {
