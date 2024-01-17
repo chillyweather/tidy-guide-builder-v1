@@ -62,6 +62,7 @@ a {
 
 body {
   background-color: var(--tidy-background);
+  --figma-color-text: var(--tidy-background);
 }
 
 body:has(.login) {
@@ -1388,6 +1389,10 @@ input[type="radio"] {
 
 ._checkbox_1a43f_1 {
   --figma-color-bg-brand: var(--tidy-primary);
+  color: var(--tidy-text) !important;
+}
+._checkbox_1a43f_1 ._children_1a43f_67 *, ._children_1rqu7_69 *{
+  color: var(--tidy-text) !important;
 }
 
 ._fill_1a43f_22,
@@ -2121,6 +2126,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 .headerActions .connect-element-button {
   background-color: #D9D9F2;
+  color: var(--tidy-text) !important;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2824,8 +2830,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: #EEF0F6;
 }
 
-.draft input[type="checkbox"] {
-  background-color: transparent;
+input[type="checkbox"] {
+  background-color: transparent !important;
 }
 
 .draft .addSectionIcon {
