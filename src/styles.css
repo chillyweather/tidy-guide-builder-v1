@@ -2939,6 +2939,7 @@ input[type="checkbox"] {
 }
 
 .hideMe {
+  /* unused */
   opacity: 0;
 }
 .publish-icon{
