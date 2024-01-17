@@ -26,6 +26,7 @@ declare const styles: {
   readonly "back-link": string;
   readonly "backToTop": string;
   readonly "bold-me": string;
+  readonly "broken": string;
   readonly "btnNext": string;
   readonly "btnPrev": string;
   readonly "buttonPrimary": string;
@@ -91,10 +92,12 @@ declare const styles: {
   readonly "image-loader": string;
   readonly "image-wrapper": string;
   readonly "imageSection": string;
+  readonly "img-loader": string;
   readonly "inner-componentBTN": string;
   readonly "inputDiv": string;
   readonly "inputInputRowStyle": string;
   readonly "inputWithValidation": string;
+  readonly "invalid-image": string;
   readonly "invalidText": string;
   readonly "invisible": string;
   readonly "leftContent": string;
@@ -142,6 +145,7 @@ declare const styles: {
   readonly "publish-dropdown": string;
   readonly "publish-dropdown-item": string;
   readonly "releasenotes": string;
+  readonly "resetPopup": string;
   readonly "resources": string;
   readonly "rightContent": string;
   readonly "rightFooterContent": string;
@@ -173,6 +177,7 @@ declare const styles: {
   readonly "subtitle": string;
   readonly "text-size": string;
   readonly "textCardBodyContent": string;
+  readonly "textDetails": string;
   readonly "textSymbolsCounter": string;
   readonly "tidyLogo": string;
   readonly "title-row": string;
@@ -196,6 +201,7 @@ declare const styles: {
   readonly "videoOpen": string;
   readonly "videoSection": string;
   readonly "videoSelected": string;
+  readonly "viewer-data-wrapper": string;
   readonly "wip": string;
   readonly "youtubeIcon": string;
 };
