@@ -1,6 +1,8 @@
 import { h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
+import PublishCanvas from "../images/publish-icon-canvas.jpg";
+import PublishViewer from "../images/publish-icon-viewer.jpg";
 import {
   IconReload,
   IconChevronDown,
