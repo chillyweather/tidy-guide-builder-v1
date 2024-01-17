@@ -135,8 +135,6 @@ export const ContentCard = (cardData: any, index: number) => {
     previewData,
   } = useContext(BuilderContext) || {};
 
-  console.log("isPreviewing", isPreviewing);
-
   //!-------------------------------------------------------------------------------//
   //!-------from here content changes depending on isFromSavedData state------------//
   //!-------------------------------------------------------------------------------//
