@@ -146,6 +146,7 @@ declare const styles: {
   readonly "publish-content-wrapper": string;
   readonly "publish-dropdown": string;
   readonly "publish-dropdown-item": string;
+  readonly "publish-icon": string;
   readonly "releasenotes": string;
   readonly "resetPopup": string;
   readonly "resources": string;

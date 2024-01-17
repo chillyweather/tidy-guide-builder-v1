@@ -2941,6 +2941,11 @@ input[type="checkbox"] {
 .hideMe {
   opacity: 0;
 }
+.publish-icon{
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+}
 
 .absDiv {
   position: absolute;
