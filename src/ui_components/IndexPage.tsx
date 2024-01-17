@@ -25,10 +25,9 @@ const IndexPage = ({
   setShowDeletePopup: Function;
   setElementToDelete: Function;
 }) => {
-  const setDataForUpdate = useContext(BuilderContext)?.setDataForUpdate;
   const isDraft = useContext(BuilderContext)?.isDraft;
-  const token = useContext(BuilderContext)?.token;
-  const [primary, setPrimary] = useState("Reset");
+  console.log("isDraft", isDraft);
+
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
   const sortedData = data.sort((a: any, b: any) =>
     a.title.localeCompare(b.title)

@@ -102,7 +102,6 @@ const Footer = ({
           disabled
           className={"second"}
           onClick={() => {
-            setSaveData(true);
             setIsDraft(true);
           }}
         >
