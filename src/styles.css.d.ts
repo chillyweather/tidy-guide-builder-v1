@@ -2,6 +2,8 @@ declare const styles: {
   readonly "_border_1a43f_23": string;
   readonly "_box_1rqu7_22": string;
   readonly "_checkbox_1a43f_1": string;
+  readonly "_children_1a43f_67": string;
+  readonly "_children_1rqu7_69": string;
   readonly "_disabled_1a43f_18": string;
   readonly "_disabled_1rqu7_18": string;
   readonly "_fill_1a43f_22": string;
@@ -144,6 +146,7 @@ declare const styles: {
   readonly "publish-content-wrapper": string;
   readonly "publish-dropdown": string;
   readonly "publish-dropdown-item": string;
+  readonly "publish-icon": string;
   readonly "releasenotes": string;
   readonly "resetPopup": string;
   readonly "resources": string;

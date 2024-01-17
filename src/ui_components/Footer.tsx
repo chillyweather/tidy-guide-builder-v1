@@ -1,6 +1,8 @@
 import { h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
+import PublishCanvas from "../images/publish-icon-canvas.jpg";
+import PublishViewer from "../images/publish-icon-viewer.jpg";
 import {
   IconReload,
   IconChevronDown,
@@ -54,7 +56,7 @@ const Footer = ({
               <h4>Build on Canvas</h4>
               <p>Build on Canvas and publish to Tidy Viewer</p>
             </div>
-            <Icon3dCubeSphere className={"hideMe"} />
+            <img src={PublishCanvas} className={"publish-icon"} />
           </div>
           <div className="divider"></div>
           <div
@@ -69,7 +71,7 @@ const Footer = ({
               <h4>Publish to Viewer</h4>
               <p>Publish to Tidy Viewer</p>
             </div>
-            <Icon3dCubeSphere className={"hideMe"} />
+            <img src={PublishViewer} className={"publish-icon"} />
           </div>
         </div>
       </div>

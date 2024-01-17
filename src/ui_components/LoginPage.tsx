@@ -103,9 +103,9 @@ const Login = ({
         </div>
       </div>
       <button type="submit">Login</button>
-      <p>
+      {/* <p>
         Don't have an account? Request one <a>here</a>.
-      </p>
+      </p> */}
     </form>
   );
 };
