@@ -1,12 +1,21 @@
 import { findMasterComponent } from "./utilityFunctions";
 export async function getNode(id: string, key: string) {
-  const node = figma.getNodeById(id);
-  if (node && node.type === "COMPONENT_SET") return node;
-  else if (node && node.type === "COMPONENT") {
-    if (node.parent && node.parent.type === "COMPONENT_SET") return node.parent;
-  } else if (node && node.type === "INSTANCE") {
-    const masterComponent = await findMasterComponent(node);
-    return masterComponent;
+  try {
+    const node = figma.getNodeById(id);
+    console.log("node", node);
+    if (node && node.type === "COMPONENT_SET") return node;
+    else if (node && node.type === "COMPONENT") {
+      if (node.parent && node.parent.type === "COMPONENT_SET") {
+        return node.parent;
+      } else {
+        return node;
+      }
+    } else if (node && node.type === "INSTANCE") {
+      const masterComponent = await findMasterComponent(node);
+      return masterComponent;
+    }
+  } catch (error) {
+    console.log("error", error);
   }
 
   try {
@@ -23,7 +32,5 @@ export async function getNode(id: string, key: string) {
     console.log("error", error);
   }
 
-  figma.closePlugin(
-    "Error: No component found for this section. Please import it from the library."
-  );
+  return null;
 }
