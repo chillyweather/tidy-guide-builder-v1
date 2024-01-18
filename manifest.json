@@ -1,13 +1,1 @@
-{
-  "api": "1.0.0",
-  "editorType": [
-    "figma"
-  ],
-  "id": "tidy-guide-builder-v1",
-  "name": "Tidy Guide Builder v1",
-  "main": "build/main.js",
-  "ui": "build/ui.js",
-  "permissions": [
-    "currentuser"
-  ]
-}
+{"api":"1.0.0","editorType":["figma"],"id":"tidy-guide-builder-v1","name":"Tidy Guide Builder v1","main":"build/main.js","ui":"build/ui.js","permissions":["currentuser"]}
