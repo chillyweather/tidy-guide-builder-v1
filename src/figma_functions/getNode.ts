@@ -1,8 +1,9 @@
 import { findMasterComponent } from "./utilityFunctions";
 export async function getNode(id: string, key: string) {
+  console.log("id", id);
+  console.log("key", key);
   try {
     const node = figma.getNodeById(id);
-    console.log("node", node);
     if (node && node.type === "COMPONENT_SET") return node;
     else if (node && node.type === "COMPONENT") {
       if (node.parent && node.parent.type === "COMPONENT_SET") {

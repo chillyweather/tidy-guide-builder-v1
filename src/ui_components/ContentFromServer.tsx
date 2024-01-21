@@ -14,6 +14,7 @@ const ContentFromServer = ({
   selectedMasterId: string;
 }) => {
   const [thisCardIsDraft, setThisCardIsDraft] = useState(false);
+  // console.log("data from server", data);
   const currentElementId = data.find(
     (item: any) => item._id === selectedMasterId
   ).nodeId;

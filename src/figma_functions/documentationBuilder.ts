@@ -44,6 +44,7 @@ export default async function documentationBuilder(
   loadFonts: Function
 ) {
   const page = figma.currentPage;
+  console.log("data", data);
   const node = await getNode(data.nodeId, data._id);
   if (node) {
     emit("FOUND_ELEMENT", node, node.name, node.key);

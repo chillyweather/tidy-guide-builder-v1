@@ -111,7 +111,7 @@ const Footer = ({
         </button>
       </div>
       <div className="rightFooterContent">
-        {/* {!isDraft && (
+        {!isDraft && (
           <button
             // disabled
             className={"second"}
@@ -122,7 +122,7 @@ const Footer = ({
           >
             Save as draft
           </button>
-        )} */}
+        )}
         {isPublishDropdownOpen && <PublishButtonDropdown />}
         <div
           className={isValid ? "split" : "split split-disabled"}

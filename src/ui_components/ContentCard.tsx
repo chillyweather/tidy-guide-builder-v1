@@ -59,10 +59,13 @@ function removeDraggable(event: any) {
 
 export const ContentCard = (cardData: any, index: number) => {
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
+
   //card title
   const [cardTitle, setCardTitle] = useState(cardData.title);
   // general use
-  const [isHidden, setIsHidden] = useState(false);
+  const [isHidden, setIsHidden] = useState(
+    isFromSavedData ? cardData.hidden : false
+  );
   const [publish, setPublish] = useState<boolean>(
     isFromSavedData ? cardData.publish || true : true
   );
@@ -145,13 +148,14 @@ export const ContentCard = (cardData: any, index: number) => {
 
   //data for export
   interface CardDataProps {
-    title: string;
-    index: number;
-    docId: string;
+    content: any;
     datatype: string;
+    docId: string;
+    index: number;
+    hidden: boolean;
     publish: boolean;
     text: string;
-    content: any;
+    title: string;
   }
 
   const currentCardData: CardDataProps = {
@@ -161,6 +165,7 @@ export const ContentCard = (cardData: any, index: number) => {
     datatype: cardType,
     publish: publish,
     text: paragraphTextContent,
+    hidden: isHidden || false,
     content: {
       //two column content
       subtitle1: leftTitle,
@@ -325,6 +330,9 @@ export const ContentCard = (cardData: any, index: number) => {
     }
   }, [isPreviewing]);
   //!-------------------
+  useEffect(() => {
+    console.log("isHidden", isHidden);
+  }, [isHidden]);
 
   return cardType === "header" ? (
     <div className={isHidden ? "sectionCard draft" : "sectionCard"}>
@@ -396,7 +404,7 @@ export const ContentCard = (cardData: any, index: number) => {
                 className={"cardAuxButton eyeIcon"}
                 onClick={() => {
                   setIsHidden(!isHidden);
-                  setPublish(false);
+                  setPublish(!publish);
                 }}
               >
                 <IconEye />
