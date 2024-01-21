@@ -67,7 +67,7 @@ export const ContentCard = (cardData: any, index: number) => {
     isFromSavedData ? cardData.hidden : false
   );
   const [publish, setPublish] = useState<boolean>(
-    isFromSavedData ? cardData.publish || true : true
+    isFromSavedData ? cardData.publish : true
   );
   // text card
   const [paragraphTextContent, setParagraphTextContent] = useState(
@@ -115,9 +115,6 @@ export const ContentCard = (cardData: any, index: number) => {
 
   //tooltip
   const [showTooltip, setShowTooltip] = useState(false);
-
-  //preview global state
-  const [previewIncommingData, setPreviewIncommingData] = useState({} as any);
 
   const {
     selectedCard,
@@ -270,7 +267,6 @@ export const ContentCard = (cardData: any, index: number) => {
   ) {
     function handleChange(event: any) {
       const newValue = event.currentTarget.checked;
-      console.log(newValue);
       setPublish(newValue);
     }
     return (
@@ -330,9 +326,6 @@ export const ContentCard = (cardData: any, index: number) => {
     }
   }, [isPreviewing]);
   //!-------------------
-  useEffect(() => {
-    console.log("isHidden", isHidden);
-  }, [isHidden]);
 
   return cardType === "header" ? (
     <div className={isHidden ? "sectionCard draft" : "sectionCard"}>
@@ -404,7 +397,6 @@ export const ContentCard = (cardData: any, index: number) => {
                 className={"cardAuxButton eyeIcon"}
                 onClick={() => {
                   setIsHidden(!isHidden);
-                  setPublish(!publish);
                 }}
               >
                 <IconEye />

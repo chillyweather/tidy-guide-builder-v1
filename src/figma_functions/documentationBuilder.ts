@@ -119,6 +119,7 @@ export default async function documentationBuilder(
   headerSectionFrame.appendChild(currentNode);
 
   for (const element of elements) {
+    if (element.hidden) continue;
     const sectionFrame = buildSectionFrame();
     const title = element.title;
     if (title) {
