@@ -59,12 +59,15 @@ function removeDraggable(event: any) {
 
 export const ContentCard = (cardData: any, index: number) => {
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
+
   //card title
   const [cardTitle, setCardTitle] = useState(cardData.title);
   // general use
-  const [isHidden, setIsHidden] = useState(false);
+  const [isHidden, setIsHidden] = useState(
+    isFromSavedData ? cardData.hidden : false
+  );
   const [publish, setPublish] = useState<boolean>(
-    isFromSavedData ? cardData.publish || true : true
+    isFromSavedData ? cardData.publish : true
   );
   // text card
   const [paragraphTextContent, setParagraphTextContent] = useState(
@@ -113,9 +116,6 @@ export const ContentCard = (cardData: any, index: number) => {
   //tooltip
   const [showTooltip, setShowTooltip] = useState(false);
 
-  //preview global state
-  const [previewIncommingData, setPreviewIncommingData] = useState({} as any);
-
   const {
     selectedCard,
     setSelectedCard,
@@ -145,13 +145,14 @@ export const ContentCard = (cardData: any, index: number) => {
 
   //data for export
   interface CardDataProps {
-    title: string;
-    index: number;
-    docId: string;
+    content: any;
     datatype: string;
+    docId: string;
+    index: number;
+    hidden: boolean;
     publish: boolean;
     text: string;
-    content: any;
+    title: string;
   }
 
   const currentCardData: CardDataProps = {
@@ -161,6 +162,7 @@ export const ContentCard = (cardData: any, index: number) => {
     datatype: cardType,
     publish: publish,
     text: paragraphTextContent,
+    hidden: isHidden || false,
     content: {
       //two column content
       subtitle1: leftTitle,
@@ -265,7 +267,6 @@ export const ContentCard = (cardData: any, index: number) => {
   ) {
     function handleChange(event: any) {
       const newValue = event.currentTarget.checked;
-      console.log(newValue);
       setPublish(newValue);
     }
     return (
@@ -396,7 +397,6 @@ export const ContentCard = (cardData: any, index: number) => {
                 className={"cardAuxButton eyeIcon"}
                 onClick={() => {
                   setIsHidden(!isHidden);
-                  setPublish(false);
                 }}
               >
                 <IconEye />

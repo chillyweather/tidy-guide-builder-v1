@@ -171,7 +171,8 @@ function Plugin() {
       return {
         ...prevDocumentation,
         ["_id"]: key,
-        ["nodeId"]: defaultNode.id,
+        ["componentKey"]: key,
+        ["nodeId"]: defaultNode.id || "",
         ["docs"]: [],
         ["title"]: documentationTitle,
         ["draft"]: isDraft,
@@ -179,6 +180,10 @@ function Plugin() {
       };
     });
   });
+
+  // useEffect(() => {
+  //   console.log("documentationData", documentationData);
+  // }, [documentationData]);
 
   on("USER_EMAIL", (email) => {
     setLoggedInUser(email);
