@@ -208,7 +208,6 @@ export default async function documentationBuilder(
     documentationFrame.layoutSizingHorizontal = "HUG";
   }
 
-  //resize documentation title
   const docTitle = documentationFrame.findOne((node) => node.name === "title");
   if (!docTitle || docTitle.type !== "FRAME") return;
   const titleText = docTitle.children[0] as TextNode;
