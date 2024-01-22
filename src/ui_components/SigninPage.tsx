@@ -3,8 +3,13 @@ import { emit } from "@create-figma-plugin/utilities";
 import { useState, useContext, useEffect } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
 import { TidyLogo } from "../images/TidyLogo";
-import { IconMail, IconEye, IconUsersGroup } from "@tabler/icons-react";
-import { login } from "./ui_functions/authentication";
+import {
+  IconMail,
+  IconEye,
+  IconUsersGroup,
+  IconUser,
+} from "@tabler/icons-react";
+import { createNewAccount } from "./ui_functions/authentication";
 // import { getDocumentation } from "../auxiliaryFunctions/documentationHandlers";
 
 const SignIn = ({
@@ -23,17 +28,20 @@ const SignIn = ({
   setIsSigninPageOpen: Function;
 }) => {
   const [email, setEmail] = useState("");
-  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [userName, setUserName] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [password, setPassword] = useState("");
-  const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [repeatedPassword, setRepeatedPassword] = useState("");
-  const [isRepeatedPasswordValid, setIsRepeatedPasswordValid] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [repeatedPasswordVisible, setRepeatedPasswordVisible] = useState(false);
-  const [isPasswordsMatch, setIsPasswordsMatch] = useState(true);
-  const [allFieldsValid, setAllFieldsValid] = useState(false);
-  const [doRegister, setDoRegister] = useState(false);
+
+  //error visibility states
+  const [isEmailErrorVisible, setIsEmailErrorVisible] = useState(false);
+  const [isPasswordErrorVisible, setIsPasswordErrorVisible] = useState(false);
+  const [isRepeatedPasswordErrorVisible, setIsRepeatedPasswordErrorVisible] =
+    useState(false);
+  const [isPasswordsMatchErrorVisible, setIsPasswordsMatchErrorVisible] =
+    useState(false);
 
   function validateEmail(email: string) {
     const re =
@@ -41,88 +49,68 @@ const SignIn = ({
     return re.test(String(email).toLowerCase());
   }
 
-  const handleEmailChange = (e: any) => {
-    setIsEmailValid(true);
-    setEmail(e.target.value);
-  };
-  const handleCompanyNameChange = (e: any) => setCompanyName(e.target.value);
-  const handlePasswordChange = (e: any) => {
-    setIsPasswordValid(true);
-    setIsPasswordsMatch(true);
-    setPassword(e.target.value);
-  };
-  const handleRepeatedPasswordChange = (e: any) => {
-    setIsRepeatedPasswordValid;
-    setIsPasswordsMatch(true);
-    setRepeatedPassword(e.target.value);
-  };
+  const validateForm = () => {
+    const isEmailValid = validateEmail(email);
+    const isPasswordValid = password.length >= 5;
+    const isRepeatedPasswordValid = repeatedPassword.length >= 5;
+    const isPasswordsMatch = password === repeatedPassword;
 
-  const invalidEmailClass =
-    email.length > 0 && !validateEmail(email) ? "notFilled" : "";
-  const invalidPasswordClass =
-    password.length > 0 && password.length < 5 ? "notFilled" : "";
-  const invalidRepeatPasswordClass =
-    repeatedPassword.length > 0 && repeatedPassword.length < 5
-      ? "notFilled"
-      : "";
+    setIsEmailErrorVisible(!isEmailValid);
+    setIsPasswordErrorVisible(!isPasswordValid);
+    setIsRepeatedPasswordErrorVisible(!isRepeatedPasswordValid);
+    if (isPasswordValid && isRepeatedPasswordValid) {
+      setIsPasswordsMatchErrorVisible(!isPasswordsMatch);
+    } else {
+      setIsPasswordsMatchErrorVisible(false);
+    }
 
-  const checkFields = () => {
-    if (email.length > 0 && !validateEmail(email)) {
-      setIsEmailValid(false);
-    }
-    if (password.length > 0 && password.length < 5) {
-      setIsPasswordValid(false);
-    }
-    if (repeatedPassword.length > 0 && repeatedPassword.length < 5) {
-      setIsRepeatedPasswordValid(false);
-    }
-    if (password !== repeatedPassword) {
-      setIsPasswordsMatch(false);
-    }
-  };
-
-  const handleSubmit = async (event: Event) => {
-    event.preventDefault();
-    checkFields();
-    setDoRegister(true);
-    // const isPasswordsMatch = password === repeatedPassword;
-    // if (!isPasswordsMatch) {
-    //   setIsPasswordsMatch(false);
-    //   return;
-    // }
-    // console.log("passwords match");
-    // try {
-    //   const response = await login(email, password);
-    //   const token = response.token;
-    //   if (token) {
-    //     emit("SAVE_NEW_TOKEN", token);
-    //     emit("SAVE_USER_EMAIL", email);
-    //     setToken(token);
-    //     setIsLoginPageOpen(false);
-    //   }
-    // } catch (error) {
-    //   console.log("Login failed:", error);
-    //   setIsLoginFailed(true);
-    // }
-  };
-
-  useEffect(() => {
-    if (
+    return (
       isEmailValid &&
       isPasswordValid &&
       isRepeatedPasswordValid &&
       isPasswordsMatch
-    ) {
-      setAllFieldsValid(true);
-    } else {
-      setDoRegister(false);
-    }
-  }, [doRegister]);
+    );
+  };
 
-  useEffect(() => {
-    console.log("doRegister", doRegister);
-    console.log("allFieldsValid", allFieldsValid);
-  }, [allFieldsValid, doRegister]);
+  const handleChangeUserName = (e: any) => {
+    setUserName(e.target.value);
+  };
+  const handleEmailChange = (e: any) => {
+    setEmail(e.target.value);
+  };
+  const handleCompanyNameChange = (e: any) => {
+    setCompanyName(e.target.value);
+  };
+  const handlePasswordChange = (e: any) => {
+    setPassword(e.target.value);
+  };
+  const handleRepeatedPasswordChange = (e: any) => {
+    setRepeatedPassword(e.target.value);
+  };
+
+  const handleSubmit = async (event: Event) => {
+    event.preventDefault();
+    const isFormValid = validateForm();
+    if (!isFormValid) return;
+    try {
+      const response = await createNewAccount(
+        userName,
+        email,
+        password,
+        companyName
+      );
+      const token = response.token;
+      if (token) {
+        emit("SAVE_NEW_TOKEN", token);
+        emit("SAVE_USER_EMAIL", email);
+        setToken(token);
+        setIsSigninPageOpen(false);
+      }
+    } catch (error) {
+      console.log("Login failed:", error);
+      setIsLoginFailed(true);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="section login">
@@ -130,29 +118,29 @@ const SignIn = ({
       <TidyLogo />
       <p>
         {isLoginFailed
-          ? "Wrong email or password, please, try again"
+          ? "Something went wrong, please, try again"
           : "Please enter your credentials"}
       </p>
+
+      {/* //! user name */}
       <div className="inputDiv">
         <input
           type="text"
-          placeholder="Email"
-          id="inputMail"
+          placeholder="Name"
+          id="inputUserName"
           required
           spellcheck={false}
-          value={email}
-          onChange={handleEmailChange}
-          className={invalidEmailClass}
+          value={userName}
+          onChange={handleChangeUserName}
         />
-        <IconMail
+        <IconUser
           size={24}
           stroke={2}
-          className="icon icon-tabler icon-tabler-mail"
+          className="icon icon-tabler icon-tabler-usergroup"
         />
-        {!isEmailValid && (
-          <div className="invalid-text">Invalid email address</div>
-        )}
       </div>
+
+      {/* //! company name */}
       <div className="inputDiv">
         <input
           type="text"
@@ -169,6 +157,29 @@ const SignIn = ({
           className="icon icon-tabler icon-tabler-usergroup"
         />
       </div>
+
+      {/* //! email */}
+      <div className="inputDiv">
+        <input
+          type="text"
+          placeholder="Email"
+          id="inputMail"
+          required
+          spellcheck={false}
+          value={email}
+          onChange={handleEmailChange}
+        />
+        <IconMail
+          size={24}
+          stroke={2}
+          className="icon icon-tabler icon-tabler-mail"
+        />
+        {isEmailErrorVisible && (
+          <div className="invalid-text">Invalid email address</div>
+        )}
+      </div>
+
+      {/* //! password */}
       <div className="inputDiv">
         <input
           type={passwordVisible ? "text" : "password"}
@@ -177,7 +188,6 @@ const SignIn = ({
           required
           value={password}
           onChange={handlePasswordChange}
-          className={invalidPasswordClass}
         />
         <IconEye
           size={24}
@@ -185,15 +195,17 @@ const SignIn = ({
           className="icon icon-tabler icon-tabler-eye"
           onClick={() => setPasswordVisible(!passwordVisible)}
         />
-        {!isPasswordValid && (
+        {isPasswordErrorVisible && (
           <div className="invalid-text">
             Password should be at least 5 symbols long
           </div>
         )}
-        {!isPasswordsMatch && isPasswordValid && (
+        {isPasswordsMatchErrorVisible && (
           <div className="invalid-text">Password don't match</div>
         )}
       </div>
+
+      {/* //! repeated password */}
       <div className="inputDiv">
         <input
           type={repeatedPasswordVisible ? "text" : "password"}
@@ -202,7 +214,6 @@ const SignIn = ({
           required
           value={repeatedPassword}
           onChange={handleRepeatedPasswordChange}
-          className={invalidRepeatPasswordClass}
         />
         <IconEye
           size={24}
@@ -211,16 +222,18 @@ const SignIn = ({
           onClick={() => setRepeatedPasswordVisible(!repeatedPasswordVisible)}
         />
 
-        {!isPasswordValid && (
+        {isRepeatedPasswordErrorVisible && (
           <div className="invalid-text">
             Password should be at least 5 symbols long
           </div>
         )}
-        {!isPasswordsMatch && isPasswordValid && (
+        {isPasswordsMatchErrorVisible && (
           <div className="invalid-text">Password don't match</div>
         )}
       </div>
       <button type="submit">Sigh in</button>
+
+      {/* //! already have an account */}
       <p>
         Already have an account? You can log in{" "}
         <a
