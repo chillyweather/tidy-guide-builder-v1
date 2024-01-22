@@ -13,12 +13,14 @@ const Login = ({
   isLoginFailed,
   setIsLoginPageOpen,
   setIsLoading,
+  setIsSigninPageOpen,
 }: {
   setToken: Function;
   setIsLoginFailed: Function;
   isLoginFailed: boolean;
   setIsLoginPageOpen: Function;
   setIsLoading: Function;
+  setIsSigninPageOpen: Function;
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -103,9 +105,18 @@ const Login = ({
         </div>
       </div>
       <button type="submit">Login</button>
-      {/* <p>
-        Don't have an account? Request one <a>here</a>.
-      </p> */}
+      <p>
+        Don't have an account? Create one{" "}
+        <a
+          onClick={() => {
+            setIsLoginPageOpen(false);
+            setIsSigninPageOpen(true);
+          }}
+        >
+          here
+        </a>
+        .
+      </p>
     </form>
   );
 };

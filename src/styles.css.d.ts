@@ -100,6 +100,7 @@ declare const styles: {
   readonly "inputInputRowStyle": string;
   readonly "inputWithValidation": string;
   readonly "invalid-image": string;
+  readonly "invalid-text": string;
   readonly "invalidText": string;
   readonly "invisible": string;
   readonly "leftContent": string;

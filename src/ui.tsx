@@ -23,6 +23,7 @@ import IndexPage from "./ui_components/IndexPage";
 import LoaderPage from "./ui_components/LoadingPage";
 import LoggedIn from "./ui_components/LoggedInPage";
 import Login from "./ui_components/LoginPage";
+import SignIn from "./ui_components/SigninPage";
 import MainContent from "./ui_components/MainContent";
 import {
   getDocumentations,
@@ -79,6 +80,7 @@ function Plugin() {
 
   //page states
   const [isLoginPageOpen, setIsLoginPageOpen] = useState(false);
+  const [isSigninPageOpen, setIsSigninPageOpen] = useState(false);
 
   //documentation
   const [documentationData, setDocumentationData] = useState<any>({ docs: [] });
@@ -476,13 +478,24 @@ function Plugin() {
         {isToastOpen && toastMessage && (
           <Toast message={toastMessage} onClose={closePopup} type={toastType} />
         )}
-        {!token && (
+        {!token && isLoginPageOpen && (
           <Login
             setToken={setToken}
             setIsLoginFailed={setIsLoginFailed}
             isLoginFailed={isLoginFailed}
             setIsLoginPageOpen={setIsLoginPageOpen}
             setIsLoading={setIsLoading}
+            setIsSigninPageOpen={setIsSigninPageOpen}
+          />
+        )}
+        {!token && isSigninPageOpen && (
+          <SignIn
+            setToken={setToken}
+            setIsLoginFailed={setIsLoginFailed}
+            isLoginFailed={isLoginFailed}
+            setIsLoginPageOpen={setIsLoginPageOpen}
+            setIsLoading={setIsLoading}
+            setIsSigninPageOpen={setIsSigninPageOpen}
           />
         )}
         <Header
@@ -495,41 +508,48 @@ function Plugin() {
         />
         {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
 
-        {!isLoginPageOpen && isFirstTime && !isMainContentOpen && (
-          <IndexPage
-            data={dataForUpdate}
-            setSelectedMasterId={setSelectedMasterId}
-            setIsIndexOpen={setIsIndexOpen}
-            setIsContenFromServerOpen={setIsContenFromServerOpen}
-            setIsFromSavedData={setIsFromSavedData}
-            setShowDeletePopup={setShowDeletePopup}
-            setElementToDelete={setElementToDelete}
-          />
-        )}
+        {!isLoginPageOpen &&
+          !isSigninPageOpen &&
+          isFirstTime &&
+          !isMainContentOpen && (
+            <IndexPage
+              data={dataForUpdate}
+              setSelectedMasterId={setSelectedMasterId}
+              setIsIndexOpen={setIsIndexOpen}
+              setIsContenFromServerOpen={setIsContenFromServerOpen}
+              setIsFromSavedData={setIsFromSavedData}
+              setShowDeletePopup={setShowDeletePopup}
+              setElementToDelete={setElementToDelete}
+            />
+          )}
 
-        {!isLoginPageOpen && !isFirstTime && isIndexOpen && (
-          <IndexPage
-            data={dataForUpdate}
-            setSelectedMasterId={setSelectedMasterId}
-            setIsIndexOpen={setIsIndexOpen}
-            setIsContenFromServerOpen={setIsContenFromServerOpen}
-            setIsFromSavedData={setIsFromSavedData}
-            setShowDeletePopup={setShowDeletePopup}
-            setElementToDelete={setElementToDelete}
-          />
-        )}
+        {!isLoginPageOpen &&
+          !isSigninPageOpen &&
+          !isFirstTime &&
+          isIndexOpen && (
+            <IndexPage
+              data={dataForUpdate}
+              setSelectedMasterId={setSelectedMasterId}
+              setIsIndexOpen={setIsIndexOpen}
+              setIsContenFromServerOpen={setIsContenFromServerOpen}
+              setIsFromSavedData={setIsFromSavedData}
+              setShowDeletePopup={setShowDeletePopup}
+              setElementToDelete={setElementToDelete}
+            />
+          )}
         {isMainContentOpen && <MainContent />}
         {selectedMasterId &&
           !isMainContentOpen &&
           isContenFromServerOpen &&
-          !isLoginPageOpen && (
+          !isLoginPageOpen &&
+          !isSigninPageOpen && (
             <ContentFromServer
               data={dataForUpdate}
               selectedMasterId={selectedMasterId}
             />
           )}
 
-        {!isLoginPageOpen && !isIndexOpen && (
+        {!isLoginPageOpen && isSigninPageOpen && !isIndexOpen && (
           <Footer
             setIsBuilding={setIsBuilding}
             setIsBuildingOnCanvas={setIsBuildingOnCanvas}
