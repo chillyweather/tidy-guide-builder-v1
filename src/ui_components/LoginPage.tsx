@@ -14,6 +14,7 @@ const Login = ({
   setIsLoginPageOpen,
   setIsLoading,
   setIsSigninPageOpen,
+  setShowPasswordResetPopup,
 }: {
   setToken: Function;
   setIsLoginFailed: Function;
@@ -21,10 +22,13 @@ const Login = ({
   setIsLoginPageOpen: Function;
   setIsLoading: Function;
   setIsSigninPageOpen: Function;
+  setShowPasswordResetPopup: Function;
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
 
   function validateEmail(email: string) {
     const re =
@@ -35,13 +39,17 @@ const Login = ({
   const handleEmailChange = (e: any) => setEmail(e.target.value);
   const handlePasswordChange = (e: any) => setPassword(e.target.value);
 
-  const invalidEmailClass =
-    email.length > 0 && !validateEmail(email) ? "notFilled" : "";
-  const invalidPasswordClass =
-    password.length > 0 && password.length < 5 ? "notFilled" : "";
-
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
+    const emailIsValid = validateEmail(email);
+    setIsEmailValid(emailIsValid);
+
+    const passwordIsValid = password.length >= 5;
+    setIsPasswordValid(passwordIsValid);
+
+    if (!emailIsValid || !passwordIsValid) {
+      return;
+    }
     try {
       const response = await login(email, password);
       const token = response.token;
@@ -56,6 +64,9 @@ const Login = ({
       setIsLoginFailed(true);
     }
   };
+
+  const invalidEmailClass = !isEmailValid ? "notFilled" : "";
+  const invalidPasswordClass = !isPasswordValid ? "notFilled" : "";
 
   return (
     <form onSubmit={handleSubmit} className="section login">
@@ -111,6 +122,17 @@ const Login = ({
           onClick={() => {
             setIsLoginPageOpen(false);
             setIsSigninPageOpen(true);
+          }}
+        >
+          here
+        </a>
+        .
+      </p>
+      <p>
+        Forgot your password? Click{" "}
+        <a
+          onClick={() => {
+            setShowPasswordResetPopup(true);
           }}
         >
           here

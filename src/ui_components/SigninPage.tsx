@@ -75,18 +75,22 @@ const SignIn = ({
   const handleChangeUserName = (e: any) => {
     setUserName(e.target.value);
   };
+
   const handleEmailChange = (e: any) => {
     setEmail(e.target.value);
     setIsEmailErrorVisible(false);
   };
+
   const handleCompanyNameChange = (e: any) => {
     setCompanyName(e.target.value);
   };
+
   const handlePasswordChange = (e: any) => {
     setPassword(e.target.value);
     setIsPasswordErrorVisible(false);
     setIsPasswordsMatchErrorVisible(false);
   };
+
   const handleRepeatedPasswordChange = (e: any) => {
     setRepeatedPassword(e.target.value);
     setIsRepeatedPasswordErrorVisible(false);

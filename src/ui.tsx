@@ -10,6 +10,7 @@ import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
 import DeletePopup from "./ui_components/popups/deletePopup";
 import PreviewPopup from "./ui_components/popups/previewPopup";
+import PasswordResetPopup from "./ui_components/popups/passwordResetPopup";
 import Toast from "./ui_components/Toast";
 //dependencies
 import { uploadFileToServer } from "./ui_components/ui_functions/fileManagementFunctions";
@@ -74,6 +75,7 @@ function Plugin() {
   const [showResetPopup, setShowResetPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showPreviewPopup, setShowPreviewPopup] = useState(false);
+  const [showPasswordResetPopup, setShowPasswordResetPopup] = useState(false);
 
   //element to delete
   const [elementToDelete, setElementToDelete] = useState("");
@@ -475,6 +477,13 @@ function Plugin() {
             elementToDelete={elementToDelete}
           />
         )}
+        {showPasswordResetPopup && (
+          <PasswordResetPopup
+            show={showPasswordResetPopup}
+            setShow={setShowPasswordResetPopup}
+            user={currentUser}
+          />
+        )}
         {isToastOpen && toastMessage && (
           <Toast message={toastMessage} onClose={closePopup} type={toastType} />
         )}
@@ -486,6 +495,7 @@ function Plugin() {
             setIsLoginPageOpen={setIsLoginPageOpen}
             setIsLoading={setIsLoading}
             setIsSigninPageOpen={setIsSigninPageOpen}
+            setShowPasswordResetPopup={setShowPasswordResetPopup}
           />
         )}
         {!token && isSigninPageOpen && (
@@ -549,7 +559,7 @@ function Plugin() {
             />
           )}
 
-        {!isLoginPageOpen && isSigninPageOpen && !isIndexOpen && (
+        {!isLoginPageOpen && !isSigninPageOpen && !isIndexOpen && (
           <Footer
             setIsBuilding={setIsBuilding}
             setIsBuildingOnCanvas={setIsBuildingOnCanvas}
