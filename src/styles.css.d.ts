@@ -139,6 +139,7 @@ declare const styles: {
   readonly "outer-image": string;
   readonly "pagination": string;
   readonly "paragraph": string;
+  readonly "popup-content": string;
   readonly "popupButtons": string;
   readonly "previewContent": string;
   readonly "previewPopup": string;

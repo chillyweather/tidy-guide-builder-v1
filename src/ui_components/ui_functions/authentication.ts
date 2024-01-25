@@ -61,16 +61,33 @@ export async function getPasswordResetToken(email: string) {
   return data;
 }
 
-// export async function getPasswordResetToken(email: string) {
-//   const path = "https://api.tidyframework.com/api/users/forgetpassword";
-//   const response = await fetch(path, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({ email: email }),
-//   });
-//   const result = await response.json();
-//   console.log("result", result);
-//   return result;
-// }
+export async function resetPassword(
+  email: string,
+  token: string,
+  newPassword: string,
+  confirmPassword: string
+) {
+  let headersList = {
+    Accept: "*/*",
+    "Content-Type": "application/json",
+  };
+
+  let bodyContent = JSON.stringify({
+    email: `${email}`,
+    token: `${token}`,
+    newPassword: `${newPassword}`,
+    confirmPassword: `${confirmPassword}`,
+  });
+
+  let response = await fetch(
+    "https://api.tidyframework.com/api/users/resetpassword",
+    {
+      method: "PATCH",
+      body: bodyContent,
+      headers: headersList,
+    }
+  );
+
+  let data = await response.text();
+  return data;
+}
