@@ -6,6 +6,7 @@ import {
   getPasswordResetToken,
   resetPassword,
 } from "../ui_functions/authentication";
+import { validateEmail } from "../ui_functions/validateEmail";
 
 function PasswordResetPopup({
   show,
@@ -28,6 +29,10 @@ function PasswordResetPopup({
   const [newPassword, setNewPassword] = useState("");
   const [repeatNewPassword, setRepeatNewPassword] = useState("");
   const [isNewPasswordSet, setIsNewPasswordSet] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isPassword1Valid, setIsPassword1Valid] = useState(true);
+  const [isPassword2Valid, setIsPassword2Valid] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   if (!show) {
     return null;
@@ -45,15 +50,23 @@ function PasswordResetPopup({
             value={email}
             onInput={(e) => {
               if (e.target) {
+                setIsEmailValid(true);
                 setEmail((e.target as HTMLInputElement).value);
               }
             }}
           />
+          {!isEmailValid && (
+            <div className="invalid-text">Invalid email address</div>
+          )}
         </label>
         <button
           hidden={isHidden}
           className={"button submitButton primary"}
           onClick={async () => {
+            if (!validateEmail(email)) {
+              setIsEmailValid(false);
+              return;
+            }
             const result = await getPasswordResetToken(email);
             const resetToken = result.passwordResetToken;
             if (resetToken) {
@@ -86,14 +99,23 @@ function PasswordResetPopup({
             type="text"
             placeholder={"Password"}
             value={newPassword}
+            minLength={5}
             onInput={(e) => {
               if (e.target) {
+                setIsPassword1Valid(true);
                 setNewPassword((e.target as HTMLInputElement).value);
               }
             }}
           />
+          {!isPassword1Valid && (
+            <div className="invalid-text">{errorMessage}</div>
+          )}
         </label>
-        <label className={"dialogLabel"} hidden={isHidden}>
+        <label
+          className={"dialogLabel"}
+          hidden={isHidden}
+          style={{ marginTop: "8px" }}
+        >
           <input
             hidden={isHidden}
             className={"dialogInput"}
@@ -102,16 +124,40 @@ function PasswordResetPopup({
             value={repeatNewPassword}
             onInput={(e) => {
               if (e.target) {
+                setIsPassword2Valid(true);
                 setRepeatNewPassword((e.target as HTMLInputElement).value);
               }
             }}
           />
+          {!isPassword2Valid && (
+            <div className="invalid-text">{errorMessage}</div>
+          )}
         </label>
         <button
           hidden={isHidden}
           className={"button submitButton primary"}
           onClick={async () => {
             try {
+              if (newPassword.length < 5) {
+                setErrorMessage("Password should be at least 5 symbols long");
+                setIsPassword1Valid(false);
+                return;
+              }
+              if (repeatNewPassword.length < 5) {
+                setErrorMessage("Password should be at least 5 symbols long");
+                setIsPassword2Valid(false);
+                return;
+              }
+              if (
+                newPassword.length > 5 &&
+                repeatNewPassword.length > 5 &&
+                newPassword !== repeatNewPassword
+              ) {
+                setErrorMessage("Passwords not match");
+                setIsPassword1Valid(false);
+                setIsPassword2Valid(false);
+                return;
+              }
               const result = await resetPassword(
                 email,
                 passwordResetToken,

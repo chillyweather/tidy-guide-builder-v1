@@ -1,14 +1,12 @@
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
-import { useState, useContext } from "preact/hooks";
-import BuilderContext from "src/BuilderContext";
+import { useState } from "preact/hooks";
 import { TidyLogo } from "../images/TidyLogo";
 import { IconMail, IconEye } from "@tabler/icons-react";
 import { login } from "./ui_functions/authentication";
-import { validateEmail } from "./ui_functions/validateEmail";
-// import { getDocumentation } from "../auxiliaryFunctions/documentationHandlers";
 
-const Login = ({
+// import { getDocumentation } from "../auxiliaryFunctions/documentationHandlers";
+export const Login = ({
   setToken,
   setIsLoginFailed,
   isLoginFailed,
@@ -30,6 +28,12 @@ const Login = ({
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
+
+  function validateEmail(email: string) {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
 
   const handleEmailChange = (e: any) => setEmail(e.target.value);
   const handlePasswordChange = (e: any) => setPassword(e.target.value);
@@ -137,5 +141,3 @@ const Login = ({
     </form>
   );
 };
-
-export default Login;
