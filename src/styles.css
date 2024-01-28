@@ -229,7 +229,6 @@ body:has(.login) {
 
 .draftComponent {
   color: #5568AA;
-  pointer-events: none;
 }
 
 .draftComponent::before{
@@ -241,6 +240,7 @@ body:has(.login) {
   border-radius: 4px;
   padding: 2px 8px;
   font-weight: 500;
+  pointer-events: none;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
 }
 .componentBTN:hover .draftComponent::before{
