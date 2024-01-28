@@ -229,6 +229,7 @@ body:has(.login) {
 
 .draftComponent {
   color: #5568AA;
+  pointer-events: none;
 }
 
 .draftComponent::before{
@@ -242,8 +243,9 @@ body:has(.login) {
   font-weight: 500;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
 }
-.draftComponent:hover::before{
+.componentBTN:hover .draftComponent::before{
   background-color: #DBDAEC;
+  font-size: calc(var(--text-size) - (var(--text-size) / 7));
 }
 
 h1 {
@@ -1253,7 +1255,7 @@ li::before {
 .wip {
   /* font-family: "Space Mono", monospace; */
   background-color: #FFFFAD;
-  color: var(--tidy-32);
+  color: #7F5415;
   padding: 0 6px;
   border-radius: 4px;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
