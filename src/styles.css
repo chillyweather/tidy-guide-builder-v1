@@ -226,6 +226,10 @@ body:has(.login) {
   display: none;
 }
 
+.draftComponent{
+  color:#5568AA;
+}
+
 h1 {
   font-family: "DM Serif Text", serif;
   line-height: 120%;
