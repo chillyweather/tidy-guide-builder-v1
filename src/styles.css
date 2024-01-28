@@ -1251,16 +1251,18 @@ li::before {
 }
 
 .wip {
-  font-family: "Space Mono", monospace;
-  background-color: #f0f66e;
+  /* font-family: "Space Mono", monospace; */
+  background-color: #FFFFAD;
   color: var(--tidy-32);
   padding: 0 6px;
-  border-radius: 9999px;
+  border-radius: 4px;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
   word-break: keep-all;
   white-space: pre;
   pointer-events: none;
   user-select: none;
+  font-weight: 500;
+  padding: 2px 8px;
 }
 
 .wip::before {
@@ -4339,8 +4341,8 @@ input[type="checkbox"] {
 }
 
 .previewPopup .wip {
-  font-family: 'Space Mono', monospace !important;
-  background-color: #F0F66E !important;
+  /* font-family: 'Space Mono', monospace !important; */
+  background-color: #FFFFAD !important;
   color: #323232 !important;
   padding: 4px 6px !important;
   border-radius: 9999px !important;
@@ -4351,6 +4353,7 @@ input[type="checkbox"] {
   pointer-events: none !important;
   user-select: none !important;
   width: fit-content !important;
+  font-weight: 500 !important;
 }
 
 .previewPopup .wip::before {
