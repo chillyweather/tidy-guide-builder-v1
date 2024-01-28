@@ -40,7 +40,7 @@ const IndexPage = ({
         return (
           <div className={"componentBTN"}>
             <div
-              className={"inner-componentBTN" + draft}
+              className={draft ? "inner-componentBTN draftComponent": "inner-componentBTN"}
               // style={{ opacity: draft ? 0.5 : 1 }}
               onClick={() => {
                 setSelectedMasterId(element._id);
