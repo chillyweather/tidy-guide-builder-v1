@@ -15,6 +15,8 @@ const ContentFromServer = ({
 }) => {
   const [thisCardIsDraft, setThisCardIsDraft] = useState(false);
   // console.log("data from server", data);
+  console.log("data", data);
+  console.log("selectedMasterId", selectedMasterId);
   const currentElementId = data.find(
     (item: any) => item._id === selectedMasterId
   ).nodeId;
@@ -41,7 +43,9 @@ const ContentFromServer = ({
   }, [foundData.draft]);
 
   useEffect(() => {
-    emit("GET_NEW_SELECTION", selectedMasterId, currentElementId);
+    if (currentElementId) {
+      emit("GET_NEW_SELECTION", selectedMasterId, currentElementId);
+    }
   }, [selectedMasterId, currentElementId]);
 
   useEffect(() => {

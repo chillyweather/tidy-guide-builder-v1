@@ -72,6 +72,8 @@ export default async function () {
   });
 
   on("GET_NEW_SELECTION", async (key, id) => {
+    if (!key) return;
+
     const foundElement = await getNode(id, key);
     if (foundElement) {
       const foundElementName = foundElement.name;

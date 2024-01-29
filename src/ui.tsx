@@ -338,14 +338,15 @@ function Plugin() {
   }, [documentationTitle]);
 
   async function handleAddDocumentation(token: string, data: any) {
-    const id = data._id || "";
     setIsLoading(true);
     try {
       const result = await getDocumentations(token);
-      const isDocumented = result.some((doc: any) => doc._id === id);
+      console.log(" result", result);
+      console.log(" data", data);
+      const isDocumented = result.some((doc: any) => doc._id === data._id);
 
       if (isDocumented) {
-        const response = await updateDocumentation(token, result._id, data);
+        const response = await updateDocumentation(token, data._id, data);
         if (isBuildingOnCanvas) emit("BUILD", response);
         const newData = await getDocumentations(token);
         setDataForUpdate(newData);

@@ -45,7 +45,7 @@ export default async function documentationBuilder(
 ) {
   const page = figma.currentPage;
   console.log("data", data);
-  const node = await getNode(data.nodeId, data._id);
+  const node = await getNode(data.nodeId, data.componentKey);
   if (node) {
     emit("FOUND_ELEMENT", node, node.name, node.key);
   }
