@@ -111,18 +111,17 @@ const Footer = ({
         </button>
       </div>
       <div className="rightFooterContent">
-        {!isDraft && (
-          <button
-            // disabled
-            className={"second"}
-            onClick={() => {
-              setIsDraft(true);
-              setSaveData(true);
-            }}
-          >
-            Save as draft
-          </button>
-        )}
+        <button
+          // disabled
+          className={"second"}
+          onClick={() => {
+            setIsDraft(true);
+            setSaveData(true);
+          }}
+        >
+          Save as draft
+        </button>
+
         {isPublishDropdownOpen && <PublishButtonDropdown />}
         <div
           className={isValid ? "split" : "split split-disabled"}
