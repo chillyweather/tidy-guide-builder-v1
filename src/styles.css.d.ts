@@ -97,6 +97,7 @@ declare const styles: {
   readonly "img-loader": string;
   readonly "inner-componentBTN": string;
   readonly "inputDiv": string;
+  readonly "inputDiv-invalid": string;
   readonly "inputInputRowStyle": string;
   readonly "inputWithValidation": string;
   readonly "invalid-image": string;

@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
-import { useState, useContext } from "preact/hooks";
+import { useState, useContext, useEffect } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
 import { TidyLogo } from "../images/TidyLogo";
 import { IconMail, IconEye } from "@tabler/icons-react";
@@ -31,8 +31,14 @@ const Login = ({
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
 
-  const handleEmailChange = (e: any) => setEmail(e.target.value);
-  const handlePasswordChange = (e: any) => setPassword(e.target.value);
+  const handleEmailChange = (e: any) => {
+    setIsLoginFailed(false);
+    setEmail(e.target.value);
+  };
+  const handlePasswordChange = (e: any) => {
+    setIsLoginFailed(false);
+    setPassword(e.target.value);
+  };
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
@@ -63,6 +69,10 @@ const Login = ({
   const invalidEmailClass = !isEmailValid ? "notFilled" : "";
   const invalidPasswordClass = !isPasswordValid ? "notFilled" : "";
 
+  useEffect(() => {
+    console.log("isLoginFailed", isLoginFailed);
+  }, [isLoginFailed]);
+
   return (
     <form onSubmit={handleSubmit} className="section login">
       <div className="navigation"></div>
@@ -72,7 +82,7 @@ const Login = ({
           ? "Wrong email or password, please, try again"
           : "Please enter your credentials"}
       </p>
-      <div className="inputDiv">
+      <div className={isLoginFailed ? "inputDiv inputDiv-invalid" : "inputDiv"}>
         <input
           type="text"
           placeholder="Email"
@@ -90,7 +100,7 @@ const Login = ({
         />
         <div className="invalidText">Invalid email address</div>
       </div>
-      <div className="inputDiv">
+      <div className={isLoginFailed ? "inputDiv inputDiv-invalid" : "inputDiv"}>
         <input
           type={passwordVisible ? "text" : "password"}
           placeholder="Password"
