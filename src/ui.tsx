@@ -174,7 +174,7 @@ function Plugin() {
     setDocumentationData((prevDocumentation: any) => {
       return {
         ...prevDocumentation,
-        ["_id"]: key,
+        // ["_id"]: key,
         ["componentKey"]: key,
         ["nodeId"]: defaultNode.id || "",
         ["docs"]: [],
@@ -338,15 +338,14 @@ function Plugin() {
   }, [documentationTitle]);
 
   async function handleAddDocumentation(token: string, data: any) {
-    const id = data._id;
-    if (typeof id !== "string") return;
+    const id = data._id || "";
     setIsLoading(true);
     try {
       const result = await getDocumentations(token);
       const isDocumented = result.some((doc: any) => doc._id === id);
 
       if (isDocumented) {
-        const response = await updateDocumentation(token, id, data);
+        const response = await updateDocumentation(token, result._id, data);
         if (isBuildingOnCanvas) emit("BUILD", response);
         const newData = await getDocumentations(token);
         setDataForUpdate(newData);
@@ -556,6 +555,7 @@ function Plugin() {
             <ContentFromServer
               data={dataForUpdate}
               selectedMasterId={selectedMasterId}
+              //! add component key
             />
           )}
 

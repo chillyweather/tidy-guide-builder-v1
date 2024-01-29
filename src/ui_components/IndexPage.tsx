@@ -40,11 +40,15 @@ const IndexPage = ({
         return (
           <div className={"componentBTN"}>
             <div
-              className={draft ? "inner-componentBTN draftComponent": "inner-componentBTN"}
+              className={
+                draft
+                  ? "inner-componentBTN draftComponent"
+                  : "inner-componentBTN"
+              }
               // style={{ opacity: draft ? 0.5 : 1 }}
               onClick={() => {
                 setSelectedMasterId(element._id);
-                emit("GET_NEW_SELECTION", element._id, element.nodeId);
+                emit("GET_NEW_SELECTION", element.componentKey, element.nodeId);
                 setIsFromSavedData(true);
                 setIsIndexOpen(false);
                 setIsContenFromServerOpen(true);

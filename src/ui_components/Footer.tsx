@@ -31,11 +31,12 @@ const Footer = ({
     setShowResetPopup,
   } = useContext(BuilderContext) || {};
 
-  const isValid =
-    !!documentationTitle?.length &&
-    !!selectedElementKey?.length &&
-    !!selectedElementName?.length &&
-    isCurrentNameValid;
+  const isValid = !!documentationTitle?.length && isCurrentNameValid;
+  // const isValid =
+  //   !!documentationTitle?.length &&
+  //   !!selectedElementKey?.length &&
+  //   !!selectedElementName?.length &&
+  //   isCurrentNameValid;
 
   function PublishButtonDropdown() {
     return (
