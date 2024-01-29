@@ -982,7 +982,7 @@ a:hover::after {
   z-index: 999;
 }
 
-a[href^="#"]:hover::after {
+a[href^="#"]:hover::after, a[href=""]:hover::after ,a:not([href]):hover::after {
   display: none;
 }
 
