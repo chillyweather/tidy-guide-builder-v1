@@ -180,6 +180,7 @@ body:has(.login) {
 }
 
 .inner-componentBTN {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -224,6 +225,27 @@ body:has(.login) {
 
 .componentBTN:empty {
   display: none;
+}
+
+.draftComponent {
+  color: #5568AA;
+}
+
+.draftComponent::before{
+  content: 'Draft';
+  position: absolute;
+  right: 0;
+  top: 8px;
+  background-color: #ECEBF5;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-weight: 500;
+  pointer-events: none;
+  font-size: calc(var(--text-size) - (var(--text-size) / 7));
+}
+.componentBTN:hover .draftComponent::before{
+  background-color: #DBDAEC;
+  font-size: calc(var(--text-size) - (var(--text-size) / 7));
 }
 
 h1 {
@@ -1231,16 +1253,18 @@ li::before {
 }
 
 .wip {
-  font-family: "Space Mono", monospace;
-  background-color: #f0f66e;
-  color: var(--tidy-32);
+  /* font-family: "Space Mono", monospace; */
+  background-color: #FFFFAD;
+  color: #7F5415;
   padding: 0 6px;
-  border-radius: 9999px;
+  border-radius: 4px;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
   word-break: keep-all;
   white-space: pre;
   pointer-events: none;
   user-select: none;
+  font-weight: 500;
+  padding: 2px 8px;
 }
 
 .wip::before {
@@ -4319,8 +4343,8 @@ input[type="checkbox"] {
 }
 
 .previewPopup .wip {
-  font-family: 'Space Mono', monospace !important;
-  background-color: #F0F66E !important;
+  /* font-family: 'Space Mono', monospace !important; */
+  background-color: #FFFFAD !important;
   color: #323232 !important;
   padding: 4px 6px !important;
   border-radius: 9999px !important;
@@ -4331,6 +4355,7 @@ input[type="checkbox"] {
   pointer-events: none !important;
   user-select: none !important;
   width: fit-content !important;
+  font-weight: 500 !important;
 }
 
 .previewPopup .wip::before {

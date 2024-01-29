@@ -60,6 +60,7 @@ declare const styles: {
   readonly "disabled": string;
   readonly "divider": string;
   readonly "draft": string;
+  readonly "draftComponent": string;
   readonly "drag-item": string;
   readonly "dragIcon": string;
   readonly "drop-button": string;
