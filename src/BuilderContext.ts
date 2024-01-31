@@ -70,6 +70,8 @@ interface IContext {
   setIsPreviewing: any;
   selectedElementNodeId: string;
   setSelectedElementNodeId: any;
+  documentationId: string;
+  setDocumentationId: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

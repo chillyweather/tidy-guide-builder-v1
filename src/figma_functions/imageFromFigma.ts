@@ -18,13 +18,6 @@ const imageFromFigma = async (
     40
   );
 
-  const node = await getNode(nodeId, key);
-  if (!node) return;
-  const defaultElement = getDefaultElement(node)?.createInstance();
-  if (!defaultElement) return;
-  await buildAnatomySection(defaultElement, resultFrame);
-  defaultElement.remove();
-
   const bytes = await resultFrame.exportAsync({
     format: "SVG",
   });

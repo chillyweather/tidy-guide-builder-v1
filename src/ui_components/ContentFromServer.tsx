@@ -28,6 +28,7 @@ const ContentFromServer = ({
     selectedElementKey,
     setIsWip,
     setDocumentationData,
+    setDocumentationId,
   } = useContext(BuilderContext) || {};
 
   const foundData = data.find((item: any) => item._id === selectedMasterId);
@@ -50,6 +51,7 @@ const ContentFromServer = ({
     if (foundData && foundData._id) {
       setSelectedSections(foundData.docs);
       setDocumentationTitle(foundData.title);
+      setDocumentationId(foundData._id);
       setSelectedElementKey(foundData.componentKey);
       setIsWip(foundData.inProgress);
       setDocumentationData((prevDocumentation: any) => {

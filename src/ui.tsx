@@ -41,6 +41,7 @@ function Plugin() {
 
   //documentation title
   const [documentationTitle, setDocumentationTitle] = useState("");
+  const [documentationId, setDocumentationId] = useState("");
 
   //work in progress
   const [isWip, setIsWip] = useState(false);
@@ -168,6 +169,10 @@ function Plugin() {
     }
   });
 
+  // useEffect(() => {
+  //   console.log("selectedElementKey", selectedElementKey);
+  // }, [selectedElementKey]);
+
   on("SELECTION", ({ defaultNode, name, key }) => {
     setSelectedElement(defaultNode);
     setSelectedElementNodeId(defaultNode.id);
@@ -176,8 +181,8 @@ function Plugin() {
     setDocumentationData((prevDocumentation: any) => {
       return {
         ...prevDocumentation,
-        ["_id"]: "",
-        ["componentKey"]: selectedElementKey || "",
+        ["_id"]: documentationId,
+        ["componentKey"]: selectedElementKey,
         ["nodeId"]: selectedElementNodeId || "",
         ["docs"]: [],
         ["title"]: documentationTitle,
@@ -361,9 +366,13 @@ function Plugin() {
     try {
       const result = await getDocumentations(token);
       const isDocumented = result.some((doc: any) => doc._id === data._id);
+      console.log("result", result);
+      console.log("data", data);
+      console.log("isDocumented", isDocumented);
 
       if (isDocumented) {
         const response = await updateDocumentation(token, data._id, data);
+        console.log("response", response);
         if (isBuildingOnCanvas) emit("BUILD", response);
         const newData = await getDocumentations(token);
         setDataForUpdate(newData);
@@ -457,6 +466,8 @@ function Plugin() {
     setPreviewData,
     setIsPreviewing,
     setSelectedElementNodeId,
+    documentationId,
+    setDocumentationId,
   };
 
   // function closeAllPopups() {
