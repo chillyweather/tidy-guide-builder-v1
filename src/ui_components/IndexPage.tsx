@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { IconTrash } from "@tabler/icons-react";
+import { IconTrash, IconCopy } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
 
 const IndexPage = ({
@@ -51,6 +51,12 @@ const IndexPage = ({
               {title}
               {wip && <div className={"wip"}>WIP</div>}
             </div>
+            {/* <button
+              className={"cardAuxButton noPredefined"}
+              onClick={() => console.log(element._id)}
+            >
+              <IconCopy />
+            </button> */}
             <IconTrash
               className={"trashIcon"}
               onClick={(e) => {
