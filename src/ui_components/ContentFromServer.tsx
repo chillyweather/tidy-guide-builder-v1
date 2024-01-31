@@ -14,9 +14,6 @@ const ContentFromServer = ({
   selectedMasterId: string;
 }) => {
   const [thisCardIsDraft, setThisCardIsDraft] = useState(false);
-  // console.log("data from server", data);
-  console.log("data", data);
-  console.log("selectedMasterId", selectedMasterId);
   const currentElementId = data.find(
     (item: any) => item._id === selectedMasterId
   ).nodeId;
@@ -28,6 +25,7 @@ const ContentFromServer = ({
     setSelectedSections,
     setDocumentationTitle,
     setSelectedElementKey,
+    selectedElementKey,
     setIsWip,
     setDocumentationData,
   } = useContext(BuilderContext) || {};
@@ -44,7 +42,7 @@ const ContentFromServer = ({
 
   useEffect(() => {
     if (currentElementId) {
-      emit("GET_NEW_SELECTION", selectedMasterId, currentElementId);
+      emit("GET_NEW_SELECTION", selectedElementKey, currentElementId);
     }
   }, [selectedMasterId, currentElementId]);
 
@@ -52,7 +50,7 @@ const ContentFromServer = ({
     if (foundData && foundData._id) {
       setSelectedSections(foundData.docs);
       setDocumentationTitle(foundData.title);
-      setSelectedElementKey(selectedMasterId);
+      setSelectedElementKey(foundData.componentKey);
       setIsWip(foundData.inProgress);
       setDocumentationData((prevDocumentation: any) => {
         return {

@@ -33,7 +33,7 @@ const cardsForPopup = sectionData;
 
 function AddSectionPopupCard(card: any) {
   const [isHovering, setIsHovering] = useState(false);
-  const { setSelectedSections, selectedSections } =
+  const { setSelectedSections, selectedSections, selectedElementName } =
     useContext(BuilderContext) || {};
   return (
     <div className={"addSection-outer"}>
@@ -107,12 +107,13 @@ function AddSectionPopupCard(card: any) {
 }
 
 function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
-  const { isPdSectionOpen, setIsPdSectionOpen } =
+  const { isPdSectionOpen, setIsPdSectionOpen, selectedElementName } =
     useContext(BuilderContext) || {};
 
   return (
     <div class={"addSectionPopup"}>
       <div className="addSectionPupup-inner">
+        {/* {selectedElementName && ( */}
         <div className="cards predefined">
           <div
             class=""
@@ -129,6 +130,7 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
             return cardElement(card);
           })}
         </div>
+        {/* )} */}
         <div className="cards custom">
           <h2>Custom Elements</h2>
           {cards.map((card) => {
@@ -153,6 +155,7 @@ function HeaderActions() {
     setShowPreviewPopup,
     setIsPreviewing,
     selectedSections,
+    setSelectedElementNodeId,
   } = useContext(BuilderContext) || {};
 
   const isEmpty = selectedSections && selectedSections.length === 0;
@@ -187,6 +190,7 @@ function HeaderActions() {
               setSelectedElement(null);
               setSelectedElementName("");
               setSelectedElementKey("");
+              setSelectedElementNodeId("");
               emit("CLEAR_SELECTION");
             }}
           />

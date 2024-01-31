@@ -72,12 +72,13 @@ export default async function () {
   });
 
   on("GET_NEW_SELECTION", async (key, id) => {
-    if (!key) return;
+    if (key) {
+      const foundElement = await getNode(id, key);
 
-    const foundElement = await getNode(id, key);
-    if (foundElement) {
-      const foundElementName = foundElement.name;
-      emit("FOUND_ELEMENT", foundElement, foundElementName, key);
+      if (foundElement) {
+        const foundElementName = foundElement.name;
+        emit("FOUND_ELEMENT", foundElement, foundElementName, key);
+      }
     }
   });
 

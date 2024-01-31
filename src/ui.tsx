@@ -61,6 +61,7 @@ function Plugin() {
   //selected element
   const [selectedElement, setSelectedElement] = useState<any>(null);
   const [selectedElementKey, setSelectedElementKey] = useState<any>("");
+  const [selectedElementNodeId, setSelectedElementNodeId] = useState<any>("");
   const [selectedElementName, setSelectedElementName] = useState("");
   const [selectedCard, setSelectedCard] = useState<any>("");
 
@@ -169,14 +170,15 @@ function Plugin() {
 
   on("SELECTION", ({ defaultNode, name, key }) => {
     setSelectedElement(defaultNode);
+    setSelectedElementNodeId(defaultNode.id);
     setSelectedElementName(name);
     setSelectedElementKey(key);
     setDocumentationData((prevDocumentation: any) => {
       return {
         ...prevDocumentation,
-        // ["_id"]: key,
-        ["componentKey"]: key,
-        ["nodeId"]: defaultNode.id || "",
+        ["_id"]: "",
+        ["componentKey"]: selectedElementKey || "",
+        ["nodeId"]: selectedElementNodeId || "",
         ["docs"]: [],
         ["title"]: documentationTitle,
         ["draft"]: isDraft,
@@ -242,7 +244,6 @@ function Plugin() {
     }
   }, [loggedInUser, currentImageArray, currentImageType]);
 
-  // if selected element's name in data for update
   useEffect(() => {
     if (
       selectedElementName.length &&
@@ -304,6 +305,24 @@ function Plugin() {
     }
   }, [documentationTitle, isWip, isDraft]);
 
+  useEffect(() => {
+    if (selectedElementKey) {
+      setDocumentationData((prevDocumentation: any) => {
+        return {
+          ...prevDocumentation,
+          ["componentKey"]: selectedElementKey,
+        };
+      });
+    } else {
+      setDocumentationData((prevDocumentation: any) => {
+        return {
+          ...prevDocumentation,
+          ["componentKey"]: "",
+        };
+      });
+    }
+  }, [selectedElementKey]);
+
   // useEffect(() => {
   //   if (token && selectedElementKey && selectedElement) {
   //     emit("PIC_FROM_FIGMA", {
@@ -326,7 +345,7 @@ function Plugin() {
       );
       const foundDocId = foundDoc?._id;
       const foundDocTitle = foundDoc?.title;
-      if (foundDocId && foundDocTitle && foundDocId !== selectedElementKey) {
+      if (foundDocId && foundDocTitle && foundDocId !== selectedMasterId) {
         setIsCurrentNameValid(false);
         setIsToastOpen(true);
         setToastMessage("Documentation title must be unique");
@@ -341,8 +360,6 @@ function Plugin() {
     setIsLoading(true);
     try {
       const result = await getDocumentations(token);
-      console.log(" result", result);
-      console.log(" data", data);
       const isDocumented = result.some((doc: any) => doc._id === data._id);
 
       if (isDocumented) {
@@ -406,6 +423,7 @@ function Plugin() {
     selectedMasterId,
     previewData,
     isPreviewing,
+    selectedElementNodeId,
     setAnatomySectionImage,
     setCurrentDocument,
     setCurrentPage,
@@ -438,6 +456,7 @@ function Plugin() {
     setShowPreviewPopup,
     setPreviewData,
     setIsPreviewing,
+    setSelectedElementNodeId,
   };
 
   // function closeAllPopups() {

@@ -68,6 +68,8 @@ interface IContext {
   setPreviewData: any;
   isPreviewing: boolean;
   setIsPreviewing: any;
+  selectedElementNodeId: string;
+  setSelectedElementNodeId: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

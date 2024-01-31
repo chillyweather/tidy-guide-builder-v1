@@ -15,7 +15,6 @@ const DetailsPage = (data: any) => {
         </div>
       </div>
       {sectionData.map((element: any, index: number) => {
-        console.log("element.hidden", element.hidden);
         if (
           element.publish &&
           element.datatype !== "release-notes" &&
