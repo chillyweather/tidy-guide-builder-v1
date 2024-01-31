@@ -1,23 +1,32 @@
 import { h } from "preact";
 import { IconTrash, IconCopy } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
+import {
+  getDocumentation,
+  getDocumentations,
+  createDocumentation,
+} from "./ui_functions/documentationHandlers";
 
 const IndexPage = ({
   data,
+  setDataForUpdate,
   setSelectedMasterId,
   setIsIndexOpen,
   setIsContenFromServerOpen,
   setIsFromSavedData,
   setShowDeletePopup,
   setElementToDelete,
+  token,
 }: {
   data: any;
+  setDataForUpdate: Function;
   setSelectedMasterId: Function;
   setIsIndexOpen: Function;
   setIsContenFromServerOpen: Function;
   setIsFromSavedData: Function;
   setShowDeletePopup: Function;
   setElementToDelete: Function;
+  token: string;
 }) => {
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
   const sortedData = data.sort((a: any, b: any) =>
@@ -53,7 +62,9 @@ const IndexPage = ({
             </div>
             <button
               className={"cardAuxButton noPredefined"}
-              onClick={() => console.log(element._id)}
+              onClick={() =>
+                handleDocClone(token, element._id, setDataForUpdate)
+              }
             >
               <IconCopy />
             </button>
@@ -73,3 +84,18 @@ const IndexPage = ({
 };
 
 export default IndexPage;
+
+async function handleDocClone(token: string, id: string, setData: Function) {
+  const docFromServer = await getDocumentation(token, id);
+
+  delete docFromServer._id;
+  docFromServer.title = docFromServer.title + " copy";
+
+  const clonedDoc = await createDocumentation(token, docFromServer);
+  if (!clonedDoc._id) return;
+
+  const newDocs = await getDocumentations(token);
+  if (!newDocs) return;
+
+  setData(newDocs);
+}

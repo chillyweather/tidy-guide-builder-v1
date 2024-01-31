@@ -44,21 +44,24 @@ export async function updateDocumentation(
 
 //! get one documentation
 export async function getDocumentation(token: string, documentId: string) {
-  const path = `https://api.tidyframework.com/api/docs/${documentId}`;
-  const response = await fetch(path, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  console.log("token", token);
+  console.log("documentId", documentId);
+  let headersList = {
+    Accept: "*/*",
+    "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+    Authorization: `Bearer ${token}`,
+  };
 
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
+  let response = await fetch(
+    `https://api.tidyframework.com/api/docs/${documentId}`,
+    {
+      method: "GET",
+      headers: headersList,
+    }
+  );
 
-  const result = await response.json();
-  return result;
+  let data = await response.json();
+  return data;
 }
 
 //! get all documentations

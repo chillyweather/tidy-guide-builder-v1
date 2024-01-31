@@ -554,12 +554,14 @@ function Plugin() {
           !isMainContentOpen && (
             <IndexPage
               data={dataForUpdate}
+              setDataForUpdate={setDataForUpdate}
               setSelectedMasterId={setSelectedMasterId}
               setIsIndexOpen={setIsIndexOpen}
               setIsContenFromServerOpen={setIsContenFromServerOpen}
               setIsFromSavedData={setIsFromSavedData}
               setShowDeletePopup={setShowDeletePopup}
               setElementToDelete={setElementToDelete}
+              token={token}
             />
           )}
 
@@ -569,12 +571,14 @@ function Plugin() {
           isIndexOpen && (
             <IndexPage
               data={dataForUpdate}
+              setDataForUpdate={setDataForUpdate}
               setSelectedMasterId={setSelectedMasterId}
               setIsIndexOpen={setIsIndexOpen}
               setIsContenFromServerOpen={setIsContenFromServerOpen}
               setIsFromSavedData={setIsFromSavedData}
               setShowDeletePopup={setShowDeletePopup}
               setElementToDelete={setElementToDelete}
+              token={token}
             />
           )}
         {isMainContentOpen && <MainContent />}
