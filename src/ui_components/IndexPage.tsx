@@ -51,12 +51,12 @@ const IndexPage = ({
               {title}
               {wip && <div className={"wip"}>WIP</div>}
             </div>
-            {/* <button
+            <button
               className={"cardAuxButton noPredefined"}
               onClick={() => console.log(element._id)}
             >
               <IconCopy />
-            </button> */}
+            </button>
             <IconTrash
               className={"trashIcon"}
               onClick={(e) => {
