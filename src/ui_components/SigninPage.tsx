@@ -240,7 +240,7 @@ const SignIn = ({
           <div className="invalid-text">Password don't match</div>
         )}
       </div>
-      <button type="submit">Sigh in</button>
+      <button type="submit">Sign in</button>
 
       {/* //! already have an account */}
       <p>
