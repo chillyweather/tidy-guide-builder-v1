@@ -133,7 +133,7 @@ const Login = ({
         </a>
         .
       </p>
-      <p>
+      <p style="margin-top: -1.25em;">
         Forgot your password? Click{" "}
         <a
           onClick={() => {
