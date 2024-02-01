@@ -132,6 +132,7 @@ declare const styles: {
   readonly "nav-container": string;
   readonly "nav-wrapper": string;
   readonly "navigation": string;
+  readonly "noFeedback": string;
   readonly "noIcon": string;
   readonly "noPredefined": string;
   readonly "noSelected": string;

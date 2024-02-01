@@ -40,7 +40,7 @@ function PasswordResetPopup({
 
   const getTokenContent = () => {
     return (
-      <div className="popup-content">
+      <div className="popup-content noFeedback">
         <div className={"inputDiv"} hidden={isHidden}>
           <input
             hidden={isHidden}
@@ -88,7 +88,7 @@ function PasswordResetPopup({
             }
           }}
         >
-          Submit
+          Reset
         </button>
       </div>
     );
@@ -215,7 +215,7 @@ function PasswordResetPopup({
         {!passwordResetToken && !isNewPasswordSet && (
           <h2 className={"dialogTitle"}>{popupTitle}</h2>
         )}
-        <p style={{ textWrap: "wrap" }}>{popupText}</p>
+        <p style={{ textWrap: "wrap", color: "#5C5C5C" }}>{popupText}</p>
         {passwordResetToken && !isNewPasswordSet
           ? setNewPasword()
           : getTokenContent()}

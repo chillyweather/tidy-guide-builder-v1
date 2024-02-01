@@ -231,7 +231,7 @@ body:has(.login) {
   color: #5568AA;
 }
 
-.draftComponent::before{
+.draftComponent::before {
   content: 'Draft';
   position: absolute;
   right: 0;
@@ -243,7 +243,8 @@ body:has(.login) {
   pointer-events: none;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
 }
-.componentBTN:hover .draftComponent::before{
+
+.componentBTN:hover .draftComponent::before {
   background-color: #DBDAEC;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
 }
@@ -982,7 +983,9 @@ a:hover::after {
   z-index: 999;
 }
 
-a[href^="#"]:hover::after, a[href=""]:hover::after ,a:not([href]):hover::after {
+a[href^="#"]:hover::after,
+a[href=""]:hover::after,
+a:not([href]):hover::after {
   display: none;
 }
 
@@ -1042,7 +1045,7 @@ a:empty {
   align-items: flex-start;
 }
 
-.navigation:empty{
+.navigation:empty {
   display: none !important;
 }
 
@@ -1351,7 +1354,8 @@ a:hover {
   width: 150px;
 }
 
-.login .inputDiv {
+.login .inputDiv,
+.noFeedback .inputDiv {
   position: relative;
   width: 100%;
   border-radius: 8px;
@@ -1364,7 +1368,13 @@ a:hover {
   margin-right: 12px;
 }
 
-.login .inputDiv:focus-within {
+.noFeedback svg {
+  margin-right: 12px;
+  width: 24px;
+}
+
+.login .inputDiv:focus-within,
+.noFeedback .inputDiv:focus-within {
   border-color: #655bf6;
 }
 
@@ -1372,7 +1382,8 @@ a:hover {
   color: var(--tidy-disabled-ic);
 }
 
-.login input {
+.login input,
+.feedbackPopup .noFeedback input {
   font-size: var(--text-size);
   width: 100%;
   padding: 16px 20px;
@@ -1381,8 +1392,10 @@ a:hover {
   color: var(--tidy-text);
 }
 
-.login input::placeholder {
+.login input::placeholder,
+.feedbackPopup .noFeedback input::placeholder {
   color: var(--tidy-disabled);
+  font-style: normal;
 }
 
 input[type="radio"] {
