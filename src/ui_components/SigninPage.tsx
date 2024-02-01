@@ -128,7 +128,7 @@ const SignIn = ({
       <p>
         {isLoginFailed
           ? "Something went wrong, please, try again"
-          : "Please enter your credentials"}
+          : "Create an account if you don’t have one yet."}
       </p>
 
       {/* //! user name */}
