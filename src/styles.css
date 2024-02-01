@@ -1042,6 +1042,10 @@ a:empty {
   align-items: flex-start;
 }
 
+.navigation:empty{
+  display: none !important;
+}
+
 .resources {
   display: flex;
   gap: 12px;
