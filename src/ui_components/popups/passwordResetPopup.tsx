@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
-import { IconX } from "@tabler/icons-react";
+import { IconMail, IconX } from "@tabler/icons-react";
 import feedbackLoader from "../../images/feedback.gif";
 import {
   getPasswordResetToken,
@@ -41,7 +41,7 @@ function PasswordResetPopup({
   const getTokenContent = () => {
     return (
       <div className="popup-content">
-        <label className={"dialogLabel"} hidden={isHidden}>
+        <div className={"inputDiv"} hidden={isHidden}>
           <input
             hidden={isHidden}
             className={"dialogInput"}
@@ -55,10 +55,15 @@ function PasswordResetPopup({
               }
             }}
           />
+          <IconMail
+          size={24}
+          stroke={2}
+          className="icon icon-tabler icon-tabler-mail"
+        />
           {!isEmailValid && (
             <div className="invalid-text">Invalid email address</div>
           )}
-        </label>
+        </div>
         <button
           hidden={isHidden}
           className={"button submitButton primary"}
