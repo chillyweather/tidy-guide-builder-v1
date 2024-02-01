@@ -6,7 +6,7 @@ import { TidyLogo } from "../images/TidyLogo";
 import {
   IconMail,
   IconEye,
-  IconUsersGroup,
+  IconBuildingCommunity,
   IconUser,
 } from "@tabler/icons-react";
 import { createNewAccount } from "./ui_functions/authentication";
@@ -160,7 +160,7 @@ const SignIn = ({
           value={companyName}
           onChange={handleCompanyNameChange}
         />
-        <IconUsersGroup
+        <IconBuildingCommunity
           size={24}
           stroke={2}
           className="icon icon-tabler icon-tabler-usergroup"
