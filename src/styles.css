@@ -666,6 +666,12 @@ button svg {
 
 #delete-button {
   position: relative;
+  color: #ffffff;
+  min-height: 16px;
+  min-width: 16px;
+  width: fit-content;
+  padding: 8px 24px;
+  border-radius: 8px;
   background-color: #DB3B21;
 }
 
