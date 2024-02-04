@@ -47,8 +47,9 @@ const Footer = ({
         }}
       >
         <div className={"publish-dropdown"}>
-          <div
+          <button
             className={"publish-dropdown-item"}
+            id={"publish-button"}
             onClick={() => {
               setSaveData(true);
               setIsDraft(false);
@@ -61,9 +62,9 @@ const Footer = ({
               <p>Build on Canvas and publish to Tidy Viewer</p>
             </div>
             <img src={PublishCanvas} className={"publish-icon"} />
-          </div>
+          </button>
           <div className="divider"></div>
-          <div
+          <button
             className={"publish-dropdown-item"}
             onClick={() => {
               setSaveData(true);
@@ -77,7 +78,7 @@ const Footer = ({
               <p>Publish to Tidy Viewer</p>
             </div>
             <img src={PublishViewer} className={"publish-icon"} />
-          </div>
+          </button>
         </div>
       </div>
     );

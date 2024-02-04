@@ -3370,7 +3370,7 @@ input[type="checkbox"] {
   align-items: center;
   gap: 8px;
   border-radius: 4px;
-  padding: 12px;
+  padding: 12px !important;
   cursor: pointer !important;
 }
 
@@ -3389,9 +3389,11 @@ input[type="checkbox"] {
 
 .publish-content-wrapper h4,
 .publish-content-wrapper p {
+  text-align: left;
   margin: 0;
   color: var(--tidy-32) !important;
   max-width: 20ch;
+  font-weight: 400;
 }
 
 .publish-content-wrapper h4 {
