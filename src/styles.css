@@ -1658,6 +1658,14 @@ summary button {
   font-size: calc(var(--text-size) - calc(var(--text-size) / 7));
 }
 
+.footer button:focus-visible{
+  box-shadow: 0 0 0 4px #ECE3FC;
+}
+
+.footer .second:focus-visible{
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset, 0 0 0 4px #ECE3FC;
+}
+
 .footer .flex-btn {
   display: flex;
   gap: 6px;
