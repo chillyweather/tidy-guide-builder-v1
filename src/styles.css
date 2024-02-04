@@ -23,6 +23,11 @@
   color-scheme: light;
 }
 
+*:focus{
+  /* display: block !important;
+  outline: 4px solid blue !important  ; */
+}
+
 #create-figma-plugin {
   max-height: calc(100vh - 184px);
 }
@@ -201,11 +206,11 @@ body:has(.login) {
   height: 16px;
 }
 
-.componentBTN:hover svg {
+.componentBTN:hover svg, .componentBTN:focus-within svg {
   display: block;
 }
 
-.componentBTN:hover {
+.componentBTN:hover, .componentBTN:focus-within {
   background-color: var(--tidy-ec);
 }
 

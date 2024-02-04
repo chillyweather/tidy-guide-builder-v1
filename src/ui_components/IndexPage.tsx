@@ -70,6 +70,7 @@ const IndexPage = ({
             </button>
             <IconTrash
               className={"trashIcon"}
+              tabIndex={1}
               onClick={(e) => {
                 e.stopPropagation();
                 setShowDeletePopup(true);
