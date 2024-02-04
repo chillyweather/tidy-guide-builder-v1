@@ -583,6 +583,20 @@ button svg {
   color: #000000;
 }
 
+.header .selectedComponentActions button:hover{
+  color: #ffffff;
+}
+.header .selectedComponentActions .secondary:hover{
+  color: var(--tidy-primary);
+}
+
+.header .selectedComponentActions button:focus-visible{
+  box-shadow: 0 0 0 4px #ECE3FC;
+}
+.header .selectedComponentActions .secondary:focus-visible{
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset, 0 0 0 4px #ECE3FC;
+}
+
 .headerContent {
   position: relative;
   padding: 12px 16px;
@@ -663,7 +677,7 @@ button svg {
   background-color: #BA321C;
 }
 
-#delete-button:focus {
+#delete-button:focus-visible {
   box-shadow: 0 0 0 4px #F9DBDB;
 }
 
@@ -3088,6 +3102,9 @@ input[type="checkbox"] {
 
 .feedbackPopup .closePopupButton{
   padding: 0;
+}
+.feedbackPopup .closePopupButton:focus-visible{
+  box-shadow: 0 0 0 1px var(--tidy-primary);
 }
 
 .feedbackPopup p {
