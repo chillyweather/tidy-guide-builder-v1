@@ -1299,10 +1299,12 @@ li::before {
 
 .header .add-button:hover {
   background-color: var(--tidy-btn-hover);
+  color: #ffffff;
 }
 
 .header .add-button:active {
   background-color: var(--tidy-btn-pressed);
+  color: #ffffff;
 }
 
 .header .add-button:focus-visible {
