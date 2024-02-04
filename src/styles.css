@@ -556,6 +556,12 @@ button svg {
 .header button:hover,
 .header summary:hover button {
   background-color: #fafafa;
+  color: #616161;
+}
+
+.header button:focus-visible,
+.header summary:focus-visible button {
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset;
 }
 
 .header button:active,
@@ -1296,6 +1302,10 @@ li::before {
 
 .header .add-button:active {
   background-color: var(--tidy-btn-pressed);
+}
+
+.header .add-button:focus-visible {
+  box-shadow: 0 0 0 4px #ECE3FC;
 }
 
 a {
