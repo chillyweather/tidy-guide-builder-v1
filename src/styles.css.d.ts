@@ -172,6 +172,7 @@ declare const styles: {
   readonly "sections": string;
   readonly "selected": string;
   readonly "selectedComp": string;
+  readonly "selectedComponentActions": string;
   readonly "selectedComponentGroup": string;
   readonly "selectedName": string;
   readonly "selectedPage": string;
