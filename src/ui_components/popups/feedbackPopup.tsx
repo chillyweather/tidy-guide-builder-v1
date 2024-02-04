@@ -47,6 +47,7 @@ function FeedbackPopup({
           <input
             hidden={isHidden}
             className={"dialogInput"}
+            id={"feedback-title"}
             type="text"
             placeholder={"Type title..."}
             value={title}
