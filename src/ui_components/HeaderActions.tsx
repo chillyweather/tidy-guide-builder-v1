@@ -221,6 +221,7 @@ function HeaderActions() {
           onClick={() => {
             setIsPreviewing(true);
             setShowPreviewPopup(true);
+            setTimeout(function(){ document.getElementById("close-popup")?.focus(); }, 300);
           }}
           className={"secondary"}
         >
