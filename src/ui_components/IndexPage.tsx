@@ -69,17 +69,17 @@ const IndexPage = ({
               <IconCopy />
             </button>
             <button
-            className={"cardAuxButton noPredefined"}
-            onClick={(e) => {
-              e.stopPropagation();
-              setShowDeletePopup(true);
-              setElementToDelete(element._id);
-              setTimeout(function(){ document.getElementById("cancel-button")?.focus(); }, 300);
-            }}
+              className={"cardAuxButton noPredefined"}
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowDeletePopup(true);
+                setElementToDelete(element._id);
+                setTimeout(function () {
+                  document.getElementById("cancel-button")?.focus();
+                }, 300);
+              }}
             >
-            <IconTrash
-              className={"trashIcon"}
-            />
+              <IconTrash className={"trashIcon"} />
             </button>
           </div>
         );

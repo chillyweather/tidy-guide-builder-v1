@@ -74,6 +74,8 @@ interface IContext {
   setDocumentationId: any;
   isSettingsPageOpen: boolean;
   setIsSettingsPageOpen: any;
+  showDeleteAccountPopup: boolean;
+  setShowDeleteAccountPopup: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

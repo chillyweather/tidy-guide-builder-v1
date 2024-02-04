@@ -1,14 +1,16 @@
 import { h } from "preact";
-import { emit } from "@create-figma-plugin/utilities";
-import { useState } from "preact/hooks";
-import { TidyLogo } from "../images/TidyLogo";
-import { IconMail, IconEye } from "@tabler/icons-react";
-import { login } from "./ui_functions/authentication";
+import { useContext } from "preact/hooks";
+import BuilderContext from "src/BuilderContext";
 
 const Settings = ({}: {}) => {
+  const { setShowDeleteAccountPopup } = useContext(BuilderContext) || {};
   return (
     <div className={"componentBTN-wrapper"}>
-      <button id={"delete-button"} className={"button primary"}>
+      <button
+        id={"delete-button"}
+        className={"button primary"}
+        onClick={setShowDeleteAccountPopup}
+      >
         Delete account
       </button>
     </div>

@@ -38,6 +38,23 @@ export async function createNewAccount(
   return response.json();
 }
 
+export async function getMyAccountData(token: string) {
+  const path = "https://api.tidyframework.com/api/users/me";
+  const response = await fetch(path, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return response.json();
+}
+
 export async function getPasswordResetToken(email: string) {
   let headersList = {
     Accept: "*/*",

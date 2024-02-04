@@ -11,6 +11,7 @@ import ResetPopup from "./ui_components/popups/resetPopup";
 import DeletePopup from "./ui_components/popups/deletePopup";
 import PreviewPopup from "./ui_components/popups/previewPopup";
 import PasswordResetPopup from "./ui_components/popups/passwordResetPopup";
+import DeleteAccountPopup from "./ui_components/popups/deleteAccountPopup";
 import Toast from "./ui_components/Toast";
 //dependencies
 import { uploadFileToServer } from "./ui_components/ui_functions/fileManagementFunctions";
@@ -79,6 +80,7 @@ function Plugin() {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showPreviewPopup, setShowPreviewPopup] = useState(false);
   const [showPasswordResetPopup, setShowPasswordResetPopup] = useState(false);
+  const [showDeleteAccountPopup, setShowDeleteAccountPopup] = useState(false);
 
   //element to delete
   const [elementToDelete, setElementToDelete] = useState("");
@@ -469,6 +471,8 @@ function Plugin() {
     setDocumentationId,
     isSettingsPageOpen,
     setIsSettingsPageOpen,
+    showDeleteAccountPopup,
+    setShowDeleteAccountPopup,
   };
 
   // function closeAllPopups() {
@@ -507,6 +511,11 @@ function Plugin() {
             setShowDeletePopup={setShowDeletePopup}
             elementToDelete={elementToDelete}
             dataForUpdate={dataForUpdate}
+          />
+        )}
+        {showDeleteAccountPopup && (
+          <DeleteAccountPopup
+            setShowDeleteAccountPopup={setShowDeleteAccountPopup}
           />
         )}
         {showPasswordResetPopup && (
