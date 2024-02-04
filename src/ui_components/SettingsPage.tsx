@@ -8,7 +8,9 @@ import { login } from "./ui_functions/authentication";
 const Settings = ({}: {}) => {
   return (
     <div className={"componentBTN-wrapper"}>
-      <button>Delete account</button>
+      <button id={"delete-button"} className={"button primary"}>
+        Delete account
+      </button>
     </div>
   );
 };

@@ -51,6 +51,7 @@ const Header = ({
     setIsIndexOpen(true);
     setIsMainContentOpen(false);
     setIsContenFromServerOpen(false);
+    setIsSettingsPageOpen(false);
     setIsDocJustOpened(true);
     setIsReset(true);
   }
@@ -131,6 +132,7 @@ const Header = ({
             className="header-login"
             onClick={() => {
               setIsLoginPageOpen(true);
+              setIsSettingsPageOpen(false);
             }}
           >
             <IconUser />
