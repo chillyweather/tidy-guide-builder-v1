@@ -1452,6 +1452,9 @@ input[type="radio"] {
   border: none;
   box-shadow: 0 0 0 2px var(--tidy-primary);
 }
+._toggle_1rqu7_1._disabled_1rqu7_18 ._box_1rqu7_22{
+  box-shadow: 0 0 0 2px var(--figma-color-bg-disabled);
+}
 
 ._toggle_1rqu7_1:not(._disabled_1rqu7_18) ._input_1rqu7_6:focus~._box_1rqu7_22 {
   border: none;
@@ -1470,6 +1473,10 @@ input[type="radio"] {
 
 ._toggle_1rqu7_1:not(._disabled_1rqu7_18) ._input_1rqu7_6:checked~._box_1rqu7_22 {
   background-color: var(--tidy-primary);
+}
+
+input[type="checkbox"]:focus ~ ._box_1rqu7_22 {
+  box-shadow: 0 0 0 2px var(--tidy-primary), 0 0 0 4px #E7DBFF !important;
 }
 
 ._switch_1rqu7_46 {
