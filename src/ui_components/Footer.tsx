@@ -149,6 +149,7 @@ const Footer = ({
             className={isValid ? "primary" : "primary primary-disabled"}
             onClick={() => {
               setIsPublishDropdownOpen(!isPublishDropdownOpen);
+              setTimeout(function(){ document.getElementById("publish-button")?.focus(); }, 300);
             }}
             onKeyDown={(e) => {
               if (e.key === "Escape") setIsPublishDropdownOpen(false);
