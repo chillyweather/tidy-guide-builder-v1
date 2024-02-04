@@ -1466,6 +1466,9 @@ input[type="radio"] {
   background-color: var(--tidy-primary);
   transform: scale(.8);
 }
+._toggle_1rqu7_1._disabled_1rqu7_18  ._switch_1rqu7_46{
+  background-color: var(--figma-color-bg-disabled);
+}
 
 ._input_1rqu7_6:checked~._switch_1rqu7_46 {
   background-color: #ffffff;

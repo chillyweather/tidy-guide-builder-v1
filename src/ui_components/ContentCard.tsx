@@ -397,6 +397,7 @@ export const ContentCard = (cardData: any, index: number) => {
                 className={"cardAuxButton eyeIcon"}
                 onClick={() => {
                   setIsHidden(!isHidden);
+                  setPublish(false);
                 }}
               >
                 <IconEye />
