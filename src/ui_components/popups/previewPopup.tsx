@@ -25,6 +25,7 @@ function PreviewPopup() {
       >
         <button
           className={"closePopupButton"}
+          id={"close-popup"}
           onClick={() => setShowPreviewPopup(false)}
         >
           <IconX />
