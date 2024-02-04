@@ -23,10 +23,11 @@
   color-scheme: light;
 }
 
-*:focus{
-  /* display: block !important;
-  outline: 4px solid blue !important  ; */
-}
+/* For Development Purposes */
+/* *:focus{
+  display: block !important;
+  outline: 4px solid blue !important  ;
+} */
 
 #create-figma-plugin {
   max-height: calc(100vh - 184px);
