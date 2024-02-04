@@ -23,6 +23,12 @@
   color-scheme: light;
 }
 
+/* For Development Purposes */
+/* *:focus{
+  display: block !important;
+  outline: 4px solid blue !important  ;
+} */
+
 #create-figma-plugin {
   max-height: calc(100vh - 184px);
 }
@@ -201,11 +207,11 @@ body:has(.login) {
   height: 16px;
 }
 
-.componentBTN:hover svg {
+.componentBTN:hover svg, .componentBTN:focus-within svg {
   display: block;
 }
 
-.componentBTN:hover {
+.componentBTN:hover, .componentBTN:focus-within {
   background-color: var(--tidy-ec);
 }
 
@@ -231,7 +237,7 @@ body:has(.login) {
   color: #5568AA;
 }
 
-.draftComponent::before{
+.draftComponent::before {
   content: 'Draft';
   position: absolute;
   right: 0;
@@ -243,7 +249,8 @@ body:has(.login) {
   pointer-events: none;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
 }
-.componentBTN:hover .draftComponent::before{
+
+.componentBTN:hover .draftComponent::before {
   background-color: #DBDAEC;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
 }
@@ -550,6 +557,12 @@ button svg {
 .header button:hover,
 .header summary:hover button {
   background-color: #fafafa;
+  color: #616161;
+}
+
+.header button:focus-visible,
+.header summary:focus-visible button {
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset;
 }
 
 .header button:active,
@@ -982,7 +995,9 @@ a:hover::after {
   z-index: 999;
 }
 
-a[href^="#"]:hover::after, a[href=""]:hover::after ,a:not([href]):hover::after {
+a[href^="#"]:hover::after,
+a[href=""]:hover::after,
+a:not([href]):hover::after {
   display: none;
 }
 
@@ -1040,6 +1055,10 @@ a:empty {
   flex-direction: column;
   gap: 12px;
   align-items: flex-start;
+}
+
+.navigation:empty {
+  display: none !important;
 }
 
 .resources {
@@ -1280,10 +1299,16 @@ li::before {
 
 .header .add-button:hover {
   background-color: var(--tidy-btn-hover);
+  color: #ffffff;
 }
 
 .header .add-button:active {
   background-color: var(--tidy-btn-pressed);
+  color: #ffffff;
+}
+
+.header .add-button:focus-visible {
+  box-shadow: 0 0 0 4px #ECE3FC;
 }
 
 a {
@@ -1347,7 +1372,8 @@ a:hover {
   width: 150px;
 }
 
-.login .inputDiv {
+.login .inputDiv,
+.noFeedback .inputDiv {
   position: relative;
   width: 100%;
   border-radius: 8px;
@@ -1360,7 +1386,13 @@ a:hover {
   margin-right: 12px;
 }
 
-.login .inputDiv:focus-within {
+.noFeedback svg {
+  margin-right: 12px;
+  width: 24px;
+}
+
+.login .inputDiv:focus-within,
+.noFeedback .inputDiv:focus-within {
   border-color: #655bf6;
 }
 
@@ -1368,7 +1400,8 @@ a:hover {
   color: var(--tidy-disabled-ic);
 }
 
-.login input {
+.login input,
+.feedbackPopup .noFeedback input {
   font-size: var(--text-size);
   width: 100%;
   padding: 16px 20px;
@@ -1377,8 +1410,10 @@ a:hover {
   color: var(--tidy-text);
 }
 
-.login input::placeholder {
+.login input::placeholder,
+.feedbackPopup .noFeedback input::placeholder {
   color: var(--tidy-disabled);
+  font-style: normal;
 }
 
 input[type="radio"] {

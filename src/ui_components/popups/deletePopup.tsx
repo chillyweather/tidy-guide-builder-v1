@@ -40,6 +40,7 @@ function DeletePopup({
         <div className="popupButtons footer">
           <button
             className={"button"}
+            id={"cancel-button"}
             onClick={() => {
               setShowDeletePopup(false);
             }}
@@ -65,7 +66,7 @@ function DeletePopup({
               );
             }}
           >
-            <img src={Spinner} />
+            <img src={Spinner}/>
             <span>Delete</span>
           </button>
         </div>

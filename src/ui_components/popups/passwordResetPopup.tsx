@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
-import { IconX } from "@tabler/icons-react";
+import { IconMail, IconX } from "@tabler/icons-react";
 import feedbackLoader from "../../images/feedback.gif";
 import {
   getPasswordResetToken,
@@ -40,8 +40,8 @@ function PasswordResetPopup({
 
   const getTokenContent = () => {
     return (
-      <div className="popup-content">
-        <label className={"dialogLabel"} hidden={isHidden}>
+      <div className="popup-content noFeedback">
+        <div className={"inputDiv"} hidden={isHidden}>
           <input
             hidden={isHidden}
             className={"dialogInput"}
@@ -55,10 +55,15 @@ function PasswordResetPopup({
               }
             }}
           />
+          <IconMail
+          size={24}
+          stroke={2}
+          className="icon icon-tabler icon-tabler-mail"
+        />
           {!isEmailValid && (
             <div className="invalid-text">Invalid email address</div>
           )}
-        </label>
+        </div>
         <button
           hidden={isHidden}
           className={"button submitButton primary"}
@@ -83,7 +88,7 @@ function PasswordResetPopup({
             }
           }}
         >
-          Submit
+          Reset
         </button>
       </div>
     );
@@ -210,7 +215,7 @@ function PasswordResetPopup({
         {!passwordResetToken && !isNewPasswordSet && (
           <h2 className={"dialogTitle"}>{popupTitle}</h2>
         )}
-        <p style={{ textWrap: "wrap" }}>{popupText}</p>
+        <p style={{ textWrap: "wrap", color: "#5C5C5C" }}>{popupText}</p>
         {passwordResetToken && !isNewPasswordSet
           ? setNewPasword()
           : getTokenContent()}

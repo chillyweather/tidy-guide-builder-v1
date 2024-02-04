@@ -6,7 +6,7 @@ import { TidyLogo } from "../images/TidyLogo";
 import {
   IconMail,
   IconEye,
-  IconUsersGroup,
+  IconBuildingCommunity,
   IconUser,
 } from "@tabler/icons-react";
 import { createNewAccount } from "./ui_functions/authentication";
@@ -128,7 +128,7 @@ const SignIn = ({
       <p>
         {isLoginFailed
           ? "Something went wrong, please, try again"
-          : "Please enter your credentials"}
+          : "Create an account if you don’t have one yet."}
       </p>
 
       {/* //! user name */}
@@ -160,7 +160,7 @@ const SignIn = ({
           value={companyName}
           onChange={handleCompanyNameChange}
         />
-        <IconUsersGroup
+        <IconBuildingCommunity
           size={24}
           stroke={2}
           className="icon icon-tabler icon-tabler-usergroup"
@@ -240,7 +240,7 @@ const SignIn = ({
           <div className="invalid-text">Password don't match</div>
         )}
       </div>
-      <button type="submit">Sigh in</button>
+      <button type="submit">Sign in</button>
 
       {/* //! already have an account */}
       <p>
