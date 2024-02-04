@@ -1478,7 +1478,7 @@ input[type="radio"] {
   background-color: var(--tidy-primary);
 }
 
-input[type="checkbox"]:focus ~ ._box_1rqu7_22 {
+input[type="checkbox"]:focus-visible ~ ._box_1rqu7_22 {
   box-shadow: 0 0 0 2px var(--tidy-primary), 0 0 0 4px #E7DBFF !important;
 }
 
