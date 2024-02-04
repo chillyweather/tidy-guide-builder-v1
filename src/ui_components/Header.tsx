@@ -28,20 +28,19 @@ const Header = ({
   isDocJustOpened: boolean;
   setIsDocJustOpened: Function;
 }) => {
-  const selectedElement = useContext(BuilderContext)?.selectedElement;
-  const selectedSections = useContext(BuilderContext)?.selectedSections;
-  const setIsReset = useContext(BuilderContext)?.setIsReset;
-  const setIsMainContentOpen = useContext(BuilderContext)?.setIsMainContentOpen;
-  const isMainContentOpen = useContext(BuilderContext)?.isMainContentOpen;
-  const setIsIndexOpen = useContext(BuilderContext)?.setIsIndexOpen;
-  const setIsFromSavedData = useContext(BuilderContext)?.setIsFromSavedData;
-  const setIsContenFromServerOpen =
-    useContext(BuilderContext)?.setIsContenFromServerOpen;
-  const isContenFromServerOpen =
-    useContext(BuilderContext)?.isContenFromServerOpen;
-  const showCancelPopup = useContext(BuilderContext)?.showCancelPopup;
-  const setShowCancelPopup = useContext(BuilderContext)?.setShowCancelPopup;
-  const documentationData = useContext(BuilderContext)?.documentationData;
+  const {
+    selectedElement,
+    selectedSections,
+    setIsReset,
+    setIsMainContentOpen,
+    isMainContentOpen,
+    setIsIndexOpen,
+    setIsFromSavedData,
+    setIsContenFromServerOpen,
+    isContenFromServerOpen,
+    documentationData,
+    setIsSettingsPageOpen,
+  } = useContext(BuilderContext) || {};
   const [initialSelectedSections, setInitialSelectedSections] = useState(null);
   const [initialDocumentationData, setInitialDocumentationData] =
     useState(null);
@@ -136,7 +135,16 @@ const Header = ({
           >
             <IconUser />
           </button>
-          <button className={"login-button"}>
+          <button
+            className={"login-button"}
+            onClick={() => {
+              setIsLoginPageOpen(false);
+              setIsIndexOpen(false);
+              setIsMainContentOpen(false);
+              setIsContenFromServerOpen(false);
+              setIsSettingsPageOpen(true);
+            }}
+          >
             <IconSettings />
           </button>
         </div>

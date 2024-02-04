@@ -39,6 +39,7 @@ export async function updateDocumentation(
   }
 
   const result = await response.json();
+
   return result;
 }
 

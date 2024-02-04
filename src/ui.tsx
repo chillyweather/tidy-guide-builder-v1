@@ -25,6 +25,7 @@ import LoaderPage from "./ui_components/LoadingPage";
 import LoggedIn from "./ui_components/LoggedInPage";
 import Login from "./ui_components/LoginPage";
 import SignIn from "./ui_components/SigninPage";
+import Settings from "./ui_components/SettingsPage";
 import MainContent from "./ui_components/MainContent";
 import {
   getDocumentations,
@@ -119,6 +120,7 @@ function Plugin() {
   const [isIndexOpen, setIsIndexOpen] = useState(true);
   const [isMainContentOpen, setIsMainContentOpen] = useState(false);
   const [isContenFromServerOpen, setIsContenFromServerOpen] = useState(false);
+  const [isSettingsPageOpen, setIsSettingsPageOpen] = useState(false);
 
   //found existing documentation
   const [foundDocumentation, setFoundDocumentation]: any = useState(null);
@@ -366,9 +368,6 @@ function Plugin() {
     try {
       const result = await getDocumentations(token);
       const isDocumented = result.some((doc: any) => doc._id === data._id);
-      console.log("result", result);
-      console.log("data", data);
-      console.log("isDocumented", isDocumented);
 
       if (isDocumented) {
         const response = await updateDocumentation(token, data._id, data);
@@ -468,6 +467,8 @@ function Plugin() {
     setSelectedElementNodeId,
     documentationId,
     setDocumentationId,
+    isSettingsPageOpen,
+    setIsSettingsPageOpen,
   };
 
   // function closeAllPopups() {
@@ -505,6 +506,7 @@ function Plugin() {
           <DeletePopup
             setShowDeletePopup={setShowDeletePopup}
             elementToDelete={elementToDelete}
+            dataForUpdate={dataForUpdate}
           />
         )}
         {showPasswordResetPopup && (
@@ -551,7 +553,8 @@ function Plugin() {
         {!isLoginPageOpen &&
           !isSigninPageOpen &&
           isFirstTime &&
-          !isMainContentOpen && (
+          !isMainContentOpen &&
+          !isSettingsPageOpen && (
             <IndexPage
               data={dataForUpdate}
               setDataForUpdate={setDataForUpdate}
@@ -568,7 +571,8 @@ function Plugin() {
         {!isLoginPageOpen &&
           !isSigninPageOpen &&
           !isFirstTime &&
-          isIndexOpen && (
+          isIndexOpen &&
+          !isSettingsPageOpen && (
             <IndexPage
               data={dataForUpdate}
               setDataForUpdate={setDataForUpdate}
@@ -593,13 +597,17 @@ function Plugin() {
               //! add component key
             />
           )}
+        {isSettingsPageOpen && <Settings />}
 
-        {!isLoginPageOpen && !isSigninPageOpen && !isIndexOpen && (
-          <Footer
-            setIsBuilding={setIsBuilding}
-            setIsBuildingOnCanvas={setIsBuildingOnCanvas}
-          />
-        )}
+        {!isLoginPageOpen &&
+          !isSigninPageOpen &&
+          !isIndexOpen &&
+          !isSettingsPageOpen && (
+            <Footer
+              setIsBuilding={setIsBuilding}
+              setIsBuildingOnCanvas={setIsBuildingOnCanvas}
+            />
+          )}
       </BuilderContext.Provider>
     </div>
   );
