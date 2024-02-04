@@ -84,3 +84,33 @@ export async function deleteFileFromServer(url: string) {
   const result = await deleteObject();
   return result;
 }
+
+export async function deleteMultipleFilesFromServer(urls: string[]) {
+  const s3Client = new S3Client({
+    endpoint: "https://nyc3.digitaloceanspaces.com",
+    forcePathStyle: false,
+    region: "us-east-1",
+    credentials: {
+      accessKeyId: "DO00D77GXR7EE6JEHJQ7",
+      secretAccessKey: envConfig.DO_SECRET,
+    },
+  });
+
+  const deleteResults = await Promise.all(
+    urls.map(async (url) => {
+      const params = {
+        Bucket: "tidy-guide-resources",
+        Key: url.split("tidy-guide-resources.nyc3.digitaloceanspaces.com/")[1],
+      };
+
+      try {
+        const data = await s3Client.send(new DeleteObjectCommand(params));
+        return { url, status: "success", data };
+      } catch (err) {
+        return { url, status: "error", error: err.message };
+      }
+    })
+  );
+
+  return deleteResults;
+}

@@ -72,6 +72,8 @@ interface IContext {
   setSelectedElementNodeId: any;
   documentationId: string;
   setDocumentationId: any;
+  isSettingsPageOpen: boolean;
+  setIsSettingsPageOpen: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);
