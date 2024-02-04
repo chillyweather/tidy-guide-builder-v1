@@ -120,6 +120,7 @@ declare const styles: {
   readonly "listInputStyle": string;
   readonly "listWrapper": string;
   readonly "loadName": string;
+  readonly "loaded-image": string;
   readonly "loader": string;
   readonly "loader-image": string;
   readonly "login": string;

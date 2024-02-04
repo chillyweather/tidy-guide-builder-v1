@@ -39,7 +39,7 @@ const ImageCard: FunctionComponent<{
               <IconX size={16} />
             </button>
           </div>
-          <img style={{ height: "200px" }} src={remoteImageLink} />
+          <img className={"loaded-image"} src={remoteImageLink} />
           {textBoxElement(remoteImageLink, setRemoteImageLink, "Link")}
         </div>
       );
