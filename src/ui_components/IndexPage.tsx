@@ -74,6 +74,7 @@ const IndexPage = ({
               e.stopPropagation();
               setShowDeletePopup(true);
               setElementToDelete(element._id);
+              setTimeout(function(){ document.getElementById("cancel-button")?.focus(); }, 300);
             }}
             >
             <IconTrash

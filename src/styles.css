@@ -663,6 +663,11 @@ button svg {
   background-color: #BA321C;
 }
 
+#delete-button:focus {
+  box-shadow: 0 0 0 4px #F9DBDB;
+}
+
+
 #delete-button span {
   pointer-events: none;
 }
@@ -3072,6 +3077,17 @@ input[type="checkbox"] {
 
 .feedbackPopup button {
   width: fit-content;
+  padding: 8px 24px;
+}
+.feedbackPopup button:hover {
+  opacity: 0.8;
+}
+.feedbackPopup button:focus-visible {
+  box-shadow: 0 0 0 4px #ECE3FC;
+}
+
+.feedbackPopup .closePopupButton{
+  padding: 0;
 }
 
 .feedbackPopup p {
