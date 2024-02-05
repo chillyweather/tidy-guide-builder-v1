@@ -161,9 +161,10 @@ function Plugin() {
   //is current name valid
   const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
 
-  on("AUTH_CHANGE", async (token) => {
+  on("AUTH_CHANGE", async (token, email) => {
     if (token) {
       setToken(token);
+      setLoggedInUser(email);
       const data = await getDocumentations(token);
       setDataForUpdate(data);
       setIsLoading(false);
@@ -196,13 +197,13 @@ function Plugin() {
     });
   });
 
-  // useEffect(() => {
-  //   console.log("documentationData", documentationData);
-  // }, [documentationData]);
-
-  on("USER_EMAIL", (email) => {
-    setLoggedInUser(email);
-  });
+  useEffect(() => {
+    console.log("loggedInUser", loggedInUser);
+  }, [loggedInUser]);
+  //
+  //   on("USER_EMAIL", (email) => {
+  //     setLoggedInUser(email);
+  //   });
 
   on("SESSION", ({ user, document, page }) => {
     setCurrentUser(user);

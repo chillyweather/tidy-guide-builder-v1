@@ -14,7 +14,7 @@ function DeleteAccountPopup({
   setShowDeleteAccountPopup: Function;
 }) {
   const [spinner, setSpinner] = useState(false);
-  const { token, setDataForUpdate } = useContext(BuilderContext) || {};
+  const { token, loggedInUser } = useContext(BuilderContext) || {};
   return (
     <div
       className={"feedbackPopupBackground"}

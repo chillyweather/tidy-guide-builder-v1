@@ -55,8 +55,7 @@ const Login = ({
       const response = await login(email, password);
       const token = response.token;
       if (token) {
-        emit("SAVE_NEW_TOKEN", token);
-        emit("SAVE_USER_EMAIL", email);
+        emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email);
         setToken(token);
         setIsLoginPageOpen(false);
       }
@@ -68,10 +67,6 @@ const Login = ({
 
   const invalidEmailClass = !isEmailValid ? "notFilled" : "";
   const invalidPasswordClass = !isPasswordValid ? "notFilled" : "";
-
-  useEffect(() => {
-    console.log("isLoginFailed", isLoginFailed);
-  }, [isLoginFailed]);
 
   return (
     <form onSubmit={handleSubmit} className="section login">
