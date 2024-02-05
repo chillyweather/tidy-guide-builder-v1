@@ -76,6 +76,7 @@ interface IContext {
   setIsSettingsPageOpen: any;
   showDeleteAccountPopup: boolean;
   setShowDeleteAccountPopup: any;
+  setToken: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

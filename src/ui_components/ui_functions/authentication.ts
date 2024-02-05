@@ -38,6 +38,26 @@ export async function createNewAccount(
   return response.json();
 }
 
+export async function deleteAccount(token: string, id: string) {
+  let headersList = {
+    Accept: "*/*",
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+
+  let response = await fetch(`https://api.tidyframework.com/api/users/${id}`, {
+    method: "DELETE",
+    headers: headersList,
+  });
+
+  try {
+    let data = await response.text();
+    return data;
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+
 export async function getMyAccountData(token: string) {
   const path = "https://api.tidyframework.com/api/users/me";
   const response = await fetch(path, {

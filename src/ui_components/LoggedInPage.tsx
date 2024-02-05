@@ -10,8 +10,12 @@ const LoggedIn = ({ setToken }: { setToken: any }) => {
     <div className="section login">
       <div className="navigation"></div>
       <TidyLogo />
-      <h2>You're logged in.</h2>
-      <h2>Hi {loggedInUser}!</h2>
+      <h2>
+        You're logged in as
+        <br />
+        <br />
+        <strong>{loggedInUser}</strong>
+      </h2>
       <div className={"loginFlex"}>
         <button
           onClick={() => {

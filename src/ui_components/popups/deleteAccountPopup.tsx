@@ -1,20 +1,27 @@
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
-import { useState } from "preact/hooks";
-import { useContext, useRef, useEffect } from "preact/hooks";
+import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
-import { deleteDocumentation } from "../ui_functions/documentationHandlers";
 import Spinner from "../../images/loader-spinner-white.png";
-import { deleteMultipleFilesFromServer } from "../ui_functions/fileManagementFunctions";
-import { getMyAccountData } from "../ui_functions/authentication";
+import {
+  getMyAccountData,
+  deleteAccount,
+} from "../ui_functions/authentication";
+import { emit } from "@create-figma-plugin/utilities";
+import { handleDeleteAccount } from "../ui_functions/deleteHandlers";
 
 function DeleteAccountPopup({
   setShowDeleteAccountPopup,
+  setIsSettingsPageOpen,
+  setIsLoginPageOpen,
 }: {
   setShowDeleteAccountPopup: Function;
+  setIsSettingsPageOpen: Function;
+  setIsLoginPageOpen: Function;
 }) {
   const [spinner, setSpinner] = useState(false);
-  const { token, loggedInUser } = useContext(BuilderContext) || {};
+  const [deleteConfirmation, setDeleteConfirmation] = useState("");
+  const { token, setToken, loggedInUser } = useContext(BuilderContext) || {};
   return (
     <div
       className={"feedbackPopupBackground"}
@@ -33,9 +40,20 @@ function DeleteAccountPopup({
         <p style={{ whiteSpace: "normal" }}>
           Are you sure you want to proceed?
           <br />
-          Deleting your account is irreversible and will result in the loss of
-          all your data and settings.
+          Deleting your account will result in the loss of all your data and
+          settings.
         </p>
+        <label className={"dialogLabel"}>
+          <input
+            className={"dialogInput"}
+            type="text"
+            value={deleteConfirmation}
+            placeholder={"Type 'DELETE' to confirm"}
+            //@ts-ignore
+            onInput={(e) => setDeleteConfirmation(e.target.value)}
+          />
+        </label>
+        <p style={{ color: "red" }}>Warning: This action is irreversible.</p>
         <div className="popupButtons footer">
           <button
             className={"button"}
@@ -43,9 +61,6 @@ function DeleteAccountPopup({
             onClick={() => {
               setShowDeleteAccountPopup(false);
             }}
-            // onKeyDown={(e) => {
-            //   if (e.key === "Escape") setShowDeletePopup(false);
-            // }}
           >
             Cancel
           </button>
@@ -53,17 +68,24 @@ function DeleteAccountPopup({
             className={spinner ? "button primary spinner" : "button primary"}
             id={"delete-button"}
             onClick={async () => {
+              if (deleteConfirmation !== "DELETE") return;
               if (!token) return;
+
               setSpinner(true);
-              const result = await getMyAccountData(token);
+
+              const result = await handleDeleteAccount(token);
+
+              if (!result) {
+                setSpinner(false);
+                figma.notify("Failed to delete account");
+                return;
+              }
+
+              emit("DELETE_ACCOUNT");
+
+              setIsSettingsPageOpen(false);
               setSpinner(false);
-              // handleDelete(
-              //   token,
-              //   elementToDelete,
-              //   setDataForUpdate,
-              //   setShowDeletePopup,
-              //   dataForUpdate
-              // );
+              goToLogin();
             }}
           >
             <img src={Spinner} />
@@ -73,47 +95,13 @@ function DeleteAccountPopup({
       </div>
     </div>
   );
-}
 
-async function handleDelete(
-  token: string | undefined,
-  elementId: string,
-  setDataForUpdate: Function,
-  setShowDeletePopup: Function,
-  dataForUpdate: any
-) {
-  const result = await deleteDocumentation(token!, elementId);
-
-  if (result) {
-    await handleDeletePictures(elementId, dataForUpdate);
-    setDataForUpdate((prevData: any) => {
-      const newData = prevData.filter((el: any) => el._id !== elementId);
-      return newData;
-    });
-    setShowDeletePopup(false);
-  } else {
-    alert("Something went wrong, please try again later.");
+  function goToLogin() {
+    setToken("");
+    setShowDeleteAccountPopup(false);
+    setIsSettingsPageOpen(false);
+    setIsLoginPageOpen(true);
   }
 }
 
-async function handleDeletePictures(elementId: string, dataForUpdate: any) {
-  const documentationToDelete = dataForUpdate.find(
-    (el: any) => el._id === elementId
-  );
-  const links = findImageUrls(documentationToDelete);
-  if (links.length === 0) return;
-  const result = await deleteMultipleFilesFromServer(links);
-}
 export default DeleteAccountPopup;
-
-export function findImageUrls(data: any) {
-  const links = [];
-  const docs = data.docs;
-  for (const doc of docs) {
-    const link = doc.content.remoteImageLink;
-    if (!(link && link.startsWith("https://tidy-guide-resources"))) continue;
-    links.push(link);
-  }
-  console.log("links", links);
-  return links;
-}

@@ -85,6 +85,12 @@ export default async function () {
     }
   });
 
+  on("DELETE_ACCOUNT", async () => {
+    console.log("delete account");
+    await figma.clientStorage.deleteAsync("token");
+    figma.notify("Account deleted");
+  });
+
   once("CLOSE", () => {
     figma.closePlugin();
   });

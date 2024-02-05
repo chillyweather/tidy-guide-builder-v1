@@ -13,7 +13,7 @@ const Login = ({
   setIsLoginFailed,
   isLoginFailed,
   setIsLoginPageOpen,
-  setIsLoading,
+  setIsSettingPageOpen,
   setIsSigninPageOpen,
   setShowPasswordResetPopup,
 }: {
@@ -21,7 +21,7 @@ const Login = ({
   setIsLoginFailed: Function;
   isLoginFailed: boolean;
   setIsLoginPageOpen: Function;
-  setIsLoading: Function;
+  setIsSettingPageOpen: Function;
   setIsSigninPageOpen: Function;
   setShowPasswordResetPopup: Function;
 }) => {
@@ -58,6 +58,7 @@ const Login = ({
         emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email);
         setToken(token);
         setIsLoginPageOpen(false);
+        setIsSettingPageOpen(false);
       }
     } catch (error) {
       console.log("Login failed:", error);

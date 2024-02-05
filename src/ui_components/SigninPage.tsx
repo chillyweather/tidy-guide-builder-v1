@@ -19,6 +19,7 @@ const SignIn = ({
   setIsLoginPageOpen,
   setIsLoading,
   setIsSigninPageOpen,
+  setIsSettingPageOpen,
 }: {
   setToken: Function;
   setIsLoginFailed: Function;
@@ -26,6 +27,7 @@ const SignIn = ({
   setIsLoginPageOpen: Function;
   setIsLoading: Function;
   setIsSigninPageOpen: Function;
+  setIsSettingPageOpen: Function;
 }) => {
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
@@ -110,10 +112,11 @@ const SignIn = ({
       );
       const token = response.token;
       if (token) {
-        emit("SAVE_NEW_TOKEN", token);
-        emit("SAVE_USER_EMAIL", email);
+        emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email);
         setToken(token);
+
         setIsSigninPageOpen(false);
+        setIsSettingPageOpen(false);
       }
     } catch (error) {
       console.log("Login failed:", error);

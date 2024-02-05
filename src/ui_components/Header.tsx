@@ -124,7 +124,9 @@ const Header = ({
             className="header-login"
             onClick={() => {
               setFeedbackPage(true);
-              setTimeout(function(){ document.getElementById("feedback-title")?.focus(); }, 300);
+              setTimeout(function () {
+                document.getElementById("feedback-title")?.focus();
+              }, 300);
             }}
           >
             <IconMessage2Check />

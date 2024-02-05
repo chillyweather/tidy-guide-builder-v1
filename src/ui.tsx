@@ -474,6 +474,7 @@ function Plugin() {
     setIsSettingsPageOpen,
     showDeleteAccountPopup,
     setShowDeleteAccountPopup,
+    setToken,
   };
 
   // function closeAllPopups() {
@@ -492,6 +493,8 @@ function Plugin() {
           setShowCancelPopup(false);
           setShowResetPopup(false);
           setShowDeletePopup(false);
+          setShowPreviewPopup(false);
+          setShowDeleteAccountPopup(false);
         }
       }}
     >
@@ -517,6 +520,8 @@ function Plugin() {
         {showDeleteAccountPopup && (
           <DeleteAccountPopup
             setShowDeleteAccountPopup={setShowDeleteAccountPopup}
+            setIsSettingsPageOpen={setIsSettingsPageOpen}
+            setIsLoginPageOpen={setIsLoginPageOpen}
           />
         )}
         {showPasswordResetPopup && (
@@ -535,7 +540,7 @@ function Plugin() {
             setIsLoginFailed={setIsLoginFailed}
             isLoginFailed={isLoginFailed}
             setIsLoginPageOpen={setIsLoginPageOpen}
-            setIsLoading={setIsLoading}
+            setIsSettingPageOpen={setIsSettingsPageOpen}
             setIsSigninPageOpen={setIsSigninPageOpen}
             setShowPasswordResetPopup={setShowPasswordResetPopup}
           />
@@ -548,6 +553,7 @@ function Plugin() {
             setIsLoginPageOpen={setIsLoginPageOpen}
             setIsLoading={setIsLoading}
             setIsSigninPageOpen={setIsSigninPageOpen}
+            setIsSettingPageOpen={setIsSettingsPageOpen}
           />
         )}
         <Header
