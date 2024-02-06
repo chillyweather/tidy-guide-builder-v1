@@ -93,10 +93,12 @@ function AddSectionPopupCard(card: any) {
   );
 
   function addSection() {
+    console.log("card", card);
     const newCard = {
       ...card,
       id: generateUniqueId(), //! remove this later
       docId: generateUniqueId(),
+      published: true,
     };
     if (selectedSections && selectedSections.length) {
       setSelectedSections((prevSections: any[]) => [...prevSections, newCard]);
@@ -221,7 +223,9 @@ function HeaderActions() {
           onClick={() => {
             setIsPreviewing(true);
             setShowPreviewPopup(true);
-            setTimeout(function(){ document.getElementById("close-popup")?.focus(); }, 300);
+            setTimeout(function () {
+              document.getElementById("close-popup")?.focus();
+            }, 300);
           }}
           className={"secondary"}
         >

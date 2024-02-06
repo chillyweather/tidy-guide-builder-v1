@@ -139,6 +139,10 @@ export const ContentCard = (cardData: any, index: number) => {
   //!-------from here content changes depending on isFromSavedData state------------//
   //!-------------------------------------------------------------------------------//
 
+  useEffect(() => {
+    console.log("publish state", publish);
+  }, [publish]);
+
   const id = cardData.docId;
   const isSelected = selectedCard === id;
   const cardType = cardData.datatype;

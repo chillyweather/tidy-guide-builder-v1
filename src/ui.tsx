@@ -4,7 +4,6 @@ import { emit, on, once } from "@create-figma-plugin/utilities";
 import { JSX, h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "./BuilderContext";
-import sectionData from "./resources/sectionData";
 import CancelPopup from "./ui_components/popups/cancelPopup";
 import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
@@ -197,10 +196,10 @@ function Plugin() {
     });
   });
 
-  useEffect(() => {
-    console.log("loggedInUser", loggedInUser);
-  }, [loggedInUser]);
-  //
+  // useEffect(() => {
+  //   console.log("loggedInUser", loggedInUser);
+  // }, [loggedInUser]);
+
   //   on("USER_EMAIL", (email) => {
   //     setLoggedInUser(email);
   //   });

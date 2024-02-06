@@ -30,6 +30,7 @@ const PDSectionData = [
     id: "0",
     docId: "0",
     repeatable: false,
+    publish: true,
   },
   {
     title: "Spacing",
@@ -41,6 +42,7 @@ const PDSectionData = [
     id: "0",
     docId: "0",
     repeatable: false,
+    publish: true,
   },
   {
     title: "Property",
@@ -52,6 +54,7 @@ const PDSectionData = [
     id: "0",
     docId: "0",
     repeatable: false,
+    publish: true,
   },
   {
     title: "Variants",
@@ -63,6 +66,7 @@ const PDSectionData = [
     id: "0",
     docId: "0",
     repeatable: false,
+    publish: true,
   },
   {
     title: "Release Notes",
@@ -73,6 +77,7 @@ const PDSectionData = [
     id: "0",
     docId: "0",
     repeatable: false,
+    publish: true,
   },
 ];
 
@@ -87,6 +92,7 @@ const sectionData = [
     id: "0",
     docId: "0",
     repeatable: true,
+    publish: true,
   },
   {
     title: "Two Columns (Do's and Don'ts)",
@@ -98,6 +104,7 @@ const sectionData = [
     id: "0",
     docId: "0",
     repeatable: true,
+    publish: true,
   },
   {
     title: "List",
@@ -108,6 +115,7 @@ const sectionData = [
     id: "0",
     docId: "0",
     repeatable: true,
+    publish: true,
   },
   {
     title: "Link",
@@ -119,6 +127,7 @@ const sectionData = [
     id: "0",
     docId: "0",
     repeatable: true,
+    publish: true,
   },
   {
     title: "Image",
@@ -130,6 +139,7 @@ const sectionData = [
     id: "0",
     docId: "0",
     repeatable: true,
+    publish: true,
   },
   {
     title: "Video",
@@ -141,6 +151,7 @@ const sectionData = [
     id: "0",
     docId: "0",
     repeatable: true,
+    publish: true,
   },
 ];
 

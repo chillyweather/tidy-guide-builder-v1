@@ -2,7 +2,7 @@ import { emit, on, once, showUI } from "@create-figma-plugin/utilities";
 import documentationBuilder from "./figma_functions/documentationBuilder";
 // import { tempData } from "./tempData";
 import { checkSelection } from "./figma_functions/checkSelection";
-import { tokenAndEmailHandler } from "./figma_functions/tokenHandler";
+import { tokenAndEmailHandler } from "./figma_functions/loginDataHandler";
 import { getNode } from "./figma_functions/getNode";
 import imageFromFigma from "./figma_functions/imageFromFigma";
 
