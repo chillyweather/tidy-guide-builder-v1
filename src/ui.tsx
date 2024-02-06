@@ -350,15 +350,15 @@ function Plugin() {
     }
   }, [selectedElementKey]);
 
-  // useEffect(() => {
-  //   if (token && selectedElementKey && selectedElement) {
-  //     emit("PIC_FROM_FIGMA", {
-  //       type: "anatomy",
-  //       nodeId: selectedElement.id,
-  //       key: selectedElementKey,
-  //     });
-  //   }
-  // }, [token, selectedElementKey, selectedElement]);
+  useEffect(() => {
+    if (token && selectedElementKey && selectedElement) {
+      emit("PIC_FROM_FIGMA", {
+        type: "anatomy",
+        nodeId: selectedElement.id,
+        key: selectedElementKey,
+      });
+    }
+  }, [token, selectedElementKey, selectedElement]);
 
   function closePopup() {
     setIsToastOpen(false);
