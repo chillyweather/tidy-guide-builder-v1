@@ -242,6 +242,19 @@ function Plugin() {
     }
   }, [selectedElementKey, selectedElement]);
 
+  async function handleImageFromFigmaUpload(
+    currentImageArray: Uint8Array,
+    loggedInUser: string,
+    currentImageType: string
+  ) {
+    const url = await sendRaster(
+      currentImageArray,
+      loggedInUser,
+      currentImageType
+    );
+    console.log("url", url);
+  }
+
   useEffect(() => {
     if (
       loggedInUser &&
@@ -249,7 +262,12 @@ function Plugin() {
       currentImageArray.length &&
       currentImageType
     ) {
-      sendRaster(currentImageArray, loggedInUser, currentImageType);
+      // const url = sendRaster(currentImageArray, loggedInUser, currentImageType);
+      handleImageFromFigmaUpload(
+        currentImageArray,
+        loggedInUser,
+        currentImageType
+      );
     }
   }, [loggedInUser, currentImageArray, currentImageType]);
 
@@ -332,15 +350,15 @@ function Plugin() {
     }
   }, [selectedElementKey]);
 
-  // useEffect(() => {
-  //   if (token && selectedElementKey && selectedElement) {
-  //     emit("PIC_FROM_FIGMA", {
-  //       type: "anatomy",
-  //       nodeId: selectedElement.id,
-  //       key: selectedElementKey,
-  //     });
-  //   }
-  // }, [token, selectedElementKey, selectedElement]);
+  useEffect(() => {
+    if (token && selectedElementKey && selectedElement) {
+      emit("PIC_FROM_FIGMA", {
+        type: "anatomy",
+        nodeId: selectedElement.id,
+        key: selectedElementKey,
+      });
+    }
+  }, [token, selectedElementKey, selectedElement]);
 
   function closePopup() {
     setIsToastOpen(false);
