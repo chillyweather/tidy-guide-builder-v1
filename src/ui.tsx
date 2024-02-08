@@ -37,8 +37,11 @@ import {
 import "!./styles.css";
 
 function Plugin() {
+  //!TODO: plugin-level states
   //saved token
   const [token, setToken] = useState("");
+
+  //!TODO: documentatation level states
 
   //documentation title
   const [documentationTitle, setDocumentationTitle] = useState("");
@@ -154,6 +157,8 @@ function Plugin() {
     null
   );
 
+  const [componentPics, setComponentPics] = useState<any>({});
+
   //current image type
   const [currentImageType, setCurrentImageType] = useState("");
 
@@ -185,7 +190,7 @@ function Plugin() {
     setDocumentationData((prevDocumentation: any) => {
       return {
         ...prevDocumentation,
-        ["_id"]: documentationId,
+        // ["_id"]: documentationId,
         ["componentKey"]: selectedElementKey,
         ["nodeId"]: selectedElementNodeId || "",
         ["docs"]: [],
@@ -218,6 +223,7 @@ function Plugin() {
   });
 
   on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
+    console.log("bytes, type", bytes, type);
     setCurrentImageArray(bytes);
     setCurrentImageType(type);
   });
@@ -350,15 +356,15 @@ function Plugin() {
     }
   }, [selectedElementKey]);
 
-  useEffect(() => {
-    if (token && selectedElementKey && selectedElement) {
-      emit("PIC_FROM_FIGMA", {
-        type: "anatomy",
-        nodeId: selectedElement.id,
-        key: selectedElementKey,
-      });
-    }
-  }, [token, selectedElementKey, selectedElement]);
+  // useEffect(() => {
+  //   if (token && selectedElementKey && selectedElement) {
+  //     emit("PIC_FROM_FIGMA", {
+  //       type: "anatomy",
+  //       nodeId: selectedElement.id,
+  //       key: selectedElementKey,
+  //     });
+  //   }
+  // }, [token, selectedElementKey, selectedElement]);
 
   function closePopup() {
     setIsToastOpen(false);
@@ -397,6 +403,7 @@ function Plugin() {
         setDataForUpdate(newData);
       } else {
         const response = await createDocumentation(token, data);
+        console.log("response", response);
         if (isBuildingOnCanvas) emit("BUILD", response);
         const newData = await getDocumentations(token);
         setDataForUpdate(newData);
@@ -411,6 +418,7 @@ function Plugin() {
 
   useEffect(() => {
     if (Object.keys(documentationData).length > 0 && isBuilding && token) {
+      console.log("documentationData", documentationData);
       handleAddDocumentation(token, documentationData);
     }
   }, [documentationData, isBuilding, token]);
