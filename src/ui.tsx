@@ -33,10 +33,14 @@ import {
   createDocumentation,
 } from "./ui_components/ui_functions/documentationHandlers";
 
+import { useAtom } from "jotai";
+import { selectedNodeIdAtom } from "./state/atoms";
+
 //styles
 import "!./styles.css";
 
 function Plugin() {
+  const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
   //loading state

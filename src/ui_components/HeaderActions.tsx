@@ -32,6 +32,7 @@ import DefinedReleaseNotesGif from "./../images/icon_release_notes.gif";
 const cardsForPopup = sectionData;
 
 function AddSectionPopupCard(card: any) {
+  const { selectedElementNodeId } = useContext(BuilderContext) || {};
   const [isHovering, setIsHovering] = useState(false);
   const { setSelectedSections, selectedSections, selectedElementName } =
     useContext(BuilderContext) || {};
@@ -93,10 +94,10 @@ function AddSectionPopupCard(card: any) {
   );
 
   async function addSection() {
-    console.log("card", card);
+    const type = card.datatype;
     const pdTypes = ["anatomy", "spacing", "property", "variants"];
     if (pdTypes.includes(card.datatype)) {
-      console.log("card.datatype", card.datatype);
+      emit("PIC_FROM_FIGMA", { type, nodeId: selectedElementNodeId });
     }
     const newCard = {
       ...card,

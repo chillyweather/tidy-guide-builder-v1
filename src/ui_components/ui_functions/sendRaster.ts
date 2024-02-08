@@ -7,27 +7,27 @@ export async function sendRaster(
   loggedInUser: string,
   type: string
 ) {
-  const {
-    setAnatomySectionImage,
-    setSpacingSectionImage,
-    setPropertySectionImage,
-    setVariantsSectionImage,
-  } = useContext(BuilderContext) || {};
-
-  const blob = new Blob([bytes], { type: "image/svg+xml" });
-  const file = new File([blob], `${type}.svg`, { type: "image/svg+xml" });
-
-  const url = await uploadFileToServer(file, loggedInUser);
-
-  setImageState(
-    type,
-    setAnatomySectionImage,
-    url,
-    setSpacingSectionImage,
-    setPropertySectionImage,
-    setVariantsSectionImage
-  );
-  return url;
+  //   const {
+  //     setAnatomySectionImage,
+  //     setSpacingSectionImage,
+  //     setPropertySectionImage,
+  //     setVariantsSectionImage,
+  //   } = useContext(BuilderContext) || {};
+  //
+  //   const blob = new Blob([bytes], { type: "image/svg+xml" });
+  //   const file = new File([blob], `${type}.svg`, { type: "image/svg+xml" });
+  //
+  //   const url = await uploadFileToServer(file, loggedInUser);
+  //
+  //   setImageState(
+  //     type,
+  //     setAnatomySectionImage,
+  //     url,
+  //     setSpacingSectionImage,
+  //     setPropertySectionImage,
+  //     setVariantsSectionImage
+  //   );
+  //   return url;
 }
 
 function setImageState(

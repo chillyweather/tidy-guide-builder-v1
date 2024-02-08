@@ -57,8 +57,10 @@ export default async function () {
     figma.closePlugin();
   });
 
-  on("PIC_FROM_FIGMA", async ({ type, key, nodeId }) => {
-    imageFromFigma(loadFonts, type, key, nodeId);
+  on("PIC_FROM_FIGMA", async ({ type, nodeId }) => {
+    console.log("type", type);
+    console.log("nodeId", nodeId);
+    // imageFromFigma(loadFonts, type, nodeId);
   });
 
   on("CLEAR_SELECTION", () => {
