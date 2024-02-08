@@ -38,45 +38,27 @@ import "!./styles.css";
 
 function Plugin() {
   //!TODO: plugin-level states
+  const [isLoginFailed, setIsLoginFailed] = useState(false);
+  //loading state
+  const [isLoading, setIsLoading] = useState(true);
   //saved token
   const [token, setToken] = useState("");
-
-  //!TODO: documentatation level states
-
-  //documentation title
-  const [documentationTitle, setDocumentationTitle] = useState("");
-  const [documentationId, setDocumentationId] = useState("");
-
-  //work in progress
-  const [isWip, setIsWip] = useState(false);
-
-  const [isLoginFailed, setIsLoginFailed] = useState(false);
-
+  //logged in user data
+  const [loggedInUser, setLoggedInUser] = useState("");
   //current session user data
   const [currentUser, setCurrentUser] = useState("");
   const [currentDocument, setCurrentDocument] = useState("");
   const [currentPage, setCurrentPage] = useState("");
 
-  //logged in user data
-  const [loggedInUser, setLoggedInUser] = useState("");
-
-  //loading state
-  const [isLoading, setIsLoading] = useState(true);
-
-  //selected element
-  const [selectedElement, setSelectedElement] = useState<any>(null);
-  const [selectedElementKey, setSelectedElementKey] = useState<any>("");
-  const [selectedElementNodeId, setSelectedElementNodeId] = useState<any>("");
-  const [selectedElementName, setSelectedElementName] = useState("");
-  const [selectedCard, setSelectedCard] = useState<any>("");
-
-  //selected cards
-  const [selectedSections, setSelectedSections] = useState<any[]>([]);
-
-  //feedback
-  const [feedbackPage, setFeedbackPage] = useState(false);
-
-  //popups
+  //navigation
+  const [showLoginPage, setShowLoginPage] = useState(false);
+  const [showSigninPage, setShowSigninPage] = useState(false);
+  const [showIndexPage, setShowIndexPage] = useState(true);
+  const [showMainContent, setShowMainContent] = useState(false);
+  const [showContentFromServer, setShowContentFromServer] = useState(false);
+  const [showSettingsPage, setShowSettingsPage] = useState(false);
+  //navigation-popups
+  const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
   const [showCancelPopup, setShowCancelPopup] = useState(false);
   const [showResetPopup, setShowResetPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
@@ -84,73 +66,64 @@ function Plugin() {
   const [showPasswordResetPopup, setShowPasswordResetPopup] = useState(false);
   const [showDeleteAccountPopup, setShowDeleteAccountPopup] = useState(false);
 
-  //element to delete
-  const [elementToDelete, setElementToDelete] = useState("");
-
-  //page states
-  const [isLoginPageOpen, setIsLoginPageOpen] = useState(false);
-  const [isSigninPageOpen, setIsSigninPageOpen] = useState(false);
-
-  //documentation
-  const [documentationData, setDocumentationData] = useState<any>({ docs: [] });
-
-  //preview data
-  const [previewData, setPreviewData] = useState<any>({});
-  const [isPreviewing, setIsPreviewing] = useState(false);
-
-  //is scroll
-  const [isScroll, setIsScroll] = useState(false);
-
-  //build documentation
-  const [isBuilding, setIsBuilding] = useState(false);
-
   //data from server
   const [dataForUpdate, setDataForUpdate] = useState<any>({});
-
-  //set selected master id
-  const [selectedMasterId, setSelectedMasterId] = useState("");
-
-  //is new element found
-  const [isNewElementFound, setIsNewElementFound] = useState(false);
-
+  //build documentation
+  const [isBuilding, setIsBuilding] = useState(false);
+  //if we need to build on canvas
+  const [isBuildingOnCanvas, setIsBuildingOnCanvas] = useState(true);
   //is plugin first time open
   const [isFirstTime, setIsFirstTime] = useState(true);
   const [isDocJustOpened, setIsDocJustOpened] = useState(true);
-
-  //is content from server
-  const [isFromSavedData, setIsFromSavedData] = useState(false);
-
-  //page navigation
-  const [isIndexOpen, setIsIndexOpen] = useState(true);
-  const [isMainContentOpen, setIsMainContentOpen] = useState(false);
-  const [isContenFromServerOpen, setIsContenFromServerOpen] = useState(false);
-  const [isSettingsPageOpen, setIsSettingsPageOpen] = useState(false);
-
-  //found existing documentation
-  const [foundDocumentation, setFoundDocumentation]: any = useState(null);
 
   //show toast
   const [isToastOpen, setIsToastOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState("idle");
 
+  //!TODO: documentatation level states
+  //documentation title
+  const [documentationTitle, setDocumentationTitle] = useState("");
+  const [documentationId, setDocumentationId] = useState("");
+  //work in progress
+  const [isWip, setIsWip] = useState(false);
+  //selected element
+  const [selectedElement, setSelectedElement] = useState<any>(null);
+  const [selectedElementKey, setSelectedElementKey] = useState<any>("");
+  const [selectedElementNodeId, setSelectedElementNodeId] = useState<any>("");
+  const [selectedElementName, setSelectedElementName] = useState("");
+  const [selectedCard, setSelectedCard] = useState<any>("");
+  //selected cards
+  const [selectedSections, setSelectedSections] = useState<any[]>([]);
+  //element to delete
+  const [elementToDelete, setElementToDelete] = useState("");
+  //documentation
+  const [documentationData, setDocumentationData] = useState<any>({ docs: [] });
+  //preview data
+  const [previewData, setPreviewData] = useState<any>({});
+  const [isPreviewing, setIsPreviewing] = useState(false);
+  //is scroll
+  const [isScroll, setIsScroll] = useState(false);
+  //set selected master id
+  const [selectedMasterId, setSelectedMasterId] = useState("");
+  //is new element found
+  const [isNewElementFound, setIsNewElementFound] = useState(false);
+  //is content from server
+  const [isFromSavedData, setIsFromSavedData] = useState(false);
+  //found existing documentation
+  const [foundDocumentation, setFoundDocumentation]: any = useState(null);
   //reset documentation
   const [isReset, setIsReset] = useState(false);
-
   //is draft
   const [isDraft, setIsDraft] = useState(false);
-
-  //if we need to build on canvas
-  const [isBuildingOnCanvas, setIsBuildingOnCanvas] = useState(true);
-
   //is pd section open
   const [isPdSectionOpen, setIsPdSectionOpen] = useState(true);
 
-  //anatomy section image
-  const [anatomySectionImage, setAnatomySectionImage] = useState("");
-  const [spacingSectionImage, setSpacingSectionImage] = useState("");
-  const [propertySectionImage, setPropertySectionImage] = useState("");
-  const [variantsSectionImage, setVariantsSectionImage] = useState("");
+  // //anatomy section image
+  // const [anatomySectionImage, setAnatomySectionImage] = useState("");
+  // const [spacingSectionImage, setSpacingSectionImage] = useState("");
+  // const [propertySectionImage, setPropertySectionImage] = useState("");
+  // const [variantsSectionImage, setVariantsSectionImage] = useState("");
 
   //current image array
   const [currentImageArray, setCurrentImageArray] = useState<Uint8Array | null>(
@@ -173,7 +146,7 @@ function Plugin() {
       setDataForUpdate(data);
       setIsLoading(false);
     } else {
-      setIsLoginPageOpen(true);
+      setShowLoginPage(true);
       setIsLoading(false);
     }
   });
@@ -236,7 +209,7 @@ function Plugin() {
 
   useEffect(() => {
     const found = checkIfDocumentationExists(dataForUpdate, selectedElementKey);
-    if (found && isMainContentOpen && selectedElementName.length) {
+    if (found && showMainContent && selectedElementName.length) {
       setFoundDocumentation(found);
       setIsToastOpen(true);
       setToastType("idle");
@@ -281,15 +254,15 @@ function Plugin() {
     if (
       selectedElementName.length &&
       dataForUpdate.length &&
-      !isMainContentOpen &&
-      !isContenFromServerOpen
+      !showMainContent &&
+      !showContentFromServer
     ) {
       const found = dataForUpdate.find(
         (doc: any) => doc._id === selectedElementKey
       );
       if (found) {
-        setIsIndexOpen(false);
-        setIsContenFromServerOpen(true);
+        setShowIndexPage(false);
+        setShowContentFromServer(true);
         setSelectedMasterId(selectedElementKey);
       }
     }
@@ -306,10 +279,10 @@ function Plugin() {
   })();
 
   useEffect(() => {
-    if (isMainContentOpen || isContenFromServerOpen) {
+    if (showMainContent || showContentFromServer) {
       setIsFirstTime(false);
     }
-  }, [isMainContentOpen, isContenFromServerOpen]);
+  }, [showMainContent, showContentFromServer]);
 
   useEffect(() => {
     if (isReset) {
@@ -424,26 +397,24 @@ function Plugin() {
   }, [documentationData, isBuilding, token]);
 
   const contextStates = {
-    anatomySectionImage,
     currentDocument,
     currentPage,
     currentUser,
     documentationData,
     documentationTitle,
     isBuilding,
-    isContenFromServerOpen,
+    isContenFromServerOpen: showContentFromServer,
     isDraft,
     isFromSavedData,
-    isIndexOpen,
+    isIndexOpen: showIndexPage,
     isLoading,
-    isLoginPageOpen,
-    isMainContentOpen,
+    isLoginPageOpen: showLoginPage,
+    isMainContentOpen: showMainContent,
     isPdSectionOpen,
     isReset,
     isScroll,
     isWip,
     loggedInUser,
-    propertySectionImage,
     selectedCard,
     selectedElement,
     selectedElementKey,
@@ -451,16 +422,13 @@ function Plugin() {
     selectedSections,
     showCancelPopup,
     showResetPopup,
-    spacingSectionImage,
     token,
-    variantsSectionImage,
     isCurrentNameValid,
     showPreviewPopup,
     selectedMasterId,
     previewData,
     isPreviewing,
     selectedElementNodeId,
-    setAnatomySectionImage,
     setCurrentDocument,
     setCurrentPage,
     setCurrentUser,
@@ -468,17 +436,16 @@ function Plugin() {
     setDocumentationData,
     setDocumentationTitle,
     setIsBuilding,
-    setIsContenFromServerOpen,
+    setIsContenFromServerOpen: setShowContentFromServer,
     setIsDraft,
     setIsFromSavedData,
-    setIsIndexOpen,
+    setIsIndexOpen: setShowIndexPage,
     setIsLoading,
-    setIsMainContentOpen,
+    setIsMainContentOpen: setShowMainContent,
     setIsPdSectionOpen,
     setIsReset,
     setIsWip,
     setLoggedInUser,
-    setPropertySectionImage,
     setSelectedCard,
     setSelectedElement,
     setSelectedElementKey,
@@ -486,8 +453,6 @@ function Plugin() {
     setSelectedSections,
     setShowCancelPopup,
     setShowResetPopup,
-    setSpacingSectionImage,
-    setVariantsSectionImage,
     setIsCurrentNameValid,
     setShowPreviewPopup,
     setPreviewData,
@@ -495,8 +460,8 @@ function Plugin() {
     setSelectedElementNodeId,
     documentationId,
     setDocumentationId,
-    isSettingsPageOpen,
-    setIsSettingsPageOpen,
+    isSettingsPageOpen: showSettingsPage,
+    setIsSettingsPageOpen: setShowSettingsPage,
     showDeleteAccountPopup,
     setShowDeleteAccountPopup,
     setToken,
@@ -524,10 +489,10 @@ function Plugin() {
       }}
     >
       <BuilderContext.Provider value={contextStates}>
-        {feedbackPage && (
+        {showFeedbackPopup && (
           <FeedbackPopup
-            show={feedbackPage}
-            setShow={setFeedbackPage}
+            show={showFeedbackPopup}
+            setShow={setShowFeedbackPopup}
             user={currentUser}
           />
         )}
@@ -545,8 +510,8 @@ function Plugin() {
         {showDeleteAccountPopup && (
           <DeleteAccountPopup
             setShowDeleteAccountPopup={setShowDeleteAccountPopup}
-            setIsSettingsPageOpen={setIsSettingsPageOpen}
-            setIsLoginPageOpen={setIsLoginPageOpen}
+            setIsSettingsPageOpen={setShowSettingsPage}
+            setIsLoginPageOpen={setShowLoginPage}
           />
         )}
         {showPasswordResetPopup && (
@@ -559,49 +524,49 @@ function Plugin() {
         {isToastOpen && toastMessage && (
           <Toast message={toastMessage} onClose={closePopup} type={toastType} />
         )}
-        {!token && isLoginPageOpen && (
+        {!token && showLoginPage && (
           <Login
             setToken={setToken}
             setIsLoginFailed={setIsLoginFailed}
             isLoginFailed={isLoginFailed}
-            setIsLoginPageOpen={setIsLoginPageOpen}
-            setIsSettingPageOpen={setIsSettingsPageOpen}
-            setIsSigninPageOpen={setIsSigninPageOpen}
+            setIsLoginPageOpen={setShowLoginPage}
+            setIsSettingPageOpen={setShowSettingsPage}
+            setIsSigninPageOpen={setShowSigninPage}
             setShowPasswordResetPopup={setShowPasswordResetPopup}
           />
         )}
-        {!token && isSigninPageOpen && (
+        {!token && showSigninPage && (
           <SignIn
             setToken={setToken}
             setIsLoginFailed={setIsLoginFailed}
             isLoginFailed={isLoginFailed}
-            setIsLoginPageOpen={setIsLoginPageOpen}
+            setIsLoginPageOpen={setShowLoginPage}
             setIsLoading={setIsLoading}
-            setIsSigninPageOpen={setIsSigninPageOpen}
-            setIsSettingPageOpen={setIsSettingsPageOpen}
+            setIsSigninPageOpen={setShowSigninPage}
+            setIsSettingPageOpen={setShowSettingsPage}
           />
         )}
         <Header
-          isLoginPageOpen={isLoginPageOpen}
-          setIsLoginPageOpen={setIsLoginPageOpen}
-          setFeedbackPage={setFeedbackPage}
-          isIndexOpen={isIndexOpen}
+          isLoginPageOpen={showLoginPage}
+          setIsLoginPageOpen={setShowLoginPage}
+          setFeedbackPage={setShowFeedbackPopup}
+          isIndexOpen={showIndexPage}
           isDocJustOpened={isDocJustOpened}
           setIsDocJustOpened={setIsDocJustOpened}
         />
-        {isLoginPageOpen && token && <LoggedIn setToken={setToken} />}
+        {showLoginPage && token && <LoggedIn setToken={setToken} />}
 
-        {!isLoginPageOpen &&
-          !isSigninPageOpen &&
+        {!showLoginPage &&
+          !showSigninPage &&
           isFirstTime &&
-          !isMainContentOpen &&
-          !isSettingsPageOpen && (
+          !showMainContent &&
+          !showSettingsPage && (
             <IndexPage
               data={dataForUpdate}
               setDataForUpdate={setDataForUpdate}
               setSelectedMasterId={setSelectedMasterId}
-              setIsIndexOpen={setIsIndexOpen}
-              setIsContenFromServerOpen={setIsContenFromServerOpen}
+              setIsIndexOpen={setShowIndexPage}
+              setIsContenFromServerOpen={setShowContentFromServer}
               setIsFromSavedData={setIsFromSavedData}
               setShowDeletePopup={setShowDeletePopup}
               setElementToDelete={setElementToDelete}
@@ -609,41 +574,41 @@ function Plugin() {
             />
           )}
 
-        {!isLoginPageOpen &&
-          !isSigninPageOpen &&
+        {!showLoginPage &&
+          !showSigninPage &&
           !isFirstTime &&
-          isIndexOpen &&
-          !isSettingsPageOpen && (
+          showIndexPage &&
+          !showSettingsPage && (
             <IndexPage
               data={dataForUpdate}
               setDataForUpdate={setDataForUpdate}
               setSelectedMasterId={setSelectedMasterId}
-              setIsIndexOpen={setIsIndexOpen}
-              setIsContenFromServerOpen={setIsContenFromServerOpen}
+              setIsIndexOpen={setShowIndexPage}
+              setIsContenFromServerOpen={setShowContentFromServer}
               setIsFromSavedData={setIsFromSavedData}
               setShowDeletePopup={setShowDeletePopup}
               setElementToDelete={setElementToDelete}
               token={token}
             />
           )}
-        {isMainContentOpen && <MainContent />}
+        {showMainContent && <MainContent />}
         {selectedMasterId &&
-          !isMainContentOpen &&
-          isContenFromServerOpen &&
-          !isLoginPageOpen &&
-          !isSigninPageOpen && (
+          !showMainContent &&
+          showContentFromServer &&
+          !showLoginPage &&
+          !showSigninPage && (
             <ContentFromServer
               data={dataForUpdate}
               selectedMasterId={selectedMasterId}
               //! add component key
             />
           )}
-        {isSettingsPageOpen && <Settings />}
+        {showSettingsPage && <Settings />}
 
-        {!isLoginPageOpen &&
-          !isSigninPageOpen &&
-          !isIndexOpen &&
-          !isSettingsPageOpen && (
+        {!showLoginPage &&
+          !showSigninPage &&
+          !showIndexPage &&
+          !showSettingsPage && (
             <Footer
               setIsBuilding={setIsBuilding}
               setIsBuildingOnCanvas={setIsBuildingOnCanvas}

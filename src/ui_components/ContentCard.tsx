@@ -125,10 +125,6 @@ export const ContentCard = (cardData: any, index: number) => {
     setDocumentationData,
     documentationData,
     documentationTitle,
-    anatomySectionImage,
-    spacingSectionImage,
-    propertySectionImage,
-    variantsSectionImage,
     setPreviewData,
     isPreviewing,
     setIsPreviewing,
@@ -187,10 +183,6 @@ export const ContentCard = (cardData: any, index: number) => {
       currentAuthor: currentAuthor,
       currentDocument: currentDocument,
       currentPage: currentPage,
-      anatomySectionImage: anatomySectionImage,
-      spacingSectionImage: spacingSectionImage,
-      propertySectionImage: propertySectionImage,
-      variantsSectionImage: variantsSectionImage,
     },
   };
 
