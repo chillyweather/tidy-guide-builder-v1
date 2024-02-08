@@ -94,7 +94,7 @@ function Plugin() {
   //selected element
   const [selectedElement, setSelectedElement] = useState<any>(null);
   const [selectedElementKey, setSelectedElementKey] = useState<any>("");
-  const [selectedElementNodeId, setSelectedElementNodeId] = useState<any>("");
+  // const [selectedElementNodeId, setSelectedElementNodeId] = useState<any>("");
   const [selectedElementName, setSelectedElementName] = useState("");
   const [selectedCard, setSelectedCard] = useState<any>("");
   //selected cards
@@ -161,7 +161,7 @@ function Plugin() {
 
   on("SELECTION", ({ defaultNode, name, key }) => {
     setSelectedElement(defaultNode);
-    setSelectedElementNodeId(defaultNode.id);
+    setSelectedNodeId(defaultNode.id);
     setSelectedElementName(name);
     setSelectedElementKey(key);
     setDocumentationData((prevDocumentation: any) => {
@@ -169,7 +169,7 @@ function Plugin() {
         ...prevDocumentation,
         // ["_id"]: documentationId,
         ["componentKey"]: selectedElementKey,
-        ["nodeId"]: selectedElementNodeId || "",
+        ["nodeId"]: selectedNodeId || "",
         ["docs"]: [],
         ["title"]: documentationTitle,
         ["draft"]: isDraft,
@@ -432,7 +432,6 @@ function Plugin() {
     selectedMasterId,
     previewData,
     isPreviewing,
-    selectedElementNodeId,
     setCurrentDocument,
     setCurrentPage,
     setCurrentUser,
@@ -461,7 +460,6 @@ function Plugin() {
     setShowPreviewPopup,
     setPreviewData,
     setIsPreviewing,
-    setSelectedElementNodeId,
     documentationId,
     setDocumentationId,
     isSettingsPageOpen: showSettingsPage,

@@ -28,7 +28,6 @@ interface IContext {
   selectedElement: any;
   selectedElementKey: string;
   selectedElementName: string;
-  selectedElementNodeId: string;
   selectedMasterId: string;
   selectedSections: any[];
   setCurrentDocument: any;
@@ -57,7 +56,6 @@ interface IContext {
   setSelectedElement: any;
   setSelectedElementKey: any;
   setSelectedElementName: any;
-  setSelectedElementNodeId: any;
   setSelectedSections: any;
   setShowCancelPopup: any;
   setShowDeleteAccountPopup: any;

@@ -29,10 +29,14 @@ import DefinedVariantsGif from "./../images/icon_variant.gif";
 import DefinedReleaseNotes from "./../images/icon_release_notes.png";
 import DefinedReleaseNotesGif from "./../images/icon_release_notes.gif";
 
+import { useAtom } from "jotai";
+import { selectedNodeIdAtom } from "src/state/atoms";
+
 const cardsForPopup = sectionData;
 
 function AddSectionPopupCard(card: any) {
-  const { selectedElementNodeId } = useContext(BuilderContext) || {};
+  const [selectedNodeId] = useAtom(selectedNodeIdAtom);
+
   const [isHovering, setIsHovering] = useState(false);
   const { setSelectedSections, selectedSections, selectedElementName } =
     useContext(BuilderContext) || {};
@@ -97,7 +101,7 @@ function AddSectionPopupCard(card: any) {
     const type = card.datatype;
     const pdTypes = ["anatomy", "spacing", "property", "variants"];
     if (pdTypes.includes(card.datatype)) {
-      emit("PIC_FROM_FIGMA", { type, nodeId: selectedElementNodeId });
+      emit("PIC_FROM_FIGMA", { type, nodeId: selectedNodeId });
     }
     const newCard = {
       ...card,
@@ -150,6 +154,7 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
 }
 
 function HeaderActions() {
+  const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
 
   const {
@@ -162,7 +167,6 @@ function HeaderActions() {
     setShowPreviewPopup,
     setIsPreviewing,
     selectedSections,
-    setSelectedElementNodeId,
   } = useContext(BuilderContext) || {};
 
   const isEmpty = selectedSections && selectedSections.length === 0;
@@ -197,7 +201,7 @@ function HeaderActions() {
               setSelectedElement(null);
               setSelectedElementName("");
               setSelectedElementKey("");
-              setSelectedElementNodeId("");
+              setSelectedNodeId("");
               emit("CLEAR_SELECTION");
             }}
           />
