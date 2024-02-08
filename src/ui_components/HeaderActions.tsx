@@ -92,8 +92,12 @@ function AddSectionPopupCard(card: any) {
     </div>
   );
 
-  function addSection() {
+  async function addSection() {
     console.log("card", card);
+    const pdTypes = ["anatomy", "spacing", "property", "variants"];
+    if (pdTypes.includes(card.datatype)) {
+      console.log("card.datatype", card.datatype);
+    }
     const newCard = {
       ...card,
       id: generateUniqueId(), //! remove this later
