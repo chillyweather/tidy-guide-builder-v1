@@ -34,7 +34,7 @@ import {
 } from "./ui_components/ui_functions/documentationHandlers";
 
 import { useAtom } from "jotai";
-import { selectedNodeIdAtom } from "./state/atoms";
+import { selectedNodeIdAtom, selectedNodeKeyAtom } from "./state/atoms";
 
 //styles
 import "!./styles.css";
@@ -42,6 +42,8 @@ import "!./styles.css";
 function Plugin() {
   //!Jotai states
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
+
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
   //loading state
@@ -94,7 +96,7 @@ function Plugin() {
   const [isWip, setIsWip] = useState(false);
   //selected element
   const [selectedElement, setSelectedElement] = useState<any>(null);
-  const [selectedElementKey, setSelectedElementKey] = useState<any>("");
+  // const [selectedElementKey, setSelectedElementKey] = useState<any>("");
   // const [selectedElementNodeId, setSelectedElementNodeId] = useState<any>("");
   const [selectedElementName, setSelectedElementName] = useState("");
   const [selectedCard, setSelectedCard] = useState<any>("");

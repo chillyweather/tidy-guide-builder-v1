@@ -23,6 +23,14 @@ const imageFromFigma = async (
 
   const masterComponent = findMasterComponent(node);
 
+  console.log("masterComponent", masterComponent);
+
+  let builtGraphic = null;
+
+  if (type === "anatomy") {
+    builtGraphic = buildAnatomySection(node, resultFrame);
+  }
+
   const bytes = await resultFrame.exportAsync({
     format: "SVG",
   });
