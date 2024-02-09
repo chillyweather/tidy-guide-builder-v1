@@ -40,6 +40,7 @@ import { selectedNodeIdAtom } from "./state/atoms";
 import "!./styles.css";
 
 function Plugin() {
+  //!Jotai states
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);

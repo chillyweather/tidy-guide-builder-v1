@@ -58,9 +58,7 @@ export default async function () {
   });
 
   on("PIC_FROM_FIGMA", async ({ type, nodeId }) => {
-    console.log("type", type);
-    console.log("nodeId", nodeId);
-    // imageFromFigma(loadFonts, type, nodeId);
+    imageFromFigma(loadFonts, type, nodeId);
   });
 
   on("CLEAR_SELECTION", () => {
