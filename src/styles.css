@@ -233,9 +233,9 @@ body:has(.login) {
   display: none;
 }
 
-.draftComponent {
+/* .draftComponent {
   color: #5568AA;
-}
+} */
 
 .draftComponent::before {
   content: 'Draft';
@@ -243,6 +243,7 @@ body:has(.login) {
   right: 0;
   top: 8px;
   background-color: #ECEBF5;
+  color: #5568AA;
   border-radius: 4px;
   padding: 2px 8px;
   font-weight: 500;
