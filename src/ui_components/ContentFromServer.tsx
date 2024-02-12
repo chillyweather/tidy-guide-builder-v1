@@ -16,14 +16,10 @@ const ContentFromServer = ({
   selectedMasterId: string;
 }) => {
   const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
-  const [selectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [thisCardIsDraft, setThisCardIsDraft] = useState(false);
-  const currentElementId = data.find(
-    (item: any) => item._id === selectedMasterId
-  ).nodeId;
 
   const {
-    isDraft,
     setIsDraft,
     selectedSections,
     setSelectedSections,
@@ -47,8 +43,6 @@ const ContentFromServer = ({
 
   useEffect(() => {
     if (selectedNodeId && selectedNodeKey) {
-      console.log("selectedNodeId!!!!", selectedNodeId);
-      console.log("selectedNodeKey!!!!", selectedNodeKey);
       emit("GET_NEW_SELECTION", selectedNodeKey, selectedNodeId);
     }
   }, [selectedMasterId, selectedNodeId]);
@@ -59,6 +53,7 @@ const ContentFromServer = ({
       setDocumentationTitle(foundData.title);
       setDocumentationId(foundData._id);
       setSelectedNodeKey(foundData.componentKey);
+      setSelectedNodeId(foundData.nodeId);
       setIsWip(foundData.inProgress);
       setDocumentationData((prevDocumentation: any) => {
         return {

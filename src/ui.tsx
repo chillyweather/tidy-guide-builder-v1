@@ -338,8 +338,9 @@ function Plugin() {
       const isDocumented = result.some((doc: any) => doc._id === data._id);
 
       if (isDocumented) {
+        console.log("data to post", data);
         const response = await updateDocumentation(token, data._id, data);
-        console.log("response", response);
+        console.log("response from post", response);
         if (isBuildingOnCanvas) emit("BUILD", response);
         const newData = await getDocumentations(token);
         setDataForUpdate(newData);
