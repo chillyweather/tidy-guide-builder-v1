@@ -180,9 +180,9 @@ function Plugin() {
     });
   });
 
-  // useEffect(() => {
-  //   console.log("loggedInUser", loggedInUser);
-  // }, [loggedInUser]);
+  useEffect(() => {
+    console.log("selectedNodeId", selectedNodeId);
+  }, [selectedNodeId]);
 
   //   on("USER_EMAIL", (email) => {
   //     setLoggedInUser(email);
@@ -226,35 +226,6 @@ function Plugin() {
       setSelectedElementName("");
     }
   }, [selectedNodeKey, selectedElement]);
-
-  // async function handleImageFromFigmaUpload(
-  //   currentImageArray: Uint8Array,
-  //   loggedInUser: string,
-  //   currentImageType: string
-  // ) {
-  //   const url = await sendRaster(
-  //     currentImageArray,
-  //     loggedInUser,
-  //     currentImageType
-  //   );
-  //   console.log("url", url);
-  // }
-
-  // useEffect(() => {
-  //   if (
-  //     loggedInUser &&
-  //     currentImageArray &&
-  //     currentImageArray.length &&
-  //     currentImageType
-  //   ) {
-  //     // const url = sendRaster(currentImageArray, loggedInUser, currentImageType);
-  //     handleImageFromFigmaUpload(
-  //       currentImageArray,
-  //       loggedInUser,
-  //       currentImageType
-  //     );
-  //   }
-  // }, [loggedInUser, currentImageArray, currentImageType]);
 
   useEffect(() => {
     if (
@@ -323,6 +294,7 @@ function Plugin() {
         return {
           ...prevDocumentation,
           ["componentKey"]: selectedNodeKey,
+          ["nodeId"]: selectedNodeId,
         };
       });
     } else {
@@ -330,10 +302,11 @@ function Plugin() {
         return {
           ...prevDocumentation,
           ["componentKey"]: "",
+          ["nodeId"]: "",
         };
       });
     }
-  }, [selectedNodeKey]);
+  }, [selectedNodeKey, selectedNodeId]);
 
   function closePopup() {
     setIsToastOpen(false);
@@ -371,8 +344,9 @@ function Plugin() {
         const newData = await getDocumentations(token);
         setDataForUpdate(newData);
       } else {
+        console.log("data to post", data);
         const response = await createDocumentation(token, data);
-        console.log("response", response);
+        console.log("response from post", response);
         if (isBuildingOnCanvas) emit("BUILD", response);
         const newData = await getDocumentations(token);
         setDataForUpdate(newData);
