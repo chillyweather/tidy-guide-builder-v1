@@ -99,6 +99,7 @@ export function buildPropSection(node: InstanceNode, parentFrame: FrameNode) {
     propertyFrame.appendChild(allElementsFrame);
     allElementsFrame.layoutSizingHorizontal = "FILL";
   }
+  return parentFrame;
 }
 
 function buildVarProperytyElement(

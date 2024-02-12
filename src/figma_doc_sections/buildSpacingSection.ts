@@ -54,4 +54,5 @@ export function buildSpacingSection(node: InstanceNode, frame: FrameNode) {
   sizeMarker.remove();
   spacingMarker.remove();
   labelComponent.remove();
+  return frame;
 }

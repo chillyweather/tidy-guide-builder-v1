@@ -32,5 +32,5 @@ export async function buildAnatomySection(
   labelComponent.remove();
   tagComponent!.remove();
 
-  return tags;
+  return parentFrame;
 }

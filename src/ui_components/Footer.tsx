@@ -3,11 +3,7 @@ import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import PublishCanvas from "../images/publish-icon-canvas.jpg";
 import PublishViewer from "../images/publish-icon-viewer.jpg";
-import {
-  IconReload,
-  IconChevronDown,
-  Icon3dCubeSphere,
-} from "@tabler/icons-react";
+import { IconReload, IconChevronDown } from "@tabler/icons-react";
 
 const Footer = ({
   setIsBuilding,
@@ -25,18 +21,11 @@ const Footer = ({
     documentationTitle,
     isCurrentNameValid,
     isDraft,
-    selectedElementKey,
-    selectedElementName,
     setIsDraft,
     setShowResetPopup,
   } = useContext(BuilderContext) || {};
 
   const isValid = !!documentationTitle?.length && isCurrentNameValid;
-  // const isValid =
-  //   !!documentationTitle?.length &&
-  //   !!selectedElementKey?.length &&
-  //   !!selectedElementName?.length &&
-  //   isCurrentNameValid;
 
   function PublishButtonDropdown() {
     return (
@@ -149,7 +138,9 @@ const Footer = ({
             className={isValid ? "primary" : "primary primary-disabled"}
             onClick={() => {
               setIsPublishDropdownOpen(!isPublishDropdownOpen);
-              setTimeout(function(){ document.getElementById("publish-button")?.focus(); }, 300);
+              setTimeout(function () {
+                document.getElementById("publish-button")?.focus();
+              }, 300);
             }}
             onKeyDown={(e) => {
               if (e.key === "Escape") setIsPublishDropdownOpen(false);

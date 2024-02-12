@@ -1,4 +1,5 @@
 import { h } from "preact";
+import { emit, on } from "@create-figma-plugin/utilities";
 import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import {
@@ -22,6 +23,8 @@ import SpacingIcon from "./../images/spacing.svg";
 import PropertyIcon from "./../images/property.svg";
 import VariantsIcon from "./../images/variants.svg";
 import ReleaseNotesIcon from "./../images/release-notes.svg";
+import { useAtom } from "jotai";
+import { selectedNodeIdAtom, selectedNodeKeyAtom } from "src/state/atoms";
 
 import {
   deleteSection,
@@ -42,7 +45,8 @@ import VariantsCard from "./sectionCards/VariantsCard";
 import AnatomyCard from "./sectionCards/AnatomyCard";
 import VideoCard from "./sectionCards/VideoCard";
 import SpacingsCard from "./sectionCards/SpacingsCard";
-import { useEffect } from "react";
+import { useEffect } from "preact/hooks";
+import { sendRaster } from "./ui_functions/sendRaster";
 
 function makeDraggable(event: any) {
   event.target.parentElement.parentElement.parentElement.parentElement.setAttribute(
@@ -58,6 +62,8 @@ function removeDraggable(event: any) {
 }
 
 export const ContentCard = (cardData: any, index: number) => {
+  const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
 
   //card title
@@ -109,14 +115,19 @@ export const ContentCard = (cardData: any, index: number) => {
   //release notes card data
   const [releaseNotesMessage, setReleaseNotesMessage] = useState("");
   const [releaseNotesDate, setReleaseNotesDate] = useState("");
-  const currentAuthor = useContext(BuilderContext)?.currentUser.name;
-  const currentPage = useContext(BuilderContext)?.currentPage;
-  const currentDocument = useContext(BuilderContext)?.currentDocument;
+  // const currentAuthor = useContext(BuilderContext)?.currentUser.name;
 
   //tooltip
   const [showTooltip, setShowTooltip] = useState(false);
 
+  //image array for upload (anatomy, spacing, property, variants)
+  const [currentImageArray, setCurrentImageArray] = useState<Uint8Array>();
+
   const {
+    // currentAuthor,
+    loggedInUser,
+    currentPage,
+    currentDocument,
     selectedCard,
     setSelectedCard,
     setSelectedSections,
@@ -130,6 +141,50 @@ export const ContentCard = (cardData: any, index: number) => {
     setIsPreviewing,
     previewData,
   } = useContext(BuilderContext) || {};
+
+  on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
+    if (bytes.length && type === cardData.datatype) {
+      setCurrentImageArray(bytes);
+    }
+  });
+
+  async function handleImageFromFigmaUpload(
+    currentImageArray: Uint8Array,
+    loggedInUser: string,
+    currentImageType: string
+  ) {
+    const url = await sendRaster(
+      currentImageArray,
+      loggedInUser,
+      currentImageType
+    );
+    setRemoteImageLink(url);
+  }
+
+  useEffect(() => {
+    if (
+      !cardData.content.remoteImageLink &&
+      currentImageArray &&
+      loggedInUser &&
+      cardData.datatype
+    ) {
+      handleImageFromFigmaUpload(
+        currentImageArray,
+        loggedInUser,
+        cardData.datatype
+      );
+    }
+  }, [currentImageArray, loggedInUser, cardData.content.remoteImageLink]);
+
+  // useEffect(() => {
+  //   if (selectedNodeId && selectedNodeKey) {
+  //     emit("PIC_FROM_FIGMA", {
+  //       type: cardData.datatype,
+  //       nodeId: selectedNodeId,
+  //       key: selectedNodeKey,
+  //     });
+  //   }
+  // }, [selectedNodeId, selectedNodeKey]);
 
   //!-------------------------------------------------------------------------------//
   //!-------from here content changes depending on isFromSavedData state------------//
@@ -176,7 +231,7 @@ export const ContentCard = (cardData: any, index: number) => {
       //release notes content
       releaseNotesMessage: releaseNotesMessage,
       releaseNotesDate: releaseNotesDate,
-      currentAuthor: currentAuthor,
+      // currentAuthor: currentAuthor,
       currentDocument: currentDocument,
       currentPage: currentPage,
     },

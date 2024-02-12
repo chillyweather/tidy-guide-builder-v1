@@ -57,8 +57,8 @@ export default async function () {
     figma.closePlugin();
   });
 
-  on("PIC_FROM_FIGMA", async ({ type, nodeId }) => {
-    imageFromFigma(loadFonts, type, nodeId);
+  on("PIC_FROM_FIGMA", async ({ type, nodeId, key }) => {
+    imageFromFigma(loadFonts, type, nodeId, key);
   });
 
   on("CLEAR_SELECTION", () => {
@@ -67,7 +67,7 @@ export default async function () {
 
   on("GET_NEW_SELECTION", async (key, id) => {
     if (key) {
-      const foundElement = await getNode(id, key);
+      const foundElement = await getNode(id, key, "main");
 
       if (foundElement) {
         const foundElementName = foundElement.name;

@@ -30,12 +30,13 @@ import DefinedReleaseNotes from "./../images/icon_release_notes.png";
 import DefinedReleaseNotesGif from "./../images/icon_release_notes.gif";
 
 import { useAtom } from "jotai";
-import { selectedNodeIdAtom } from "src/state/atoms";
+import { selectedNodeIdAtom, selectedNodeKeyAtom } from "src/state/atoms";
 
 const cardsForPopup = sectionData;
 
 function AddSectionPopupCard(card: any) {
   const [selectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
 
   const [isHovering, setIsHovering] = useState(false);
   const { setSelectedSections, selectedSections, selectedElementName } =
@@ -101,7 +102,11 @@ function AddSectionPopupCard(card: any) {
     const type = card.datatype;
     const pdTypes = ["anatomy", "spacing", "property", "variants"];
     if (pdTypes.includes(card.datatype)) {
-      emit("PIC_FROM_FIGMA", { type, nodeId: selectedNodeId });
+      emit("PIC_FROM_FIGMA", {
+        type,
+        nodeId: selectedNodeId,
+        key: selectedNodeKey,
+      });
     }
     const newCard = {
       ...card,
@@ -155,6 +160,7 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
 
 function HeaderActions() {
   const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
 
   const {
@@ -163,7 +169,6 @@ function HeaderActions() {
     setSelectedElement,
     documentationTitle,
     isScroll,
-    setSelectedElementKey,
     setShowPreviewPopup,
     setIsPreviewing,
     selectedSections,
@@ -200,7 +205,7 @@ function HeaderActions() {
             onClick={() => {
               setSelectedElement(null);
               setSelectedElementName("");
-              setSelectedElementKey("");
+              setSelectedNodeKey("");
               setSelectedNodeId("");
               emit("CLEAR_SELECTION");
             }}

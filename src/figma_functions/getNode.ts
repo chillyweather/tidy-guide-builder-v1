@@ -1,5 +1,8 @@
 import { findMasterComponent } from "./utilityFunctions";
-export async function getNode(id: string, key: string) {
+export async function getNode(id: string, key: string, from?: string) {
+  console.log("nodeId <<<^^^^>>>", id);
+  console.log("key <<<^^^^>>>", key);
+  console.log("from", from);
   try {
     const node = figma.getNodeById(id);
     if (node && node.type === "COMPONENT_SET") return node;

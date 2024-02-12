@@ -62,4 +62,5 @@ export function buildVarSection(node: InstanceNode, parentFrame: FrameNode) {
   parentFrame.appendChild(resultFrame);
   resultFrame.layoutSizingHorizontal = "FILL";
   resultFrame.counterAxisAlignItems = "CENTER";
+  return parentFrame;
 }

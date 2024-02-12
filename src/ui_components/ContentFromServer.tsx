@@ -5,6 +5,8 @@ import { DraggableCardList } from "./DraggableCardsList";
 //content cards
 import HeaderCard from "./sectionCards/HeaderCard";
 import { emit } from "@create-figma-plugin/utilities";
+import { useAtom } from "jotai";
+import { selectedNodeKeyAtom, selectedNodeIdAtom } from "src/state/atoms";
 
 const ContentFromServer = ({
   data,
@@ -13,6 +15,8 @@ const ContentFromServer = ({
   data: any;
   selectedMasterId: string;
 }) => {
+  const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
+  const [selectedNodeId] = useAtom(selectedNodeIdAtom);
   const [thisCardIsDraft, setThisCardIsDraft] = useState(false);
   const currentElementId = data.find(
     (item: any) => item._id === selectedMasterId
@@ -24,14 +28,14 @@ const ContentFromServer = ({
     selectedSections,
     setSelectedSections,
     setDocumentationTitle,
-    setSelectedElementKey,
-    selectedElementKey,
     setIsWip,
     setDocumentationData,
     setDocumentationId,
   } = useContext(BuilderContext) || {};
 
   const foundData = data.find((item: any) => item._id === selectedMasterId);
+
+  console.log("foundData", foundData);
 
   useEffect(() => {
     setIsDraft(thisCardIsDraft);
@@ -42,17 +46,19 @@ const ContentFromServer = ({
   }, [foundData.draft]);
 
   useEffect(() => {
-    if (currentElementId) {
-      emit("GET_NEW_SELECTION", selectedElementKey, currentElementId);
+    if (selectedNodeId && selectedNodeKey) {
+      console.log("selectedNodeId!!!!", selectedNodeId);
+      console.log("selectedNodeKey!!!!", selectedNodeKey);
+      emit("GET_NEW_SELECTION", selectedNodeKey, selectedNodeId);
     }
-  }, [selectedMasterId, currentElementId]);
+  }, [selectedMasterId, selectedNodeId]);
 
   useEffect(() => {
     if (foundData && foundData._id) {
       setSelectedSections(foundData.docs);
       setDocumentationTitle(foundData.title);
       setDocumentationId(foundData._id);
-      setSelectedElementKey(foundData.componentKey);
+      setSelectedNodeKey(foundData.componentKey);
       setIsWip(foundData.inProgress);
       setDocumentationData((prevDocumentation: any) => {
         return {

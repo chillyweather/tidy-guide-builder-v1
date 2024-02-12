@@ -26,7 +26,6 @@ interface IContext {
   previewData: any;
   selectedCard: string;
   selectedElement: any;
-  selectedElementKey: string;
   selectedElementName: string;
   selectedMasterId: string;
   selectedSections: any[];
@@ -54,7 +53,6 @@ interface IContext {
   setPreviewData: any;
   setSelectedCard: any;
   setSelectedElement: any;
-  setSelectedElementKey: any;
   setSelectedElementName: any;
   setSelectedSections: any;
   setShowCancelPopup: any;

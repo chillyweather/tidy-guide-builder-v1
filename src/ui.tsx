@@ -97,7 +97,6 @@ function Plugin() {
   //selected element
   const [selectedElement, setSelectedElement] = useState<any>(null);
   // const [selectedElementKey, setSelectedElementKey] = useState<any>("");
-  // const [selectedElementNodeId, setSelectedElementNodeId] = useState<any>("");
   const [selectedElementName, setSelectedElementName] = useState("");
   const [selectedCard, setSelectedCard] = useState<any>("");
   //selected cards
@@ -166,12 +165,12 @@ function Plugin() {
     setSelectedElement(defaultNode);
     setSelectedNodeId(defaultNode.id);
     setSelectedElementName(name);
-    setSelectedElementKey(key);
+    setSelectedNodeKey(key);
     setDocumentationData((prevDocumentation: any) => {
       return {
         ...prevDocumentation,
         // ["_id"]: documentationId,
-        ["componentKey"]: selectedElementKey,
+        ["componentKey"]: selectedNodeKey,
         ["nodeId"]: selectedNodeId || "",
         ["docs"]: [],
         ["title"]: documentationTitle,
@@ -199,14 +198,14 @@ function Plugin() {
     setIsNewElementFound(true);
     setSelectedElement(foundElement);
     setSelectedElementName(foundElementName);
-    setSelectedElementKey(key);
+    setSelectedNodeKey(key);
   });
 
-  on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
-    console.log("bytes, type", bytes, type);
-    setCurrentImageArray(bytes);
-    setCurrentImageType(type);
-  });
+  // on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
+  //   console.log("bytes, type", bytes, type);
+  //   // setCurrentImageArray(bytes);
+  //   // setCurrentImageType(type);
+  // });
 
   function checkIfDocumentationExists(docs: any[], id: string) {
     if (docs.length && id) {
@@ -215,7 +214,7 @@ function Plugin() {
   }
 
   useEffect(() => {
-    const found = checkIfDocumentationExists(dataForUpdate, selectedElementKey);
+    const found = checkIfDocumentationExists(dataForUpdate, selectedNodeKey);
     if (found && showMainContent && selectedElementName.length) {
       setFoundDocumentation(found);
       setIsToastOpen(true);
@@ -226,36 +225,36 @@ function Plugin() {
       setSelectedElement(null);
       setSelectedElementName("");
     }
-  }, [selectedElementKey, selectedElement]);
+  }, [selectedNodeKey, selectedElement]);
 
-  async function handleImageFromFigmaUpload(
-    currentImageArray: Uint8Array,
-    loggedInUser: string,
-    currentImageType: string
-  ) {
-    const url = await sendRaster(
-      currentImageArray,
-      loggedInUser,
-      currentImageType
-    );
-    console.log("url", url);
-  }
+  // async function handleImageFromFigmaUpload(
+  //   currentImageArray: Uint8Array,
+  //   loggedInUser: string,
+  //   currentImageType: string
+  // ) {
+  //   const url = await sendRaster(
+  //     currentImageArray,
+  //     loggedInUser,
+  //     currentImageType
+  //   );
+  //   console.log("url", url);
+  // }
 
-  useEffect(() => {
-    if (
-      loggedInUser &&
-      currentImageArray &&
-      currentImageArray.length &&
-      currentImageType
-    ) {
-      // const url = sendRaster(currentImageArray, loggedInUser, currentImageType);
-      handleImageFromFigmaUpload(
-        currentImageArray,
-        loggedInUser,
-        currentImageType
-      );
-    }
-  }, [loggedInUser, currentImageArray, currentImageType]);
+  // useEffect(() => {
+  //   if (
+  //     loggedInUser &&
+  //     currentImageArray &&
+  //     currentImageArray.length &&
+  //     currentImageType
+  //   ) {
+  //     // const url = sendRaster(currentImageArray, loggedInUser, currentImageType);
+  //     handleImageFromFigmaUpload(
+  //       currentImageArray,
+  //       loggedInUser,
+  //       currentImageType
+  //     );
+  //   }
+  // }, [loggedInUser, currentImageArray, currentImageType]);
 
   useEffect(() => {
     if (
@@ -265,12 +264,12 @@ function Plugin() {
       !showContentFromServer
     ) {
       const found = dataForUpdate.find(
-        (doc: any) => doc._id === selectedElementKey
+        (doc: any) => doc._id === selectedNodeKey
       );
       if (found) {
         setShowIndexPage(false);
         setShowContentFromServer(true);
-        setSelectedMasterId(selectedElementKey);
+        setSelectedMasterId(selectedNodeKey);
       }
     }
   }, [selectedElementName, dataForUpdate]);
@@ -298,7 +297,7 @@ function Plugin() {
       setSelectedElement(null);
       setSelectedElementName("");
       setSelectedCard("");
-      setSelectedElementKey("");
+      setSelectedNodeKey("");
       setSelectedSections([]);
       setDocumentationData({ docs: [] });
       setIsReset(false);
@@ -319,11 +318,11 @@ function Plugin() {
   }, [documentationTitle, isWip, isDraft]);
 
   useEffect(() => {
-    if (selectedElementKey) {
+    if (selectedNodeKey) {
       setDocumentationData((prevDocumentation: any) => {
         return {
           ...prevDocumentation,
-          ["componentKey"]: selectedElementKey,
+          ["componentKey"]: selectedNodeKey,
         };
       });
     } else {
@@ -334,17 +333,7 @@ function Plugin() {
         };
       });
     }
-  }, [selectedElementKey]);
-
-  // useEffect(() => {
-  //   if (token && selectedElementKey && selectedElement) {
-  //     emit("PIC_FROM_FIGMA", {
-  //       type: "anatomy",
-  //       nodeId: selectedElement.id,
-  //       key: selectedElementKey,
-  //     });
-  //   }
-  // }, [token, selectedElementKey, selectedElement]);
+  }, [selectedNodeKey]);
 
   function closePopup() {
     setIsToastOpen(false);
@@ -424,7 +413,7 @@ function Plugin() {
     loggedInUser,
     selectedCard,
     selectedElement,
-    selectedElementKey,
+    // selectedElementKey,
     selectedElementName,
     selectedSections,
     showCancelPopup,
@@ -454,7 +443,7 @@ function Plugin() {
     setLoggedInUser,
     setSelectedCard,
     setSelectedElement,
-    setSelectedElementKey,
+    // setSelectedElementKey,
     setSelectedElementName,
     setSelectedSections,
     setShowCancelPopup,
