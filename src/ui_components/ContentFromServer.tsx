@@ -31,8 +31,6 @@ const ContentFromServer = ({
 
   const foundData = data.find((item: any) => item._id === selectedMasterId);
 
-  console.log("foundData", foundData);
-
   useEffect(() => {
     setIsDraft(thisCardIsDraft);
   }, [thisCardIsDraft]);

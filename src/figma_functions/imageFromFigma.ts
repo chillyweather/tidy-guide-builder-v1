@@ -15,7 +15,7 @@ const imageFromFigma = async (
   key: string
 ) => {
   const pdTypes = ["anatomy", "spacing", "property", "variants"];
-  if (!(nodeId && key) || !pdTypes.includes(type)) return;
+  if (!key || !pdTypes.includes(type)) return;
 
   await loadFonts();
 

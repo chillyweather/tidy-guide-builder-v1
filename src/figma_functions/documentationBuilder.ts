@@ -2,7 +2,7 @@ import { buildTitle } from "../figma_doc_sections/elementBuildingFunctions";
 import buildSectionContent from "./sectionBuilder";
 import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
 import { getNode } from "./getNode";
-import { emit } from "@create-figma-plugin/utilities";
+import { emit, computeMaximumBounds } from "@create-figma-plugin/utilities";
 
 export const documentationWidth = 1200;
 export const documentationPadding = 20;
@@ -16,8 +16,12 @@ export default async function documentationBuilder(
 ) {
   await loadFonts();
 
+  const bounds = computeMaximumBounds(Array.from(figma.currentPage.children));
+
   const documentationFrame = buildDocumentationFrame();
   figma.currentPage.appendChild(documentationFrame);
+  documentationFrame.x = bounds[1].x + 100;
+  documentationFrame.y = bounds[0].y;
 
   const headerSectionFrame = buildSectionFrame();
   documentationFrame.appendChild(headerSectionFrame);
@@ -155,4 +159,5 @@ export default async function documentationBuilder(
     });
     divider.remove();
   }
+  figma.viewport.scrollAndZoomIntoView([documentationFrame]);
 }
