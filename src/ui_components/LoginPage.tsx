@@ -16,6 +16,7 @@ const Login = ({
   setIsSettingPageOpen,
   setIsSigninPageOpen,
   setShowPasswordResetPopup,
+  setShowWaitingInfoPopup,
 }: {
   setToken: Function;
   setIsLoginFailed: Function;
@@ -24,6 +25,7 @@ const Login = ({
   setIsSettingPageOpen: Function;
   setIsSigninPageOpen: Function;
   setShowPasswordResetPopup: Function;
+  setShowWaitingInfoPopup: Function;
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,11 +56,15 @@ const Login = ({
     try {
       const response = await login(email, password);
       const token = response.token;
+      console.log("response", response);
       if (token) {
         emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email);
         setToken(token);
         setIsLoginPageOpen(false);
         setIsSettingPageOpen(false);
+      } else if (response.message === "User exists but not active") {
+        // setIsLoginFailed(true);
+        setShowWaitingInfoPopup(true);
       }
     } catch (error) {
       console.log("Login failed:", error);

@@ -1,16 +1,13 @@
+import {
+  IconArrowLeft,
+  IconMessage2Check,
+  IconPlus,
+  IconSettings,
+  IconUser,
+} from "@tabler/icons-react";
 import { h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
-import {
-  IconSettings,
-  IconList,
-  IconDots,
-  IconUser,
-  IconPlus,
-  IconArrowLeft,
-  IconMessage2Check,
-  IconListTree,
-} from "@tabler/icons-react";
 import HeaderActions from "./HeaderActions";
 
 const Header = ({
@@ -60,7 +57,7 @@ const Header = ({
   useEffect(() => {
     if (documentationData && documentationData.title && isDocJustOpened) {
       setInitialDocumentationData(
-        JSON.parse(JSON.stringify(documentationData))
+        JSON.parse(JSON.stringify(documentationData)),
       );
       setInitialSelectedSections(JSON.parse(JSON.stringify(selectedSections)));
       setInitialSelectedSectionsLength(selectedSections!.length || 0);

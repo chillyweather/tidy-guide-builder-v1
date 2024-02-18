@@ -11,6 +11,7 @@ import DeletePopup from "./ui_components/popups/deletePopup";
 import PreviewPopup from "./ui_components/popups/previewPopup";
 import PasswordResetPopup from "./ui_components/popups/passwordResetPopup";
 import DeleteAccountPopup from "./ui_components/popups/deleteAccountPopup";
+import WaitingInfoPopup from "./ui_components/popups/waitingInfoPopup";
 import Toast from "./ui_components/Toast";
 //dependencies
 import { uploadFileToServer } from "./ui_components/ui_functions/fileManagementFunctions";
@@ -67,6 +68,7 @@ function Plugin() {
   //navigation-popups
   const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
   const [showCancelPopup, setShowCancelPopup] = useState(false);
+  const [showWaigingInfoPopup, setShowWaitingInfoPopup] = useState(false);
   const [showResetPopup, setShowResetPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showPreviewPopup, setShowPreviewPopup] = useState(false);
@@ -476,6 +478,9 @@ function Plugin() {
             dataForUpdate={dataForUpdate}
           />
         )}
+        {showWaigingInfoPopup && (
+          <WaitingInfoPopup setShowWaitingInfoPopup={setShowWaitingInfoPopup} />
+        )}
         {showDeleteAccountPopup && (
           <DeleteAccountPopup
             setShowDeleteAccountPopup={setShowDeleteAccountPopup}
@@ -502,6 +507,7 @@ function Plugin() {
             setIsSettingPageOpen={setShowSettingsPage}
             setIsSigninPageOpen={setShowSigninPage}
             setShowPasswordResetPopup={setShowPasswordResetPopup}
+            setShowWaitingInfoPopup={setShowWaitingInfoPopup}
           />
         )}
         {!token && showSigninPage && (
@@ -513,6 +519,7 @@ function Plugin() {
             setIsLoading={setIsLoading}
             setIsSigninPageOpen={setShowSigninPage}
             setIsSettingPageOpen={setShowSettingsPage}
+            setShowWaitingInfoPopup={setShowWaitingInfoPopup}
           />
         )}
         <Header

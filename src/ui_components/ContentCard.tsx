@@ -32,6 +32,8 @@ import {
   openSection,
 } from "./ui_functions/cardActions";
 
+import { deleteFileFromServer } from "./ui_functions/fileManagementFunctions";
+
 //content cards
 import HeaderCard from "./sectionCards/HeaderCard";
 import ImageCard from "./sectionCards/ImageCard";
@@ -332,8 +334,12 @@ export const ContentCard = (cardData: any, index: number) => {
     openSection(e, id, selectedCard!, setSelectedCard);
   };
 
-  const handleDeleteSection = (e: MouseEvent) => {
+  const handleDeleteSection = async (e: MouseEvent) => {
     deleteSection(e, index, setSelectedSections);
+    const deletion = await deleteFileFromServer(remoteImageLink);
+    if (deletion) {
+      console.log(deletion);
+    }
   };
 
   const handleDuplicateSection = (e: MouseEvent) => {

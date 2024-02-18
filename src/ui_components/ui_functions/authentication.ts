@@ -8,6 +8,8 @@ export async function login(email: string, password: string) {
     body: JSON.stringify({ email, password }),
   });
 
+  console.log("response", response);
+
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
@@ -30,11 +32,11 @@ export async function createNewAccount(
     body: JSON.stringify({ name, email, password, company }),
   });
 
+  // console.log("response", response);
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
 
-  console.log("response", response);
   return response.json();
 }
 

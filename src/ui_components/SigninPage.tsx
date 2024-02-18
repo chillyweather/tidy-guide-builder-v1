@@ -20,6 +20,7 @@ const SignIn = ({
   setIsLoading,
   setIsSigninPageOpen,
   setIsSettingPageOpen,
+  setShowWaitingInfoPopup,
 }: {
   setToken: Function;
   setIsLoginFailed: Function;
@@ -28,6 +29,7 @@ const SignIn = ({
   setIsLoading: Function;
   setIsSigninPageOpen: Function;
   setIsSettingPageOpen: Function;
+  setShowWaitingInfoPopup: Function;
 }) => {
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
@@ -111,12 +113,18 @@ const SignIn = ({
         companyName
       );
       const token = response.token;
+      console.log("response in signin", response);
       if (token) {
         emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email);
         setToken(token);
-
         setIsSigninPageOpen(false);
         setIsSettingPageOpen(false);
+      } else if (response.message === "User created") {
+        // setIsLoginFailed(true);
+        setIsSigninPageOpen(false);
+        setIsSettingPageOpen(false);
+        setIsLoginPageOpen(true);
+        setShowWaitingInfoPopup(true);
       }
     } catch (error) {
       console.log("Login failed:", error);
