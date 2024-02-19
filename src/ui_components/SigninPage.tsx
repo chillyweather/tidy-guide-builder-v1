@@ -139,7 +139,7 @@ const SignIn = ({
       <p>
         {isLoginFailed
           ? "Something went wrong, please, try again"
-          : "Create an account if you don’t have one yet."}
+          : "Please enter your credentials"}
       </p>
 
       {/* //! user name */}
@@ -251,7 +251,7 @@ const SignIn = ({
           <div className="invalid-text">Password don't match</div>
         )}
       </div>
-      <button type="submit">Sign in</button>
+      <button type="submit">Sign up</button>
 
       {/* //! already have an account */}
       <p>
