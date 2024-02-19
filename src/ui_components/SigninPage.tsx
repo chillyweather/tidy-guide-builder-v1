@@ -164,7 +164,7 @@ const SignIn = ({
       <div className="inputDiv">
         <input
           type="text"
-          placeholder="Company name"
+          placeholder="*Company name"
           id="inputCompany"
           required
           spellcheck={false}
