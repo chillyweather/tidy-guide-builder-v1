@@ -170,6 +170,13 @@ body:has(.login) {
   gap: 20px;
 }
 
+body:has(.delete-flex), body:has(.delete-flex) .header {
+  background-color: #ffffff;
+}
+body:has(.delete-flex) .headerActions{
+  display: none;
+}
+
 .delete-flex {
   display: flex;
   flex-direction: row;
@@ -704,7 +711,7 @@ button svg {
   min-height: 16px;
   min-width: 16px;
   width: fit-content;
-  padding: 8px 24px;
+  padding: 8px 12px;
   border-radius: 8px;
   background-color: #DB3B21;
 }
