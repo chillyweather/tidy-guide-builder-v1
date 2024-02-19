@@ -126,6 +126,7 @@ const Login = ({
       <p>
         Don't have an account? Create one{" "}
         <a
+          href={"#"}
           onClick={() => {
             setIsLoginPageOpen(false);
             setIsSigninPageOpen(true);
@@ -138,6 +139,7 @@ const Login = ({
       <p style="margin-top: -1.25em;">
         Forgot your password? Click{" "}
         <a
+          href={"#"}
           onClick={() => {
             setShowPasswordResetPopup(true);
           }}

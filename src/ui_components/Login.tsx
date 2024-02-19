@@ -118,6 +118,7 @@ export const Login = ({
       <p>
         Don't have an account? Create one{" "}
         <a
+          href={"#"}
           onClick={() => {
             setIsLoginPageOpen(false);
             setIsSigninPageOpen(true);
@@ -130,6 +131,7 @@ export const Login = ({
       <p>
         Forgot your password? Click{" "}
         <a
+          href={"#"}
           onClick={() => {
             setShowPasswordResetPopup(true);
           }}
