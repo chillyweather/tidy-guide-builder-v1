@@ -28,7 +28,7 @@ const LoggedIn = ({ setToken }: { setToken: any }) => {
       </div>
       <footer>
         By signing in you accept our <br />
-        <a>Privacy policy</a> and <a>Terms of service</a>
+        <a href={"#"}>Privacy policy</a> and <a href={"#"}>Terms of service</a>
       </footer>
     </div>
   );

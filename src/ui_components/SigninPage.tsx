@@ -257,6 +257,7 @@ const SignIn = ({
       <p>
         Already have an account? You can log in{" "}
         <a
+          href={"#"}
           onClick={() => {
             setIsSigninPageOpen(false);
             setIsLoginPageOpen(true);
