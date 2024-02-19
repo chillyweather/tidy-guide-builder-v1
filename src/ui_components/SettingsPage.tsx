@@ -5,7 +5,8 @@ import BuilderContext from "src/BuilderContext";
 const Settings = ({}: {}) => {
   const { setShowDeleteAccountPopup } = useContext(BuilderContext) || {};
   return (
-    <div className={"componentBTN-wrapper"}>
+    <div className={"delete-wrapper"}>
+      <div className="login">
       <button
         id={"delete-button"}
         className={"button primary"}
@@ -13,6 +14,7 @@ const Settings = ({}: {}) => {
       >
         Delete account
       </button>
+      </div>
     </div>
   );
 };
