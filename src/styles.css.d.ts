@@ -92,6 +92,7 @@ declare const styles: {
   readonly "hideMe": string;
   readonly "hidePredefined": string;
   readonly "hoverButton": string;
+  readonly "icon-16": string;
   readonly "image": string;
   readonly "image-container": string;
   readonly "image-flex": string;
@@ -156,6 +157,7 @@ declare const styles: {
   readonly "publish-dropdown": string;
   readonly "publish-dropdown-item": string;
   readonly "publish-icon": string;
+  readonly "red-icon": string;
   readonly "releasenotes": string;
   readonly "resetPopup": string;
   readonly "resources": string;
@@ -193,6 +195,7 @@ declare const styles: {
   readonly "textDetails": string;
   readonly "textSymbolsCounter": string;
   readonly "tidyLogo": string;
+  readonly "title-flex": string;
   readonly "title-row": string;
   readonly "title-wrapper": string;
   readonly "tooltip": string;
