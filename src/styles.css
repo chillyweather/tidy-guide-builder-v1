@@ -175,8 +175,8 @@ body:has(.delete-flex) .header {
   background-color: #ffffff;
 }
 
-body:has(.delete-flex) .headerActions {
-  display: none;
+body:has(.delete-flex) .container {
+  margin-top: 74px;
 }
 
 .delete-flex {
@@ -200,9 +200,11 @@ body:has(.delete-flex) .headerActions {
   font-family: Inter;
   max-width: fit-content;
 }
-.delete-content p{
+
+.delete-content p {
   margin-top: 8px;
-  color:#5C5C5C;
+  margin-bottom: 0;
+  color: #5C5C5C;
 }
 
 .delete-content h4 {
