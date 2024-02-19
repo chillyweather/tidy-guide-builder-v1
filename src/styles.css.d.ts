@@ -52,6 +52,8 @@ declare const styles: {
   readonly "custom-toast": string;
   readonly "custom-toast-error": string;
   readonly "delete-button": string;
+  readonly "delete-content": string;
+  readonly "delete-flex": string;
   readonly "delete-wrapper": string;
   readonly "deletePopup": string;
   readonly "dialogFlex": string;
