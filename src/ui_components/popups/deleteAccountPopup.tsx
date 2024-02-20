@@ -36,8 +36,8 @@ function DeleteAccountPopup({
         >
           <IconX />
         </button>
-        <h2 className={"dialogTitle"}>Delete account</h2>
-        <p style={{ whiteSpace: "normal" }}>
+        <h2 className={"dialogTitle"}>Last chance to keep saving.</h2>
+        <p className={"deletePara"}>
           Are you sure you want to proceed?
           <br />
           Deleting your account will result in the loss of all your data and
@@ -53,7 +53,7 @@ function DeleteAccountPopup({
             onInput={(e) => setDeleteConfirmation(e.target.value)}
           />
         </label>
-        <p style={{ color: "red" }}>Warning: This action is irreversible.</p>
+        <p style={{ color: "#DB3B21" }}>Warning: This action is irreversible.</p>
         <div className="popupButtons footer">
           <button
             className={"button"}
@@ -89,7 +89,7 @@ function DeleteAccountPopup({
             }}
           >
             <img src={Spinner} />
-            <span>Delete</span>
+            <span>Delete Forever</span>
           </button>
         </div>
       </div>

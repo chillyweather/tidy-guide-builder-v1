@@ -1491,7 +1491,8 @@ a:focus {
   color: var(--tidy-disabled-ic);
 }
 
-.login input, .feedbackPopup .dialogLabel input,
+.login input,
+.feedbackPopup .dialogLabel input,
 .feedbackPopup .noFeedback input {
   font-size: var(--text-size);
   width: 100%;
@@ -1501,7 +1502,8 @@ a:focus {
   color: var(--tidy-text);
 }
 
-.login input::placeholder, .feedbackPopup .dialogLabel input::placeholder,
+.login input::placeholder,
+.feedbackPopup .dialogLabel input::placeholder,
 .feedbackPopup .noFeedback input::placeholder {
   color: var(--tidy-disabled);
   font-style: normal;
@@ -2885,12 +2887,18 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   color: var(--tidy-text);
 }
 
-.deleteInput{
+.deleteInput {
   border: 1px solid #D7D9DF !important;
   padding: 10px 16px !important;
 }
-.deleteInput:focus{
+
+.deleteInput:focus {
   border-color: var(--tidy-primary) !important;
+}
+
+.deletePara {
+  color: #5C5C5C !important;
+  white-space: normal !important;
 }
 
 .feedbackPopup textarea {
