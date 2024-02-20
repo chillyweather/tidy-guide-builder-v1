@@ -30,7 +30,12 @@ import DefinedReleaseNotes from "./../images/icon_release_notes.png";
 import DefinedReleaseNotesGif from "./../images/icon_release_notes.gif";
 
 import { useAtom } from "jotai";
-import { selectedNodeIdAtom, selectedNodeKeyAtom } from "src/state/atoms";
+import {
+  selectedNodeIdAtom,
+  selectedNodeKeyAtom,
+  selectedComponentPicAtom,
+} from "src/state/atoms";
+import { deleteFileFromServer } from "./ui_functions/fileManagementFunctions";
 
 const cardsForPopup = sectionData;
 
@@ -110,7 +115,7 @@ function AddSectionPopupCard(card: any) {
     }
     const newCard = {
       ...card,
-      id: generateUniqueId(), //! remove this later
+      id: generateUniqueId(),
       docId: generateUniqueId(),
       published: true,
     };
@@ -121,6 +126,14 @@ function AddSectionPopupCard(card: any) {
     }
   }
 }
+
+// async function deleteComponentPic(
+//   url: string,
+//   setSelectedComponentPic: Function
+// ) {
+//   await deleteFileFromServer(url);
+//   setSelectedComponentPic("");
+// }
 
 function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
   const { isPdSectionOpen, setIsPdSectionOpen, selectedElementName } =
@@ -161,6 +174,9 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
 function HeaderActions() {
   const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
+  const [selectedComponentPic, setSelectedComponentPic] = useAtom(
+    selectedComponentPicAtom
+  );
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
 
   const {
@@ -202,12 +218,14 @@ function HeaderActions() {
 
         {selectedElementName ? (
           <IconX
-            onClick={() => {
+            onClick={async () => {
               setSelectedElement(null);
               setSelectedElementName("");
               setSelectedNodeKey("");
               setSelectedNodeId("");
               emit("CLEAR_SELECTION");
+              await deleteFileFromServer(selectedComponentPic);
+              setSelectedComponentPic("");
             }}
           />
         ) : (

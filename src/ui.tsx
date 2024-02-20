@@ -345,6 +345,13 @@ function Plugin() {
           ["componentPic"]: selectedComponentPic,
         };
       });
+    } else {
+      setDocumentationData((prevDocumentation: any) => {
+        return {
+          ...prevDocumentation,
+          ["componentPic"]: "",
+        };
+      });
     }
   }, [selectedComponentPic]);
 
