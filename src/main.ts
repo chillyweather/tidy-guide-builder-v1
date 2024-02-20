@@ -61,6 +61,25 @@ export default async function () {
     imageFromFigma(loadFonts, type, nodeId, key);
   });
 
+  on("GET_COMPONENT_PIC", async (key, id) => {
+    if (key) {
+      const foundElement = await getNode(id, key, "main");
+      if (foundElement) {
+        if (foundElement.type === "COMPONENT_SET") {
+          const bytes = await foundElement.defaultVariant.exportAsync({
+            format: "SVG",
+          });
+          emit("COMPONENT_PIC_FOR_UPLOAD", { bytes });
+        } else {
+          const bytes = await foundElement.exportAsync({
+            format: "SVG",
+          });
+          emit("COMPONENT_PIC_FOR_UPLOAD", { bytes });
+        }
+      }
+    }
+  });
+
   on("CLEAR_SELECTION", () => {
     figma.currentPage.selection = [];
   });

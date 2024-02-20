@@ -6,7 +6,11 @@ import { DraggableCardList } from "./DraggableCardsList";
 import HeaderCard from "./sectionCards/HeaderCard";
 import { emit } from "@create-figma-plugin/utilities";
 import { useAtom } from "jotai";
-import { selectedNodeKeyAtom, selectedNodeIdAtom } from "src/state/atoms";
+import {
+  selectedNodeKeyAtom,
+  selectedNodeIdAtom,
+  selectedComponentPicAtom,
+} from "src/state/atoms";
 
 const ContentFromServer = ({
   data,
@@ -17,6 +21,9 @@ const ContentFromServer = ({
 }) => {
   const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [selectedComponentPic, setSelectedComponentPic] = useAtom(
+    selectedComponentPicAtom
+  );
   const [thisCardIsDraft, setThisCardIsDraft] = useState(false);
 
   const {
@@ -53,6 +60,7 @@ const ContentFromServer = ({
       setSelectedNodeKey(foundData.componentKey);
       setSelectedNodeId(foundData.nodeId);
       setIsWip(foundData.inProgress);
+      setSelectedComponentPic(foundData.componentPic);
       setDocumentationData((prevDocumentation: any) => {
         return {
           ...prevDocumentation,

@@ -35,7 +35,11 @@ import {
 } from "./ui_components/ui_functions/documentationHandlers";
 
 import { useAtom } from "jotai";
-import { selectedNodeIdAtom, selectedNodeKeyAtom } from "./state/atoms";
+import {
+  selectedNodeIdAtom,
+  selectedNodeKeyAtom,
+  selectedComponentPicAtom,
+} from "./state/atoms";
 
 //styles
 import "!./styles.css";
@@ -44,6 +48,9 @@ function Plugin() {
   //!Jotai states
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
+  const [selectedComponentPic, setSelectedComponentPic] = useAtom(
+    selectedComponentPicAtom
+  );
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -203,6 +210,10 @@ function Plugin() {
     setSelectedNodeKey(key);
   });
 
+  on("COMPONENT_PIC_FOR_UPLOAD", async ({ bytes }) => {
+    setCurrentImageArray(bytes);
+  });
+
   // on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
   //   console.log("bytes, type", bytes, type);
   //   // setCurrentImageArray(bytes);
@@ -214,6 +225,19 @@ function Plugin() {
       return docs.find((doc) => doc._id === id);
     }
   }
+
+  async function uploadComponentPic(bytes: Uint8Array, loggedInUser: string) {
+    const url = await sendRaster(bytes, loggedInUser, "componentPic");
+    if (url) {
+      setSelectedComponentPic(url);
+    }
+  }
+
+  useEffect(() => {
+    if (currentImageArray) {
+      uploadComponentPic(currentImageArray, loggedInUser);
+    }
+  }, [currentImageArray]);
 
   useEffect(() => {
     const found = checkIfDocumentationExists(dataForUpdate, selectedNodeKey);
@@ -292,6 +316,9 @@ function Plugin() {
 
   useEffect(() => {
     if (selectedNodeKey) {
+      if (!selectedComponentPic) {
+        emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
+      }
       setDocumentationData((prevDocumentation: any) => {
         return {
           ...prevDocumentation,
@@ -309,6 +336,17 @@ function Plugin() {
       });
     }
   }, [selectedNodeKey, selectedNodeId]);
+
+  useEffect(() => {
+    if (selectedComponentPic) {
+      setDocumentationData((prevDocumentation: any) => {
+        return {
+          ...prevDocumentation,
+          ["componentPic"]: selectedComponentPic,
+        };
+      });
+    }
+  }, [selectedComponentPic]);
 
   function closePopup() {
     setIsToastOpen(false);
