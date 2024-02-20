@@ -2890,6 +2890,11 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .deleteInput {
   border: 1px solid #D7D9DF !important;
   padding: 10px 16px !important;
+  font-weight: 400 !important;
+}
+
+.deleteInput::placeholder{
+  font-weight: 400 !important;
 }
 
 .deleteInput:focus {
