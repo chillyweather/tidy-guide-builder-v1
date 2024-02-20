@@ -55,6 +55,7 @@ declare const styles: {
   readonly "delete-content": string;
   readonly "delete-flex": string;
   readonly "delete-wrapper": string;
+  readonly "deleteInput": string;
   readonly "deletePopup": string;
   readonly "dialogFlex": string;
   readonly "dialogInput": string;

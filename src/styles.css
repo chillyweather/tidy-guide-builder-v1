@@ -1491,7 +1491,7 @@ a:focus {
   color: var(--tidy-disabled-ic);
 }
 
-.login input,
+.login input, .feedbackPopup .dialogLabel input,
 .feedbackPopup .noFeedback input {
   font-size: var(--text-size);
   width: 100%;
@@ -1501,7 +1501,7 @@ a:focus {
   color: var(--tidy-text);
 }
 
-.login input::placeholder,
+.login input::placeholder, .feedbackPopup .dialogLabel input::placeholder,
 .feedbackPopup .noFeedback input::placeholder {
   color: var(--tidy-disabled);
   font-style: normal;
@@ -2883,6 +2883,14 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   cursor: text;
   resize: none;
   color: var(--tidy-text);
+}
+
+.deleteInput{
+  border: 1px solid #D7D9DF !important;
+  padding: 10px 16px !important;
+}
+.deleteInput:focus{
+  border-color: var(--tidy-primary) !important;
 }
 
 .feedbackPopup textarea {

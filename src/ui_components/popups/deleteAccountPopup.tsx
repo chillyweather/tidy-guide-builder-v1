@@ -45,7 +45,7 @@ function DeleteAccountPopup({
         </p>
         <label className={"dialogLabel"}>
           <input
-            className={"dialogInput"}
+            className={"dialogInput deleteInput"}
             type="text"
             value={deleteConfirmation}
             placeholder={"Type 'DELETE' to confirm"}
