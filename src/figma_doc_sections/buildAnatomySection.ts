@@ -14,7 +14,7 @@ export async function buildAnatomySection(
   const variantProperties = findAllVariantProps(node);
 
   const labelComponent = buildLabelComponent();
-  const tagComponent = buildAllTags();
+  const tagComponent = await buildAllTags();
 
   const tags = await buildAtomTags(
     node,

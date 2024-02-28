@@ -4,11 +4,11 @@ import {
   addNewBooleanProperty,
 } from "../figma_functions/addNewProperty";
 
-export const TGWhite = setColorStyle("TG-admin/White", "FFFFFF");
-export const TGGray900 = setColorStyle("TG-admin/gray/gray-900", "292929");
-export const TGGray600 = setColorStyle("TG-admin/gray/gray-600", "707070");
+export const TGWhite = setColorStyle(".TG-admin/White", "FFFFFF");
+export const TGGray900 = setColorStyle(".TG-admin/gray/gray-900", "292929");
+export const TGGray600 = setColorStyle(".TG-admin/gray/gray-600", "707070");
 export const TGLightBlue500 = setColorStyle(
-  "TG-admin/light-blue/light-blue-500",
+  ".TG-admin/light-blue/light-blue-500",
   "00B0FF"
 );
 
@@ -43,13 +43,13 @@ export function addText(letterText: string) {
   return letter;
 }
 
-export function createEllipse(textNode: TextNode) {
+export async function createEllipse(textNode: TextNode) {
   const ellipse = figma.createFrame();
   ellipse.bottomLeftRadius = 50;
   ellipse.bottomRightRadius = 50;
   ellipse.topRightRadius = 50;
   ellipse.topLeftRadius = 50;
-  ellipse.fillStyleId = TGGray900.id;
+  await ellipse.setFillStyleIdAsync(TGGray900.id);
   ellipse.appendChild(textNode);
   ellipse.layoutPositioning = "AUTO";
   ellipse.layoutMode = "VERTICAL";
@@ -60,7 +60,7 @@ export function createEllipse(textNode: TextNode) {
   return ellipse;
 }
 
-function buildLine() {
+async function buildLine() {
   const line = figma.createVector();
   line.strokes = [
     {
@@ -81,7 +81,7 @@ function buildLine() {
   line.strokeMiterLimit = 4;
   line.dashPattern = [1, 2];
   line.strokeWeight = 1;
-  line.vectorNetwork = {
+  await line.setVectorNetworkAsync({
     regions: [],
     segments: [
       {
@@ -115,12 +115,12 @@ function buildLine() {
         handleMirroring: "NONE",
       },
     ],
-  };
+  });
   return line;
 }
 
-export function createLineBox() {
-  const rect = buildLine();
+export async function createLineBox() {
+  const rect = await buildLine();
   rect.resize(40, rect.height);
   const lineBox = figma.createFrame();
   // lineBox.appendChild(line);
@@ -134,13 +134,13 @@ export function createLineBox() {
   lineBox.fills = [];
   rect.rotation = 90;
   rect.layoutGrow = 1;
-  rect.strokeStyleId = TGGray900.id;
+  await rect.setStrokeStyleIdAsync(TGGray900.id);
   return lineBox;
 }
 
-export function buildLabelText(label: string) {
+export async function buildLabelText(label: string) {
   const labelText = figma.createText();
-  labelText.fillStyleId = TGGray900.id;
+  await labelText.setFillStyleIdAsync(TGGray900.id);
   labelText.fontSize = 14;
   labelText.fontName = {
     family: "Inter",
@@ -150,7 +150,7 @@ export function buildLabelText(label: string) {
   return labelText;
 }
 
-export function buildTag(
+export async function buildTag(
   letter: string,
   type: string,
   label?: string,
@@ -158,11 +158,11 @@ export function buildTag(
 ) {
   const index = addText(`${letter}`);
   index.name = "elementIndex";
-  const ellipse = createEllipse(index);
+  const ellipse = await createEllipse(index);
   const tag = figma.createComponent();
   tag.layoutPositioning = "AUTO";
   if (type === "bottom") {
-    const lineBox = createLineBox();
+    const lineBox = await createLineBox();
     tag.counterAxisSizingMode = "AUTO";
     tag.layoutMode = "VERTICAL";
     tag.appendChild(ellipse);
@@ -172,7 +172,7 @@ export function buildTag(
     return tag;
   }
   if (type === "top") {
-    const lineBox = createLineBox();
+    const lineBox = await createLineBox();
     tag.counterAxisSizingMode = "AUTO";
     tag.layoutMode = "VERTICAL";
     tag.appendChild(lineBox);
@@ -182,7 +182,7 @@ export function buildTag(
     return tag;
   }
   if (type === "left") {
-    const lineBox = createLineBox();
+    const lineBox = await createLineBox();
     tag.counterAxisSizingMode = "AUTO";
     tag.layoutMode = "HORIZONTAL";
     tag.appendChild(lineBox);
@@ -194,7 +194,7 @@ export function buildTag(
     return tag;
   }
   if (type === "right") {
-    const lineBox = createLineBox();
+    const lineBox = await createLineBox();
     tag.counterAxisSizingMode = "AUTO";
     tag.layoutMode = "HORIZONTAL";
     tag.appendChild(ellipse);
@@ -221,7 +221,7 @@ export function buildTag(
     type === "size" ||
     type === "cornerRadius"
   ) {
-    const text = buildLabelText("text");
+    const text = await buildLabelText("text");
     tag.resize(24, 24);
     tag.counterAxisSizingMode = "AUTO";
     tag.counterAxisAlignItems = "CENTER";
@@ -231,8 +231,8 @@ export function buildTag(
     tag.appendChild(text);
 
     if (isLink) {
-      const linkText = buildLabelText("link");
-      linkText.fillStyleId = TGLightBlue500.id;
+      const linkText = await buildLabelText("link");
+      await linkText.setFillStyleIdAsync(TGLightBlue500.id);
       linkText.textDecoration = "UNDERLINE";
       tag.appendChild(linkText);
       addNewTextProperty(tag, linkText, "link", "link");
@@ -241,7 +241,7 @@ export function buildTag(
 
     text.textCase = "ORIGINAL";
     if (type !== "text") {
-      ellipse.fillStyleId = TGGray600.id;
+      await ellipse.setFillStyleIdAsync(TGGray600.id);
     }
     if (type === "info") {
       ellipse.paddingLeft = 1;
@@ -250,7 +250,7 @@ export function buildTag(
 
     if (type === "size") {
       const icon = figma.createVector();
-      icon.vectorNetwork = {
+      await icon.setVectorNetworkAsync({
         regions: [
           {
             windingRule: "NONZERO",
@@ -515,9 +515,9 @@ export function buildTag(
             handleMirroring: "NONE",
           },
         ],
-      };
+      });
       if (TGWhite) {
-        icon.fillStyleId = TGWhite.id;
+        await icon.setFillStyleIdAsync(TGWhite.id);
       }
       icon.strokes = [];
       ellipse.appendChild(icon);
@@ -525,7 +525,7 @@ export function buildTag(
 
     if (type === "cornerRadius") {
       const icon = figma.createVector();
-      icon.vectorNetwork = {
+      await icon.setVectorNetworkAsync({
         regions: [
           {
             windingRule: "EVENODD",
@@ -710,9 +710,9 @@ export function buildTag(
             handleMirroring: "NONE",
           },
         ],
-      };
+      });
       if (TGWhite) {
-        icon.fillStyleId = TGWhite.id;
+        await icon.setFillStyleIdAsync(TGWhite.id);
       }
       icon.strokes = [];
       ellipse.appendChild(icon);
@@ -720,7 +720,7 @@ export function buildTag(
 
     if (type === "text") {
       if (TGGray900) {
-        ellipse.fillStyleId = TGGray900.id;
+        await ellipse.setFillStyleIdAsync(TGGray900.id);
       }
       addNewTextProperty(tag, index, "index", "A");
     }

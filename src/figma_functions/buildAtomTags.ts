@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   buildAutoLayoutFrame,
   setTextProps,
@@ -7,8 +8,8 @@ import {
 } from "../figma_functions/utilityFunctions";
 import buildTags from "./buildTags";
 
-export const TGGray100 = setColorStyle("TG-admin/gray/gray-100", "F5F5F5");
-export const TGGray600 = setColorStyle("TG-admin/gray/gray-600", "707070");
+export const TGGray100 = setColorStyle(".TG-admin/gray/gray-100", "F5F5F5");
+export const TGGray600 = setColorStyle(".TG-admin/gray/gray-600", "707070");
 
 export async function buildAtomTags(
   element: InstanceNode,
@@ -20,16 +21,16 @@ export async function buildAtomTags(
 ) {
   const tagGroups: FrameNode[] = [];
 
-  const isToSplit =
-    element.children &&
-    element.children.length > 1 &&
-    element.children.every(
-      (child) => !child.name.toLowerCase().startsWith("min")
-    ) &&
-    element.layoutMode === "VERTICAL";
+  // const isToSplit =
+  //   element.children &&
+  //   element.children.length > 1 &&
+  //   element.children.every(
+  //     (child) => !child.name.toLowerCase().startsWith("min")
+  //   ) &&
+  //   element.layoutMode === "VERTICAL";
 
   if (elementSizes) {
-    elementSizes.forEach((size) => {
+    for (const size of elementSizes) {
       const propNames = Object.keys(variantProperties);
       const sizeProp = propNames.find(
         (propName) => propName.toLowerCase() === "size"
@@ -37,7 +38,7 @@ export async function buildAtomTags(
       if (sizeProp) {
         setVariantProps(element, sizeProp, size);
       }
-      const tagGroup = buildOneTag(
+      const tagGroup = await buildOneTag(
         element,
         booleanProperties,
         tagComponentSet,
@@ -45,15 +46,19 @@ export async function buildAtomTags(
         size
       );
       tagGroups.push(tagGroup);
-    });
+    }
   } else {
-    const tagGroup = buildOneTag(element, booleanProperties, tagComponentSet);
+    const tagGroup = await buildOneTag(
+      element,
+      booleanProperties,
+      tagComponentSet
+    );
     tagGroups.push(tagGroup);
   }
   return tagGroups;
 }
 
-function buildOneTag(
+async function buildOneTag(
   element: InstanceNode,
   booleanProperties: any,
   tagComponentSet: ComponentSetNode | undefined,
@@ -72,7 +77,7 @@ function buildOneTag(
       resultFrame
     );
     if (title.children[0] && title.children[0].type === "TEXT")
-      title.children[0].fillStyleId = TGGray600.id;
+      await title.children[0].setFillStyleIdAsync(TGGray600.id);
     setVariantProps(title, "font", "regular");
     setTextProps(title, "text", `Size - ${size?.toUpperCase()}`);
   }
@@ -80,28 +85,28 @@ function buildOneTag(
 }
 
 //! ⬇⬇⬇ here changes ⬇⬇⬇
-function buildOneSplitAnatomyTag(
-  group: GroupNode,
-  labelComponent?: ComponentNode
-) {
-  const resultFrame = buildAutoLayoutFrame("tagFrame", "HORIZONTAL", 160, 0);
-  resultFrame.appendChild(group);
-  resultFrame.fillStyleId = TGGray100.id;
-  resultFrame.paddingBottom = 40;
-  resultFrame.paddingTop = 40;
-  resultFrame.counterAxisAlignItems = "CENTER";
-  if (labelComponent) {
-    const title = setTitlePosition(
-      labelComponent.createInstance(),
-      resultFrame
-    );
-    if (title.children[0] && title.children[0].type === "TEXT")
-      title.children[0].fillStyleId = TGGray600.id;
-    setVariantProps(title, "font", "regular");
-    setTextProps(title, "text", `${group.name.split("-t")[0]}`);
-  }
-  return resultFrame;
-}
+// function buildOneSplitAnatomyTag(
+//   group: GroupNode,
+//   labelComponent?: ComponentNode
+// ) {
+//   const resultFrame = buildAutoLayoutFrame("tagFrame", "HORIZONTAL", 160, 0);
+//   resultFrame.appendChild(group);
+//   resultFrame.fillStyleId = TGGray100.id;
+//   resultFrame.paddingBottom = 40;
+//   resultFrame.paddingTop = 40;
+//   resultFrame.counterAxisAlignItems = "CENTER";
+//   if (labelComponent) {
+//     const title = setTitlePosition(
+//       labelComponent.createInstance(),
+//       resultFrame
+//     );
+//     if (title.children[0] && title.children[0].type === "TEXT")
+//       title.children[0].fillStyleId = TGGray600.id;
+//     setVariantProps(title, "font", "regular");
+//     setTextProps(title, "text", `${group.name.split("-t")[0]}`);
+//   }
+//   return resultFrame;
+// }
 //! ⬆⬆⬆ here change ⬆⬆⬆
 
 function setTitlePosition(title: InstanceNode, frame: FrameNode) {

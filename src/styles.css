@@ -3887,7 +3887,7 @@ input[type="checkbox"] {
 }
 
 .previewPopup .videoSection div:has(.videoSelected) {
-  background-color: #E9E6F9 !important;
+  background-color: #8793FD !important;
 }
 
 .previewPopup .videoSection div {
@@ -3899,7 +3899,7 @@ input[type="checkbox"] {
 }
 
 .previewPopup .videoSection div:has(button):active {
-  background-color: #E9E6F9 !important;
+  background-color: #8793FD !important;
 }
 
 .previewPopup .videoSection div:has(button):hover::before {
@@ -4384,7 +4384,7 @@ input[type="checkbox"] {
 
 .previewPopup .resources a:hover,
 .previewPopup .links-block a:hover {
-  background-color: #E9E6F9 !important;
+  background-color: #8793FD !important;
   text-decoration: none !important;
 }
 
@@ -4529,7 +4529,7 @@ input[type="checkbox"] {
 }
 
 .previewPopup .pagination li:hover {
-  background-color: #E9E6F9 !important;
+  background-color: #8793FD !important;
 }
 
 .previewPopup .pagination li::before {
