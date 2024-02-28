@@ -1,10 +1,4 @@
-// import { setColorStyle } from "../figma_functions/utilityFunctions";
 import { buildTag } from "./buildTag";
-
-// export const dsWhite = setColorStyle(".TG-admin/White", "FFFFFF");
-// export const dsGray900 = setColorStyle(".TG-admin/gray/gray-900", "292929");
-//
-// export const dsBlueGray = setColorStyle(".TG-admin/BlueGray", "617C9F");
 
 export default async function buildAllTags() {
   const tagBottomLine = await buildTag("A", "bottom");

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getMarkerShift } from "./tns_subFunctions";
 import { getMarkerComponent } from "./getMarkerComponent";
 import { setMarkerSizeProps } from "./setMarkerSizeProps";

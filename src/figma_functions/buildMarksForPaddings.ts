@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { getMarkerShift } from "./tns_subFunctions";
 import { getMarkerComponent } from "./getMarkerComponent";
 import { setMarkerSizeProps } from "./setMarkerSizeProps";
@@ -80,15 +81,6 @@ function findPaddings(frame: InstanceNode | FrameNode) {
   }
 
   return elementPaddings;
-}
-
-function isPaddings(obj: any) {
-  return (
-    obj.topPadding.size !== 0 ||
-    obj.rightPadding.size !== 0 ||
-    obj.bottomPadding.size !== 0 ||
-    obj.leftPadding.size !== 0
-  );
 }
 
 function buildMarksForPaddings(
