@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { buildAutoLayoutFrame } from "../figma_functions/utilityFunctions";
 
 export type Direction = "HORIZONTAL" | "VERTICAL";
@@ -10,7 +11,8 @@ export function buildVariantFrames(
   variantKeys: string[],
   missedItemsArray: InstanceNode[]
 ) {
-  const topFrameContentName = getTopFrameName(variantKeys);
+  console.log("workingArrays", workingArrays);
+  // const topFrameContentName = getTopFrameName(variantKeys);
   const allElementsFrame = buildAutoLayoutFrame(
     "variants-frame",
     "VERTICAL",
@@ -33,15 +35,11 @@ export function buildVariantFrames(
             missedItemsArray
           );
         }
-        // setBackgroundPadding(thirdLevelFrame);
-        // thirdLevelFrame.layoutAlign = "STRETCH";
-        // thirdLevelFrame.primaryAxisSizingMode = "FIXED";
         thirdLevelFrame.layoutSizingHorizontal = "HUG";
         secondLevelFrame.layoutSizingHorizontal = "HUG";
         secondLevelFrame.appendChild(thirdLevelFrame);
       });
       baseFrameCollector.push(secondLevelFrame);
-      // secondLevelFrame.layoutAlign = "STRETCH";
       allElementsFrame.appendChild(secondLevelFrame);
     }
     //! case 3 - 3 or more variant properties
@@ -120,8 +118,9 @@ export function buildLowestLevelFrames(
       thirdLevelFrame.appendChild(currentElement);
       if (
         currentElement.opacity === 0 ||
-        //@ts-ignore
-        currentElement.children.every((child) => child.opacity === 0)
+        currentElement.children.every(
+          (child) => "opacity" in child && child.opacity === 0
+        )
       ) {
         missedItemsArray.push(currentElement);
       }

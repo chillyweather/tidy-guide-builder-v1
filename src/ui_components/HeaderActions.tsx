@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { useState, useContext, useRef } from "preact/hooks";
+import { useState, useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import {
   IconX,
   IconLink,
-  IconCalendarEvent,
   IconPilcrow,
   IconVideo,
   IconColumns,
@@ -44,7 +45,7 @@ function AddSectionPopupCard(card: any) {
   const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
 
   const [isHovering, setIsHovering] = useState(false);
-  const { setSelectedSections, selectedSections, selectedElementName } =
+  const { setSelectedSections, selectedSections } =
     useContext(BuilderContext) || {};
   return (
     <div className={"addSection-outer"}>
@@ -127,16 +128,8 @@ function AddSectionPopupCard(card: any) {
   }
 }
 
-// async function deleteComponentPic(
-//   url: string,
-//   setSelectedComponentPic: Function
-// ) {
-//   await deleteFileFromServer(url);
-//   setSelectedComponentPic("");
-// }
-
 function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
-  const { isPdSectionOpen, setIsPdSectionOpen, selectedElementName } =
+  const { isPdSectionOpen, setIsPdSectionOpen } =
     useContext(BuilderContext) || {};
 
   return (

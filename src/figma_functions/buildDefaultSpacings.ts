@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { buildAutoLayoutFrame } from "../figma_functions/utilityFunctions";
 import buildSpacingMarks from "./buildSpacingMarks";
 import {
@@ -8,10 +9,10 @@ import {
 } from "./utilityFunctions";
 import { setSizingMarkerValue } from "./setSizingMarkerValue";
 
-const dsGray100 = setColorStyle("ds-admin/gray/gray-100", "F5F5F5");
-const dsGray600 = setColorStyle("ds-admin/gray/gray-600", "707070");
+const dsGray100 = setColorStyle(".TG-admin/gray/gray-100", "F5F5F5");
+const dsGray600 = setColorStyle(".TG-admin/gray/gray-600", "707070");
 
-export function buildAtomSpacings(
+export async function buildAtomSpacings(
   element: InstanceNode,
   booleanProperties: any,
   labelComponent: ComponentNode,
@@ -27,7 +28,7 @@ export function buildAtomSpacings(
   const spacingGroups: FrameNode[] = [];
 
   if (buttonSizes.length) {
-    buildForManySizes(
+    await buildForManySizes(
       buttonSizes,
       variantProperties,
       element,
@@ -40,7 +41,7 @@ export function buildAtomSpacings(
       spacingMarker
     );
   } else {
-    const spacingGroup = buildOneSpacingGroup(
+    const spacingGroup = await buildOneSpacingGroup(
       element,
       booleanProperties,
       elementType,
@@ -55,7 +56,7 @@ export function buildAtomSpacings(
   return spacingGroups;
 }
 
-function buildForManySizes(
+async function buildForManySizes(
   buttonSizes: string[],
   variantProperties: any,
   element: InstanceNode,
@@ -67,7 +68,7 @@ function buildForManySizes(
   sizeMarker: ComponentSetNode,
   spacingMarker: ComponentSetNode
 ) {
-  buttonSizes.forEach((size) => {
+  for (const size of buttonSizes) {
     const propNames = Object.keys(variantProperties);
     const sizeProp = propNames.find(
       (propName) => propName.toLowerCase() === "size"
@@ -76,7 +77,7 @@ function buildForManySizes(
       setVariantProps(element, sizeProp, size);
     }
 
-    const spacingGroup = buildOneSpacingGroup(
+    const spacingGroup = await buildOneSpacingGroup(
       element,
       booleanProperties,
       elementType,
@@ -87,7 +88,7 @@ function buildForManySizes(
       size
     );
     spacingGroups.push(spacingGroup);
-  });
+  }
 }
 
 //! =================FUNCTIONS======================= !//
@@ -135,7 +136,7 @@ function buildOneSpacingGroup(
   return sizingMarksFrame;
 }
 
-function arrangeFrameContents(
+async function arrangeFrameContents(
   elementSize: InstanceNode,
   elementPadding: InstanceNode,
   elementHSpacing: InstanceNode,
@@ -168,13 +169,13 @@ function arrangeFrameContents(
   const isSpacings = spacings && spacings.length > 0 ? true : false;
 
   //! create labels
-  const { sizeTitle, paddingsTitle, spacingsTitle } = buildLabels(
+  const { sizeTitle, paddingsTitle, spacingsTitle } = await buildLabels(
     labelComponent,
     page
   );
 
   //! place group and label into autolayout frame
-  const { sizeAl, paddingsAl, spacingsAl } = placeLabels(
+  const { sizeAl, paddingsAl, spacingsAl } = await placeLabels(
     sizeTitle,
     sizeGroup,
     paddingsTitle,
@@ -245,7 +246,7 @@ function buildSpacingsGroups(
   return { sizeGroup, paddingsGroup, spacingsGroup };
 }
 
-function placeLabels(
+async function placeLabels(
   sizeTitle: InstanceNode,
   sizeGroup: any,
   paddingsTitle: InstanceNode,
@@ -255,7 +256,7 @@ function placeLabels(
 ) {
   const sizeAl = buildAutoLayoutFrame("sizeFrame", "VERTICAL", 0, 50);
   sizeAl.counterAxisAlignItems = "CENTER";
-  sizeAl.fillStyleId = dsGray100.id;
+  await sizeAl.setFillStyleIdAsync(dsGray100.id);
   sizeAl.paddingBottom = 40;
   sizeAl.paddingTop = 40;
   sizeAl.paddingLeft = 160;
@@ -286,10 +287,10 @@ function setTitlePosition(title: InstanceNode, frame: FrameNode) {
   title.y = 8;
 }
 
-function buildLabels(labelComponent: ComponentNode, page: PageNode) {
+async function buildLabels(labelComponent: ComponentNode, page: PageNode) {
   const sizeTitle = labelComponent.createInstance();
   if (sizeTitle.children[0] && sizeTitle.children[0].type === "TEXT") {
-    sizeTitle.children[0].fillStyleId = dsGray600.id;
+    await sizeTitle.children[0].setFillStyleIdAsync(dsGray600.id);
   }
   page.appendChild(sizeTitle);
   setVariantProps(sizeTitle, "font", "regular");
@@ -355,7 +356,7 @@ function buildPaddingMarkers(
     spacingMarker
   );
   paddingMarkers?.forEach((marker) => {
-    if (marker) modifyMarkers(elementPadding, marker, setSizingMarkerValue);
+    if (marker) modifyMarkers(elementPadding, marker);
   });
   return paddingMarkers;
 }
@@ -378,17 +379,13 @@ function buildSpacingMarkers(
     sizeMarker,
     spacingMarker
   );
-  // spacingMarkers?.forEach((marker) => {
-  //   modifyMarkers(elementHSpacing, marker, changeSizingMarkerCharacters);
-  // });
+  spacingMarkers?.forEach((marker) => {
+    if (marker) modifyMarkers(elementHSpacing, marker);
+  });
   return spacingMarkers;
 }
 
-function modifyMarkers(
-  element: InstanceNode,
-  marker: InstanceNode,
-  setValue: (node: InstanceNode, position: string) => void
-) {
+function modifyMarkers(element: InstanceNode, marker: InstanceNode) {
   const position = `${marker.componentProperties.position.value}`;
 
   setSizingMarkerValue(marker, position);

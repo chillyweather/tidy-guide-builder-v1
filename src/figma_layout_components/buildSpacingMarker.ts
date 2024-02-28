@@ -3,9 +3,9 @@ import { setColorStyle } from "../figma_functions/utilityFunctions";
 const TG_SPACING_MARKER = ".TG-spacing-marker";
 const TG_SPACING_MARKER_HAND_LENGTH = 40;
 
-const dsGray900 = setColorStyle("ds-admin/gray/gray-900", "292929");
-const dsPink500 = setColorStyle("ds-admin/pink/pink-500", "EC2D79");
-const dsWhite = setColorStyle("ds-admin/White", "FFFFFF");
+const dsGray900 = setColorStyle(".TG-admin/gray/gray-900", "292929");
+const dsPink500 = setColorStyle(".TG-admin/pink/pink-500", "EC2D79");
+const dsWhite = setColorStyle(".TG-admin/White", "FFFFFF");
 
 const barColor: ReadonlyArray<Paint> = [
   {
@@ -21,7 +21,7 @@ const barColor: ReadonlyArray<Paint> = [
   },
 ];
 
-function buildLine() {
+async function buildLine() {
   const line = figma.createVector();
   line.strokes = [
     {
@@ -43,7 +43,7 @@ function buildLine() {
   line.strokeMiterLimit = 4;
   line.dashPattern = [1, 2];
   line.strokeWeight = 0.5;
-  line.vectorNetwork = {
+  await line.setVectorNetworkAsync({
     regions: [],
     segments: [
       {
@@ -77,7 +77,7 @@ function buildLine() {
         handleMirroring: "NONE",
       },
     ],
-  };
+  });
   return line;
 }
 
@@ -87,7 +87,7 @@ function addTextProperty(component: ComponentNode, textNode: TextNode) {
   textNode.componentPropertyReferences = { characters: `${objName}` };
 }
 
-function createAnatomySpacingsText(size: string) {
+async function createAnatomySpacingsText(size: string) {
   const meterValue = figma.createText();
   meterValue.fontSize = 14;
   meterValue.fontName = {
@@ -95,7 +95,7 @@ function createAnatomySpacingsText(size: string) {
     style: "Regular",
   };
   meterValue.characters = `${size}`;
-  meterValue.fillStyleId = dsGray900.id;
+  await meterValue.setFillStyleIdAsync(dsGray900.id);
   meterValue.name = `${TG_SPACING_MARKER}-value`;
   meterValue.layoutAlign = "INHERIT";
   meterValue.textAlignHorizontal = "CENTER";
@@ -117,12 +117,12 @@ function createAnatomyBar(position: string) {
   return bar;
 }
 
-function createAnatomySpacings(size: string, position: string) {
+async function createAnatomySpacings(size: string, position: string) {
   const spacingMarker = figma.createComponent();
-  const value = createAnatomySpacingsText(size);
-  const line = buildLine();
+  const value = await createAnatomySpacingsText(size);
+  const line = await buildLine();
   line.resize(TG_SPACING_MARKER_HAND_LENGTH, line.height);
-  line.strokeStyleId = dsPink500.id;
+  await line.setStrokeStyleIdAsync(dsPink500.id);
   line.name = `marker-hand`;
 
   //autolayout
@@ -174,13 +174,13 @@ function createAnatomySpacings(size: string, position: string) {
   return spacingMarker;
 }
 
-function buildSpacingMarkerComponentSet() {
+async function buildSpacingMarkerComponentSet() {
   const toolsPage = figma.currentPage;
 
-  const spacingTop = createAnatomySpacings("16", "top");
-  const spacingBottom = createAnatomySpacings("16", "bottom");
-  const spacingLeft = createAnatomySpacings("16", "left");
-  const spacingRight = createAnatomySpacings("16", "right");
+  const spacingTop = await createAnatomySpacings("16", "top");
+  const spacingBottom = await createAnatomySpacings("16", "bottom");
+  const spacingLeft = await createAnatomySpacings("16", "left");
+  const spacingRight = await createAnatomySpacings("16", "right");
 
   const spacings = [spacingTop, spacingBottom, spacingLeft, spacingRight];
   spacings.forEach((node) => toolsPage.appendChild(node));
@@ -190,7 +190,7 @@ function buildSpacingMarkerComponentSet() {
   spacingComponentSet.layoutPositioning = "AUTO";
   spacingComponentSet.layoutMode = "HORIZONTAL";
   spacingComponentSet.itemSpacing = 20;
-  spacingComponentSet.fillStyleId = dsWhite.id;
+  await spacingComponentSet.setFillStyleIdAsync(dsWhite.id);
   spacingComponentSet.paddingBottom = 20;
   spacingComponentSet.paddingTop = 20;
   spacingComponentSet.paddingLeft = 20;

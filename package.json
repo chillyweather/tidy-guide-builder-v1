@@ -18,10 +18,14 @@
   "devDependencies": {
     "@create-figma-plugin/build": "^3.0.2",
     "@create-figma-plugin/tsconfig": "^3.0.2",
-    "@figma/plugin-typings": "^1.86.0",
+    "@figma/eslint-plugin-figma-plugins": "^0.14.0",
+    "@figma/plugin-typings": "^1.87.0",
     "@types/node": "^20.11.5",
     "@types/prismjs": "^1.26.0",
     "@types/react": ">=18",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.57.0",
     "knip": "^4.1.0",
     "react": ">=18",
     "typescript": "^5.3.3"

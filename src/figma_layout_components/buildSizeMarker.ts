@@ -2,11 +2,12 @@ import { setColorStyle } from "../figma_functions/utilityFunctions";
 
 const TG_SIZE_MARKER = ".TG-size-marker";
 
-const dsGray900 = setColorStyle("ds-admin/gray/gray-900", "292929");
-const dsPink500 = setColorStyle("ds-admin/pink/pink-500", "EC2D79");
+const dsGray900 = setColorStyle(".TG-admin/gray/gray-900", "292929");
+const dsPink500 = setColorStyle(".TG-admin/pink/pink-500", "EC2D79");
 
-const dsWhite = setColorStyle("ds-admin/White", "FFFFFF");
-const dsSpacingMarker = setColorStyle("ds-admin/Spacings", "E0851D");
+const dsWhite = setColorStyle(".TG-admin/White", "FFFFFF");
+const dsSpacingMarker = setColorStyle(".TG-admin/Spacings", "E0851D");
+
 const emptyFill: ReadonlyArray<Paint> = [
   {
     type: "SOLID",
@@ -27,14 +28,14 @@ function addTextProperty(component: ComponentNode, textNode: TextNode) {
   textNode.componentPropertyReferences = { characters: `${objName}` };
 }
 
-function createMarkerLines(position: string) {
+async function createMarkerLines(position: string) {
   const frame = figma.createFrame();
   frame.fills = emptyFill;
-  frame.strokeStyleId = dsSpacingMarker.id;
+  await frame.setStrokeStyleIdAsync(dsSpacingMarker.id);
   const line = figma.createLine();
   frame.appendChild(line);
   line.strokeWeight = 1;
-  line.strokeStyleId = dsSpacingMarker.id;
+  await line.setStrokeStyleIdAsync(dsSpacingMarker.id);
   if (position === "top" || position === "bottom") {
     frame.strokeLeftWeight = 1;
     frame.strokeRightWeight = 1;
@@ -57,15 +58,15 @@ function createMarkerLines(position: string) {
     line.x = 3;
     line.y = 15;
   }
-  frame.strokeStyleId = dsPink500.id;
-  line.strokeStyleId = dsPink500.id;
+  await frame.setStrokeStyleIdAsync(dsPink500.id);
+  await line.setStrokeStyleIdAsync(dsPink500.id);
   frame.name = `${TG_SIZE_MARKER}-marker`;
   frame.layoutAlign = "STRETCH";
 
   return frame;
 }
 
-function createAnatomySpacingsText(size: string) {
+async function createAnatomySpacingsText(size: string) {
   const meterValue = figma.createText();
   meterValue.fontSize = 14;
   meterValue.fontName = {
@@ -73,18 +74,18 @@ function createAnatomySpacingsText(size: string) {
     style: "Regular",
   };
   meterValue.characters = `${size}`;
-  meterValue.fillStyleId = dsSpacingMarker.id;
+  await meterValue.setFillStyleIdAsync(dsSpacingMarker.id);
   meterValue.name = `${TG_SIZE_MARKER}-value`;
   meterValue.layoutAlign = "INHERIT";
   meterValue.textAlignHorizontal = "CENTER";
-  meterValue.fillStyleId = dsGray900.id;
+  await meterValue.setFillStyleIdAsync(dsGray900.id);
   return meterValue;
 }
 
-function createAnatomySpacingsMeter(size: string, position: string) {
+async function createAnatomySpacingsMeter(size: string, position: string) {
   const meter = figma.createFrame();
-  const marker = createMarkerLines(position);
-  const value = createAnatomySpacingsText(size);
+  const marker = await createMarkerLines(position);
+  const value = await createAnatomySpacingsText(size);
   // meter.resize(16, 32);
   meter.layoutPositioning = "AUTO";
   meter.itemSpacing = 0;
@@ -125,14 +126,14 @@ function createAnatomySpacingsMeter(size: string, position: string) {
   return meter;
 }
 
-function createAnatomySpacings(size: string, position: string) {
+async function createAnatomySpacings(size: string, position: string) {
   const spacingMarker = figma.createComponent();
 
   //autolayout
   spacingMarker.layoutPositioning = "AUTO";
   spacingMarker.layoutAlign = "STRETCH";
 
-  const meter = createAnatomySpacingsMeter(size, position);
+  const meter = await createAnatomySpacingsMeter(size, position);
   if (position === "top") {
     spacingMarker.name = "position=top";
     spacingMarker.appendChild(meter);
@@ -162,20 +163,22 @@ function createAnatomySpacings(size: string, position: string) {
   return spacingMarker;
 }
 
-function buildSizeMarkerComponentSet() {
+async function buildSizeMarkerComponentSet() {
   const toolsPage = figma.currentPage;
 
-  const spacingTop = createAnatomySpacings("16", "top");
-  const spacingBottom = createAnatomySpacings("16", "bottom");
-  const spacingLeft = createAnatomySpacings("16", "left");
-  const spacingRight = createAnatomySpacings("16", "right");
+  const spacingTop = await createAnatomySpacings("16", "top");
+  const spacingBottom = await createAnatomySpacings("16", "bottom");
+  const spacingLeft = await createAnatomySpacings("16", "left");
+  const spacingRight = await createAnatomySpacings("16", "right");
 
   const spacings = [spacingTop, spacingBottom, spacingLeft, spacingRight];
   if (!spacings) return;
-  spacings.forEach((node) => {
+
+  for (const node of spacings) {
     if (!node) return;
     toolsPage.appendChild(node);
-  });
+  }
+
   const spacingComponentSet = figma.combineAsVariants(
     spacings as readonly ComponentNode[],
     toolsPage
@@ -185,7 +188,7 @@ function buildSizeMarkerComponentSet() {
   spacingComponentSet.layoutPositioning = "AUTO";
   spacingComponentSet.layoutMode = "HORIZONTAL";
   spacingComponentSet.itemSpacing = 20;
-  spacingComponentSet.fillStyleId = dsWhite.id;
+  await spacingComponentSet.setFillStyleIdAsync(dsWhite.id);
   spacingComponentSet.paddingBottom = 20;
   spacingComponentSet.paddingTop = 20;
   spacingComponentSet.paddingLeft = 20;

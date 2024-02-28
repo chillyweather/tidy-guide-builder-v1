@@ -7,12 +7,12 @@ import { getNode } from "./figma_functions/getNode";
 import imageFromFigma from "./figma_functions/imageFromFigma";
 
 //! time check
-const time = new Date().getTime();
-if (time > 1709244000000) {
-  figma.closePlugin(
-    "this version of plugin is no longer supported, please download it from the Figma Community"
-  );
-}
+// const time = new Date().getTime();
+// if (time > 1709244000000) {
+//   figma.closePlugin(
+//     "this version of plugin is no longer supported, please download it from the Figma Community"
+//   );
+// }
 //! ----------
 
 const loadFonts = async () => {
@@ -95,7 +95,7 @@ export default async function () {
     }
   });
 
-  on("BUILD", async (data, elementId) => {
+  on("BUILD", async (data) => {
     //!----building documentation on canvas----//
     try {
       await documentationBuilder(data, loadFonts);

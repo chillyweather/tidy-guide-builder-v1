@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { buildTitle } from "../figma_doc_sections/elementBuildingFunctions";
 import buildSectionContent from "./sectionBuilder";
 import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
@@ -12,7 +13,7 @@ const documentationCornerRadius = 12;
 
 export default async function documentationBuilder(
   data: any,
-  loadFonts: Function
+  loadFonts: () => Promise<void>
 ) {
   await loadFonts();
 

@@ -68,17 +68,17 @@ const PDSectionData = [
     repeatable: false,
     publish: true,
   },
-  {
-    title: "Release Notes",
-    content: content,
-    datatype: "release-notes",
-    description: "Five is right out.",
-    data: [],
-    id: "0",
-    docId: "0",
-    repeatable: false,
-    publish: true,
-  },
+  // {
+  //   title: "Release Notes",
+  //   content: content,
+  //   datatype: "release-notes",
+  //   description: "Five is right out.",
+  //   data: [],
+  //   id: "0",
+  //   docId: "0",
+  //   repeatable: false,
+  //   publish: true,
+  // },
 ];
 
 const sectionData = [

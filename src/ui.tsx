@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { render } from "@create-figma-plugin/ui";
 
-import { emit, on, once } from "@create-figma-plugin/utilities";
-import { JSX, h } from "preact";
-import { useContext, useEffect, useState } from "preact/hooks";
+import { emit, on } from "@create-figma-plugin/utilities";
+import { h } from "preact";
+import { useEffect, useState } from "preact/hooks";
 import BuilderContext from "./BuilderContext";
 import CancelPopup from "./ui_components/popups/cancelPopup";
 import FeedbackPopup from "./ui_components/popups/feedbackPopup";
@@ -14,7 +15,6 @@ import DeleteAccountPopup from "./ui_components/popups/deleteAccountPopup";
 import WaitingInfoPopup from "./ui_components/popups/waitingInfoPopup";
 import Toast from "./ui_components/Toast";
 //dependencies
-import { uploadFileToServer } from "./ui_components/ui_functions/fileManagementFunctions";
 import { sendRaster } from "./ui_components/ui_functions/sendRaster";
 
 //new components
@@ -122,11 +122,11 @@ function Plugin() {
   //set selected master id
   const [selectedMasterId, setSelectedMasterId] = useState("");
   //is new element found
-  const [isNewElementFound, setIsNewElementFound] = useState(false);
+  const [, setIsNewElementFound] = useState(false);
   //is content from server
   const [isFromSavedData, setIsFromSavedData] = useState(false);
   //found existing documentation
-  const [foundDocumentation, setFoundDocumentation]: any = useState(null);
+  const [, setFoundDocumentation]: any = useState(null);
   //reset documentation
   const [isReset, setIsReset] = useState(false);
   //is draft
@@ -145,10 +145,10 @@ function Plugin() {
     null
   );
 
-  const [componentPics, setComponentPics] = useState<any>({});
+  // const [componentPics, setComponentPics] = useState<any>({});
 
   //current image type
-  const [currentImageType, setCurrentImageType] = useState("");
+  // const [currentImageType, setCurrentImageType] = useState("");
 
   //is current name valid
   const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);

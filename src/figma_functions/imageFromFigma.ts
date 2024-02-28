@@ -1,15 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { buildAnatomySection } from "src/figma_doc_sections/buildAnatomySection";
 import { buildSpacingSection } from "src/figma_doc_sections/buildSpacingSection";
 import { buildVarSection } from "src/figma_doc_sections/buildVarSection";
 import { buildPropSection } from "src/figma_doc_sections/buildPropSection";
 import { getNode } from "./getNode";
-import { findMasterComponent } from "./utilityFunctions";
-import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
+import { buildAutoLayoutFrame } from "./utilityFunctions";
 import { emit } from "@create-figma-plugin/utilities";
-import { useEffect } from "preact/hooks";
 
 const imageFromFigma = async (
-  loadFonts: Function,
+  loadFonts: () => Promise<void>,
   type: string,
   nodeId: string,
   key: string
@@ -48,7 +47,11 @@ const imageFromFigma = async (
 
   if (buildFunctions[type]) {
     builtGraphics = await buildFunctions[type](tempNode, resultFrame);
-    if (!builtGraphics) throw Error(`Error in building graphics of ${type}`);
+    if (!builtGraphics) {
+      resultFrame.remove();
+      tempNode.remove();
+      throw Error(`Error in building graphics of ${type}`);
+    }
 
     if (type === "spacing" || type === "property") {
       const maxWidth = findWidestElement(builtGraphics);
