@@ -57,7 +57,7 @@ const IndexPage = ({
                 setIsContenFromServerOpen(true);
               }}
             >
-              {title}
+              <div className="inner-div">{title}</div>
               {wip && <div className={"wip"}>WIP</div>}
             </div>
             <button

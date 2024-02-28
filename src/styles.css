@@ -261,6 +261,14 @@ body:has(.delete-flex) .container {
   height: 36px;
   padding: 8px 16px;
 }
+.inner-componentBTN .inner-div{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
 
 .componentBTN div,
 .componentBTN svg {
