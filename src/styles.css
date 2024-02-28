@@ -3,6 +3,21 @@
 
 :root {
   --tidy-background: #F7F8FB;
+  --tidy-primary: #6B73FF;
+  --tidy-btn-hover: #8793FD;
+  --tidy-btn-pressed: #5C6CFF;
+  --tidy-disabled: #8E8F94;
+  --tidy-disabled-btn: #f2f0f6;
+  --tidy-disabled-btn-text: #a6a8ad;
+  --tidy-disabled-ic: #c5c6c8;
+  --tidy-text: #2a2a2a;
+  --tidy-link: #6B73FF;
+  --tidy-divider: #ededed;
+  --tidy-32: #323232;
+  --tidy-f5: #F5F5F5;
+  --tidy-ec: #ECEBF5;
+  --text-size: 12px;
+  /* --tidy-background: #F7F8FB;
   --tidy-primary: #9c71ef;
   --tidy-btn-hover: #8c5aec;
   --tidy-btn-pressed: #7c4cd7;
@@ -16,7 +31,7 @@
   --tidy-32: #323232;
   --tidy-f5: #F5F5F5;
   --tidy-ec: #ECEBF5;
-  --text-size: 12px;
+  --text-size: 12px; */
 }
 
 :root {
@@ -270,7 +285,7 @@ body:has(.delete-flex) .container {
 
 .componentBTN:active {
   background-color: var(--tidy-ec);
-  box-shadow: 0 0 0 1.5px #9C71EF inset;
+  box-shadow: 0 0 0 1.5px #6B73FF inset;
 }
 
 .componentBTN::after {
@@ -643,11 +658,11 @@ button svg {
 }
 
 .header .selectedComponentActions button:focus-visible {
-  box-shadow: 0 0 0 4px #ECE3FC;
+  box-shadow: 0 0 0 4px #C2DAFE;
 }
 
 .header .selectedComponentActions .secondary:focus-visible {
-  box-shadow: 0 0 0 1px var(--tidy-primary) inset, 0 0 0 4px #ECE3FC;
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset, 0 0 0 4px #C2DAFE;
 }
 
 .headerContent {
@@ -774,7 +789,7 @@ button svg {
 }
 
 .buttonPrimary {
-  background-color: #9C71EF;
+  background-color: #6B73FF;
   padding: 16px 24px;
   color: #ffffff;
   font-weight: 500;
@@ -791,7 +806,7 @@ button svg {
 }
 
 .buttonPrimary:focus-visible {
-  outline: 4px solid #ECE3FC;
+  outline: 4px solid #C2DAFE;
 }
 
 .mainContent {
@@ -1396,7 +1411,7 @@ li::before {
 }
 
 .header .add-button:focus-visible {
-  box-shadow: 0 0 0 4px #ECE3FC;
+  box-shadow: 0 0 0 4px #C2DAFE;
 }
 
 a {
@@ -1484,7 +1499,7 @@ a:focus {
 .login .inputDiv:focus-within,
 .noFeedback .inputDiv:focus-within {
   border-color: #655bf6;
-  box-shadow: 0 0 0 4px #ECE3FC;
+  box-shadow: 0 0 0 4px #C2DAFE;
 }
 
 .inputDiv input:placeholder-shown+svg {
@@ -1574,7 +1589,7 @@ input[type="checkbox"]:focus-visible~._box_1rqu7_22 {
 ._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:checked:focus~._border_1a43f_23,
 ._checkbox_1a43f_1:not(._disabled_1a43f_18) ._input_1a43f_6:focus~._border_1a43f_23 {
   box-shadow: none;
-  box-shadow: 0 0 0 2px #ECE3FC;
+  box-shadow: 0 0 0 2px #C2DAFE;
 }
 
 #text-size {
@@ -1729,11 +1744,11 @@ summary button {
 }
 
 .footer button:focus-visible {
-  box-shadow: 0 0 0 4px #ECE3FC;
+  box-shadow: 0 0 0 4px #C2DAFE;
 }
 
 .footer .second:focus-visible {
-  box-shadow: 0 0 0 1px var(--tidy-primary) inset, 0 0 0 4px #ECE3FC;
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset, 0 0 0 4px #C2DAFE;
 }
 
 .footer .flex-btn {
@@ -1917,7 +1932,7 @@ summary button {
 }
 
 .addSectionCard:active {
-  border-color: #9C71EF;
+  border-color: #6B73FF;
 }
 
 .addSectionCard * {
@@ -2296,7 +2311,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 }
 
 #selectedName svg:focus {
-  border: 2px solid #ECE3FC;
+  border: 2px solid #C2DAFE;
   border-radius: 4px;
   outline: none;
 }
@@ -2333,7 +2348,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .headerActions .connect-element-button:focus-visible {
   color: unset;
   background-color: #F0F0FA;
-  box-shadow: 0 0 0 3px #ECE3FC;
+  box-shadow: 0 0 0 3px #C2DAFE;
 }
 
 .headerActions .connect-element-button:active {
@@ -2893,7 +2908,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   font-weight: 400 !important;
 }
 
-.deleteInput::placeholder{
+.deleteInput::placeholder {
   font-weight: 400 !important;
 }
 
@@ -3218,7 +3233,7 @@ input[type="checkbox"] {
 }
 
 .feedbackPopup button:focus-visible {
-  box-shadow: 0 0 0 4px #ECE3FC;
+  box-shadow: 0 0 0 4px #C2DAFE;
 }
 
 .feedbackPopup .closePopupButton {
@@ -3605,7 +3620,7 @@ input[type="checkbox"] {
 
 .previewPopup .componentBTN:active {
   background-color: var(--tidy-ec) !important;
-  box-shadow: 0 0 0 1.5px #9C71EF inset !important;
+  box-shadow: 0 0 0 1.5px #6B73FF inset !important;
 }
 
 .previewPopup .componentBTN::after {
@@ -4289,7 +4304,7 @@ input[type="checkbox"] {
 
 .previewPopup .nav-container a:active {
   background-color: var(--tidy-ec) !important;
-  box-shadow: 0 0 0 1.5px #9C71EF inset !important;
+  box-shadow: 0 0 0 1.5px #6B73FF inset !important;
 }
 
 .previewPopup a:empty {
@@ -4712,7 +4727,7 @@ input[type="checkbox"] {
   }
 
   .previewPopup .login button:focus-visible {
-    outline: 4px solid #ECE3FC !important;
+    outline: 4px solid #C2DAFE !important;
   }
 
   .previewPopup .login button:hover {
