@@ -4384,13 +4384,13 @@ input[type="checkbox"] {
 
 .previewPopup .resources a:hover,
 .previewPopup .links-block a:hover {
-  background-color: #8793FD !important;
+  background-color: #e8eaff !important;
   text-decoration: none !important;
 }
 
 .previewPopup .resources a:active,
 .previewPopup .links-block a:active {
-  background-color: #F1ECFD !important;
+  background-color: #d2d6ff !important;
 }
 
 .previewPopup .back-link {
