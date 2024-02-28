@@ -261,7 +261,8 @@ body:has(.delete-flex) .container {
   height: 36px;
   padding: 8px 16px;
 }
-.inner-componentBTN .inner-div{
+
+.inner-componentBTN .inner-div {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -806,11 +807,11 @@ button svg {
 }
 
 .buttonPrimary:hover {
-  background-color: #8C5AEC;
+  background-color: #8793FD;
 }
 
 .buttonPrimary:active {
-  background-color: #7C4CD7;
+  background-color: #5C6CFF;
 }
 
 .buttonPrimary:focus-visible {
@@ -1506,7 +1507,7 @@ a:focus {
 
 .login .inputDiv:focus-within,
 .noFeedback .inputDiv:focus-within {
-  border-color: #655bf6;
+  border-color: #5C6CFF;
   box-shadow: 0 0 0 4px #C2DAFE;
 }
 
@@ -4641,7 +4642,7 @@ input[type="checkbox"] {
   }
 
   .previewPopup .login .inputDiv:focus-within {
-    border-color: #655BF6 !important;
+    border-color: #5C6CFF !important;
   }
 
   .previewPopup .inputDiv input:placeholder-shown+svg {
