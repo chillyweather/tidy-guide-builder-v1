@@ -1,17 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { findDocFrame } from "./utilityFunctions";
 
 //^ here we collect all the info on instances
 export const elementsCoordinatesAndDimensions = [];
 //^ find style applied to text element
-function findFontStyleName(textNode: TextNode) {
+async function findFontStyleName(textNode: TextNode) {
   if (textNode.textStyleId === "") {
     return "🎨 style not determined";
   } else {
-    const foundStyle = figma.getStyleById(textNode.textStyleId as string);
+    const foundStyle = await figma.getStyleByIdAsync(
+      textNode.textStyleId as string
+    );
     if (foundStyle?.remote === false) {
       return foundStyle.name;
     } else {
-      return foundStyle.name + " (MISSING LIBRARY)";
+      return "no style";
     }
   }
 }
@@ -47,7 +50,6 @@ export function addTextNodesToArray(node: any, array: any[]): void {
     node.absoluteRenderBounds.width,
     node.height,
     node.name,
-    null,
     styleName,
     node.fontName,
     node.fontSize,

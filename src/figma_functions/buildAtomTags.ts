@@ -8,8 +8,11 @@ import {
 } from "../figma_functions/utilityFunctions";
 import buildTags from "./buildTags";
 
-export const TGGray100 = setColorStyle(".TG-admin/gray/gray-100", "F5F5F5");
-export const TGGray600 = setColorStyle(".TG-admin/gray/gray-600", "707070");
+export const TGGray100 = setColorStyle(".TG-admin/gray/tag-text", "F5F5F5");
+export const TGGray600 = setColorStyle(
+  ".TG-admin/gray/tag-color-secondary",
+  "707070"
+);
 
 export async function buildAtomTags(
   element: InstanceNode,
