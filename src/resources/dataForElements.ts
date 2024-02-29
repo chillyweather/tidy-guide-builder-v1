@@ -25,7 +25,7 @@ const PDSectionData = [
     content: content,
     datatype: "anatomy",
     description:
-      "First shalt thou take out the Holy Pin. Then shalt thou count to three, no more, no less.",
+      "Get all of your s**t in order: typography, color palettes, spacing, icons and other design elements.",
     data: [],
     id: "0",
     docId: "0",
@@ -37,7 +37,7 @@ const PDSectionData = [
     content: content,
     datatype: "spacing",
     description:
-      "First shalt thou take out the Holy Pin. Then shalt thou count to three, no more, no less.",
+      "Standardizing spacing enhances design consistency and user experience.",
     data: [],
     id: "0",
     docId: "0",
@@ -49,7 +49,7 @@ const PDSectionData = [
     content: content,
     datatype: "property",
     description:
-      "Three shall be the number thou shalt count, and the number of the counting shall be three.",
+      "Auto guidelines for designing and maintaining properties with consistency and efficiency",
     data: [],
     id: "0",
     docId: "0",
@@ -61,7 +61,7 @@ const PDSectionData = [
     content: content,
     datatype: "variants",
     description:
-      "Four shalt thou not count, neither count thou two, excepting that thou then proceed to three.",
+      "Effortlessly showcase all your variations and attributes with a single click. Tidy generates missing variants on-the-go.",
     data: [],
     id: "0",
     docId: "0",
