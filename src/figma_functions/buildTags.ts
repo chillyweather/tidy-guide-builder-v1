@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { computeMaximumBounds } from "@create-figma-plugin/utilities";
 import { buildIndexesFrame } from "./tns_subFunctions";
 import {
-  newABC,
   findAllNodes,
   elementsCoordinatesAndDimensions,
   getTagInstance,
-  addLink,
 } from "./tagBuilgingFunctions";
 import { setVariantProps } from "./utilityFunctions";
 import { getEffects } from "./getEffects";
@@ -21,12 +20,15 @@ export default function buildTags(
   elementMaxWidth?: number
 ) {
   if (!tagComponent) return;
+  const links = tagComponent.findAll((node) => node.name === "link");
+  links.forEach((link) => {
+    link.visible = false;
+  });
   const abc = "abcdefghijklmnopqrstuvwxyz0123456789♠♣♥♦●■▲▼○□◆◇◊★☆";
   const minSizeProperty = frame.minWidth ? frame.minWidth : null;
 
   // const minSizeElement = elementMinSize ? findMinSizeElement(frame) : null;
   const tagElements: any[] = [];
-  const stringOfIndexes = newABC(abc, start);
   const frameMidPoint = frame.y + frame.height / 2;
 
   elementsCoordinatesAndDimensions.length = 0;
@@ -45,6 +47,7 @@ export default function buildTags(
       elementWidth,
       elementHeight,
       elementName,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       linkTarget,
       elementStyleName,
       elementFontName,
@@ -80,20 +83,19 @@ export default function buildTags(
       elementHeight
     );
 
-    const indexWithLabel = tagComponent
-      .findOne(
-        (node) => node.name === "type=text" && node.type === "COMPONENT"
-      )!
-      //@ts-ignore
-      .createInstance();
+    const indexWithLabelComp = tagComponent.findOne(
+      (node) => node.name === "type=text" && node.type === "COMPONENT"
+    );
+    if (!indexWithLabelComp || indexWithLabelComp.type !== "COMPONENT") return;
+    const indexWithLabel = indexWithLabelComp.createInstance();
     indexes.appendChild(indexWithLabel);
 
     // set up index row
-    if (linkTarget) {
-      addLink({ component: indexWithLabel, link: linkTarget });
-    } else {
-      setTextContent(indexWithLabel, "link", "");
-    }
+    // if (linkTarget) {
+    //   addLink({ component: indexWithLabel, link: linkTarget });
+    // } else {
+    //   setTextContent(indexWithLabel, "link", "");
+    // }
 
     // set component props
     setTextContent(tag, "elementIndex", `${abc[index]}`);
@@ -109,13 +111,13 @@ export default function buildTags(
       setTextContent(indexWithLabel, "Text", elementName);
     }
 
-    if (linkTarget) {
-      setTextContent(indexWithLabel, "link", `see documentation`);
-    }
+    // if (linkTarget) {
+    //   setTextContent(indexWithLabel, "link", `see documentation`);
+    // }
 
     if (elementName === "Icon") {
       setTextContent(indexWithLabel, "Text", `Icon - ${elementWidth}px`);
-      setTextContent(indexWithLabel, "link", "");
+      // setTextContent(indexWithLabel, "link", "");
     }
     // set up proper naming for tag and index instances
     tag.name = `.tag`;
@@ -124,8 +126,7 @@ export default function buildTags(
     tagElements.push(tag);
   });
 
-  if (minSizeProperty)
-    addMinSizeIndex(minSizeProperty, tagComponent, indexes, frame);
+  if (minSizeProperty) addMinSizeIndex(minSizeProperty, tagComponent, indexes);
 
   if (elementMaxWidth && elementMaxWidth > 0)
     addMaxWidth(frame, tagComponent, indexes, elementMaxWidth);
@@ -153,13 +154,14 @@ export default function buildTags(
 function addMinSizeIndex(
   minSize: number,
   tagComponent: ComponentSetNode,
-  indexes: FrameNode,
-  frame: any
+  indexes: FrameNode
 ) {
-  const indexWithLabel = tagComponent
-    .findOne((node) => node.name === "type=size" && node.type === "COMPONENT")!
-    //@ts-ignore
-    .createInstance();
+  const indexWithLabelComponent = tagComponent.findOne(
+    (node) => node.name === "type=size" && node.type === "COMPONENT"
+  );
+  if (!indexWithLabelComponent || indexWithLabelComponent.type !== "COMPONENT")
+    return;
+  const indexWithLabel = indexWithLabelComponent.createInstance();
 
   indexes.appendChild(indexWithLabel);
 
@@ -370,9 +372,10 @@ function addBorderRadius(
       const indexInfo = tag.createInstance();
       indexInfo.name = ".corner-radius";
       const cornerRadius = frame.cornerRadius;
-      //@ts-ignore
-      indexInfo.children[1].characters = `Border radius - ${cornerRadius}px`;
-      indexes.appendChild(indexInfo);
+      if (indexInfo.children[1].type === "TEXT") {
+        indexInfo.children[1].characters = `Border radius - ${cornerRadius}px`;
+        indexes.appendChild(indexInfo);
+      }
       return;
     } else if (frame.cornerRadius === figma.mixed) {
       const ltRadiusIndex = tag.createInstance();
@@ -380,35 +383,15 @@ function addBorderRadius(
       const rbRadiusIndex = tag.createInstance();
       const lbRadiusIndex = tag.createInstance();
 
-      //@ts-ignore
-      ltRadiusIndex.children[1].characters = `Top left corner radius - ${frame.topLeftRadius}px`;
-      //@ts-ignore
-      rtRadiusIndex.children[1].characters = `Top right corner radius - ${frame.topRightRadius}px`;
-      //@ts-ignore
-      rbRadiusIndex.children[1].characters = `Bottom right corner radius - ${frame.bottomRightRadius}px`;
-      //@ts-ignore
-      lbRadiusIndex.children[1].characters = `Bottom left corner radius - ${frame.bottomLeftRadius}px`;
+      if (ltRadiusIndex.children[1].type === "TEXT")
+        ltRadiusIndex.children[1].characters = `Top left corner radius - ${frame.topLeftRadius}px`;
+      if (rtRadiusIndex.children[1].type === "TEXT")
+        rtRadiusIndex.children[1].characters = `Top right corner radius - ${frame.topRightRadius}px`;
+      if (rbRadiusIndex.children[1].type === "TEXT")
+        rbRadiusIndex.children[1].characters = `Bottom right corner radius - ${frame.bottomRightRadius}px`;
+      if (lbRadiusIndex.children[1].type === "TEXT")
+        lbRadiusIndex.children[1].characters = `Bottom left corner radius - ${frame.bottomLeftRadius}px`;
 
-      // setTextContent(
-      //   ltRadiusIndex,
-      //   "Text",
-      //   `Top left corner radius - ${frame.topLeftRadius}px`
-      // );
-      // setTextContent(
-      //   rtRadiusIndex,
-      //   "Text",
-      //   `Top right corner radius - ${frame.topRightRadius}px`
-      // );
-      // setTextContent(
-      //   rbRadiusIndex,
-      //   "Text",
-      //   `Bottom right corner radius - ${frame.bottomRightRadius}px`
-      // );
-      // setTextContent(
-      //   lbRadiusIndex,
-      //   "Text",
-      //   `Bottom left corner radius - ${frame.bottomLeftRadius}px`
-      // );
       const cornerIndexes = [
         ltRadiusIndex,
         rtRadiusIndex,
@@ -431,12 +414,11 @@ function addMaxWidth(
   maxWidth: number
 ) {
   if (maxWidth && maxWidth > 0) {
-    const tag = tagComponent
-      .findOne(
-        (node) => node.name === "type=size" && node.type === "COMPONENT"
-      )!
-      //@ts-ignore
-      .createInstance();
+    const foundTagComponent = tagComponent.findOne(
+      (node) => node.name === "type=size" && node.type === "COMPONENT"
+    );
+    if (!foundTagComponent || foundTagComponent.type !== "COMPONENT") return;
+    const tag = foundTagComponent.createInstance();
 
     setTextContent(tag, "Text", `Maximal width - ${maxWidth}px`);
     indexes.appendChild(tag);
@@ -458,25 +440,25 @@ function addStrokeInfo(
       result["Right stroke"] = frame.strokeRightWeight;
       result["Top stroke"] = frame.strokeTopWeight;
       result["Bottom stroke"] = frame.strokeBottomWeight;
+
       for (const res in result) {
         if (result[res] > 0) {
-          const tag = tagComp
-            .findOne(
-              (node) => node.name === "type=info" && node.type === "COMPONENT"
-            )!
-            //@ts-ignore
-            .createInstance();
+          const foundTagComponent = tagComp.findOne(
+            (node) => node.name === "type=info" && node.type === "COMPONENT"
+          );
+          if (!foundTagComponent || foundTagComponent.type !== "COMPONENT")
+            return;
+          const tag = foundTagComponent.createInstance();
           strokeWeight = result[res];
           setStrokeProps(tag, strokeWeight, strokeAlign, indexes, res);
         }
       }
     } else {
-      const tag = tagComp
-        .findOne(
-          (node) => node.name === "type=info" && node.type === "COMPONENT"
-        )!
-        //@ts-ignore
-        .createInstance();
+      const foundTagComponent = tagComp.findOne(
+        (node) => node.name === "type=info" && node.type === "COMPONENT"
+      );
+      if (!foundTagComponent || foundTagComponent.type !== "COMPONENT") return;
+      const tag = foundTagComponent.createInstance();
       strokeWeight = frame.strokeWeight;
       setStrokeProps(tag, strokeWeight, strokeAlign, indexes, "Stroke");
     }

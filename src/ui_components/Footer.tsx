@@ -9,8 +9,8 @@ const Footer = ({
   setIsBuilding,
   setIsBuildingOnCanvas,
 }: {
-  setIsBuilding: Function;
-  setIsBuildingOnCanvas: Function;
+  setIsBuilding: (value: boolean) => void;
+  setIsBuildingOnCanvas: (value: boolean) => void;
 }) => {
   const [saveData, setSaveData] = useState(false);
   const [buildOnCanvas, setBuildOnCanvas] = useState(false);
@@ -159,13 +159,13 @@ export default Footer;
 function handlePublish(
   saveData: boolean,
   isDraft: boolean | undefined,
-  setIsBuilding: Function,
-  setIsBuildingOnCanvas: Function,
+  setIsBuilding: (arg: boolean) => void,
+  setIsBuildingOnCanvas: (arg: boolean) => void,
   buildOnCanvas: boolean,
   publishToViewer: boolean,
-  setPublishToViewer: Function,
-  setBuildOnCanvas: Function,
-  setSaveData: Function
+  setPublishToViewer: (arg: boolean) => void,
+  setBuildOnCanvas: (arg: boolean) => void,
+  setSaveData: (arg: boolean) => void
 ) {
   if (saveData) {
     if (isDraft) {

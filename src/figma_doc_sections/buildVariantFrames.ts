@@ -11,8 +11,6 @@ export function buildVariantFrames(
   variantKeys: string[],
   missedItemsArray: InstanceNode[]
 ) {
-  console.log("workingArrays", workingArrays);
-  // const topFrameContentName = getTopFrameName(variantKeys);
   const allElementsFrame = buildAutoLayoutFrame(
     "variants-frame",
     "VERTICAL",

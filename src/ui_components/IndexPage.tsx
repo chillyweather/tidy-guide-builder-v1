@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { IconTrash, IconCopy } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
@@ -19,13 +20,13 @@ const IndexPage = ({
   token,
 }: {
   data: any;
-  setDataForUpdate: Function;
-  setSelectedMasterId: Function;
-  setIsIndexOpen: Function;
-  setIsContenFromServerOpen: Function;
-  setIsFromSavedData: Function;
-  setShowDeletePopup: Function;
-  setElementToDelete: Function;
+  setDataForUpdate: (data: any) => void;
+  setSelectedMasterId: (id: any) => void;
+  setIsIndexOpen: (isOpen: boolean) => void;
+  setIsContenFromServerOpen: (isOpen: boolean) => void;
+  setIsFromSavedData: (isFromSavedData: boolean) => void;
+  setShowDeletePopup: (showPopup: boolean) => void;
+  setElementToDelete: (element: any) => void;
   token: string;
 }) => {
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
@@ -35,7 +36,7 @@ const IndexPage = ({
 
   return (
     <div className={"componentBTN-wrapper"}>
-      {sortedData.map((element: any, index: number) => {
+      {sortedData.map((element: any) => {
         const title = element.title;
         const wip = element.inProgress;
         const draft = element.draft;
@@ -49,12 +50,26 @@ const IndexPage = ({
                   : "inner-componentBTN"
               }
               // style={{ opacity: draft ? 0.5 : 1 }}
-              onClick={() => {
-                emit("GET_NEW_SELECTION", element.componentKey, element.nodeId);
-                setSelectedMasterId(element._id);
-                setIsFromSavedData(true);
-                setIsIndexOpen(false);
-                setIsContenFromServerOpen(true);
+              onClick={(e) => {
+                if (e.metaKey || e.ctrlKey) {
+                  //
+                  emit(
+                    "GET_NEW_SELECTION",
+                    element.componentKey,
+                    element.nodeId
+                  );
+                  // setSelectedMasterId(element._id);
+                } else {
+                  emit(
+                    "GET_NEW_SELECTION",
+                    element.componentKey,
+                    element.nodeId
+                  );
+                  setSelectedMasterId(element._id);
+                  setIsFromSavedData(true);
+                  setIsIndexOpen(false);
+                  setIsContenFromServerOpen(true);
+                }
               }}
             >
               <div className="inner-div">{title}</div>
@@ -90,7 +105,11 @@ const IndexPage = ({
 
 export default IndexPage;
 
-async function handleDocClone(token: string, id: string, setData: Function) {
+async function handleDocClone(
+  token: string,
+  id: string,
+  setData: (value: any) => void
+) {
   const docFromServer = await getDocumentation(token, id);
 
   delete docFromServer._id;

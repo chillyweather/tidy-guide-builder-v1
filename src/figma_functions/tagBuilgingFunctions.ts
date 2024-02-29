@@ -50,6 +50,7 @@ export function addTextNodesToArray(node: any, array: any[]): void {
     node.absoluteRenderBounds.width,
     node.height,
     node.name,
+    null,
     styleName,
     node.fontName,
     node.fontSize,

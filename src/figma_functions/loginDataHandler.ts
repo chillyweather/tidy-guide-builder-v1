@@ -23,8 +23,8 @@ export async function tokenAndEmailHandler(token?: string, email?: string) {
     const savedToken = await figma.clientStorage.getAsync("token");
     const savedEmail = await figma.clientStorage.getAsync("email");
 
-    console.log("savedToken", savedToken);
-    console.log("savedEmail", savedEmail);
+    // console.log("savedToken", savedToken);
+    // console.log("savedEmail", savedEmail);
 
     if (savedToken && savedEmail) {
       emit("AUTH_CHANGE", savedToken, savedEmail);

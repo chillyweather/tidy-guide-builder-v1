@@ -189,9 +189,9 @@ function Plugin() {
     });
   });
 
-  useEffect(() => {
-    console.log("selectedNodeId", selectedNodeId);
-  }, [selectedNodeId]);
+  // useEffect(() => {
+  //   console.log("selectedNodeId", selectedNodeId);
+  // }, [selectedNodeId]);
 
   //   on("USER_EMAIL", (email) => {
   //     setLoggedInUser(email);
@@ -385,16 +385,12 @@ function Plugin() {
       const isDocumented = result.some((doc: any) => doc._id === data._id);
 
       if (isDocumented) {
-        console.log("data to post", data);
         const response = await updateDocumentation(token, data._id, data);
-        console.log("response from post", response);
         if (isBuildingOnCanvas) emit("BUILD", response);
         const newData = await getDocumentations(token);
         setDataForUpdate(newData);
       } else {
-        console.log("data to post", data);
         const response = await createDocumentation(token, data);
-        console.log("response from post", response);
         if (isBuildingOnCanvas) emit("BUILD", response);
         const newData = await getDocumentations(token);
         setDataForUpdate(newData);
@@ -409,7 +405,6 @@ function Plugin() {
 
   useEffect(() => {
     if (Object.keys(documentationData).length > 0 && isBuilding && token) {
-      console.log("documentationData", documentationData);
       handleAddDocumentation(token, documentationData);
     }
   }, [documentationData, isBuilding, token]);
@@ -631,8 +626,10 @@ function Plugin() {
           !showIndexPage &&
           !showSettingsPage && (
             <Footer
-              setIsBuilding={setIsBuilding}
-              setIsBuildingOnCanvas={setIsBuildingOnCanvas}
+              setIsBuilding={(value: boolean) => setIsBuilding(value)}
+              setIsBuildingOnCanvas={(value: boolean) =>
+                setIsBuildingOnCanvas(value)
+              }
             />
           )}
       </BuilderContext.Provider>
