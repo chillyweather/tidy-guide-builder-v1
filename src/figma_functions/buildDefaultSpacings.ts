@@ -9,8 +9,8 @@ import {
 } from "./utilityFunctions";
 import { setSizingMarkerValue } from "./setSizingMarkerValue";
 
-const dsGray100 = setColorStyle(".TG-admin/gray/gray-100", "F5F5F5");
-const dsGray600 = setColorStyle(".TG-admin/gray/gray-600", "707070");
+const dsGray100 = setColorStyle(".TG-admin/spacing-block-background", "F5F5F5");
+const dsGray600 = setColorStyle(".TG-admin/spacing-block-label", "707070");
 
 export async function buildAtomSpacings(
   element: InstanceNode,

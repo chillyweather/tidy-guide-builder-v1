@@ -41,8 +41,15 @@ function addInstancesToArray(node: any, array: any[]) {
   ]);
 }
 
-export function addTextNodesToArray(node: any, array: any[]): void {
-  const styleName = findFontStyleName(node);
+export async function addTextNodesToArray(
+  node: any,
+  array: any[]
+): Promise<void> {
+  const styleName = await findFontStyleName(node);
+
+  console.log("styleName", styleName);
+  console.log("node.fontName", node.fontName);
+  console.log("node.fontSize", node.fontSize);
 
   array.push([
     node.absoluteBoundingBox.x,
@@ -56,25 +63,28 @@ export function addTextNodesToArray(node: any, array: any[]): void {
     node.fontSize,
   ]);
 }
-export function findAllNodes(
-  frame: FrameNode,
+
+export async function findAllNodes(
+  frame: FrameNode | GroupNode,
   instances: any,
   textElements: any
-): void {
+): Promise<void> {
   figma.skipInvisibleInstanceChildren = true;
-
-  frame.children.forEach((node: any) => {
+  for (const node of frame.children) {
     if (node.absoluteBoundingBox && node.width > 0.01) {
       if (node.type === "INSTANCE" && instances && !node.name.startsWith("_")) {
         addInstancesToArray(node, elementsCoordinatesAndDimensions);
       }
       if (node.type === "TEXT" && textElements && !node.name.startsWith("_")) {
-        addTextNodesToArray(node, elementsCoordinatesAndDimensions);
-      } else if (node.children && node.type !== "INSTANCE") {
+        await addTextNodesToArray(node, elementsCoordinatesAndDimensions);
+      } else if (
+        (node.type === "FRAME" || node.type === "GROUP") &&
+        node.children
+      ) {
         findAllNodes(node, instances, textElements);
       }
     }
-  });
+  }
 }
 
 //-> new string of indexes for tags accorging to user input

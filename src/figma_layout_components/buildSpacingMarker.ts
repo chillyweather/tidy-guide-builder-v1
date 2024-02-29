@@ -3,23 +3,22 @@ import { setColorStyle } from "../figma_functions/utilityFunctions";
 const TG_SPACING_MARKER = ".TG-spacing-marker";
 const TG_SPACING_MARKER_HAND_LENGTH = 40;
 
-const dsGray900 = setColorStyle(".TG-admin/gray/gray-900", "292929");
-const dsPink500 = setColorStyle(".TG-admin/pink/pink-500", "EC2D79");
-const dsWhite = setColorStyle(".TG-admin/White", "FFFFFF");
+const dsGray900 = setColorStyle(".TG-admin/spacing-text", "292929");
+const dsPink500 = setColorStyle(".TG-admin/spacing-primary", "EC2D79");
 
-const barColor: ReadonlyArray<Paint> = [
-  {
-    type: "SOLID",
-    visible: true,
-    opacity: 0.4000000059604645,
-    blendMode: "NORMAL",
-    color: {
-      r: 0.9254902005195618,
-      g: 0.1764705926179886,
-      b: 0.4745098054409027,
-    },
-  },
-];
+// const barColor: ReadonlyArray<Paint> = [
+//   {
+//     type: "SOLID",
+//     visible: true,
+//     opacity: 0.4000000059604645,
+//     blendMode: "NORMAL",
+//     color: {
+//       r: 0.9254902005195618,
+//       g: 0.1764705926179886,
+//       b: 0.4745098054409027,
+//     },
+//   },
+// ];
 
 async function buildLine() {
   const line = figma.createVector();
@@ -102,11 +101,13 @@ async function createAnatomySpacingsText(size: string) {
   return meterValue;
 }
 
-function createAnatomyBar(position: string) {
+async function createAnatomyBar(position: string) {
   const bar = figma.createFrame();
   bar.name = `${TG_SPACING_MARKER}-bar`;
   bar.resize(16, 88);
-  bar.fills = barColor;
+  await bar.setFillStyleIdAsync(dsPink500.id);
+  bar.opacity = 0.4;
+  // bar.fills = barColor;
   bar.layoutPositioning = "AUTO";
   bar.layoutAlign = "STRETCH";
   bar.layoutMode = "VERTICAL";
@@ -131,7 +132,7 @@ async function createAnatomySpacings(size: string, position: string) {
   spacingMarker.layoutAlign = "STRETCH";
 
   // const meter = createAnatomySpacingsMeter(size, position);
-  const bar = createAnatomyBar(position);
+  const bar = await createAnatomyBar(position);
   if (position === "top") {
     spacingMarker.name = "position=top";
     spacingMarker.appendChild(value);
@@ -185,17 +186,6 @@ async function buildSpacingMarkerComponentSet() {
   const spacings = [spacingTop, spacingBottom, spacingLeft, spacingRight];
   spacings.forEach((node) => toolsPage.appendChild(node));
   const spacingComponentSet = figma.combineAsVariants(spacings, toolsPage);
-
-  spacingComponentSet.name = TG_SPACING_MARKER;
-  spacingComponentSet.layoutPositioning = "AUTO";
-  spacingComponentSet.layoutMode = "HORIZONTAL";
-  spacingComponentSet.itemSpacing = 20;
-  await spacingComponentSet.setFillStyleIdAsync(dsWhite.id);
-  spacingComponentSet.paddingBottom = 20;
-  spacingComponentSet.paddingTop = 20;
-  spacingComponentSet.paddingLeft = 20;
-  spacingComponentSet.paddingRight = 20;
-  spacingComponentSet.cornerRadius = 28;
   spacingLeft.resize(120, 16);
   spacingRight.resize(120, 16);
   return spacingComponentSet;

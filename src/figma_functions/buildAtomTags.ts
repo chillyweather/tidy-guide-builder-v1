@@ -8,11 +8,7 @@ import {
 } from "../figma_functions/utilityFunctions";
 import buildTags from "./buildTags";
 
-export const TGGray100 = setColorStyle(".TG-admin/gray/tag-text", "F5F5F5");
-export const TGGray600 = setColorStyle(
-  ".TG-admin/gray/tag-color-secondary",
-  "707070"
-);
+export const TGGray600 = setColorStyle(".TG-admin/anatomy-secondary", "707070");
 
 export async function buildAtomTags(
   element: InstanceNode,
@@ -69,7 +65,11 @@ async function buildOneTag(
   size?: string
 ) {
   const resultFrame = buildAutoLayoutFrame("tagFrame", "HORIZONTAL", 20, 0);
-  const group = buildElementTags(element, booleanProperties, tagComponentSet);
+  const group = await buildElementTags(
+    element,
+    booleanProperties,
+    tagComponentSet
+  );
   resultFrame.appendChild(group);
   resultFrame.paddingBottom = 40;
   resultFrame.paddingTop = 40;
@@ -120,14 +120,14 @@ function setTitlePosition(title: InstanceNode, frame: FrameNode) {
   return title;
 }
 
-function buildElementTags(
+async function buildElementTags(
   element: InstanceNode,
   booleanProperties: any,
   tagComponentSet: ComponentSetNode | undefined
 ) {
   const currentAtom = element.clone();
   turnAllBooleansOn(currentAtom, booleanProperties);
-  const tagBuildResults = buildTags(
+  const tagBuildResults = await buildTags(
     tagComponentSet,
     currentAtom,
     "A",

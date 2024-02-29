@@ -4,13 +4,14 @@ import {
   addNewBooleanProperty,
 } from "../figma_functions/addNewProperty";
 
-export const TGWhite = setColorStyle(".TG-admin/White", "FFFFFF");
-export const TGGray900 = setColorStyle(".TG-admin/gray/gray-900", "292929");
-export const TGGray600 = setColorStyle(".TG-admin/gray/gray-600", "707070");
-export const TGLightBlue500 = setColorStyle(
-  ".TG-admin/light-blue/light-blue-500",
-  "00B0FF"
+export const TGWhite = setColorStyle(".TG-admin/anatomy-icon", "FFFFFF");
+export const TGGray900 = setColorStyle(".TG-admin/anatomy-primary", "292929");
+export const anatomyLabelsColor = setColorStyle(
+  ".TG-admin/anatomy-labels",
+  "292929"
 );
+export const TGGray600 = setColorStyle(".TG-admin/anatomy-secondary", "707070");
+export const TGLightBlue500 = setColorStyle(".TG-admin/links", "00B0FF");
 
 export function addText(letterText: string) {
   const letter = figma.createText();
@@ -140,7 +141,7 @@ export async function createLineBox() {
 
 export async function buildLabelText(label: string) {
   const labelText = figma.createText();
-  await labelText.setFillStyleIdAsync(TGGray900.id);
+  await labelText.setFillStyleIdAsync(anatomyLabelsColor.id);
   labelText.fontSize = 14;
   labelText.fontName = {
     family: "Inter",

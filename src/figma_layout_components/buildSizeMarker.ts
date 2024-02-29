@@ -2,11 +2,11 @@ import { setColorStyle } from "../figma_functions/utilityFunctions";
 
 const TG_SIZE_MARKER = ".TG-size-marker";
 
-const dsGray900 = setColorStyle(".TG-admin/gray/gray-900", "292929");
-const dsPink500 = setColorStyle(".TG-admin/pink/pink-500", "EC2D79");
+const dsGray900 = setColorStyle(".TG-admin/spacing-text", "292929");
+const dsPink500 = setColorStyle(".TG-admin/spacing-primary", "EC2D79");
 
-const dsWhite = setColorStyle(".TG-admin/White", "FFFFFF");
-const dsSpacingMarker = setColorStyle(".TG-admin/Spacings", "E0851D");
+// const dsWhite = setColorStyle(".TG-admin/White", "FFFFFF");
+// const dsSpacingMarker = setColorStyle(".TG-admin/Spacings", "E0851D");
 
 const emptyFill: ReadonlyArray<Paint> = [
   {
@@ -31,11 +31,11 @@ function addTextProperty(component: ComponentNode, textNode: TextNode) {
 async function createMarkerLines(position: string) {
   const frame = figma.createFrame();
   frame.fills = emptyFill;
-  await frame.setStrokeStyleIdAsync(dsSpacingMarker.id);
+  // await frame.setStrokeStyleIdAsync(dsSpacingMarker.id);
   const line = figma.createLine();
   frame.appendChild(line);
   line.strokeWeight = 1;
-  await line.setStrokeStyleIdAsync(dsSpacingMarker.id);
+  // await line.setStrokeStyleIdAsync(dsSpacingMarker.id);
   if (position === "top" || position === "bottom") {
     frame.strokeLeftWeight = 1;
     frame.strokeRightWeight = 1;
@@ -74,7 +74,7 @@ async function createAnatomySpacingsText(size: string) {
     style: "Regular",
   };
   meterValue.characters = `${size}`;
-  await meterValue.setFillStyleIdAsync(dsSpacingMarker.id);
+  // await meterValue.setFillStyleIdAsync(dsSpacingMarker.id);
   meterValue.name = `${TG_SIZE_MARKER}-value`;
   meterValue.layoutAlign = "INHERIT";
   meterValue.textAlignHorizontal = "CENTER";
@@ -184,16 +184,6 @@ async function buildSizeMarkerComponentSet() {
     toolsPage
   );
 
-  spacingComponentSet.name = TG_SIZE_MARKER;
-  spacingComponentSet.layoutPositioning = "AUTO";
-  spacingComponentSet.layoutMode = "HORIZONTAL";
-  spacingComponentSet.itemSpacing = 20;
-  await spacingComponentSet.setFillStyleIdAsync(dsWhite.id);
-  spacingComponentSet.paddingBottom = 20;
-  spacingComponentSet.paddingTop = 20;
-  spacingComponentSet.paddingLeft = 20;
-  spacingComponentSet.paddingRight = 20;
-  spacingComponentSet.cornerRadius = 28;
   return spacingComponentSet;
 }
 

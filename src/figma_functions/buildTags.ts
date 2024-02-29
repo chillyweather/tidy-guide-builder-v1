@@ -10,7 +10,7 @@ import { setVariantProps } from "./utilityFunctions";
 import { getEffects } from "./getEffects";
 import { setTextContent } from "./utilityFunctions";
 
-export default function buildTags(
+export default async function buildTags(
   tagComponent: ComponentSetNode | undefined,
   frame: any,
   start: string,
@@ -33,7 +33,7 @@ export default function buildTags(
 
   elementsCoordinatesAndDimensions.length = 0;
 
-  findAllNodes(frame, instances, textElements);
+  await findAllNodes(frame, instances, textElements);
 
   const indexes = buildIndexesFrame(frame);
 
