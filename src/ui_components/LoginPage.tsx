@@ -56,7 +56,7 @@ const Login = ({
     try {
       const response = await login(email, password);
       const token = response.token;
-      // console.log("response", response);
+      console.log("response", response);
       if (token) {
         emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email);
         setToken(token);
@@ -67,7 +67,7 @@ const Login = ({
         setShowWaitingInfoPopup(true);
       }
     } catch (error) {
-      // console.log("Login failed:", error);
+      console.log("Login failed:", error);
       setIsLoginFailed(true);
     }
   };

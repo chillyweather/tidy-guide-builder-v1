@@ -91,12 +91,12 @@ export default async function () {
     try {
       await documentationBuilder(data, loadFonts);
     } catch (error) {
-      // console.log("error on documentation build in Figma :>> ", error);
+      console.log("error on documentation build in Figma :>> ", error);
     }
   });
 
   on("DELETE_ACCOUNT", async () => {
-    // console.log("delete account");
+    console.log("delete account");
     await figma.clientStorage.deleteAsync("token");
     figma.notify("Account deleted");
   });

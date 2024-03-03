@@ -335,7 +335,7 @@ export const ContentCard = (cardData: any, index: number) => {
     deleteSection(e, index, setSelectedSections);
     const deletion = await deleteFileFromServer(remoteImageLink);
     if (deletion) {
-      // console.log(deletion);
+      console.log(deletion);
     }
   };
 

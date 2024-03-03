@@ -82,7 +82,7 @@ function buildSpacingMarks(
     workingFrame.remove();
     return spacingMarkers;
   } catch (err) {
-    // console.log(err);
+    console.log(err);
   }
 }
 

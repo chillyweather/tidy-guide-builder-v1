@@ -14,21 +14,21 @@ export async function getNode(id: string, key: string) {
       return masterComponent;
     }
   } catch (error) {
-    // console.log("error", error);
+    console.log("error", error);
   }
 
   try {
     const importedComponentSet = await figma.importComponentSetByKeyAsync(key);
     return importedComponentSet;
   } catch (error) {
-    // console.log("error", error);
+    console.log("error", error);
   }
 
   try {
     const importedComponent = await figma.importComponentByKeyAsync(key);
     return importedComponent;
   } catch (error) {
-    // console.log("error", error);
+    console.log("error", error);
   }
 
   return null;

@@ -151,9 +151,9 @@ export function setVariantProps(
         node.setProperties(newProps);
       } catch (error) {
         // node.opacity = 0;
-        // console.log(
-        //   `error :>> node with property ${property} and value ${value} doesn't exist on node ${node}`
-        // );
+        console.log(
+          `error :>> node with property ${property} and value ${value} doesn't exist on node ${node}`
+        );
       }
     }
   }
@@ -178,9 +178,9 @@ export function setBooleanProps(
         newProps[property] = value;
         element.setProperties(newProps);
       } catch (error) {
-        // console.log(
-        //   `error :>> node with property ${property} and value ${value} doesn't exist on node ${element}`
-        // );
+        console.log(
+          `error :>> node with property ${property} and value ${value} doesn't exist on node ${element}`
+        );
       }
     }
   }
@@ -291,7 +291,7 @@ export function setTextContent(
       textNode.characters = text;
     }
   } catch (error) {
-    // console.log("error", error);
+    console.log("error", error);
   }
 }
 

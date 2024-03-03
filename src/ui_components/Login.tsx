@@ -61,7 +61,7 @@ export const Login = ({
         setIsLoginPageOpen(false);
       }
     } catch (error) {
-      // console.log("Login failed:", error);
+      console.log("Login failed:", error);
       setIsLoginFailed(true);
     }
   };

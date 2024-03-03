@@ -17,7 +17,7 @@ export async function sendFeedback(issueTitle: string, issueBody: string) {
     }
 
     const resp = await response.json();
-    // console.log(resp);
+    console.log(resp);
     return resp;
   } catch (error) {
     console.error(error);

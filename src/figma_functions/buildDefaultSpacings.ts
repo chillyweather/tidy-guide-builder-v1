@@ -335,7 +335,7 @@ export function buildSizeMarkers(
         try {
           setMinSizeMarkerValue(elementSize, marker);
         } catch (error) {
-          // console.log("error :>> ", error);
+          console.log("error :>> ", error);
         }
       }
     }

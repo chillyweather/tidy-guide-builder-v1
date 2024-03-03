@@ -32,7 +32,7 @@ export async function createNewAccount(
     body: JSON.stringify({ name, email, password, company }),
   });
 
-  // console.log("response", response);
+  console.log("response", response);
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
@@ -59,7 +59,7 @@ export async function deleteAccount(token: string, id: string) {
     const data = await response.text();
     return data;
   } catch (error) {
-    // console.log("error", error);
+    console.log("error", error);
   }
 }
 
