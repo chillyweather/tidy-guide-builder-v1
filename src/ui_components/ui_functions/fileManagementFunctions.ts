@@ -1,4 +1,5 @@
-//@ts-nocheck
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   PutObjectCommand,
   DeleteObjectCommand,
@@ -39,15 +40,16 @@ export async function uploadFileToServer(file: File, loggedInUser: string) {
 
     const uploadObject = async () => {
       try {
-        console.log("loading");
+        // console.log("loading");
+        //@ts-ignore
         const data = await s3Client.send(new PutObjectCommand(params));
         if (data) {
-          console.log("loaded");
+          // console.log("loaded");
         }
         const url = `https://tidy-guide-resources.nyc3.digitaloceanspaces.com/images/${fileNameWithoutExtension}_${currentUserName}_${uid}.${fileExtension}`;
         return url;
       } catch (err) {
-        console.log("Error", err);
+        // console.log("Error", err);
       }
     };
 
@@ -106,7 +108,7 @@ export async function deleteMultipleFilesFromServer(urls: string[]) {
       try {
         const data = await s3Client.send(new DeleteObjectCommand(params));
         return { url, status: "success", data };
-      } catch (err) {
+      } catch (err: any) {
         return { url, status: "error", error: err.message };
       }
     })

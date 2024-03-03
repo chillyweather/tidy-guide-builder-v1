@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
-import { useState, useContext, useEffect } from "preact/hooks";
-import BuilderContext from "src/BuilderContext";
+import { useState } from "preact/hooks";
 import { TidyLogo } from "../images/TidyLogo";
 import { IconMail, IconEye } from "@tabler/icons-react";
 import { login } from "./ui_functions/authentication";
@@ -18,14 +18,14 @@ const Login = ({
   setShowPasswordResetPopup,
   setShowWaitingInfoPopup,
 }: {
-  setToken: Function;
-  setIsLoginFailed: Function;
+  setToken: (value: string) => void;
+  setIsLoginFailed: (value: boolean) => void;
   isLoginFailed: boolean;
-  setIsLoginPageOpen: Function;
-  setIsSettingPageOpen: Function;
-  setIsSigninPageOpen: Function;
-  setShowPasswordResetPopup: Function;
-  setShowWaitingInfoPopup: Function;
+  setIsLoginPageOpen: (value: boolean) => void;
+  setIsSettingPageOpen: (value: boolean) => void;
+  setIsSigninPageOpen: (value: boolean) => void;
+  setShowPasswordResetPopup: (value: boolean) => void;
+  setShowWaitingInfoPopup: (value: boolean) => void;
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -56,7 +56,7 @@ const Login = ({
     try {
       const response = await login(email, password);
       const token = response.token;
-      console.log("response", response);
+      // console.log("response", response);
       if (token) {
         emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email);
         setToken(token);
@@ -67,7 +67,7 @@ const Login = ({
         setShowWaitingInfoPopup(true);
       }
     } catch (error) {
-      console.log("Login failed:", error);
+      // console.log("Login failed:", error);
       setIsLoginFailed(true);
     }
   };

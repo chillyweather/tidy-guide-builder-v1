@@ -6,15 +6,6 @@ import { tokenAndEmailHandler } from "./figma_functions/loginDataHandler";
 import { getNode } from "./figma_functions/getNode";
 import imageFromFigma from "./figma_functions/imageFromFigma";
 
-//! time check
-// const time = new Date().getTime();
-// if (time > 1709244000000) {
-//   figma.closePlugin(
-//     "this version of plugin is no longer supported, please download it from the Figma Community"
-//   );
-// }
-//! ----------
-
 const loadFonts = async () => {
   await figma.loadFontAsync({ family: "Inter", style: "Regular" });
   await figma.loadFontAsync({ family: "Inter", style: "Bold" });
@@ -38,7 +29,6 @@ export default async function () {
   emit("SESSION", sessionData);
 
   const selectionData = await checkSelection();
-  console.log("selectionData", selectionData);
   if (selectionData) emit("SELECTION", selectionData);
 
   once("SAVE_NEW_TOKEN_AND_EMAIL", (token, email) => {
@@ -51,7 +41,6 @@ export default async function () {
 
   on("GET_SELECTION", async () => {
     const selectionData = await checkSelection();
-    console.log("selectionData", selectionData);
     if (selectionData) emit("SELECTION", selectionData);
   });
 
@@ -65,7 +54,7 @@ export default async function () {
 
   on("GET_COMPONENT_PIC", async (key, id) => {
     if (key) {
-      const foundElement = await getNode(id, key, "main");
+      const foundElement = await getNode(id, key);
       if (foundElement) {
         if (foundElement.type === "COMPONENT_SET") {
           const bytes = await foundElement.defaultVariant.exportAsync({
@@ -88,7 +77,7 @@ export default async function () {
 
   on("GET_NEW_SELECTION", async (key, id) => {
     if (key) {
-      const foundElement = await getNode(id, key, "main");
+      const foundElement = await getNode(id, key);
 
       if (foundElement) {
         const foundElementName = foundElement.name;
@@ -102,12 +91,12 @@ export default async function () {
     try {
       await documentationBuilder(data, loadFonts);
     } catch (error) {
-      console.log("error on documentation build in Figma :>> ", error);
+      // console.log("error on documentation build in Figma :>> ", error);
     }
   });
 
   on("DELETE_ACCOUNT", async () => {
-    console.log("delete account");
+    // console.log("delete account");
     await figma.clientStorage.deleteAsync("token");
     figma.notify("Account deleted");
   });

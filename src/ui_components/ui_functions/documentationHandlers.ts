@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 //! create documentation
 export async function createDocumentation(token: string, body: any) {
   const path = `https://api.tidyframework.com/api/docs`;
@@ -45,15 +46,13 @@ export async function updateDocumentation(
 
 //! get one documentation
 export async function getDocumentation(token: string, documentId: string) {
-  console.log("token", token);
-  console.log("documentId", documentId);
-  let headersList = {
+  const headersList = {
     Accept: "*/*",
     "User-Agent": "Thunder Client (https://www.thunderclient.com)",
     Authorization: `Bearer ${token}`,
   };
 
-  let response = await fetch(
+  const response = await fetch(
     `https://api.tidyframework.com/api/docs/${documentId}`,
     {
       method: "GET",
@@ -61,16 +60,16 @@ export async function getDocumentation(token: string, documentId: string) {
     }
   );
 
-  let data = await response.json();
+  const data = await response.json();
   return data;
 }
 
 //! get all documentations
 export async function getDocumentations(token: string) {
-  let myHeaders = new Headers();
+  const myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
 
-  let requestOptions: RequestInit = {
+  const requestOptions: RequestInit = {
     method: "GET",
     headers: myHeaders,
     redirect: "follow",
@@ -91,10 +90,10 @@ export async function getDocumentations(token: string) {
 
 //! get IDs and names of all documentations
 export async function getTitlesAndIds(token: string) {
-  let myHeaders = new Headers();
+  const myHeaders = new Headers();
   myHeaders.append("Authorization", `Bearer ${token}`);
 
-  let requestOptions: RequestInit = {
+  const requestOptions: RequestInit = {
     method: "GET",
     headers: myHeaders,
     redirect: "follow",

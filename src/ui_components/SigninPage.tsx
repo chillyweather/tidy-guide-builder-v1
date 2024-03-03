@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
-import { useState, useContext, useEffect } from "preact/hooks";
-import BuilderContext from "src/BuilderContext";
+import { useState } from "preact/hooks";
 import { TidyLogo } from "../images/TidyLogo";
 import {
   IconMail,
@@ -17,19 +17,20 @@ const SignIn = ({
   setIsLoginFailed,
   isLoginFailed,
   setIsLoginPageOpen,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setIsLoading,
   setIsSigninPageOpen,
   setIsSettingPageOpen,
   setShowWaitingInfoPopup,
 }: {
-  setToken: Function;
-  setIsLoginFailed: Function;
+  setToken: (value: string) => void;
+  setIsLoginFailed: (value: boolean) => void;
   isLoginFailed: boolean;
-  setIsLoginPageOpen: Function;
-  setIsLoading: Function;
-  setIsSigninPageOpen: Function;
-  setIsSettingPageOpen: Function;
-  setShowWaitingInfoPopup: Function;
+  setIsLoginPageOpen: (value: boolean) => void;
+  setIsLoading: (value: boolean) => void;
+  setIsSigninPageOpen: (value: boolean) => void;
+  setIsSettingPageOpen: (value: boolean) => void;
+  setShowWaitingInfoPopup: (value: boolean) => void;
 }) => {
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
@@ -113,7 +114,6 @@ const SignIn = ({
         companyName
       );
       const token = response.token;
-      console.log("response in signin", response);
       if (token) {
         emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email);
         setToken(token);
@@ -127,7 +127,6 @@ const SignIn = ({
         setShowWaitingInfoPopup(true);
       }
     } catch (error) {
-      console.log("Login failed:", error);
       setIsLoginFailed(true);
     }
   };

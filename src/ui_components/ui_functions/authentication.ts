@@ -41,22 +41,25 @@ export async function createNewAccount(
 }
 
 export async function deleteAccount(token: string, id: string) {
-  let headersList = {
+  const headersList = {
     Accept: "*/*",
     Authorization: `Bearer ${token}`,
     "Content-Type": "application/x-www-form-urlencoded",
   };
 
-  let response = await fetch(`https://api.tidyframework.com/api/users/${id}`, {
-    method: "DELETE",
-    headers: headersList,
-  });
+  const response = await fetch(
+    `https://api.tidyframework.com/api/users/${id}`,
+    {
+      method: "DELETE",
+      headers: headersList,
+    }
+  );
 
   try {
-    let data = await response.text();
+    const data = await response.text();
     return data;
   } catch (error) {
-    console.log("error", error);
+    // console.log("error", error);
   }
 }
 
@@ -78,16 +81,16 @@ export async function getMyAccountData(token: string) {
 }
 
 export async function getPasswordResetToken(email: string) {
-  let headersList = {
+  const headersList = {
     Accept: "*/*",
     "Content-Type": "application/json",
   };
 
-  let bodyContent = JSON.stringify({
+  const bodyContent = JSON.stringify({
     email: `${email}`,
   });
 
-  let response = await fetch(
+  const response = await fetch(
     "https://api.tidyframework.com/api/users/forgetpassword",
     {
       method: "POST",
@@ -96,7 +99,7 @@ export async function getPasswordResetToken(email: string) {
     }
   );
 
-  let data = await response.json();
+  const data = await response.json();
   return data;
 }
 
@@ -106,19 +109,19 @@ export async function resetPassword(
   newPassword: string,
   confirmPassword: string
 ) {
-  let headersList = {
+  const headersList = {
     Accept: "*/*",
     "Content-Type": "application/json",
   };
 
-  let bodyContent = JSON.stringify({
+  const bodyContent = JSON.stringify({
     email: `${email}`,
     token: `${token}`,
     newPassword: `${newPassword}`,
     confirmPassword: `${confirmPassword}`,
   });
 
-  let response = await fetch(
+  const response = await fetch(
     "https://api.tidyframework.com/api/users/resetpassword",
     {
       method: "PATCH",
@@ -127,6 +130,6 @@ export async function resetPassword(
     }
   );
 
-  let data = await response.text();
+  const data = await response.text();
   return data;
 }

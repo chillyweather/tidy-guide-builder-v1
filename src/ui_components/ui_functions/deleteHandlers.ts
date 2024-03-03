@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { deleteMultipleFilesFromServer } from "./fileManagementFunctions";
 import {
   getDocumentations,
@@ -14,6 +15,7 @@ export async function handleDeletePictures(
   );
   const links = findImageUrls(documentationToDelete);
   if (links.length === 0) return;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const result = await deleteMultipleFilesFromServer(links);
 }
 
@@ -26,7 +28,6 @@ export function findImageUrls(data: any) {
     if (!(link && link.startsWith("https://tidy-guide-resources"))) continue;
     links.push(link);
   }
-  console.log("links", links);
   return links;
 }
 
