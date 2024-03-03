@@ -47,10 +47,6 @@ export async function addTextNodesToArray(
 ): Promise<void> {
   const styleName = await findFontStyleName(node);
 
-  console.log("styleName", styleName);
-  console.log("node.fontName", node.fontName);
-  console.log("node.fontSize", node.fontSize);
-
   array.push([
     node.absoluteBoundingBox.x,
     node.absoluteBoundingBox.y,

@@ -17,8 +17,8 @@ export async function tokenAndEmailHandler(token?: string, email?: string) {
 
     emit("AUTH_CHANGE", token, email);
 
-    console.log("token set :>> ", token);
-    console.log("email set :>> ", email);
+    // console.log("token set :>> ", token);
+    // console.log("email set :>> ", email);
   } else {
     const savedToken = await figma.clientStorage.getAsync("token");
     const savedEmail = await figma.clientStorage.getAsync("email");

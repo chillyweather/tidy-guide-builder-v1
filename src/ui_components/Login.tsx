@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
 import { useState } from "preact/hooks";
@@ -11,17 +12,18 @@ export const Login = ({
   setIsLoginFailed,
   isLoginFailed,
   setIsLoginPageOpen,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setIsLoading,
   setIsSigninPageOpen,
   setShowPasswordResetPopup,
 }: {
-  setToken: Function;
-  setIsLoginFailed: Function;
+  setToken: (value: string) => void;
+  setIsLoginFailed: (value: boolean) => void;
   isLoginFailed: boolean;
-  setIsLoginPageOpen: Function;
-  setIsLoading: Function;
-  setIsSigninPageOpen: Function;
-  setShowPasswordResetPopup: Function;
+  setIsLoginPageOpen: (value: boolean) => void;
+  setIsLoading: (value: boolean) => void;
+  setIsSigninPageOpen: (value: boolean) => void;
+  setShowPasswordResetPopup: (value: boolean) => void;
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -59,7 +61,7 @@ export const Login = ({
         setIsLoginPageOpen(false);
       }
     } catch (error) {
-      console.log("Login failed:", error);
+      // console.log("Login failed:", error);
       setIsLoginFailed(true);
     }
   };
