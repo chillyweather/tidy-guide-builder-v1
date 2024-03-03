@@ -23,7 +23,7 @@ import SpacingIcon from "./../images/spacing.svg";
 import PropertyIcon from "./../images/property.svg";
 import VariantsIcon from "./../images/variants.svg";
 import ReleaseNotesIcon from "./../images/release-notes.svg";
-import TokensIcon from "./../images/tokens.svg";
+// import TokensIcon from "./../images/tokens.svg";
 
 import {
   deleteSection,
@@ -399,7 +399,7 @@ export const ContentCard = (cardData: any, index: number) => {
             <img src={SpacingIcon} className={"spacing"} />
             <img src={PropertyIcon} className={"property"} />
             <img src={VariantsIcon} className={"variants"} />
-            <img src={TokensIcon} className={"tokens"} />
+            {/* <img src={TokensIcon} className={"tokens"} /> */}
             <img src={ReleaseNotesIcon} className={"releasenotes"} />
             <IconPilcrow className={"paragraph"} />
             <IconVideo className={"video"} />

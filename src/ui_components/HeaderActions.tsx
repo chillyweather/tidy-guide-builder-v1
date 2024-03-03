@@ -29,6 +29,8 @@ import DefinedVariants from "./../images/icon_variant.png";
 import DefinedVariantsGif from "./../images/icon_variant.gif";
 import DefinedReleaseNotes from "./../images/icon_release_notes.png";
 import DefinedReleaseNotesGif from "./../images/icon_release_notes.gif";
+import DefinedTokens from "./../images/icon_tokens.png";
+import DefinedTokensGif from "./../images/icon_tokens.png";
 
 import { useAtom } from "jotai";
 import {
@@ -63,7 +65,7 @@ function AddSectionPopupCard(card: any) {
           setIsHovering(true);
         }}
       >
-        <div className={"addSectionIcon"} type={card.title}>
+        <div className={"addSectionIcon"} type={card.datatype}>
           <img
             src={isHovering ? DefinedAnatomyGif : DefinedAnatomy}
             className={"anatomy"}
@@ -83,6 +85,10 @@ function AddSectionPopupCard(card: any) {
           <img
             src={isHovering ? DefinedReleaseNotesGif : DefinedReleaseNotes}
             className={"releasenotes"}
+          />
+          <img
+            src={isHovering ? DefinedTokensGif : DefinedTokens}
+            className={"tokens"}
           />
           <IconPilcrow className={"paragraph"} />
           <IconVideo className={"video"} />
