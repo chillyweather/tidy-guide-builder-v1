@@ -116,6 +116,7 @@ declare const styles: {
   readonly "leftContent": string;
   readonly "leftFooterContent": string;
   readonly "link": string;
+  readonly "link-icon": string;
   readonly "linkBlock": string;
   readonly "linkBlockColumn": string;
   readonly "links-block": string;

@@ -387,6 +387,23 @@ li {
   margin-top: 10px;
 }
 
+.link-icon {
+  position: absolute;
+  color: var(--tidy-32);
+  padding: 5px;
+  top: 54px;
+  left: 176px;
+}
+
+.link-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.link-icon:hover {
+  color: #616161;
+}
+
 .title-wrapper strong,
 .title-wrapper #sectionHeader {
   width: 100%;
