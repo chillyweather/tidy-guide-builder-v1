@@ -2081,6 +2081,12 @@ summary button {
 .addSectionPopup .addSectionCard:has(.addSectionIcon[type="tokens"]) .addSectionDescription {
   display: -webkit-box;
 }
+.addSectionCard[type="tokens"]{
+  pointer-events: none;
+}
+.addSectionCard[type="tokens"] .addSectionTitle, .addSectionCard[type="tokens"] .addSectionDescription{
+  color: var(--tidy-disabled-ic);
+}
 
 .addSectionPopup .addSectionIcon .noIcon,
 .addSectionPopup .addSectionIcon img {
