@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import envConfig from "src/envConfig";
 
 export async function setVideoDataElements(link: string, callback: any) {
@@ -28,8 +29,8 @@ export async function getVideoDetails(videoId: string, apiKey: string) {
     const { title, thumbnails } = data.items[0].snippet;
     return {
       title,
-      thumbnail: thumbnails.standard.url,
-      videoId: `https:\/\/www.youtube.com/embed/${videoId}`,
+      thumbnail: thumbnails.default.url,
+      videoId: `https://www.youtube.com/embed/${videoId}`,
     };
   } catch (error) {
     console.error(error);
