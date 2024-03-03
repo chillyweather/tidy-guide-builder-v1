@@ -81,6 +81,7 @@ declare const styles: {
   readonly "flex-btn": string;
   readonly "flex-button": string;
   readonly "flex-label": string;
+  readonly "flex-link": string;
   readonly "footer": string;
   readonly "header": string;
   readonly "header-button": string;
@@ -115,6 +116,7 @@ declare const styles: {
   readonly "leftContent": string;
   readonly "leftFooterContent": string;
   readonly "link": string;
+  readonly "link-icon": string;
   readonly "linkBlock": string;
   readonly "linkBlockColumn": string;
   readonly "links-block": string;
@@ -222,6 +224,7 @@ declare const styles: {
   readonly "videoSection": string;
   readonly "videoSelected": string;
   readonly "viewer-data-wrapper": string;
+  readonly "web-link": string;
   readonly "wip": string;
   readonly "youtubeIcon": string;
 };

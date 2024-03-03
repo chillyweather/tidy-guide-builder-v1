@@ -4,6 +4,7 @@ import {
   IconPlus,
   IconSettings,
   IconUser,
+  IconExternalLink,
 } from "@tabler/icons-react";
 import { h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
@@ -81,7 +82,10 @@ const Header = ({
         {!isLoginPageOpen &&
           (isIndexOpen ? (
             <div className="componentHeader">
-              <h2>Component Index</h2>
+              <h2>
+                Component Index
+              </h2>
+              <a href={"https://tidy.guide/guide/overview"} target={"_blank"} className={"link-icon"}><IconExternalLink /></a>
               <button
                 className="flex-button add-button"
                 onClick={() => {
