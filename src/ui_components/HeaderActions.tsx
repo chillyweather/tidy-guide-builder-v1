@@ -52,6 +52,7 @@ function AddSectionPopupCard(card: any) {
       <div
         className={"addSectionCard"}
         id={card.title}
+        disabled={card.dataType === "tokens"}
         onClick={() => {
           addSection();
         }}

@@ -2055,6 +2055,10 @@ summary button {
   display: block;
 }
 
+.addSectionIcon[type="tokens"] .tokens {
+  display: block;
+}
+
 .addSectionIcon[type="release notes"] .releasenotes,
 .addSectionIcon[type="release-notes"] .releasenotes {
   display: block;

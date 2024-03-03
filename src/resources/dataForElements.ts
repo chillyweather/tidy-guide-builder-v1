@@ -68,6 +68,18 @@ const PDSectionData = [
     repeatable: false,
     publish: true,
   },
+  {
+    title: "Tokens (Coming Soon)",
+    content: content,
+    datatype: "tokens",
+    description:
+      "Centralize design decisions effortlessly with a repository, pointing to style values like colors, fonts, and measurements.",
+    data: [],
+    id: "0",
+    docId: "0",
+    repeatable: false,
+    publish: false,
+  },
   // {
   //   title: "Release Notes",
   //   content: content,

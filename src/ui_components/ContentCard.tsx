@@ -1,11 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { emit, on } from "@create-figma-plugin/utilities";
+import { on } from "@create-figma-plugin/utilities";
 import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import {
   IconGripVertical,
   IconChevronDown,
-  IconCalendarEvent,
   IconPilcrow,
   IconVideo,
   IconColumns,
@@ -23,8 +23,7 @@ import SpacingIcon from "./../images/spacing.svg";
 import PropertyIcon from "./../images/property.svg";
 import VariantsIcon from "./../images/variants.svg";
 import ReleaseNotesIcon from "./../images/release-notes.svg";
-import { useAtom } from "jotai";
-import { selectedNodeIdAtom, selectedNodeKeyAtom } from "src/state/atoms";
+import TokensIcon from "./../images/tokens.svg";
 
 import {
   deleteSection,
@@ -64,8 +63,6 @@ function removeDraggable(event: any) {
 }
 
 export const ContentCard = (cardData: any, index: number) => {
-  const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
-  const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
 
   //card title
@@ -104,7 +101,7 @@ export const ContentCard = (cardData: any, index: number) => {
   );
   //video card data
   const [selectedVideo, setSelectedVideo] = useState(-1);
-  const [selectedVideoContent, setSelectedVideoContent] = useState({});
+  const [, setSelectedVideoContent] = useState({});
   const [videoLink, setVideoLink] = useState("");
   const [foundVideoData, setFoundVideoData]: any = useState({});
   const [videoDataElements, setVideoDataElements]: any[] = useState(
@@ -311,7 +308,7 @@ export const ContentCard = (cardData: any, index: number) => {
 
   function PublishToggle(
     publish: boolean,
-    setPublish: Function,
+    setPublish: (value: boolean) => void,
     label: string
   ) {
     function handleChange(event: any) {
@@ -402,6 +399,7 @@ export const ContentCard = (cardData: any, index: number) => {
             <img src={SpacingIcon} className={"spacing"} />
             <img src={PropertyIcon} className={"property"} />
             <img src={VariantsIcon} className={"variants"} />
+            <img src={TokensIcon} className={"tokens"} />
             <img src={ReleaseNotesIcon} className={"releasenotes"} />
             <IconPilcrow className={"paragraph"} />
             <IconVideo className={"video"} />

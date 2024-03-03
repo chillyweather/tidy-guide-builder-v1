@@ -201,6 +201,7 @@ declare const styles: {
   readonly "title-flex": string;
   readonly "title-row": string;
   readonly "title-wrapper": string;
+  readonly "tokens": string;
   readonly "tooltip": string;
   readonly "tooltipIcon": string;
   readonly "tooltiptext": string;
