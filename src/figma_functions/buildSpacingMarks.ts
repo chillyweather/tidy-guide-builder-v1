@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { cloneFrame } from "../figma_functions/utilityFunctions";
 import { researchNodes } from "./getElementsSizes";
 import { buildMarksForHorizontal } from "./buldMarksForHorizontal";
@@ -82,7 +81,7 @@ function buildSpacingMarks(
     workingFrame.remove();
     return spacingMarkers;
   } catch (err) {
-    // console.log(err);
+    console.log(err);
   }
 }
 

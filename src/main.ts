@@ -63,7 +63,7 @@ export default async function () {
 
   on("GET_COMPONENT_PIC", async (key, id) => {
     if (key) {
-      const foundElement = await getNode(id, key);
+      const foundElement = await getNode(id, key, "main");
       if (foundElement) {
         if (foundElement.type === "COMPONENT_SET") {
           const bytes = await foundElement.defaultVariant.exportAsync({
@@ -86,7 +86,7 @@ export default async function () {
 
   on("GET_NEW_SELECTION", async (key, id) => {
     if (key) {
-      const foundElement = await getNode(id, key);
+      const foundElement = await getNode(id, key, "main");
 
       if (foundElement) {
         const foundElementName = foundElement.name;
@@ -100,11 +100,12 @@ export default async function () {
     try {
       await documentationBuilder(data, loadFonts);
     } catch (error) {
-      // console.log("error on documentation build in Figma :>> ", error);
+      console.log("error on documentation build in Figma :>> ", error);
     }
   });
 
   on("DELETE_ACCOUNT", async () => {
+    console.log("delete account");
     await figma.clientStorage.deleteAsync("token");
     figma.notify("Account deleted");
   });
