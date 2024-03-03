@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 //!--------BUILD----------//
 /**
  * Creates a new auto-layout frame with the specified properties.
@@ -151,9 +149,9 @@ export function setVariantProps(
         node.setProperties(newProps);
       } catch (error) {
         // node.opacity = 0;
-        // console.log(
-        //   `error :>> node with property ${property} and value ${value} doesn't exist on node ${node}`
-        // );
+        console.log(
+          `error :>> node with property ${property} and value ${value} doesn't exist on node ${node}`
+        );
       }
     }
   }
@@ -178,9 +176,9 @@ export function setBooleanProps(
         newProps[property] = value;
         element.setProperties(newProps);
       } catch (error) {
-        // console.log(
-        //   `error :>> node with property ${property} and value ${value} doesn't exist on node ${element}`
-        // );
+        console.log(
+          `error :>> node with property ${property} and value ${value} doesn't exist on node ${element}`
+        );
       }
     }
   }
@@ -291,7 +289,7 @@ export function setTextContent(
       textNode.characters = text;
     }
   } catch (error) {
-    // console.log("error", error);
+    console.log("error", error);
   }
 }
 
