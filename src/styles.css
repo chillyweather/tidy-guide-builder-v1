@@ -310,7 +310,6 @@ body:has(.delete-flex) .container {
   display: none;
 }
 
-
 .draftComponent::before {
   content: 'Draft';
   position: absolute;
