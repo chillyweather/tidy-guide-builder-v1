@@ -10,6 +10,5 @@ export async function sendRaster(
     type: "image/svg+xml",
   });
   const url = await uploadFileToServer(file, loggedInUser);
-  console.log("url", url);
   return url;
 }
