@@ -2,9 +2,6 @@ import { setColorStyle } from "../figma_functions/utilityFunctions";
 
 const TG_SIZE_MARKER = ".TG-size-marker";
 
-const dsGray900 = setColorStyle(".TG-admin/spacing-text", "292929");
-const dsPink500 = setColorStyle(".TG-admin/spacing-primary", "EC2D79");
-
 // const dsWhite = setColorStyle(".TG-admin/White", "FFFFFF");
 // const dsSpacingMarker = setColorStyle(".TG-admin/Spacings", "E0851D");
 
@@ -29,6 +26,7 @@ function addTextProperty(component: ComponentNode, textNode: TextNode) {
 }
 
 async function createMarkerLines(position: string) {
+  const dsPink500 = await setColorStyle(".TG-admin/spacing-primary", "EC2D79");
   const frame = figma.createFrame();
   frame.fills = emptyFill;
   // await frame.setStrokeStyleIdAsync(dsSpacingMarker.id);
@@ -67,6 +65,7 @@ async function createMarkerLines(position: string) {
 }
 
 async function createAnatomySpacingsText(size: string) {
+  const dsGray900 = await setColorStyle(".TG-admin/spacing-text", "292929");
   const meterValue = figma.createText();
   meterValue.fontSize = 14;
   meterValue.fontName = {

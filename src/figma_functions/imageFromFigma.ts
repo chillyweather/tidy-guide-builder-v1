@@ -26,7 +26,7 @@ const imageFromFigma = async (
     40
   );
 
-  const node = await getNode(nodeId, key, "imageFromFigma");
+  const node = await getNode(nodeId, key);
   if (!node) return;
 
   let tempNode;

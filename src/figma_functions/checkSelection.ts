@@ -1,6 +1,6 @@
 import { getDefaultElement } from "./utilityFunctions";
 
-export function checkSelection() {
+export async function checkSelection() {
   const selection = figma.currentPage.selection;
   if (selection.length === 0) {
     // figma.notify("Please select an instance, component or component set");
@@ -19,7 +19,7 @@ export function checkSelection() {
       return;
     }
 
-    const defaultNode = getDefaultElement(node);
+    const defaultNode = await getDefaultElement(node);
     if (!defaultNode) {
       figma.notify("Please select an instance, component or component set");
       return;

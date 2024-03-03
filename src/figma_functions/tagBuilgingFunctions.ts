@@ -28,8 +28,8 @@ function isIcon(node: SceneNode) {
   );
 }
 
-function addInstancesToArray(node: any, array: any[]) {
-  const docFrame = findDocFrame(node);
+async function addInstancesToArray(node: any, array: any[]) {
+  const docFrame = await findDocFrame(node);
 
   array.push([
     node.absoluteBoundingBox.x,
@@ -69,7 +69,7 @@ export async function findAllNodes(
   for (const node of frame.children) {
     if (node.absoluteBoundingBox && node.width > 0.01) {
       if (node.type === "INSTANCE" && instances && !node.name.startsWith("_")) {
-        addInstancesToArray(node, elementsCoordinatesAndDimensions);
+        await addInstancesToArray(node, elementsCoordinatesAndDimensions);
       }
       if (node.type === "TEXT" && textElements && !node.name.startsWith("_")) {
         await addTextNodesToArray(node, elementsCoordinatesAndDimensions);

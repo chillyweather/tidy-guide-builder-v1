@@ -37,7 +37,8 @@ export default async function () {
 
   emit("SESSION", sessionData);
 
-  const selectionData = checkSelection();
+  const selectionData = await checkSelection();
+  console.log("selectionData", selectionData);
   if (selectionData) emit("SELECTION", selectionData);
 
   once("SAVE_NEW_TOKEN_AND_EMAIL", (token, email) => {
@@ -49,7 +50,8 @@ export default async function () {
   });
 
   on("GET_SELECTION", async () => {
-    const selectionData = checkSelection();
+    const selectionData = await checkSelection();
+    console.log("selectionData", selectionData);
     if (selectionData) emit("SELECTION", selectionData);
   });
 

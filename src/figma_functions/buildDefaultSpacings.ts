@@ -9,9 +9,6 @@ import {
 } from "./utilityFunctions";
 import { setSizingMarkerValue } from "./setSizingMarkerValue";
 
-const dsGray100 = setColorStyle(".TG-admin/spacing-block-background", "F5F5F5");
-const dsGray600 = setColorStyle(".TG-admin/spacing-block-label", "707070");
-
 export async function buildAtomSpacings(
   element: InstanceNode,
   booleanProperties: any,
@@ -254,6 +251,10 @@ async function placeLabels(
   spacingsTitle: InstanceNode,
   spacingsGroup: any
 ) {
+  const dsGray100 = await setColorStyle(
+    ".TG-admin/spacing-block-background",
+    "F5F5F5"
+  );
   const sizeAl = buildAutoLayoutFrame("sizeFrame", "VERTICAL", 0, 50);
   sizeAl.counterAxisAlignItems = "CENTER";
   await sizeAl.setFillStyleIdAsync(dsGray100.id);
@@ -288,6 +289,10 @@ function setTitlePosition(title: InstanceNode, frame: FrameNode) {
 }
 
 async function buildLabels(labelComponent: ComponentNode, page: PageNode) {
+  const dsGray600 = await setColorStyle(
+    ".TG-admin/spacing-block-label",
+    "707070"
+  );
   const sizeTitle = labelComponent.createInstance();
   if (sizeTitle.children[0] && sizeTitle.children[0].type === "TEXT") {
     await sizeTitle.children[0].setFillStyleIdAsync(dsGray600.id);

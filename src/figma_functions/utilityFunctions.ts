@@ -37,9 +37,8 @@ export function buildAutoLayoutFrame(
  * @param node - The node to find the master component of.
  * @returns The master component of the given node.
  */
-export function findMasterComponent(node: InstanceNode) {
-  const immediateMaster = node.mainComponent;
-  const isMasterRemote = immediateMaster?.remote;
+export async function findMasterComponent(node: InstanceNode) {
+  const immediateMaster = await node.getMainComponentAsync();
   const masterParent = immediateMaster?.parent;
   const trueMaster =
     masterParent?.type === "COMPONENT_SET" ? masterParent : immediateMaster;
@@ -51,8 +50,8 @@ export function findMasterComponent(node: InstanceNode) {
  * @param node - The frame to search for boolean properties.
  * @returns An object containing all found boolean properties and their definitions.
  */
-export function findAllBooleanProps(node: InstanceNode): any {
-  const masterFrame = findMasterComponent(node);
+export async function findAllBooleanProps(node: InstanceNode) {
+  const masterFrame = await findMasterComponent(node);
   const frameProps = masterFrame?.componentPropertyDefinitions;
   const foundProps: any = {};
 
@@ -69,8 +68,8 @@ export function findAllBooleanProps(node: InstanceNode): any {
  * @param node - The component node to search for variant properties.
  * @returns An object containing the found variant properties, with the property names as keys and the property definitions as values.
  */
-export function findAllVariantProps(node: InstanceNode) {
-  const masterFrame = findMasterComponent(node);
+export async function findAllVariantProps(node: InstanceNode) {
+  const masterFrame = await findMasterComponent(node);
   const frameProps = masterFrame?.componentPropertyDefinitions;
   const foundProps: any = {};
 
@@ -87,9 +86,9 @@ export function findAllVariantProps(node: InstanceNode) {
  * @param node - The node to get the default element for.
  * @returns The default variant of a component or component set, or the node itself if it's an instance. Returns null if the node is not a component, component set, or instance.
  */
-export function getDefaultElement(node: SceneNode) {
+export async function getDefaultElement(node: SceneNode) {
   if (node.type === "INSTANCE") {
-    return getDefaultVariant(node);
+    return await getDefaultVariant(node);
   } else if (node.type === "COMPONENT") {
     if (node.parent && node.parent?.type === "COMPONENT_SET") {
       return node.parent.defaultVariant;
@@ -104,8 +103,8 @@ export function getDefaultElement(node: SceneNode) {
   }
 }
 
-export function getDefaultVariant(node: InstanceNode) {
-  const mainComponent = node.mainComponent;
+export async function getDefaultVariant(node: InstanceNode) {
+  const mainComponent = await node.getMainComponentAsync();
   if (mainComponent?.parent?.type === "COMPONENT_SET") {
     const defaultVariant = mainComponent.parent.defaultVariant;
     return defaultVariant;
@@ -118,8 +117,8 @@ export function getDefaultVariant(node: InstanceNode) {
  * @param node - The Figma node to get the size options for.
  * @returns An array of size options, or null if no size options were found.
  */
-export function getElementSizes(node: InstanceNode) {
-  const masterComponent = findMasterComponent(node);
+export async function getElementSizes(node: InstanceNode) {
+  const masterComponent = await findMasterComponent(node);
   if (masterComponent) {
     if (masterComponent.componentPropertyDefinitions.size)
       return masterComponent.componentPropertyDefinitions.size.variantOptions;
@@ -255,20 +254,20 @@ function createPaintStyle(name: string, hex: string) {
 }
 
 //& check if new styles already were created earlier
-function ifStyleExists(name: string) {
-  const styles = figma.getLocalPaintStyles();
-  return styles.some((style) => style.name === name);
-}
+// function ifStyleExists(name: string) {
+//   const styles = figma.getLocalPaintStyles();
+//   return styles.some((style) => style.name === name);
+// }
 
 //& find by name and return local style
-export function getLocalColorStyle(name: string) {
-  const styles = figma.getLocalPaintStyles();
+export async function getLocalColorStyle(name: string) {
+  const styles = await figma.getLocalPaintStylesAsync();
   const newStyle = styles.find((style) => style.name === name);
   return newStyle;
 }
 
-export function setColorStyle(name: string, hex: string): PaintStyle {
-  const existingStyle = getLocalColorStyle(name);
+export async function setColorStyle(name: string, hex: string) {
+  const existingStyle = await getLocalColorStyle(name);
   if (existingStyle) {
     return existingStyle;
   } else {
@@ -319,8 +318,8 @@ export function findMasterPage(node: any): PageNode | null {
  * @param node - The node to find the documentation frame of.
  * @returns The documentation frame of the given node, or null if no documentation frame was found.
  */
-export function findDocFrame(node: InstanceNode) {
-  const master = node.mainComponent;
+export async function findDocFrame(node: InstanceNode) {
+  const master = await node.getMainComponentAsync();
   if (master) {
     const masterPage = findMasterPage(master);
     if (masterPage) {

@@ -74,15 +74,11 @@ export default async function documentationBuilder(
   }
 
   async function getNodeAndDefaultElement(data: any): Promise<any> {
-    const node = await getNode(
-      data.nodeId,
-      data.componentKey,
-      "documentationBuilder"
-    );
+    const node = await getNode(data.nodeId, data.componentKey);
     if (!node) return;
 
     emit("FOUND_ELEMENT", node, node.name, node.key);
-    const defaultElement = getDefaultElement(node);
+    const defaultElement = await getDefaultElement(node);
     if (defaultElement) return defaultElement;
   }
 

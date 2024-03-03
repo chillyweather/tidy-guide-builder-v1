@@ -16,9 +16,9 @@ export async function buildSpacingSection(
 
   if (!(sizeMarker && spacingMarker && labelComponent)) return;
 
-  const booleanProps = findAllBooleanProps(node);
-  const variantProps = findAllVariantProps(node);
-  const elementSizes = getElementSizes(node) || [];
+  const booleanProps = await findAllBooleanProps(node);
+  const variantProps = await findAllVariantProps(node);
+  const elementSizes = (await getElementSizes(node)) || [];
   const atomSpacings = await buildAtomSpacings(
     node,
     booleanProps,

@@ -8,8 +8,6 @@ import {
 } from "../figma_functions/utilityFunctions";
 import buildTags from "./buildTags";
 
-export const TGGray600 = setColorStyle(".TG-admin/anatomy-secondary", "707070");
-
 export async function buildAtomTags(
   element: InstanceNode,
   booleanProperties: any,
@@ -64,6 +62,11 @@ async function buildOneTag(
   labelComponent?: ComponentNode,
   size?: string
 ) {
+  const TGGray600 = await setColorStyle(
+    ".TG-admin/anatomy-secondary",
+    "707070"
+  );
+
   const resultFrame = buildAutoLayoutFrame("tagFrame", "HORIZONTAL", 20, 0);
   const group = await buildElementTags(
     element,

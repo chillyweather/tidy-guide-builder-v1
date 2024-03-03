@@ -49,6 +49,7 @@ function AddSectionPopupCard(card: any) {
   const [isHovering, setIsHovering] = useState(false);
   const { setSelectedSections, selectedSections } =
     useContext(BuilderContext) || {};
+
   return (
     <div className={"addSection-outer"}>
       <div

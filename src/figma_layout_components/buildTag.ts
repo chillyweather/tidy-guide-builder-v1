@@ -4,15 +4,6 @@ import {
   addNewBooleanProperty,
 } from "../figma_functions/addNewProperty";
 
-export const TGWhite = setColorStyle(".TG-admin/anatomy-icon", "FFFFFF");
-export const TGGray900 = setColorStyle(".TG-admin/anatomy-primary", "292929");
-export const anatomyLabelsColor = setColorStyle(
-  ".TG-admin/anatomy-labels",
-  "292929"
-);
-export const TGGray600 = setColorStyle(".TG-admin/anatomy-secondary", "707070");
-export const TGLightBlue500 = setColorStyle(".TG-admin/links", "00B0FF");
-
 export function addText(letterText: string) {
   const letter = figma.createText();
   letter.fills = [
@@ -45,6 +36,8 @@ export function addText(letterText: string) {
 }
 
 export async function createEllipse(textNode: TextNode) {
+  const TGGray900 = await setColorStyle(".TG-admin/anatomy-primary", "292929");
+
   const ellipse = figma.createFrame();
   ellipse.bottomLeftRadius = 50;
   ellipse.bottomRightRadius = 50;
@@ -121,6 +114,8 @@ async function buildLine() {
 }
 
 export async function createLineBox() {
+  const TGGray900 = await setColorStyle(".TG-admin/anatomy-primary", "292929");
+
   const rect = await buildLine();
   rect.resize(40, rect.height);
   const lineBox = figma.createFrame();
@@ -140,6 +135,10 @@ export async function createLineBox() {
 }
 
 export async function buildLabelText(label: string) {
+  const anatomyLabelsColor = await setColorStyle(
+    ".TG-admin/anatomy-labels",
+    "292929"
+  );
   const labelText = figma.createText();
   await labelText.setFillStyleIdAsync(anatomyLabelsColor.id);
   labelText.fontSize = 14;
@@ -157,6 +156,14 @@ export async function buildTag(
   label?: string,
   isLink = true
 ) {
+  const TGWhite = await setColorStyle(".TG-admin/anatomy-icon", "FFFFFF");
+  const TGGray600 = await setColorStyle(
+    ".TG-admin/anatomy-secondary",
+    "707070"
+  );
+  const TGLightBlue500 = await setColorStyle(".TG-admin/links", "00B0FF");
+  const TGGray900 = await setColorStyle(".TG-admin/anatomy-primary", "292929");
+
   const index = addText(`${letter}`);
   index.name = "elementIndex";
   const ellipse = await createEllipse(index);

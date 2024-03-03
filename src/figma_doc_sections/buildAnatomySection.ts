@@ -9,9 +9,9 @@ export async function buildAnatomySection(
   node: InstanceNode,
   parentFrame: FrameNode
 ) {
-  const booleanProperties = findAllBooleanProps(node);
-  const elementSizes = getElementSizes(node);
-  const variantProperties = findAllVariantProps(node);
+  const booleanProperties = await findAllBooleanProps(node);
+  const elementSizes = await getElementSizes(node);
+  const variantProperties = await findAllVariantProps(node);
 
   const labelComponent = buildLabelComponent();
   const tagComponent = await buildAllTags();

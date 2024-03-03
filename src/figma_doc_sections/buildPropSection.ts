@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { buildSubtitle } from "./elementBuildingFunctions";
 import {
   buildAutoLayoutFrame,
@@ -7,7 +8,6 @@ import {
   setBooleanProps,
   turnAllBooleansOff,
 } from "../figma_functions/utilityFunctions";
-import { all } from "axios";
 
 type Direction = "VERTICAL" | "HORIZONTAL";
 
@@ -21,17 +21,21 @@ function buildContentFrame(
     direction,
     0,
     0,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     (spacing = 16)
   );
   return elementsFrame;
 }
 
-export function buildPropSection(node: InstanceNode, parentFrame: FrameNode) {
-  const booleanProps = findAllBooleanProps(node);
+export async function buildPropSection(
+  node: InstanceNode,
+  parentFrame: FrameNode
+) {
+  const booleanProps = await findAllBooleanProps(node);
   turnAllBooleansOff(node, booleanProps);
 
   //! build size property (if size)
-  const sizes = getElementSizes(node);
+  const sizes = await getElementSizes(node);
   if (sizes) {
     const propertyFrame = buildContentFrame("frameForSizes", "VERTICAL");
     const subtitle = buildSubtitle("Size property");
@@ -119,19 +123,19 @@ function buildVarProperytyElement(
   setVariantProps(currentNode, propertyName, text);
 }
 
-function buildBoolProperytyElement(
-  node: InstanceNode,
-  text: string,
-  parentFrame: FrameNode,
-  propertyName: string
-) {
-  const elementFrame = buildContentFrame("sizeElementFrame", "VERTICAL", 12);
-  const currentNode = node.clone();
-  const elementText = figma.createText();
-  elementText.characters = text;
-  elementText.fontSize = 12;
-  elementFrame.appendChild(elementText);
-  elementFrame.appendChild(currentNode);
-  parentFrame.appendChild(elementFrame);
-  setVariantProps(currentNode, propertyName, text);
-}
+// function buildBoolProperytyElement(
+//   node: InstanceNode,
+//   text: string,
+//   parentFrame: FrameNode,
+//   propertyName: string
+// ) {
+//   const elementFrame = buildContentFrame("sizeElementFrame", "VERTICAL", 12);
+//   const currentNode = node.clone();
+//   const elementText = figma.createText();
+//   elementText.characters = text;
+//   elementText.fontSize = 12;
+//   elementFrame.appendChild(elementText);
+//   elementFrame.appendChild(currentNode);
+//   parentFrame.appendChild(elementFrame);
+//   setVariantProps(currentNode, propertyName, text);
+// }

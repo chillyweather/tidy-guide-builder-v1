@@ -3,9 +3,6 @@ import { setColorStyle } from "../figma_functions/utilityFunctions";
 const TG_SPACING_MARKER = ".TG-spacing-marker";
 const TG_SPACING_MARKER_HAND_LENGTH = 40;
 
-const dsGray900 = setColorStyle(".TG-admin/spacing-text", "292929");
-const dsPink500 = setColorStyle(".TG-admin/spacing-primary", "EC2D79");
-
 // const barColor: ReadonlyArray<Paint> = [
 //   {
 //     type: "SOLID",
@@ -87,6 +84,7 @@ function addTextProperty(component: ComponentNode, textNode: TextNode) {
 }
 
 async function createAnatomySpacingsText(size: string) {
+  const dsGray900 = await setColorStyle(".TG-admin/spacing-text", "292929");
   const meterValue = figma.createText();
   meterValue.fontSize = 14;
   meterValue.fontName = {
@@ -102,6 +100,8 @@ async function createAnatomySpacingsText(size: string) {
 }
 
 async function createAnatomyBar(position: string) {
+  const dsPink500 = await setColorStyle(".TG-admin/spacing-primary", "EC2D79");
+
   const bar = figma.createFrame();
   bar.name = `${TG_SPACING_MARKER}-bar`;
   bar.resize(16, 88);
@@ -119,6 +119,8 @@ async function createAnatomyBar(position: string) {
 }
 
 async function createAnatomySpacings(size: string, position: string) {
+  const dsPink500 = await setColorStyle(".TG-admin/spacing-primary", "EC2D79");
+
   const spacingMarker = figma.createComponent();
   const value = await createAnatomySpacingsText(size);
   const line = await buildLine();
