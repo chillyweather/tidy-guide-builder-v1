@@ -132,6 +132,7 @@ async function buildElementTags(
 ) {
   const currentAtom = element.clone();
   turnAllBooleansOn(currentAtom, booleanProperties);
+
   const tagBuildResults = await buildTags(
     tagComponentSet,
     currentAtom,
@@ -140,6 +141,7 @@ async function buildElementTags(
     true,
     true
   );
+
   console.log("tagBuildResults", tagBuildResults);
   if (!tagBuildResults) return currentAtom;
   const tagElements = tagBuildResults.tagElements;

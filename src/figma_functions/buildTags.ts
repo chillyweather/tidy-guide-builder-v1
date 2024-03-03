@@ -20,6 +20,7 @@ export default async function buildTags(
   elementMaxWidth?: number
 ) {
   if (!tagComponent) return;
+
   const links = tagComponent.findAll((node) => node.name === "link");
   links.forEach((link) => {
     link.visible = false;
@@ -132,10 +133,12 @@ export default async function buildTags(
     addMaxWidth(frame, tagComponent, indexes, elementMaxWidth);
   addBorderRadius(frame, tagComponent, indexes);
   addEffectsInfo(frame, tagComponent, indexes);
+  //! error here
   addStrokeInfo(frame, tagComponent, indexes);
 
   //! find size of all tags (and frame) together
   const tagBounds = computeMaximumBounds(tagElements);
+
   const yLimit =
     tagBounds[1].y > frame.absoluteBoundingBox.y + frame.height
       ? tagBounds[1].y
@@ -148,6 +151,7 @@ export default async function buildTags(
   //     makeLabelTextFlow(child);
   //   }
   // });
+
   return { tagElements, indexes };
 }
 
@@ -430,7 +434,7 @@ function addStrokeInfo(
   tagComp: ComponentSetNode,
   indexes: FrameNode
 ) {
-  if (frame.strokes.length > 0) {
+  if (frame.strokes && frame.strokes.length > 0) {
     const strokeAlign = frame.strokeAlign;
     let strokeWeight = "";
 
@@ -477,8 +481,9 @@ function setStrokeProps(
     "Text",
     `${strokeKind} - ${strokeWeight}px, ${strokeAlign}`
   );
-  const indexLink = tag.findOne((element: any) => element.name === "link");
-  indexLink.visible = false;
+
+  // const indexLink = tag.findOne((element: any) => element.name === "link");
+  // indexLink.visible = false;
   indexes.appendChild(tag);
 }
 
