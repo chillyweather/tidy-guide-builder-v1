@@ -42,7 +42,7 @@
     "permissions": [
       "currentuser"
     ],
-    "id": "tidy-guide-builder-v1",
+    "id": "1346127620380639509",
     "name": "Tidy Guide Builder 1.0",
     "main": "src/main.ts",
     "ui": "src/ui.tsx"

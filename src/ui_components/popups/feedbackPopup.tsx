@@ -47,7 +47,7 @@ function FeedbackPopup({
           <IconX />
         </button>
         <h2 className={"dialogTitle"}>{titleText}</h2>
-        <p style={{ marginTop: "16px" }}>{bodyText}</p>
+        <p style={{ marginTop: "12px" }}>{bodyText}</p>
         {/* <div className={"divider"} hidden={isHidden}></div>
         <p>{actionText}</p> */}
         <label className={"dialogLabel dialogFlex"} hidden={isHidden}>
