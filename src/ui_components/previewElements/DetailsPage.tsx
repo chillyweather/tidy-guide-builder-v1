@@ -6,7 +6,6 @@ const DetailsPage = (data: any) => {
   const status = section.inProgress;
   return (
     <div className="viewer-data-wrapper">
-      {console.log(section)}
       <div className={"section headerSection"}>
         <div className="title-wrapper">
           <strong>
