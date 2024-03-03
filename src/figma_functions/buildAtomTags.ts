@@ -42,6 +42,7 @@ export async function buildAtomTags(
         labelComponent,
         size
       );
+
       tagGroups.push(tagGroup);
     }
   } else {
@@ -73,6 +74,7 @@ async function buildOneTag(
     booleanProperties,
     tagComponentSet
   );
+
   resultFrame.appendChild(group);
   resultFrame.paddingBottom = 40;
   resultFrame.paddingTop = 40;
@@ -138,6 +140,7 @@ async function buildElementTags(
     true,
     true
   );
+  console.log("tagBuildResults", tagBuildResults);
   if (!tagBuildResults) return currentAtom;
   const tagElements = tagBuildResults.tagElements;
   const indexes = tagBuildResults.indexes;
