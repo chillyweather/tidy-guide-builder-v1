@@ -42,6 +42,12 @@
     "permissions": [
       "currentuser"
     ],
+    "networkAccess": {
+      "allowedDomains": [
+        "*"
+      ],
+      "reasoning": "We need to access the internet to fetch the latest version of the Tidy Guide Builder."
+    },
     "id": "1346127620380639509",
     "name": "Tidy Guide Builder 1.0",
     "main": "src/main.ts",

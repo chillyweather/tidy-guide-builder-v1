@@ -482,8 +482,9 @@ function setStrokeProps(
     `${strokeKind} - ${strokeWeight}px, ${strokeAlign}`
   );
 
-  // const indexLink = tag.findOne((element: any) => element.name === "link");
-  // indexLink.visible = false;
+  const indexLink = tag.findOne((element: any) => element.name === "link");
+  //! continue here
+  if (indexLink) indexLink.visible = false;
   indexes.appendChild(tag);
 }
 

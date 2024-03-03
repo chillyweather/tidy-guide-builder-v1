@@ -9,5 +9,11 @@
   "ui": "build/ui.js",
   "permissions": [
     "currentuser"
-  ]
+  ],
+  "networkAccess": {
+    "allowedDomains": [
+      "*"
+    ],
+    "reasoning": "We need to access the internet to fetch the latest version of the Tidy Guide Builder."
+  }
 }
