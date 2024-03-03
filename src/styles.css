@@ -2077,7 +2077,8 @@ summary button {
 .addSectionPopup .addSectionCard:has(.addSectionIcon[type="spacing"]) .addSectionDescription,
 .addSectionPopup .addSectionCard:has(.addSectionIcon[type="property"]) .addSectionDescription,
 .addSectionPopup .addSectionCard:has(.addSectionIcon[type="variants"]) .addSectionDescription,
-.addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .addSectionDescription {
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="release notes"]) .addSectionDescription,
+.addSectionPopup .addSectionCard:has(.addSectionIcon[type="tokens"]) .addSectionDescription {
   display: -webkit-box;
 }
 
