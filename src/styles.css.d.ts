@@ -81,6 +81,7 @@ declare const styles: {
   readonly "flex-btn": string;
   readonly "flex-button": string;
   readonly "flex-label": string;
+  readonly "flex-link": string;
   readonly "footer": string;
   readonly "header": string;
   readonly "header-button": string;
@@ -222,6 +223,7 @@ declare const styles: {
   readonly "videoSection": string;
   readonly "videoSelected": string;
   readonly "viewer-data-wrapper": string;
+  readonly "web-link": string;
   readonly "wip": string;
   readonly "youtubeIcon": string;
 };
