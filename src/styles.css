@@ -310,11 +310,10 @@ body:has(.delete-flex) .container {
   display: none;
 }
 
-
 .draftComponent::before {
   content: 'Draft';
   position: absolute;
-  right: 0;
+  right: -32px;
   top: 8px;
   background-color: #ECEBF5;
   color: #5568AA;
