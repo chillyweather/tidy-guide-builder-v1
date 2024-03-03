@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/4dec5944-2372-4f2c-b448-66068428898b/loading-indicator.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b06f382e-cbc2-407c-923b-4d7d8d3408c2/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/4dec5944-2372-4f2c-b448-66068428898b/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b06f382e-cbc2-407c-923b-4d7d8d3408c2/loading-indicator.module.js"() {
       if (document.getElementById("3e397802b5") === null) {
         const element = document.createElement("style");
         element.id = "3e397802b5";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/6665745f-57eb-43db-8770-a8d8a610da8d/button.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/a0d998fc-4ee2-4a68-bf0d-9b05c621d559/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/6665745f-57eb-43db-8770-a8d8a610da8d/button.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/a0d998fc-4ee2-4a68-bf0d-9b05c621d559/button.module.js"() {
       if (document.getElementById("69a3373509") === null) {
         const element = document.createElement("style");
         element.id = "69a3373509";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/7d93a85b-5702-470b-b67f-1d8948a0a72c/icon.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/de6a9b9c-dadc-49bc-b606-4a373b638441/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/7d93a85b-5702-470b-b67f-1d8948a0a72c/icon.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/de6a9b9c-dadc-49bc-b606-4a373b638441/icon.module.js"() {
       if (document.getElementById("18637aef19") === null) {
         const element = document.createElement("style");
         element.id = "18637aef19";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d741260d-2da8-4e58-a163-e9a1efba652b/checkbox.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/2841bc99-2aac-429f-9d96-61c527ad8b38/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d741260d-2da8-4e58-a163-e9a1efba652b/checkbox.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/2841bc99-2aac-429f-9d96-61c527ad8b38/checkbox.module.js"() {
       if (document.getElementById("2c37f632f9") === null) {
         const element = document.createElement("style");
         element.id = "2c37f632f9";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/1d13fa9a-b198-494a-8b93-d4355d82b8f5/text.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/24c401fd-0781-4558-ad09-684045078549/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/1d13fa9a-b198-494a-8b93-d4355d82b8f5/text.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/24c401fd-0781-4558-ad09-684045078549/text.module.js"() {
       if (document.getElementById("e0e146fd65") === null) {
         const element = document.createElement("style");
         element.id = "e0e146fd65";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/44af9858-c189-41c3-aefc-53d60cbe112e/toggle.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/dc0dc911-546b-4018-8a64-815a627db0fd/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/44af9858-c189-41c3-aefc-53d60cbe112e/toggle.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/dc0dc911-546b-4018-8a64-815a627db0fd/toggle.module.js"() {
       if (document.getElementById("9a689b18ab") === null) {
         const element = document.createElement("style");
         element.id = "9a689b18ab";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/118c023e-ef86-4448-a149-0c27e62a1f29/muted.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/dd1e2012-d51f-47b3-8888-a4742c63ce66/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/118c023e-ef86-4448-a149-0c27e62a1f29/muted.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/dd1e2012-d51f-47b3-8888-a4742c63ce66/muted.module.js"() {
       if (document.getElementById("98b936ec72") === null) {
         const element = document.createElement("style");
         element.id = "98b936ec72";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ea457930-caf7-42cd-9659-363ff1036a06/vertical-space.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d5ec5a90-559b-4ec7-9b2e-7fcd364e7c7f/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ea457930-caf7-42cd-9659-363ff1036a06/vertical-space.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d5ec5a90-559b-4ec7-9b2e-7fcd364e7c7f/vertical-space.module.js"() {
       if (document.getElementById("e9edd34f04") === null) {
         const element = document.createElement("style");
         element.id = "e9edd34f04";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/0ec654ff-c3c6-4a51-8c19-06ee13a817cf/base.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/e9dcd04f-d04b-482a-b67e-10d921acc0f4/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/0ec654ff-c3c6-4a51-8c19-06ee13a817cf/base.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/e9dcd04f-d04b-482a-b67e-10d921acc0f4/base.js"() {
       if (document.getElementById("1b7643485e") === null) {
         const element = document.createElement("style");
         element.id = "1b7643485e";
@@ -3353,8 +3353,10 @@ svg {
   }) {
     const [title, setTitle] = h2("");
     const [titleText, setTitleText] = h2("Give feedback");
-    const [bodyText, setBodyText] = h2("Do you a suggestion ot had any problem?\nLet us know in the fields below");
-    const [actionText, setActionText] = h2("Please leave your feedback below");
+    const [bodyText, setBodyText] = h2(
+      "Your feedback is invaluable to us! \nPlease take a moment to let us know how \nwe can enhance your experience with our app."
+    );
+    const [, setActionText] = h2("Please leave your feedback below");
     const [isHidden, setIsHidden] = h2(false);
     const [align, setAlign] = h2("left");
     const [body, setBody] = h2("");
@@ -3362,50 +3364,71 @@ svg {
     if (!show) {
       return null;
     }
-    return /* @__PURE__ */ y("div", { className: "feedbackPopupBackground", onClick: () => setShow(false) }, /* @__PURE__ */ y("div", { className: "feedbackPopup", onClick: (e4) => e4.stopPropagation(), style: { textAlign: align } }, /* @__PURE__ */ y("button", { className: "closePopupButton", onClick: () => {
-      setShow(false);
-    } }, /* @__PURE__ */ y(IconX, null)), /* @__PURE__ */ y("h2", { className: "dialogTitle" }, titleText), /* @__PURE__ */ y("p", null, bodyText), /* @__PURE__ */ y("div", { className: "divider", hidden: isHidden }), /* @__PURE__ */ y("p", null, actionText), /* @__PURE__ */ y("label", { className: "dialogLabel", hidden: isHidden }, /* @__PURE__ */ y(
-      "input",
+    return /* @__PURE__ */ y("div", { className: "feedbackPopupBackground", onClick: () => setShow(false) }, /* @__PURE__ */ y(
+      "div",
       {
-        hidden: isHidden,
-        className: "dialogInput",
-        id: "feedback-title",
-        type: "text",
-        placeholder: "Type title...",
-        value: title,
-        onInput: (e4) => setTitle(e4.target.value)
-      }
-    )), /* @__PURE__ */ y("label", { className: "dialogLabel dialogFlex", hidden: isHidden }, /* @__PURE__ */ y(
-      "textarea",
-      {
-        hidden: isHidden,
-        className: "dialogTextarea",
-        value: body,
-        maxLength: 1500,
-        placeholder: "Type text...",
-        onInput: (e4) => {
-          setBody(e4.target.value);
-          setFeedbackText(e4.currentTarget.value);
+        className: "feedbackPopup",
+        onClick: (e4) => e4.stopPropagation(),
+        style: { textAlign: align }
+      },
+      /* @__PURE__ */ y(
+        "button",
+        {
+          className: "closePopupButton",
+          onClick: () => {
+            setShow(false);
+          }
+        },
+        /* @__PURE__ */ y(IconX, null)
+      ),
+      /* @__PURE__ */ y("h2", { className: "dialogTitle" }, titleText),
+      /* @__PURE__ */ y("p", { style: { marginTop: "16px" } }, bodyText),
+      /* @__PURE__ */ y("label", { className: "dialogLabel dialogFlex", hidden: isHidden }, /* @__PURE__ */ y(
+        "input",
+        {
+          hidden: isHidden,
+          className: "dialogInput",
+          id: "feedback-title",
+          type: "text",
+          placeholder: "Type title...",
+          value: title,
+          onInput: (e4) => setTitle(e4.target.value)
         }
-      }
-    ), /* @__PURE__ */ y("div", { className: "textSymbolsCounterRow", hidden: isHidden }, /* @__PURE__ */ y("div", { className: "textSymbolsCounter" }, feedbackText.length, "/1500"))), /* @__PURE__ */ y(
-      "button",
-      {
-        hidden: isHidden,
-        className: "button submitButton primary",
-        onClick: async () => {
-          await sendFeedback(title, `${body} 
+      )),
+      /* @__PURE__ */ y("label", { className: "dialogLabel dialogFlex", hidden: isHidden }, /* @__PURE__ */ y(
+        "textarea",
+        {
+          hidden: isHidden,
+          className: "dialogTextarea",
+          value: body,
+          maxLength: 1500,
+          placeholder: "Type text...",
+          onInput: (e4) => {
+            setBody(e4.target.value);
+            setFeedbackText(e4.currentTarget.value);
+          }
+        }
+      ), /* @__PURE__ */ y("div", { className: "textSymbolsCounterRow", hidden: isHidden }, /* @__PURE__ */ y("div", { className: "textSymbolsCounter" }, feedbackText.length, "/1500"))),
+      /* @__PURE__ */ y(
+        "button",
+        {
+          hidden: isHidden,
+          className: "button submitButton primary",
+          onClick: async () => {
+            await sendFeedback(title, `${body} 
  ----- 
  ${user.name}`);
-          setTitleText("Thanks for your feedback");
-          setBodyText("Your feedback means a lot to us");
-          setActionText("");
-          setAlign("center");
-          setIsHidden(true);
-        }
-      },
-      "Submit"
-    ), /* @__PURE__ */ y("div", { className: "image-flex" }, /* @__PURE__ */ y("img", { src: feedback_default, hidden: !isHidden }))));
+            setTitleText("Thanks for your feedback");
+            setBodyText("Your feedback means a lot to us");
+            setActionText("");
+            setAlign("center");
+            setIsHidden(true);
+          }
+        },
+        "Submit"
+      ),
+      /* @__PURE__ */ y("div", { className: "image-flex" }, /* @__PURE__ */ y("img", { src: feedback_default, hidden: !isHidden }))
+    ));
   }
   var feedbackPopup_default;
   var init_feedbackPopup = __esm({
@@ -41736,9 +41759,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ca660c71-5bae-46e5-ac39-ec784885555a/styles.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b58ee195-393d-441c-b1cb-1521aa1a1915/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ca660c71-5bae-46e5-ac39-ec784885555a/styles.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b58ee195-393d-441c-b1cb-1521aa1a1915/styles.js"() {
       if (document.getElementById("253dc8d3fb") === null) {
         const element = document.createElement("style");
         element.id = "253dc8d3fb";
@@ -45067,8 +45090,10 @@ input[type="checkbox"] {
 }
 
 .dialogTitle {
-  font-size: calc(var(--text-size) + (var(--text-size) / 3.5));
-  font-weight: 600;
+  font-family: 'DM Serif Text', serif;
+  line-height: 120%;
+  font-size: calc(var(--text-size) * 2.25);
+  font-weight: normal;
 }
 
 .dialogFlex {

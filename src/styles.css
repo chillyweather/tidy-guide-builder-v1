@@ -3323,8 +3323,10 @@ input[type="checkbox"] {
 }
 
 .dialogTitle {
-  font-size: calc(var(--text-size) + (var(--text-size) / 3.5));
-  font-weight: 600;
+  font-family: 'DM Serif Text', serif;
+  line-height: 120%;
+  font-size: calc(var(--text-size) * 2.25);
+  font-weight: normal;
 }
 
 .dialogFlex {

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { useState } from "preact/hooks";
 import { sendFeedback } from "../ui_functions/sendFeedback";
@@ -15,8 +17,10 @@ function FeedbackPopup({
 }) {
   const [title, setTitle] = useState("");
   const [titleText, setTitleText] = useState("Give feedback");
-  const [bodyText, setBodyText] = useState("Do you a suggestion ot had any problem?\nLet us know in the fields below");
-  const [actionText, setActionText] = useState("Please leave your feedback below");
+  const [bodyText, setBodyText] = useState(
+    "Your feedback is invaluable to us! \nPlease take a moment to let us know how \nwe can enhance your experience with our app."
+  );
+  const [, setActionText] = useState("Please leave your feedback below");
   const [isHidden, setIsHidden] = useState(false);
   const [align, setAlign] = useState("left");
   const [body, setBody] = useState("");
@@ -29,21 +33,24 @@ function FeedbackPopup({
 
   return (
     <div className={"feedbackPopupBackground"} onClick={() => setShow(false)}>
-      <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()} style={{ textAlign: align }}>
-        <button className={"closePopupButton"} onClick={() => {
-          setShow(false);
-        }}>
+      <div
+        className={"feedbackPopup"}
+        onClick={(e) => e.stopPropagation()}
+        style={{ textAlign: align }}
+      >
+        <button
+          className={"closePopupButton"}
+          onClick={() => {
+            setShow(false);
+          }}
+        >
           <IconX />
         </button>
         <h2 className={"dialogTitle"}>{titleText}</h2>
-        <p>
-          {bodyText}
-        </p>
-        <div className={"divider"} hidden={isHidden}></div>
-        <p>
-          {actionText}
-        </p>
-        <label className={"dialogLabel"} hidden={isHidden}>
+        <p style={{ marginTop: "16px" }}>{bodyText}</p>
+        {/* <div className={"divider"} hidden={isHidden}></div>
+        <p>{actionText}</p> */}
+        <label className={"dialogLabel dialogFlex"} hidden={isHidden}>
           <input
             hidden={isHidden}
             className={"dialogInput"}
@@ -69,9 +76,7 @@ function FeedbackPopup({
             }}
           />
           <div className="textSymbolsCounterRow" hidden={isHidden}>
-            <div className="textSymbolsCounter">
-              {feedbackText.length}/1500
-            </div>
+            <div className="textSymbolsCounter">{feedbackText.length}/1500</div>
           </div>
         </label>
         <button
@@ -79,11 +84,11 @@ function FeedbackPopup({
           className={"button submitButton primary"}
           onClick={async () => {
             await sendFeedback(title, `${body} \n ----- \n ${user.name}`);
-            setTitleText("Thanks for your feedback")
-            setBodyText("Your feedback means a lot to us")
-            setActionText("")
-            setAlign("center")
-            setIsHidden(true)
+            setTitleText("Thanks for your feedback");
+            setBodyText("Your feedback means a lot to us");
+            setActionText("");
+            setAlign("center");
+            setIsHidden(true);
           }}
         >
           Submit
@@ -92,7 +97,7 @@ function FeedbackPopup({
           <img src={feedbackLoader} hidden={!isHidden}></img>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 
