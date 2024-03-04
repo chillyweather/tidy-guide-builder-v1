@@ -166,9 +166,9 @@ function Plugin() {
     }
   });
 
-  // useEffect(() => {
-  //   console.log("selectedElementKey", selectedElementKey);
-  // }, [selectedElementKey]);
+  useEffect(() => {
+    console.log("documentationData", documentationData);
+  }, [documentationData]);
 
   on("SELECTION", ({ defaultNode, name, key }) => {
     setSelectedElement(defaultNode);
@@ -394,6 +394,12 @@ function Plugin() {
         if (isBuildingOnCanvas) emit("BUILD", response);
         const newData = await getDocumentations(token);
         setDataForUpdate(newData);
+        setDocumentationData((prevDocumentation: any) => {
+          return {
+            ...prevDocumentation,
+            ["_id"]: response._id,
+          };
+        });
       }
     } catch (error) {
       console.log("error", error);

@@ -102,6 +102,9 @@ export async function buildPropSection(
     });
     propertyFrame.appendChild(allElementsFrame);
     allElementsFrame.layoutSizingHorizontal = "FILL";
+  } else {
+    parentFrame.remove();
+    return null;
   }
   return parentFrame;
 }
