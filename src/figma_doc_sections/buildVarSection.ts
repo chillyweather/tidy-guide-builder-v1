@@ -63,7 +63,7 @@ export async function buildVarSection(
   resultFrame.appendChild(varsWithLabels);
 
   parentFrame.appendChild(resultFrame);
-  resultFrame.layoutSizingHorizontal = "FILL";
+  resultFrame.layoutSizingHorizontal = "HUG";
   resultFrame.counterAxisAlignItems = "CENTER";
   return parentFrame;
 }
