@@ -350,8 +350,7 @@ function addEffectsInfo(
     indexInfo.name = `.${effectName}`;
     setTextContent(indexInfo, "Text", `${effects[effectName]}`);
     const indexLink = indexInfo.findOne((node) => node.name === "link");
-    if (!indexLink) return;
-    indexLink.visible = false;
+    if (indexLink) indexLink.visible = false;
     if (effectName === "innerShadow" || effectName === "dropShadow") {
       indexInfo.counterAxisAlignItems = "MIN";
       const indexText = indexInfo.findOne((node) => node.name === "Text");
@@ -483,7 +482,6 @@ function setStrokeProps(
   );
 
   const indexLink = tag.findOne((element: any) => element.name === "link");
-  //! continue here
   if (indexLink) indexLink.visible = false;
   indexes.appendChild(tag);
 }
