@@ -316,9 +316,9 @@ function Plugin() {
 
   useEffect(() => {
     if (selectedNodeKey) {
-      if (!selectedComponentPic) {
-        emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
-      }
+      // if (!selectedComponentPic) {
+      //   emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
+      // }
       setDocumentationData((prevDocumentation: any) => {
         return {
           ...prevDocumentation,

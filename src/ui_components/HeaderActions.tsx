@@ -39,6 +39,7 @@ import {
   selectedComponentPicAtom,
 } from "src/state/atoms";
 import { deleteFileFromServer } from "./ui_functions/fileManagementFunctions";
+import { useEffect } from "react";
 
 const cardsForPopup = sectionData;
 
@@ -174,8 +175,8 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
 }
 
 function HeaderActions() {
-  const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
-  const [, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
+  const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedComponentPic, setSelectedComponentPic] = useAtom(
     selectedComponentPicAtom
   );
@@ -193,6 +194,12 @@ function HeaderActions() {
   } = useContext(BuilderContext) || {};
 
   const isEmpty = selectedSections && selectedSections.length === 0;
+
+  useEffect(() => {
+    if (selectedNodeId && selectedNodeKey && !selectedComponentPic) {
+      emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
+    }
+  }, [selectedNodeId, selectedNodeKey, selectedComponentPic]);
 
   return (
     <div

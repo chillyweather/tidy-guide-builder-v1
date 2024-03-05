@@ -6,7 +6,7 @@ export const elementsCoordinatesAndDimensions = [];
 //^ find style applied to text element
 async function findFontStyleName(textNode: TextNode) {
   if (textNode.textStyleId === "") {
-    return "🎨 style not determined";
+    return "style not determined";
   } else {
     const foundStyle = await figma.getStyleByIdAsync(
       textNode.textStyleId as string

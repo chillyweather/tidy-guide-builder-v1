@@ -1,5 +1,5 @@
 import { h } from "preact";
-import { useState, useContext } from "preact/hooks";
+import { useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { DraggableCardList } from "./DraggableCardsList";
 import HeaderCard from "./sectionCards/HeaderCard";

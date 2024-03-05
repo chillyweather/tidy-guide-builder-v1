@@ -1,13 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 //@ts-nocheck
-import { h, FunctionComponent } from "preact";
+import { h } from "preact";
 import { useEffect } from "preact/hooks";
-import { useContext } from "preact/hooks";
-import BuilderContext from "../BuilderContext";
 import Sortable from "sortablejs";
 import { DraggableItem } from "./DraggableItem";
 import { ContentCard } from "./ContentCard";
-
-interface DraggableCardListProps {}
 
 export const DraggableCardList = ({
   items,
@@ -36,6 +34,7 @@ export const DraggableCardList = ({
 
   const ListOfCards = (items: any[]) => {
     return items.map((item, index) => {
+      console.log("item", item);
       return (
         <DraggableItem
           key={item.docId}

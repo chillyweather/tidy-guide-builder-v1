@@ -333,6 +333,8 @@ export const ContentCard = (cardData: any, index: number) => {
 
   const handleDeleteSection = async (e: MouseEvent) => {
     deleteSection(e, index, setSelectedSections);
+    if (!remoteImageLink) return;
+
     const deletion = await deleteFileFromServer(remoteImageLink);
     if (deletion) {
       console.log(deletion);

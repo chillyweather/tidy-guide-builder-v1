@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { useState, useContext, useEffect } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
@@ -21,9 +22,7 @@ const ContentFromServer = ({
 }) => {
   const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
-  const [selectedComponentPic, setSelectedComponentPic] = useAtom(
-    selectedComponentPicAtom
-  );
+  const [, setSelectedComponentPic] = useAtom(selectedComponentPicAtom);
   const [thisCardIsDraft, setThisCardIsDraft] = useState(false);
 
   const {
