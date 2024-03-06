@@ -51,7 +51,6 @@ export default async function documentationBuilder(
     if (isPredefined && !currentNode) continue;
 
     const sectionFrame = buildSectionFrame();
-    console.log("sectionFrame", sectionFrame);
 
     addSectionToDocFrame(sectionFrame, element);
 

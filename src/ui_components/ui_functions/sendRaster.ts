@@ -5,10 +5,19 @@ export async function sendRaster(
   loggedInUser: string,
   type: string
 ) {
-  const blob = new Blob([bytes], { type: "image/svg+xml" });
-  const file = new File([blob], `${type}.svg`, {
-    type: "image/svg+xml",
-  });
-  const url = await uploadFileToServer(file, loggedInUser);
-  return url;
+  if (type === "componentPic") {
+    const blob = new Blob([bytes], { type: "image/png" });
+    const file = new File([blob], `${type}.png`, {
+      type: "image/png",
+    });
+    const url = await uploadFileToServer(file, loggedInUser);
+    return url;
+  } else {
+    const blob = new Blob([bytes], { type: "image/svg+xml" });
+    const file = new File([blob], `${type}.svg`, {
+      type: "image/svg+xml",
+    });
+    const url = await uploadFileToServer(file, loggedInUser);
+    return url;
+  }
 }

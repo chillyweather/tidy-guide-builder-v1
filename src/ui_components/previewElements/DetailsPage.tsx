@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ElementSection from "./ElementSection";
 import { h } from "preact";
 const DetailsPage = (data: any) => {
@@ -12,8 +13,14 @@ const DetailsPage = (data: any) => {
             <h1 id={"sectionHeader"}>{section.title}</h1>
           </strong>
           <div className="flex-link">
-          {status && <div className={"wip"}>WIP</div>}
-          <a href={"https://tidy.guide/guide/" + section._id} className={"web-link"} target={"_blank"}>View on Website</a>
+            {status && <div className={"wip"}>WIP</div>}
+            <a
+              href={"https://tidy.guide/guide/" + section._id}
+              className={"web-link"}
+              target={"_blank"}
+            >
+              View on Website
+            </a>
           </div>
         </div>
       </div>

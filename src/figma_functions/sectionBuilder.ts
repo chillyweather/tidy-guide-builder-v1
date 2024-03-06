@@ -38,7 +38,9 @@ async function buildSection(
 
     case "link":
       const inputs = content.sources;
-      if (!inputs.length) return;
+      const linkIsEmpty =
+        inputs.length === 1 && inputs[0].link === "" && inputs[0].source === "";
+      if (!inputs.length || linkIsEmpty) return;
       inputs.forEach((input: any) => {
         const link = buildLinkText(input.source, input.link);
         sectionFrame.appendChild(link);

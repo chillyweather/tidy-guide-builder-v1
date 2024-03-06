@@ -58,13 +58,21 @@ export default async function () {
       if (foundElement) {
         if (foundElement.type === "COMPONENT_SET") {
           const bytes = await foundElement.defaultVariant.exportAsync({
-            format: "SVG",
+            format: "PNG",
+            constraint: { type: "SCALE", value: 2 },
           });
+          // const bytes = await foundElement.defaultVariant.exportAsync({
+          //   format: "SVG",
+          // });
           emit("COMPONENT_PIC_FOR_UPLOAD", { bytes });
         } else {
           const bytes = await foundElement.exportAsync({
-            format: "SVG",
+            format: "PNG",
+            constraint: { type: "SCALE", value: 2 },
           });
+          // const bytes = await foundElement.exportAsync({
+          //   format: "SVG",
+          // });
           emit("COMPONENT_PIC_FOR_UPLOAD", { bytes });
         }
       }
