@@ -22,10 +22,8 @@ export const deleteSection = (
 ) => {
   e.stopPropagation();
   setSelectedSections((prevSections: any[]) => {
-    console.log("prevSections", prevSections);
     const newSections = Array.from(prevSections);
     newSections.splice(index, 1);
-    console.log("newSections", newSections);
     return newSections;
   });
 };

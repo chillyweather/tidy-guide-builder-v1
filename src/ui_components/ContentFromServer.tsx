@@ -16,9 +16,13 @@ import {
 const ContentFromServer = ({
   data,
   selectedMasterId,
+  selectedSections,
+  setSelectedSections,
 }: {
   data: any;
   selectedMasterId: string;
+  selectedSections: any;
+  setSelectedSections: any;
 }) => {
   const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
@@ -27,8 +31,6 @@ const ContentFromServer = ({
 
   const {
     setIsDraft,
-    selectedSections,
-    setSelectedSections,
     setDocumentationTitle,
     setIsWip,
     setDocumentationData,

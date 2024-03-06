@@ -189,6 +189,16 @@ function Plugin() {
     });
   });
 
+  useEffect(() => {
+    const currentSections = JSON.parse(JSON.stringify(selectedSections));
+    setDocumentationData((prevDocumentation: any) => {
+      return {
+        ...prevDocumentation,
+        ["docs"]: currentSections,
+      };
+    });
+  }, [selectedSections]);
+
   // useEffect(() => {
   //   console.log("selectedNodeId", selectedNodeId);
   // }, [selectedNodeId]);
@@ -613,7 +623,12 @@ function Plugin() {
               token={token}
             />
           )}
-        {showMainContent && <MainContent />}
+        {showMainContent && (
+          <MainContent
+            selectedSections={selectedSections}
+            setSelectedSections={setSelectedSections}
+          />
+        )}
         {selectedMasterId &&
           !showMainContent &&
           showContentFromServer &&
@@ -622,6 +637,8 @@ function Plugin() {
             <ContentFromServer
               data={dataForUpdate}
               selectedMasterId={selectedMasterId}
+              selectedSections={selectedSections}
+              setSelectedSections={setSelectedSections}
               //! add component key
             />
           )}

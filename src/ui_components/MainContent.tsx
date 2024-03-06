@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { useContext } from "preact/hooks";
-import BuilderContext from "../BuilderContext";
+import { useEffect } from "preact/hooks";
 import { DraggableCardList } from "./DraggableCardsList";
 import HeaderCard from "./sectionCards/HeaderCard";
 
-const MainContent = () => {
-  const selectedSections = useContext(BuilderContext)?.selectedSections;
-  const setSelectedSections = useContext(BuilderContext)?.setSelectedSections;
+const MainContent = (selectedSections: any, setSelectedSections: any) => {
+  useEffect(() => {
+    console.log("selectedSections in MainCard", selectedSections);
+  }, [selectedSections]);
+
   return (
     <div className="mainContent">
       <HeaderCard />

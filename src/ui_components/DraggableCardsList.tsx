@@ -34,7 +34,7 @@ export const DraggableCardList = ({
 
   const ListOfCards = (items: any[]) => {
     return items.map((item, index) => {
-      console.log("item", item);
+      // console.log("item", item);
       return (
         <DraggableItem
           key={item.docId}
