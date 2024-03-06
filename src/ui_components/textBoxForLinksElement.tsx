@@ -1,20 +1,20 @@
 import { h, JSX } from "preact";
 import { setVideoDataElements } from "./ui_functions/getVideoDetails";
-import { IconInfoCircle } from "@tabler/icons-react";
+import normalizeYoutubeLink from "./ui_functions/normalizeYoutubeLink";
 
 export function videoTextBoxElement(
   value: string,
-  setValue: any,
+  setValue: (value: string) => void,
   placeholder = "Title",
   type?: string,
-  callback?: any,
+  callback?: () => void,
   isDisabled: boolean = false,
-  setIsValid?: Function
+  setIsValid?: (value: boolean) => void
 ) {
   function handleInput(event: JSX.TargetedEvent<HTMLInputElement>) {
     if (type === "videoLink") {
       const newValue = event.currentTarget.value;
-      setValue(newValue);
+      setValue(normalizeYoutubeLink(newValue) || "");
       if (isValidYouTubeLink(newValue)) {
         setIsValid!(true);
       } else {
@@ -37,7 +37,7 @@ export function videoTextBoxElement(
         }
         break;
       case "link":
-        callback();
+        if (callback) callback();
         break;
       default:
         break;
@@ -45,8 +45,10 @@ export function videoTextBoxElement(
   }
 
   function isValidYouTubeLink(link: string): boolean {
+    const cleanedLink = normalizeYoutubeLink(link);
+    if (!cleanedLink) return false;
     const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+/;
-    return youtubeRegex.test(link);
+    return youtubeRegex.test(cleanedLink);
   }
 
   return (

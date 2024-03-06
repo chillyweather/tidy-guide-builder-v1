@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { Text, LoadingIndicator } from "@create-figma-plugin/ui";
+import { Text } from "@create-figma-plugin/ui";
 import { useEffect, useState } from "preact/hooks";
 import { videoTextBoxElement } from "../textBoxForLinksElement";
 import youtube from "../../images/youtube.svg";
@@ -27,25 +29,16 @@ const videoCard = (
     setSelectedVideo,
     setSelectedVideoContent,
   }: {
-    element: any;
-    name: any;
-    video: any;
-    thumbnail: any;
-    index: any;
-    selectedVideo: any;
-    setSelectedVideo: any;
-    setSelectedVideoContent: any;
+    element: any; // replace ElementType with the actual type
+    name: string;
+    video: string;
+    thumbnail: string;
+    index: number;
+    selectedVideo: number;
+    setSelectedVideo: (value: number) => void;
+    setSelectedVideoContent: (value: any) => void; // replace VideoContent with the actual type
   }) => {
-    const elementType = element;
-    const videoLink = video;
     const isSelected = index === selectedVideo;
-
-    const currentVideoContent = {
-      element: elementType,
-      name: name,
-      video: videoLink,
-      thumbnail: thumbnail,
-    };
 
     const cardStyle = {
       width: "100%",
