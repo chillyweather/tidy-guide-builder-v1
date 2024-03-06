@@ -196,6 +196,9 @@ function HeaderActions() {
   const isEmpty = selectedSections && selectedSections.length === 0;
 
   useEffect(() => {
+    console.log("selectedNodeId", selectedNodeId);
+    console.log("selectedNodeKey", selectedNodeKey);
+    console.log("selectedComponentPic", selectedComponentPic);
     if (selectedNodeId && selectedNodeKey && !selectedComponentPic) {
       emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
     }
@@ -232,9 +235,9 @@ function HeaderActions() {
               setSelectedElementName("");
               setSelectedNodeKey("");
               setSelectedNodeId("");
-              emit("CLEAR_SELECTION");
-              await deleteFileFromServer(selectedComponentPic);
               setSelectedComponentPic("");
+              await deleteFileFromServer(selectedComponentPic);
+              emit("CLEAR_SELECTION");
             }}
           />
         ) : (
