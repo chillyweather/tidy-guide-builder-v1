@@ -360,6 +360,10 @@ export const ContentCard = (cardData: any, index: number) => {
   };
 
   useEffect(() => {
+    console.log("isHidden", isHidden);
+  }, [isHidden]);
+
+  useEffect(() => {
     if (isBuilding) {
       setDocumentationData((prevDocumentation: any) => {
         const newDocumentation = { ...prevDocumentation };
