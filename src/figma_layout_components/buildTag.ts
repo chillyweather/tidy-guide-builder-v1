@@ -245,6 +245,7 @@ export async function buildTag(
       tag.appendChild(linkText);
       addNewTextProperty(tag, linkText, "link", "link");
       addNewBooleanProperty(tag, linkText, "Show link", true);
+      linkText.visible = false;
     }
 
     text.textCase = "ORIGINAL";

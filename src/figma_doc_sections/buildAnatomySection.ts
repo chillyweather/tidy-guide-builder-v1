@@ -16,10 +16,6 @@ export async function buildAnatomySection(
   const labelComponent = buildLabelComponent();
   const tagComponent = await buildAllTags();
 
-  console.log("booleanProperties", booleanProperties);
-  console.log("elementSizes", elementSizes);
-  console.log("variantProperties", variantProperties);
-
   const tags = await buildAtomTags(
     node,
     booleanProperties,
@@ -28,8 +24,6 @@ export async function buildAnatomySection(
     labelComponent,
     tagComponent
   );
-
-  console.log("tags", tags);
 
   tags.forEach((tag) => {
     parentFrame.appendChild(tag);

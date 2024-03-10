@@ -18,14 +18,6 @@ export async function buildAtomTags(
 ) {
   const tagGroups: FrameNode[] = [];
 
-  // const isToSplit =
-  //   element.children &&
-  //   element.children.length > 1 &&
-  //   element.children.every(
-  //     (child) => !child.name.toLowerCase().startsWith("min")
-  //   ) &&
-  //   element.layoutMode === "VERTICAL";
-
   if (elementSizes) {
     for (const size of elementSizes) {
       const propNames = Object.keys(variantProperties);
@@ -92,31 +84,6 @@ async function buildOneTag(
   return resultFrame;
 }
 
-//! ⬇⬇⬇ here changes ⬇⬇⬇
-// function buildOneSplitAnatomyTag(
-//   group: GroupNode,
-//   labelComponent?: ComponentNode
-// ) {
-//   const resultFrame = buildAutoLayoutFrame("tagFrame", "HORIZONTAL", 160, 0);
-//   resultFrame.appendChild(group);
-//   resultFrame.fillStyleId = TGGray100.id;
-//   resultFrame.paddingBottom = 40;
-//   resultFrame.paddingTop = 40;
-//   resultFrame.counterAxisAlignItems = "CENTER";
-//   if (labelComponent) {
-//     const title = setTitlePosition(
-//       labelComponent.createInstance(),
-//       resultFrame
-//     );
-//     if (title.children[0] && title.children[0].type === "TEXT")
-//       title.children[0].fillStyleId = TGGray600.id;
-//     setVariantProps(title, "font", "regular");
-//     setTextProps(title, "text", `${group.name.split("-t")[0]}`);
-//   }
-//   return resultFrame;
-// }
-//! ⬆⬆⬆ here change ⬆⬆⬆
-
 function setTitlePosition(title: InstanceNode, frame: FrameNode) {
   frame.appendChild(title);
   title.layoutPositioning = "ABSOLUTE";
@@ -142,7 +109,6 @@ async function buildElementTags(
     true
   );
 
-  console.log("tagBuildResults", tagBuildResults);
   if (!tagBuildResults) return currentAtom;
   const tagElements = tagBuildResults.tagElements;
   const indexes = tagBuildResults.indexes;

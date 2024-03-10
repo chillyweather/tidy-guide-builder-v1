@@ -360,13 +360,6 @@ export const ContentCard = (cardData: any, index: number) => {
   };
 
   useEffect(() => {
-    console.log(
-      "elementIsEmpty(currentCardData)",
-      elementIsEmpty(currentCardData)
-    );
-  }, [currentCardData]);
-
-  useEffect(() => {
     if (isBuilding) {
       setDocumentationData((prevDocumentation: any) => {
         const newDocumentation = { ...prevDocumentation };

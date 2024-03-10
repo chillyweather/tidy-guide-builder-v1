@@ -91,14 +91,6 @@ export default async function buildTags(
     const indexWithLabel = indexWithLabelComp.createInstance();
     indexes.appendChild(indexWithLabel);
 
-    // set up index row
-    // if (linkTarget) {
-    //   addLink({ component: indexWithLabel, link: linkTarget });
-    // } else {
-    //   setTextContent(indexWithLabel, "link", "");
-    // }
-
-    // set component props
     setTextContent(tag, "elementIndex", `${abc[index]}`);
     setTextContent(indexWithLabel, "elementIndex", `${abc[index]}`);
 
@@ -112,17 +104,10 @@ export default async function buildTags(
       setTextContent(indexWithLabel, "Text", elementName);
     }
 
-    // if (linkTarget) {
-    //   setTextContent(indexWithLabel, "link", `see documentation`);
-    // }
-
     if (elementName === "Icon") {
       setTextContent(indexWithLabel, "Text", `Icon - ${elementWidth}px`);
-      // setTextContent(indexWithLabel, "link", "");
     }
-    // set up proper naming for tag and index instances
     tag.name = `.tag`;
-    // tag.name = `${stringOfIndexes[index]}_${elementName}`;
     indexWithLabel.name = `.${abc[index]}_${elementName}`;
     tagElements.push(tag);
   });
@@ -145,12 +130,12 @@ export default async function buildTags(
       : frame.absoluteBoundingBox.y + frame.height;
   indexes.y = yLimit + 52;
 
-  // tagElements.push(indexes);
-  // indexes.children.forEach((child) => {
-  //   if (child.type === "INSTANCE") {
-  //     makeLabelTextFlow(child);
-  //   }
-  // });
+  tagElements.push(indexes);
+  indexes.children.forEach((child) => {
+    if (child.type === "INSTANCE") {
+      makeLabelTextFlow(child);
+    }
+  });
 
   return { tagElements, indexes };
 }
