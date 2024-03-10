@@ -345,6 +345,27 @@ export const ContentCard = (cardData: any, index: number) => {
     duplicateSection(e, index, cardData, setSelectedSections);
   };
 
+  const elementIsEmpty = (element: any) => {
+    const content = element.content;
+    return (
+      !element.text &&
+      !content.subtitle1 &&
+      !content.text1 &&
+      !content.inputs[0] &&
+      !content.remoteImageLink &&
+      !content.videoDataElements.length &&
+      !content.releaseNotesMessage &&
+      !content.sources[0].source
+    );
+  };
+
+  useEffect(() => {
+    console.log(
+      "elementIsEmpty(currentCardData)",
+      elementIsEmpty(currentCardData)
+    );
+  }, [currentCardData]);
+
   useEffect(() => {
     if (isBuilding) {
       setDocumentationData((prevDocumentation: any) => {
@@ -352,6 +373,10 @@ export const ContentCard = (cardData: any, index: number) => {
         const newDocs = newDocumentation.docs;
         newDocs["title"] = documentationTitle;
         newDocs[index] = currentCardData;
+        if (elementIsEmpty(currentCardData)) {
+          newDocs[index].hidden = true;
+          setIsHidden(true);
+        }
         setIsBuilding(false);
         return newDocumentation;
       });
