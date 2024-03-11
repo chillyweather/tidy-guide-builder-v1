@@ -106,6 +106,7 @@ export async function buildPropSection(
     parentFrame.remove();
     return null;
   }
+  parentFrame.name = parentFrame.name + "- Properties";
   return parentFrame;
 }
 

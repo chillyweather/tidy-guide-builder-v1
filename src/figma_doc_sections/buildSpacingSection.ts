@@ -40,5 +40,6 @@ export async function buildSpacingSection(
   sizeMarker.remove();
   spacingMarker.remove();
   labelComponent.remove();
+  frame.name = frame.name + "- Spacing";
   return frame;
 }
