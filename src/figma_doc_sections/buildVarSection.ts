@@ -5,7 +5,6 @@ import {
 } from "../figma_functions/utilityFunctions";
 import { buildVariantFrames } from "./buildVariantFrames";
 import { buildBasicGridLabels } from "./buildBasicGridLabels";
-// import { buildTopLevelLabels } from "./buildTopLevelLabels";
 
 const missedItemsArray: InstanceNode[] = [];
 const allElements: InstanceNode[] = [];
