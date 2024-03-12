@@ -17,6 +17,7 @@ const Login = ({
   setIsSigninPageOpen,
   setShowPasswordResetPopup,
   setShowWaitingInfoPopup,
+  setUserRank,
 }: {
   setToken: (value: string) => void;
   setIsLoginFailed: (value: boolean) => void;
@@ -26,6 +27,7 @@ const Login = ({
   setIsSigninPageOpen: (value: boolean) => void;
   setShowPasswordResetPopup: (value: boolean) => void;
   setShowWaitingInfoPopup: (value: boolean) => void;
+  setUserRank: (value: string) => void;
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -58,8 +60,10 @@ const Login = ({
       const token = response.token;
       console.log("response", response);
       if (token) {
-        emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email);
+        const rank = response.rank;
+        emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email, rank);
         setToken(token);
+        setUserRank(rank);
         setIsLoginPageOpen(false);
         setIsSettingPageOpen(false);
       } else if (response.message === "User exists but not active") {

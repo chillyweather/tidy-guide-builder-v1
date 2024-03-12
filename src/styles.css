@@ -176,13 +176,30 @@ body:has(.login) {
 
 }
 
-.delete-wrapper {
+.settings-wrapper {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+}
+
+.settings-section-plus-userlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.userlist {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  min-height: 30px;
+  background-color: red;
 }
 
 body:has(.delete-flex),
@@ -195,6 +212,16 @@ body:has(.delete-flex) .container {
 }
 
 .delete-flex {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #E8E8F7;
+  border-radius: 8px;
+  padding: 16px;
+  justify-content: space-between;
+  width: calc(100vw - 48px);
+}
+
+.settings-section-flex {
   display: flex;
   flex-direction: row;
   border: 1px solid #E8E8F7;
@@ -223,6 +250,24 @@ body:has(.delete-flex) .container {
 }
 
 .delete-content h4 {
+  margin: 0;
+  font-size: calc(var(--text-size) + (var(--text-size) / 6));
+}
+
+.settings-section-content h4,
+.settings-section-content p {
+  color: var(--tidy-32);
+  font-family: Inter;
+  max-width: fit-content;
+}
+
+.settings-section-content p {
+  margin-top: 8px;
+  margin-bottom: 0;
+  color: #5C5C5C;
+}
+
+.settings-section-content h4 {
   margin: 0;
   font-size: calc(var(--text-size) + (var(--text-size) / 6));
 }
@@ -776,6 +821,18 @@ button svg {
   padding: 8px 12px;
   border-radius: 8px;
   background-color: #DB3B21;
+}
+
+#settings-primaty-button {
+  position: relative;
+  color: #ffffff;
+  height: fit-content;
+  min-height: 16px;
+  min-width: 16px;
+  width: fit-content;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: var(--tidy-primary);
 }
 
 #delete-button:hover {

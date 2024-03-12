@@ -133,6 +133,8 @@ function Plugin() {
   const [isDraft, setIsDraft] = useState(false);
   //is pd section open
   const [isPdSectionOpen, setIsPdSectionOpen] = useState(true);
+  //user rank
+  const [userRank, setUserRank] = useState("");
 
   // //anatomy section image
   // const [anatomySectionImage, setAnatomySectionImage] = useState("");
@@ -564,6 +566,7 @@ function Plugin() {
             setIsSigninPageOpen={setShowSigninPage}
             setShowPasswordResetPopup={setShowPasswordResetPopup}
             setShowWaitingInfoPopup={setShowWaitingInfoPopup}
+            setUserRank={setUserRank}
           />
         )}
         {!token && showSigninPage && (
@@ -585,6 +588,7 @@ function Plugin() {
           isIndexOpen={showIndexPage}
           isDocJustOpened={isDocJustOpened}
           setIsDocJustOpened={setIsDocJustOpened}
+          userRank={userRank}
         />
         {showLoginPage && token && <LoggedIn setToken={setToken} />}
 

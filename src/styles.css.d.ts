@@ -54,7 +54,6 @@ declare const styles: {
   readonly "delete-button": string;
   readonly "delete-content": string;
   readonly "delete-flex": string;
-  readonly "delete-wrapper": string;
   readonly "deleteInput": string;
   readonly "deletePara": string;
   readonly "deletePopup": string;
@@ -187,6 +186,11 @@ declare const styles: {
   readonly "selectedComponentGroup": string;
   readonly "selectedName": string;
   readonly "selectedPage": string;
+  readonly "settings-primaty-button": string;
+  readonly "settings-section-content": string;
+  readonly "settings-section-flex": string;
+  readonly "settings-section-plus-userlist": string;
+  readonly "settings-wrapper": string;
   readonly "show": string;
   readonly "side-flex": string;
   readonly "singleLink": string;
@@ -212,6 +216,7 @@ declare const styles: {
   readonly "twoColumnCardBodyContent": string;
   readonly "twoColumns": string;
   readonly "unselected": string;
+  readonly "userlist": string;
   readonly "validationFailedMessage": string;
   readonly "variants": string;
   readonly "video": string;

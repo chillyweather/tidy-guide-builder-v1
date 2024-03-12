@@ -26,6 +26,7 @@ const Header = ({
   isIndexOpen,
   isDocJustOpened,
   setIsDocJustOpened,
+  userRank,
 }: {
   isLoginPageOpen: boolean;
   setIsLoginPageOpen: (value: boolean) => void;
@@ -33,10 +34,12 @@ const Header = ({
   isIndexOpen: boolean;
   isDocJustOpened: boolean;
   setIsDocJustOpened: (value: boolean) => void;
+  userRank: string;
 }) => {
   const [selectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedComponentPic] = useAtom(selectedComponentPicAtom);
+  const [userRankStyle, setUserRankStyle] = useState({});
   const {
     selectedElement,
     selectedSections,
@@ -78,6 +81,15 @@ const Header = ({
     selectedComponentPic,
     isMainContentOpen,
   ]);
+
+  useEffect(() => {
+    console.log("userRank", userRank);
+    if (userRank === "Admin") {
+      setUserRankStyle({ color: "maroon" });
+    } else if (userRank === "Editor") {
+      setUserRankStyle({ color: "royalblue" });
+    }
+  }, [userRank]);
 
   //! find a better way to track data changes
   useEffect(() => {
@@ -168,7 +180,7 @@ const Header = ({
               setIsSettingsPageOpen(false);
             }}
           >
-            <IconUser />
+            <IconUser style={userRankStyle} />
           </button>
           <button
             className={"login-button"}
