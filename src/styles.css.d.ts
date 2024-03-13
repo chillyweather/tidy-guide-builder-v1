@@ -138,6 +138,7 @@ declare const styles: {
   readonly "mainContent": string;
   readonly "menuDiv": string;
   readonly "modal-bg": string;
+  readonly "mode-button": string;
   readonly "nav-container": string;
   readonly "nav-wrapper": string;
   readonly "navigation": string;
@@ -217,6 +218,7 @@ declare const styles: {
   readonly "twoColumns": string;
   readonly "unselected": string;
   readonly "userlist": string;
+  readonly "userlist-item": string;
   readonly "validationFailedMessage": string;
   readonly "variants": string;
   readonly "video": string;

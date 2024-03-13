@@ -21,7 +21,8 @@ export async function createNewAccount(
   name: string,
   email: string,
   password: string,
-  company: string
+  company: string,
+  rank: string
 ) {
   const path = "https://api.tidyframework.com/api/users/";
   const response = await fetch(path, {
@@ -29,7 +30,7 @@ export async function createNewAccount(
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, email, password, company }),
+    body: JSON.stringify({ name, email, password, company, rank }),
   });
 
   console.log("response", response);

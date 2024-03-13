@@ -7,6 +7,8 @@ import {
   getDocumentations,
   createDocumentation,
 } from "./ui_functions/documentationHandlers";
+import { useAtom } from "jotai";
+import { isViewModeOpenAtom } from "src/state/atoms";
 
 const IndexPage = ({
   data,
@@ -29,6 +31,7 @@ const IndexPage = ({
   setElementToDelete: (element: any) => void;
   token: string;
 }) => {
+  const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
   const sortedData = data.sort((a: any, b: any) =>
     a.title.localeCompare(b.title)
@@ -40,6 +43,9 @@ const IndexPage = ({
         const title = element.title;
         const wip = element.inProgress;
         const draft = element.draft;
+        if (draft === true && isViewModeOpen === true) {
+          return null;
+        }
 
         return (
           <div className={"componentBTN"}>
@@ -75,27 +81,31 @@ const IndexPage = ({
               <div className="inner-div">{title}</div>
               {wip && <div className={"wip"}>WIP</div>}
             </div>
-            <button
-              className={"cardAuxButton noPredefined"}
-              onClick={() =>
-                handleDocClone(token, element._id, setDataForUpdate)
-              }
-            >
-              <IconCopy />
-            </button>
-            <button
-              className={"cardAuxButton noPredefined"}
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowDeletePopup(true);
-                setElementToDelete(element._id);
-                setTimeout(function () {
-                  document.getElementById("cancel-button")?.focus();
-                }, 300);
-              }}
-            >
-              <IconTrash className={"trashIcon"} />
-            </button>
+            {!isViewModeOpen && (
+              <button
+                className={"cardAuxButton noPredefined"}
+                onClick={() =>
+                  handleDocClone(token, element._id, setDataForUpdate)
+                }
+              >
+                <IconCopy />
+              </button>
+            )}
+            {!isViewModeOpen && (
+              <button
+                className={"cardAuxButton noPredefined"}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowDeletePopup(true);
+                  setElementToDelete(element._id);
+                  setTimeout(function () {
+                    document.getElementById("cancel-button")?.focus();
+                  }, 300);
+                }}
+              >
+                <IconTrash className={"trashIcon"} />
+              </button>
+            )}
           </div>
         );
       })}

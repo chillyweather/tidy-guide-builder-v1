@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
   IconArrowLeft,
-  IconMessage2Check,
+  // IconMessage2Check,
   IconPlus,
   IconSettings,
   IconUser,
@@ -11,7 +13,9 @@ import {
   selectedNodeIdAtom,
   selectedNodeKeyAtom,
   selectedComponentPicAtom,
+  isViewModeOpenAtom,
 } from "src/state/atoms";
+import { Toggle, Text } from "@create-figma-plugin/ui";
 
 import { h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
@@ -39,6 +43,8 @@ const Header = ({
   const [selectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedComponentPic] = useAtom(selectedComponentPicAtom);
+  const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
+
   const [userRankStyle, setUserRankStyle] = useState({});
   const {
     selectedElement,
@@ -103,15 +109,21 @@ const Header = ({
     }
   }, [documentationData]);
 
-  // function isDataChanged() {
-  //   return (
-  //     JSON.stringify(documentationData) !==
-  //       JSON.stringify(initialDocumentationData) ||
-  //     JSON.stringify(selectedSections) !==
-  //       JSON.stringify(initialSelectedSections) ||
-  //     selectedSections?.length !== initialSelectedSectionsLength
-  //   );
-  // }
+  function Toggle() {
+    const handleToggle = () => {
+      setIsViewModeOpen(!isViewModeOpen);
+    };
+
+    return (
+      <button
+        className={"mode-button"}
+        onClick={handleToggle}
+        style={isViewModeOpen ? { color: "royalblue" } : { color: "coral" }}
+      >
+        {isViewModeOpen ? "VIEW" : "EDIT"}
+      </button>
+    );
+  }
 
   return (
     <div className="header">
@@ -127,17 +139,19 @@ const Header = ({
               >
                 <IconExternalLink />
               </a>
-              <button
-                className="flex-button add-button"
-                onClick={() => {
-                  setIsIndexOpen(false);
-                  setIsMainContentOpen(true);
-                  setIsFromSavedData(false);
-                }}
-              >
-                <IconPlus />
-                New Documentation
-              </button>
+              {!isViewModeOpen && (
+                <button
+                  className="flex-button add-button"
+                  onClick={() => {
+                    setIsIndexOpen(false);
+                    setIsMainContentOpen(true);
+                    setIsFromSavedData(false);
+                  }}
+                >
+                  <IconPlus />
+                  New Documentation
+                </button>
+              )}
             </div>
           ) : (
             <button
@@ -162,7 +176,8 @@ const Header = ({
           Back
         </button>
         <div className={"side-flex"}>
-          <button
+          {Toggle()}
+          {/* <button
             className="header-login"
             onClick={() => {
               setFeedbackPage(true);
@@ -172,7 +187,7 @@ const Header = ({
             }}
           >
             <IconMessage2Check />
-          </button>
+          </button> */}
           <button
             className="header-login"
             onClick={() => {

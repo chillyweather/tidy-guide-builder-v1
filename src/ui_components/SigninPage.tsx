@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
@@ -32,8 +33,11 @@ const SignIn = ({
   setIsSettingPageOpen: (value: boolean) => void;
   setShowWaitingInfoPopup: (value: boolean) => void;
 }) => {
+  // type UserRank = "Viewer" | "Editor" | "Admin";
+  // const userRanks = ["Viewer", "Editor", "Admin"];
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
+  const [rank] = useState("Admin");
   const [companyName, setCompanyName] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
@@ -102,6 +106,11 @@ const SignIn = ({
     setIsPasswordsMatchErrorVisible(false);
   };
 
+  // const handleUserRankChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   //@ts-ignore
+  //   setRank((e.target.value as UserRank) || "Viewer");
+  // };
+
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
     const isFormValid = validateForm();
@@ -111,7 +120,8 @@ const SignIn = ({
         userName,
         email,
         password,
-        companyName
+        companyName,
+        rank
       );
       const token = response.token;
       if (token) {
@@ -176,6 +186,15 @@ const SignIn = ({
           className="icon icon-tabler icon-tabler-usergroup"
         />
       </div>
+
+      {/* //! user permissions level */}
+      {/* <select value={rank} onChange={handleUserRankChange}>
+        {userRanks.map((rank) => (
+          <option key={rank} value={rank}>
+            {rank}
+          </option>
+        ))}
+      </select> */}
 
       {/* //! email */}
       <div className="inputDiv">
