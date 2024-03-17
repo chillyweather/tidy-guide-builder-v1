@@ -3664,7 +3664,7 @@ input[type="checkbox"] {
 }
 
 /* -------------------------------------------- */
-/* viewer-data-wrapper */
+/* VIEW MODE */
 
 .viewer-data-wrapper {
   width: 100%;
@@ -3675,14 +3675,15 @@ input[type="checkbox"] {
   margin: 0 20px;
 }
 
-body:has(.viewer-data-wrapper) .container{
+body:has(.viewer-data-wrapper) .container {
   scroll-behavior: smooth;
 }
 
 body:has(.navigation-button.true) .nav-wrapper {
   transform: translateX(0);
 }
-body:has(.navigation-button.true) .nav-wrapper .nav-container > * {
+
+body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
   visibility: visible;
   transition: none;
 }
