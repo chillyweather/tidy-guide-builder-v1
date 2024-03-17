@@ -140,9 +140,9 @@ declare const styles: {
   readonly "modal-bg": string;
   readonly "mode-button": string;
   readonly "nav-container": string;
-  readonly "nav-open": string;
   readonly "nav-wrapper": string;
   readonly "navigation": string;
+  readonly "navigation-button": string;
   readonly "noFeedback": string;
   readonly "noIcon": string;
   readonly "noPredefined": string;
@@ -214,6 +214,7 @@ declare const styles: {
   readonly "tooltipIcon": string;
   readonly "tooltiptext": string;
   readonly "top": string;
+  readonly "true": string;
   readonly "two-columns": string;
   readonly "twoColumnCardBodyContent": string;
   readonly "twoColumns": string;

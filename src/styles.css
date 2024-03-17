@@ -928,7 +928,7 @@ body .nav-wrapper {
 
 body .nav-wrapper {
   position: fixed;
-  top: 16px;
+  top: 48px;
   right: 16px;
   background-color: #ffffff;
   border-radius: 32px;
@@ -3666,7 +3666,7 @@ input[type="checkbox"] {
 /* -------------------------------------------- */
 /* viewer-data-wrapper */
 
-.viewer-data-wrapper{
+.viewer-data-wrapper {
   width: 100%;
 }
 
@@ -3674,8 +3674,9 @@ input[type="checkbox"] {
   width: calc(100% - 40px);
   margin: 0 20px;
 }
-.viewer-data-wrapper .nav-open{
-  transform: translateX(-150%);
+
+body:has(.navigation-button.true) .nav-wrapper {
+  transform: translateX(0);
 }
 
 /* -------------------------------------------- */
