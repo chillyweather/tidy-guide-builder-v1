@@ -2,10 +2,9 @@
 node_modules
 /src/token.ts
 /src/envConfig.ts
-/build
+
 .DS_Store
 .env
 .vscode/settings.json
 manifest.json
-build/main.js
-build/ui.js
+
