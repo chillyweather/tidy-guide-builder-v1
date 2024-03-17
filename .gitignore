@@ -8,3 +8,6 @@ node_modules
 .vscode/settings.json
 manifest.json
 
+/build
+build/main.js
+build/ui.js
