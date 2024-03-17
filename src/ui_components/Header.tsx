@@ -58,7 +58,7 @@ const Header = ({
     setIsMainContentOpen,
     setIsReset,
     setIsSettingsPageOpen,
-    isSettingsPageOpen
+    isSettingsPageOpen,
   } = useContext(BuilderContext) || {};
   const [, setInitialSelectedSections] = useState(null);
   const [, setInitialDocumentationData] = useState(null);
@@ -192,18 +192,22 @@ const Header = ({
             <IconMessage2Check />
           </button> */}
 
-          {!isIndexOpen && isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen &&
-            <button
-              className={"navigation-button " + navState}
-              onClick={() => {
-                setNavState(!navState);
-              }}
-            >
-              <IconList />
-            </button>
-          }
-
-
+          {!isIndexOpen &&
+            isViewModeOpen &&
+            !isLoginPageOpen &&
+            !isSettingsPageOpen && (
+              <button
+                className={"navigation-button " + navState}
+                onClick={() => {
+                  setNavState(!navState);
+                }}
+                onBlur={() => {
+                  setNavState(false);
+                }}
+              >
+                <IconList />
+              </button>
+            )}
 
           <button
             className="header-login"
@@ -230,7 +234,10 @@ const Header = ({
         </div>
       </div>
       {(selectedElement || isMainContentOpen || isContenFromServerOpen) &&
-        !isIndexOpen && !isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen && <HeaderActions />}
+        !isIndexOpen &&
+        !isViewModeOpen &&
+        !isLoginPageOpen &&
+        !isSettingsPageOpen && <HeaderActions />}
     </div>
   );
 };
