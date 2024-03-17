@@ -1001,9 +1001,9 @@ body:has(.navigation) .header-title {
   display: none;
 }
 
-body:has(.navigation) .header-button {
+/* body:has(.navigation) .header-button {
   display: flex;
-}
+} */
 
 .header .header-button {
   background-color: transparent;
@@ -1090,6 +1090,10 @@ body .login-button {
   flex-direction: row-reverse;
 }
 
+body:has(.login) .header .header-button{
+  display: flex;
+}
+
 body:has(.login) .header-login,
 body:has(.login) #searchMenu {
   display: none;
@@ -1112,9 +1116,9 @@ body .header-login {
   display: block;
 }
 
-body:has(.navigation a) .header-login {
+/* body:has(.navigation a) .header-login {
   display: none;
-}
+} */
 
 .container:has(.login) {
   margin-top: 52px;

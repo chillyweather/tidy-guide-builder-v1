@@ -58,6 +58,7 @@ const Header = ({
     setIsMainContentOpen,
     setIsReset,
     setIsSettingsPageOpen,
+    isSettingsPageOpen
   } = useContext(BuilderContext) || {};
   const [, setInitialSelectedSections] = useState(null);
   const [, setInitialDocumentationData] = useState(null);
@@ -218,8 +219,8 @@ const Header = ({
         </div>
       </div>
       {(selectedElement || isMainContentOpen || isContenFromServerOpen) &&
-        (!isLoginPageOpen || !isIndexOpen) &&
-        !isViewModeOpen && <HeaderActions />}
+        (!isIndexOpen) &&
+        !isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen && <HeaderActions />}
     </div>
   );
 };
