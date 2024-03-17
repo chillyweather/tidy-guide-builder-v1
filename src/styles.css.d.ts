@@ -140,6 +140,7 @@ declare const styles: {
   readonly "modal-bg": string;
   readonly "mode-button": string;
   readonly "nav-container": string;
+  readonly "nav-open": string;
   readonly "nav-wrapper": string;
   readonly "navigation": string;
   readonly "noFeedback": string;

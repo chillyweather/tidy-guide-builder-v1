@@ -190,9 +190,18 @@ const Header = ({
             <IconMessage2Check />
           </button> */}
 
-          <button>
-            <IconList />
-          </button>
+          {!isIndexOpen && isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen &&
+            <button
+              className={"navigation-button"}
+              onClick={() => {
+                document.getElementsByClassName("nav-wrapper")[0].className.add('nav-open');
+              }}
+            >
+              <IconList />
+            </button>
+          }
+
+
 
           <button
             className="header-login"
