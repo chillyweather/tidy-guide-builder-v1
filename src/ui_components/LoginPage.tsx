@@ -127,20 +127,7 @@ const Login = ({
         </div>
       </div>
       <button type="submit">Login</button>
-      <p>
-        Don't have an account? Create one{" "}
-        <a
-          href={"#"}
-          onClick={() => {
-            setIsLoginPageOpen(false);
-            setIsSigninPageOpen(true);
-          }}
-        >
-          here
-        </a>
-        .
-      </p>
-      <p style="margin-top: -1.25em;">
+      <p style="margin-top: -1.25em;text-align: left; width: 100%;">
         Forgot your password? Click{" "}
         <a
           href={"#"}
@@ -152,6 +139,17 @@ const Login = ({
         </a>
         .
       </p>
+      <div className="flex-container">
+        <p style="margin: 0;">
+          Don't have an account?
+        </p>
+        <button className={"signup secondary"}
+          onClick={() => {
+            setIsLoginPageOpen(false);
+            setIsSigninPageOpen(true);
+          }}
+        >Sign up</button>
+      </div>
     </form>
   );
 };

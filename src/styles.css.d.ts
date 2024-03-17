@@ -79,9 +79,11 @@ declare const styles: {
   readonly "feedbackPopupBackground": string;
   readonly "flex-btn": string;
   readonly "flex-button": string;
+  readonly "flex-container": string;
   readonly "flex-label": string;
   readonly "flex-link": string;
   readonly "footer": string;
+  readonly "fullscreen": string;
   readonly "header": string;
   readonly "header-button": string;
   readonly "header-login": string;
@@ -195,6 +197,7 @@ declare const styles: {
   readonly "settings-wrapper": string;
   readonly "show": string;
   readonly "side-flex": string;
+  readonly "signup": string;
   readonly "singleLink": string;
   readonly "spacing": string;
   readonly "spinner": string;
