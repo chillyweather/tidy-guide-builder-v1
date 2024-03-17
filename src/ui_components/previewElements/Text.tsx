@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 
 export const Text = ({ element, index }: any) => (
@@ -11,6 +12,7 @@ export const Text = ({ element, index }: any) => (
         </a>
       </div>
     )}
-    {element.text.length && <p>{element.text}</p>}
+    {console.log("element", element)}
+    {element.text && element.text.length && <p>{element.text}</p>}
   </div>
 );

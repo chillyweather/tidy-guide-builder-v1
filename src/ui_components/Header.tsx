@@ -7,6 +7,7 @@ import {
   IconSettings,
   IconUser,
   IconExternalLink,
+  IconList,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import {
@@ -15,7 +16,6 @@ import {
   selectedComponentPicAtom,
   isViewModeOpenAtom,
 } from "src/state/atoms";
-import { Toggle, Text } from "@create-figma-plugin/ui";
 
 import { h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
@@ -47,16 +47,16 @@ const Header = ({
 
   const [userRankStyle, setUserRankStyle] = useState({});
   const {
+    documentationData,
+    isContenFromServerOpen,
+    isMainContentOpen,
     selectedElement,
     selectedSections,
-    setIsReset,
-    setIsMainContentOpen,
-    isMainContentOpen,
-    setIsIndexOpen,
-    setIsFromSavedData,
     setIsContenFromServerOpen,
-    isContenFromServerOpen,
-    documentationData,
+    setIsFromSavedData,
+    setIsIndexOpen,
+    setIsMainContentOpen,
+    setIsReset,
     setIsSettingsPageOpen,
   } = useContext(BuilderContext) || {};
   const [, setInitialSelectedSections] = useState(null);
@@ -188,6 +188,11 @@ const Header = ({
           >
             <IconMessage2Check />
           </button> */}
+
+          <button>
+            <IconList />
+          </button>
+
           <button
             className="header-login"
             onClick={() => {
@@ -197,6 +202,7 @@ const Header = ({
           >
             <IconUser style={userRankStyle} />
           </button>
+
           <button
             className={"login-button"}
             onClick={() => {
@@ -212,8 +218,8 @@ const Header = ({
         </div>
       </div>
       {(selectedElement || isMainContentOpen || isContenFromServerOpen) &&
-        !isLoginPageOpen &&
-        !isIndexOpen && <HeaderActions />}
+        (!isLoginPageOpen || !isIndexOpen) &&
+        !isViewModeOpen && <HeaderActions />}
     </div>
   );
 };

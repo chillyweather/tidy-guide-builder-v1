@@ -1,17 +1,19 @@
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
-import { useState } from "preact/hooks";
-import { useContext, useRef, useEffect } from "preact/hooks";
+// import { useState } from "preact/hooks";
+import { useContext } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 import DetailsPage from "../previewElements/DetailsPage";
 
 function PreviewPopup() {
   const {
-    showPreviewPopup,
+    // showPreviewPopup,
     setShowPreviewPopup,
     previewData,
-    documentationData,
+    // documentationData,
   } = useContext(BuilderContext) || {};
+
+  console.log("previewData", previewData);
 
   return (
     <div
@@ -30,6 +32,7 @@ function PreviewPopup() {
         >
           <IconX />
         </button>
+        {console.log("previewData", previewData)}
         <div className="previewContent">
           <DetailsPage data={previewData} />
         </div>

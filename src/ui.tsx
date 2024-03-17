@@ -19,6 +19,8 @@ import { sendRaster } from "./ui_components/ui_functions/sendRaster";
 
 //new components
 import ContentFromServer from "./ui_components/ContentFromServer";
+// import ContentFromServerViewMode from "./ui_components/ContentFromServerViewMode";
+import DetailsPage from "./ui_components/ViewModeElements/DetailsPage";
 import Footer from "./ui_components/Footer";
 import Header from "./ui_components/Header";
 import IndexPage from "./ui_components/IndexPage";
@@ -39,6 +41,7 @@ import {
   selectedNodeIdAtom,
   selectedNodeKeyAtom,
   selectedComponentPicAtom,
+  isViewModeOpenAtom,
 } from "./state/atoms";
 
 //styles
@@ -51,6 +54,7 @@ function Plugin() {
   const [selectedComponentPic, setSelectedComponentPic] = useAtom(
     selectedComponentPicAtom
   );
+  const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -427,6 +431,10 @@ function Plugin() {
     }
   }, [documentationData, isBuilding, token]);
 
+  useEffect(() => {
+    console.log("selectedMasterId", selectedMasterId);
+  }, [selectedMasterId]);
+
   const contextStates = {
     currentDocument,
     currentPage,
@@ -633,11 +641,13 @@ function Plugin() {
             setSelectedSections={setSelectedSections}
           />
         )}
+        {/* content in Edit mode */}
         {selectedMasterId &&
           !showMainContent &&
           showContentFromServer &&
           !showLoginPage &&
-          !showSigninPage && (
+          !showSigninPage &&
+          !isViewModeOpen && (
             <ContentFromServer
               data={dataForUpdate}
               selectedMasterId={selectedMasterId}
@@ -646,12 +656,32 @@ function Plugin() {
               //! add component key
             />
           )}
+        {/* content in View mode */}
+        {selectedMasterId &&
+          !showMainContent &&
+          showContentFromServer &&
+          !showLoginPage &&
+          !showSigninPage &&
+          isViewModeOpen && (
+            // <ContentFromServerViewMode
+            //   data={dataForUpdate}
+            //   selectedMasterId={selectedMasterId}
+            //   selectedSections={selectedSections}
+            //   setSelectedSections={setSelectedSections}
+            //   //! add component key
+            // />
+            <DetailsPage
+              data={dataForUpdate}
+              selectedMasterId={selectedMasterId}
+            />
+          )}
         {showSettingsPage && <Settings />}
 
         {!showLoginPage &&
           !showSigninPage &&
           !showIndexPage &&
-          !showSettingsPage && (
+          !showSettingsPage &&
+          !isViewModeOpen && (
             <Footer
               setIsBuilding={(value: boolean) => setIsBuilding(value)}
               setIsBuildingOnCanvas={(value: boolean) =>
