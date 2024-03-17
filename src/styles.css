@@ -3671,8 +3671,8 @@ input[type="checkbox"] {
 }
 
 .viewer-data-wrapper .section {
-  width: calc(100% - 40px);
-  margin: 0 20px;
+  width: calc(100% - 64px);
+  margin: 0 32px;
 }
 
 body:has(.viewer-data-wrapper) .container {
@@ -3686,6 +3686,49 @@ body:has(.navigation-button.true) .nav-wrapper {
 body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
   visibility: visible;
   transition: none;
+}
+.viewer-data-wrapper .title-wrapper{
+  margin-bottom: 16px;
+  flex-direction: column;
+}
+.viewer-data-wrapper .title-wrapper .flex-link{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  gap: 12px;
+}
+.viewer-data-wrapper .title-wrapper .flex-link .wip{
+  margin: 0;
+  height: fit-content;
+  flex-grow: 0;
+}
+
+.web-link {
+  color: var(--tidy-32) !important;
+  border: 1px solid !important;
+  padding: 6px 16px !important;
+  padding-left: 32px !important;
+  width: fit-content !important;
+  border-radius: 9999px !important;
+  text-decoration: none !important;
+  position: relative !important;
+}
+
+.web-link::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 16px !important;
+  height: 16px !important;
+  left: 12px !important;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M3.6 9h16.8" /><path d="M3.6 15h16.8" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a17 17 0 0 1 0 18" /></svg>') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+}
+
+.web-link:hover {
+  text-decoration: none !important;
 }
 
 /* -------------------------------------------- */
