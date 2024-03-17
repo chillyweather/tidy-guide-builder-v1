@@ -219,8 +219,7 @@ const Header = ({
         </div>
       </div>
       {(selectedElement || isMainContentOpen || isContenFromServerOpen) &&
-        (!isIndexOpen) &&
-        !isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen && <HeaderActions />}
+        !isIndexOpen && !isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen && <HeaderActions />}
     </div>
   );
 };
