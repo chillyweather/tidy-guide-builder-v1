@@ -7,7 +7,6 @@ node_modules
 .env
 .vscode/settings.json
 manifest.json
-
 /build
 build/main.js
 build/ui.js
