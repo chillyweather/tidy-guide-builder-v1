@@ -1640,7 +1640,7 @@ a:focus {
   width: calc(var(--text-size) * 30);
   text-align: center;
 }
-.fullscreen a p{
+.fullscreen a:hover::after{
   text-align: left;
 }
 
