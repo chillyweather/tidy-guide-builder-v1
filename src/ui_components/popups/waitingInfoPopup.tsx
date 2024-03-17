@@ -1,5 +1,6 @@
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
+import { TidyLogo } from "./../../images/TidyLogo";
 
 function WaitingInfoPopup({
   setShowWaitingInfoPopup,
@@ -11,27 +12,35 @@ function WaitingInfoPopup({
       className={"feedbackPopupBackground"}
       onClick={() => setShowWaitingInfoPopup(false)}
     >
-      <div className={"feedbackPopup"} onClick={(e) => e.stopPropagation()}>
+      <div className={"feedbackPopup fullscreen"} onClick={(e) => e.stopPropagation()}>
         <button
           className={"closePopupButton"}
           onClick={() => setShowWaitingInfoPopup(false)}
         >
           <IconX />
         </button>
-        <h2 className={"dialogTitle"}>Your account is set up!</h2>
+        <TidyLogo />
+        {/* <h2 className={"dialogTitle"}>Your account is set up!</h2> */}
         <p style={{ whiteSpace: "normal" }}>
-          We just need a couple more days to activate it. We'll send you an
-          email once it's good to go.
+          Thanks for joining Tidy Beta! 🚀<br />
+          We'll review your details and notify you once approved.
+          <br /><br />
+
+          In the meantime, feel free to explore Tidy Guide for more information about what's coming next.
+          <br /><br />
+
+          For any questions please contact us at 
+          <br />support@tidy.guide.
         </p>
         <div className="popupButtons">
-          <button
+          {/* <button
             className={"button primary"}
             onClick={() => {
               setShowWaitingInfoPopup(false);
             }}
           >
             Close
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

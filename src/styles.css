@@ -784,17 +784,17 @@ button svg {
   margin-right: 0;
 }
 
-.headerActions .secondary {
+.headerActions .secondary, .signup.secondary {
   color: var(--tidy-primary);
   box-shadow: 0 0 0 1px var(--tidy-primary) inset;
   background-color: transparent;
 }
 
-.headerActions .secondary:hover {
+.headerActions .secondary:hover, .signup.secondary:hover {
   background-color: #F2F0F6;
 }
 
-.headerActions .secondary:active {
+.headerActions .secondary:active, .signup.secondary:active {
   background-color: var(--tidy-ec);
 }
 
@@ -802,6 +802,13 @@ button svg {
   color: #C4CCD9;
   box-shadow: none;
   pointer-events: none;
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
 }
 
 .empty-image {
@@ -1611,6 +1618,27 @@ a:focus {
 
 .inputDiv input:placeholder-shown+svg {
   color: var(--tidy-disabled-ic);
+}
+
+.fullscreen{
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+.fullscreen img{
+  margin-bottom: 40px;
+}
+
+.fullscreen p{
+  width: calc(var(--text-size) * 30);
+  text-align: center;
 }
 
 .login input,
