@@ -63,6 +63,7 @@ const Header = ({
   const [, setInitialSelectedSections] = useState(null);
   const [, setInitialDocumentationData] = useState(null);
   const [, setInitialSelectedSectionsLength] = useState(0);
+  const [navState, setNavState] = useState(false);
 
   function backToIndex() {
     setIsIndexOpen(true);
@@ -192,9 +193,9 @@ const Header = ({
 
           {!isIndexOpen && isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen &&
             <button
-              className={"navigation-button"}
+              className={"navigation-button " + navState}
               onClick={() => {
-                document.getElementsByClassName("nav-wrapper")[0].className.add('nav-open');
+                setNavState(!navState);
               }}
             >
               <IconList />
