@@ -1632,13 +1632,16 @@ a:focus {
   justify-content: flex-start !important;
   align-items: center !important;
 }
-.fullscreen img{
-  margin-bottom: 40px;
+.fullscreen svg{
+  margin-bottom: 32px;
 }
 
 .fullscreen p{
   width: calc(var(--text-size) * 30);
   text-align: center;
+}
+.fullscreen a p{
+  text-align: left;
 }
 
 .login input,
