@@ -161,7 +161,6 @@ const Header = ({
               onClick={() => {
                 // isDataChanged() ? setShowCancelPopup(true) :
                 backToIndex();
-                setNavState(false);
               }}
             >
               <IconArrowLeft />

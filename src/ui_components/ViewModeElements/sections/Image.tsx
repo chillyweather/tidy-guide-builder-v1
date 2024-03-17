@@ -1,14 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import imgloader from "../images/img-loader.gif";
 import brokenImg from "../images/broken-image.svg";
 import { Button } from "@create-figma-plugin/ui";
 
 function hideImg(event: any) {
-  event.target.classList.add('broken');
+  event.target.classList.add("broken");
 }
 
 function loadImg(event: any) {
-  event.target.classList.add('loaded');
+  event.target.classList.add("loaded");
 }
 
 export const Image = ({
@@ -44,10 +45,10 @@ export const Image = ({
           <img
             className={"image"}
             src={element.content.remoteImageLink}
-            onError={() => {
+            onError={(event) => {
               hideImg(event);
             }}
-            onLoad={() => {
+            onLoad={(event) => {
               loadImg(event);
             }}
           />
