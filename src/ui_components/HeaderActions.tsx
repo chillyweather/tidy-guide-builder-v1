@@ -4,17 +4,17 @@ import { h } from "preact";
 import { useState, useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import {
-  IconX,
-  IconLink,
-  IconPilcrow,
-  IconVideo,
+  IconChevronDown,
   IconColumns,
+  IconInfoCircle,
+  IconLink,
   IconListDetails,
   IconPhoto,
-  IconInfoCircle,
-  IconPlayerPlayFilled,
-  IconChevronDown,
+  IconPilcrow,
+  // IconPlayerPlayFilled,
   IconPlus,
+  IconVideo,
+  IconX,
 } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
 import { sectionData, PDSectionData } from "src/resources/dataForElements";
@@ -188,12 +188,12 @@ function HeaderActions() {
     setSelectedElement,
     documentationTitle,
     isScroll,
-    setShowPreviewPopup,
-    setIsPreviewing,
-    selectedSections,
+    // setShowPreviewPopup,
+    // setIsPreviewing,
+    // selectedSections,
   } = useContext(BuilderContext) || {};
 
-  const isEmpty = selectedSections && selectedSections.length === 0;
+  // const isEmpty = selectedSections && selectedSections.length === 0;
 
   useEffect(() => {
     if (selectedNodeId && selectedNodeKey && !selectedComponentPic) {
@@ -259,7 +259,7 @@ function HeaderActions() {
         >
           <IconPlus />
         </button>
-        <button
+        {/* <button
           disabled={isEmpty}
           onClick={() => {
             setIsPreviewing(true);
@@ -271,7 +271,7 @@ function HeaderActions() {
           className={"secondary"}
         >
           <IconPlayerPlayFilled />
-        </button>
+        </button> */}
       </div>
       <div className={"menuDiv"}>
         <div
