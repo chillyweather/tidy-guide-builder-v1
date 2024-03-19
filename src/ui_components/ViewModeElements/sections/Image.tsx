@@ -60,8 +60,6 @@ export const Image = ({
           <img src={imgloader} className={"img-loader"} />
         </div>
       </Button>
-
-      // TODO: check why images and empty states and loader are all visibel at once.
     )}
   </div>
 );
