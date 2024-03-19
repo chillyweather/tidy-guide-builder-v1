@@ -974,14 +974,32 @@ button svg {
   outline: 4px solid #C2DAFE;
 }
 
-.mode-button {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
-  border-radius: 8px;
+.header .mode-button {
+  position: relative;
+  padding: 3px;
+  border-radius: 9999px;
   background-color: #ffffff;
+  border: 1px solid #D2DCF9;
+  width: 48px;
+}
+
+.header .mode-button:active{
+  background-color: #ffffff;
+}
+
+.header .mode-button::after {
+  content: '';
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 3px;
+  top: 3px;
+  border-radius: 9999px;
+  background-color: #E5E8FF;
+}
+
+.header .mode-button.viewer::after {
+  left: calc(50% - 3px);
 }
 
 body:has(.login) .mode-button,
@@ -3799,13 +3817,15 @@ body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
   visibility: visible;
   transition: none;
 }
-.viewer-data-wrapper .two-columns{
+
+.viewer-data-wrapper .two-columns {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 24px;
   width: 100%;
 }
-.viewer-data-wrapper .two-columns div{
+
+.viewer-data-wrapper .two-columns div {
   width: calc(50% - 12px);
   min-width: 200px;
 }

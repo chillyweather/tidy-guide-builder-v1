@@ -236,6 +236,7 @@ declare const styles: {
   readonly "videoOpen": string;
   readonly "videoSection": string;
   readonly "videoSelected": string;
+  readonly "viewer": string;
   readonly "viewer-data-wrapper": string;
   readonly "web-link": string;
   readonly "wip": string;

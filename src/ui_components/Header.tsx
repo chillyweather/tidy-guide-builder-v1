@@ -118,11 +118,10 @@ const Header = ({
 
     return (
       <button
-        className={"mode-button"}
+        className={isViewModeOpen ? "mode-button viewer" : "mode-button editor"}
         onClick={handleToggle}
         style={isViewModeOpen ? { color: "royalblue" } : { color: "coral" }}
       >
-        {isViewModeOpen ? "VIEW" : "EDIT"}
       </button>
     );
   }
