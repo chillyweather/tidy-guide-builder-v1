@@ -24,6 +24,7 @@ declare const styles: {
   readonly "addSectionTitle": string;
   readonly "anatomy": string;
   readonly "anchorLink": string;
+  readonly "back": string;
   readonly "back-button": string;
   readonly "back-link": string;
   readonly "backToTop": string;

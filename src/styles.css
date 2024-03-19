@@ -477,7 +477,8 @@ li {
   padding-bottom: 8px;
   overflow: auto;
 }
-.container:has(.footer){
+
+.container:has(.footer) {
   max-height: calc(100vh - 184px);
 }
 
@@ -983,6 +984,11 @@ button svg {
   background-color: #ffffff;
 }
 
+body:has(.login) .mode-button,
+body:has(.settings-wrapper) .mode-button {
+  display: none;
+}
+
 .mainContent {
   width: 100%;
   flex-grow: 1;
@@ -1083,6 +1089,14 @@ body:has(.navigation) .header-title {
   padding-left: 0;
   align-items: center;
   gap: 4px;
+}
+
+.header,
+.header-button.back {
+  min-height: 16px;
+  min-width: 16px;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 body .login-button {

@@ -169,7 +169,7 @@ const Header = ({
           ))}
 
         <button
-          className="header-button"
+          className="header-button back"
           onClick={() => {
             isLoginPageOpen && setIsLoginPageOpen(false);
           }}
