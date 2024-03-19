@@ -1494,6 +1494,7 @@ li::before {
   font-size: calc(var(--text-size) + (var(--text-size) / 2.333));
   justify-content: center;
   align-items: center;
+  color: var(--tidy-text);
 }
 
 .pagination .disabled {
