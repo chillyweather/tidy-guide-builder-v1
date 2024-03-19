@@ -473,9 +473,12 @@ li {
   margin-top: 108px;
   margin-bottom: 80px;
   min-height: calc(100vh - 184px);
-  max-height: calc(100vh - 184px);
+  max-height: calc(100vh - 104px);
   padding-bottom: 8px;
   overflow: auto;
+}
+.container:has(.footer){
+  max-height: calc(100vh - 184px);
 }
 
 #backToTop {
