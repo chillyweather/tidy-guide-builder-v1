@@ -169,7 +169,7 @@ body:has(.login) {
   position: absolute;
   pointer-events: none;
   top: 58px;
-  left: 28px;
+  left: 20px;
   font-weight: 600;
   color: var(--tidy-32);
   font-size: calc(var(--text-size) + (var(--text-size) / 2.5));
@@ -3797,6 +3797,16 @@ body:has(.navigation-button.true) .nav-wrapper {
 body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
   visibility: visible;
   transition: none;
+}
+.viewer-data-wrapper .two-columns{
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+}
+.viewer-data-wrapper .two-columns div{
+  width: calc(50% - 12px);
+  min-width: 200px;
 }
 
 .viewer-data-wrapper .title-wrapper {
