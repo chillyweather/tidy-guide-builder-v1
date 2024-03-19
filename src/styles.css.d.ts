@@ -209,6 +209,7 @@ declare const styles: {
   readonly "textCardBodyContent": string;
   readonly "textDetails": string;
   readonly "textSymbolsCounter": string;
+  readonly "thumb": string;
   readonly "tidyLogo": string;
   readonly "title-flex": string;
   readonly "title-row": string;

@@ -123,6 +123,7 @@ const Header = ({
         className={isViewModeOpen ? "mode-button viewer" : "mode-button editor"}
         onClick={handleToggle}
       >
+        <div className={"thumb"}></div>
         <IconPencil />
         <IconEye />
       </button>

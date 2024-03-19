@@ -992,26 +992,65 @@ button svg {
   background-color: #ffffff;
 }
 
-.header .mode-button::before,
 .header .mode-button::after {
-  content: '';
+  content: 'Switch to view mode';
+  position: absolute;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: #DEDEE8;
+  color: var(--tidy-32);
+  white-space: pre;
+  top: calc(100% + 4px);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.04);
+  visibility: hidden;
+  transition: visibility 10ms linear 0s;
+}
+
+.header .mode-button:hover::after {
+  visibility: visible;
+  transition: visibility 10ms linear 2000ms;
+}
+
+.header .mode-button:active::after {
+  visibility: hidden;
+  transition: visibility 10ms linear 0s;
+}
+
+.header .mode-button.viewer:hover::after {
+  content: 'Switch to edit mode';
+}
+
+.header .mode-button .thumb {
   position: absolute;
   height: 24px;
   width: 24px;
   left: 3px;
   top: 3px;
   border-radius: 9999px;
-  background-color: #E5E8FF;
-  mix-blend-mode: multiply;
+  pointer-events: none;
   transition: left 200ms ease-in-out 0s;
 }
-.header .mode-button::before{
+
+.header .mode-button .thumb::before,
+.header .mode-button .thumb::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 9999px;
   background-color: #6B73FF;
   mix-blend-mode: overlay;
 }
 
-.header .mode-button.viewer::before,
-.header .mode-button.viewer::after {
+.header .mode-button .thumb::after {
+  background-color: #E5E8FF;
+  mix-blend-mode: multiply;
+}
+
+.header .mode-button.viewer .thumb,
+.header .mode-button.viewer .thumb {
   left: calc(50% + 3px);
 }
 
