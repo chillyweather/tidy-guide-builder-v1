@@ -2,6 +2,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
   IconArrowLeft,
+  IconEye,
+  IconPencil,
   // IconMessage2Check,
   IconPlus,
   IconSettings,
@@ -120,8 +122,9 @@ const Header = ({
       <button
         className={isViewModeOpen ? "mode-button viewer" : "mode-button editor"}
         onClick={handleToggle}
-        style={isViewModeOpen ? { color: "royalblue" } : { color: "coral" }}
       >
+        <IconPencil />
+        <IconEye />
       </button>
     );
   }

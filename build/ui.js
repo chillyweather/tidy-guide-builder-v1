@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7aed8fd7-7df8-4563-b671-002539de31cd/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/172e09fb-15c5-471b-a856-956952694637/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7aed8fd7-7df8-4563-b671-002539de31cd/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/172e09fb-15c5-471b-a856-956952694637/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9318ec4a-671c-4411-a830-1bd628796a08/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c6c53be2-6b1d-430c-9c76-d3f328e86279/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9318ec4a-671c-4411-a830-1bd628796a08/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c6c53be2-6b1d-430c-9c76-d3f328e86279/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d332a83d-0b69-4983-ba71-b0c144f9102d/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/fab38c87-0400-4a80-b567-d54b32f6d404/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d332a83d-0b69-4983-ba71-b0c144f9102d/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/fab38c87-0400-4a80-b567-d54b32f6d404/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f84399c6-08b0-4971-9ece-e7c275e8b1f4/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e6fa936b-7d48-4267-81da-c4520eea7d68/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f84399c6-08b0-4971-9ece-e7c275e8b1f4/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e6fa936b-7d48-4267-81da-c4520eea7d68/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3264f603-2318-4de7-9ce7-75a38a398673/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b416ac65-0050-40aa-af9f-886f19300371/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3264f603-2318-4de7-9ce7-75a38a398673/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b416ac65-0050-40aa-af9f-886f19300371/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/8616eb63-21ca-4b18-ad0e-9a96b570b379/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0c40fa3e-a4a7-45b7-9ab0-de465d029149/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/8616eb63-21ca-4b18-ad0e-9a96b570b379/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0c40fa3e-a4a7-45b7-9ab0-de465d029149/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/43696154-2a81-4637-b9bb-f285706c639e/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/1196e6bb-c9b9-445a-ac1b-62ff6d8d1fc4/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/43696154-2a81-4637-b9bb-f285706c639e/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/1196e6bb-c9b9-445a-ac1b-62ff6d8d1fc4/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7e1d50e3-7b5b-4acd-8f9d-b4528e99009d/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/32fbd960-d069-4e21-bc11-02edc82cf81d/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7e1d50e3-7b5b-4acd-8f9d-b4528e99009d/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/32fbd960-d069-4e21-bc11-02edc82cf81d/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/97224ee6-0aa9-4eb0-b3b9-31fd88721dcd/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ab20b031-7cc7-4340-ba09-38adf6eb4e08/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/97224ee6-0aa9-4eb0-b3b9-31fd88721dcd/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ab20b031-7cc7-4340-ba09-38adf6eb4e08/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -3037,6 +3037,24 @@ svg {
     }
   });
 
+  // node_modules/@tabler/icons-react/dist/esm/icons/IconPencil.js
+  var IconPencil;
+  var init_IconPencil = __esm({
+    "node_modules/@tabler/icons-react/dist/esm/icons/IconPencil.js"() {
+      init_createReactComponent();
+      IconPencil = createReactComponent("pencil", "IconPencil", [
+        [
+          "path",
+          {
+            d: "M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4",
+            key: "svg-0"
+          }
+        ],
+        ["path", { d: "M13.5 6.5l4 4", key: "svg-1" }]
+      ]);
+    }
+  });
+
   // node_modules/@tabler/icons-react/dist/esm/icons/IconPhoto.js
   var IconPhoto;
   var init_IconPhoto = __esm({
@@ -3204,6 +3222,7 @@ svg {
       init_IconListDetails();
       init_IconList();
       init_IconMail();
+      init_IconPencil();
       init_IconPhoto();
       init_IconPilcrow();
       init_IconPlus();
@@ -41591,9 +41610,10 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
             "button",
             {
               className: isViewModeOpen ? "mode-button viewer" : "mode-button editor",
-              onClick: handleToggle,
-              style: isViewModeOpen ? { color: "royalblue" } : { color: "coral" }
-            }
+              onClick: handleToggle
+            },
+            /* @__PURE__ */ y(IconPencil, null),
+            /* @__PURE__ */ y(IconEye, null)
           );
         }
         return /* @__PURE__ */ y("div", { className: "header" }, /* @__PURE__ */ y("div", { className: "headerContent" }, !isLoginPageOpen && (isIndexOpen ? /* @__PURE__ */ y("div", { className: "componentHeader" }, /* @__PURE__ */ y("h2", null, "Component Index"), /* @__PURE__ */ y(
@@ -42279,9 +42299,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5e6eb17c-67ec-4dce-a725-b10b2e4a98a3/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/da44ff29-21a3-4469-98e5-ad10e7194488/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5e6eb17c-67ec-4dce-a725-b10b2e4a98a3/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/da44ff29-21a3-4469-98e5-ad10e7194488/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";
@@ -43267,13 +43287,19 @@ button svg {
   border-radius: 9999px;
   background-color: #ffffff;
   border: 1px solid #D2DCF9;
-  width: 48px;
+  width: 60px;
+  display: flex;
+  gap: 12px;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #7D7D7D;
 }
 
-.header .mode-button:active{
+.header .mode-button:active {
   background-color: #ffffff;
 }
 
+.header .mode-button::before,
 .header .mode-button::after {
   content: '';
   position: absolute;
@@ -43283,10 +43309,17 @@ button svg {
   top: 3px;
   border-radius: 9999px;
   background-color: #E5E8FF;
+  mix-blend-mode: multiply;
+  transition: left 200ms ease-in-out 0s;
+}
+.header .mode-button::before{
+  background-color: #6B73FF;
+  mix-blend-mode: overlay;
 }
 
+.header .mode-button.viewer::before,
 .header .mode-button.viewer::after {
-  left: calc(50% - 3px);
+  left: calc(50% + 3px);
 }
 
 body:has(.login) .mode-button,

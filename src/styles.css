@@ -980,13 +980,19 @@ button svg {
   border-radius: 9999px;
   background-color: #ffffff;
   border: 1px solid #D2DCF9;
-  width: 48px;
+  width: 60px;
+  display: flex;
+  gap: 12px;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #7D7D7D;
 }
 
-.header .mode-button:active{
+.header .mode-button:active {
   background-color: #ffffff;
 }
 
+.header .mode-button::before,
 .header .mode-button::after {
   content: '';
   position: absolute;
@@ -996,10 +1002,17 @@ button svg {
   top: 3px;
   border-radius: 9999px;
   background-color: #E5E8FF;
+  mix-blend-mode: multiply;
+  transition: left 200ms ease-in-out 0s;
+}
+.header .mode-button::before{
+  background-color: #6B73FF;
+  mix-blend-mode: overlay;
 }
 
+.header .mode-button.viewer::before,
 .header .mode-button.viewer::after {
-  left: calc(50% - 3px);
+  left: calc(50% + 3px);
 }
 
 body:has(.login) .mode-button,
