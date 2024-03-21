@@ -1168,6 +1168,9 @@ body:has(.navigation) .header-title {
   padding: 8px;
   border-radius: 8px;
 }
+.header{
+  padding-bottom: 0;
+}
 
 body .login-button {
   display: none;
