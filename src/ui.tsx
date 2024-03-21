@@ -230,12 +230,6 @@ function Plugin() {
     setCurrentImageArray(bytes);
   });
 
-  // on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
-  //   console.log("bytes, type", bytes, type);
-  //   // setCurrentImageArray(bytes);
-  //   // setCurrentImageType(type);
-  // });
-
   function checkIfDocumentationExists(docs: any[], id: string) {
     if (docs.length && id) {
       return docs.find((doc) => doc._id === id);
