@@ -1298,6 +1298,14 @@ body .header-login {
   border-radius: 9999px;
   box-shadow: 0 0 0 1px #ffffff;
   position: relative;
+  cursor: pointer;
+}
+
+.user-tag:hover{
+  filter: brightness(95%);
+}
+.user-item .user-tag{
+  pointer-events: none;
 }
 
 .user-menu {
@@ -1328,6 +1336,7 @@ body .header-login {
   font-size: var(--text-size);
   padding: 8px;
   height: 48px;
+  cursor: pointer;
 }
 
 .user-item svg {

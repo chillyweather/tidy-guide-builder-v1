@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/215873a0-c184-4a4c-9829-8752e9eb7c9a/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/54164f80-8588-4a58-9f24-3e081baa3cb4/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/215873a0-c184-4a4c-9829-8752e9eb7c9a/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/54164f80-8588-4a58-9f24-3e081baa3cb4/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/10898f7e-0e55-4e4c-9b3f-3ecd9fe32b0f/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b725b1d1-2069-4b85-bc7c-8650ef0cfe76/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/10898f7e-0e55-4e4c-9b3f-3ecd9fe32b0f/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b725b1d1-2069-4b85-bc7c-8650ef0cfe76/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/fcd1c62a-630e-4b82-ba27-27e445eda2f7/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7f9412b2-b2db-4b74-8d16-fef6f721764e/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/fcd1c62a-630e-4b82-ba27-27e445eda2f7/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7f9412b2-b2db-4b74-8d16-fef6f721764e/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ddba8338-1f9b-4ece-9b42-edeabf6d0e1d/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c2e60570-f933-4987-a34d-bed359caab20/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ddba8338-1f9b-4ece-9b42-edeabf6d0e1d/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c2e60570-f933-4987-a34d-bed359caab20/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f3efe9b2-e08e-4031-9c0e-fa0613b67e34/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5c023d67-c1bf-4207-b509-fb2a08710cb2/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f3efe9b2-e08e-4031-9c0e-fa0613b67e34/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5c023d67-c1bf-4207-b509-fb2a08710cb2/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5011c58e-41d6-416c-8388-fc2a37dd47b5/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c625cf36-4186-49df-af2e-f266bdfc7205/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5011c58e-41d6-416c-8388-fc2a37dd47b5/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c625cf36-4186-49df-af2e-f266bdfc7205/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b80698f3-c4eb-4af3-bb8e-96892a3ccdc6/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ad0ce454-f32e-4fb8-9903-a176aee149b4/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b80698f3-c4eb-4af3-bb8e-96892a3ccdc6/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ad0ce454-f32e-4fb8-9903-a176aee149b4/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/aec5adbe-a74f-4936-8456-103f0427841b/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/13766da4-1d37-4423-87ce-da22b3369c2c/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/aec5adbe-a74f-4936-8456-103f0427841b/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/13766da4-1d37-4423-87ce-da22b3369c2c/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/16bb4fd5-e1f0-4dcc-b2a2-bc81179cd0f0/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/88f72b75-47aa-4a7f-ab39-c54887eea6de/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/16bb4fd5-e1f0-4dcc-b2a2-bc81179cd0f0/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/88f72b75-47aa-4a7f-ab39-c54887eea6de/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -42456,9 +42456,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c0214e56-dfb5-49e8-a141-6f08549500cc/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/314c1a30-6f16-4094-89c5-4f560626b5c8/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c0214e56-dfb5-49e8-a141-6f08549500cc/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/314c1a30-6f16-4094-89c5-4f560626b5c8/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";
@@ -43762,6 +43762,14 @@ body .header-login {
   border-radius: 9999px;
   box-shadow: 0 0 0 1px #ffffff;
   position: relative;
+  cursor: pointer;
+}
+
+.user-tag:hover{
+  filter: brightness(95%);
+}
+.user-item .user-tag{
+  pointer-events: none;
 }
 
 .user-menu {
@@ -43792,6 +43800,7 @@ body .header-login {
   font-size: var(--text-size);
   padding: 8px;
   height: 48px;
+  cursor: pointer;
 }
 
 .user-item svg {
