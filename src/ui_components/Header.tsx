@@ -238,7 +238,7 @@ const Header = ({
           >
             <summary>
               {/* <div className="tooltiptext bottom-right">{loggedInUser}</div> */}
-              <div className="user-tag">{loggedInUser.slice(0, 1)}</div>
+              <div className="user-tag" first-letter={loggedInUser.slice(0, 1)}>{loggedInUser.slice(0, 1)}</div>
               {/* <IconUser style={userRankStyle} title={loggedInUser}/> */}
             </summary>
             <UserMenu

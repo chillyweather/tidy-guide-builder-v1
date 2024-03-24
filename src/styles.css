@@ -258,6 +258,7 @@ body:has(.delete-flex) .container {
   margin-top: 8px;
   margin-bottom: 0;
   color: #5C5C5C;
+  font-weight: 300;
 }
 
 .delete-content h4 {
@@ -1307,7 +1308,66 @@ body .header-login {
 .user-item .user-tag{
   pointer-events: none;
 }
-
+.user-tag[first-letter="a"], .user-tag[first-letter="t"]{
+  background-color: #F584AD;
+}
+.user-tag[first-letter="b"], .user-tag[first-letter="s"]{
+  background-color: #AC93F0;
+}
+.user-tag[first-letter="c"], .user-tag[first-letter="r"]{
+  background-color: #D1423F;
+}
+.user-tag[first-letter="d"], .user-tag[first-letter="z"]{
+  background-color: #DC1677;
+}
+.user-tag[first-letter="e"], .user-tag[first-letter="x"]{
+  background-color: #C233A0;
+}
+.user-tag[first-letter="f"], .user-tag[first-letter="y"]{
+  background-color: #6163E1;
+}
+.user-tag[first-letter="g"]{
+  background-color: #246DB6;
+}
+.user-tag[first-letter="h"]{
+  background-color: #008290;
+}
+.user-tag[first-letter="i"]{
+  background-color: #7BA100;
+}
+.user-tag[first-letter="j"]{
+  background-color: #9355D2;
+}
+.user-tag[first-letter="k"]{
+  background-color: #6D8391;
+}
+.user-tag[first-letter="l"]{
+  background-color: #3B814F;
+}
+.user-tag[first-letter="m"]{
+  background-color: #8190EA;
+}
+.user-tag[first-letter="w"]{
+  background-color: #50CE71;
+}
+.user-tag[first-letter="v"]{
+  background-color: #F2BA3B;
+}
+.user-tag[first-letter="u"]{
+  background-color: #030303;
+}
+.user-tag[first-letter="q"]{
+  background-color: #E38072;
+}
+.user-tag[first-letter="n"]{
+  background-color: #543150;
+}
+.user-tag[first-letter="o"]{
+  background-color: #F8970C;
+}
+.user-tag[first-letter="p"]{
+  background-color: #285736;
+}
 .user-menu {
   position: absolute;
   top: 40px;

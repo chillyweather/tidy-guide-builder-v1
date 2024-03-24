@@ -30,13 +30,14 @@ const UserMenu = ({
 }) => {
     const loggedInUser = useContext(BuilderContext)?.loggedInUser || "";
     function closeMenu(){
+        // @ts-ignore
         document.getElementById("userMenu").open = false;
     }
     return (
         <div className={"user-menu"}>
 
             <div className="user-item">
-                <div className="user-tag">{loggedInUser.slice(0, 1)}</div>
+                <div className="user-tag" first-letter={loggedInUser.slice(0, 1)}>{loggedInUser.slice(0, 1)}</div>
                 <p>{loggedInUser}</p>
             </div>
 
