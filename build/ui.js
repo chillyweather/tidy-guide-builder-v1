@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/54164f80-8588-4a58-9f24-3e081baa3cb4/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/394c5266-6a02-48cf-aabe-b33c1810de5a/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/54164f80-8588-4a58-9f24-3e081baa3cb4/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/394c5266-6a02-48cf-aabe-b33c1810de5a/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b725b1d1-2069-4b85-bc7c-8650ef0cfe76/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/340b9cdd-e74d-40f2-b86b-27bb6dceaecc/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b725b1d1-2069-4b85-bc7c-8650ef0cfe76/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/340b9cdd-e74d-40f2-b86b-27bb6dceaecc/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7f9412b2-b2db-4b74-8d16-fef6f721764e/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e564d3b5-2be2-4534-9ed5-90b16fe5d147/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7f9412b2-b2db-4b74-8d16-fef6f721764e/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e564d3b5-2be2-4534-9ed5-90b16fe5d147/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c2e60570-f933-4987-a34d-bed359caab20/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/38eaf579-2e03-45a8-a9be-3f60a9a8f79e/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c2e60570-f933-4987-a34d-bed359caab20/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/38eaf579-2e03-45a8-a9be-3f60a9a8f79e/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5c023d67-c1bf-4207-b509-fb2a08710cb2/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/32256b5e-f4dd-4934-ba73-7f61794fc227/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5c023d67-c1bf-4207-b509-fb2a08710cb2/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/32256b5e-f4dd-4934-ba73-7f61794fc227/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c625cf36-4186-49df-af2e-f266bdfc7205/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9bd258da-69e0-4acb-a3f0-53e1e81a48dd/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c625cf36-4186-49df-af2e-f266bdfc7205/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9bd258da-69e0-4acb-a3f0-53e1e81a48dd/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ad0ce454-f32e-4fb8-9903-a176aee149b4/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a571d606-3c26-4955-839a-80d81e953922/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ad0ce454-f32e-4fb8-9903-a176aee149b4/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a571d606-3c26-4955-839a-80d81e953922/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/13766da4-1d37-4423-87ce-da22b3369c2c/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/18048e72-0215-4478-bedc-a3db2647a8b3/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/13766da4-1d37-4423-87ce-da22b3369c2c/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/18048e72-0215-4478-bedc-a3db2647a8b3/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/88f72b75-47aa-4a7f-ab39-c54887eea6de/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/23467211-b3a4-4ed9-a7e3-bca1ac51dc19/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/88f72b75-47aa-4a7f-ab39-c54887eea6de/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/23467211-b3a4-4ed9-a7e3-bca1ac51dc19/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -41604,15 +41604,15 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       }) => {
         var _a;
         const loggedInUser = ((_a = q2(BuilderContext_default)) == null ? void 0 : _a.loggedInUser) || "";
+        function closeMenu() {
+          document.getElementById("userMenu").open = false;
+        }
         return /* @__PURE__ */ y("div", { className: "user-menu" }, /* @__PURE__ */ y("div", { className: "user-item" }, /* @__PURE__ */ y("div", { className: "user-tag" }, loggedInUser.slice(0, 1)), /* @__PURE__ */ y("p", null, loggedInUser)), /* @__PURE__ */ y("hr", null), /* @__PURE__ */ y(
           "div",
           {
             className: "user-item",
             onClick: () => {
-              setIsLoginPageOpen(false);
-              setIsIndexOpen(false);
-              setIsMainContentOpen(false);
-              setIsContenFromServerOpen(false);
+              closeMenu();
               setFeedbackPage(true);
             }
           },
@@ -41623,6 +41623,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           {
             className: "user-item",
             onClick: () => {
+              closeMenu();
               setIsLoginPageOpen(false);
               setIsIndexOpen(false);
               setIsMainContentOpen(false);
@@ -41637,9 +41638,11 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           {
             className: "user-item",
             onClick: () => {
-              setIsIndexOpen(false);
+              closeMenu();
+              setIsIndexOpen(true);
               setIsMainContentOpen(false);
               setIsContenFromServerOpen(false);
+              setIsSettingsPageOpen(false);
               setIsLoginPageOpen(true);
             }
           },
@@ -41821,7 +41824,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         ), /* @__PURE__ */ y(
           "details",
           {
-            className: "header-login tooltip"
+            className: "header-login tooltip",
+            id: "userMenu"
           },
           /* @__PURE__ */ y("summary", null, /* @__PURE__ */ y("div", { className: "user-tag" }, loggedInUser.slice(0, 1))),
           /* @__PURE__ */ y(
@@ -41835,19 +41839,6 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
               setFeedbackPage
             }
           )
-        ), /* @__PURE__ */ y(
-          "button",
-          {
-            className: "login-button",
-            onClick: () => {
-              setIsLoginPageOpen(false);
-              setIsIndexOpen(false);
-              setIsMainContentOpen(false);
-              setIsContenFromServerOpen(false);
-              setIsSettingsPageOpen(true);
-            }
-          },
-          /* @__PURE__ */ y(IconSettings, null)
         ))), (selectedElement || isMainContentOpen || isContenFromServerOpen) && !isIndexOpen && !isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen && /* @__PURE__ */ y(HeaderActions_default, null));
       };
       Header_default = Header;
@@ -42456,9 +42447,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/314c1a30-6f16-4094-89c5-4f560626b5c8/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/530b7867-24c7-46f1-b3cf-e246721ad1d0/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/314c1a30-6f16-4094-89c5-4f560626b5c8/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/530b7867-24c7-46f1-b3cf-e246721ad1d0/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";

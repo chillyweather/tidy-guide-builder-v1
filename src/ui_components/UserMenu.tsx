@@ -29,6 +29,9 @@ const UserMenu = ({
     userRank: string;
 }) => {
     const loggedInUser = useContext(BuilderContext)?.loggedInUser || "";
+    function closeMenu(){
+        document.getElementById("userMenu").open = false;
+    }
     return (
         <div className={"user-menu"}>
 
@@ -41,10 +44,7 @@ const UserMenu = ({
 
             <div className="user-item"
                 onClick={() => {
-                    setIsLoginPageOpen(false);
-                    setIsIndexOpen(false);
-                    setIsMainContentOpen(false);
-                    setIsContenFromServerOpen(false);
+                    closeMenu();
                     setFeedbackPage(true);
                 }}
             >
@@ -54,6 +54,7 @@ const UserMenu = ({
 
             <div className="user-item"
                 onClick={() => {
+                    closeMenu();
                     setIsLoginPageOpen(false);
                     setIsIndexOpen(false);
                     setIsMainContentOpen(false);
@@ -69,9 +70,11 @@ const UserMenu = ({
 
             <div className="user-item"
                 onClick={() => {
-                    setIsIndexOpen(false);
+                    closeMenu();
+                    setIsIndexOpen(true);
                     setIsMainContentOpen(false);
                     setIsContenFromServerOpen(false);
+                    setIsSettingsPageOpen(false);
                     setIsLoginPageOpen(true);
                 }}
             >

@@ -230,6 +230,7 @@ const Header = ({
 
           <details
             className="header-login tooltip"
+            id="userMenu"
           // onClick={() => {
           //   setIsLoginPageOpen(true);
           //   setIsSettingsPageOpen(false);
@@ -250,7 +251,7 @@ const Header = ({
             />
           </details>
 
-          <button
+          {/* <button
             className={"login-button"}
             onClick={() => {
               setIsLoginPageOpen(false);
@@ -261,7 +262,7 @@ const Header = ({
             }}
           >
             <IconSettings />
-          </button>
+          </button> */}
         </div>
       </div>
       {(selectedElement || isMainContentOpen || isContenFromServerOpen) &&
