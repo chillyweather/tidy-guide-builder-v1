@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f06168f-fdca-496a-b080-1609c27b6a03/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f3be9d60-8375-46d6-8f9d-c0ed35304f13/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f06168f-fdca-496a-b080-1609c27b6a03/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f3be9d60-8375-46d6-8f9d-c0ed35304f13/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d7b30b6d-0e73-4a4c-8a9b-0923f4038f34/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/029cfb6e-6e45-43b5-ae8c-5a672d4dc840/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d7b30b6d-0e73-4a4c-8a9b-0923f4038f34/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/029cfb6e-6e45-43b5-ae8c-5a672d4dc840/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2d1312a7-184d-4149-9d71-6910a96e38f7/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/fd56d2d6-c22d-4a8d-970d-722c065fce71/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2d1312a7-184d-4149-9d71-6910a96e38f7/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/fd56d2d6-c22d-4a8d-970d-722c065fce71/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3f858096-b608-44a4-bb99-b2b75f24e78a/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/13be731e-73ad-4722-8835-1baa7acab75a/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3f858096-b608-44a4-bb99-b2b75f24e78a/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/13be731e-73ad-4722-8835-1baa7acab75a/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/84c8cdac-1ade-4fe1-b441-9db4ff2d658b/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9a0429cc-12fa-4c29-b00d-c4eb9d73d66c/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/84c8cdac-1ade-4fe1-b441-9db4ff2d658b/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9a0429cc-12fa-4c29-b00d-c4eb9d73d66c/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ddb269ba-4256-48e2-a6a2-fa68f891c945/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/8ffe01d1-093d-466b-b2c0-e4850c796518/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ddb269ba-4256-48e2-a6a2-fa68f891c945/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/8ffe01d1-093d-466b-b2c0-e4850c796518/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/86b36ac8-404d-492c-8fea-3a24f0017433/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4cecd1bb-cd54-4423-a619-48d23b4ce450/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/86b36ac8-404d-492c-8fea-3a24f0017433/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4cecd1bb-cd54-4423-a619-48d23b4ce450/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/67783312-eba6-4898-8dc5-03d110a4a5d0/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/66fd2b18-43e5-463a-a11d-3da50bce81fc/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/67783312-eba6-4898-8dc5-03d110a4a5d0/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/66fd2b18-43e5-463a-a11d-3da50bce81fc/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/68a69a53-0e7b-4759-8e7f-82c00d5e0471/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b0c98a00-7461-4949-a3f4-90b2fd818e67/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/68a69a53-0e7b-4759-8e7f-82c00d5e0471/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b0c98a00-7461-4949-a3f4-90b2fd818e67/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -35598,6 +35598,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       init_ElementSection();
       init_preact_module();
       DetailsPage = (data) => {
+        console.log("We are in Details", data);
         const section = data.data;
         const sectionData2 = section.docs;
         const status = section.inProgress;
@@ -36131,6 +36132,20 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     "src/ui_components/ui_functions/sendRaster.ts"() {
       "use strict";
       init_fileManagementFunctions();
+    }
+  });
+
+  // src/ui_components/ui_functions/fetchAndUpdateData.ts
+  async function fetchAndUpdateData(token, setDataForUpdate) {
+    const newData = await getDocumentations(token);
+    setDataForUpdate(newData);
+  }
+  var fetchAndUpdateData_default;
+  var init_fetchAndUpdateData = __esm({
+    "src/ui_components/ui_functions/fetchAndUpdateData.ts"() {
+      "use strict";
+      init_documentationHandlers();
+      fetchAndUpdateData_default = fetchAndUpdateData;
     }
   });
 
@@ -40736,8 +40751,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       "use strict";
       init_preact_module();
       Text3 = ({ element, index: index2 }) => {
-        const textArray = element.text.split("\n");
-        return /* @__PURE__ */ y("div", { className: "section textSection" }, /* @__PURE__ */ y("div", { className: "anchorLink", id: element.title + index2 }), element.title && /* @__PURE__ */ y("div", { className: "title-row" }, /* @__PURE__ */ y("h3", { className: "title" }, element.title), /* @__PURE__ */ y("a", { href: "#top", className: "back-link" }, "\u2B06\uFE0E")), textArray.length && textArray.map(
+        const textArray = element.text ? element.text.split("\n") : [];
+        return /* @__PURE__ */ y("div", { className: "section textSection" }, /* @__PURE__ */ y("div", { className: "anchorLink", id: element.title + index2 }), element.title && /* @__PURE__ */ y("div", { className: "title-row" }, /* @__PURE__ */ y("h3", { className: "title" }, element.title), /* @__PURE__ */ y("a", { href: "#top", className: "back-link" }, "\u2B06\uFE0E")), textArray && textArray.length && textArray.map(
           (paragraph, i4) => !!paragraph.length && /* @__PURE__ */ y("p", { key: i4 }, paragraph)
         ));
       };
@@ -40921,6 +40936,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           isDraft,
           setIsDraft,
           setShowResetPopup
+          // setIsMainContentOpen,
+          // setIsContenFromServerOpen,
+          // dataForUpdate,
         } = q2(BuilderContext_default) || {};
         const isValid = !!(documentationTitle == null ? void 0 : documentationTitle.length) && isCurrentNameValid;
         function PublishButtonDropdown() {
@@ -41534,6 +41552,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       init_BuilderContext();
       init_HeaderActions();
       init_lib();
+      init_fetchAndUpdateData();
       Header = ({
         isLoginPageOpen,
         setIsLoginPageOpen,
@@ -41549,6 +41568,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
         const [userRankStyle, setUserRankStyle] = h2({});
         const {
+          token,
           documentationData,
           isContenFromServerOpen,
           isMainContentOpen,
@@ -41560,7 +41580,11 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           setIsMainContentOpen,
           setIsReset,
           setIsSettingsPageOpen,
-          isSettingsPageOpen
+          isSettingsPageOpen,
+          dataForUpdate,
+          setDataForUpdate,
+          selectedMasterId,
+          setSelectedMasterId
         } = q2(BuilderContext_default) || {};
         const [, setInitialSelectedSections] = h2(null);
         const [, setInitialDocumentationData] = h2(null);
@@ -41603,8 +41627,18 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           }
         }, [documentationData]);
         function Toggle2() {
-          const handleToggle = () => {
+          const handleToggle = async () => {
+            console.log("selectedMasterId", selectedMasterId);
+            if (!token)
+              return;
             setIsViewModeOpen(!isViewModeOpen);
+            setIsMainContentOpen(false);
+            setIsContenFromServerOpen(true);
+            await fetchAndUpdateData_default(token, setDataForUpdate);
+            const currentDocumentation = dataForUpdate.find(
+              (item) => item.title === documentationData.title
+            );
+            setSelectedMasterId(currentDocumentation._id);
           };
           return /* @__PURE__ */ y(
             "button",
@@ -42300,9 +42334,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/bb3a679d-8b08-4849-a342-9d724ecfee82/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f8cc5a9-a876-4bfe-aa42-a14241510ca8/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/bb3a679d-8b08-4849-a342-9d724ecfee82/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f8cc5a9-a876-4bfe-aa42-a14241510ca8/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";
@@ -47569,7 +47603,7 @@ body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
     const [showSettingsPage, setShowSettingsPage] = h2(false);
     const [showFeedbackPopup, setShowFeedbackPopup] = h2(false);
     const [showCancelPopup, setShowCancelPopup] = h2(false);
-    const [showWaigingInfoPopup, setShowWaitingInfoPopup] = h2(false);
+    const [showWaitingInfoPopup, setShowWaitingInfoPopup] = h2(false);
     const [showResetPopup, setShowResetPopup] = h2(false);
     const [showDeletePopup, setShowDeletePopup] = h2(false);
     const [showPreviewPopup, setShowPreviewPopup] = h2(false);
@@ -47802,14 +47836,12 @@ ${found.title}`
           const response = await updateDocumentation(token2, data._id, data);
           if (isBuildingOnCanvas)
             emit("BUILD", response);
-          const newData = await getDocumentations(token2);
-          setDataForUpdate(newData);
+          await fetchAndUpdateData_default(token2, setDataForUpdate);
         } else {
           const response = await createDocumentation(token2, data);
           if (isBuildingOnCanvas)
             emit("BUILD", response);
-          const newData = await getDocumentations(token2);
-          setDataForUpdate(newData);
+          await fetchAndUpdateData_default(token2, setDataForUpdate);
           setDocumentationData((prevDocumentation) => {
             return __spreadProps(__spreadValues({}, prevDocumentation), {
               ["_id"]: response._id
@@ -47863,6 +47895,7 @@ ${found.title}`
       selectedMasterId,
       previewData,
       isPreviewing,
+      dataForUpdate,
       setCurrentDocument,
       setCurrentPage,
       setCurrentUser,
@@ -47883,6 +47916,7 @@ ${found.title}`
       setSelectedCard,
       setSelectedElement,
       // setSelectedElementKey,
+      setSelectedMasterId,
       setSelectedElementName,
       setSelectedSections,
       setShowCancelPopup,
@@ -47900,6 +47934,10 @@ ${found.title}`
       setToken
     };
     const isPreviewDataExists = Object.keys(previewData).length > 0;
+    p2(() => {
+      console.log("showContentFromServer", showContentFromServer);
+      console.log("showMainContent", showMainContent);
+    }, [showContentFromServer, showMainContent]);
     return /* @__PURE__ */ y(
       "div",
       {
@@ -47928,7 +47966,7 @@ ${found.title}`
           elementToDelete,
           dataForUpdate
         }
-      ), showWaigingInfoPopup && /* @__PURE__ */ y(waitingInfoPopup_default, { setShowWaitingInfoPopup }), showDeleteAccountPopup && /* @__PURE__ */ y(
+      ), showWaitingInfoPopup && /* @__PURE__ */ y(waitingInfoPopup_default, { setShowWaitingInfoPopup }), showDeleteAccountPopup && /* @__PURE__ */ y(
         deleteAccountPopup_default,
         {
           setShowDeleteAccountPopup,
@@ -48018,14 +48056,7 @@ ${found.title}`
           selectedSections,
           setSelectedSections
         }
-      ), selectedMasterId && !showMainContent && showContentFromServer && !showLoginPage && !showSigninPage && isViewModeOpen && // <ContentFromServerViewMode
-      //   data={dataForUpdate}
-      //   selectedMasterId={selectedMasterId}
-      //   selectedSections={selectedSections}
-      //   setSelectedSections={setSelectedSections}
-      //   //! add component key
-      // />
-      /* @__PURE__ */ y(
+      ), selectedMasterId && showContentFromServer && !showMainContent && !showLoginPage && !showSigninPage && isViewModeOpen && /* @__PURE__ */ y(
         DetailsPage_default2,
         {
           data: dataForUpdate,
@@ -48059,6 +48090,7 @@ ${found.title}`
       init_waitingInfoPopup();
       init_Toast();
       init_sendRaster();
+      init_fetchAndUpdateData();
       init_ContentFromServer();
       init_DetailsPage2();
       init_Footer();
