@@ -1168,7 +1168,8 @@ body:has(.navigation) .header-title {
   padding: 8px;
   border-radius: 8px;
 }
-.header{
+
+.header {
   padding-bottom: 0;
 }
 
@@ -1277,6 +1278,37 @@ body .header-login {
 /* body:has(.navigation a) .header-login {
   display: none;
 } */
+
+.headerContent .header-login {
+  padding: 0 !important;
+}
+
+.user-tag {
+  height: 32px;
+  width: 32px;
+  overflow: hidden;
+  font-size: calc(var(--text-size) + (var(--text-size) / 7));
+  font-weight: 500;
+  color: #ffffff;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F584AD;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 1px #ffffff;
+  position: relative;
+}
+
+.user-menu{
+  position: absolute;
+  top: 40px;
+  right: 0;
+  color: var(--tidy-32);
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 6px;
+}
 
 .container:has(.login) {
   margin-top: 52px;
@@ -3747,6 +3779,14 @@ input[type="checkbox"] {
 .tooltip.show .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+.tooltip .tooltiptext.bottom-right{
+  bottom: -105%;
+  left: unset;
+  right: 0;
+  width: fit-content;
+  transform: none;
 }
 
 .custom-toast {
