@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/432573e0-278c-4960-ad8c-c62df3a0362c/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/215873a0-c184-4a4c-9829-8752e9eb7c9a/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/432573e0-278c-4960-ad8c-c62df3a0362c/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/215873a0-c184-4a4c-9829-8752e9eb7c9a/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c5ad8437-a4f7-47ae-920c-559ded3fbe3c/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/10898f7e-0e55-4e4c-9b3f-3ecd9fe32b0f/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c5ad8437-a4f7-47ae-920c-559ded3fbe3c/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/10898f7e-0e55-4e4c-9b3f-3ecd9fe32b0f/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2e975d59-947c-4ae5-ac0f-e4bc9206d22c/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/fcd1c62a-630e-4b82-ba27-27e445eda2f7/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2e975d59-947c-4ae5-ac0f-e4bc9206d22c/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/fcd1c62a-630e-4b82-ba27-27e445eda2f7/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a8ed3f62-12c3-4403-b20c-852781b97aff/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ddba8338-1f9b-4ece-9b42-edeabf6d0e1d/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a8ed3f62-12c3-4403-b20c-852781b97aff/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ddba8338-1f9b-4ece-9b42-edeabf6d0e1d/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/14b19ed5-cfed-4097-bf1a-65d6a566cbd4/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f3efe9b2-e08e-4031-9c0e-fa0613b67e34/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/14b19ed5-cfed-4097-bf1a-65d6a566cbd4/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f3efe9b2-e08e-4031-9c0e-fa0613b67e34/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a22ae051-803e-4e7d-a610-26fc428e391e/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5011c58e-41d6-416c-8388-fc2a37dd47b5/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a22ae051-803e-4e7d-a610-26fc428e391e/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5011c58e-41d6-416c-8388-fc2a37dd47b5/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9ebc1505-0f69-4c71-b767-bcd088275baf/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b80698f3-c4eb-4af3-bb8e-96892a3ccdc6/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9ebc1505-0f69-4c71-b767-bcd088275baf/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b80698f3-c4eb-4af3-bb8e-96892a3ccdc6/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4766ab07-d6cd-4cd7-b408-a65874fc41f4/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/aec5adbe-a74f-4936-8456-103f0427841b/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4766ab07-d6cd-4cd7-b408-a65874fc41f4/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/aec5adbe-a74f-4936-8456-103f0427841b/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9931d75f-49f6-4f3c-9d47-2998bd6cdafe/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/16bb4fd5-e1f0-4dcc-b2a2-bc81179cd0f0/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9931d75f-49f6-4f3c-9d47-2998bd6cdafe/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/16bb4fd5-e1f0-4dcc-b2a2-bc81179cd0f0/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -3019,6 +3019,25 @@ svg {
     }
   });
 
+  // node_modules/@tabler/icons-react/dist/esm/icons/IconLogout.js
+  var IconLogout;
+  var init_IconLogout = __esm({
+    "node_modules/@tabler/icons-react/dist/esm/icons/IconLogout.js"() {
+      init_createReactComponent();
+      IconLogout = createReactComponent("logout", "IconLogout", [
+        [
+          "path",
+          {
+            d: "M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2",
+            key: "svg-0"
+          }
+        ],
+        ["path", { d: "M9 12h12l-3 -3", key: "svg-1" }],
+        ["path", { d: "M18 15l3 -3", key: "svg-2" }]
+      ]);
+    }
+  });
+
   // node_modules/@tabler/icons-react/dist/esm/icons/IconMail.js
   var IconMail;
   var init_IconMail = __esm({
@@ -3033,6 +3052,26 @@ svg {
           }
         ],
         ["path", { d: "M3 7l9 6l9 -6", key: "svg-1" }]
+      ]);
+    }
+  });
+
+  // node_modules/@tabler/icons-react/dist/esm/icons/IconMessage2Check.js
+  var IconMessage2Check;
+  var init_IconMessage2Check = __esm({
+    "node_modules/@tabler/icons-react/dist/esm/icons/IconMessage2Check.js"() {
+      init_createReactComponent();
+      IconMessage2Check = createReactComponent("message-2-check", "IconMessage2Check", [
+        ["path", { d: "M8 9h8", key: "svg-0" }],
+        ["path", { d: "M8 13h6", key: "svg-1" }],
+        [
+          "path",
+          {
+            d: "M12 21l-1 -1l-2 -2h-3a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v6",
+            key: "svg-2"
+          }
+        ],
+        ["path", { d: "M15 19l2 2l4 -4", key: "svg-3" }]
       ]);
     }
   });
@@ -3221,7 +3260,9 @@ svg {
       init_IconLink();
       init_IconListDetails();
       init_IconList();
+      init_IconLogout();
       init_IconMail();
+      init_IconMessage2Check();
       init_IconPencil();
       init_IconPhoto();
       init_IconPilcrow();
@@ -41545,8 +41586,66 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     "src/ui_components/UserMenu.tsx"() {
       "use strict";
       init_preact_module();
-      UserMenu = () => {
-        return /* @__PURE__ */ y("div", { className: "user-menu" }, "MENU");
+      init_hooks_module();
+      init_BuilderContext();
+      init_tabler_icons_react();
+      UserMenu = ({
+        isLoginPageOpen,
+        setIsLoginPageOpen,
+        setIsSettingsPageOpen,
+        setIsIndexOpen,
+        setIsContenFromServerOpen,
+        setIsMainContentOpen,
+        setFeedbackPage,
+        isIndexOpen,
+        isDocJustOpened,
+        setIsDocJustOpened,
+        userRank
+      }) => {
+        var _a;
+        const loggedInUser = ((_a = q2(BuilderContext_default)) == null ? void 0 : _a.loggedInUser) || "";
+        return /* @__PURE__ */ y("div", { className: "user-menu" }, /* @__PURE__ */ y("div", { className: "user-item" }, /* @__PURE__ */ y("div", { className: "user-tag" }, loggedInUser.slice(0, 1)), /* @__PURE__ */ y("p", null, loggedInUser)), /* @__PURE__ */ y("hr", null), /* @__PURE__ */ y(
+          "div",
+          {
+            className: "user-item",
+            onClick: () => {
+              setIsLoginPageOpen(false);
+              setIsIndexOpen(false);
+              setIsMainContentOpen(false);
+              setIsContenFromServerOpen(false);
+              setFeedbackPage(true);
+            }
+          },
+          /* @__PURE__ */ y(IconMessage2Check, null),
+          /* @__PURE__ */ y("p", null, "Feedback")
+        ), /* @__PURE__ */ y(
+          "div",
+          {
+            className: "user-item",
+            onClick: () => {
+              setIsLoginPageOpen(false);
+              setIsIndexOpen(false);
+              setIsMainContentOpen(false);
+              setIsContenFromServerOpen(false);
+              setIsSettingsPageOpen(true);
+            }
+          },
+          /* @__PURE__ */ y(IconSettings, null),
+          /* @__PURE__ */ y("p", null, "Settings")
+        ), /* @__PURE__ */ y("hr", null), /* @__PURE__ */ y(
+          "div",
+          {
+            className: "user-item",
+            onClick: () => {
+              setIsIndexOpen(false);
+              setIsMainContentOpen(false);
+              setIsContenFromServerOpen(false);
+              setIsLoginPageOpen(true);
+            }
+          },
+          /* @__PURE__ */ y(IconLogout, null),
+          /* @__PURE__ */ y("p", null, "Log-out")
+        ));
       };
       UserMenu_default = UserMenu;
     }
@@ -41724,8 +41823,18 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           {
             className: "header-login tooltip"
           },
-          /* @__PURE__ */ y("summary", null, /* @__PURE__ */ y("div", { className: "tooltiptext bottom-right" }, loggedInUser), /* @__PURE__ */ y("div", { className: "user-tag" }, loggedInUser.slice(0, 1))),
-          /* @__PURE__ */ y(UserMenu_default, null)
+          /* @__PURE__ */ y("summary", null, /* @__PURE__ */ y("div", { className: "user-tag" }, loggedInUser.slice(0, 1))),
+          /* @__PURE__ */ y(
+            UserMenu_default,
+            {
+              setIsLoginPageOpen,
+              setIsSettingsPageOpen,
+              setIsIndexOpen,
+              setIsContenFromServerOpen,
+              setIsMainContentOpen,
+              setFeedbackPage
+            }
+          )
         ), /* @__PURE__ */ y(
           "button",
           {
@@ -42347,9 +42456,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d670704c-8d6a-4c4d-8903-52c64b8e15b6/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c0214e56-dfb5-49e8-a141-6f08549500cc/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d670704c-8d6a-4c4d-8903-52c64b8e15b6/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c0214e56-dfb5-49e8-a141-6f08549500cc/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";
@@ -43655,14 +43764,51 @@ body .header-login {
   position: relative;
 }
 
-.user-menu{
+.user-menu {
   position: absolute;
   top: 40px;
-  right: 0;
+  right: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   color: var(--tidy-32);
   background-color: #ffffff;
   padding: 8px;
   border-radius: 6px;
+  min-width: 140px;
+  box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
+}
+
+.user-menu hr{
+  height: 1px;
+  background-color: #EFF2FA;
+}
+
+.user-item {
+  display: flex;
+  gap: 6px;
+  border-radius: 4px;
+  align-items: center;
+  font-size: var(--text-size);
+  padding: 8px;
+  height: 48px;
+}
+
+.user-item svg {
+  width: 16px;
+  height: 16px;
+}
+
+.user-item p {
+  margin: 0 !important;
+}
+
+.user-item:hover {
+  background-color: #F0F1FA;
+}
+
+.user-item:active {
+  background-color: #E8EAFA
 }
 
 .container:has(.login) {
@@ -46136,7 +46282,7 @@ input[type="checkbox"] {
   opacity: 1;
 }
 
-.tooltip .tooltiptext.bottom-right{
+.tooltip .tooltiptext.bottom-right {
   bottom: -105%;
   left: unset;
   right: 0;

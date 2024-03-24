@@ -230,17 +230,24 @@ const Header = ({
 
           <details
             className="header-login tooltip"
-            // onClick={() => {
-            //   setIsLoginPageOpen(true);
-            //   setIsSettingsPageOpen(false);
-            // }}
+          // onClick={() => {
+          //   setIsLoginPageOpen(true);
+          //   setIsSettingsPageOpen(false);
+          // }}
           >
             <summary>
-            <div className="tooltiptext bottom-right">{loggedInUser}</div>
-            <div className="user-tag">{loggedInUser.slice(0, 1)}</div>
-            {/* <IconUser style={userRankStyle} title={loggedInUser}/> */}
+              {/* <div className="tooltiptext bottom-right">{loggedInUser}</div> */}
+              <div className="user-tag">{loggedInUser.slice(0, 1)}</div>
+              {/* <IconUser style={userRankStyle} title={loggedInUser}/> */}
             </summary>
-            <UserMenu />
+            <UserMenu
+              setIsLoginPageOpen={setIsLoginPageOpen}
+              setIsSettingsPageOpen={setIsSettingsPageOpen}
+              setIsIndexOpen={setIsIndexOpen}
+              setIsContenFromServerOpen={setIsContenFromServerOpen}
+              setIsMainContentOpen={setIsMainContentOpen}
+              setFeedbackPage={setFeedbackPage}
+            />
           </details>
 
           <button

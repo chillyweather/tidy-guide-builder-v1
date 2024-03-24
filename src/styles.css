@@ -1300,14 +1300,51 @@ body .header-login {
   position: relative;
 }
 
-.user-menu{
+.user-menu {
   position: absolute;
   top: 40px;
-  right: 0;
+  right: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   color: var(--tidy-32);
   background-color: #ffffff;
   padding: 8px;
   border-radius: 6px;
+  min-width: 140px;
+  box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
+}
+
+.user-menu hr{
+  height: 1px;
+  background-color: #EFF2FA;
+}
+
+.user-item {
+  display: flex;
+  gap: 6px;
+  border-radius: 4px;
+  align-items: center;
+  font-size: var(--text-size);
+  padding: 8px;
+  height: 48px;
+}
+
+.user-item svg {
+  width: 16px;
+  height: 16px;
+}
+
+.user-item p {
+  margin: 0 !important;
+}
+
+.user-item:hover {
+  background-color: #F0F1FA;
+}
+
+.user-item:active {
+  background-color: #E8EAFA
 }
 
 .container:has(.login) {
@@ -3781,7 +3818,7 @@ input[type="checkbox"] {
   opacity: 1;
 }
 
-.tooltip .tooltiptext.bottom-right{
+.tooltip .tooltiptext.bottom-right {
   bottom: -105%;
   left: unset;
   right: 0;

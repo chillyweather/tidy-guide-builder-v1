@@ -225,6 +225,7 @@ declare const styles: {
   readonly "twoColumnCardBodyContent": string;
   readonly "twoColumns": string;
   readonly "unselected": string;
+  readonly "user-item": string;
   readonly "user-menu": string;
   readonly "user-tag": string;
   readonly "userlist": string;
