@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/05dc389a-d1b4-4593-803a-d0a5c76b7cfa/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/66a63ccf-da57-482b-add8-24d7db3bc4f7/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/05dc389a-d1b4-4593-803a-d0a5c76b7cfa/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/66a63ccf-da57-482b-add8-24d7db3bc4f7/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b0b8a65f-cdd2-4157-9c32-9d8a2d37ba52/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a1f54075-ee25-4410-8cdc-a4b0aa8a4d78/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b0b8a65f-cdd2-4157-9c32-9d8a2d37ba52/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a1f54075-ee25-4410-8cdc-a4b0aa8a4d78/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0bbf3625-fa12-47c4-b4d9-09761ca70369/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e9e92ef3-e41c-4a8e-9c46-3284951dbad3/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0bbf3625-fa12-47c4-b4d9-09761ca70369/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e9e92ef3-e41c-4a8e-9c46-3284951dbad3/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0ff71db5-2080-4928-9c33-8cbb64ee249d/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ed387aae-c961-4c73-9f58-4066dd79397b/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0ff71db5-2080-4928-9c33-8cbb64ee249d/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ed387aae-c961-4c73-9f58-4066dd79397b/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3930c4fd-7497-4781-84dd-3540a420e2f7/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e03d3fb2-1f1a-4403-aef8-6b9fa4301d7c/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3930c4fd-7497-4781-84dd-3540a420e2f7/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e03d3fb2-1f1a-4403-aef8-6b9fa4301d7c/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0d259a6a-0a74-4497-91d2-1b4c7e8b8c1e/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/746ad6c0-f48c-4ef8-b3d2-050394b642d1/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0d259a6a-0a74-4497-91d2-1b4c7e8b8c1e/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/746ad6c0-f48c-4ef8-b3d2-050394b642d1/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2b8b7c8e-c0d7-4eaa-aa1e-5fe699af64a7/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2b7deb44-d684-4a6f-bfdb-9340fc48f142/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2b8b7c8e-c0d7-4eaa-aa1e-5fe699af64a7/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2b7deb44-d684-4a6f-bfdb-9340fc48f142/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/57f97bfd-34a4-46cf-a4ff-7f86aa740057/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6ec1dd14-fcba-47c8-8c49-487b1a2a603d/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/57f97bfd-34a4-46cf-a4ff-7f86aa740057/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6ec1dd14-fcba-47c8-8c49-487b1a2a603d/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2d35dfc5-312c-4d5c-94a0-5298b656921e/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/91d85f6c-435a-4050-b21b-e1bb7ec5b7c8/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2d35dfc5-312c-4d5c-94a0-5298b656921e/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/91d85f6c-435a-4050-b21b-e1bb7ec5b7c8/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -42447,9 +42447,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b317ea0d-aace-44e0-a494-f3f7b4d0b694/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/1652c746-34ab-43e6-8c43-62e854bb428c/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b317ea0d-aace-44e0-a494-f3f7b4d0b694/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/1652c746-34ab-43e6-8c43-62e854bb428c/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";
@@ -43436,7 +43436,6 @@ button svg {
   border-radius: 9999px;
   background-color: #ffffff;
   border: 1px solid #D2DCF9;
-  width: 58px;
   height: 32px;
   display: flex;
   cursor: pointer;
@@ -43484,7 +43483,7 @@ button svg {
   position: absolute;
   height: 24px;
   width: 24px;
-  left: calc(50% + 1px);
+  left: calc(50%);
   top: 3px;
   border-radius: 9999px;
   pointer-events: none;
@@ -43522,24 +43521,25 @@ button svg {
 }
 
 .header .mode-button .mode-icon{
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: color 200ms linear 0s;
+  transition: opacity 200ms linear 0s;
 }
 .header .mode-button .mode-icon.edit{
-  color: #7D7D7D;
+  opacity: 1;
 }
 .header .mode-button .mode-icon.view{
-  color: #ffffff;
+  opacity: 0;
+  /* transform: translateX(2px); */
 }
 .header .mode-button.viewer .mode-icon.view{
-  color: #7D7D7D;
+  opacity: 1;
 }
 .header .mode-button.viewer .mode-icon.edit{
-  color: #ffffff;
+  opacity: 0;
 }
 
 body:has(.login) .mode-button,
