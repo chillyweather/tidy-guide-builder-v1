@@ -24,6 +24,7 @@ import { h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import HeaderActions from "./HeaderActions";
+import UserMenu from "./UserMenu";
 import { emit } from "@create-figma-plugin/utilities";
 import fetchAndUpdateData from "./ui_functions/fetchAndUpdateData";
 
@@ -145,7 +146,7 @@ const Header = ({
       </button>
     );
   }
-
+  const loggedInUser = useContext(BuilderContext)?.loggedInUser || "";
   return (
     <div className="header">
       <div className="headerContent">
@@ -227,17 +228,30 @@ const Header = ({
               </button>
             )}
 
-          <button
-            className="header-login"
-            onClick={() => {
-              setIsLoginPageOpen(true);
-              setIsSettingsPageOpen(false);
-            }}
+          <details
+            className="header-login tooltip"
+            id="userMenu"
+          // onClick={() => {
+          //   setIsLoginPageOpen(true);
+          //   setIsSettingsPageOpen(false);
+          // }}
           >
-            <IconUser style={userRankStyle} />
-          </button>
+            <summary>
+              {/* <div className="tooltiptext bottom-right">{loggedInUser}</div> */}
+              <div className="user-tag" first-letter={loggedInUser.slice(0, 1)}>{loggedInUser.slice(0, 1)}</div>
+              {/* <IconUser style={userRankStyle} title={loggedInUser}/> */}
+            </summary>
+            <UserMenu
+              setIsLoginPageOpen={setIsLoginPageOpen}
+              setIsSettingsPageOpen={setIsSettingsPageOpen}
+              setIsIndexOpen={setIsIndexOpen}
+              setIsContenFromServerOpen={setIsContenFromServerOpen}
+              setIsMainContentOpen={setIsMainContentOpen}
+              setFeedbackPage={setFeedbackPage}
+            />
+          </details>
 
-          <button
+          {/* <button
             className={"login-button"}
             onClick={() => {
               setIsLoginPageOpen(false);
@@ -248,7 +262,7 @@ const Header = ({
             }}
           >
             <IconSettings />
-          </button>
+          </button> */}
         </div>
       </div>
       {(selectedElement || isMainContentOpen || isContenFromServerOpen) &&

@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f06168f-fdca-496a-b080-1609c27b6a03/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6db7e6fe-268e-4bed-9bb4-97742476b066/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f06168f-fdca-496a-b080-1609c27b6a03/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6db7e6fe-268e-4bed-9bb4-97742476b066/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d7b30b6d-0e73-4a4c-8a9b-0923f4038f34/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5c2b418d-7ebf-4bab-90d2-1a8ac350ccaf/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d7b30b6d-0e73-4a4c-8a9b-0923f4038f34/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5c2b418d-7ebf-4bab-90d2-1a8ac350ccaf/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2d1312a7-184d-4149-9d71-6910a96e38f7/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/dc5ad9b0-dd63-4e3e-a76a-ca68f23d866e/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2d1312a7-184d-4149-9d71-6910a96e38f7/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/dc5ad9b0-dd63-4e3e-a76a-ca68f23d866e/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3f858096-b608-44a4-bb99-b2b75f24e78a/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ddc4e153-4114-4fbb-ae2a-aac3830207fc/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3f858096-b608-44a4-bb99-b2b75f24e78a/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ddc4e153-4114-4fbb-ae2a-aac3830207fc/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/84c8cdac-1ade-4fe1-b441-9db4ff2d658b/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5dd41b78-8d1f-46b5-9c42-064c14dc355b/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/84c8cdac-1ade-4fe1-b441-9db4ff2d658b/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5dd41b78-8d1f-46b5-9c42-064c14dc355b/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ddb269ba-4256-48e2-a6a2-fa68f891c945/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/84db0791-6cc5-4be5-b2bb-ff8418f5bc43/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ddb269ba-4256-48e2-a6a2-fa68f891c945/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/84db0791-6cc5-4be5-b2bb-ff8418f5bc43/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/86b36ac8-404d-492c-8fea-3a24f0017433/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7a21d9b5-83ab-4361-a553-4f234b3b3532/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/86b36ac8-404d-492c-8fea-3a24f0017433/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7a21d9b5-83ab-4361-a553-4f234b3b3532/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/67783312-eba6-4898-8dc5-03d110a4a5d0/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/8a7a5d97-505e-4668-8fe9-228f724418bb/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/67783312-eba6-4898-8dc5-03d110a4a5d0/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/8a7a5d97-505e-4668-8fe9-228f724418bb/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/68a69a53-0e7b-4759-8e7f-82c00d5e0471/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/afbb35d9-0f77-4d73-91d6-7bd216e124ec/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/68a69a53-0e7b-4759-8e7f-82c00d5e0471/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/afbb35d9-0f77-4d73-91d6-7bd216e124ec/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -3019,6 +3019,25 @@ svg {
     }
   });
 
+  // node_modules/@tabler/icons-react/dist/esm/icons/IconLogout.js
+  var IconLogout;
+  var init_IconLogout = __esm({
+    "node_modules/@tabler/icons-react/dist/esm/icons/IconLogout.js"() {
+      init_createReactComponent();
+      IconLogout = createReactComponent("logout", "IconLogout", [
+        [
+          "path",
+          {
+            d: "M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2",
+            key: "svg-0"
+          }
+        ],
+        ["path", { d: "M9 12h12l-3 -3", key: "svg-1" }],
+        ["path", { d: "M18 15l3 -3", key: "svg-2" }]
+      ]);
+    }
+  });
+
   // node_modules/@tabler/icons-react/dist/esm/icons/IconMail.js
   var IconMail;
   var init_IconMail = __esm({
@@ -3033,6 +3052,26 @@ svg {
           }
         ],
         ["path", { d: "M3 7l9 6l9 -6", key: "svg-1" }]
+      ]);
+    }
+  });
+
+  // node_modules/@tabler/icons-react/dist/esm/icons/IconMessage2Check.js
+  var IconMessage2Check;
+  var init_IconMessage2Check = __esm({
+    "node_modules/@tabler/icons-react/dist/esm/icons/IconMessage2Check.js"() {
+      init_createReactComponent();
+      IconMessage2Check = createReactComponent("message-2-check", "IconMessage2Check", [
+        ["path", { d: "M8 9h8", key: "svg-0" }],
+        ["path", { d: "M8 13h6", key: "svg-1" }],
+        [
+          "path",
+          {
+            d: "M12 21l-1 -1l-2 -2h-3a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v6",
+            key: "svg-2"
+          }
+        ],
+        ["path", { d: "M15 19l2 2l4 -4", key: "svg-3" }]
       ]);
     }
   });
@@ -3221,7 +3260,9 @@ svg {
       init_IconLink();
       init_IconListDetails();
       init_IconList();
+      init_IconLogout();
       init_IconMail();
+      init_IconMessage2Check();
       init_IconPencil();
       init_IconPhoto();
       init_IconPilcrow();
@@ -35598,6 +35639,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       init_ElementSection();
       init_preact_module();
       DetailsPage = (data) => {
+        console.log("We are in Details", data);
         const section = data.data;
         const sectionData2 = section.docs;
         const status = section.inProgress;
@@ -36131,6 +36173,20 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     "src/ui_components/ui_functions/sendRaster.ts"() {
       "use strict";
       init_fileManagementFunctions();
+    }
+  });
+
+  // src/ui_components/ui_functions/fetchAndUpdateData.ts
+  async function fetchAndUpdateData(token, setDataForUpdate) {
+    const newData = await getDocumentations(token);
+    setDataForUpdate(newData);
+  }
+  var fetchAndUpdateData_default;
+  var init_fetchAndUpdateData = __esm({
+    "src/ui_components/ui_functions/fetchAndUpdateData.ts"() {
+      "use strict";
+      init_documentationHandlers();
+      fetchAndUpdateData_default = fetchAndUpdateData;
     }
   });
 
@@ -40736,8 +40792,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       "use strict";
       init_preact_module();
       Text3 = ({ element, index: index2 }) => {
-        const textArray = element.text.split("\n");
-        return /* @__PURE__ */ y("div", { className: "section textSection" }, /* @__PURE__ */ y("div", { className: "anchorLink", id: element.title + index2 }), element.title && /* @__PURE__ */ y("div", { className: "title-row" }, /* @__PURE__ */ y("h3", { className: "title" }, element.title), /* @__PURE__ */ y("a", { href: "#top", className: "back-link" }, "\u2B06\uFE0E")), textArray.length && textArray.map(
+        const textArray = element.text ? element.text.split("\n") : [];
+        return /* @__PURE__ */ y("div", { className: "section textSection" }, /* @__PURE__ */ y("div", { className: "anchorLink", id: element.title + index2 }), element.title && /* @__PURE__ */ y("div", { className: "title-row" }, /* @__PURE__ */ y("h3", { className: "title" }, element.title), /* @__PURE__ */ y("a", { href: "#top", className: "back-link" }, "\u2B06\uFE0E")), textArray && textArray.length && textArray.map(
           (paragraph, i4) => !!paragraph.length && /* @__PURE__ */ y("p", { key: i4 }, paragraph)
         ));
       };
@@ -40921,6 +40977,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           isDraft,
           setIsDraft,
           setShowResetPopup
+          // setIsMainContentOpen,
+          // setIsContenFromServerOpen,
+          // dataForUpdate,
         } = q2(BuilderContext_default) || {};
         const isValid = !!(documentationTitle == null ? void 0 : documentationTitle.length) && isCurrentNameValid;
         function PublishButtonDropdown() {
@@ -41521,6 +41580,80 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
+  // src/ui_components/UserMenu.tsx
+  var UserMenu, UserMenu_default;
+  var init_UserMenu = __esm({
+    "src/ui_components/UserMenu.tsx"() {
+      "use strict";
+      init_preact_module();
+      init_hooks_module();
+      init_BuilderContext();
+      init_tabler_icons_react();
+      UserMenu = ({
+        isLoginPageOpen,
+        setIsLoginPageOpen,
+        setIsSettingsPageOpen,
+        setIsIndexOpen,
+        setIsContenFromServerOpen,
+        setIsMainContentOpen,
+        setFeedbackPage,
+        isIndexOpen,
+        isDocJustOpened,
+        setIsDocJustOpened,
+        userRank
+      }) => {
+        var _a;
+        const loggedInUser = ((_a = q2(BuilderContext_default)) == null ? void 0 : _a.loggedInUser) || "";
+        function closeMenu() {
+          document.getElementById("userMenu").open = false;
+        }
+        return /* @__PURE__ */ y("div", { className: "user-menu" }, /* @__PURE__ */ y("div", { className: "user-item" }, /* @__PURE__ */ y("div", { className: "user-tag", "first-letter": loggedInUser.slice(0, 1) }, loggedInUser.slice(0, 1)), /* @__PURE__ */ y("p", null, loggedInUser)), /* @__PURE__ */ y("hr", null), /* @__PURE__ */ y(
+          "div",
+          {
+            className: "user-item",
+            onClick: () => {
+              closeMenu();
+              setFeedbackPage(true);
+            }
+          },
+          /* @__PURE__ */ y(IconMessage2Check, null),
+          /* @__PURE__ */ y("p", null, "Feedback")
+        ), /* @__PURE__ */ y(
+          "div",
+          {
+            className: "user-item",
+            onClick: () => {
+              closeMenu();
+              setIsLoginPageOpen(false);
+              setIsIndexOpen(false);
+              setIsMainContentOpen(false);
+              setIsContenFromServerOpen(false);
+              setIsSettingsPageOpen(true);
+            }
+          },
+          /* @__PURE__ */ y(IconSettings, null),
+          /* @__PURE__ */ y("p", null, "Settings")
+        ), /* @__PURE__ */ y("hr", null), /* @__PURE__ */ y(
+          "div",
+          {
+            className: "user-item",
+            onClick: () => {
+              closeMenu();
+              setIsIndexOpen(true);
+              setIsMainContentOpen(false);
+              setIsContenFromServerOpen(false);
+              setIsSettingsPageOpen(false);
+              setIsLoginPageOpen(true);
+            }
+          },
+          /* @__PURE__ */ y(IconLogout, null),
+          /* @__PURE__ */ y("p", null, "Log-out")
+        ));
+      };
+      UserMenu_default = UserMenu;
+    }
+  });
+
   // src/ui_components/Header.tsx
   var Header, Header_default;
   var init_Header = __esm({
@@ -41533,7 +41666,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       init_hooks_module();
       init_BuilderContext();
       init_HeaderActions();
+      init_UserMenu();
       init_lib();
+      init_fetchAndUpdateData();
       Header = ({
         isLoginPageOpen,
         setIsLoginPageOpen,
@@ -41543,12 +41678,14 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         setIsDocJustOpened,
         userRank
       }) => {
+        var _a;
         const [selectedNodeId] = useAtom(selectedNodeIdAtom);
         const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
         const [selectedComponentPic] = useAtom(selectedComponentPicAtom);
         const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
         const [userRankStyle, setUserRankStyle] = h2({});
         const {
+          token,
           documentationData,
           isContenFromServerOpen,
           isMainContentOpen,
@@ -41560,7 +41697,11 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           setIsMainContentOpen,
           setIsReset,
           setIsSettingsPageOpen,
-          isSettingsPageOpen
+          isSettingsPageOpen,
+          dataForUpdate,
+          setDataForUpdate,
+          selectedMasterId,
+          setSelectedMasterId
         } = q2(BuilderContext_default) || {};
         const [, setInitialSelectedSections] = h2(null);
         const [, setInitialDocumentationData] = h2(null);
@@ -41603,8 +41744,18 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           }
         }, [documentationData]);
         function Toggle2() {
-          const handleToggle = () => {
+          const handleToggle = async () => {
+            console.log("selectedMasterId", selectedMasterId);
+            if (!token)
+              return;
             setIsViewModeOpen(!isViewModeOpen);
+            setIsMainContentOpen(false);
+            setIsContenFromServerOpen(true);
+            await fetchAndUpdateData_default(token, setDataForUpdate);
+            const currentDocumentation = dataForUpdate.find(
+              (item) => item.title === documentationData.title
+            );
+            setSelectedMasterId(currentDocumentation._id);
           };
           return /* @__PURE__ */ y(
             "button",
@@ -41617,6 +41768,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
             /* @__PURE__ */ y(IconEye, null)
           );
         }
+        const loggedInUser = ((_a = q2(BuilderContext_default)) == null ? void 0 : _a.loggedInUser) || "";
         return /* @__PURE__ */ y("div", { className: "header" }, /* @__PURE__ */ y("div", { className: "headerContent" }, !isLoginPageOpen && (isIndexOpen ? /* @__PURE__ */ y("div", { className: "componentHeader" }, /* @__PURE__ */ y("h2", null, "Component Index"), /* @__PURE__ */ y(
           "a",
           {
@@ -41670,28 +41822,23 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           },
           /* @__PURE__ */ y(IconList, null)
         ), /* @__PURE__ */ y(
-          "button",
+          "details",
           {
-            className: "header-login",
-            onClick: () => {
-              setIsLoginPageOpen(true);
-              setIsSettingsPageOpen(false);
-            }
+            className: "header-login tooltip",
+            id: "userMenu"
           },
-          /* @__PURE__ */ y(IconUser, { style: userRankStyle })
-        ), /* @__PURE__ */ y(
-          "button",
-          {
-            className: "login-button",
-            onClick: () => {
-              setIsLoginPageOpen(false);
-              setIsIndexOpen(false);
-              setIsMainContentOpen(false);
-              setIsContenFromServerOpen(false);
-              setIsSettingsPageOpen(true);
+          /* @__PURE__ */ y("summary", null, /* @__PURE__ */ y("div", { className: "user-tag", "first-letter": loggedInUser.slice(0, 1) }, loggedInUser.slice(0, 1))),
+          /* @__PURE__ */ y(
+            UserMenu_default,
+            {
+              setIsLoginPageOpen,
+              setIsSettingsPageOpen,
+              setIsIndexOpen,
+              setIsContenFromServerOpen,
+              setIsMainContentOpen,
+              setFeedbackPage
             }
-          },
-          /* @__PURE__ */ y(IconSettings, null)
+          )
         ))), (selectedElement || isMainContentOpen || isContenFromServerOpen) && !isIndexOpen && !isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen && /* @__PURE__ */ y(HeaderActions_default, null));
       };
       Header_default = Header;
@@ -42300,9 +42447,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/bb3a679d-8b08-4849-a342-9d724ecfee82/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/26c63ea2-c19f-4e8b-84d3-15cb79f907a6/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/bb3a679d-8b08-4849-a342-9d724ecfee82/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/26c63ea2-c19f-4e8b-84d3-15cb79f907a6/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";
@@ -42566,6 +42713,7 @@ body:has(.delete-flex) .container {
   margin-top: 8px;
   margin-bottom: 0;
   color: #5C5C5C;
+  font-weight: 300;
 }
 
 .delete-content h4 {
@@ -43476,7 +43624,8 @@ body:has(.navigation) .header-title {
   padding: 8px;
   border-radius: 8px;
 }
-.header{
+
+.header {
   padding-bottom: 0;
 }
 
@@ -43585,6 +43734,142 @@ body .header-login {
 /* body:has(.navigation a) .header-login {
   display: none;
 } */
+
+.headerContent .header-login {
+  padding: 0 !important;
+}
+
+.user-tag {
+  height: 32px;
+  width: 32px;
+  overflow: hidden;
+  font-size: calc(var(--text-size) + (var(--text-size) / 7));
+  font-weight: 500;
+  color: #ffffff;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F584AD;
+  border-radius: 9999px;
+  box-shadow: 0 0 0 1px #ffffff;
+  position: relative;
+  cursor: pointer;
+}
+
+.user-tag:hover{
+  filter: brightness(95%);
+}
+.user-item .user-tag{
+  pointer-events: none;
+}
+.user-tag[first-letter="a"], .user-tag[first-letter="t"]{
+  background-color: #F584AD;
+}
+.user-tag[first-letter="b"], .user-tag[first-letter="s"]{
+  background-color: #AC93F0;
+}
+.user-tag[first-letter="c"], .user-tag[first-letter="r"]{
+  background-color: #D1423F;
+}
+.user-tag[first-letter="d"], .user-tag[first-letter="z"]{
+  background-color: #DC1677;
+}
+.user-tag[first-letter="e"], .user-tag[first-letter="x"]{
+  background-color: #C233A0;
+}
+.user-tag[first-letter="f"], .user-tag[first-letter="y"]{
+  background-color: #6163E1;
+}
+.user-tag[first-letter="g"]{
+  background-color: #246DB6;
+}
+.user-tag[first-letter="h"]{
+  background-color: #008290;
+}
+.user-tag[first-letter="i"]{
+  background-color: #7BA100;
+}
+.user-tag[first-letter="j"]{
+  background-color: #9355D2;
+}
+.user-tag[first-letter="k"]{
+  background-color: #6D8391;
+}
+.user-tag[first-letter="l"]{
+  background-color: #3B814F;
+}
+.user-tag[first-letter="m"]{
+  background-color: #8190EA;
+}
+.user-tag[first-letter="w"]{
+  background-color: #50CE71;
+}
+.user-tag[first-letter="v"]{
+  background-color: #F2BA3B;
+}
+.user-tag[first-letter="u"]{
+  background-color: #030303;
+}
+.user-tag[first-letter="q"]{
+  background-color: #E38072;
+}
+.user-tag[first-letter="n"]{
+  background-color: #543150;
+}
+.user-tag[first-letter="o"]{
+  background-color: #F8970C;
+}
+.user-tag[first-letter="p"]{
+  background-color: #285736;
+}
+.user-menu {
+  position: absolute;
+  top: 40px;
+  right: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--tidy-32);
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 6px;
+  min-width: 140px;
+  box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
+}
+
+.user-menu hr{
+  height: 1px;
+  background-color: #EFF2FA;
+}
+
+.user-item {
+  display: flex;
+  gap: 6px;
+  border-radius: 4px;
+  align-items: center;
+  font-size: var(--text-size);
+  padding: 8px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.user-item svg {
+  width: 16px;
+  height: 16px;
+}
+
+.user-item p {
+  margin: 0 !important;
+}
+
+.user-item:hover {
+  background-color: #F0F1FA;
+}
+
+.user-item:active {
+  background-color: #E8EAFA
+}
 
 .container:has(.login) {
   margin-top: 52px;
@@ -46057,6 +46342,14 @@ input[type="checkbox"] {
   opacity: 1;
 }
 
+.tooltip .tooltiptext.bottom-right {
+  bottom: -105%;
+  left: unset;
+  right: 0;
+  width: fit-content;
+  transform: none;
+}
+
 .custom-toast {
   position: fixed;
   top: 8px;
@@ -47569,7 +47862,7 @@ body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
     const [showSettingsPage, setShowSettingsPage] = h2(false);
     const [showFeedbackPopup, setShowFeedbackPopup] = h2(false);
     const [showCancelPopup, setShowCancelPopup] = h2(false);
-    const [showWaigingInfoPopup, setShowWaitingInfoPopup] = h2(false);
+    const [showWaitingInfoPopup, setShowWaitingInfoPopup] = h2(false);
     const [showResetPopup, setShowResetPopup] = h2(false);
     const [showDeletePopup, setShowDeletePopup] = h2(false);
     const [showPreviewPopup, setShowPreviewPopup] = h2(false);
@@ -47802,14 +48095,12 @@ ${found.title}`
           const response = await updateDocumentation(token2, data._id, data);
           if (isBuildingOnCanvas)
             emit("BUILD", response);
-          const newData = await getDocumentations(token2);
-          setDataForUpdate(newData);
+          await fetchAndUpdateData_default(token2, setDataForUpdate);
         } else {
           const response = await createDocumentation(token2, data);
           if (isBuildingOnCanvas)
             emit("BUILD", response);
-          const newData = await getDocumentations(token2);
-          setDataForUpdate(newData);
+          await fetchAndUpdateData_default(token2, setDataForUpdate);
           setDocumentationData((prevDocumentation) => {
             return __spreadProps(__spreadValues({}, prevDocumentation), {
               ["_id"]: response._id
@@ -47863,6 +48154,7 @@ ${found.title}`
       selectedMasterId,
       previewData,
       isPreviewing,
+      dataForUpdate,
       setCurrentDocument,
       setCurrentPage,
       setCurrentUser,
@@ -47883,6 +48175,7 @@ ${found.title}`
       setSelectedCard,
       setSelectedElement,
       // setSelectedElementKey,
+      setSelectedMasterId,
       setSelectedElementName,
       setSelectedSections,
       setShowCancelPopup,
@@ -47900,6 +48193,10 @@ ${found.title}`
       setToken
     };
     const isPreviewDataExists = Object.keys(previewData).length > 0;
+    p2(() => {
+      console.log("showContentFromServer", showContentFromServer);
+      console.log("showMainContent", showMainContent);
+    }, [showContentFromServer, showMainContent]);
     return /* @__PURE__ */ y(
       "div",
       {
@@ -47928,7 +48225,7 @@ ${found.title}`
           elementToDelete,
           dataForUpdate
         }
-      ), showWaigingInfoPopup && /* @__PURE__ */ y(waitingInfoPopup_default, { setShowWaitingInfoPopup }), showDeleteAccountPopup && /* @__PURE__ */ y(
+      ), showWaitingInfoPopup && /* @__PURE__ */ y(waitingInfoPopup_default, { setShowWaitingInfoPopup }), showDeleteAccountPopup && /* @__PURE__ */ y(
         deleteAccountPopup_default,
         {
           setShowDeleteAccountPopup,
@@ -48018,14 +48315,7 @@ ${found.title}`
           selectedSections,
           setSelectedSections
         }
-      ), selectedMasterId && !showMainContent && showContentFromServer && !showLoginPage && !showSigninPage && isViewModeOpen && // <ContentFromServerViewMode
-      //   data={dataForUpdate}
-      //   selectedMasterId={selectedMasterId}
-      //   selectedSections={selectedSections}
-      //   setSelectedSections={setSelectedSections}
-      //   //! add component key
-      // />
-      /* @__PURE__ */ y(
+      ), selectedMasterId && showContentFromServer && !showMainContent && !showLoginPage && !showSigninPage && isViewModeOpen && /* @__PURE__ */ y(
         DetailsPage_default2,
         {
           data: dataForUpdate,
@@ -48059,6 +48349,7 @@ ${found.title}`
       init_waitingInfoPopup();
       init_Toast();
       init_sendRaster();
+      init_fetchAndUpdateData();
       init_ContentFromServer();
       init_DetailsPage2();
       init_Footer();

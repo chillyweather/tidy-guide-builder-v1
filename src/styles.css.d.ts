@@ -29,6 +29,7 @@ declare const styles: {
   readonly "back-link": string;
   readonly "backToTop": string;
   readonly "bold-me": string;
+  readonly "bottom-right": string;
   readonly "broken": string;
   readonly "btnNext": string;
   readonly "btnPrev": string;
@@ -224,6 +225,9 @@ declare const styles: {
   readonly "twoColumnCardBodyContent": string;
   readonly "twoColumns": string;
   readonly "unselected": string;
+  readonly "user-item": string;
+  readonly "user-menu": string;
+  readonly "user-tag": string;
   readonly "userlist": string;
   readonly "userlist-item": string;
   readonly "validationFailedMessage": string;
