@@ -473,7 +473,7 @@ li {
   align-items: center;
   margin-top: 132px;
   margin-bottom: 80px;
-  min-height: calc(100vh - 196px);
+  min-height: calc(100vh - 132px);
   max-height: calc(100vh - 132px);
   padding-bottom: 8px;
   overflow: auto;
