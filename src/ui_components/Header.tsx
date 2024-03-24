@@ -141,8 +141,12 @@ const Header = ({
         onClick={handleToggle}
       >
         <div className={"thumb"}></div>
-        <IconPencil />
-        <IconEye />
+        <div className="mode-icon view">
+          <IconEye />
+        </div>
+        <div className="mode-icon edit">
+          <IconPencil />
+        </div>
       </button>
     );
   }
