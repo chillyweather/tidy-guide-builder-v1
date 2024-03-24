@@ -641,6 +641,7 @@ function Plugin() {
             setSelectedSections={setSelectedSections}
           />
         )}
+
         {/* content in Edit mode */}
         {selectedMasterId &&
           !showMainContent &&
