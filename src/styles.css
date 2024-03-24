@@ -1028,7 +1028,7 @@ button svg {
   position: absolute;
   height: 24px;
   width: 24px;
-  left: calc(50%);
+  left: 50%;
   top: 3px;
   border-radius: 9999px;
   pointer-events: none;
@@ -1078,7 +1078,6 @@ button svg {
 }
 .header .mode-button .mode-icon.view{
   opacity: 0;
-  /* transform: translateX(2px); */
 }
 .header .mode-button.viewer .mode-icon.view{
   opacity: 1;
