@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 
 export const Text = ({ element, index }: any) => {
-  const textArray = element.text.split("\n");
+  const textArray = element.text ? element.text.split("\n") : [];
   return (
     <div className={"section textSection"}>
       <div className={"anchorLink"} id={element.title + index}></div>
@@ -14,7 +15,8 @@ export const Text = ({ element, index }: any) => {
         </div>
       )}
       {/* {element.text.length && <p>{element.text}</p>} */}
-      {textArray.length &&
+      {textArray &&
+        textArray.length &&
         textArray.map(
           (paragraph: any, i: number) =>
             !!paragraph.length && <p key={i}>{paragraph}</p>

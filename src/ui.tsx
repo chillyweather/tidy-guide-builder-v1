@@ -16,6 +16,7 @@ import WaitingInfoPopup from "./ui_components/popups/waitingInfoPopup";
 import Toast from "./ui_components/Toast";
 //dependencies
 import { sendRaster } from "./ui_components/ui_functions/sendRaster";
+import fetchAndUpdateData from "./ui_components/ui_functions/fetchAndUpdateData";
 
 //new components
 import ContentFromServer from "./ui_components/ContentFromServer";
@@ -79,7 +80,7 @@ function Plugin() {
   //navigation-popups
   const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
   const [showCancelPopup, setShowCancelPopup] = useState(false);
-  const [showWaigingInfoPopup, setShowWaitingInfoPopup] = useState(false);
+  const [showWaitingInfoPopup, setShowWaitingInfoPopup] = useState(false);
   const [showResetPopup, setShowResetPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showPreviewPopup, setShowPreviewPopup] = useState(false);
@@ -397,13 +398,11 @@ function Plugin() {
       if (isDocumented) {
         const response = await updateDocumentation(token, data._id, data);
         if (isBuildingOnCanvas) emit("BUILD", response);
-        const newData = await getDocumentations(token);
-        setDataForUpdate(newData);
+        await fetchAndUpdateData(token, setDataForUpdate);
       } else {
         const response = await createDocumentation(token, data);
         if (isBuildingOnCanvas) emit("BUILD", response);
-        const newData = await getDocumentations(token);
-        setDataForUpdate(newData);
+        await fetchAndUpdateData(token, setDataForUpdate);
         setDocumentationData((prevDocumentation: any) => {
           return {
             ...prevDocumentation,
@@ -461,6 +460,7 @@ function Plugin() {
     selectedMasterId,
     previewData,
     isPreviewing,
+    dataForUpdate,
     setCurrentDocument,
     setCurrentPage,
     setCurrentUser,
@@ -481,6 +481,7 @@ function Plugin() {
     setSelectedCard,
     setSelectedElement,
     // setSelectedElementKey,
+    setSelectedMasterId,
     setSelectedElementName,
     setSelectedSections,
     setShowCancelPopup,
@@ -505,6 +506,11 @@ function Plugin() {
   // }
 
   const isPreviewDataExists = Object.keys(previewData).length > 0;
+
+  useEffect(() => {
+    console.log("showContentFromServer", showContentFromServer);
+    console.log("showMainContent", showMainContent);
+  }, [showContentFromServer, showMainContent]);
 
   return (
     <div
@@ -538,7 +544,7 @@ function Plugin() {
             dataForUpdate={dataForUpdate}
           />
         )}
-        {showWaigingInfoPopup && (
+        {showWaitingInfoPopup && (
           <WaitingInfoPopup setShowWaitingInfoPopup={setShowWaitingInfoPopup} />
         )}
         {showDeleteAccountPopup && (
@@ -652,18 +658,11 @@ function Plugin() {
           )}
         {/* content in View mode */}
         {selectedMasterId &&
-          !showMainContent &&
           showContentFromServer &&
+          !showMainContent &&
           !showLoginPage &&
           !showSigninPage &&
           isViewModeOpen && (
-            // <ContentFromServerViewMode
-            //   data={dataForUpdate}
-            //   selectedMasterId={selectedMasterId}
-            //   selectedSections={selectedSections}
-            //   setSelectedSections={setSelectedSections}
-            //   //! add component key
-            // />
             <DetailsPage
               data={dataForUpdate}
               selectedMasterId={selectedMasterId}
@@ -689,3 +688,8 @@ function Plugin() {
 }
 
 export default render(Plugin);
+
+// async function fetchAndUpdateData(token: string, setDataForUpdate: any) {
+//   const newData = await getDocumentations(token);
+//   setDataForUpdate(newData);
+// }

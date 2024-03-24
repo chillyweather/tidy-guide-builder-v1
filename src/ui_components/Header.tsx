@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
@@ -24,6 +25,7 @@ import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import HeaderActions from "./HeaderActions";
 import { emit } from "@create-figma-plugin/utilities";
+import fetchAndUpdateData from "./ui_functions/fetchAndUpdateData";
 
 const Header = ({
   isLoginPageOpen,
@@ -49,6 +51,7 @@ const Header = ({
 
   const [userRankStyle, setUserRankStyle] = useState({});
   const {
+    token,
     documentationData,
     isContenFromServerOpen,
     isMainContentOpen,
@@ -61,6 +64,10 @@ const Header = ({
     setIsReset,
     setIsSettingsPageOpen,
     isSettingsPageOpen,
+    dataForUpdate,
+    setDataForUpdate,
+    selectedMasterId,
+    setSelectedMasterId,
   } = useContext(BuilderContext) || {};
   const [, setInitialSelectedSections] = useState(null);
   const [, setInitialDocumentationData] = useState(null);
@@ -114,8 +121,17 @@ const Header = ({
   }, [documentationData]);
 
   function Toggle() {
-    const handleToggle = () => {
+    const handleToggle = async () => {
+      console.log("selectedMasterId", selectedMasterId);
+      if (!token) return;
       setIsViewModeOpen(!isViewModeOpen);
+      setIsMainContentOpen(false);
+      setIsContenFromServerOpen(true);
+      await fetchAndUpdateData(token, setDataForUpdate);
+      const currentDocumentation = dataForUpdate.find(
+        (item: any) => item.title === documentationData.title
+      );
+      setSelectedMasterId(currentDocumentation._id);
     };
 
     return (

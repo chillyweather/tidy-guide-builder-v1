@@ -2,6 +2,7 @@
 import ElementSection from "./ElementSection";
 import { h } from "preact";
 const DetailsPage = (data: any) => {
+  console.log("We are in Details", data);
   const section = data.data;
   const sectionData = section.docs;
   const status = section.inProgress;

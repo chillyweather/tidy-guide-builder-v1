@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext } from "preact";
 
 interface IContext {
@@ -54,6 +55,7 @@ interface IContext {
   setSelectedCard: any;
   setSelectedElement: any;
   setSelectedElementName: any;
+  setSelectedMasterId: any;
   setSelectedSections: any;
   setShowCancelPopup: any;
   setShowDeleteAccountPopup: any;
@@ -65,6 +67,7 @@ interface IContext {
   showPreviewPopup: boolean;
   showResetPopup: boolean;
   token: string;
+  dataForUpdate: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

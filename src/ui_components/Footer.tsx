@@ -23,6 +23,9 @@ const Footer = ({
     isDraft,
     setIsDraft,
     setShowResetPopup,
+    // setIsMainContentOpen,
+    // setIsContenFromServerOpen,
+    // dataForUpdate,
   } = useContext(BuilderContext) || {};
 
   const isValid = !!documentationTitle?.length && isCurrentNameValid;
@@ -92,6 +95,13 @@ const Footer = ({
       setSaveData
     );
   }, [saveData]);
+
+  // useEffect(() => {
+  //   if (dataForUpdate && saveData) {
+  //     setIsMainContentOpen(false);
+  //     setIsContenFromServerOpen(true);
+  //   }
+  // }, [dataForUpdate, saveData]);
 
   return (
     <div className={"footer"}>
