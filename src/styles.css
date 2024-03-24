@@ -45,7 +45,7 @@
 } */
 
 #create-figma-plugin {
-  max-height: calc(100vh - 184px);
+  max-height: calc(100vh - 196px);
 }
 
 /* width */
@@ -168,7 +168,7 @@ body:has(.login) {
 .componentHeader h2 {
   position: absolute;
   pointer-events: none;
-  top: 58px;
+  top: 66px;
   left: 20px;
   font-weight: 600;
   color: var(--tidy-32);
@@ -447,7 +447,7 @@ li {
   position: absolute;
   color: var(--tidy-32);
   padding: 5px;
-  top: 54px;
+  top: 62px;
   left: 176px;
 }
 
@@ -471,16 +471,16 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 108px;
+  margin-top: 124px;
   margin-bottom: 80px;
-  min-height: calc(100vh - 184px);
+  min-height: calc(100vh - 196px);
   max-height: calc(100vh - 104px);
   padding-bottom: 8px;
   overflow: auto;
 }
 
 .container:has(.footer) {
-  max-height: calc(100vh - 184px);
+  max-height: calc(100vh - 196px);
 }
 
 #backToTop {
@@ -812,6 +812,7 @@ button svg {
 .headerContent {
   position: relative;
   padding: 12px 16px;
+  padding-bottom: 24px;
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -1857,7 +1858,7 @@ li::before {
 }
 
 .header .add-button {
-  transform: translate(442px, 48px);
+  transform: translate(442px, 56px);
   background-color: var(--tidy-primary);
   color: #ffffff;
   padding: 8px 12px;
