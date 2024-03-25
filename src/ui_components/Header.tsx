@@ -74,6 +74,7 @@ const Header = ({
   const [, setInitialDocumentationData] = useState(null);
   const [, setInitialSelectedSectionsLength] = useState(0);
   const [navState, setNavState] = useState(false);
+  const [avatarColor, setAvatarColor] = useState("#F584AD");
 
   function backToIndex() {
     setIsIndexOpen(true);
@@ -151,8 +152,13 @@ const Header = ({
     );
   }
   const loggedInUser = useContext(BuilderContext)?.loggedInUser || "";
+  function colorAvatar() {
+    const colorList = ["#F584AD", "#AC93F0", "#D1423F", "#DC1677", "#C233A0", "#6163E1", "#246DB6", "#008290", "#7BA100", "#9355D2", "#6D8391", "#3B814F", "#8190EA", "#50CE71", "#F2BA3B", "#030303", "#E38072", "#543150", "#F8970C", "#285736"]
+    const selectedColor = colorList[Math.floor( Math.random() * 20 )];
+    setAvatarColor(selectedColor);
+  }
   return (
-    <div className="header">
+    < div className="header" >
       <div className="headerContent">
         {!isLoginPageOpen &&
           (isIndexOpen ? (
@@ -242,9 +248,12 @@ const Header = ({
           >
             <summary>
               {/* <div className="tooltiptext bottom-right">{loggedInUser}</div> */}
-              <div className="user-tag" first-letter={loggedInUser.slice(0, 1)} last-token={token?.slice(token.length-1,token.length)}>{loggedInUser.slice(0, 1)}</div>
+              <div style={{ backgroundColor: avatarColor }} className="user-tag" first-letter={loggedInUser.slice(0, 1)} last-token={token?.slice(token.length - 1, token.length)}>
+                {loggedInUser.slice(0, 1)}
+              </div>
               {/* <IconUser style={userRankStyle} title={loggedInUser}/> */}
             </summary>
+            {colorAvatar()}
             <UserMenu
               setIsLoginPageOpen={setIsLoginPageOpen}
               setIsSettingsPageOpen={setIsSettingsPageOpen}
@@ -269,12 +278,14 @@ const Header = ({
           </button> */}
         </div>
       </div>
-      {(selectedElement || isMainContentOpen || isContenFromServerOpen) &&
+      {
+        (selectedElement || isMainContentOpen || isContenFromServerOpen) &&
         !isIndexOpen &&
         !isViewModeOpen &&
         !isLoginPageOpen &&
-        !isSettingsPageOpen && <HeaderActions />}
-    </div>
+        !isSettingsPageOpen && <HeaderActions />
+      }
+    </div >
   );
 };
 
