@@ -990,7 +990,8 @@ button svg {
   align-items: center;
   color: #7D7D7D;
 }
-.header .mode-button div{
+
+.header .mode-button div {
   pointer-events: none;
 }
 
@@ -1063,11 +1064,12 @@ button svg {
 .header .mode-button.viewer .thumb::before {
   background-color: #3A9602;
 }
+
 .header .mode-button.viewer .thumb::after {
   background-color: #D7EE95;
 }
 
-.header .mode-button .mode-icon{
+.header .mode-button .mode-icon {
   width: 24px;
   height: 24px;
   display: flex;
@@ -1075,16 +1077,20 @@ button svg {
   align-items: center;
   transition: opacity 200ms linear 0s;
 }
-.header .mode-button .mode-icon.edit{
+
+.header .mode-button .mode-icon.edit {
   opacity: 1;
 }
-.header .mode-button .mode-icon.view{
+
+.header .mode-button .mode-icon.view {
   opacity: 0;
 }
-.header .mode-button.viewer .mode-icon.view{
+
+.header .mode-button.viewer .mode-icon.view {
   opacity: 1;
 }
-.header .mode-button.viewer .mode-icon.edit{
+
+.header .mode-button.viewer .mode-icon.edit {
   opacity: 0;
 }
 
@@ -1341,92 +1347,6 @@ body .header-login {
 
 .user-item .user-tag {
   pointer-events: none;
-}
-
-.user-tag[first-letter="a"],
-.user-tag[first-letter="t"] {
-  background-color: #F584AD;
-}
-
-.user-tag[first-letter="b"],
-.user-tag[first-letter="s"] {
-  background-color: #AC93F0;
-}
-
-.user-tag[first-letter="c"],
-.user-tag[first-letter="r"] {
-  background-color: #D1423F;
-}
-
-.user-tag[first-letter="d"],
-.user-tag[first-letter="z"] {
-  background-color: #DC1677;
-}
-
-.user-tag[first-letter="e"],
-.user-tag[first-letter="x"] {
-  background-color: #C233A0;
-}
-
-.user-tag[first-letter="f"],
-.user-tag[first-letter="y"] {
-  background-color: #6163E1;
-}
-
-.user-tag[first-letter="g"] {
-  background-color: #246DB6;
-}
-
-.user-tag[first-letter="h"] {
-  background-color: #008290;
-}
-
-.user-tag[first-letter="i"] {
-  background-color: #7BA100;
-}
-
-.user-tag[first-letter="j"] {
-  background-color: #9355D2;
-}
-
-.user-tag[first-letter="k"] {
-  background-color: #6D8391;
-}
-
-.user-tag[first-letter="l"] {
-  background-color: #3B814F;
-}
-
-.user-tag[first-letter="m"] {
-  background-color: #8190EA;
-}
-
-.user-tag[first-letter="w"] {
-  background-color: #50CE71;
-}
-
-.user-tag[first-letter="v"] {
-  background-color: #F2BA3B;
-}
-
-.user-tag[first-letter="u"] {
-  background-color: #030303;
-}
-
-.user-tag[first-letter="q"] {
-  background-color: #E38072;
-}
-
-.user-tag[first-letter="n"] {
-  background-color: #543150;
-}
-
-.user-tag[first-letter="o"] {
-  background-color: #F8970C;
-}
-
-.user-tag[first-letter="p"] {
-  background-color: #285736;
 }
 
 .user-menu {
