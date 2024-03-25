@@ -154,7 +154,7 @@ const Header = ({
   const loggedInUser = useContext(BuilderContext)?.loggedInUser || "";
   function colorAvatar() {
     const colorList = ["#F584AD", "#AC93F0", "#D1423F", "#DC1677", "#C233A0", "#6163E1", "#246DB6", "#008290", "#7BA100", "#9355D2", "#6D8391", "#3B814F", "#8190EA", "#50CE71", "#F2BA3B", "#030303", "#E38072", "#543150", "#F8970C", "#285736"]
-    const selectedColor = colorList[Math.floor( Math.random() * 20 )];
+    const selectedColor = colorList[Math.floor(Math.random() * 20)];
     setAvatarColor(selectedColor);
   }
   return (
@@ -209,17 +209,6 @@ const Header = ({
         </button>
         <div className={"side-flex"}>
           {Toggle()}
-          {/* <button
-            className="header-login"
-            onClick={() => {
-              setFeedbackPage(true);
-              setTimeout(function () {
-                document.getElementById("feedback-title")?.focus();
-              }, 300);
-            }}
-          >
-            <IconMessage2Check />
-          </button> */}
 
           {!isIndexOpen &&
             isViewModeOpen &&
@@ -241,17 +230,11 @@ const Header = ({
           <details
             className="header-login tooltip"
             id="userMenu"
-          // onClick={() => {
-          //   setIsLoginPageOpen(true);
-          //   setIsSettingsPageOpen(false);
-          // }}
           >
             <summary>
-              {/* <div className="tooltiptext bottom-right">{loggedInUser}</div> */}
               <div style={{ backgroundColor: avatarColor }} className="user-tag" first-letter={loggedInUser.slice(0, 1)} last-token={token?.slice(token.length - 1, token.length)}>
                 {loggedInUser.slice(0, 1)}
               </div>
-              {/* <IconUser style={userRankStyle} title={loggedInUser}/> */}
             </summary>
             {colorAvatar()}
             <UserMenu
@@ -263,19 +246,6 @@ const Header = ({
               setFeedbackPage={setFeedbackPage}
             />
           </details>
-
-          {/* <button
-            className={"login-button"}
-            onClick={() => {
-              setIsLoginPageOpen(false);
-              setIsIndexOpen(false);
-              setIsMainContentOpen(false);
-              setIsContenFromServerOpen(false);
-              setIsSettingsPageOpen(true);
-            }}
-          >
-            <IconSettings />
-          </button> */}
         </div>
       </div>
       {
