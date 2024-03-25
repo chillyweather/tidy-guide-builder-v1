@@ -235,6 +235,7 @@ const Header = ({
           >
             <summary>
               <div
+                style={{ backgroundColor: avatarColor }}
                 className="user-tag"
                 first-letter={loggedInUser.slice(0, 1)}
                 last-token={token?.slice(token.length - 1, token.length)}
