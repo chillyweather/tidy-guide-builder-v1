@@ -32,7 +32,6 @@ const Header = ({
   isLoginPageOpen,
   setIsLoginPageOpen,
   setFeedbackPage,
-  isIndexOpen,
   isDocJustOpened,
   setIsDocJustOpened,
   userRank,
@@ -40,7 +39,6 @@ const Header = ({
   isLoginPageOpen: boolean;
   setIsLoginPageOpen: (value: boolean) => void;
   setFeedbackPage: (value: boolean) => void;
-  isIndexOpen: boolean;
   isDocJustOpened: boolean;
   setIsDocJustOpened: (value: boolean) => void;
   userRank: string;
@@ -52,23 +50,24 @@ const Header = ({
 
   const [userRankStyle, setUserRankStyle] = useState({});
   const {
-    token,
+    dataForUpdate,
     documentationData,
     isContenFromServerOpen,
     isMainContentOpen,
+    isSettingsPageOpen,
+    isIndexOpen,
     selectedElement,
+    selectedMasterId,
     selectedSections,
+    setDataForUpdate,
     setIsContenFromServerOpen,
     setIsFromSavedData,
     setIsIndexOpen,
     setIsMainContentOpen,
     setIsReset,
     setIsSettingsPageOpen,
-    isSettingsPageOpen,
-    dataForUpdate,
-    setDataForUpdate,
-    selectedMasterId,
     setSelectedMasterId,
+    token,
   } = useContext(BuilderContext) || {};
   const [, setInitialSelectedSections] = useState(null);
   const [, setInitialDocumentationData] = useState(null);
@@ -126,13 +125,16 @@ const Header = ({
       console.log("selectedMasterId", selectedMasterId);
       if (!token) return;
       setIsViewModeOpen(!isViewModeOpen);
-      setIsMainContentOpen(false);
-      setIsContenFromServerOpen(true);
-      await fetchAndUpdateData(token, setDataForUpdate);
-      const currentDocumentation = dataForUpdate.find(
-        (item: any) => item.title === documentationData.title
-      );
-      setSelectedMasterId(currentDocumentation._id);
+      if (!isIndexOpen) {
+        setIsMainContentOpen(false);
+        setIsContenFromServerOpen(true);
+        await fetchAndUpdateData(token, setDataForUpdate);
+        const currentDocumentation = dataForUpdate.find(
+          (item: any) => item.title === documentationData.title
+        );
+        console.log("currentDocumentation", currentDocumentation);
+        setSelectedMasterId(currentDocumentation._id);
+      }
     };
 
     return (
@@ -231,14 +233,16 @@ const Header = ({
           <details
             className="header-login tooltip"
             id="userMenu"
-          // onClick={() => {
-          //   setIsLoginPageOpen(true);
-          //   setIsSettingsPageOpen(false);
-          // }}
+            // onClick={() => {
+            //   setIsLoginPageOpen(true);
+            //   setIsSettingsPageOpen(false);
+            // }}
           >
             <summary>
               {/* <div className="tooltiptext bottom-right">{loggedInUser}</div> */}
-              <div className="user-tag" first-letter={loggedInUser.slice(0, 1)}>{loggedInUser.slice(0, 1)}</div>
+              <div className="user-tag" first-letter={loggedInUser.slice(0, 1)}>
+                {loggedInUser.slice(0, 1)}
+              </div>
               {/* <IconUser style={userRankStyle} title={loggedInUser}/> */}
             </summary>
             <UserMenu
