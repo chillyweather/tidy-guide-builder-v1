@@ -73,6 +73,7 @@ declare const styles: {
   readonly "drop-text": string;
   readonly "drop-zone": string;
   readonly "dropZoneHeader": string;
+  readonly "edit": string;
   readonly "elementsMenu": string;
   readonly "empty-image": string;
   readonly "empty-state": string;
@@ -143,6 +144,7 @@ declare const styles: {
   readonly "menuDiv": string;
   readonly "modal-bg": string;
   readonly "mode-button": string;
+  readonly "mode-icon": string;
   readonly "nav-container": string;
   readonly "nav-wrapper": string;
   readonly "navigation": string;
@@ -241,6 +243,7 @@ declare const styles: {
   readonly "videoOpen": string;
   readonly "videoSection": string;
   readonly "videoSelected": string;
+  readonly "view": string;
   readonly "viewer": string;
   readonly "viewer-data-wrapper": string;
   readonly "web-link": string;

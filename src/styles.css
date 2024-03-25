@@ -45,7 +45,7 @@
 } */
 
 #create-figma-plugin {
-  max-height: calc(100vh - 184px);
+  max-height: calc(100vh - 196px);
 }
 
 /* width */
@@ -168,7 +168,7 @@ body:has(.login) {
 .componentHeader h2 {
   position: absolute;
   pointer-events: none;
-  top: 58px;
+  top: 70px;
   left: 20px;
   font-weight: 600;
   color: var(--tidy-32);
@@ -447,7 +447,7 @@ li {
   position: absolute;
   color: var(--tidy-32);
   padding: 5px;
-  top: 54px;
+  top: 66px;
   left: 176px;
 }
 
@@ -471,16 +471,17 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 108px;
+  margin-top: 132px;
   margin-bottom: 80px;
-  min-height: calc(100vh - 184px);
-  max-height: calc(100vh - 104px);
+  min-height: calc(100vh - 132px);
+  max-height: calc(100vh - 132px);
   padding-bottom: 8px;
   overflow: auto;
 }
 
 .container:has(.footer) {
-  max-height: calc(100vh - 184px);
+  max-height: calc(100vh - 232px);
+  min-height: calc(100vh - 232px);
 }
 
 #backToTop {
@@ -812,6 +813,7 @@ button svg {
 .headerContent {
   position: relative;
   padding: 12px 16px;
+  padding-bottom: 24px;
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -981,12 +983,15 @@ button svg {
   border-radius: 9999px;
   background-color: #ffffff;
   border: 1px solid #D2DCF9;
-  width: 60px;
+  height: 32px;
   display: flex;
-  gap: 12px;
+  cursor: pointer;
   justify-content: space-evenly;
   align-items: center;
   color: #7D7D7D;
+}
+.header .mode-button div{
+  pointer-events: none;
 }
 
 .header .mode-button:active {
@@ -1025,7 +1030,7 @@ button svg {
   position: absolute;
   height: 24px;
   width: 24px;
-  left: 3px;
+  left: 50%;
   top: 3px;
   border-radius: 9999px;
   pointer-events: none;
@@ -1043,6 +1048,7 @@ button svg {
   border-radius: 9999px;
   background-color: #6B73FF;
   mix-blend-mode: overlay;
+  transition: background-color 200ms linear 0s;
 }
 
 .header .mode-button .thumb::after {
@@ -1050,9 +1056,36 @@ button svg {
   mix-blend-mode: multiply;
 }
 
-.header .mode-button.viewer .thumb,
 .header .mode-button.viewer .thumb {
-  left: calc(50% + 3px);
+  left: 3px;
+}
+
+.header .mode-button.viewer .thumb::before {
+  background-color: #3A9602;
+}
+.header .mode-button.viewer .thumb::after {
+  background-color: #D7EE95;
+}
+
+.header .mode-button .mode-icon{
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 200ms linear 0s;
+}
+.header .mode-button .mode-icon.edit{
+  opacity: 1;
+}
+.header .mode-button .mode-icon.view{
+  opacity: 0;
+}
+.header .mode-button.viewer .mode-icon.view{
+  opacity: 1;
+}
+.header .mode-button.viewer .mode-icon.edit{
+  opacity: 0;
 }
 
 body:has(.login) .mode-button,
@@ -1302,72 +1335,100 @@ body .header-login {
   cursor: pointer;
 }
 
-.user-tag:hover{
+.user-tag:hover {
   filter: brightness(95%);
 }
-.user-item .user-tag{
+
+.user-item .user-tag {
   pointer-events: none;
 }
-.user-tag[first-letter="a"], .user-tag[first-letter="t"]{
+
+.user-tag[first-letter="a"],
+.user-tag[first-letter="t"] {
   background-color: #F584AD;
 }
-.user-tag[first-letter="b"], .user-tag[first-letter="s"]{
+
+.user-tag[first-letter="b"],
+.user-tag[first-letter="s"] {
   background-color: #AC93F0;
 }
-.user-tag[first-letter="c"], .user-tag[first-letter="r"]{
+
+.user-tag[first-letter="c"],
+.user-tag[first-letter="r"] {
   background-color: #D1423F;
 }
-.user-tag[first-letter="d"], .user-tag[first-letter="z"]{
+
+.user-tag[first-letter="d"],
+.user-tag[first-letter="z"] {
   background-color: #DC1677;
 }
-.user-tag[first-letter="e"], .user-tag[first-letter="x"]{
+
+.user-tag[first-letter="e"],
+.user-tag[first-letter="x"] {
   background-color: #C233A0;
 }
-.user-tag[first-letter="f"], .user-tag[first-letter="y"]{
+
+.user-tag[first-letter="f"],
+.user-tag[first-letter="y"] {
   background-color: #6163E1;
 }
-.user-tag[first-letter="g"]{
+
+.user-tag[first-letter="g"] {
   background-color: #246DB6;
 }
-.user-tag[first-letter="h"]{
+
+.user-tag[first-letter="h"] {
   background-color: #008290;
 }
-.user-tag[first-letter="i"]{
+
+.user-tag[first-letter="i"] {
   background-color: #7BA100;
 }
-.user-tag[first-letter="j"]{
+
+.user-tag[first-letter="j"] {
   background-color: #9355D2;
 }
-.user-tag[first-letter="k"]{
+
+.user-tag[first-letter="k"] {
   background-color: #6D8391;
 }
-.user-tag[first-letter="l"]{
+
+.user-tag[first-letter="l"] {
   background-color: #3B814F;
 }
-.user-tag[first-letter="m"]{
+
+.user-tag[first-letter="m"] {
   background-color: #8190EA;
 }
-.user-tag[first-letter="w"]{
+
+.user-tag[first-letter="w"] {
   background-color: #50CE71;
 }
-.user-tag[first-letter="v"]{
+
+.user-tag[first-letter="v"] {
   background-color: #F2BA3B;
 }
-.user-tag[first-letter="u"]{
+
+.user-tag[first-letter="u"] {
   background-color: #030303;
 }
-.user-tag[first-letter="q"]{
+
+.user-tag[first-letter="q"] {
   background-color: #E38072;
 }
-.user-tag[first-letter="n"]{
+
+.user-tag[first-letter="n"] {
   background-color: #543150;
 }
-.user-tag[first-letter="o"]{
+
+.user-tag[first-letter="o"] {
   background-color: #F8970C;
 }
-.user-tag[first-letter="p"]{
+
+.user-tag[first-letter="p"] {
   background-color: #285736;
 }
+
 .user-menu {
   position: absolute;
   top: 40px;
@@ -1383,7 +1444,7 @@ body .header-login {
   box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
 }
 
-.user-menu hr{
+.user-menu hr {
   height: 1px;
   background-color: #EFF2FA;
 }
@@ -1798,7 +1859,7 @@ li::before {
 }
 
 .header .add-button {
-  transform: translate(442px, 48px);
+  transform: translate(442px, 60px);
   background-color: var(--tidy-primary);
   color: #ffffff;
   padding: 8px 12px;
