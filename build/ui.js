@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3b693e86-3bb0-4d19-9da4-6fcc29e4b45d/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/08ef815c-a693-4031-97c0-200a2b191c60/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3b693e86-3bb0-4d19-9da4-6fcc29e4b45d/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/08ef815c-a693-4031-97c0-200a2b191c60/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b9ba11a3-5884-4dac-a954-84612b4f844f/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ae63ab6e-6b28-4e94-8325-699c8ffce460/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b9ba11a3-5884-4dac-a954-84612b4f844f/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ae63ab6e-6b28-4e94-8325-699c8ffce460/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b5694321-ddaf-4e96-a037-1caddbce62a3/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/07adc06c-b7cb-4259-b14b-e0858c059b42/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b5694321-ddaf-4e96-a037-1caddbce62a3/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/07adc06c-b7cb-4259-b14b-e0858c059b42/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/69a92695-3d56-4f2c-a1c3-350c6c692b07/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b161ccc8-e8a7-4816-90fb-e9a73b4a0692/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/69a92695-3d56-4f2c-a1c3-350c6c692b07/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b161ccc8-e8a7-4816-90fb-e9a73b4a0692/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/05a06859-0983-4d73-afa3-6eba25c3c2eb/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3d05f339-a543-4ca3-a797-69d84b423ff5/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/05a06859-0983-4d73-afa3-6eba25c3c2eb/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3d05f339-a543-4ca3-a797-69d84b423ff5/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9e22e758-44ca-4916-91a9-89e77441f027/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d9efa3e9-4f2b-4c55-99c8-18b01b0a2481/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9e22e758-44ca-4916-91a9-89e77441f027/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d9efa3e9-4f2b-4c55-99c8-18b01b0a2481/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3788445f-69a6-4c5e-949b-a18eb7f05979/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/419ae165-4255-4aef-aa09-9bdb308711db/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3788445f-69a6-4c5e-949b-a18eb7f05979/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/419ae165-4255-4aef-aa09-9bdb308711db/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e2720ee1-330c-4519-beb2-8aa9b427f5db/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f4ef8e0-d62c-4db9-9381-d243ba3e7679/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e2720ee1-330c-4519-beb2-8aa9b427f5db/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f4ef8e0-d62c-4db9-9381-d243ba3e7679/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/cffddb16-8134-436c-82e3-b3ec72717606/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c6a97b27-f0ff-40f1-ad36-8794ee50fd93/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/cffddb16-8134-436c-82e3-b3ec72717606/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c6a97b27-f0ff-40f1-ad36-8794ee50fd93/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -42470,9 +42470,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/66d0aacc-c3cc-454e-8cef-fe17e4a2dc4b/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0f6f49b2-aad1-44ab-b723-53a5b4462c57/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/66d0aacc-c3cc-454e-8cef-fe17e4a2dc4b/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0f6f49b2-aad1-44ab-b723-53a5b4462c57/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";
@@ -43468,7 +43468,8 @@ button svg {
   align-items: center;
   color: #7D7D7D;
 }
-.header .mode-button div{
+
+.header .mode-button div {
   pointer-events: none;
 }
 
@@ -43541,11 +43542,12 @@ button svg {
 .header .mode-button.viewer .thumb::before {
   background-color: #3A9602;
 }
+
 .header .mode-button.viewer .thumb::after {
   background-color: #D7EE95;
 }
 
-.header .mode-button .mode-icon{
+.header .mode-button .mode-icon {
   width: 24px;
   height: 24px;
   display: flex;
@@ -43553,16 +43555,20 @@ button svg {
   align-items: center;
   transition: opacity 200ms linear 0s;
 }
-.header .mode-button .mode-icon.edit{
+
+.header .mode-button .mode-icon.edit {
   opacity: 1;
 }
-.header .mode-button .mode-icon.view{
+
+.header .mode-button .mode-icon.view {
   opacity: 0;
 }
-.header .mode-button.viewer .mode-icon.view{
+
+.header .mode-button.viewer .mode-icon.view {
   opacity: 1;
 }
-.header .mode-button.viewer .mode-icon.edit{
+
+.header .mode-button.viewer .mode-icon.edit {
   opacity: 0;
 }
 
@@ -43820,92 +43826,6 @@ body .header-login {
 .user-item .user-tag {
   pointer-events: none;
 }
-
-/* .user-tag[first-letter="a"],
-.user-tag[first-letter="t"] {
-  background-color: #F584AD;
-}
-
-.user-tag[first-letter="b"],
-.user-tag[first-letter="s"] {
-  background-color: #AC93F0;
-}
-
-.user-tag[first-letter="c"],
-.user-tag[first-letter="r"] {
-  background-color: #D1423F;
-}
-
-.user-tag[first-letter="d"],
-.user-tag[first-letter="z"] {
-  background-color: #DC1677;
-}
-
-.user-tag[first-letter="e"],
-.user-tag[first-letter="x"] {
-  background-color: #C233A0;
-}
-
-.user-tag[first-letter="f"],
-.user-tag[first-letter="y"] {
-  background-color: #6163E1;
-}
-
-.user-tag[first-letter="g"] {
-  background-color: #246DB6;
-}
-
-.user-tag[first-letter="h"] {
-  background-color: #008290;
-}
-
-.user-tag[first-letter="i"] {
-  background-color: #7BA100;
-}
-
-.user-tag[first-letter="j"] {
-  background-color: #9355D2;
-}
-
-.user-tag[first-letter="k"] {
-  background-color: #6D8391;
-}
-
-.user-tag[first-letter="l"] {
-  background-color: #3B814F;
-}
-
-.user-tag[first-letter="m"] {
-  background-color: #8190EA;
-}
-
-.user-tag[first-letter="w"] {
-  background-color: #50CE71;
-}
-
-.user-tag[first-letter="v"] {
-  background-color: #F2BA3B;
-}
-
-.user-tag[first-letter="u"] {
-  background-color: #030303;
-}
-
-.user-tag[first-letter="q"] {
-  background-color: #E38072;
-}
-
-.user-tag[first-letter="n"] {
-  background-color: #543150;
-}
-
-.user-tag[first-letter="o"] {
-  background-color: #F8970C;
-}
-
-.user-tag[first-letter="p"] {
-  background-color: #285736;
-} */
 
 .user-menu {
   position: absolute;
