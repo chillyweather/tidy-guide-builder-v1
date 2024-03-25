@@ -157,13 +157,18 @@ const Header = ({
   function colorAvatar() {
     const colorList = ["#F584AD", "#AC93F0", "#D1423F", "#DC1677", "#C233A0", "#6163E1", "#246DB6", "#008290", "#7BA100", "#9355D2", "#6D8391", "#3B814F", "#8190EA", "#50CE71", "#F2BA3B", "#030303", "#E38072", "#543150", "#F8970C", "#285736"];
     const alphaUser = loggedInUser.slice(0, 1).toLowerCase().charCodeAt(0) - 97 + 1;
-    const alphaToken = loggedInUser.slice(loggedInUser.lastIndexOf("@")-1, loggedInUser.lastIndexOf("@")).toLowerCase().charCodeAt(0) - 97 + 1;
+    const alphaToken = loggedInUser.slice(loggedInUser.lastIndexOf("@") - 1, loggedInUser.lastIndexOf("@")).toLowerCase().charCodeAt(0) - 97 + 1;
     var selectedColorIndex = alphaUser - alphaToken;
-    if(selectedColorIndex < 0){
+    if (selectedColorIndex < 0) {
       selectedColorIndex *= -1;
     }
     const selectedColor = colorList[selectedColorIndex];
     setAvatarColor(selectedColor);
+
+    var styles = '.user-tag{background-color:'+selectedColor+'}'
+    var styleSheet = document.createElement("style")
+    styleSheet.innerText = styles
+    document.head.appendChild(styleSheet)
   }
   return (
     < div className="header" >
