@@ -32,7 +32,6 @@ const Header = ({
   isLoginPageOpen,
   setIsLoginPageOpen,
   setFeedbackPage,
-  isIndexOpen,
   isDocJustOpened,
   setIsDocJustOpened,
   userRank,
@@ -40,7 +39,6 @@ const Header = ({
   isLoginPageOpen: boolean;
   setIsLoginPageOpen: (value: boolean) => void;
   setFeedbackPage: (value: boolean) => void;
-  isIndexOpen: boolean;
   isDocJustOpened: boolean;
   setIsDocJustOpened: (value: boolean) => void;
   userRank: string;
@@ -52,23 +50,24 @@ const Header = ({
 
   const [userRankStyle, setUserRankStyle] = useState({});
   const {
-    token,
+    dataForUpdate,
     documentationData,
     isContenFromServerOpen,
     isMainContentOpen,
+    isSettingsPageOpen,
+    isIndexOpen,
     selectedElement,
+    selectedMasterId,
     selectedSections,
+    setDataForUpdate,
     setIsContenFromServerOpen,
     setIsFromSavedData,
     setIsIndexOpen,
     setIsMainContentOpen,
     setIsReset,
     setIsSettingsPageOpen,
-    isSettingsPageOpen,
-    dataForUpdate,
-    setDataForUpdate,
-    selectedMasterId,
     setSelectedMasterId,
+    token,
   } = useContext(BuilderContext) || {};
   const [, setInitialSelectedSections] = useState(null);
   const [, setInitialDocumentationData] = useState(null);
@@ -127,13 +126,16 @@ const Header = ({
       console.log("selectedMasterId", selectedMasterId);
       if (!token) return;
       setIsViewModeOpen(!isViewModeOpen);
-      setIsMainContentOpen(false);
-      setIsContenFromServerOpen(true);
-      await fetchAndUpdateData(token, setDataForUpdate);
-      const currentDocumentation = dataForUpdate.find(
-        (item: any) => item.title === documentationData.title
-      );
-      setSelectedMasterId(currentDocumentation._id);
+      if (!isIndexOpen) {
+        setIsMainContentOpen(false);
+        setIsContenFromServerOpen(true);
+        await fetchAndUpdateData(token, setDataForUpdate);
+        const currentDocumentation = dataForUpdate.find(
+          (item: any) => item.title === documentationData.title
+        );
+        console.log("currentDocumentation", currentDocumentation);
+        setSelectedMasterId(currentDocumentation._id);
+      }
     };
 
     return (
@@ -232,7 +234,11 @@ const Header = ({
             id="userMenu"
           >
             <summary>
-              <div style={{ backgroundColor: avatarColor }} className="user-tag" first-letter={loggedInUser.slice(0, 1)} last-token={token?.slice(token.length - 1, token.length)}>
+              <div
+                className="user-tag"
+                first-letter={loggedInUser.slice(0, 1)}
+                last-token={token?.slice(token.length - 1, token.length)}
+              >
                 {loggedInUser.slice(0, 1)}
               </div>
             </summary>

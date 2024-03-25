@@ -593,7 +593,6 @@ function Plugin() {
           isLoginPageOpen={showLoginPage}
           setIsLoginPageOpen={setShowLoginPage}
           setFeedbackPage={setShowFeedbackPopup}
-          isIndexOpen={showIndexPage}
           isDocJustOpened={isDocJustOpened}
           setIsDocJustOpened={setIsDocJustOpened}
           userRank={userRank}
@@ -646,6 +645,7 @@ function Plugin() {
         {selectedMasterId &&
           !showMainContent &&
           showContentFromServer &&
+          !showIndexPage &&
           !showLoginPage &&
           !showSigninPage &&
           !isViewModeOpen && (
@@ -663,6 +663,7 @@ function Plugin() {
           !showMainContent &&
           !showLoginPage &&
           !showSigninPage &&
+          !showIndexPage &&
           isViewModeOpen && (
             <DetailsPage
               data={dataForUpdate}
