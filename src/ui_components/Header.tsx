@@ -242,7 +242,7 @@ const Header = ({
           >
             <summary>
               {/* <div className="tooltiptext bottom-right">{loggedInUser}</div> */}
-              <div className="user-tag" first-letter={loggedInUser.slice(0, 1)}>{loggedInUser.slice(0, 1)}</div>
+              <div className="user-tag" first-letter={loggedInUser.slice(0, 1)} last-token={token?.slice(token.length-1,token.length)}>{loggedInUser.slice(0, 1)}</div>
               {/* <IconUser style={userRankStyle} title={loggedInUser}/> */}
             </summary>
             <UserMenu
