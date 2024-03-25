@@ -31,8 +31,9 @@ export default async function () {
   const selectionData = await checkSelection();
   if (selectionData) emit("SELECTION", selectionData);
 
-  once("SAVE_NEW_TOKEN_AND_EMAIL", (token, email) => {
-    tokenAndEmailHandler(token, email);
+  once("SAVE_NEW_TOKEN_AND_EMAIL", (token, email, rank, user, company) => {
+    console.log("user in process", user);
+    tokenAndEmailHandler(token, email, rank, user, company);
   });
 
   on("LOGOUT", async () => {

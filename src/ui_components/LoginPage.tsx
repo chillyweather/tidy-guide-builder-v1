@@ -2,6 +2,9 @@
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
 import { useState } from "preact/hooks";
+import { useAtom } from "jotai";
+import { currentUserNameAtom, currentCompanyAtom } from "src/state/atoms";
+
 import { TidyLogo } from "../images/TidyLogo";
 import { IconMail, IconEye } from "@tabler/icons-react";
 import { login } from "./ui_functions/authentication";
@@ -34,6 +37,8 @@ const Login = ({
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
+  const [, setCurrentCompany] = useAtom(currentCompanyAtom);
+  const [, setCurrentUserName] = useAtom(currentUserNameAtom);
 
   const handleEmailChange = (e: any) => {
     setIsLoginFailed(false);
@@ -61,9 +66,13 @@ const Login = ({
       console.log("response", response);
       if (token) {
         const rank = response.rank;
-        emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email, rank);
+        const user = response.name;
+        const company = response.company;
+        emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email, rank, user, company);
         setToken(token);
         setUserRank(rank);
+        setCurrentCompany(response.company);
+        setCurrentUserName(response.name);
         setIsLoginPageOpen(false);
         setIsSettingPageOpen(false);
       } else if (response.message === "User exists but not active") {
@@ -140,15 +149,16 @@ const Login = ({
         .
       </p>
       <div className="flex-container">
-        <p style="margin: 0;">
-          Don't have an account?
-        </p>
-        <button className={"signup secondary"}
+        <p style="margin: 0;">Don't have an account?</p>
+        <button
+          className={"signup secondary"}
           onClick={() => {
             setIsLoginPageOpen(false);
             setIsSigninPageOpen(true);
           }}
-        >Sign up</button>
+        >
+          Sign up
+        </button>
       </div>
     </form>
   );

@@ -125,7 +125,14 @@ const SignIn = ({
       );
       const token = response.token;
       if (token) {
-        emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email);
+        emit(
+          "SAVE_NEW_TOKEN_AND_EMAIL",
+          token,
+          email,
+          rank,
+          userName,
+          companyName
+        );
         setToken(token);
         setIsSigninPageOpen(false);
         setIsSettingPageOpen(false);

@@ -43,6 +43,8 @@ import {
   selectedNodeKeyAtom,
   selectedComponentPicAtom,
   isViewModeOpenAtom,
+  currentCompanyAtom,
+  currentUserNameAtom,
 } from "./state/atoms";
 
 //styles
@@ -56,6 +58,8 @@ function Plugin() {
     selectedComponentPicAtom
   );
   const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
+  const [, setCurrentCompany] = useAtom(currentCompanyAtom);
+  const [, setCurrentUserName] = useAtom(currentUserNameAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -160,10 +164,13 @@ function Plugin() {
   //is current name valid
   const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
 
-  on("AUTH_CHANGE", async (token, email) => {
+  on("AUTH_CHANGE", async (token, email, rank, userName, companyName) => {
     if (token) {
       setToken(token);
       setLoggedInUser(email);
+      setUserRank(rank);
+      setCurrentCompany(companyName);
+      setCurrentUserName(userName);
       const data = await getDocumentations(token);
       setDataForUpdate(data);
       setIsLoading(false);

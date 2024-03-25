@@ -5,10 +5,7 @@ import {
   IconArrowLeft,
   IconEye,
   IconPencil,
-  // IconMessage2Check,
   IconPlus,
-  IconSettings,
-  IconUser,
   IconExternalLink,
   IconList,
 } from "@tabler/icons-react";
@@ -18,6 +15,8 @@ import {
   selectedNodeKeyAtom,
   selectedComponentPicAtom,
   isViewModeOpenAtom,
+  currentCompanyAtom,
+  currentUserNameAtom,
 } from "src/state/atoms";
 
 import { h } from "preact";
@@ -47,6 +46,8 @@ const Header = ({
   const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedComponentPic] = useAtom(selectedComponentPicAtom);
   const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
+  const [currentCompany] = useAtom(currentCompanyAtom);
+  const [currentUserName] = useAtom(currentUserNameAtom);
 
   const [userRankStyle, setUserRankStyle] = useState({});
   const {
@@ -119,6 +120,11 @@ const Header = ({
       setIsDocJustOpened(false);
     }
   }, [documentationData]);
+
+  useEffect(() => {
+    console.log("currentCompany in Header", currentCompany);
+    console.log("currentUserName in Header", currentUserName);
+  }, [currentCompany, currentUserName]);
 
   function Toggle() {
     const handleToggle = async () => {
