@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c26e021b-97e9-4691-a919-383ff9ad630f/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/8552d169-2b78-49e2-9d7a-7b54d2c3751a/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c26e021b-97e9-4691-a919-383ff9ad630f/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/8552d169-2b78-49e2-9d7a-7b54d2c3751a/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e69704e7-86f9-4406-8460-c0815f3eff0b/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5b7bdbfe-cabb-4444-bc8a-33c79f764ce0/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e69704e7-86f9-4406-8460-c0815f3eff0b/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5b7bdbfe-cabb-4444-bc8a-33c79f764ce0/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/74be9e16-6a7d-4593-9582-574b8e9dd795/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c30df2a9-f98c-4ffc-9cd9-7840ff1f0d36/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/74be9e16-6a7d-4593-9582-574b8e9dd795/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c30df2a9-f98c-4ffc-9cd9-7840ff1f0d36/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d7219ec7-b85e-4ab8-b39e-5939ebf1a2a9/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e99736b0-dfa9-4903-abe7-e3996e7de0c0/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d7219ec7-b85e-4ab8-b39e-5939ebf1a2a9/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e99736b0-dfa9-4903-abe7-e3996e7de0c0/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/84541c01-6464-4993-88fe-efe6759dae22/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9ea9f3b3-cb8b-45b9-acfa-a6c6f56be3e9/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/84541c01-6464-4993-88fe-efe6759dae22/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9ea9f3b3-cb8b-45b9-acfa-a6c6f56be3e9/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6c1436dc-6735-4783-aeb9-18c81c10f24d/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/49724348-cae9-4fc5-a4da-bbd1adf37c98/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6c1436dc-6735-4783-aeb9-18c81c10f24d/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/49724348-cae9-4fc5-a4da-bbd1adf37c98/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a48b6e47-4204-49bf-ad15-7b3eb25bbae1/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b6355294-67e1-4f7d-9843-b7003f82efc4/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a48b6e47-4204-49bf-ad15-7b3eb25bbae1/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b6355294-67e1-4f7d-9843-b7003f82efc4/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/683f99c2-b3eb-42be-bc53-2d9c2f97a753/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/341b2fd8-534b-4a4a-8432-cf7808e4bf04/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/683f99c2-b3eb-42be-bc53-2d9c2f97a753/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/341b2fd8-534b-4a4a-8432-cf7808e4bf04/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/48991dbe-2d56-41af-99cf-b5f5f95fc6d1/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/01616cc4-3e93-44a0-8b1f-211268303917/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/48991dbe-2d56-41af-99cf-b5f5f95fc6d1/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/01616cc4-3e93-44a0-8b1f-211268303917/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -41590,17 +41590,12 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       init_BuilderContext();
       init_tabler_icons_react();
       UserMenu = ({
-        isLoginPageOpen,
         setIsLoginPageOpen,
         setIsSettingsPageOpen,
         setIsIndexOpen,
         setIsContenFromServerOpen,
         setIsMainContentOpen,
-        setFeedbackPage,
-        isIndexOpen,
-        isDocJustOpened,
-        setIsDocJustOpened,
-        userRank
+        setFeedbackPage
       }) => {
         var _a;
         const loggedInUser = ((_a = q2(BuilderContext_default)) == null ? void 0 : _a.loggedInUser) || "";
@@ -41673,7 +41668,6 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         isLoginPageOpen,
         setIsLoginPageOpen,
         setFeedbackPage,
-        isIndexOpen,
         isDocJustOpened,
         setIsDocJustOpened,
         userRank
@@ -41685,23 +41679,24 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
         const [userRankStyle, setUserRankStyle] = h2({});
         const {
-          token,
+          dataForUpdate,
           documentationData,
           isContenFromServerOpen,
           isMainContentOpen,
+          isSettingsPageOpen,
+          isIndexOpen,
           selectedElement,
+          selectedMasterId,
           selectedSections,
+          setDataForUpdate,
           setIsContenFromServerOpen,
           setIsFromSavedData,
           setIsIndexOpen,
           setIsMainContentOpen,
           setIsReset,
           setIsSettingsPageOpen,
-          isSettingsPageOpen,
-          dataForUpdate,
-          setDataForUpdate,
-          selectedMasterId,
-          setSelectedMasterId
+          setSelectedMasterId,
+          token
         } = q2(BuilderContext_default) || {};
         const [, setInitialSelectedSections] = h2(null);
         const [, setInitialDocumentationData] = h2(null);
@@ -41750,13 +41745,16 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
             if (!token)
               return;
             setIsViewModeOpen(!isViewModeOpen);
-            setIsMainContentOpen(false);
-            setIsContenFromServerOpen(true);
-            await fetchAndUpdateData_default(token, setDataForUpdate);
-            const currentDocumentation = dataForUpdate.find(
-              (item) => item.title === documentationData.title
-            );
-            setSelectedMasterId(currentDocumentation._id);
+            if (!isIndexOpen) {
+              setIsMainContentOpen(false);
+              setIsContenFromServerOpen(true);
+              await fetchAndUpdateData_default(token, setDataForUpdate);
+              const currentDocumentation = dataForUpdate.find(
+                (item) => item.title === documentationData.title
+              );
+              console.log("currentDocumentation", currentDocumentation);
+              setSelectedMasterId(currentDocumentation._id);
+            }
           };
           return /* @__PURE__ */ y(
             "button",
@@ -41833,7 +41831,15 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
             className: "header-login tooltip",
             id: "userMenu"
           },
-          /* @__PURE__ */ y("summary", null, /* @__PURE__ */ y("div", { style: { backgroundColor: avatarColor }, className: "user-tag", "first-letter": loggedInUser.slice(0, 1), "last-token": token == null ? void 0 : token.slice(token.length - 1, token.length) }, loggedInUser.slice(0, 1))),
+          /* @__PURE__ */ y("summary", null, /* @__PURE__ */ y(
+            "div",
+            {
+              className: "user-tag",
+              "first-letter": loggedInUser.slice(0, 1),
+              "last-token": token == null ? void 0 : token.slice(token.length - 1, token.length)
+            },
+            loggedInUser.slice(0, 1)
+          )),
           colorAvatar(),
           /* @__PURE__ */ y(
             UserMenu_default,
@@ -42454,9 +42460,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9f062a95-4375-40df-9852-bc47521c5977/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/07dea2e8-92d2-4406-bcfd-328e931bb26d/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/9f062a95-4375-40df-9852-bc47521c5977/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/07dea2e8-92d2-4406-bcfd-328e931bb26d/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";
@@ -48338,7 +48344,6 @@ ${found.title}`
           isLoginPageOpen: showLoginPage,
           setIsLoginPageOpen: setShowLoginPage,
           setFeedbackPage: setShowFeedbackPopup,
-          isIndexOpen: showIndexPage,
           isDocJustOpened,
           setIsDocJustOpened,
           userRank
@@ -48375,7 +48380,7 @@ ${found.title}`
           selectedSections,
           setSelectedSections
         }
-      ), selectedMasterId && !showMainContent && showContentFromServer && !showLoginPage && !showSigninPage && !isViewModeOpen && /* @__PURE__ */ y(
+      ), selectedMasterId && !showMainContent && showContentFromServer && !showIndexPage && !showLoginPage && !showSigninPage && !isViewModeOpen && /* @__PURE__ */ y(
         ContentFromServer_default,
         {
           data: dataForUpdate,
@@ -48383,7 +48388,7 @@ ${found.title}`
           selectedSections,
           setSelectedSections
         }
-      ), selectedMasterId && showContentFromServer && !showMainContent && !showLoginPage && !showSigninPage && isViewModeOpen && /* @__PURE__ */ y(
+      ), selectedMasterId && showContentFromServer && !showMainContent && !showLoginPage && !showSigninPage && !showIndexPage && isViewModeOpen && /* @__PURE__ */ y(
         DetailsPage_default2,
         {
           data: dataForUpdate,
