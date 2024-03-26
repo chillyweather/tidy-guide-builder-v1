@@ -1015,6 +1015,7 @@ button svg {
 }
 
 .header .mode-button:hover::after {
+  z-index: 9;
   visibility: visible;
   transition: visibility 10ms linear 2000ms;
 }
