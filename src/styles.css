@@ -4069,6 +4069,11 @@ body:has(.viewer-data-wrapper) .container {
   padding: 7px;
 }
 
+.header .navigation-button:hover{
+  color: var(--tidy-primary);
+  opacity: 0.95;
+}
+
 body:has(.navigation-button.true) .nav-wrapper {
   transform: translateX(0);
 }
