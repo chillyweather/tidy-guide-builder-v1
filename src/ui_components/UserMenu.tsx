@@ -2,6 +2,8 @@
 import { h } from "preact";
 import { useContext } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
+import { useAtom } from "jotai";
+import { currentCompanyAtom, currentUserNameAtom } from "src/state/atoms";
 import {
   IconMessage2Check,
   IconSettings,
@@ -23,6 +25,8 @@ const UserMenu = ({
   setIsMainContentOpen: (value: boolean) => void;
   setFeedbackPage: (value: boolean) => void;
 }) => {
+  const [currentCompany] = useAtom(currentCompanyAtom);
+  const [currentUserName] = useAtom(currentUserNameAtom);
   const loggedInUser = useContext(BuilderContext)?.loggedInUser || "";
   function closeMenu() {
     // @ts-ignore
