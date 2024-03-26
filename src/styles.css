@@ -1117,7 +1117,7 @@ body .nav-wrapper {
 
 body .nav-wrapper {
   position: fixed;
-  top: 48px;
+  top: 124px;
   right: 16px;
   background-color: #ffffff;
   border-radius: 32px;
@@ -4057,6 +4057,16 @@ input[type="checkbox"] {
 
 body:has(.viewer-data-wrapper) .container {
   scroll-behavior: smooth;
+}
+
+.header .navigation-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-16px, 72px);
+  border: 1px solid;
+  color: var(--tidy-primary);
+  padding: 7px;
 }
 
 body:has(.navigation-button.true) .nav-wrapper {
