@@ -82,6 +82,7 @@ declare const styles: {
   readonly "feedbackPopupBackground": string;
   readonly "flex-btn": string;
   readonly "flex-button": string;
+  readonly "flex-col": string;
   readonly "flex-container": string;
   readonly "flex-label": string;
   readonly "flex-link": string;
@@ -227,8 +228,11 @@ declare const styles: {
   readonly "twoColumnCardBodyContent": string;
   readonly "twoColumns": string;
   readonly "unselected": string;
+  readonly "user-company": string;
   readonly "user-item": string;
+  readonly "user-mail": string;
   readonly "user-menu": string;
+  readonly "user-name": string;
   readonly "user-tag": string;
   readonly "userlist": string;
   readonly "userlist-item": string;

@@ -35,11 +35,21 @@ const UserMenu = ({
   }
   return (
     <div className={"user-menu"}>
+
+      <div className={"user-company"}>
+        {currentCompany}
+      </div>
+
+      <hr />
+
       <div className="user-item">
         <div className="user-tag" first-letter={loggedInUser.slice(0, 1)}>
           {loggedInUser.slice(0, 1)}
         </div>
-        <p>{loggedInUser}</p>
+        <div className="flex-col">
+          <p className="user-name">{currentUserName}</p>
+          <p className="user-mail">{loggedInUser}</p>
+        </div>
       </div>
 
       <hr />

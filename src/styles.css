@@ -1323,6 +1323,28 @@ body .header-login {
   padding: 0 !important;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.user-name,
+.user-company {
+  font-weight: 500;
+  font-size: var(--text-size);
+}
+.user-company{
+  padding: 8px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.user-mail {
+  font-size: calc(var(--text-size) - (var(--text-size) / 7))
+}
+
 .user-tag {
   height: 32px;
   width: 32px;
@@ -1360,7 +1382,7 @@ body .header-login {
   background-color: #ffffff;
   padding: 8px;
   border-radius: 6px;
-  min-width: 140px;
+  min-width: 240px;
   box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
 }
 
