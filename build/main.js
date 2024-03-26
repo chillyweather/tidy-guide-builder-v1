@@ -4193,20 +4193,29 @@ var init_checkSelection = __esm({
 });
 
 // src/figma_functions/loginDataHandler.ts
-async function tokenAndEmailHandler(token, email) {
+async function tokenAndEmailHandler(token, email, rank = "Viewer", userName = "", companyName = "") {
   if (token) {
     await figma.clientStorage.setAsync("token", token);
     await figma.clientStorage.setAsync("email", email);
-    emit("AUTH_CHANGE", token, email);
-    console.log("token set :>> ", token);
-    console.log("email set :>> ", email);
+    await figma.clientStorage.setAsync("rank", rank);
+    await figma.clientStorage.setAsync("userName", userName);
+    await figma.clientStorage.setAsync("companyName", companyName);
+    emit("AUTH_CHANGE", token, email, rank, userName, companyName);
   } else {
     const savedToken = await figma.clientStorage.getAsync("token");
     const savedEmail = await figma.clientStorage.getAsync("email");
-    console.log("savedToken", savedToken);
-    console.log("savedEmail", savedEmail);
+    const savedRank = await figma.clientStorage.getAsync("rank");
+    const savedUserName = await figma.clientStorage.getAsync("userName");
+    const savedCompanyName = await figma.clientStorage.getAsync("companyName");
     if (savedToken && savedEmail) {
-      emit("AUTH_CHANGE", savedToken, savedEmail);
+      emit(
+        "AUTH_CHANGE",
+        savedToken,
+        savedEmail,
+        savedRank,
+        savedUserName,
+        savedCompanyName
+      );
     } else {
       emit("AUTH_CHANGE", null);
     }
@@ -4328,8 +4337,9 @@ async function main_default() {
   const selectionData = await checkSelection();
   if (selectionData)
     emit("SELECTION", selectionData);
-  once("SAVE_NEW_TOKEN_AND_EMAIL", (token, email) => {
-    tokenAndEmailHandler(token, email);
+  once("SAVE_NEW_TOKEN_AND_EMAIL", (token, email, rank, user2, company) => {
+    console.log("user in process", user2);
+    tokenAndEmailHandler(token, email, rank, user2, company);
   });
   on("LOGOUT", async () => {
     figma.clientStorage.deleteAsync("token");

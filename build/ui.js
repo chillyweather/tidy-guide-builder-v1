@@ -938,13 +938,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/08ef815c-a693-4031-97c0-200a2b191c60/loading-indicator.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/3a9defb3-0ebc-4f7a-9c03-2592fb37d1b6/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/08ef815c-a693-4031-97c0-200a2b191c60/loading-indicator.module.js"() {
-      if (document.getElementById("f379e310bb") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/3a9defb3-0ebc-4f7a-9c03-2592fb37d1b6/loading-indicator.module.js"() {
+      if (document.getElementById("3e397802b5") === null) {
         const element = document.createElement("style");
-        element.id = "f379e310bb";
+        element.id = "3e397802b5";
         element.textContent = `._loadingIndicator_pl5c3_1 {
   position: relative;
   width: 16px;
@@ -1002,13 +1002,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ae63ab6e-6b28-4e94-8325-699c8ffce460/button.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/20d4b440-648c-4b7c-8a0d-21c676dbe860/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ae63ab6e-6b28-4e94-8325-699c8ffce460/button.module.js"() {
-      if (document.getElementById("0b00ee62f7") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/20d4b440-648c-4b7c-8a0d-21c676dbe860/button.module.js"() {
+      if (document.getElementById("69a3373509") === null) {
         const element = document.createElement("style");
-        element.id = "0b00ee62f7";
+        element.id = "69a3373509";
         element.textContent = `._button_5fxgc_1 {
   position: relative;
   z-index: var(--z-index-1);
@@ -1191,13 +1191,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/07adc06c-b7cb-4259-b14b-e0858c059b42/icon.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ea07a598-8b0c-44b1-b9a7-6998c5c2b379/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/07adc06c-b7cb-4259-b14b-e0858c059b42/icon.module.js"() {
-      if (document.getElementById("ef2bb38c9f") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ea07a598-8b0c-44b1-b9a7-6998c5c2b379/icon.module.js"() {
+      if (document.getElementById("18637aef19") === null) {
         const element = document.createElement("style");
-        element.id = "ef2bb38c9f";
+        element.id = "18637aef19";
         element.textContent = `._icon_13804_1 {
   fill: currentColor;
 }
@@ -1240,13 +1240,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b161ccc8-e8a7-4816-90fb-e9a73b4a0692/checkbox.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c4f218d2-c721-45ac-8ed2-e258989ea434/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b161ccc8-e8a7-4816-90fb-e9a73b4a0692/checkbox.module.js"() {
-      if (document.getElementById("65cf93ba2b") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c4f218d2-c721-45ac-8ed2-e258989ea434/checkbox.module.js"() {
+      if (document.getElementById("2c37f632f9") === null) {
         const element = document.createElement("style");
-        element.id = "65cf93ba2b";
+        element.id = "2c37f632f9";
         element.textContent = `._checkbox_1a43f_1 {
   position: relative;
   z-index: var(--z-index-1);
@@ -1375,13 +1375,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3d05f339-a543-4ca3-a797-69d84b423ff5/text.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/14194325-7b43-4f97-a369-3f40b1f57508/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3d05f339-a543-4ca3-a797-69d84b423ff5/text.module.js"() {
-      if (document.getElementById("e9235104af") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/14194325-7b43-4f97-a369-3f40b1f57508/text.module.js"() {
+      if (document.getElementById("e0e146fd65") === null) {
         const element = document.createElement("style");
-        element.id = "e9235104af";
+        element.id = "e0e146fd65";
         element.textContent = `._text_mh6mm_1 {
   padding-top: 1px;
   color: var(--figma-color-text);
@@ -1506,13 +1506,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d9efa3e9-4f2b-4c55-99c8-18b01b0a2481/toggle.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ab747047-2b0a-449c-8958-51d260d57837/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d9efa3e9-4f2b-4c55-99c8-18b01b0a2481/toggle.module.js"() {
-      if (document.getElementById("d39ff17db6") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ab747047-2b0a-449c-8958-51d260d57837/toggle.module.js"() {
+      if (document.getElementById("9a689b18ab") === null) {
         const element = document.createElement("style");
-        element.id = "d39ff17db6";
+        element.id = "9a689b18ab";
         element.textContent = `._toggle_1rqu7_1 {
   position: relative;
   z-index: var(--z-index-1);
@@ -1637,13 +1637,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/419ae165-4255-4aef-aa09-9bdb308711db/muted.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/5123fe7d-4853-454e-8321-5f9266ddf8bc/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/419ae165-4255-4aef-aa09-9bdb308711db/muted.module.js"() {
-      if (document.getElementById("821992c32d") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/5123fe7d-4853-454e-8321-5f9266ddf8bc/muted.module.js"() {
+      if (document.getElementById("98b936ec72") === null) {
         const element = document.createElement("style");
-        element.id = "821992c32d";
+        element.id = "98b936ec72";
         element.textContent = `._muted_139yx_1 {
   color: var(--figma-color-text-secondary);
 }
@@ -1669,13 +1669,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f4ef8e0-d62c-4db9-9381-d243ba3e7679/vertical-space.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/8e36d0bd-aa7b-4d9e-9979-c9d1838fb10c/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f4ef8e0-d62c-4db9-9381-d243ba3e7679/vertical-space.module.js"() {
-      if (document.getElementById("3d29a79310") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/8e36d0bd-aa7b-4d9e-9979-c9d1838fb10c/vertical-space.module.js"() {
+      if (document.getElementById("e9edd34f04") === null) {
         const element = document.createElement("style");
-        element.id = "3d29a79310";
+        element.id = "e9edd34f04";
         element.textContent = `._extraSmall_zc4n0_1 {
   height: var(--space-extra-small);
 }
@@ -1713,12 +1713,12 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c6a97b27-f0ff-40f1-ad36-8794ee50fd93/base.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/e7259cb4-c94b-4f52-a513-cd9e95cf1658/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c6a97b27-f0ff-40f1-ad36-8794ee50fd93/base.js"() {
-      if (document.getElementById("6b1ba28a88") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/e7259cb4-c94b-4f52-a513-cd9e95cf1658/base.js"() {
+      if (document.getElementById("1b7643485e") === null) {
         const element = document.createElement("style");
-        element.id = "6b1ba28a88";
+        element.id = "1b7643485e";
         element.innerHTML = `:root {
   --border-radius-2: 2px;
   --border-radius-6: 6px;
@@ -34949,8 +34949,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       "use strict";
       envConfig = {
         YOUTUBE_API: "AIzaSyDtioq9o0xsvN0UeJ696CU-zkoR89od4CU",
-        GH_TOKEN: "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",
-        DO_SECRET: "9nOyUtoMlcceB4DyP7klzLsv6uqD0Tz9Ph7tyDebucg"
+        DO_SECRET: "9nOyUtoMlcceB4DyP7klzLsv6uqD0Tz9Ph7tyDebucg",
+        VITE_CLERK_PUBLISHABLE_KEY: "pk_test_c2luZ3VsYXItcHJpbWF0ZS0xMy5jbGVyay5hY2NvdW50cy5kZXYk"
       };
       envConfig_default = envConfig;
     }
@@ -40432,7 +40432,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
   });
 
   // src/state/atoms.ts
-  var selectedNodeIdAtom, selectedNodeKeyAtom, selectedComponentPicAtom, isViewModeOpenAtom;
+  var selectedNodeIdAtom, selectedNodeKeyAtom, selectedComponentPicAtom, isViewModeOpenAtom, currentUserNameAtom, currentCompanyAtom;
   var init_atoms = __esm({
     "src/state/atoms.ts"() {
       "use strict";
@@ -40441,6 +40441,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       selectedNodeKeyAtom = atom("");
       selectedComponentPicAtom = atom("");
       isViewModeOpenAtom = atom(false);
+      currentUserNameAtom = atom("");
+      currentCompanyAtom = atom("");
     }
   });
 
@@ -41588,6 +41590,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       init_preact_module();
       init_hooks_module();
       init_BuilderContext();
+      init_esm();
+      init_atoms();
       init_tabler_icons_react();
       UserMenu = ({
         setIsLoginPageOpen,
@@ -41598,6 +41602,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         setFeedbackPage
       }) => {
         var _a;
+        const [currentCompany] = useAtom(currentCompanyAtom);
+        const [currentUserName] = useAtom(currentUserNameAtom);
         const loggedInUser = ((_a = q2(BuilderContext_default)) == null ? void 0 : _a.loggedInUser) || "";
         function closeMenu() {
           document.getElementById("userMenu").open = false;
@@ -41677,6 +41683,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
         const [selectedComponentPic] = useAtom(selectedComponentPicAtom);
         const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
+        const [currentCompany] = useAtom(currentCompanyAtom);
+        const [currentUserName] = useAtom(currentUserNameAtom);
         const [userRankStyle, setUserRankStyle] = h2({});
         const {
           dataForUpdate,
@@ -41739,6 +41747,10 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
             setIsDocJustOpened(false);
           }
         }, [documentationData]);
+        p2(() => {
+          console.log("currentCompany in Header", currentCompany);
+          console.log("currentUserName in Header", currentUserName);
+        }, [currentCompany, currentUserName]);
         function Toggle2() {
           const handleToggle = async () => {
             console.log("selectedMasterId", selectedMasterId);
@@ -41769,17 +41781,38 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         }
         const loggedInUser = ((_a = q2(BuilderContext_default)) == null ? void 0 : _a.loggedInUser) || "";
         function colorAvatar() {
-          const colorList = ["#F584AD", "#AC93F0", "#D1423F", "#DC1677", "#C233A0", "#6163E1", "#246DB6", "#008290", "#7BA100", "#9355D2", "#6D8391", "#3B814F", "#8190EA", "#50CE71", "#F2BA3B", "#030303", "#E38072", "#543150", "#F8970C", "#285736"];
+          const colorList = [
+            "#F584AD",
+            "#AC93F0",
+            "#D1423F",
+            "#DC1677",
+            "#C233A0",
+            "#6163E1",
+            "#246DB6",
+            "#008290",
+            "#7BA100",
+            "#9355D2",
+            "#6D8391",
+            "#3B814F",
+            "#8190EA",
+            "#50CE71",
+            "#F2BA3B",
+            "#030303",
+            "#E38072",
+            "#543150",
+            "#F8970C",
+            "#285736"
+          ];
           const alphaUser = loggedInUser.slice(0, 1).toLowerCase().charCodeAt(0) - 97 + 1;
           const alphaToken = loggedInUser.slice(loggedInUser.lastIndexOf("@") - 1, loggedInUser.lastIndexOf("@")).toLowerCase().charCodeAt(0) - 97 + 1;
-          var selectedColorIndex = alphaUser - alphaToken;
+          let selectedColorIndex = alphaUser - alphaToken;
           if (selectedColorIndex < 0) {
             selectedColorIndex *= -1;
           }
           const selectedColor = colorList[selectedColorIndex];
           setAvatarColor(selectedColor);
-          var styles = ".user-tag{background-color:" + selectedColor + "}";
-          var styleSheet = document.createElement("style");
+          const styles = ".user-tag{background-color:" + selectedColor + "}";
+          const styleSheet = document.createElement("style");
           styleSheet.innerText = styles;
           document.head.appendChild(styleSheet);
         }
@@ -41835,34 +41868,25 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
             }
           },
           /* @__PURE__ */ y(IconList, null)
-        ), /* @__PURE__ */ y(
-          "details",
+        ), /* @__PURE__ */ y("details", { className: "header-login tooltip", id: "userMenu" }, /* @__PURE__ */ y("summary", null, /* @__PURE__ */ y(
+          "div",
           {
-            className: "header-login tooltip",
-            id: "userMenu"
+            style: { backgroundColor: avatarColor },
+            className: "user-tag",
+            "first-letter": loggedInUser.slice(0, 1)
           },
-          /* @__PURE__ */ y("summary", null, /* @__PURE__ */ y(
-            "div",
-            {
-              style: { backgroundColor: avatarColor },
-              className: "user-tag",
-              "first-letter": loggedInUser.slice(0, 1)
-            },
-            loggedInUser.slice(0, 1)
-          )),
-          colorAvatar(),
-          /* @__PURE__ */ y(
-            UserMenu_default,
-            {
-              setIsLoginPageOpen,
-              setIsSettingsPageOpen,
-              setIsIndexOpen,
-              setIsContenFromServerOpen,
-              setIsMainContentOpen,
-              setFeedbackPage
-            }
-          )
-        ))), (selectedElement || isMainContentOpen || isContenFromServerOpen) && !isIndexOpen && !isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen && /* @__PURE__ */ y(HeaderActions_default, null));
+          loggedInUser.slice(0, 1)
+        )), colorAvatar(), /* @__PURE__ */ y(
+          UserMenu_default,
+          {
+            setIsLoginPageOpen,
+            setIsSettingsPageOpen,
+            setIsIndexOpen,
+            setIsContenFromServerOpen,
+            setIsMainContentOpen,
+            setFeedbackPage
+          }
+        )))), (selectedElement || isMainContentOpen || isContenFromServerOpen) && !isIndexOpen && !isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen && /* @__PURE__ */ y(HeaderActions_default, null));
       };
       Header_default = Header;
     }
@@ -42049,6 +42073,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       init_preact_module();
       init_lib();
       init_hooks_module();
+      init_esm();
+      init_atoms();
       init_TidyLogo();
       init_tabler_icons_react();
       init_authentication();
@@ -42069,6 +42095,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         const [passwordVisible, setPasswordVisible] = h2(false);
         const [isEmailValid, setIsEmailValid] = h2(true);
         const [isPasswordValid, setIsPasswordValid] = h2(true);
+        const [, setCurrentCompany] = useAtom(currentCompanyAtom);
+        const [, setCurrentUserName] = useAtom(currentUserNameAtom);
         const handleEmailChange = (e4) => {
           setIsLoginFailed(false);
           setEmail(e4.target.value);
@@ -42092,9 +42120,13 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
             console.log("response", response);
             if (token) {
               const rank = response.rank;
-              emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email, rank);
+              const user = response.name;
+              const company = response.company;
+              emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email, rank, user, company);
               setToken(token);
               setUserRank(rank);
+              setCurrentCompany(response.company);
+              setCurrentUserName(response.name);
               setIsLoginPageOpen(false);
               setIsSettingPageOpen(false);
             } else if (response.message === "User exists but not active") {
@@ -42258,7 +42290,14 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
             );
             const token = response.token;
             if (token) {
-              emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email);
+              emit(
+                "SAVE_NEW_TOKEN_AND_EMAIL",
+                token,
+                email,
+                rank,
+                userName,
+                companyName
+              );
               setToken(token);
               setIsSigninPageOpen(false);
               setIsSettingPageOpen(false);
@@ -42470,12 +42509,12 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0f6f49b2-aad1-44ab-b723-53a5b4462c57/styles.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/bfaae4ff-078d-405e-989c-2a3fc0ec490a/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0f6f49b2-aad1-44ab-b723-53a5b4462c57/styles.js"() {
-      if (document.getElementById("e158669e2d") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/bfaae4ff-078d-405e-989c-2a3fc0ec490a/styles.js"() {
+      if (document.getElementById("253dc8d3fb") === null) {
         const element = document.createElement("style");
-        element.id = "e158669e2d";
+        element.id = "253dc8d3fb";
         element.innerHTML = `@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=block");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=block");
 
@@ -47851,6 +47890,8 @@ body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
       selectedComponentPicAtom
     );
     const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
+    const [, setCurrentCompany] = useAtom(currentCompanyAtom);
+    const [, setCurrentUserName] = useAtom(currentUserNameAtom);
     const [isLoginFailed, setIsLoginFailed] = h2(false);
     const [isLoading, setIsLoading] = h2(true);
     const [token, setToken] = h2("");
@@ -47904,10 +47945,13 @@ body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
       null
     );
     const [isCurrentNameValid, setIsCurrentNameValid] = h2(true);
-    on2("AUTH_CHANGE", async (token2, email) => {
+    on2("AUTH_CHANGE", async (token2, email, rank, userName, companyName) => {
       if (token2) {
         setToken(token2);
         setLoggedInUser(email);
+        setUserRank(rank);
+        setCurrentCompany(companyName);
+        setCurrentUserName(userName);
         const data = await getDocumentations(token2);
         setDataForUpdate(data);
         setIsLoading(false);
