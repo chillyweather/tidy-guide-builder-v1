@@ -218,7 +218,7 @@ body:has(.delete-flex) .header {
 }
 
 body:has(.delete-flex) .container {
-  margin-top: 74px;
+  margin-top: 84px;
 }
 
 .delete-flex {
