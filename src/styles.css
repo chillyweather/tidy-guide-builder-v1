@@ -4071,6 +4071,7 @@ body:has(.viewer-data-wrapper) .container {
 
 .header .navigation-button:hover{
   color: var(--tidy-primary);
+  background-color: #EBEDFF;
   opacity: 0.95;
 }
 
