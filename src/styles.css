@@ -384,6 +384,7 @@ body:has(.delete-flex) .container {
 .componentBTN:hover .draftComponent::before {
   background-color: #DBDAEC;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
+  right: 0;
 }
 
 h1 {
