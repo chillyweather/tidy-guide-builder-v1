@@ -47,6 +47,7 @@ const UserMenu = ({
           {loggedInUser.slice(0, 1)}
         </div>
         <div className="flex-col">
+          <div className="tag viewer"></div>
           <p className="user-name">{currentUserName}</p>
           <p className="user-mail">{loggedInUser}</p>
         </div>

@@ -22,6 +22,7 @@ declare const styles: {
   readonly "addSectionPopup": string;
   readonly "addSectionPupup-inner": string;
   readonly "addSectionTitle": string;
+  readonly "admin": string;
   readonly "anatomy": string;
   readonly "anchorLink": string;
   readonly "back": string;
@@ -74,6 +75,7 @@ declare const styles: {
   readonly "drop-zone": string;
   readonly "dropZoneHeader": string;
   readonly "edit": string;
+  readonly "editor": string;
   readonly "elementsMenu": string;
   readonly "empty-image": string;
   readonly "empty-state": string;
@@ -209,6 +211,7 @@ declare const styles: {
   readonly "split": string;
   readonly "split-disabled": string;
   readonly "subtitle": string;
+  readonly "tag": string;
   readonly "text-size": string;
   readonly "textCardBodyContent": string;
   readonly "textDetails": string;

@@ -1327,6 +1327,8 @@ body .header-login {
   display: flex;
   flex-direction: column;
   gap: 0;
+  position: relative;
+  flex-grow: 1;
 }
 
 .user-name,
@@ -1334,7 +1336,8 @@ body .header-login {
   font-weight: 500;
   font-size: var(--text-size);
 }
-.user-company{
+
+.user-company {
   padding: 8px;
   height: 48px;
   display: flex;
@@ -1342,7 +1345,7 @@ body .header-login {
 }
 
 .user-mail {
-  font-size: calc(var(--text-size) - (var(--text-size) / 7))
+  font-size: calc(var(--text-size) - (var(--text-size) / 6))
 }
 
 .user-tag {
@@ -1389,6 +1392,47 @@ body .header-login {
 .user-menu hr {
   height: 1px;
   background-color: #EFF2FA;
+}
+
+.tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: calc(var(--text-size) - (var(--text-size) / 6));
+  box-shadow: 0 0 0 1px #ffffff;
+  color: var(--tidy-32);
+  background-color: yellow;
+}
+
+.tag::after {
+  content: 'Forgot role';
+}
+
+.tag.viewer {
+  background-color: #EEEEEE;
+}
+
+.tag.viewer::after {
+  content: 'Viewer';
+
+}
+
+.tag.editor {
+  background-color: #E8EDFC;
+}
+
+.tag.editor::after {
+  content: 'Editor';
+}
+
+.tag.admin {
+  background-color: #EFE5FF;
+}
+
+.tag.admin::after {
+  content: 'Admin';
 }
 
 .user-item {
