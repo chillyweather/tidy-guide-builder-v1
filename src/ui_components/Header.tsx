@@ -247,7 +247,12 @@ const Header = ({
               </button>
               <div className="searchbox">
                 <IconSearch />
-                <input type={"search"} placeholder={"Type to search..."}></input>
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  alert("CLICK");
+                }}>
+                  <input type={"search"} placeholder={"Type to search..."}></input>
+                </form>
               </div>
               <div></div>
             </div>
