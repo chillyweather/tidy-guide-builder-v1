@@ -181,9 +181,11 @@ declare const styles: {
   readonly "rotateAnim": string;
   readonly "rotatingBucket": string;
   readonly "search": string;
+  readonly "search-flex": string;
   readonly "search-icons": string;
   readonly "searchInput": string;
   readonly "searchMenu": string;
+  readonly "searchbox": string;
   readonly "second": string;
   readonly "secondary": string;
   readonly "section": string;

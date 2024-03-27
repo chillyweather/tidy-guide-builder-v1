@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/65e58aee-8e3b-4c47-a0d9-fc37410062a8/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/75b45a11-332f-4b09-8fb0-1c404b2f8f51/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/65e58aee-8e3b-4c47-a0d9-fc37410062a8/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/75b45a11-332f-4b09-8fb0-1c404b2f8f51/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/26b8a494-8257-4232-80ab-11a853437f29/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3c8db6ec-4968-49ca-bf0f-92175abca366/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/26b8a494-8257-4232-80ab-11a853437f29/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3c8db6ec-4968-49ca-bf0f-92175abca366/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/581f573c-b224-4712-af60-3bd7ffc91703/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2c8d9a06-1e0c-479c-8b43-39f3b0116442/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/581f573c-b224-4712-af60-3bd7ffc91703/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2c8d9a06-1e0c-479c-8b43-39f3b0116442/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6c671980-4654-4625-bb50-733f8d12bb6f/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/17ffc9cc-222b-4a66-a41d-6b4ef54374d7/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6c671980-4654-4625-bb50-733f8d12bb6f/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/17ffc9cc-222b-4a66-a41d-6b4ef54374d7/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/92996c37-972d-49fd-8434-fe454743ca85/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f0317f20-2f06-43df-8597-372b8bd5b538/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/92996c37-972d-49fd-8434-fe454743ca85/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f0317f20-2f06-43df-8597-372b8bd5b538/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/1f6fec80-db55-4867-b300-5edc105ce42b/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/062f526c-c626-48ca-9993-1fc17e3b2c66/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/1f6fec80-db55-4867-b300-5edc105ce42b/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/062f526c-c626-48ca-9993-1fc17e3b2c66/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6cc38e54-6fde-46e2-91df-eef5c1f15b4f/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d413af1f-eb03-424b-bee7-bedf7f3ae2e1/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6cc38e54-6fde-46e2-91df-eef5c1f15b4f/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d413af1f-eb03-424b-bee7-bedf7f3ae2e1/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2b33b92d-dd68-4e3d-8f6f-46eda4e8f51c/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d727d9d2-f7a5-4d02-a89c-2c45e1fe6441/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2b33b92d-dd68-4e3d-8f6f-46eda4e8f51c/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d727d9d2-f7a5-4d02-a89c-2c45e1fe6441/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/73a0dcf7-1a48-44da-a2b3-ae8ea16f1f7e/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/31f14f92-c129-4e32-a07c-8353ab1f9745/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/73a0dcf7-1a48-44da-a2b3-ae8ea16f1f7e/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/31f14f92-c129-4e32-a07c-8353ab1f9745/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -3157,6 +3157,18 @@ svg {
     }
   });
 
+  // node_modules/@tabler/icons-react/dist/esm/icons/IconSearch.js
+  var IconSearch;
+  var init_IconSearch = __esm({
+    "node_modules/@tabler/icons-react/dist/esm/icons/IconSearch.js"() {
+      init_createReactComponent();
+      IconSearch = createReactComponent("search", "IconSearch", [
+        ["path", { d: "M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0", key: "svg-0" }],
+        ["path", { d: "M21 21l-6 -6", key: "svg-1" }]
+      ]);
+    }
+  });
+
   // node_modules/@tabler/icons-react/dist/esm/icons/IconSettings.js
   var IconSettings;
   var init_IconSettings = __esm({
@@ -3268,6 +3280,7 @@ svg {
       init_IconPilcrow();
       init_IconPlus();
       init_IconReload();
+      init_IconSearch();
       init_IconSettings();
       init_IconTrash();
       init_IconUser();
@@ -41836,7 +41849,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           },
           /* @__PURE__ */ y(IconPlus, null),
           "New Documentation"
-        )) : /* @__PURE__ */ y(
+        )) : /* @__PURE__ */ y("div", { className: "search-flex" }, /* @__PURE__ */ y(
           "button",
           {
             className: "flex-button back-button",
@@ -41846,7 +41859,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           },
           /* @__PURE__ */ y(IconArrowLeft, null),
           "Back"
-        )), /* @__PURE__ */ y(
+        ), /* @__PURE__ */ y("div", { className: "searchbox" }, /* @__PURE__ */ y(IconSearch, null), /* @__PURE__ */ y("input", { type: "search", placeholder: "Type to search..." })), /* @__PURE__ */ y("div", null))), /* @__PURE__ */ y(
           "button",
           {
             className: "header-button back",
@@ -42509,9 +42522,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/cafba4b4-b5f1-4f73-811b-a7fca3a80edd/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0efb1a23-bb8f-4988-b8e3-19cd27d91121/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/cafba4b4-b5f1-4f73-811b-a7fca3a80edd/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0efb1a23-bb8f-4988-b8e3-19cd27d91121/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";
@@ -46576,6 +46589,37 @@ body:has(.viewer-data-wrapper) .container {
   scroll-behavior: smooth;
 }
 
+.header .search-flex {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.header .search-flex .searchbox{
+  background-color: #ffffff;
+  border: 1px solid #E3E3E3;
+  border-radius: 6px;
+  gap: 2px;
+  padding: 0;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  color: #8E8F94;
+  overflow: hidden;
+}
+.header .search-flex .searchbox svg{
+  width: 14px;
+  height: 14px;
+}
+.header .search-flex .searchbox input{
+  background-color: none;
+  border: none;
+  outline: none;
+  height: 100%;
+}
+.header .search-flex .searchbox input::placeholder{
+  color: #8E8F94;
+}
+
 .header .navigation-button {
   position: absolute;
   top: 0;
@@ -46586,7 +46630,7 @@ body:has(.viewer-data-wrapper) .container {
   padding: 7px;
 }
 
-.header .navigation-button:hover{
+.header .navigation-button:hover {
   color: var(--tidy-primary);
   background-color: #EBEDFF;
   opacity: 0.95;

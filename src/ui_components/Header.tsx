@@ -8,6 +8,7 @@ import {
   IconPlus,
   IconExternalLink,
   IconList,
+  IconSearch,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import {
@@ -233,16 +234,23 @@ const Header = ({
               )}
             </div>
           ) : (
-            <button
-              className="flex-button back-button"
-              onClick={() => {
-                // isDataChanged() ? setShowCancelPopup(true) :
-                backToIndex();
-              }}
-            >
-              <IconArrowLeft />
-              Back
-            </button>
+            <div className={"search-flex"}>
+              <button
+                className="flex-button back-button"
+                onClick={() => {
+                  // isDataChanged() ? setShowCancelPopup(true) :
+                  backToIndex();
+                }}
+              >
+                <IconArrowLeft />
+                Back
+              </button>
+              <div className="searchbox">
+                <IconSearch />
+                <input type={"search"} placeholder={"Type to search..."}></input>
+              </div>
+              <div></div>
+            </div>
           ))}
 
         <button
