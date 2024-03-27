@@ -1446,6 +1446,7 @@ body .header-login {
   padding: 8px;
   border-radius: 6px;
   min-width: 240px;
+  z-index: 9;
   box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
 }
 
@@ -4128,6 +4129,10 @@ body:has(.viewer-data-wrapper) .container {
 }
 
 .header:has(.editor) .search-flex .searchbox {
+  visibility: hidden;
+}
+
+.header:has(#search-input:focus) .user-menu{
   visibility: hidden;
 }
 

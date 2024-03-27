@@ -186,6 +186,7 @@ declare const styles: {
   readonly "search": string;
   readonly "search-flex": string;
   readonly "search-icons": string;
+  readonly "search-input": string;
   readonly "searchInput": string;
   readonly "searchMenu": string;
   readonly "searchbox": string;
