@@ -110,7 +110,6 @@ const Header = ({
     }
   }, [userRank]);
 
-  //! find a better way to track data changes
   useEffect(() => {
     if (documentationData && documentationData.title && isDocJustOpened) {
       setInitialDocumentationData(
