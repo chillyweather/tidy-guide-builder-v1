@@ -24,7 +24,7 @@ const Dropdown: FunctionalComponent<DropdownProps> = ({
   };
 
   return (
-    <div class="dropdown">
+    <div class="dropdown-comp">
       <button class="dropdown-toggle" onClick={toggleDropdown}>
         {selectedOption || "Select an option"}
       </button>
