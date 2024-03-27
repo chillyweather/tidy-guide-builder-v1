@@ -75,6 +75,8 @@ declare const styles: {
   readonly "drop-zone": string;
   readonly "dropZoneHeader": string;
   readonly "dropdown-comp": string;
+  readonly "dropdown-menu": string;
+  readonly "dropdown-toggle": string;
   readonly "edit": string;
   readonly "editor": string;
   readonly "elementsMenu": string;
