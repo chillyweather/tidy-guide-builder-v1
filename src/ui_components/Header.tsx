@@ -249,10 +249,8 @@ const Header = ({
                 <IconSearch />
                 <form onSubmit={(e) => {
                   e.preventDefault();
-                  const element = e.target;
                   // @ts-ignore
-                  alert(e.target.getElementsByTagName("input")[0].value);
-                  // alert(e.target.getElementById('search-input').value);
+                  window.find(e.target.getElementsByTagName("input")[0].value);
                 }}>
                   <input id={"search-input"} type={"search"} placeholder={"Type to search..."}></input>
                 </form>

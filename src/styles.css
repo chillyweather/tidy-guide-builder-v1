@@ -1390,6 +1390,9 @@ body .header-login {
   min-width: 240px;
   box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
 }
+.user-menu div{
+  user-select: none;
+}
 
 .user-menu hr {
   height: 1px;
@@ -4064,6 +4067,9 @@ body:has(.viewer-data-wrapper) .container {
   flex-grow: 1;
   justify-content: space-between;
 }
+.header:has(.editor) .search-flex .searchbox{
+  visibility: hidden;
+}
 .header .search-flex .searchbox{
   background-color: #ffffff;
   border: 1px solid #E3E3E3;
@@ -4074,6 +4080,7 @@ body:has(.viewer-data-wrapper) .container {
   display: flex;
   align-items: center;
   color: #8E8F94;
+  visibility: true;
   overflow: hidden;
 }
 .header .search-flex .searchbox svg{
