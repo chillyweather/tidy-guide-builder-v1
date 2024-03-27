@@ -27,6 +27,7 @@ import HeaderActions from "./HeaderActions";
 import UserMenu from "./UserMenu";
 import { emit } from "@create-figma-plugin/utilities";
 import fetchAndUpdateData from "./ui_functions/fetchAndUpdateData";
+import Dropdown from "./Dropdown";
 
 const Header = ({
   isLoginPageOpen,
@@ -122,10 +123,10 @@ const Header = ({
     }
   }, [documentationData]);
 
-  useEffect(() => {
-    console.log("currentCompany in Header", currentCompany);
-    console.log("currentUserName in Header", currentUserName);
-  }, [currentCompany, currentUserName]);
+  // useEffect(() => {
+  //   console.log("currentCompany in Header", currentCompany);
+  //   console.log("currentUserName in Header", currentUserName);
+  // }, [currentCompany, currentUserName]);
 
   function Toggle() {
     const handleToggle = async () => {
@@ -247,14 +248,24 @@ const Header = ({
               </button>
               <div className="searchbox">
                 <IconSearch />
-                <form onSubmit={(e) => {
-                  e.preventDefault();
-                  // @ts-ignore
-                  document.getElementsByClassName("headerSection")[0].click();
-                  // @ts-ignore
-                  window.find(e.target.getElementsByTagName("input")[0].value);
-                }}>
-                  <input id={"search-input"} type={"search"} placeholder={"Type to search..."}></input>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    // @ts-ignore
+                    document.getElementsByClassName("headerSection")[0].click();
+                    // @ts-ignore
+                    window.find(
+                      (e.target as HTMLFormElement).getElementsByTagName(
+                        "input"
+                      )[0].value
+                    );
+                  }}
+                >
+                  <input
+                    id={"search-input"}
+                    type={"search"}
+                    placeholder={"Type to search..."}
+                  ></input>
                 </form>
               </div>
               <div></div>
@@ -271,6 +282,10 @@ const Header = ({
           Back
         </button>
         <div className={"side-flex"}>
+          <Dropdown
+            options={["first", "second"]}
+            onSelect={() => console.log("yey")}
+          />
           {Toggle()}
 
           {!isIndexOpen &&

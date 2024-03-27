@@ -938,13 +938,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ba4cfba4-1253-43cb-9ecb-feb6591f138c/loading-indicator.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c4721d39-357b-446d-81d8-d2a1ed9561b2/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/ba4cfba4-1253-43cb-9ecb-feb6591f138c/loading-indicator.module.js"() {
-      if (document.getElementById("f379e310bb") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c4721d39-357b-446d-81d8-d2a1ed9561b2/loading-indicator.module.js"() {
+      if (document.getElementById("3e397802b5") === null) {
         const element = document.createElement("style");
-        element.id = "f379e310bb";
+        element.id = "3e397802b5";
         element.textContent = `._loadingIndicator_pl5c3_1 {
   position: relative;
   width: 16px;
@@ -1002,13 +1002,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2d63a8e3-0b61-4d6c-8a5e-e78eea1f9177/button.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b66b388e-e8a8-4645-9bc5-253fbef799e0/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2d63a8e3-0b61-4d6c-8a5e-e78eea1f9177/button.module.js"() {
-      if (document.getElementById("0b00ee62f7") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b66b388e-e8a8-4645-9bc5-253fbef799e0/button.module.js"() {
+      if (document.getElementById("69a3373509") === null) {
         const element = document.createElement("style");
-        element.id = "0b00ee62f7";
+        element.id = "69a3373509";
         element.textContent = `._button_5fxgc_1 {
   position: relative;
   z-index: var(--z-index-1);
@@ -1191,13 +1191,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2deecaae-b745-4e80-b343-79dfd0cde87e/icon.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/139a78b9-b278-4fde-80cd-48c70fb20b36/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2deecaae-b745-4e80-b343-79dfd0cde87e/icon.module.js"() {
-      if (document.getElementById("ef2bb38c9f") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/139a78b9-b278-4fde-80cd-48c70fb20b36/icon.module.js"() {
+      if (document.getElementById("18637aef19") === null) {
         const element = document.createElement("style");
-        element.id = "ef2bb38c9f";
+        element.id = "18637aef19";
         element.textContent = `._icon_13804_1 {
   fill: currentColor;
 }
@@ -1240,13 +1240,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/faf656ff-5a7d-4063-8de8-1aff3314d5d2/checkbox.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/8d01e29e-4255-4e2d-be0b-8b5e6e599c8c/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/faf656ff-5a7d-4063-8de8-1aff3314d5d2/checkbox.module.js"() {
-      if (document.getElementById("65cf93ba2b") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/8d01e29e-4255-4e2d-be0b-8b5e6e599c8c/checkbox.module.js"() {
+      if (document.getElementById("2c37f632f9") === null) {
         const element = document.createElement("style");
-        element.id = "65cf93ba2b";
+        element.id = "2c37f632f9";
         element.textContent = `._checkbox_1a43f_1 {
   position: relative;
   z-index: var(--z-index-1);
@@ -1375,13 +1375,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/14fabc73-c595-41c9-80fe-d94494f672d6/text.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/77efc8a1-971f-4283-ab38-dc74d1df921b/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/14fabc73-c595-41c9-80fe-d94494f672d6/text.module.js"() {
-      if (document.getElementById("e9235104af") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/77efc8a1-971f-4283-ab38-dc74d1df921b/text.module.js"() {
+      if (document.getElementById("e0e146fd65") === null) {
         const element = document.createElement("style");
-        element.id = "e9235104af";
+        element.id = "e0e146fd65";
         element.textContent = `._text_mh6mm_1 {
   padding-top: 1px;
   color: var(--figma-color-text);
@@ -1506,13 +1506,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e33a938f-c892-4598-ae70-42eb61e7a525/toggle.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/932bc03a-0380-4dc9-8ca0-8811fd03a758/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e33a938f-c892-4598-ae70-42eb61e7a525/toggle.module.js"() {
-      if (document.getElementById("d39ff17db6") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/932bc03a-0380-4dc9-8ca0-8811fd03a758/toggle.module.js"() {
+      if (document.getElementById("9a689b18ab") === null) {
         const element = document.createElement("style");
-        element.id = "d39ff17db6";
+        element.id = "9a689b18ab";
         element.textContent = `._toggle_1rqu7_1 {
   position: relative;
   z-index: var(--z-index-1);
@@ -1637,13 +1637,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b79383da-0b79-4460-b07b-ebd8c0864066/muted.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/41a6f424-f315-4daa-bd53-6db104e65f1f/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b79383da-0b79-4460-b07b-ebd8c0864066/muted.module.js"() {
-      if (document.getElementById("821992c32d") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/41a6f424-f315-4daa-bd53-6db104e65f1f/muted.module.js"() {
+      if (document.getElementById("98b936ec72") === null) {
         const element = document.createElement("style");
-        element.id = "821992c32d";
+        element.id = "98b936ec72";
         element.textContent = `._muted_139yx_1 {
   color: var(--figma-color-text-secondary);
 }
@@ -1669,13 +1669,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4aeba62d-4ff6-499b-807b-025d687ef674/vertical-space.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d373090d-c73a-43d1-9010-f9ce12414df3/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4aeba62d-4ff6-499b-807b-025d687ef674/vertical-space.module.js"() {
-      if (document.getElementById("3d29a79310") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d373090d-c73a-43d1-9010-f9ce12414df3/vertical-space.module.js"() {
+      if (document.getElementById("e9edd34f04") === null) {
         const element = document.createElement("style");
-        element.id = "3d29a79310";
+        element.id = "e9edd34f04";
         element.textContent = `._extraSmall_zc4n0_1 {
   height: var(--space-extra-small);
 }
@@ -1713,12 +1713,12 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7aaa2276-d9e6-438d-834d-ca63a134b528/base.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/a27618d0-55bc-4ae9-b764-4f1d5879f9d1/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7aaa2276-d9e6-438d-834d-ca63a134b528/base.js"() {
-      if (document.getElementById("6b1ba28a88") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/a27618d0-55bc-4ae9-b764-4f1d5879f9d1/base.js"() {
+      if (document.getElementById("1b7643485e") === null) {
         const element = document.createElement("style");
-        element.id = "6b1ba28a88";
+        element.id = "1b7643485e";
         element.innerHTML = `:root {
   --border-radius-2: 2px;
   --border-radius-6: 6px;
@@ -34962,8 +34962,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       "use strict";
       envConfig = {
         YOUTUBE_API: "AIzaSyDtioq9o0xsvN0UeJ696CU-zkoR89od4CU",
-        GH_TOKEN: "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",
-        DO_SECRET: "9nOyUtoMlcceB4DyP7klzLsv6uqD0Tz9Ph7tyDebucg"
+        DO_SECRET: "9nOyUtoMlcceB4DyP7klzLsv6uqD0Tz9Ph7tyDebucg",
+        VITE_CLERK_PUBLISHABLE_KEY: "pk_test_c2luZ3VsYXItcHJpbWF0ZS0xMy5jbGVyay5hY2NvdW50cy5kZXYk"
       };
       envConfig_default = envConfig;
     }
@@ -41668,6 +41668,33 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
+  // src/ui_components/Dropdown.tsx
+  var Dropdown, Dropdown_default;
+  var init_Dropdown = __esm({
+    "src/ui_components/Dropdown.tsx"() {
+      "use strict";
+      init_preact_module();
+      init_hooks_module();
+      Dropdown = ({
+        options,
+        onSelect
+      }) => {
+        const [isOpen, setIsOpen] = h2(false);
+        const [selectedOption, setSelectedOption] = h2(null);
+        const toggleDropdown = () => {
+          setIsOpen(!isOpen);
+        };
+        const selectOption = (option2) => {
+          setSelectedOption(option2);
+          setIsOpen(false);
+          onSelect(option2);
+        };
+        return /* @__PURE__ */ y("div", { class: "dropdown" }, /* @__PURE__ */ y("button", { class: "dropdown-toggle", onClick: toggleDropdown }, selectedOption || "Select an option"), isOpen && /* @__PURE__ */ y("ul", { class: "dropdown-menu" }, options.map((option2) => /* @__PURE__ */ y("li", { onClick: () => selectOption(option2) }, option2))));
+      };
+      Dropdown_default = Dropdown;
+    }
+  });
+
   // src/ui_components/Header.tsx
   var Header, Header_default;
   var init_Header = __esm({
@@ -41683,6 +41710,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       init_UserMenu();
       init_lib();
       init_fetchAndUpdateData();
+      init_Dropdown();
       Header = ({
         isLoginPageOpen,
         setIsLoginPageOpen,
@@ -41760,10 +41788,6 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
             setIsDocJustOpened(false);
           }
         }, [documentationData]);
-        p2(() => {
-          console.log("currentCompany in Header", currentCompany);
-          console.log("currentUserName in Header", currentUserName);
-        }, [currentCompany, currentUserName]);
         function Toggle2() {
           const handleToggle = async () => {
             console.log("selectedMasterId", selectedMasterId);
@@ -41860,11 +41884,28 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           },
           /* @__PURE__ */ y(IconArrowLeft, null),
           "Back"
-        ), /* @__PURE__ */ y("div", { className: "searchbox" }, /* @__PURE__ */ y(IconSearch, null), /* @__PURE__ */ y("form", { onSubmit: (e4) => {
-          e4.preventDefault();
-          document.getElementsByClassName("headerSection")[0].click();
-          window.find(e4.target.getElementsByTagName("input")[0].value);
-        } }, /* @__PURE__ */ y("input", { id: "search-input", type: "search", placeholder: "Type to search..." }))), /* @__PURE__ */ y("div", null))), /* @__PURE__ */ y(
+        ), /* @__PURE__ */ y("div", { className: "searchbox" }, /* @__PURE__ */ y(IconSearch, null), /* @__PURE__ */ y(
+          "form",
+          {
+            onSubmit: (e4) => {
+              e4.preventDefault();
+              document.getElementsByClassName("headerSection")[0].click();
+              window.find(
+                e4.target.getElementsByTagName(
+                  "input"
+                )[0].value
+              );
+            }
+          },
+          /* @__PURE__ */ y(
+            "input",
+            {
+              id: "search-input",
+              type: "search",
+              placeholder: "Type to search..."
+            }
+          )
+        )), /* @__PURE__ */ y("div", null))), /* @__PURE__ */ y(
           "button",
           {
             className: "header-button back",
@@ -41874,7 +41915,13 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           },
           /* @__PURE__ */ y(IconArrowLeft, null),
           "Back"
-        ), /* @__PURE__ */ y("div", { className: "side-flex" }, Toggle2(), !isIndexOpen && isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen && /* @__PURE__ */ y(
+        ), /* @__PURE__ */ y("div", { className: "side-flex" }, /* @__PURE__ */ y(
+          Dropdown_default,
+          {
+            options: ["first", "second"],
+            onSelect: () => console.log("yey")
+          }
+        ), Toggle2(), !isIndexOpen && isViewModeOpen && !isLoginPageOpen && !isSettingsPageOpen && /* @__PURE__ */ y(
           "button",
           {
             className: "navigation-button " + navState,
@@ -42527,12 +42574,12 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6c5664bd-8052-4450-b35a-35d36fad0120/styles.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/14aa7fcc-2df3-4eb3-b37a-de765f68b7da/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6c5664bd-8052-4450-b35a-35d36fad0120/styles.js"() {
-      if (document.getElementById("e158669e2d") === null) {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/14aa7fcc-2df3-4eb3-b37a-de765f68b7da/styles.js"() {
+      if (document.getElementById("253dc8d3fb") === null) {
         const element = document.createElement("style");
-        element.id = "e158669e2d";
+        element.id = "253dc8d3fb";
         element.innerHTML = `@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=block");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=block");
 
