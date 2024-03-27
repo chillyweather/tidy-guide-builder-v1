@@ -250,6 +250,8 @@ const Header = ({
                 <form onSubmit={(e) => {
                   e.preventDefault();
                   // @ts-ignore
+                  document.getElementsByClassName("headerSection")[0].click();
+                  // @ts-ignore
                   window.find(e.target.getElementsByTagName("input")[0].value);
                 }}>
                   <input id={"search-input"} type={"search"} placeholder={"Type to search..."}></input>
