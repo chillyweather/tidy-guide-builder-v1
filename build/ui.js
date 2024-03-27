@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/e987d4b1-e75c-48da-889f-871a15ec5d9c/loading-indicator.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/5ad1ed5f-c727-48d6-9c44-99a177425dd9/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/e987d4b1-e75c-48da-889f-871a15ec5d9c/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/5ad1ed5f-c727-48d6-9c44-99a177425dd9/loading-indicator.module.js"() {
       if (document.getElementById("3e397802b5") === null) {
         const element = document.createElement("style");
         element.id = "3e397802b5";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/1a65ef9b-fa82-4d2c-b429-07d54aebe1c3/button.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c6b7d7f8-06ca-4d52-bb9e-2fd346128fd1/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/1a65ef9b-fa82-4d2c-b429-07d54aebe1c3/button.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c6b7d7f8-06ca-4d52-bb9e-2fd346128fd1/button.module.js"() {
       if (document.getElementById("69a3373509") === null) {
         const element = document.createElement("style");
         element.id = "69a3373509";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/010c8320-6218-4206-8d66-1e8c1f182ef6/icon.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/7cc238bc-48fe-4862-aa5e-1c68597e7b87/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/010c8320-6218-4206-8d66-1e8c1f182ef6/icon.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/7cc238bc-48fe-4862-aa5e-1c68597e7b87/icon.module.js"() {
       if (document.getElementById("18637aef19") === null) {
         const element = document.createElement("style");
         element.id = "18637aef19";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/416bf349-11ee-4098-8394-9cfb64f007a1/checkbox.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/30b44f06-16d3-45cb-85ec-324f81ba6e4b/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/416bf349-11ee-4098-8394-9cfb64f007a1/checkbox.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/30b44f06-16d3-45cb-85ec-324f81ba6e4b/checkbox.module.js"() {
       if (document.getElementById("2c37f632f9") === null) {
         const element = document.createElement("style");
         element.id = "2c37f632f9";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/76555ad9-81e5-4765-a867-5450e14eb635/text.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/2dc9b5d8-abed-411d-897a-4be69aca52f7/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/76555ad9-81e5-4765-a867-5450e14eb635/text.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/2dc9b5d8-abed-411d-897a-4be69aca52f7/text.module.js"() {
       if (document.getElementById("e0e146fd65") === null) {
         const element = document.createElement("style");
         element.id = "e0e146fd65";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/88bef801-9888-4e4b-8645-c2fd7566f94c/toggle.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/df8b859f-157b-4f1c-bf15-0451125085e2/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/88bef801-9888-4e4b-8645-c2fd7566f94c/toggle.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/df8b859f-157b-4f1c-bf15-0451125085e2/toggle.module.js"() {
       if (document.getElementById("9a689b18ab") === null) {
         const element = document.createElement("style");
         element.id = "9a689b18ab";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/830fd9ec-1dbf-4dd6-93f2-7ea208c9a96a/muted.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d0cc656a-e84e-4965-b1db-d5734ddd92bf/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/830fd9ec-1dbf-4dd6-93f2-7ea208c9a96a/muted.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d0cc656a-e84e-4965-b1db-d5734ddd92bf/muted.module.js"() {
       if (document.getElementById("98b936ec72") === null) {
         const element = document.createElement("style");
         element.id = "98b936ec72";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/35f0ad7d-10eb-4907-ac46-79d386e9caab/vertical-space.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/9837f4cb-5c9c-41c9-b460-59d1bdd10997/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/35f0ad7d-10eb-4907-ac46-79d386e9caab/vertical-space.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/9837f4cb-5c9c-41c9-b460-59d1bdd10997/vertical-space.module.js"() {
       if (document.getElementById("e9edd34f04") === null) {
         const element = document.createElement("style");
         element.id = "e9edd34f04";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/3a4a0ded-898d-4214-a209-263bf56c30b2/base.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/f04614ad-5a6b-4f18-90e3-51a6bf4ef327/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/3a4a0ded-898d-4214-a209-263bf56c30b2/base.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/f04614ad-5a6b-4f18-90e3-51a6bf4ef327/base.js"() {
       if (document.getElementById("1b7643485e") === null) {
         const element = document.createElement("style");
         element.id = "1b7643485e";
@@ -3157,6 +3157,18 @@ svg {
     }
   });
 
+  // node_modules/@tabler/icons-react/dist/esm/icons/IconSearch.js
+  var IconSearch;
+  var init_IconSearch = __esm({
+    "node_modules/@tabler/icons-react/dist/esm/icons/IconSearch.js"() {
+      init_createReactComponent();
+      IconSearch = createReactComponent("search", "IconSearch", [
+        ["path", { d: "M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0", key: "svg-0" }],
+        ["path", { d: "M21 21l-6 -6", key: "svg-1" }]
+      ]);
+    }
+  });
+
   // node_modules/@tabler/icons-react/dist/esm/icons/IconSettings.js
   var IconSettings;
   var init_IconSettings = __esm({
@@ -3268,6 +3280,7 @@ svg {
       init_IconPilcrow();
       init_IconPlus();
       init_IconReload();
+      init_IconSearch();
       init_IconSettings();
       init_IconTrash();
       init_IconUser();
@@ -41608,7 +41621,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         function closeMenu() {
           document.getElementById("userMenu").open = false;
         }
-        return /* @__PURE__ */ y("div", { className: "user-menu" }, /* @__PURE__ */ y("div", { className: "user-item" }, /* @__PURE__ */ y("div", { className: "user-tag", "first-letter": loggedInUser.slice(0, 1) }, loggedInUser.slice(0, 1)), /* @__PURE__ */ y("p", null, loggedInUser)), /* @__PURE__ */ y("hr", null), /* @__PURE__ */ y(
+        return /* @__PURE__ */ y("div", { className: "user-menu" }, /* @__PURE__ */ y("div", { className: "user-company" }, currentCompany), /* @__PURE__ */ y("hr", null), /* @__PURE__ */ y("div", { className: "user-item" }, /* @__PURE__ */ y("div", { className: "user-tag", "first-letter": loggedInUser.slice(0, 1) }, loggedInUser.slice(0, 1)), /* @__PURE__ */ y("div", { className: "flex-col" }, /* @__PURE__ */ y("div", { className: "tag viewer" }), /* @__PURE__ */ y("p", { className: "user-name" }, currentUserName), /* @__PURE__ */ y("p", { className: "user-mail" }, loggedInUser))), /* @__PURE__ */ y("hr", null), /* @__PURE__ */ y(
           "div",
           {
             className: "user-item",
@@ -41836,7 +41849,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           },
           /* @__PURE__ */ y(IconPlus, null),
           "New Documentation"
-        )) : /* @__PURE__ */ y(
+        )) : /* @__PURE__ */ y("div", { className: "search-flex" }, /* @__PURE__ */ y(
           "button",
           {
             className: "flex-button back-button",
@@ -41846,7 +41859,11 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           },
           /* @__PURE__ */ y(IconArrowLeft, null),
           "Back"
-        )), /* @__PURE__ */ y(
+        ), /* @__PURE__ */ y("div", { className: "searchbox" }, /* @__PURE__ */ y(IconSearch, null), /* @__PURE__ */ y("form", { onSubmit: (e4) => {
+          e4.preventDefault();
+          document.getElementsByClassName("headerSection")[0].click();
+          window.find(e4.target.getElementsByTagName("input")[0].value);
+        } }, /* @__PURE__ */ y("input", { id: "search-input", type: "search", placeholder: "Type to search..." }))), /* @__PURE__ */ y("div", null))), /* @__PURE__ */ y(
           "button",
           {
             className: "header-button back",
@@ -42509,9 +42526,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/74451926-385c-4252-a6e6-0a927ee6fd8c/styles.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/4ed26c66-bbdb-40b3-887e-12c362ec7ae3/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/74451926-385c-4252-a6e6-0a927ee6fd8c/styles.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/4ed26c66-bbdb-40b3-887e-12c362ec7ae3/styles.js"() {
       if (document.getElementById("253dc8d3fb") === null) {
         const element = document.createElement("style");
         element.id = "253dc8d3fb";
@@ -42735,7 +42752,7 @@ body:has(.delete-flex) .header {
 }
 
 body:has(.delete-flex) .container {
-  margin-top: 74px;
+  margin-top: 84px;
 }
 
 .delete-flex {
@@ -42901,6 +42918,7 @@ body:has(.delete-flex) .container {
 .componentBTN:hover .draftComponent::before {
   background-color: #DBDAEC;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
+  right: 0;
 }
 
 h1 {
@@ -43531,6 +43549,7 @@ button svg {
 }
 
 .header .mode-button:hover::after {
+  z-index: 9;
   visibility: visible;
   transition: visibility 10ms linear 2000ms;
 }
@@ -43632,7 +43651,7 @@ body .nav-wrapper {
 
 body .nav-wrapper {
   position: fixed;
-  top: 48px;
+  top: 124px;
   right: 16px;
   background-color: #ffffff;
   border-radius: 32px;
@@ -43840,6 +43859,31 @@ body .header-login {
   padding: 0 !important;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  flex-grow: 1;
+}
+
+.user-name,
+.user-company {
+  font-weight: 500;
+  font-size: var(--text-size);
+}
+
+.user-company {
+  padding: 8px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.user-mail {
+  font-size: calc(var(--text-size) - (var(--text-size) / 6))
+}
+
 .user-tag {
   height: 32px;
   width: 32px;
@@ -43877,13 +43921,57 @@ body .header-login {
   background-color: #ffffff;
   padding: 8px;
   border-radius: 6px;
-  min-width: 140px;
+  min-width: 240px;
   box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
+}
+.user-menu div{
+  user-select: none;
 }
 
 .user-menu hr {
   height: 1px;
   background-color: #EFF2FA;
+}
+
+.tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: calc(var(--text-size) - (var(--text-size) / 6));
+  box-shadow: 0 0 0 1px #ffffff;
+  color: var(--tidy-32);
+  background-color: yellow;
+}
+
+.tag::after {
+  content: 'Forgot role';
+}
+
+.tag.viewer {
+  background-color: #EEEEEE;
+}
+
+.tag.viewer::after {
+  content: 'Viewer';
+
+}
+
+.tag.editor {
+  background-color: #E8EDFC;
+}
+
+.tag.editor::after {
+  content: 'Editor';
+}
+
+.tag.admin {
+  background-color: #EFE5FF;
+}
+
+.tag.admin::after {
+  content: 'Admin';
 }
 
 .user-item {
@@ -46506,6 +46594,57 @@ input[type="checkbox"] {
 
 body:has(.viewer-data-wrapper) .container {
   scroll-behavior: smooth;
+}
+
+.header .search-flex {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.header:has(.editor) .search-flex .searchbox{
+  visibility: hidden;
+}
+.header .search-flex .searchbox{
+  background-color: #ffffff;
+  border: 1px solid #E3E3E3;
+  border-radius: 6px;
+  gap: 2px;
+  padding: 0;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  color: #8E8F94;
+  visibility: true;
+  overflow: hidden;
+}
+.header .search-flex .searchbox svg{
+  width: 14px;
+  height: 14px;
+}
+.header .search-flex .searchbox input{
+  background-color: none;
+  border: none;
+  outline: none;
+  height: 100%;
+}
+.header .search-flex .searchbox input::placeholder{
+  color: #8E8F94;
+}
+
+.header .navigation-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-16px, 72px);
+  border: 1px solid;
+  color: var(--tidy-primary);
+  padding: 7px;
+}
+
+.header .navigation-button:hover {
+  color: var(--tidy-primary);
+  background-color: #EBEDFF;
+  opacity: 0.95;
 }
 
 body:has(.navigation-button.true) .nav-wrapper {

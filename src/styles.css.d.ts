@@ -22,6 +22,7 @@ declare const styles: {
   readonly "addSectionPopup": string;
   readonly "addSectionPupup-inner": string;
   readonly "addSectionTitle": string;
+  readonly "admin": string;
   readonly "anatomy": string;
   readonly "anchorLink": string;
   readonly "back": string;
@@ -74,6 +75,7 @@ declare const styles: {
   readonly "drop-zone": string;
   readonly "dropZoneHeader": string;
   readonly "edit": string;
+  readonly "editor": string;
   readonly "elementsMenu": string;
   readonly "empty-image": string;
   readonly "empty-state": string;
@@ -82,6 +84,7 @@ declare const styles: {
   readonly "feedbackPopupBackground": string;
   readonly "flex-btn": string;
   readonly "flex-button": string;
+  readonly "flex-col": string;
   readonly "flex-container": string;
   readonly "flex-label": string;
   readonly "flex-link": string;
@@ -178,9 +181,11 @@ declare const styles: {
   readonly "rotateAnim": string;
   readonly "rotatingBucket": string;
   readonly "search": string;
+  readonly "search-flex": string;
   readonly "search-icons": string;
   readonly "searchInput": string;
   readonly "searchMenu": string;
+  readonly "searchbox": string;
   readonly "second": string;
   readonly "secondary": string;
   readonly "section": string;
@@ -208,6 +213,7 @@ declare const styles: {
   readonly "split": string;
   readonly "split-disabled": string;
   readonly "subtitle": string;
+  readonly "tag": string;
   readonly "text-size": string;
   readonly "textCardBodyContent": string;
   readonly "textDetails": string;
@@ -227,8 +233,11 @@ declare const styles: {
   readonly "twoColumnCardBodyContent": string;
   readonly "twoColumns": string;
   readonly "unselected": string;
+  readonly "user-company": string;
   readonly "user-item": string;
+  readonly "user-mail": string;
   readonly "user-menu": string;
+  readonly "user-name": string;
   readonly "user-tag": string;
   readonly "userlist": string;
   readonly "userlist-item": string;

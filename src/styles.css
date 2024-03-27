@@ -218,7 +218,7 @@ body:has(.delete-flex) .header {
 }
 
 body:has(.delete-flex) .container {
-  margin-top: 74px;
+  margin-top: 84px;
 }
 
 .delete-flex {
@@ -384,6 +384,7 @@ body:has(.delete-flex) .container {
 .componentBTN:hover .draftComponent::before {
   background-color: #DBDAEC;
   font-size: calc(var(--text-size) - (var(--text-size) / 7));
+  right: 0;
 }
 
 h1 {
@@ -1014,6 +1015,7 @@ button svg {
 }
 
 .header .mode-button:hover::after {
+  z-index: 9;
   visibility: visible;
   transition: visibility 10ms linear 2000ms;
 }
@@ -1115,7 +1117,7 @@ body .nav-wrapper {
 
 body .nav-wrapper {
   position: fixed;
-  top: 48px;
+  top: 124px;
   right: 16px;
   background-color: #ffffff;
   border-radius: 32px;
@@ -1323,6 +1325,31 @@ body .header-login {
   padding: 0 !important;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  flex-grow: 1;
+}
+
+.user-name,
+.user-company {
+  font-weight: 500;
+  font-size: var(--text-size);
+}
+
+.user-company {
+  padding: 8px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.user-mail {
+  font-size: calc(var(--text-size) - (var(--text-size) / 6))
+}
+
 .user-tag {
   height: 32px;
   width: 32px;
@@ -1360,13 +1387,57 @@ body .header-login {
   background-color: #ffffff;
   padding: 8px;
   border-radius: 6px;
-  min-width: 140px;
+  min-width: 240px;
   box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
+}
+.user-menu div{
+  user-select: none;
 }
 
 .user-menu hr {
   height: 1px;
   background-color: #EFF2FA;
+}
+
+.tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: calc(var(--text-size) - (var(--text-size) / 6));
+  box-shadow: 0 0 0 1px #ffffff;
+  color: var(--tidy-32);
+  background-color: yellow;
+}
+
+.tag::after {
+  content: 'Forgot role';
+}
+
+.tag.viewer {
+  background-color: #EEEEEE;
+}
+
+.tag.viewer::after {
+  content: 'Viewer';
+
+}
+
+.tag.editor {
+  background-color: #E8EDFC;
+}
+
+.tag.editor::after {
+  content: 'Editor';
+}
+
+.tag.admin {
+  background-color: #EFE5FF;
+}
+
+.tag.admin::after {
+  content: 'Admin';
 }
 
 .user-item {
@@ -3989,6 +4060,57 @@ input[type="checkbox"] {
 
 body:has(.viewer-data-wrapper) .container {
   scroll-behavior: smooth;
+}
+
+.header .search-flex {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.header:has(.editor) .search-flex .searchbox{
+  visibility: hidden;
+}
+.header .search-flex .searchbox{
+  background-color: #ffffff;
+  border: 1px solid #E3E3E3;
+  border-radius: 6px;
+  gap: 2px;
+  padding: 0;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  color: #8E8F94;
+  visibility: true;
+  overflow: hidden;
+}
+.header .search-flex .searchbox svg{
+  width: 14px;
+  height: 14px;
+}
+.header .search-flex .searchbox input{
+  background-color: none;
+  border: none;
+  outline: none;
+  height: 100%;
+}
+.header .search-flex .searchbox input::placeholder{
+  color: #8E8F94;
+}
+
+.header .navigation-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-16px, 72px);
+  border: 1px solid;
+  color: var(--tidy-primary);
+  padding: 7px;
+}
+
+.header .navigation-button:hover {
+  color: var(--tidy-primary);
+  background-color: #EBEDFF;
+  opacity: 0.95;
 }
 
 body:has(.navigation-button.true) .nav-wrapper {
