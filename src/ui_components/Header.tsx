@@ -196,6 +196,7 @@ const Header = ({
     if (selectedColorIndex < 0) {
       selectedColorIndex *= -1;
     }
+    console.log(selectedColorIndex);
     const selectedColor = colorList[selectedColorIndex];
     setAvatarColor(selectedColor);
 
