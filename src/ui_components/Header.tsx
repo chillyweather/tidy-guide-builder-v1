@@ -212,6 +212,10 @@ const Header = ({
         {!isLoginPageOpen &&
           (isIndexOpen ? (
             <div className="componentHeader">
+              <Dropdown
+            options={["first", "second"]}
+            onSelect={() => console.log("yey")}
+          />
               <h2>Component Index</h2>
               <a
                 href={"https://tidy.guide/guide/overview"}
@@ -282,10 +286,6 @@ const Header = ({
           Back
         </button>
         <div className={"side-flex"}>
-          <Dropdown
-            options={["first", "second"]}
-            onSelect={() => console.log("yey")}
-          />
           {Toggle()}
 
           {!isIndexOpen &&
