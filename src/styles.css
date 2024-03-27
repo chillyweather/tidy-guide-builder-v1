@@ -446,10 +446,10 @@ li {
 
 .link-icon {
   position: absolute;
-  color: var(--tidy-32);
+  color: var(--tidy-disabled-btn-text);
   padding: 5px;
   top: 66px;
-  left: 176px;
+  left: 165px;
 }
 
 .link-icon svg {
