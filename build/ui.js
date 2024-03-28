@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/2836acba-2589-4e6b-b1fe-965d7af8e6b6/loading-indicator.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d86c24b1-33cc-4dc8-8560-b66e9bfa3e09/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/2836acba-2589-4e6b-b1fe-965d7af8e6b6/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d86c24b1-33cc-4dc8-8560-b66e9bfa3e09/loading-indicator.module.js"() {
       if (document.getElementById("3e397802b5") === null) {
         const element = document.createElement("style");
         element.id = "3e397802b5";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/69584fb5-3ec4-47b9-8143-cf29accaf2f9/button.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/8cc94fb0-01ad-4990-a242-03135421b13c/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/69584fb5-3ec4-47b9-8143-cf29accaf2f9/button.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/8cc94fb0-01ad-4990-a242-03135421b13c/button.module.js"() {
       if (document.getElementById("69a3373509") === null) {
         const element = document.createElement("style");
         element.id = "69a3373509";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/be15639c-c3cf-482d-8adc-4d394e8d3b55/icon.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/65124206-ff6e-40b9-91c1-ec5d24951c0b/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/be15639c-c3cf-482d-8adc-4d394e8d3b55/icon.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/65124206-ff6e-40b9-91c1-ec5d24951c0b/icon.module.js"() {
       if (document.getElementById("18637aef19") === null) {
         const element = document.createElement("style");
         element.id = "18637aef19";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/01b80e6b-e947-46b0-ab1d-addbb0128f99/checkbox.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d74d6755-e726-4a0c-80b0-c3b6718c88d9/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/01b80e6b-e947-46b0-ab1d-addbb0128f99/checkbox.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d74d6755-e726-4a0c-80b0-c3b6718c88d9/checkbox.module.js"() {
       if (document.getElementById("2c37f632f9") === null) {
         const element = document.createElement("style");
         element.id = "2c37f632f9";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/bce50cad-cd74-4a19-9989-c0c54c929376/text.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/4501211b-dadf-40bf-b0c0-3322c7b1d9c0/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/bce50cad-cd74-4a19-9989-c0c54c929376/text.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/4501211b-dadf-40bf-b0c0-3322c7b1d9c0/text.module.js"() {
       if (document.getElementById("e0e146fd65") === null) {
         const element = document.createElement("style");
         element.id = "e0e146fd65";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/01cd5916-b801-4879-9dfe-ae03339b311f/toggle.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/76626626-11b7-4af8-ad63-5e2bdd1f1a2b/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/01cd5916-b801-4879-9dfe-ae03339b311f/toggle.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/76626626-11b7-4af8-ad63-5e2bdd1f1a2b/toggle.module.js"() {
       if (document.getElementById("9a689b18ab") === null) {
         const element = document.createElement("style");
         element.id = "9a689b18ab";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/a344c717-d0f7-437d-837a-5018cdb70b75/muted.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/6088da80-3b74-4157-80c8-2c429971655d/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/a344c717-d0f7-437d-837a-5018cdb70b75/muted.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/6088da80-3b74-4157-80c8-2c429971655d/muted.module.js"() {
       if (document.getElementById("98b936ec72") === null) {
         const element = document.createElement("style");
         element.id = "98b936ec72";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d0f65234-471e-46ea-9f55-d4c28de1e364/vertical-space.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/69f6ff99-3c2a-450b-ab99-846ba4447c81/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d0f65234-471e-46ea-9f55-d4c28de1e364/vertical-space.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/69f6ff99-3c2a-450b-ab99-846ba4447c81/vertical-space.module.js"() {
       if (document.getElementById("e9edd34f04") === null) {
         const element = document.createElement("style");
         element.id = "e9edd34f04";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b5d67f77-4ddb-4027-811e-d8e2c432e5bb/base.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/1bfb249a-b645-4f85-a3cf-fea3f2637740/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b5d67f77-4ddb-4027-811e-d8e2c432e5bb/base.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/1bfb249a-b645-4f85-a3cf-fea3f2637740/base.js"() {
       if (document.getElementById("1b7643485e") === null) {
         const element = document.createElement("style");
         element.id = "1b7643485e";
@@ -40445,7 +40445,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
   });
 
   // src/state/atoms.ts
-  var selectedNodeIdAtom, selectedNodeKeyAtom, selectedComponentPicAtom, isViewModeOpenAtom, currentUserNameAtom, currentCompanyAtom;
+  var selectedNodeIdAtom, selectedNodeKeyAtom, selectedComponentPicAtom, isViewModeOpenAtom, currentUserNameAtom, currentCompanyAtom, currentUserIdAtom, selectedCollectionAtom, collectionsAtom;
   var init_atoms = __esm({
     "src/state/atoms.ts"() {
       "use strict";
@@ -40456,6 +40456,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       isViewModeOpenAtom = atom(false);
       currentUserNameAtom = atom("");
       currentCompanyAtom = atom("");
+      currentUserIdAtom = atom("");
+      selectedCollectionAtom = atom("");
+      collectionsAtom = atom([]);
     }
   });
 
@@ -41681,7 +41684,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       }) => {
         const [isOpen, setIsOpen] = h2(false);
         const [selectedOption, setSelectedOption] = h2(
-          options[0]
+          options[0] || "\u{1F9E8} no collection"
         );
         const toggleDropdown = () => {
           setIsOpen(!isOpen);
@@ -41745,6 +41748,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
         const [currentCompany] = useAtom(currentCompanyAtom);
         const [currentUserName] = useAtom(currentUserNameAtom);
+        const [collections] = useAtom(collectionsAtom);
+        const [currentUserId] = useAtom(currentUserIdAtom);
         const [userRankStyle, setUserRankStyle] = h2({});
         const {
           dataForUpdate,
@@ -42210,7 +42215,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
               const rank = response.rank;
               const user = response.name;
               const company = response.company;
-              emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email, rank, user, company);
+              const id = response._id;
+              console.log("id", id);
+              emit("SAVE_USER_LOGIN_DATA", token, email, rank, user, company, id);
               setToken(token);
               setUserRank(rank);
               setCurrentCompany(response.company);
@@ -42377,14 +42384,16 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
               rank
             );
             const token = response.token;
+            const id = response._id;
             if (token) {
               emit(
-                "SAVE_NEW_TOKEN_AND_EMAIL",
+                "SAVE_USER_LOGIN_DATA",
                 token,
                 email,
                 rank,
                 userName,
-                companyName
+                companyName,
+                id
               );
               setToken(token);
               setIsSigninPageOpen(false);
@@ -42597,9 +42606,31 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/e03a7f5f-e73c-4ee4-aba3-a31593fb8566/styles.js
+  // src/ui_components/ui_functions/collectionHandlers.ts
+  async function getCollections(token, userId) {
+    const headersList = {
+      Accept: "*/*",
+      Authorization: `Bearer ${token}`
+    };
+    const response = await fetch(
+      `https://api.tidyframework.com/api/collections/${userId}/user-collections`,
+      {
+        method: "GET",
+        headers: headersList
+      }
+    );
+    const data = await response.json();
+    return data;
+  }
+  var init_collectionHandlers = __esm({
+    "src/ui_components/ui_functions/collectionHandlers.ts"() {
+      "use strict";
+    }
+  });
+
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c374799c-edff-43b1-b804-30996607b11b/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/e03a7f5f-e73c-4ee4-aba3-a31593fb8566/styles.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c374799c-edff-43b1-b804-30996607b11b/styles.js"() {
       if (document.getElementById("253dc8d3fb") === null) {
         const element = document.createElement("style");
         element.id = "253dc8d3fb";
@@ -48171,6 +48202,8 @@ body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
     const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
     const [, setCurrentCompany] = useAtom(currentCompanyAtom);
     const [, setCurrentUserName] = useAtom(currentUserNameAtom);
+    const [currentUserId, setCurrentUserId] = useAtom(currentUserIdAtom);
+    const [, setCollections] = useAtom(collectionsAtom);
     const [isLoginFailed, setIsLoginFailed] = h2(false);
     const [isLoading, setIsLoading] = h2(true);
     const [token, setToken] = h2("");
@@ -48224,13 +48257,14 @@ body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
       null
     );
     const [isCurrentNameValid, setIsCurrentNameValid] = h2(true);
-    on2("AUTH_CHANGE", async (token2, email, rank, userName, companyName) => {
+    on2("AUTH_CHANGE", async (token2, email, rank, userName, companyName, id) => {
       if (token2) {
         setToken(token2);
         setLoggedInUser(email);
         setUserRank(rank);
         setCurrentCompany(companyName);
         setCurrentUserName(userName);
+        setCurrentUserId(id);
         const data = await getDocumentations(token2);
         setDataForUpdate(data);
         setIsLoading(false);
@@ -48240,8 +48274,10 @@ body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
       }
     });
     p2(() => {
-      console.log("documentationData", documentationData);
-    }, [documentationData]);
+      if (token && currentUserId) {
+        getUserCollections(token, currentUserId);
+      }
+    }, [token, currentUserId]);
     on2("SELECTION", ({ defaultNode, name, key }) => {
       setSelectedElement(defaultNode);
       setSelectedNodeId(defaultNode.id);
@@ -48291,6 +48327,10 @@ body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
       if (url) {
         setSelectedComponentPic(url);
       }
+    }
+    async function getUserCollections(token2, userId) {
+      const collections = await getCollections(token2, userId);
+      setCollections(collections);
     }
     p2(() => {
       if (currentImageArray) {
@@ -48446,9 +48486,6 @@ ${found.title}`
         handleAddDocumentation(token, documentationData);
       }
     }, [documentationData, isBuilding, token]);
-    p2(() => {
-      console.log("selectedMasterId", selectedMasterId);
-    }, [selectedMasterId]);
     const contextStates = {
       currentDocument,
       currentPage,
@@ -48520,10 +48557,6 @@ ${found.title}`
       setToken
     };
     const isPreviewDataExists = Object.keys(previewData).length > 0;
-    p2(() => {
-      console.log("showContentFromServer", showContentFromServer);
-      console.log("showMainContent", showMainContent);
-    }, [showContentFromServer, showMainContent]);
     return /* @__PURE__ */ y(
       "div",
       {
@@ -48688,6 +48721,7 @@ ${found.title}`
       init_SettingsPage();
       init_MainContent();
       init_documentationHandlers();
+      init_collectionHandlers();
       init_esm();
       init_atoms();
       init_styles();

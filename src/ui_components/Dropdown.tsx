@@ -12,7 +12,7 @@ const Dropdown: FunctionalComponent<DropdownProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(
-    options[0]
+    options[0] || "🧨 no collection"
   );
 
   const toggleDropdown = () => {

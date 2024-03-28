@@ -15,7 +15,8 @@ export async function tokenAndEmailHandler(
   email?: string,
   rank: string = "Viewer",
   userName: string = "",
-  companyName: string = ""
+  companyName: string = "",
+  id: string = ""
 ) {
   if (token) {
     await figma.clientStorage.setAsync("token", token);
@@ -23,8 +24,9 @@ export async function tokenAndEmailHandler(
     await figma.clientStorage.setAsync("rank", rank);
     await figma.clientStorage.setAsync("userName", userName);
     await figma.clientStorage.setAsync("companyName", companyName);
+    await figma.clientStorage.setAsync("userId", id);
 
-    emit("AUTH_CHANGE", token, email, rank, userName, companyName);
+    emit("AUTH_CHANGE", token, email, rank, userName, companyName, id);
 
     // console.log("token set :>> ", token);
     // console.log("email set :>> ", email);
@@ -37,6 +39,7 @@ export async function tokenAndEmailHandler(
     const savedRank = await figma.clientStorage.getAsync("rank");
     const savedUserName = await figma.clientStorage.getAsync("userName");
     const savedCompanyName = await figma.clientStorage.getAsync("companyName");
+    const savedId = await figma.clientStorage.getAsync("userId");
 
     // console.log("savedToken", savedToken);
     // console.log("savedEmail", savedEmail);
@@ -51,7 +54,8 @@ export async function tokenAndEmailHandler(
         savedEmail,
         savedRank,
         savedUserName,
-        savedCompanyName
+        savedCompanyName,
+        savedId
       );
     } else {
       emit("AUTH_CHANGE", null);

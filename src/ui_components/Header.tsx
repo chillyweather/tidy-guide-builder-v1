@@ -18,6 +18,8 @@ import {
   isViewModeOpenAtom,
   currentCompanyAtom,
   currentUserNameAtom,
+  collectionsAtom,
+  currentUserIdAtom,
 } from "src/state/atoms";
 
 import { h } from "preact";
@@ -50,6 +52,8 @@ const Header = ({
   const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [currentCompany] = useAtom(currentCompanyAtom);
   const [currentUserName] = useAtom(currentUserNameAtom);
+  const [collections] = useAtom(collectionsAtom);
+  const [currentUserId] = useAtom(currentUserIdAtom);
 
   const [userRankStyle, setUserRankStyle] = useState({});
   const {
@@ -72,6 +76,7 @@ const Header = ({
     setSelectedMasterId,
     token,
   } = useContext(BuilderContext) || {};
+
   const [, setInitialSelectedSections] = useState(null);
   const [, setInitialDocumentationData] = useState(null);
   const [, setInitialSelectedSectionsLength] = useState(0);

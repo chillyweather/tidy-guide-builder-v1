@@ -124,14 +124,16 @@ const SignIn = ({
         rank
       );
       const token = response.token;
+      const id = response._id;
       if (token) {
         emit(
-          "SAVE_NEW_TOKEN_AND_EMAIL",
+          "SAVE_USER_LOGIN_DATA",
           token,
           email,
           rank,
           userName,
-          companyName
+          companyName,
+          id
         );
         setToken(token);
         setIsSigninPageOpen(false);

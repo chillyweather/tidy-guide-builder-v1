@@ -68,7 +68,9 @@ const Login = ({
         const rank = response.rank;
         const user = response.name;
         const company = response.company;
-        emit("SAVE_NEW_TOKEN_AND_EMAIL", token, email, rank, user, company);
+        const id = response._id;
+        console.log("id", id);
+        emit("SAVE_USER_LOGIN_DATA", token, email, rank, user, company, id);
         setToken(token);
         setUserRank(rank);
         setCurrentCompany(response.company);

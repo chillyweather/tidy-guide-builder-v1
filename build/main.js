@@ -4193,20 +4193,22 @@ var init_checkSelection = __esm({
 });
 
 // src/figma_functions/loginDataHandler.ts
-async function tokenAndEmailHandler(token, email, rank = "Viewer", userName = "", companyName = "") {
+async function tokenAndEmailHandler(token, email, rank = "Viewer", userName = "", companyName = "", id = "") {
   if (token) {
     await figma.clientStorage.setAsync("token", token);
     await figma.clientStorage.setAsync("email", email);
     await figma.clientStorage.setAsync("rank", rank);
     await figma.clientStorage.setAsync("userName", userName);
     await figma.clientStorage.setAsync("companyName", companyName);
-    emit("AUTH_CHANGE", token, email, rank, userName, companyName);
+    await figma.clientStorage.setAsync("userId", id);
+    emit("AUTH_CHANGE", token, email, rank, userName, companyName, id);
   } else {
     const savedToken = await figma.clientStorage.getAsync("token");
     const savedEmail = await figma.clientStorage.getAsync("email");
     const savedRank = await figma.clientStorage.getAsync("rank");
     const savedUserName = await figma.clientStorage.getAsync("userName");
     const savedCompanyName = await figma.clientStorage.getAsync("companyName");
+    const savedId = await figma.clientStorage.getAsync("userId");
     if (savedToken && savedEmail) {
       emit(
         "AUTH_CHANGE",
@@ -4214,7 +4216,8 @@ async function tokenAndEmailHandler(token, email, rank = "Viewer", userName = ""
         savedEmail,
         savedRank,
         savedUserName,
-        savedCompanyName
+        savedCompanyName,
+        savedId
       );
     } else {
       emit("AUTH_CHANGE", null);
@@ -4337,9 +4340,8 @@ async function main_default() {
   const selectionData = await checkSelection();
   if (selectionData)
     emit("SELECTION", selectionData);
-  once("SAVE_NEW_TOKEN_AND_EMAIL", (token, email, rank, user2, company) => {
-    console.log("user in process", user2);
-    tokenAndEmailHandler(token, email, rank, user2, company);
+  once("SAVE_USER_LOGIN_DATA", (token, email, rank, user2, company, id) => {
+    tokenAndEmailHandler(token, email, rank, user2, company, id);
   });
   on("LOGOUT", async () => {
     figma.clientStorage.deleteAsync("token");

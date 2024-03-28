@@ -36,6 +36,7 @@ import {
   updateDocumentation,
   createDocumentation,
 } from "./ui_components/ui_functions/documentationHandlers";
+import { getCollections } from "./ui_components/ui_functions/collectionHandlers";
 
 import { useAtom } from "jotai";
 import {
@@ -45,6 +46,8 @@ import {
   isViewModeOpenAtom,
   currentCompanyAtom,
   currentUserNameAtom,
+  currentUserIdAtom,
+  collectionsAtom,
 } from "./state/atoms";
 
 //styles
@@ -60,6 +63,8 @@ function Plugin() {
   const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [, setCurrentCompany] = useAtom(currentCompanyAtom);
   const [, setCurrentUserName] = useAtom(currentUserNameAtom);
+  const [currentUserId, setCurrentUserId] = useAtom(currentUserIdAtom);
+  const [, setCollections] = useAtom(collectionsAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -164,13 +169,14 @@ function Plugin() {
   //is current name valid
   const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
 
-  on("AUTH_CHANGE", async (token, email, rank, userName, companyName) => {
+  on("AUTH_CHANGE", async (token, email, rank, userName, companyName, id) => {
     if (token) {
       setToken(token);
       setLoggedInUser(email);
       setUserRank(rank);
       setCurrentCompany(companyName);
       setCurrentUserName(userName);
+      setCurrentUserId(id);
       const data = await getDocumentations(token);
       setDataForUpdate(data);
       setIsLoading(false);
@@ -180,9 +186,15 @@ function Plugin() {
     }
   });
 
+  // useEffect(() => {
+  //   console.log("documentationData", documentationData);
+  // }, [documentationData]);
+
   useEffect(() => {
-    console.log("documentationData", documentationData);
-  }, [documentationData]);
+    if (token && currentUserId) {
+      getUserCollections(token, currentUserId);
+    }
+  }, [token, currentUserId]);
 
   on("SELECTION", ({ defaultNode, name, key }) => {
     setSelectedElement(defaultNode);
@@ -249,6 +261,11 @@ function Plugin() {
     if (url) {
       setSelectedComponentPic(url);
     }
+  }
+
+  async function getUserCollections(token: string, userId: string) {
+    const collections = await getCollections(token, userId);
+    setCollections(collections);
   }
 
   useEffect(() => {
@@ -431,9 +448,9 @@ function Plugin() {
     }
   }, [documentationData, isBuilding, token]);
 
-  useEffect(() => {
-    console.log("selectedMasterId", selectedMasterId);
-  }, [selectedMasterId]);
+  // useEffect(() => {
+  //   console.log("selectedMasterId", selectedMasterId);
+  // }, [selectedMasterId]);
 
   const contextStates = {
     currentDocument,
@@ -514,10 +531,10 @@ function Plugin() {
 
   const isPreviewDataExists = Object.keys(previewData).length > 0;
 
-  useEffect(() => {
-    console.log("showContentFromServer", showContentFromServer);
-    console.log("showMainContent", showMainContent);
-  }, [showContentFromServer, showMainContent]);
+  // useEffect(() => {
+  //   console.log("showContentFromServer", showContentFromServer);
+  //   console.log("showMainContent", showMainContent);
+  // }, [showContentFromServer, showMainContent]);
 
   return (
     <div
