@@ -56,6 +56,7 @@ const Header = ({
   const [currentUserId] = useAtom(currentUserIdAtom);
 
   const [userRankStyle, setUserRankStyle] = useState({});
+
   const {
     dataForUpdate,
     documentationData,
@@ -109,7 +110,6 @@ const Header = ({
   ]);
 
   useEffect(() => {
-    console.log("userRank", userRank);
     if (userRank === "Admin") {
       setUserRankStyle({ color: "maroon" });
     } else if (userRank === "Editor") {
@@ -128,14 +128,13 @@ const Header = ({
     }
   }, [documentationData]);
 
-  // useEffect(() => {
-  //   console.log("currentCompany in Header", currentCompany);
-  //   console.log("currentUserName in Header", currentUserName);
-  // }, [currentCompany, currentUserName]);
+  useEffect(() => {
+    console.log("collections in Header", collections);
+  }, [collections]);
 
   function Toggle() {
     const handleToggle = async () => {
-      console.log("selectedMasterId", selectedMasterId);
+      // console.log("selectedMasterId", selectedMasterId);
       if (!token) return;
       setIsViewModeOpen(!isViewModeOpen);
       if (!isIndexOpen) {
@@ -145,7 +144,7 @@ const Header = ({
         const currentDocumentation = dataForUpdate.find(
           (item: any) => item.title === documentationData.title
         );
-        console.log("currentDocumentation", currentDocumentation);
+        // console.log("currentDocumentation", currentDocumentation);
         setSelectedMasterId(currentDocumentation._id);
       }
     };
@@ -202,7 +201,7 @@ const Header = ({
     if (selectedColorIndex < 0) {
       selectedColorIndex *= -1;
     }
-    console.log(selectedColorIndex);
+    // console.log(selectedColorIndex);
     const selectedColor = colorList[selectedColorIndex];
     setAvatarColor(selectedColor);
 
@@ -217,14 +216,12 @@ const Header = ({
         {!isLoginPageOpen &&
           (isIndexOpen ? (
             <div className="componentHeader">
-              <Dropdown
-                options={[
-                  "first collection",
-                  "second collection",
-                  "third collection",
-                ]}
-                onSelect={() => console.log("yey")}
-              />
+              {collections && collections.length && (
+                <Dropdown
+                  options={collections}
+                  onSelect={() => console.log("yey")}
+                />
+              )}
               <h2>Component Index</h2>
               <a
                 href={"https://tidy.guide/guide/overview"}

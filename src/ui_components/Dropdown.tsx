@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h, FunctionalComponent } from "preact";
 import { useState } from "preact/hooks";
 
 interface DropdownProps {
-  options: string[];
+  options: any[];
   onSelect: (selectedOption: string) => void;
 }
 
@@ -12,15 +13,15 @@ const Dropdown: FunctionalComponent<DropdownProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(
-    options[0] || "🧨 no collection"
+    options[0].name || "🧨 no collection"
   );
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const selectOption = (option: string) => {
-    setSelectedOption(option);
+  const selectOption = (option: any) => {
+    setSelectedOption(option.name);
     setIsOpen(false);
     onSelect(option);
   };
@@ -43,7 +44,7 @@ const Dropdown: FunctionalComponent<DropdownProps> = ({
                 selectOption(option);
               }}
             >
-              {option}
+              {option.name}
             </li>
           ))}
         </ul>

@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d86c24b1-33cc-4dc8-8560-b66e9bfa3e09/loading-indicator.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/3edb0622-c7e4-47b7-ba6e-c6d775f2dfa0/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d86c24b1-33cc-4dc8-8560-b66e9bfa3e09/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/3edb0622-c7e4-47b7-ba6e-c6d775f2dfa0/loading-indicator.module.js"() {
       if (document.getElementById("3e397802b5") === null) {
         const element = document.createElement("style");
         element.id = "3e397802b5";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/8cc94fb0-01ad-4990-a242-03135421b13c/button.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/db322bce-1d03-4769-bc74-6a802573b34a/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/8cc94fb0-01ad-4990-a242-03135421b13c/button.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/db322bce-1d03-4769-bc74-6a802573b34a/button.module.js"() {
       if (document.getElementById("69a3373509") === null) {
         const element = document.createElement("style");
         element.id = "69a3373509";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/65124206-ff6e-40b9-91c1-ec5d24951c0b/icon.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/a5ba5e9d-7d4c-4338-b1fd-c2be8cc05784/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/65124206-ff6e-40b9-91c1-ec5d24951c0b/icon.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/a5ba5e9d-7d4c-4338-b1fd-c2be8cc05784/icon.module.js"() {
       if (document.getElementById("18637aef19") === null) {
         const element = document.createElement("style");
         element.id = "18637aef19";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d74d6755-e726-4a0c-80b0-c3b6718c88d9/checkbox.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/721a4875-d92f-4337-b5b9-f4a610307509/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/d74d6755-e726-4a0c-80b0-c3b6718c88d9/checkbox.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/721a4875-d92f-4337-b5b9-f4a610307509/checkbox.module.js"() {
       if (document.getElementById("2c37f632f9") === null) {
         const element = document.createElement("style");
         element.id = "2c37f632f9";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/4501211b-dadf-40bf-b0c0-3322c7b1d9c0/text.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/945863ed-158b-4301-bcb2-294bb1236cba/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/4501211b-dadf-40bf-b0c0-3322c7b1d9c0/text.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/945863ed-158b-4301-bcb2-294bb1236cba/text.module.js"() {
       if (document.getElementById("e0e146fd65") === null) {
         const element = document.createElement("style");
         element.id = "e0e146fd65";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/76626626-11b7-4af8-ad63-5e2bdd1f1a2b/toggle.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b40c6f61-e7a7-43c3-89b0-d426e460c035/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/76626626-11b7-4af8-ad63-5e2bdd1f1a2b/toggle.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b40c6f61-e7a7-43c3-89b0-d426e460c035/toggle.module.js"() {
       if (document.getElementById("9a689b18ab") === null) {
         const element = document.createElement("style");
         element.id = "9a689b18ab";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/6088da80-3b74-4157-80c8-2c429971655d/muted.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b52596e5-488b-4485-9259-29ecb6268a2c/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/6088da80-3b74-4157-80c8-2c429971655d/muted.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b52596e5-488b-4485-9259-29ecb6268a2c/muted.module.js"() {
       if (document.getElementById("98b936ec72") === null) {
         const element = document.createElement("style");
         element.id = "98b936ec72";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/69f6ff99-3c2a-450b-ab99-846ba4447c81/vertical-space.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/88ade528-9468-486c-9f41-e6cfa07b9554/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/69f6ff99-3c2a-450b-ab99-846ba4447c81/vertical-space.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/88ade528-9468-486c-9f41-e6cfa07b9554/vertical-space.module.js"() {
       if (document.getElementById("e9edd34f04") === null) {
         const element = document.createElement("style");
         element.id = "e9edd34f04";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/1bfb249a-b645-4f85-a3cf-fea3f2637740/base.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c94cdd29-89a6-4c57-add8-9b2c0173195d/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/1bfb249a-b645-4f85-a3cf-fea3f2637740/base.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c94cdd29-89a6-4c57-add8-9b2c0173195d/base.js"() {
       if (document.getElementById("1b7643485e") === null) {
         const element = document.createElement("style");
         element.id = "1b7643485e";
@@ -41684,13 +41684,13 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       }) => {
         const [isOpen, setIsOpen] = h2(false);
         const [selectedOption, setSelectedOption] = h2(
-          options[0] || "\u{1F9E8} no collection"
+          options[0].name || "\u{1F9E8} no collection"
         );
         const toggleDropdown = () => {
           setIsOpen(!isOpen);
         };
         const selectOption = (option2) => {
-          setSelectedOption(option2);
+          setSelectedOption(option2.name);
           setIsOpen(false);
           onSelect(option2);
         };
@@ -41710,7 +41710,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
               selectOption(option2);
             }
           },
-          option2
+          option2.name
         ))));
       };
       Dropdown_default = Dropdown;
@@ -41795,7 +41795,6 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           isMainContentOpen
         ]);
         p2(() => {
-          console.log("userRank", userRank);
           if (userRank === "Admin") {
             setUserRankStyle({ color: "maroon" });
           } else if (userRank === "Editor") {
@@ -41812,9 +41811,11 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
             setIsDocJustOpened(false);
           }
         }, [documentationData]);
+        p2(() => {
+          console.log("collections in Header", collections);
+        }, [collections]);
         function Toggle2() {
           const handleToggle = async () => {
-            console.log("selectedMasterId", selectedMasterId);
             if (!token)
               return;
             setIsViewModeOpen(!isViewModeOpen);
@@ -41825,7 +41826,6 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
               const currentDocumentation = dataForUpdate.find(
                 (item) => item.title === documentationData.title
               );
-              console.log("currentDocumentation", currentDocumentation);
               setSelectedMasterId(currentDocumentation._id);
             }
           };
@@ -41870,7 +41870,6 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           if (selectedColorIndex < 0) {
             selectedColorIndex *= -1;
           }
-          console.log(selectedColorIndex);
           const selectedColor = colorList[selectedColorIndex];
           setAvatarColor(selectedColor);
           const styles = ".user-tag{background-color:" + selectedColor + "}";
@@ -41878,14 +41877,10 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           styleSheet.innerText = styles;
           document.head.appendChild(styleSheet);
         }
-        return /* @__PURE__ */ y("div", { className: "header" }, /* @__PURE__ */ y("div", { className: "headerContent" }, !isLoginPageOpen && (isIndexOpen ? /* @__PURE__ */ y("div", { className: "componentHeader" }, /* @__PURE__ */ y(
+        return /* @__PURE__ */ y("div", { className: "header" }, /* @__PURE__ */ y("div", { className: "headerContent" }, !isLoginPageOpen && (isIndexOpen ? /* @__PURE__ */ y("div", { className: "componentHeader" }, collections && collections.length && /* @__PURE__ */ y(
           Dropdown_default,
           {
-            options: [
-              "first collection",
-              "second collection",
-              "third collection"
-            ],
+            options: collections,
             onSelect: () => console.log("yey")
           }
         ), /* @__PURE__ */ y("h2", null, "Component Index"), /* @__PURE__ */ y(
@@ -42628,9 +42623,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c374799c-edff-43b1-b804-30996607b11b/styles.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b34c9e78-d282-4f22-bba8-45422fdb95b2/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c374799c-edff-43b1-b804-30996607b11b/styles.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b34c9e78-d282-4f22-bba8-45422fdb95b2/styles.js"() {
       if (document.getElementById("253dc8d3fb") === null) {
         const element = document.createElement("style");
         element.id = "253dc8d3fb";
