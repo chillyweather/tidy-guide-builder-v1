@@ -213,9 +213,13 @@ const Header = ({
           (isIndexOpen ? (
             <div className="componentHeader">
               <Dropdown
-            options={["first", "second"]}
-            onSelect={() => console.log("yey")}
-          />
+                options={[
+                  "first collection",
+                  "second collection",
+                  "third collection",
+                ]}
+                onSelect={() => console.log("yey")}
+              />
               <h2>Component Index</h2>
               <a
                 href={"https://tidy.guide/guide/overview"}

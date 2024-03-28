@@ -11,7 +11,9 @@ const Dropdown: FunctionalComponent<DropdownProps> = ({
   onSelect,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [selectedOption, setSelectedOption] = useState<string | null>(
+    options[0]
+  );
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -25,13 +27,24 @@ const Dropdown: FunctionalComponent<DropdownProps> = ({
 
   return (
     <div class="dropdown-comp">
-      <button class="dropdown-toggle" onClick={toggleDropdown}>
+      <button
+        class="dropdown-toggle"
+        onClick={toggleDropdown}
+        onBlur={() => setIsOpen(false)}
+      >
         {selectedOption || "Select an option"}
       </button>
       {isOpen && (
         <ul class="dropdown-menu">
           {options.map((option) => (
-            <li onClick={() => selectOption(option)}>{option}</li>
+            <li
+              onMouseDown={(e) => {
+                e.preventDefault();
+                selectOption(option);
+              }}
+            >
+              {option}
+            </li>
           ))}
         </ul>
       )}
