@@ -15,3 +15,21 @@ export async function getCollections(token: string, userId: string) {
   const data = await response.json();
   return data;
 }
+
+export async function getCollectionUsers(token: string, collectionId: string) {
+  const headersList = {
+    Accept: "*/*",
+    Authorization: `Bearer ${token}`,
+  };
+
+  const response = await fetch(
+    `https://api.tidyframework.com/api/collections/${collectionId}/users`,
+    {
+      method: "GET",
+      headers: headersList,
+    }
+  );
+
+  const data = await response.json();
+  return data;
+}

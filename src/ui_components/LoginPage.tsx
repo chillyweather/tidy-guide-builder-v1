@@ -3,7 +3,11 @@ import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
 import { useState } from "preact/hooks";
 import { useAtom } from "jotai";
-import { currentUserNameAtom, currentCompanyAtom } from "src/state/atoms";
+import {
+  currentUserNameAtom,
+  currentCompanyAtom,
+  tokenAtom,
+} from "src/state/atoms";
 
 import { TidyLogo } from "../images/TidyLogo";
 import { IconMail, IconEye } from "@tabler/icons-react";
@@ -39,6 +43,7 @@ const Login = ({
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [, setCurrentCompany] = useAtom(currentCompanyAtom);
   const [, setCurrentUserName] = useAtom(currentUserNameAtom);
+  const [, setTokenAtomData] = useAtom(tokenAtom);
 
   const handleEmailChange = (e: any) => {
     setIsLoginFailed(false);
@@ -72,6 +77,7 @@ const Login = ({
         console.log("id", id);
         emit("SAVE_USER_LOGIN_DATA", token, email, rank, user, company, id);
         setToken(token);
+        setTokenAtomData(token);
         setUserRank(rank);
         setCurrentCompany(response.company);
         setCurrentUserName(response.name);

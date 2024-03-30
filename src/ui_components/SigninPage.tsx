@@ -3,6 +3,7 @@
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
 import { useState } from "preact/hooks";
+import { useAtom } from "jotai";
 import { TidyLogo } from "../images/TidyLogo";
 import {
   IconMail,
@@ -11,6 +12,7 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import { createNewAccount } from "./ui_functions/authentication";
+import { tokenAtom } from "src/state/atoms";
 // import { getDocumentation } from "../auxiliaryFunctions/documentationHandlers";
 
 const SignIn = ({
@@ -43,6 +45,7 @@ const SignIn = ({
   const [repeatedPassword, setRepeatedPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [repeatedPasswordVisible, setRepeatedPasswordVisible] = useState(false);
+  const [, setTokenAtomData] = useAtom(tokenAtom);
 
   //error visibility states
   const [isEmailErrorVisible, setIsEmailErrorVisible] = useState(false);
@@ -136,6 +139,7 @@ const SignIn = ({
           id
         );
         setToken(token);
+        setTokenAtomData(token);
         setIsSigninPageOpen(false);
         setIsSettingPageOpen(false);
       } else if (response.message === "User created") {

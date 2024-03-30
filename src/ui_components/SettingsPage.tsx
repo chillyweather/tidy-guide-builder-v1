@@ -1,44 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { useContext, useState, useEffect } from "preact/hooks";
+import { useContext, useState } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
 import { IconAlertCircleFilled, IconArrowRight } from "@tabler/icons-react";
-import { getUsersFromMyCompany } from "./ui_functions/authentication";
+import manageUsersPage from "./manageUsersPage";
 
 const Settings = () => {
-  const { setShowDeleteAccountPopup, token } = useContext(BuilderContext) || {};
-  const [showUserList, setShowUserList] = useState(false);
-  const [listOfUsers, setListOfUsers] = useState([]);
-
-  async function getUsers(token: string) {
-    const response = await getUsersFromMyCompany(token);
-
-    if (response && response.length) {
-      setListOfUsers(response);
-    }
-    return response;
-  }
-
-  useEffect(() => {
-    if (token && showUserList) {
-      getUsers(token);
-    }
-  }, [showUserList]);
-
-  const userList = (
-    <div className="userlist">
-      {!!listOfUsers.length &&
-        listOfUsers.map((user: any) => {
-          return (
-            <div key={user._id} className="userlist-item">
-              <p style={{ padding: 0, margin: 0 }}>
-                {user.name} - {user.rank}
-              </p>
-            </div>
-          );
-        })}
-    </div>
-  );
+  const { setShowDeleteAccountPopup } = useContext(BuilderContext) || {};
+  const [showSettingsContent, setShowSettingsContent] = useState(true);
+  const [showManageUsersPage, setShowManageUsersPage] = useState(false);
 
   const SettingsContent = (
     <div className={"settings-wrapper"}>
@@ -54,7 +24,10 @@ const Settings = () => {
           <button
             id={"settings-primaty-button"}
             className={"button primary"}
-            onClick={() => setShowUserList(!showUserList)}
+            onClick={() => {
+              setShowSettingsContent(false);
+              setShowManageUsersPage(true);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +43,6 @@ const Settings = () => {
             </svg>
           </button>
         </div>
-        {showUserList && userList}
       </div>
       <div className="delete-flex">
         <div className="delete-content">
@@ -94,7 +66,12 @@ const Settings = () => {
     </div>
   );
 
-  return SettingsContent;
+  return (
+    <div style={{ width: "100%" }}>
+      {showSettingsContent && SettingsContent}
+      {showManageUsersPage && manageUsersPage()}
+    </div>
+  );
 };
 
 export default Settings;

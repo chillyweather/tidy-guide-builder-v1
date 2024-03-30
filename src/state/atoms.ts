@@ -9,6 +9,7 @@ export const currentUserNameAtom = atom("");
 export const currentCompanyAtom = atom("");
 export const currentUserIdAtom = atom("");
 export const selectedCollectionAtom = atom("");
+export const tokenAtom = atom("");
 
 //results of network requests
 export const collectionsAtom = atom([]);

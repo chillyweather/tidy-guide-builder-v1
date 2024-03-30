@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/3edb0622-c7e4-47b7-ba6e-c6d775f2dfa0/loading-indicator.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/cbe0079d-29ee-498f-b0bb-5ec323fa8ce3/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/3edb0622-c7e4-47b7-ba6e-c6d775f2dfa0/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/cbe0079d-29ee-498f-b0bb-5ec323fa8ce3/loading-indicator.module.js"() {
       if (document.getElementById("3e397802b5") === null) {
         const element = document.createElement("style");
         element.id = "3e397802b5";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/db322bce-1d03-4769-bc74-6a802573b34a/button.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/11fa680c-a1c3-4b66-b6ea-4569529e9cd4/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/db322bce-1d03-4769-bc74-6a802573b34a/button.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/11fa680c-a1c3-4b66-b6ea-4569529e9cd4/button.module.js"() {
       if (document.getElementById("69a3373509") === null) {
         const element = document.createElement("style");
         element.id = "69a3373509";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/a5ba5e9d-7d4c-4338-b1fd-c2be8cc05784/icon.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/2b3dc06a-beda-4284-9487-0ee7d3030055/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/a5ba5e9d-7d4c-4338-b1fd-c2be8cc05784/icon.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/2b3dc06a-beda-4284-9487-0ee7d3030055/icon.module.js"() {
       if (document.getElementById("18637aef19") === null) {
         const element = document.createElement("style");
         element.id = "18637aef19";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/721a4875-d92f-4337-b5b9-f4a610307509/checkbox.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/e4aed070-cbdc-4188-a055-731fa4c53049/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/721a4875-d92f-4337-b5b9-f4a610307509/checkbox.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/e4aed070-cbdc-4188-a055-731fa4c53049/checkbox.module.js"() {
       if (document.getElementById("2c37f632f9") === null) {
         const element = document.createElement("style");
         element.id = "2c37f632f9";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/945863ed-158b-4301-bcb2-294bb1236cba/text.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c1a2766b-dfb8-4e9e-8404-9abf7e497f84/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/945863ed-158b-4301-bcb2-294bb1236cba/text.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c1a2766b-dfb8-4e9e-8404-9abf7e497f84/text.module.js"() {
       if (document.getElementById("e0e146fd65") === null) {
         const element = document.createElement("style");
         element.id = "e0e146fd65";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b40c6f61-e7a7-43c3-89b0-d426e460c035/toggle.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/5e292929-c32d-4509-9ab9-b7f07d3bff8a/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b40c6f61-e7a7-43c3-89b0-d426e460c035/toggle.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/5e292929-c32d-4509-9ab9-b7f07d3bff8a/toggle.module.js"() {
       if (document.getElementById("9a689b18ab") === null) {
         const element = document.createElement("style");
         element.id = "9a689b18ab";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b52596e5-488b-4485-9259-29ecb6268a2c/muted.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/158fcc4d-e41a-4eb3-a6db-fc5213655589/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b52596e5-488b-4485-9259-29ecb6268a2c/muted.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/158fcc4d-e41a-4eb3-a6db-fc5213655589/muted.module.js"() {
       if (document.getElementById("98b936ec72") === null) {
         const element = document.createElement("style");
         element.id = "98b936ec72";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/88ade528-9468-486c-9f41-e6cfa07b9554/vertical-space.module.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ffc4009a-8f47-4cf3-8902-231f20e540ed/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/88ade528-9468-486c-9f41-e6cfa07b9554/vertical-space.module.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ffc4009a-8f47-4cf3-8902-231f20e540ed/vertical-space.module.js"() {
       if (document.getElementById("e9edd34f04") === null) {
         const element = document.createElement("style");
         element.id = "e9edd34f04";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c94cdd29-89a6-4c57-add8-9b2c0173195d/base.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/0bfc590b-7606-4906-aa87-e5e41561d51d/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/c94cdd29-89a6-4c57-add8-9b2c0173195d/base.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/0bfc590b-7606-4906-aa87-e5e41561d51d/base.js"() {
       if (document.getElementById("1b7643485e") === null) {
         const element = document.createElement("style");
         element.id = "1b7643485e";
@@ -2868,6 +2868,19 @@ svg {
     }
   });
 
+  // node_modules/@tabler/icons-react/dist/esm/icons/IconDotsVertical.js
+  var IconDotsVertical;
+  var init_IconDotsVertical = __esm({
+    "node_modules/@tabler/icons-react/dist/esm/icons/IconDotsVertical.js"() {
+      init_createReactComponent();
+      IconDotsVertical = createReactComponent("dots-vertical", "IconDotsVertical", [
+        ["path", { d: "M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0", key: "svg-0" }],
+        ["path", { d: "M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0", key: "svg-1" }],
+        ["path", { d: "M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0", key: "svg-2" }]
+      ]);
+    }
+  });
+
   // node_modules/@tabler/icons-react/dist/esm/icons/IconExternalLink.js
   var IconExternalLink;
   var init_IconExternalLink = __esm({
@@ -3264,6 +3277,7 @@ svg {
       init_IconCloudUpload();
       init_IconColumns();
       init_IconCopy();
+      init_IconDotsVertical();
       init_IconExternalLink();
       init_IconEyeOff();
       init_IconEye();
@@ -35148,20 +35162,6 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
     return response.json();
   }
-  async function getUsersFromMyCompany(token) {
-    const path = "https://api.tidyframework.com/api/users/company";
-    const response = await fetch(path, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      }
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
-  }
   async function getPasswordResetToken(email) {
     const headersList = {
       Accept: "*/*",
@@ -40445,7 +40445,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
   });
 
   // src/state/atoms.ts
-  var selectedNodeIdAtom, selectedNodeKeyAtom, selectedComponentPicAtom, isViewModeOpenAtom, currentUserNameAtom, currentCompanyAtom, currentUserIdAtom, selectedCollectionAtom, collectionsAtom;
+  var selectedNodeIdAtom, selectedNodeKeyAtom, selectedComponentPicAtom, isViewModeOpenAtom, currentUserNameAtom, currentCompanyAtom, currentUserIdAtom, selectedCollectionAtom, tokenAtom, collectionsAtom;
   var init_atoms = __esm({
     "src/state/atoms.ts"() {
       "use strict";
@@ -40458,6 +40458,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       currentCompanyAtom = atom("");
       currentUserIdAtom = atom("");
       selectedCollectionAtom = atom("");
+      tokenAtom = atom("");
       collectionsAtom = atom([]);
     }
   });
@@ -42185,6 +42186,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         const [isPasswordValid, setIsPasswordValid] = h2(true);
         const [, setCurrentCompany] = useAtom(currentCompanyAtom);
         const [, setCurrentUserName] = useAtom(currentUserNameAtom);
+        const [, setTokenAtomData] = useAtom(tokenAtom);
         const handleEmailChange = (e4) => {
           setIsLoginFailed(false);
           setEmail(e4.target.value);
@@ -42214,6 +42216,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
               console.log("id", id);
               emit("SAVE_USER_LOGIN_DATA", token, email, rank, user, company, id);
               setToken(token);
+              setTokenAtomData(token);
               setUserRank(rank);
               setCurrentCompany(response.company);
               setCurrentUserName(response.name);
@@ -42300,9 +42303,11 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       init_preact_module();
       init_lib();
       init_hooks_module();
+      init_esm();
       init_TidyLogo();
       init_tabler_icons_react();
       init_authentication();
+      init_atoms();
       SignIn = ({
         setToken,
         setIsLoginFailed,
@@ -42322,6 +42327,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         const [repeatedPassword, setRepeatedPassword] = h2("");
         const [passwordVisible, setPasswordVisible] = h2(false);
         const [repeatedPasswordVisible, setRepeatedPasswordVisible] = h2(false);
+        const [, setTokenAtomData] = useAtom(tokenAtom);
         const [isEmailErrorVisible, setIsEmailErrorVisible] = h2(false);
         const [isPasswordErrorVisible, setIsPasswordErrorVisible] = h2(false);
         const [isRepeatedPasswordErrorVisible, setIsRepeatedPasswordErrorVisible] = h2(false);
@@ -42391,6 +42397,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
                 id
               );
               setToken(token);
+              setTokenAtomData(token);
               setIsSigninPageOpen(false);
               setIsSettingPageOpen(false);
             } else if (response.message === "User created") {
@@ -42509,6 +42516,96 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
+  // src/ui_components/ui_functions/collectionHandlers.ts
+  async function getCollections(token, userId) {
+    const headersList = {
+      Accept: "*/*",
+      Authorization: `Bearer ${token}`
+    };
+    const response = await fetch(
+      `https://api.tidyframework.com/api/collections/${userId}/user-collections`,
+      {
+        method: "GET",
+        headers: headersList
+      }
+    );
+    const data = await response.json();
+    return data;
+  }
+  async function getCollectionUsers(token, collectionId) {
+    const headersList = {
+      Accept: "*/*",
+      Authorization: `Bearer ${token}`
+    };
+    const response = await fetch(
+      `https://api.tidyframework.com/api/collections/${collectionId}/users`,
+      {
+        method: "GET",
+        headers: headersList
+      }
+    );
+    const data = await response.json();
+    return data;
+  }
+  var init_collectionHandlers = __esm({
+    "src/ui_components/ui_functions/collectionHandlers.ts"() {
+      "use strict";
+    }
+  });
+
+  // src/ui_components/manageUsersPage.tsx
+  function manageUsersPage() {
+    const [collections] = useAtom(collectionsAtom);
+    return /* @__PURE__ */ y("div", { style: { width: "100%" } }, /* @__PURE__ */ y("h1", null, "Manage users"), /* @__PURE__ */ y("br", null), /* @__PURE__ */ y("h3", null, "Collections:"), renderCollections(collections));
+  }
+  function renderUsers(users, collectionId) {
+    const [collectionUsers, setCollectionUsers] = h2([]);
+    const { token } = q2(BuilderContext_default) || {};
+    p2(() => {
+      async function fetchCollectionUsers() {
+        if (!token)
+          return null;
+        const data = await getCollectionUsers(token, collectionId);
+        setCollectionUsers(data);
+      }
+      fetchCollectionUsers();
+    }, [collectionId]);
+    return /* @__PURE__ */ y("div", null, /* @__PURE__ */ y("div", { style: { display: "flex", justifyContent: "space-between" } }, /* @__PURE__ */ y("p", { style: { color: "coral" } }, "User name"), /* @__PURE__ */ y("p", { style: { color: "coral" } }, "Email"), /* @__PURE__ */ y("p", { style: { color: "coral" } }, "Role"), /* @__PURE__ */ y(IconDotsVertical, { style: { color: "green" } })), collectionUsers && collectionUsers.length && collectionUsers.map((user) => {
+      return /* @__PURE__ */ y(
+        "div",
+        {
+          key: user._id,
+          style: { display: "flex", justifyContent: "space-between" }
+        },
+        /* @__PURE__ */ y("p", { style: { color: "green" } }, user.name),
+        /* @__PURE__ */ y("p", { style: { color: "green" } }, user.email),
+        /* @__PURE__ */ y("p", { style: { color: "green" } }, user.rank),
+        /* @__PURE__ */ y(IconDotsVertical, { style: { color: "green" } })
+      );
+    }));
+  }
+  function renderCollections(collections) {
+    return /* @__PURE__ */ y("div", null, collections.length && collections.map((collection) => {
+      return /* @__PURE__ */ y("div", { key: collection._id }, /* @__PURE__ */ y("h4", { style: { color: "blue" } }, collection.name), /* @__PURE__ */ y("h4", null, "Users:"), renderUsers(collection.users, collection._id));
+    }));
+  }
+  var manageUsersPage_default;
+  var init_manageUsersPage = __esm({
+    "src/ui_components/manageUsersPage.tsx"() {
+      "use strict";
+      init_preact_module();
+      init_tabler_icons_react();
+      init_esm();
+      init_atoms();
+      init_hooks_module();
+      init_collectionHandlers();
+      init_compat_module();
+      init_hooks_module();
+      init_BuilderContext();
+      manageUsersPage_default = manageUsersPage;
+    }
+  });
+
   // src/ui_components/SettingsPage.tsx
   var Settings, SettingsPage_default;
   var init_SettingsPage = __esm({
@@ -42518,32 +42615,20 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       init_hooks_module();
       init_BuilderContext();
       init_tabler_icons_react();
-      init_authentication();
+      init_manageUsersPage();
       Settings = () => {
-        const { setShowDeleteAccountPopup, token } = q2(BuilderContext_default) || {};
-        const [showUserList, setShowUserList] = h2(false);
-        const [listOfUsers, setListOfUsers] = h2([]);
-        async function getUsers(token2) {
-          const response = await getUsersFromMyCompany(token2);
-          if (response && response.length) {
-            setListOfUsers(response);
-          }
-          return response;
-        }
-        p2(() => {
-          if (token && showUserList) {
-            getUsers(token);
-          }
-        }, [showUserList]);
-        const userList = /* @__PURE__ */ y("div", { className: "userlist" }, !!listOfUsers.length && listOfUsers.map((user) => {
-          return /* @__PURE__ */ y("div", { key: user._id, className: "userlist-item" }, /* @__PURE__ */ y("p", { style: { padding: 0, margin: 0 } }, user.name, " - ", user.rank));
-        }));
+        const { setShowDeleteAccountPopup } = q2(BuilderContext_default) || {};
+        const [showSettingsContent, setShowSettingsContent] = h2(true);
+        const [showManageUsersPage, setShowManageUsersPage] = h2(false);
         const SettingsContent = /* @__PURE__ */ y("div", { className: "settings-wrapper" }, /* @__PURE__ */ y("div", { className: "settings-section-plus-userlist" }, /* @__PURE__ */ y("div", { className: "settings-section-flex" }, /* @__PURE__ */ y("div", { className: "settings-section-content" }, /* @__PURE__ */ y("div", { className: "title-flex" }, /* @__PURE__ */ y("h4", null, "Manage users"))), IconArrowRight, /* @__PURE__ */ y(
           "button",
           {
             id: "settings-primaty-button",
             className: "button primary",
-            onClick: () => setShowUserList(!showUserList)
+            onClick: () => {
+              setShowSettingsContent(false);
+              setShowManageUsersPage(true);
+            }
           },
           /* @__PURE__ */ y(
             "svg",
@@ -42562,7 +42647,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
               }
             )
           )
-        )), showUserList && userList), /* @__PURE__ */ y("div", { className: "delete-flex" }, /* @__PURE__ */ y("div", { className: "delete-content" }, /* @__PURE__ */ y("div", { className: "title-flex" }, /* @__PURE__ */ y(IconAlertCircleFilled, { className: "red-icon icon-16" }), /* @__PURE__ */ y("h4", null, "Delete Account")), /* @__PURE__ */ y("p", null, "Once you delete an account, there is no going back. ", /* @__PURE__ */ y("br", null), "Please be certain.")), /* @__PURE__ */ y(
+        ))), /* @__PURE__ */ y("div", { className: "delete-flex" }, /* @__PURE__ */ y("div", { className: "delete-content" }, /* @__PURE__ */ y("div", { className: "title-flex" }, /* @__PURE__ */ y(IconAlertCircleFilled, { className: "red-icon icon-16" }), /* @__PURE__ */ y("h4", null, "Delete Account")), /* @__PURE__ */ y("p", null, "Once you delete an account, there is no going back. ", /* @__PURE__ */ y("br", null), "Please be certain.")), /* @__PURE__ */ y(
           "button",
           {
             id: "delete-button",
@@ -42571,7 +42656,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           },
           "Delete this account"
         )));
-        return SettingsContent;
+        return /* @__PURE__ */ y("div", { style: { width: "100%" } }, showSettingsContent && SettingsContent, showManageUsersPage && manageUsersPage_default());
       };
       SettingsPage_default = Settings;
     }
@@ -42601,31 +42686,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // src/ui_components/ui_functions/collectionHandlers.ts
-  async function getCollections(token, userId) {
-    const headersList = {
-      Accept: "*/*",
-      Authorization: `Bearer ${token}`
-    };
-    const response = await fetch(
-      `https://api.tidyframework.com/api/collections/${userId}/user-collections`,
-      {
-        method: "GET",
-        headers: headersList
-      }
-    );
-    const data = await response.json();
-    return data;
-  }
-  var init_collectionHandlers = __esm({
-    "src/ui_components/ui_functions/collectionHandlers.ts"() {
-      "use strict";
-    }
-  });
-
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b34c9e78-d282-4f22-bba8-45422fdb95b2/styles.js
+  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/3d6556e0-ba03-44ee-b1d3-c2c9096422e8/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/b34c9e78-d282-4f22-bba8-45422fdb95b2/styles.js"() {
+    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/3d6556e0-ba03-44ee-b1d3-c2c9096422e8/styles.js"() {
       if (document.getElementById("253dc8d3fb") === null) {
         const element = document.createElement("style");
         element.id = "253dc8d3fb";
