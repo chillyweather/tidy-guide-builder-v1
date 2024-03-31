@@ -269,6 +269,8 @@ const Header = ({
                         "input"
                       )[0].value
                     );
+                    // @ts-ignore
+                    window.getSelection().anchorNode.parentElement.scrollIntoView()
                   }}
                 >
                   <input
