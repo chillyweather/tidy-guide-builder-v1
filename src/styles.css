@@ -1447,7 +1447,13 @@ body:has(.manage-users) .header .mode-button {
 }
 
 .user-card p {
-  width: 32.5%;
+  width: 48.75%;
+}
+.user-card p:first-of-type {
+  width: 28.75%;
+}
+.user-card p:last-of-type{
+  width: 12%;
 }
 
 .user-tag {
