@@ -107,7 +107,7 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
             }}
           >
             <IconTrash />
-            Delete
+            Remove
           </div>
         </div>
       </details>

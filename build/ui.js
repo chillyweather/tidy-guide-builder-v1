@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/17c55eb9-8a08-41cb-b5de-e019926f332d/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/cfd299a5-cc98-4132-b916-de5d82a68eb8/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/17c55eb9-8a08-41cb-b5de-e019926f332d/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/cfd299a5-cc98-4132-b916-de5d82a68eb8/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/353529f8-3999-459b-9e4e-dd1b5946edd1/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/aa79d0d4-c124-48d7-8f5d-3385c59ffca8/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/353529f8-3999-459b-9e4e-dd1b5946edd1/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/aa79d0d4-c124-48d7-8f5d-3385c59ffca8/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/15ab595f-011e-4c44-9c31-93568ad3867b/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/608d17e1-d2fe-4f63-a5b0-834d2e06b4d0/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/15ab595f-011e-4c44-9c31-93568ad3867b/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/608d17e1-d2fe-4f63-a5b0-834d2e06b4d0/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a3e3c069-4bca-4674-949a-8d560870a003/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0cd67405-5fca-4cc9-a424-d7c6cec7b5f7/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/a3e3c069-4bca-4674-949a-8d560870a003/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0cd67405-5fca-4cc9-a424-d7c6cec7b5f7/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/526cdc3d-09de-45ed-bdb2-43b17506d386/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7ffa309c-8912-4276-984d-a9130c92413b/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/526cdc3d-09de-45ed-bdb2-43b17506d386/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/7ffa309c-8912-4276-984d-a9130c92413b/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/55b438d4-e2d6-4ffb-9b3a-cb003ed5fba8/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6c39d5c2-0c4f-4219-be4c-d55d6dca7a78/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/55b438d4-e2d6-4ffb-9b3a-cb003ed5fba8/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6c39d5c2-0c4f-4219-be4c-d55d6dca7a78/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6c861c0c-41a9-4027-8893-10dac099726f/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/1f41413f-8bda-4b8e-ab5c-494fee651be0/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/6c861c0c-41a9-4027-8893-10dac099726f/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/1f41413f-8bda-4b8e-ab5c-494fee651be0/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/47b67375-ee76-4ecc-bfac-423f3b00c7bd/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0e7f9a70-8885-4c39-ae9f-4d41b36c6eb1/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/47b67375-ee76-4ecc-bfac-423f3b00c7bd/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/0e7f9a70-8885-4c39-ae9f-4d41b36c6eb1/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/dd685c4b-b57b-465e-9d90-d6eb32f6094e/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/01495729-423e-4b07-b240-62a7a5744434/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/dd685c4b-b57b-465e-9d90-d6eb32f6094e/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/01495729-423e-4b07-b240-62a7a5744434/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -42667,7 +42667,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
           }
         },
         /* @__PURE__ */ y(IconTrash, null),
-        "Delete"
+        "Remove"
       )))
     );
   }
@@ -42788,9 +42788,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e11ee8eb-22eb-4d33-a222-6f7a3b20180c/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/de012933-e354-4183-be4e-66f92eae2063/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e11ee8eb-22eb-4d33-a222-6f7a3b20180c/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/de012933-e354-4183-be4e-66f92eae2063/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";
@@ -44278,6 +44278,10 @@ body:has(.manage-users) .header .mode-button {
   min-width: 140px;
 }
 
+.user-card .user-menu .user-item {
+  height: fit-content;
+}
+
 .user-tag {
   height: 32px;
   width: 32px;
@@ -44396,11 +44400,11 @@ body:has(.manage-users) .header .mode-button {
 }
 
 .user-item:hover {
-  background-color: #F0F1FA;
+  background-color: var(--tidy-ec);
 }
 
 .user-item:active {
-  background-color: #E8EAFA
+  background-color: var(--tidy-ec);
 }
 
 .container:has(.login) {
@@ -46991,6 +46995,10 @@ input[type="checkbox"] {
 .viewer-data-wrapper .section {
   width: calc(100% - 64px);
   margin: 0 32px;
+}
+
+body:has(.mode-button.viewer) {
+  --tidy-ec: #D7EE95;
 }
 
 body:has(.viewer-data-wrapper) .container {
