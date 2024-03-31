@@ -147,6 +147,7 @@ declare const styles: {
   readonly "loginFlex": string;
   readonly "loginNew": string;
   readonly "mainContent": string;
+  readonly "manage-users": string;
   readonly "menuDiv": string;
   readonly "modal-bg": string;
   readonly "mode-button": string;

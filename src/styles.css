@@ -1336,7 +1336,8 @@ body .header-login {
   gap: 4px;
 }
 
-.dropdown-comp .dropdown-toggle:hover::after, .dropdown-comp .dropdown-toggle:focus::after {
+.dropdown-comp .dropdown-toggle:hover::after,
+.dropdown-comp .dropdown-toggle:focus::after {
   content: '';
   height: 12px;
   width: 12px;
@@ -1346,7 +1347,8 @@ body .header-login {
   transform: translateY(1px);
 }
 
-.dropdown-comp .dropdown-toggle:hover, .dropdown-comp .dropdown-toggle:focus {
+.dropdown-comp .dropdown-toggle:hover,
+.dropdown-comp .dropdown-toggle:focus {
   background-color: #ffffff;
   border: 1px solid #E3E3E3;
 }
@@ -1389,6 +1391,15 @@ body .header-login {
   gap: 0;
   position: relative;
   flex-grow: 1;
+}
+
+.manage-users {
+  width: calc(100% - 48px);
+  margin: 0 24px;
+}
+
+body:has(.manage-users) .header .mode-button {
+  display: none;
 }
 
 .user-name,
@@ -4132,7 +4143,7 @@ body:has(.viewer-data-wrapper) .container {
   visibility: hidden;
 }
 
-.header:has(#search-input:focus) .user-menu{
+.header:has(#search-input:focus) .user-menu {
   visibility: hidden;
 }
 
