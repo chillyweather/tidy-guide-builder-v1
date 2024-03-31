@@ -94,8 +94,11 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
             <IconDotsVertical style={{ color: "green" }} />
           </button>
         </summary>
-        <div className="user-menu" style={{ top: "20px" }}>
-          <div className="user-item">Edit</div>
+        <div className="user-menu">
+          <div className="user-item">
+            <IconPencil />
+            Edit
+            </div>
           <div
             className="user-item"
             onClick={async () => {
@@ -103,6 +106,7 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
               setTrigger((prevTrigger: number) => prevTrigger + 1);
             }}
           >
+            <IconTrash />
             Delete
           </div>
         </div>

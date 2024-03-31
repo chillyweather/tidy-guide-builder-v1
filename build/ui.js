@@ -938,10 +938,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c3b60cd0-a30d-41c1-827d-ae899fa0e789/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b751cc74-78b2-45e5-a849-032ca09eb81c/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c3b60cd0-a30d-41c1-827d-ae899fa0e789/loading-indicator.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b751cc74-78b2-45e5-a849-032ca09eb81c/loading-indicator.module.js"() {
       if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
         element.id = "f379e310bb";
@@ -1002,10 +1002,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3ad21c3f-a9bf-4797-9919-bf0568590229/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/fbbdea38-a5b3-4630-ab36-3a5cf2717269/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3ad21c3f-a9bf-4797-9919-bf0568590229/button.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/fbbdea38-a5b3-4630-ab36-3a5cf2717269/button.module.js"() {
       if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
         element.id = "0b00ee62f7";
@@ -1191,10 +1191,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/685ea689-67db-40d2-84e7-732a470dc53e/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4037c7b1-9c93-4dc4-8e0f-07b818e4f6c2/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/685ea689-67db-40d2-84e7-732a470dc53e/icon.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4037c7b1-9c93-4dc4-8e0f-07b818e4f6c2/icon.module.js"() {
       if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
         element.id = "ef2bb38c9f";
@@ -1240,10 +1240,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5990c00e-98a8-4e3d-b213-c53ac6a485f0/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e2416967-61e5-4501-b564-c9beeb6b7cb9/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5990c00e-98a8-4e3d-b213-c53ac6a485f0/checkbox.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/e2416967-61e5-4501-b564-c9beeb6b7cb9/checkbox.module.js"() {
       if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
         element.id = "65cf93ba2b";
@@ -1375,10 +1375,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f4754a0-0ff7-409a-b306-8265e9079d29/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b51ce371-a4be-4cc7-9868-b1556ac626b2/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/5f4754a0-0ff7-409a-b306-8265e9079d29/text.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b51ce371-a4be-4cc7-9868-b1556ac626b2/text.module.js"() {
       if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
         element.id = "e9235104af";
@@ -1506,10 +1506,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4f1aad0f-97ff-43b0-9929-3a4ebc416812/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/213b3f88-163b-4112-b7a6-4bcb176c7580/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4f1aad0f-97ff-43b0-9929-3a4ebc416812/toggle.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/213b3f88-163b-4112-b7a6-4bcb176c7580/toggle.module.js"() {
       if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
         element.id = "d39ff17db6";
@@ -1637,10 +1637,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/58dcb53a-f896-42ee-a997-8b8c5d17a1bb/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/48ba0908-8979-4fd8-950f-6c21a1e802fc/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/58dcb53a-f896-42ee-a997-8b8c5d17a1bb/muted.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/48ba0908-8979-4fd8-950f-6c21a1e802fc/muted.module.js"() {
       if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
         element.id = "821992c32d";
@@ -1669,10 +1669,10 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/130e1ef9-9ee4-42b1-90fb-f058637ce549/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4d3d5a5c-2126-4fb6-aebf-b0d4845192da/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/130e1ef9-9ee4-42b1-90fb-f058637ce549/vertical-space.module.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/4d3d5a5c-2126-4fb6-aebf-b0d4845192da/vertical-space.module.js"() {
       if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
         element.id = "3d29a79310";
@@ -1713,9 +1713,9 @@
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f7c7065f-0e3a-4826-8184-0d40ea9cfd53/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/cf67b99b-936e-480a-9fca-9ce1982f4835/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f7c7065f-0e3a-4826-8184-0d40ea9cfd53/base.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/cf67b99b-936e-480a-9fca-9ce1982f4835/base.js"() {
       if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
         element.id = "6b1ba28a88";
@@ -42582,6 +42582,27 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     const data = await response.json();
     return data;
   }
+  async function deleteCollectionUser(token, collectionId, email) {
+    const headersList = {
+      Accept: "*/*",
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json"
+    };
+    const bodyContent = JSON.stringify({
+      email,
+      collectionId
+    });
+    const response = await fetch(
+      `https://api.tidyframework.com/api/collections/${collectionId}/users`,
+      {
+        method: "DELETE",
+        body: bodyContent,
+        headers: headersList
+      }
+    );
+    const data = await response.json();
+    return data;
+  }
   var init_collectionHandlers = __esm({
     "src/ui_components/ui_functions/collectionHandlers.ts"() {
       "use strict";
@@ -42596,6 +42617,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
   function renderUsers(collectionId) {
     const [collectionUsers, setCollectionUsers] = h2([]);
     const [showAddUserForm, setShowAddUserForm] = h2(false);
+    const [trigger, setTrigger] = h2(0);
     const { token } = q2(BuilderContext_default) || {};
     p2(() => {
       async function fetchCollectionUsers() {
@@ -42605,7 +42627,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         setCollectionUsers(data);
       }
       fetchCollectionUsers();
-    }, [collectionId]);
+    }, [collectionId, trigger]);
     return /* @__PURE__ */ y("div", null, /* @__PURE__ */ y(
       Button,
       {
@@ -42618,11 +42640,14 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         disabled: showAddUserForm
       },
       "Add user"
-    ), /* @__PURE__ */ y("div", { className: "user-card title" }, /* @__PURE__ */ y("p", { style: { color: "coral" } }, "User name"), /* @__PURE__ */ y("p", { style: { color: "coral" } }, "Email"), /* @__PURE__ */ y("p", { style: { color: "coral" } }, "Role")), showAddUserForm && /* @__PURE__ */ y("div", { className: "add-user-form-wrapper" }, /* @__PURE__ */ y(AddUserForm, { collectionId }), /* @__PURE__ */ y("button", { onClick: () => setShowAddUserForm(false) }, /* @__PURE__ */ y(IconX, null))), collectionUsers && collectionUsers.length && collectionUsers.map((user) => {
-      return generateUserCard(user);
+    ), /* @__PURE__ */ y("div", { className: "user-card title" }, /* @__PURE__ */ y("p", { style: { color: "coral" } }, "User name"), /* @__PURE__ */ y("p", { style: { color: "coral" } }, "Email"), /* @__PURE__ */ y("p", { style: { color: "coral" } }, "Role")), showAddUserForm && /* @__PURE__ */ y("div", { className: "add-user-form-wrapper" }, /* @__PURE__ */ y(AddUserForm, { collectionId, setTrigger }), /* @__PURE__ */ y("button", { onClick: () => setShowAddUserForm(false) }, /* @__PURE__ */ y(IconX, null))), collectionUsers && collectionUsers.length && collectionUsers.map((user) => {
+      return generateUserCard(user, collectionId, setTrigger);
     }));
   }
-  function generateUserCard(user) {
+  function generateUserCard(user, collectionId, setTrigger) {
+    const { token } = q2(BuilderContext_default) || {};
+    if (!token)
+      return null;
     return /* @__PURE__ */ y(
       "div",
       {
@@ -42632,7 +42657,18 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       /* @__PURE__ */ y("p", { style: { color: "green" } }, user.name),
       /* @__PURE__ */ y("p", { style: { color: "green" } }, user.email),
       /* @__PURE__ */ y("p", { style: { color: "green" } }, /* @__PURE__ */ y("div", { className: "tag " + user.rank })),
-      /* @__PURE__ */ y("details", null, /* @__PURE__ */ y("summary", null, /* @__PURE__ */ y("button", { onClick: () => console.log("deletion!!!") }, /* @__PURE__ */ y(IconDotsVertical, { style: { color: "green" } }))), /* @__PURE__ */ y("div", { className: "user-menu", style: { top: "20px", minWidth: "140px" } }, /* @__PURE__ */ y("div", { className: "user-item" }, /* @__PURE__ */ y(IconPencil, null), "Edit"), /* @__PURE__ */ y("div", { className: "user-item" }, /* @__PURE__ */ y(IconTrash, null), "Delete")))
+      /* @__PURE__ */ y("details", null, /* @__PURE__ */ y("summary", null, /* @__PURE__ */ y("button", null, /* @__PURE__ */ y(IconDotsVertical, { style: { color: "green" } }))), /* @__PURE__ */ y("div", { className: "user-menu" }, /* @__PURE__ */ y("div", { className: "user-item" }, /* @__PURE__ */ y(IconPencil, null), "Edit"), /* @__PURE__ */ y(
+        "div",
+        {
+          className: "user-item",
+          onClick: async () => {
+            await deleteCollectionUser(token, collectionId, user.email);
+            setTrigger((prevTrigger) => prevTrigger + 1);
+          }
+        },
+        /* @__PURE__ */ y(IconTrash, null),
+        "Delete"
+      )))
     );
   }
   function renderCollections(collections) {
@@ -42640,7 +42676,10 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       return /* @__PURE__ */ y("div", { key: collection._id }, /* @__PURE__ */ y("h4", { style: { color: "blue" } }, collection.name), /* @__PURE__ */ y("h4", null, "Users:"), renderUsers(collection._id));
     }));
   }
-  function AddUserForm({ collectionId }) {
+  function AddUserForm({
+    collectionId,
+    setTrigger
+  }) {
     const [email, setEmail] = h2("");
     const [role, setRole] = h2("Viewer");
     const { token } = q2(BuilderContext_default) || {};
@@ -42648,9 +42687,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       return null;
     const handleSubmit = async (e4) => {
       e4.preventDefault();
-      console.log(email, role, collectionId);
-      const user = await addCollectionUser(token, collectionId, email, role);
-      console.log("user", user);
+      await addCollectionUser(token, collectionId, email, role);
+      setTrigger((prevTrigger) => prevTrigger + 1);
     };
     return /* @__PURE__ */ y("form", { onSubmit: handleSubmit, className: "add-user-form" }, /* @__PURE__ */ y(
       "input",
@@ -42678,9 +42716,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       init_tabler_icons_react();
       init_esm();
       init_atoms();
-      init_hooks_module();
       init_collectionHandlers();
-      init_compat_module();
       init_hooks_module();
       init_BuilderContext();
       init_lib2();
@@ -42752,9 +42788,9 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/df52dd9a-f275-45aa-a3c2-b803c2834582/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/97516ff6-ccd6-42de-a4d8-e8c79ebcecf3/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/df52dd9a-f275-45aa-a3c2-b803c2834582/styles.js"() {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/97516ff6-ccd6-42de-a4d8-e8c79ebcecf3/styles.js"() {
       if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
         element.id = "e158669e2d";
@@ -42944,7 +42980,8 @@ body:has(.login) {
   align-items: center;
   gap: 20px;
 }
-.settings-wrapper h4{
+
+.settings-wrapper h4 {
   font-weight: 400;
 }
 
@@ -44234,6 +44271,11 @@ body:has(.manage-users) .header .mode-button {
 
 .user-card p:last-of-type {
   width: 12%;
+}
+
+.user-card .user-menu {
+  top: 20px;
+  min-width: 140px;
 }
 
 .user-tag {
