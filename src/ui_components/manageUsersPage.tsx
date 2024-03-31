@@ -84,7 +84,11 @@ function generateUserCard(user: any): h.JSX.Element {
       <p style={{ color: "green" }}>{user.name}</p>
       <p style={{ color: "green" }}>{user.email}</p>
       <p style={{ color: "green" }}>{user.rank}</p>
-      <button onClick={() => console.log("deletion!!!")}>
+      <button
+        onClick={() => {
+          console.log("deletion!!!");
+        }}
+      >
         <IconDotsVertical style={{ color: "green" }} />
       </button>
     </div>
