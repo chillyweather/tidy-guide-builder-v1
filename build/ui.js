@@ -938,13 +938,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/0fcc5c9c-33c5-4e06-aebe-7f5c9334b689/loading-indicator.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d82adc45-b782-4f15-8b47-d5cda3aa7a06/loading-indicator.module.js
   var loading_indicator_module_default;
   var init_loading_indicator_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/0fcc5c9c-33c5-4e06-aebe-7f5c9334b689/loading-indicator.module.js"() {
-      if (document.getElementById("3e397802b5") === null) {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/d82adc45-b782-4f15-8b47-d5cda3aa7a06/loading-indicator.module.js"() {
+      if (document.getElementById("f379e310bb") === null) {
         const element = document.createElement("style");
-        element.id = "3e397802b5";
+        element.id = "f379e310bb";
         element.textContent = `._loadingIndicator_pl5c3_1 {
   position: relative;
   width: 16px;
@@ -1002,13 +1002,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/bcec47d1-8aa4-4bc7-8809-c425bf310f5d/button.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f6f4a9a6-16aa-43f3-9f28-a8017e16a541/button.module.js
   var button_module_default;
   var init_button_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/bcec47d1-8aa4-4bc7-8809-c425bf310f5d/button.module.js"() {
-      if (document.getElementById("69a3373509") === null) {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/f6f4a9a6-16aa-43f3-9f28-a8017e16a541/button.module.js"() {
+      if (document.getElementById("0b00ee62f7") === null) {
         const element = document.createElement("style");
-        element.id = "69a3373509";
+        element.id = "0b00ee62f7";
         element.textContent = `._button_5fxgc_1 {
   position: relative;
   z-index: var(--z-index-1);
@@ -1191,13 +1191,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/f085150a-8e56-487f-9d39-ecac5c0d2415/icon.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c0f6b048-7636-42dc-9ee6-fc4a747b5ef2/icon.module.js
   var icon_module_default;
   var init_icon_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/f085150a-8e56-487f-9d39-ecac5c0d2415/icon.module.js"() {
-      if (document.getElementById("18637aef19") === null) {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/c0f6b048-7636-42dc-9ee6-fc4a747b5ef2/icon.module.js"() {
+      if (document.getElementById("ef2bb38c9f") === null) {
         const element = document.createElement("style");
-        element.id = "18637aef19";
+        element.id = "ef2bb38c9f";
         element.textContent = `._icon_13804_1 {
   fill: currentColor;
 }
@@ -1240,13 +1240,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ad762989-8cfe-4652-bea4-75031fd3bcfb/checkbox.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/dcea7740-a109-45ce-afb6-06fc3fccd0ff/checkbox.module.js
   var checkbox_module_default;
   var init_checkbox_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ad762989-8cfe-4652-bea4-75031fd3bcfb/checkbox.module.js"() {
-      if (document.getElementById("2c37f632f9") === null) {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/dcea7740-a109-45ce-afb6-06fc3fccd0ff/checkbox.module.js"() {
+      if (document.getElementById("65cf93ba2b") === null) {
         const element = document.createElement("style");
-        element.id = "2c37f632f9";
+        element.id = "65cf93ba2b";
         element.textContent = `._checkbox_1a43f_1 {
   position: relative;
   z-index: var(--z-index-1);
@@ -1375,13 +1375,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/bf38cb74-da05-429e-a91e-93cdb2bc0a8e/text.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/acf9bf19-c481-4aab-bc3a-26a0226529af/text.module.js
   var text_module_default;
   var init_text_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/bf38cb74-da05-429e-a91e-93cdb2bc0a8e/text.module.js"() {
-      if (document.getElementById("e0e146fd65") === null) {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/acf9bf19-c481-4aab-bc3a-26a0226529af/text.module.js"() {
+      if (document.getElementById("e9235104af") === null) {
         const element = document.createElement("style");
-        element.id = "e0e146fd65";
+        element.id = "e9235104af";
         element.textContent = `._text_mh6mm_1 {
   padding-top: 1px;
   color: var(--figma-color-text);
@@ -1506,13 +1506,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/eb483763-b3ba-4532-a695-16e60935fcd6/toggle.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/1b2c0e38-18ee-4916-bef4-e7858f6c9c6a/toggle.module.js
   var toggle_module_default;
   var init_toggle_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/eb483763-b3ba-4532-a695-16e60935fcd6/toggle.module.js"() {
-      if (document.getElementById("9a689b18ab") === null) {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/1b2c0e38-18ee-4916-bef4-e7858f6c9c6a/toggle.module.js"() {
+      if (document.getElementById("d39ff17db6") === null) {
         const element = document.createElement("style");
-        element.id = "9a689b18ab";
+        element.id = "d39ff17db6";
         element.textContent = `._toggle_1rqu7_1 {
   position: relative;
   z-index: var(--z-index-1);
@@ -1637,13 +1637,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/2f155ce6-3318-4e31-a1b0-9ba0e1e3dcb3/muted.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/bf779d14-3b80-4118-b556-2165035c3274/muted.module.js
   var muted_module_default;
   var init_muted_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/2f155ce6-3318-4e31-a1b0-9ba0e1e3dcb3/muted.module.js"() {
-      if (document.getElementById("98b936ec72") === null) {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/bf779d14-3b80-4118-b556-2165035c3274/muted.module.js"() {
+      if (document.getElementById("821992c32d") === null) {
         const element = document.createElement("style");
-        element.id = "98b936ec72";
+        element.id = "821992c32d";
         element.textContent = `._muted_139yx_1 {
   color: var(--figma-color-text-secondary);
 }
@@ -1669,13 +1669,13 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/79124ff9-487c-4c88-b456-370723660bc3/vertical-space.module.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b9adc75d-c18e-48fd-b963-99f0d5bd860d/vertical-space.module.js
   var vertical_space_module_default;
   var init_vertical_space_module = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/79124ff9-487c-4c88-b456-370723660bc3/vertical-space.module.js"() {
-      if (document.getElementById("e9edd34f04") === null) {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/b9adc75d-c18e-48fd-b963-99f0d5bd860d/vertical-space.module.js"() {
+      if (document.getElementById("3d29a79310") === null) {
         const element = document.createElement("style");
-        element.id = "e9edd34f04";
+        element.id = "3d29a79310";
         element.textContent = `._extraSmall_zc4n0_1 {
   height: var(--space-extra-small);
 }
@@ -1713,12 +1713,12 @@
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/4a3c1900-c358-4686-bbf7-3b0690a88980/base.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3da94ba8-57a8-4cda-ab76-36c28d5457e6/base.js
   var init_base = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/4a3c1900-c358-4686-bbf7-3b0690a88980/base.js"() {
-      if (document.getElementById("1b7643485e") === null) {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/3da94ba8-57a8-4cda-ab76-36c28d5457e6/base.js"() {
+      if (document.getElementById("6b1ba28a88") === null) {
         const element = document.createElement("style");
-        element.id = "1b7643485e";
+        element.id = "6b1ba28a88";
         element.innerHTML = `:root {
   --border-radius-2: 2px;
   --border-radius-6: 6px;
@@ -34976,8 +34976,8 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       "use strict";
       envConfig = {
         YOUTUBE_API: "AIzaSyDtioq9o0xsvN0UeJ696CU-zkoR89od4CU",
-        DO_SECRET: "9nOyUtoMlcceB4DyP7klzLsv6uqD0Tz9Ph7tyDebucg",
-        VITE_CLERK_PUBLISHABLE_KEY: "pk_test_c2luZ3VsYXItcHJpbWF0ZS0xMy5jbGVyay5hY2NvdW50cy5kZXYk"
+        GH_TOKEN: "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",
+        DO_SECRET: "9nOyUtoMlcceB4DyP7klzLsv6uqD0Tz9Ph7tyDebucg"
       };
       envConfig_default = envConfig;
     }
@@ -42606,7 +42606,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
         disabled: showAddUserForm
       },
       "Add user"
-    ), /* @__PURE__ */ y("div", { style: { display: "flex", justifyContent: "space-between" } }, /* @__PURE__ */ y("p", { style: { color: "coral" } }, "User name"), /* @__PURE__ */ y("p", { style: { color: "coral" } }, "Email"), /* @__PURE__ */ y("p", { style: { color: "coral" } }, "Role")), showAddUserForm && /* @__PURE__ */ y("div", { className: "add-user-form-wrapper" }, /* @__PURE__ */ y(AddUserForm, { collectionId }), /* @__PURE__ */ y("button", { onClick: () => setShowAddUserForm(false) }, /* @__PURE__ */ y(IconX, null))), collectionUsers && collectionUsers.length && collectionUsers.map((user) => {
+    ), /* @__PURE__ */ y("div", { className: "user-card title" }, /* @__PURE__ */ y("p", { style: { color: "coral" } }, "User name"), /* @__PURE__ */ y("p", { style: { color: "coral" } }, "Email"), /* @__PURE__ */ y("p", { style: { color: "coral" } }, "Role")), showAddUserForm && /* @__PURE__ */ y("div", { className: "add-user-form-wrapper" }, /* @__PURE__ */ y(AddUserForm, { collectionId }), /* @__PURE__ */ y("button", { onClick: () => setShowAddUserForm(false) }, /* @__PURE__ */ y(IconX, null))), collectionUsers && collectionUsers.length && collectionUsers.map((user) => {
       return generateUserCard(user);
     }));
   }
@@ -42615,7 +42615,7 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
       "div",
       {
         key: user._id,
-        style: { display: "flex", justifyContent: "space-between" }
+        className: "user-card"
       },
       /* @__PURE__ */ y("p", { style: { color: "green" } }, user.name),
       /* @__PURE__ */ y("p", { style: { color: "green" } }, user.email),
@@ -42756,12 +42756,12 @@ For more information please go to https://github.com/aws/aws-sdk-js-v3#functiona
     }
   });
 
-  // ../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ffd4b3c2-f274-4bae-939a-69861e239a04/styles.js
+  // ../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2ef749b2-a000-4d47-87ab-edf70299bc0e/styles.js
   var init_styles = __esm({
-    "../../../../../private/var/folders/kw/tj4hxwcs2ln359nlmrjrq68r0000gn/T/ffd4b3c2-f274-4bae-939a-69861e239a04/styles.js"() {
-      if (document.getElementById("253dc8d3fb") === null) {
+    "../../../../../private/var/folders/g2/k73964wx4zd_83qzjd_4950w0000gn/T/2ef749b2-a000-4d47-87ab-edf70299bc0e/styles.js"() {
+      if (document.getElementById("e158669e2d") === null) {
         const element = document.createElement("style");
-        element.id = "253dc8d3fb";
+        element.id = "e158669e2d";
         element.innerHTML = `@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=block");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=block");
 
@@ -44183,7 +44183,7 @@ body:has(.manage-users) .header .mode-button {
   display: none;
 }
 
-.manage-users button div{
+.manage-users button div {
   pointer-events: none;
 }
 
@@ -44202,6 +44202,15 @@ body:has(.manage-users) .header .mode-button {
 
 .user-mail {
   font-size: calc(var(--text-size) - (var(--text-size) / 6))
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.user-card p{
+  width: 32.5%;
 }
 
 .user-tag {
