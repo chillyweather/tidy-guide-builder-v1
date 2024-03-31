@@ -193,6 +193,23 @@ body:has(.login) {
   width: 100%;
 }
 
+/* user management */
+.add-user-form {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+}
+
+.add-user-form-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+}
+
+/* end user management */
+
 .userlist {
   display: flex;
   flex-direction: column;
@@ -1336,7 +1353,8 @@ body .header-login {
   gap: 4px;
 }
 
-.dropdown-comp .dropdown-toggle:hover::after, .dropdown-comp .dropdown-toggle:focus::after {
+.dropdown-comp .dropdown-toggle:hover::after,
+.dropdown-comp .dropdown-toggle:focus::after {
   content: '';
   height: 12px;
   width: 12px;
@@ -1346,7 +1364,8 @@ body .header-login {
   transform: translateY(1px);
 }
 
-.dropdown-comp .dropdown-toggle:hover, .dropdown-comp .dropdown-toggle:focus {
+.dropdown-comp .dropdown-toggle:hover,
+.dropdown-comp .dropdown-toggle:focus {
   background-color: #ffffff;
   border: 1px solid #E3E3E3;
 }
@@ -4132,7 +4151,7 @@ body:has(.viewer-data-wrapper) .container {
   visibility: hidden;
 }
 
-.header:has(#search-input:focus) .user-menu{
+.header:has(#search-input:focus) .user-menu {
   visibility: hidden;
 }
 
