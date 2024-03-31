@@ -133,7 +133,7 @@ function AddUserForm({ collectionId }: { collectionId: string }): any {
         <option value="Editor">Editor</option>
       </select>
 
-      <button type="submit">Add</button>
+      <Button type="submit">Add</Button>
     </form>
   );
 }
