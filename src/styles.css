@@ -1511,6 +1511,7 @@ body:has(.manage-users) .header .mode-button {
   gap: 6px;
   color: var(--tidy-32);
   background-color: #ffffff;
+  border: 1px solid #EFEFEF;
   padding: 8px;
   border-radius: 6px;
   min-width: 240px;

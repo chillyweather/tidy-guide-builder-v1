@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { IconDotsVertical, IconX } from "@tabler/icons-react";
+import { IconDotsVertical, IconX, IconPencil, IconTrash } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import { collectionsAtom } from "src/state/atoms";
 import { useState } from "preact/hooks";
@@ -90,9 +90,15 @@ function generateUserCard(user: any): h.JSX.Element {
             <IconDotsVertical style={{ color: "green" }} />
           </button>
         </summary>
-        <div className="user-menu" style={{ top: "20px" }}>
-          <div className="user-item">Edit</div>
-          <div className="user-item">Delete</div>
+        <div className="user-menu" style={{ top: "20px", minWidth: "140px" }}>
+          <div className="user-item">
+            <IconPencil />
+            Edit
+          </div>
+          <div className="user-item">
+            <IconTrash />
+            Delete
+          </div>
         </div>
       </details>
     </div>
