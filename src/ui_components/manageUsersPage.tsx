@@ -3,13 +3,12 @@ import { h } from "preact";
 import { IconDotsVertical, IconX, IconPencil, IconTrash } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import { collectionsAtom } from "src/state/atoms";
-import { useState } from "preact/hooks";
 import {
   getCollectionUsers,
   addCollectionUser,
+  deleteCollectionUser,
 } from "src/ui_components/ui_functions/collectionHandlers";
-import { useEffect } from "react";
-import { useContext } from "preact/hooks";
+import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
 import { Button } from "@create-figma-plugin/ui";
 
@@ -30,8 +29,10 @@ export default manageUsersPage;
 function renderUsers(collectionId: string) {
   const [collectionUsers, setCollectionUsers] = useState([]);
   const [showAddUserForm, setShowAddUserForm] = useState(false);
+  const [trigger, setTrigger] = useState(0);
 
   const { token } = useContext(BuilderContext) || {};
+
   useEffect(() => {
     async function fetchCollectionUsers() {
       if (!token) return null;
@@ -39,7 +40,8 @@ function renderUsers(collectionId: string) {
       setCollectionUsers(data);
     }
     fetchCollectionUsers();
-  }, [collectionId]);
+  }, [collectionId, trigger]);
+
   return (
     <div>
       <Button
@@ -60,7 +62,7 @@ function renderUsers(collectionId: string) {
       </div>
       {showAddUserForm && (
         <div className={"add-user-form-wrapper"}>
-          <AddUserForm collectionId={collectionId} />
+          <AddUserForm collectionId={collectionId} setTrigger={setTrigger} />
           <button onClick={() => setShowAddUserForm(false)}>
             <IconX />
           </button>
@@ -69,13 +71,15 @@ function renderUsers(collectionId: string) {
       {collectionUsers &&
         collectionUsers.length &&
         collectionUsers.map((user: any) => {
-          return generateUserCard(user);
+          return generateUserCard(user, collectionId, setTrigger);
         })}
     </div>
   );
 }
 
-function generateUserCard(user: any): h.JSX.Element {
+function generateUserCard(user: any, collectionId: string, setTrigger: any) {
+  const { token } = useContext(BuilderContext) || {};
+  if (!token) return null;
   return (
     <div
       key={user._id}
@@ -86,17 +90,19 @@ function generateUserCard(user: any): h.JSX.Element {
       <p style={{ color: "green" }}><div className={"tag " + user.rank}></div></p>
       <details>
         <summary>
-          <button onClick={() => console.log("deletion!!!")}>
+          <button>
             <IconDotsVertical style={{ color: "green" }} />
           </button>
         </summary>
-        <div className="user-menu" style={{ top: "20px", minWidth: "140px" }}>
-          <div className="user-item">
-            <IconPencil />
-            Edit
-          </div>
-          <div className="user-item">
-            <IconTrash />
+        <div className="user-menu" style={{ top: "20px" }}>
+          <div className="user-item">Edit</div>
+          <div
+            className="user-item"
+            onClick={async () => {
+              await deleteCollectionUser(token, collectionId, user.email);
+              setTrigger((prevTrigger: number) => prevTrigger + 1);
+            }}
+          >
             Delete
           </div>
         </div>
@@ -122,7 +128,13 @@ function renderCollections(collections: never[]) {
   );
 }
 
-function AddUserForm({ collectionId }: { collectionId: string }): any {
+function AddUserForm({
+  collectionId,
+  setTrigger,
+}: {
+  collectionId: string;
+  setTrigger: any;
+}): any {
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("Viewer");
   const { token } = useContext(BuilderContext) || {};
@@ -130,9 +142,8 @@ function AddUserForm({ collectionId }: { collectionId: string }): any {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(email, role, collectionId);
-    const user = await addCollectionUser(token, collectionId, email, role);
-    console.log("user", user);
+    await addCollectionUser(token, collectionId, email, role);
+    setTrigger((prevTrigger: number) => prevTrigger + 1);
   };
 
   return (
