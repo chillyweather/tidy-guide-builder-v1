@@ -1486,6 +1486,10 @@ body:has(.manage-users) .header .mode-button {
   height: fit-content;
 }
 
+details[open] summary{
+  pointer-events: none;
+}
+
 .user-tag {
   height: 32px;
   width: 32px;
