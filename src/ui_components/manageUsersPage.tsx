@@ -16,7 +16,7 @@ import { Button } from "@create-figma-plugin/ui";
 function manageUsersPage() {
   const [collections] = useAtom(collectionsAtom);
   return (
-    <div style={{ width: "100%" }}>
+    <div className={"manage-users"}>
       <h1>Manage users</h1>
       <br />
       <h3>Collections:</h3>

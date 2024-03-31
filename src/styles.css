@@ -1410,6 +1410,19 @@ body .header-login {
   flex-grow: 1;
 }
 
+.manage-users {
+  width: calc(100% - 48px);
+  margin: 0 24px;
+}
+
+body:has(.manage-users) .header .mode-button {
+  display: none;
+}
+
+.manage-users button div{
+  pointer-events: none;
+}
+
 .user-name,
 .user-company {
   font-weight: 500;
