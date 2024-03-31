@@ -83,7 +83,7 @@ function generateUserCard(user: any): h.JSX.Element {
     >
       <p style={{ color: "green" }}>{user.name}</p>
       <p style={{ color: "green" }}>{user.email}</p>
-      <p style={{ color: "green" }}>{user.rank}</p>
+      <p style={{ color: "green" }}><div className={"tag " + user.rank}></div></p>
       <details>
         <summary>
           <button onClick={() => console.log("deletion!!!")}>

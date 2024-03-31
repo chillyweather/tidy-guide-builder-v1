@@ -1445,7 +1445,8 @@ body:has(.manage-users) .header .mode-button {
   align-items: center;
   justify-content: flex-start;
 }
-.user-card p{
+
+.user-card p {
   width: 32.5%;
 }
 
@@ -1501,19 +1502,23 @@ body:has(.manage-users) .header .mode-button {
 }
 
 .tag {
-  position: absolute;
-  top: 0;
-  right: 0;
   padding: 1px 4px;
   border-radius: 3px;
   font-size: calc(var(--text-size) - (var(--text-size) / 6));
   box-shadow: 0 0 0 1px #ffffff;
   color: var(--tidy-32);
   background-color: yellow;
+  width: fit-content;
 }
 
 .tag::after {
   content: 'Forgot role';
+}
+
+.flex-col .tag {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .tag.viewer {
