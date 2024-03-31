@@ -53,8 +53,7 @@ export async function addCollectionUser(
   });
 
   const response = await fetch(
-    `http://localhost:3001/api/collections/${collectionId}/users`,
-    // `https://api.tidyframework.com/api/collections/${collectionId}/users`,
+    `https://api.tidyframework.com/api/collections/${collectionId}/users`,
     {
       method: "POST",
       body: bodyContent,

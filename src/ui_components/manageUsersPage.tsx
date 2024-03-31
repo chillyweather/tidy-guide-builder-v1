@@ -57,7 +57,6 @@ function renderUsers(collectionId: string) {
         <p style={{ color: "coral" }}>User name</p>
         <p style={{ color: "coral" }}>Email</p>
         <p style={{ color: "coral" }}>Role</p>
-        <IconDotsVertical style={{ color: "green" }} />
       </div>
       {showAddUserForm && (
         <div className={"add-user-form-wrapper"}>
@@ -70,18 +69,24 @@ function renderUsers(collectionId: string) {
       {collectionUsers &&
         collectionUsers.length &&
         collectionUsers.map((user: any) => {
-          return (
-            <div
-              key={user._id}
-              style={{ display: "flex", justifyContent: "space-between" }}
-            >
-              <p style={{ color: "green" }}>{user.name}</p>
-              <p style={{ color: "green" }}>{user.email}</p>
-              <p style={{ color: "green" }}>{user.rank}</p>
-              <IconDotsVertical style={{ color: "green" }} />
-            </div>
-          );
+          return generateUserCard(user);
         })}
+    </div>
+  );
+}
+
+function generateUserCard(user: any): h.JSX.Element {
+  return (
+    <div
+      key={user._id}
+      style={{ display: "flex", justifyContent: "space-between" }}
+    >
+      <p style={{ color: "green" }}>{user.name}</p>
+      <p style={{ color: "green" }}>{user.email}</p>
+      <p style={{ color: "green" }}>{user.rank}</p>
+      <button onClick={() => console.log("deletion!!!")}>
+        <IconDotsVertical style={{ color: "green" }} />
+      </button>
     </div>
   );
 }
