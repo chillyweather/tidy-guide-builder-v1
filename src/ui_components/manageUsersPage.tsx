@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { IconDotsVertical, IconX } from "@tabler/icons-react";
+import { IconDotsVertical, IconX, IconPencil, IconTrash } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import { collectionsAtom } from "src/state/atoms";
 import {

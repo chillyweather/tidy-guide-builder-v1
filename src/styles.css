@@ -184,7 +184,8 @@ body:has(.login) {
   align-items: center;
   gap: 20px;
 }
-.settings-wrapper h4{
+
+.settings-wrapper h4 {
   font-weight: 400;
 }
 
@@ -1476,6 +1477,11 @@ body:has(.manage-users) .header .mode-button {
   width: 12%;
 }
 
+.user-card .user-menu {
+  top: "20px";
+  min-width: "140px";
+}
+
 .user-tag {
   height: 32px;
   width: 32px;
@@ -1511,6 +1517,7 @@ body:has(.manage-users) .header .mode-button {
   gap: 6px;
   color: var(--tidy-32);
   background-color: #ffffff;
+  border: 1px solid #EFEFEF;
   padding: 8px;
   border-radius: 6px;
   min-width: 240px;
