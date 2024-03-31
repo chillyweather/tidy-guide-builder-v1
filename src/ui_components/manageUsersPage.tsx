@@ -8,6 +8,7 @@ import { getCollectionUsers } from "src/ui_components/ui_functions/collectionHan
 import { useEffect } from "react";
 import { useContext } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
+import { Button } from "@create-figma-plugin/ui";
 
 function manageUsersPage() {
   const [collections] = useAtom(collectionsAtom);
@@ -62,6 +63,7 @@ function renderUsers(users: any[], collectionId: string) {
 }
 
 function renderCollections(collections: never[]) {
+  const [showAddUserForm, setShowAddUserForm] = useState(false);
   return (
     <div>
       {collections.length &&
@@ -70,10 +72,52 @@ function renderCollections(collections: never[]) {
             <div key={collection._id}>
               <h4 style={{ color: "blue" }}>{collection.name}</h4>
               <h4>Users:</h4>
-              {renderUsers(collection.users, collection._id)}
+              <Button
+                onClick={() => {
+                  setShowAddUserForm(true);
+                }}
+                style={{
+                  cursor: "pointer",
+                }}
+              >
+                Add user
+              </Button>
+              ;{renderUsers(collection.users, collection._id)}
             </div>
           );
         })}
     </div>
   );
 }
+
+// function AddUserForm() {
+//   const [name, setName] = useState('');
+//   const [email, setEmail] = useState('');
+//   const [role, setRole] = useState('Viewer');
+//
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     // Add your logic to add the user here
+//   };
+//
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <label>
+//         Name:
+//         <input type="text" value={name} onChange={e => setName(e.target.value)} />
+//       </label>
+//       <label>
+//         Email:
+//         <input type="text" value={email} onChange={e => setEmail(e.target.value)} />
+//       </label>
+//       <label>
+//         Role:
+//         <select value={role} onChange={e => setRole(e.target.value)}>
+//           <option value="Viewer">Viewer</option>
+//           <option value="Editor">Editor</option>
+//         </select>
+//       </label>
+//       <button type="submit">Add</button>
+//     </form>
+//   );
+// }
