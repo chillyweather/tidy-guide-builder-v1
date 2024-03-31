@@ -184,6 +184,9 @@ body:has(.login) {
   align-items: center;
   gap: 20px;
 }
+.settings-wrapper h4{
+  font-weight: 400;
+}
 
 .settings-section-plus-userlist {
   display: flex;
@@ -243,7 +246,8 @@ body:has(.delete-flex) .container {
   flex-direction: row;
   border: 1px solid #E8E8F7;
   border-radius: 8px;
-  padding: 16px;
+  padding: 12px;
+  align-items: center;
   justify-content: space-between;
   width: calc(100vw - 48px);
 }
@@ -253,7 +257,7 @@ body:has(.delete-flex) .container {
   flex-direction: row;
   border: 1px solid #E8E8F7;
   border-radius: 8px;
-  padding: 16px;
+  padding: 5px 12px;
   justify-content: space-between;
   align-items: center;
   width: calc(100vw - 48px);
@@ -262,6 +266,10 @@ body:has(.delete-flex) .container {
 .title-flex {
   display: flex;
   gap: 6px;
+}
+
+.title-icon {
+  color: var(--tidy-32);
 }
 
 .delete-content h4,
@@ -927,16 +935,26 @@ button svg {
   background-color: #DB3B21;
 }
 
-#settings-primaty-button {
+#settings-primary-button {
   position: relative;
-  color: #ffffff;
+  color: var(--tidy-32);
   height: fit-content;
-  min-height: 16px;
-  min-width: 16px;
   width: fit-content;
-  padding: 8px 12px;
+  padding: 8px;
   border-radius: 8px;
-  background-color: var(--tidy-primary);
+}
+
+#settings-primary-button:hover {
+  background-color: var(--tidy-f5);
+}
+
+#settings-primary-button:active {
+  background-color: #EBEDFF;
+}
+
+#settings-primary-button svg {
+  width: 16px;
+  height: 16px;
 }
 
 #delete-button:hover {
@@ -1419,7 +1437,7 @@ body:has(.manage-users) .header .mode-button {
   display: none;
 }
 
-.manage-users button div{
+.manage-users button div {
   pointer-events: none;
 }
 
@@ -1438,6 +1456,24 @@ body:has(.manage-users) .header .mode-button {
 
 .user-mail {
   font-size: calc(var(--text-size) - (var(--text-size) / 6))
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.user-card p {
+  width: 48.75%;
+}
+
+.user-card p:first-of-type {
+  width: 28.75%;
+}
+
+.user-card p:last-of-type {
+  width: 12%;
 }
 
 .user-tag {
@@ -1492,19 +1528,23 @@ body:has(.manage-users) .header .mode-button {
 }
 
 .tag {
-  position: absolute;
-  top: 0;
-  right: 0;
   padding: 1px 4px;
   border-radius: 3px;
   font-size: calc(var(--text-size) - (var(--text-size) / 6));
   box-shadow: 0 0 0 1px #ffffff;
   color: var(--tidy-32);
   background-color: yellow;
+  width: fit-content;
 }
 
 .tag::after {
   content: 'Forgot role';
+}
+
+.flex-col .tag {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .tag.viewer {

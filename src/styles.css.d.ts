@@ -206,7 +206,7 @@ declare const styles: {
   readonly "selectedComponentGroup": string;
   readonly "selectedName": string;
   readonly "selectedPage": string;
-  readonly "settings-primaty-button": string;
+  readonly "settings-primary-button": string;
   readonly "settings-section-content": string;
   readonly "settings-section-flex": string;
   readonly "settings-section-plus-userlist": string;
@@ -228,6 +228,7 @@ declare const styles: {
   readonly "thumb": string;
   readonly "tidyLogo": string;
   readonly "title-flex": string;
+  readonly "title-icon": string;
   readonly "title-row": string;
   readonly "title-wrapper": string;
   readonly "tokens": string;
@@ -240,6 +241,7 @@ declare const styles: {
   readonly "twoColumnCardBodyContent": string;
   readonly "twoColumns": string;
   readonly "unselected": string;
+  readonly "user-card": string;
   readonly "user-company": string;
   readonly "user-item": string;
   readonly "user-mail": string;

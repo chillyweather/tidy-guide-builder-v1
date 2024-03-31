@@ -55,7 +55,7 @@ function renderUsers(collectionId: string) {
       >
         Add user
       </Button>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div className={"user-card title"}>
         <p style={{ color: "coral" }}>User name</p>
         <p style={{ color: "coral" }}>Email</p>
         <p style={{ color: "coral" }}>Role</p>
@@ -83,11 +83,11 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
   return (
     <div
       key={user._id}
-      style={{ display: "flex", justifyContent: "space-between" }}
+      className={"user-card"}
     >
       <p style={{ color: "green" }}>{user.name}</p>
       <p style={{ color: "green" }}>{user.email}</p>
-      <p style={{ color: "green" }}>{user.rank}</p>
+      <p style={{ color: "green" }}><div className={"tag " + user.rank}></div></p>
       <details>
         <summary>
           <button>
