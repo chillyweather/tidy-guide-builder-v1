@@ -4,7 +4,10 @@ import { IconDotsVertical, IconX } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import { collectionsAtom } from "src/state/atoms";
 import { useState } from "preact/hooks";
-import { getCollectionUsers } from "src/ui_components/ui_functions/collectionHandlers";
+import {
+  getCollectionUsers,
+  addCollectionUser,
+} from "src/ui_components/ui_functions/collectionHandlers";
 import { useEffect } from "react";
 import { useContext } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
@@ -101,24 +104,20 @@ function renderCollections(collections: never[]) {
 }
 
 function AddUserForm({ collectionId }: { collectionId: string }): any {
-  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("Viewer");
+  const { token } = useContext(BuilderContext) || {};
+  if (!token) return null;
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(userName, email, role, collectionId);
+    console.log(email, role, collectionId);
+    const user = await addCollectionUser(token, collectionId, email, role);
+    console.log("user", user);
   };
 
   return (
     <form onSubmit={handleSubmit} className={"add-user-form"}>
-      <input
-        type="text"
-        value={userName}
-        placeholder={"Name"}
-        onChange={(e) => setUserName((e.target as HTMLInputElement).value)}
-      />
-
       <input
         type="text"
         value={email}
