@@ -1402,6 +1402,10 @@ body:has(.manage-users) .header .mode-button {
   display: none;
 }
 
+.manage-users button div{
+  pointer-events: none;
+}
+
 .user-name,
 .user-company {
   font-weight: 500;
