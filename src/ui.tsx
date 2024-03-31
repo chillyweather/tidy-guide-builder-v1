@@ -539,6 +539,13 @@ function Plugin() {
   return (
     <div
       className={"container"}
+      onClick={() => {
+        var x = document.getElementsByTagName("details");
+        var i;
+        for (i = 0; i < x.length; i++) {
+          x[i].open = false;
+        }
+      }}
       onKeyDown={(e) => {
         if (e.key === "Escape") {
           setShowCancelPopup(false);
@@ -678,7 +685,7 @@ function Plugin() {
               selectedMasterId={selectedMasterId}
               selectedSections={selectedSections}
               setSelectedSections={setSelectedSections}
-              //! add component key
+            //! add component key
             />
           )}
         {/* content in View mode */}
