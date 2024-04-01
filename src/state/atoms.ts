@@ -13,3 +13,6 @@ export const tokenAtom = atom("");
 
 //results of network requests
 export const collectionsAtom = atom([]);
+
+//triggers
+export const collectionDocsTriggerAtom = atom(0);

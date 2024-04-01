@@ -36,7 +36,10 @@ import {
   updateDocumentation,
   createDocumentation,
 } from "./ui_components/ui_functions/documentationHandlers";
-import { getCollections } from "./ui_components/ui_functions/collectionHandlers";
+import {
+  getCollections,
+  getCollectionDocs,
+} from "./ui_components/ui_functions/collectionHandlers";
 
 import { useAtom } from "jotai";
 import {
@@ -48,6 +51,7 @@ import {
   currentUserNameAtom,
   currentUserIdAtom,
   collectionsAtom,
+  collectionDocsTriggerAtom,
 } from "./state/atoms";
 
 //styles
@@ -185,6 +189,22 @@ function Plugin() {
       setIsLoading(false);
     }
   });
+  // on("AUTH_CHANGE", async (token, email, rank, userName, companyName, id) => {
+  //   if (token) {
+  //     setToken(token);
+  //     setLoggedInUser(email);
+  //     setUserRank(rank);
+  //     setCurrentCompany(companyName);
+  //     setCurrentUserName(userName);
+  //     setCurrentUserId(id);
+  //     const data = await getDocumentations(token);
+  //     setDataForUpdate(data);
+  //     setIsLoading(false);
+  //   } else {
+  //     setShowLoginPage(true);
+  //     setIsLoading(false);
+  //   }
+  // });
 
   // useEffect(() => {
   //   console.log("documentationData", documentationData);

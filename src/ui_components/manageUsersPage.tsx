@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { IconDotsVertical, IconX, IconPencil, IconTrash } from "@tabler/icons-react";
+import {
+  IconDotsVertical,
+  IconX,
+  IconPencil,
+  IconTrash,
+} from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import { collectionsAtom } from "src/state/atoms";
 import {
@@ -81,13 +86,12 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
   const { token } = useContext(BuilderContext) || {};
   if (!token) return null;
   return (
-    <div
-      key={user._id}
-      className={"user-card"}
-    >
+    <div key={user._id} className={"user-card"}>
       <p style={{ color: "green" }}>{user.name}</p>
       <p style={{ color: "green" }}>{user.email}</p>
-      <p style={{ color: "green" }}><div className={"tag " + user.rank}></div></p>
+      <p style={{ color: "green" }}>
+        <div className={"tag " + user.rank}></div>
+      </p>
       <details>
         <summary>
           <button>
@@ -98,7 +102,7 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
           <div className="user-item">
             <IconPencil />
             Edit
-            </div>
+          </div>
           <div
             className="user-item"
             onClick={async () => {
@@ -115,7 +119,7 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
   );
 }
 
-function renderCollections(collections: never[]) {
+function renderCollections(collections: any[]) {
   return (
     <div>
       {collections.length &&

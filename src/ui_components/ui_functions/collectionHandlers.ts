@@ -93,3 +93,34 @@ export async function deleteCollectionUser(
   const data = await response.json();
   return data;
 }
+
+export async function getCollectionDocs(token: string, collectionId: string) {
+  const headersList = {
+    Accept: "*/*",
+    Authorization: `Bearer ${token}`,
+  };
+
+  const response = await fetch(
+    `https://api.tidyframework.com/api/collections/${collectionId}/docs`,
+    {
+      method: "GET",
+      headers: headersList,
+    }
+  );
+
+  const data = await response.json();
+  return data;
+}
+
+// let headersList = {
+//   "Accept": "*/*",
+//   "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+//   "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MDJhYTUwMTI5NzRkODBjOGVkNDQ1ZiIsImlhdCI6MTcxMTQ1ODE2MCwiZXhwIjoxNzQyOTk0MTYwfQ.IsFyeQdc9_ZugMnggsGvuMmyMhKJYf5XHlHFJjlLTio"
+//  }
+//
+//  let response = await fetch("http://localhost:3001/api/collections/6607f21904dfd73155a4062e/docs", {
+//    method: "GET",
+//    headers: headersList
+//  });
+//
+//  let data = await response.text();

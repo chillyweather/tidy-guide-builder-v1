@@ -8,7 +8,10 @@ import {
   createDocumentation,
 } from "./ui_functions/documentationHandlers";
 import { useAtom } from "jotai";
-import { isViewModeOpenAtom } from "src/state/atoms";
+import {
+  isViewModeOpenAtom,
+  // collectionDocsTriggerAtom
+} from "src/state/atoms";
 
 const IndexPage = ({
   data,
@@ -84,8 +87,8 @@ const IndexPage = ({
             {!isViewModeOpen && (
               <button
                 className={"cardAuxButton noPredefined"}
-                onClick={() =>
-                  handleDocClone(token, element._id, setDataForUpdate)
+                onClick={async () =>
+                  await handleDocClone(token, element._id, setDataForUpdate)
                 }
               >
                 <IconCopy />

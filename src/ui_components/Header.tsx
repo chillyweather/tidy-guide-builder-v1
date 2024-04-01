@@ -12,14 +12,15 @@ import {
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import {
+  collectionsAtom,
+  currentCompanyAtom,
+  currentUserIdAtom,
+  currentUserNameAtom,
+  isViewModeOpenAtom,
+  selectedComponentPicAtom,
   selectedNodeIdAtom,
   selectedNodeKeyAtom,
-  selectedComponentPicAtom,
-  isViewModeOpenAtom,
-  currentCompanyAtom,
-  currentUserNameAtom,
-  collectionsAtom,
-  currentUserIdAtom,
+  selectedCollectionAtom,
 } from "src/state/atoms";
 
 import { h } from "preact";
@@ -54,6 +55,9 @@ const Header = ({
   const [currentUserName] = useAtom(currentUserNameAtom);
   const [collections] = useAtom(collectionsAtom);
   const [currentUserId] = useAtom(currentUserIdAtom);
+  const [selectedCollection, setSelectedCollection] = useAtom(
+    selectedCollectionAtom
+  );
 
   const [userRankStyle, setUserRankStyle] = useState({});
 
@@ -129,8 +133,14 @@ const Header = ({
   }, [documentationData]);
 
   useEffect(() => {
-    console.log("collections in Header", collections);
-  }, [collections]);
+    if (collections && collections.length && !selectedCollection) {
+      setSelectedCollection(collections[0]);
+    }
+  }, [collections, selectedCollection, setSelectedCollection]);
+
+  useEffect(() => {
+    console.log("selectedCollection", selectedCollection);
+  }, [selectedCollection]);
 
   function Toggle() {
     const handleToggle = async () => {
@@ -219,7 +229,7 @@ const Header = ({
               {collections && collections.length && (
                 <Dropdown
                   options={collections}
-                  onSelect={() => console.log("yey")}
+                  onSelect={setSelectedCollection}
                 />
               )}
               <h2>Component Index</h2>
@@ -270,7 +280,9 @@ const Header = ({
                       )[0].value
                     );
                     // @ts-ignore
-                    window.getSelection().anchorNode.parentElement.scrollIntoView()
+                    window
+                      .getSelection()
+                      .anchorNode.parentElement.scrollIntoView();
                   }}
                 >
                   <input
