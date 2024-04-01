@@ -1482,6 +1482,14 @@ body:has(.manage-users) .header .mode-button {
   min-width: 140px;
 }
 
+.user-card .user-menu .user-item {
+  height: fit-content;
+}
+
+details[open] summary{
+  pointer-events: none;
+}
+
 .user-tag {
   height: 32px;
   width: 32px;
@@ -1600,11 +1608,11 @@ body:has(.manage-users) .header .mode-button {
 }
 
 .user-item:hover {
-  background-color: #F0F1FA;
+  background-color: var(--tidy-ec);
 }
 
 .user-item:active {
-  background-color: #E8EAFA
+  background-color: var(--tidy-ec);
 }
 
 .container:has(.login) {
@@ -4195,6 +4203,10 @@ input[type="checkbox"] {
 .viewer-data-wrapper .section {
   width: calc(100% - 64px);
   margin: 0 32px;
+}
+
+body:has(.mode-button.viewer) {
+  --tidy-ec: #D7EE95;
 }
 
 body:has(.viewer-data-wrapper) .container {
