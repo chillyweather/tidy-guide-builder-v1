@@ -560,8 +560,8 @@ function Plugin() {
     <div
       className={"container"}
       onClick={() => {
-        var x = document.getElementsByTagName("details");
-        var i;
+        const x = document.getElementsByTagName("details");
+        let i;
         for (i = 0; i < x.length; i++) {
           x[i].open = false;
         }
@@ -705,7 +705,7 @@ function Plugin() {
               selectedMasterId={selectedMasterId}
               selectedSections={selectedSections}
               setSelectedSections={setSelectedSections}
-            //! add component key
+              //! add component key
             />
           )}
         {/* content in View mode */}
