@@ -46,12 +46,13 @@ import {
   selectedNodeIdAtom,
   selectedNodeKeyAtom,
   selectedComponentPicAtom,
+  selectedCollectionAtom,
   isViewModeOpenAtom,
   currentCompanyAtom,
   currentUserNameAtom,
   currentUserIdAtom,
   collectionsAtom,
-  collectionDocsTriggerAtom,
+  // collectionDocsTriggerAtom,
 } from "./state/atoms";
 
 //styles
@@ -69,6 +70,7 @@ function Plugin() {
   const [, setCurrentUserName] = useAtom(currentUserNameAtom);
   const [currentUserId, setCurrentUserId] = useAtom(currentUserIdAtom);
   const [, setCollections] = useAtom(collectionsAtom);
+  const [selectedCollection]: any = useAtom(selectedCollectionAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -181,9 +183,6 @@ function Plugin() {
       setCurrentCompany(companyName);
       setCurrentUserName(userName);
       setCurrentUserId(id);
-      const data = await getDocumentations(token);
-      setDataForUpdate(data);
-      setIsLoading(false);
     } else {
       setShowLoginPage(true);
       setIsLoading(false);
@@ -210,6 +209,18 @@ function Plugin() {
   //   console.log("documentationData", documentationData);
   // }, [documentationData]);
 
+  async function collectionDocsHandler(token: string, collectionId: string) {
+    const data = await getCollectionDocs(token, collectionId);
+    setDataForUpdate(data);
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    if (selectedCollection) {
+      collectionDocsHandler(token, selectedCollection._id);
+    }
+  }, [selectedCollection]);
+
   useEffect(() => {
     if (token && currentUserId) {
       getUserCollections(token, currentUserId);
@@ -230,6 +241,7 @@ function Plugin() {
         ["docs"]: [],
         ["title"]: documentationTitle,
         ["draft"]: isDraft,
+        ["collection"]: selectedCollection?._id,
         ["inProgress"]: isWip,
       };
     });

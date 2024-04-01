@@ -138,9 +138,9 @@ const Header = ({
     }
   }, [collections, selectedCollection, setSelectedCollection]);
 
-  useEffect(() => {
-    console.log("selectedCollection", selectedCollection);
-  }, [selectedCollection]);
+  // useEffect(() => {
+  //   console.log("selectedCollection", selectedCollection);
+  // }, [selectedCollection]);
 
   function Toggle() {
     const handleToggle = async () => {

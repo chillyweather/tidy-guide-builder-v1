@@ -4,7 +4,7 @@ import { useState } from "preact/hooks";
 
 interface DropdownProps {
   options: any[];
-  onSelect: (selectedOption: string) => void;
+  onSelect: any;
 }
 
 const Dropdown: FunctionalComponent<DropdownProps> = ({
