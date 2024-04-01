@@ -52,7 +52,7 @@ import {
   currentUserNameAtom,
   currentUserIdAtom,
   collectionsAtom,
-  // collectionDocsTriggerAtom,
+  collectionDocsTriggerAtom,
 } from "./state/atoms";
 
 //styles
@@ -71,6 +71,7 @@ function Plugin() {
   const [currentUserId, setCurrentUserId] = useAtom(currentUserIdAtom);
   const [, setCollections] = useAtom(collectionsAtom);
   const [selectedCollection]: any = useAtom(selectedCollectionAtom);
+  const [collectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -210,8 +211,11 @@ function Plugin() {
   // }, [documentationData]);
 
   async function collectionDocsHandler(token: string, collectionId: string) {
+    console.log("collectionId", collectionId);
     const data = await getCollectionDocs(token, collectionId);
-    setDataForUpdate(data);
+    if (data && data.length) {
+      setDataForUpdate(data);
+    }
     setIsLoading(false);
   }
 
@@ -219,7 +223,7 @@ function Plugin() {
     if (selectedCollection) {
       collectionDocsHandler(token, selectedCollection._id);
     }
-  }, [selectedCollection]);
+  }, [selectedCollection, collectionDocsTrigger]);
 
   useEffect(() => {
     if (token && currentUserId) {

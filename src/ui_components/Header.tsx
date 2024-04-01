@@ -23,6 +23,8 @@ import {
   selectedCollectionAtom,
 } from "src/state/atoms";
 
+import { getCollectionDocs } from "./ui_functions/collectionHandlers";
+
 import { h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
@@ -55,7 +57,7 @@ const Header = ({
   const [currentUserName] = useAtom(currentUserNameAtom);
   const [collections] = useAtom(collectionsAtom);
   const [currentUserId] = useAtom(currentUserIdAtom);
-  const [selectedCollection, setSelectedCollection] = useAtom(
+  const [selectedCollection, setSelectedCollection]: any = useAtom(
     selectedCollectionAtom
   );
 
@@ -150,7 +152,8 @@ const Header = ({
       if (!isIndexOpen) {
         setIsMainContentOpen(false);
         setIsContenFromServerOpen(true);
-        await fetchAndUpdateData(token, setDataForUpdate);
+        const data = await getCollectionDocs(token, selectedCollection?._id);
+        // await fetchAndUpdateData(token, setDataForUpdate);
         const currentDocumentation = dataForUpdate.find(
           (item: any) => item.title === documentationData.title
         );
