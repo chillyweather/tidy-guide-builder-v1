@@ -1486,7 +1486,7 @@ body:has(.manage-users) .header .mode-button {
   height: fit-content;
 }
 
-details[open] summary{
+details[open] summary {
   pointer-events: none;
 }
 
@@ -4133,6 +4133,13 @@ input[type="checkbox"] {
   background: #FFF;
   box-shadow: -7px 0px 15px 0px rgba(143, 143, 143, 0.10), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -109px 0px 44px 0px rgba(143, 143, 143, 0.01);
   padding: 6px;
+}
+
+.dropdown-menu .dropdown-item {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .publish-dropdown-item {

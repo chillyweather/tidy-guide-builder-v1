@@ -46,12 +46,13 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
             const role = findUserRole(option, currentUserId);
             return (
               <li
+                className={"dropdown-item"}
                 onMouseDown={(e) => {
                   e.preventDefault();
                   selectOption(option);
                 }}
               >
-                {option.name} - {role}
+                <div>{option.name}</div> <span className={"tag " + role}></span>
               </li>
             );
           })}
