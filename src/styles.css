@@ -17,6 +17,7 @@
   --tidy-f5: #F5F5F5;
   --tidy-ec: #e8eaff;
   --text-size: 12px;
+  --selection-color: #e7efc5;
   /* --tidy-background: #F7F8FB;
   --tidy-primary: #9c71ef;
   --tidy-btn-hover: #8c5aec;
@@ -95,7 +96,7 @@ body:has(.login) {
 }
 
 ::selection {
-  background-color: #e7efc5;
+  background-color: var(--tidy-ec);
 }
 
 #sections {
