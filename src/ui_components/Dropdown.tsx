@@ -23,7 +23,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
     options[0].name || "🧨 no collection"
   );
   const [currentUserId] = useAtom(currentUserIdAtom);
-  const [currentUserRole, setCurentUserRole] = useAtom(currentUserRoleAtom);
+  const [, setCurentUserRole] = useAtom(currentUserRoleAtom);
   const [selectedCollection] = useAtom(selectedCollectionAtom);
 
   const toggleDropdown = () => {
@@ -35,10 +35,6 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
     setIsOpen(false);
     onSelect(option);
   };
-
-  useEffect(() => {
-    console.log("currentUserRole", currentUserRole);
-  }, [currentUserRole]);
 
   useEffect(() => {
     const role = findUserRole(selectedCollection, currentUserId);
