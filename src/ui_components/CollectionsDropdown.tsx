@@ -19,19 +19,21 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
   onSelect,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(
-    options[0].name || "🧨 no collection"
-  );
+  // const [selectedOption, setSelectedOption] = useState<string | null>(
+  //   options[0].name || "🧨 no collection"
+  // );
   const [currentUserId] = useAtom(currentUserIdAtom);
   const [, setCurentUserRole] = useAtom(currentUserRoleAtom);
-  const [selectedCollection] = useAtom(selectedCollectionAtom);
+  const [selectedCollection, setSelectedCollection]: any = useAtom(
+    selectedCollectionAtom
+  );
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const selectOption = (option: any) => {
-    setSelectedOption(option.name);
+    setSelectedCollection(option);
     setIsOpen(false);
     onSelect(option);
   };
@@ -56,7 +58,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
         onClick={toggleDropdown}
         onBlur={() => setIsOpen(false)}
       >
-        {selectedOption || "Select an option"}
+        {selectedCollection?.name || "Select an option"}
       </button>
       {isOpen && (
         <ul class="dropdown-menu">

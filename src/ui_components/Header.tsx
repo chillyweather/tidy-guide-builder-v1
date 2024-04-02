@@ -16,6 +16,7 @@ import {
   currentCompanyAtom,
   currentUserIdAtom,
   currentUserNameAtom,
+  currentUserRoleAtom,
   isViewModeOpenAtom,
   selectedComponentPicAtom,
   selectedNodeIdAtom,
@@ -32,7 +33,7 @@ import HeaderActions from "./HeaderActions";
 import UserMenu from "./UserMenu";
 import { emit } from "@create-figma-plugin/utilities";
 import fetchAndUpdateData from "./ui_functions/fetchAndUpdateData";
-import CollectionsDropdown from "./Dropdown";
+import CollectionsDropdown from "./CollectionsDropdown";
 
 const Header = ({
   isLoginPageOpen,
@@ -60,6 +61,7 @@ const Header = ({
   const [selectedCollection, setSelectedCollection]: any = useAtom(
     selectedCollectionAtom
   );
+  const [userRole] = useAtom(currentUserRoleAtom);
 
   const [userRankStyle, setUserRankStyle] = useState({});
 
@@ -166,6 +168,7 @@ const Header = ({
       <button
         className={isViewModeOpen ? "mode-button viewer" : "mode-button editor"}
         onClick={handleToggle}
+        disabled={userRole === "Viewer"}
       >
         <div className={"thumb"}></div>
         <div className="mode-icon view">
@@ -241,7 +244,7 @@ const Header = ({
                   onSelect={setSelectedCollection}
                 />
               )}
-              <h2>Component Index</h2>
+              <h2>{selectedCollection && selectedCollection.name}</h2>
               <a
                 href={"https://tidy.guide/guide/overview"}
                 target={"_blank"}
