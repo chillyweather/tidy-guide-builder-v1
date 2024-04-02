@@ -1389,7 +1389,7 @@ body .header-login {
 
 .dropdown-comp .dropdown-toggle:hover,
 .dropdown-comp .dropdown-toggle:focus {
-  background-color: #ffffff;
+  background-color: transparent;
   border: 1px solid #E3E3E3;
 }
 
@@ -1411,7 +1411,8 @@ body .header-login {
   order: 1;
   margin-bottom: 12px;
 }
-.dropdown-menu .dropdown-item:has(.admin)::after{
+
+.dropdown-menu .dropdown-item:has(.admin)::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -1437,7 +1438,7 @@ body .header-login {
   pointer-events: none;
 }
 
-.dropdown-menu .dropdown-item:hover{
+.dropdown-menu .dropdown-item:hover {
   background-color: var(--tidy-ec);
 }
 
