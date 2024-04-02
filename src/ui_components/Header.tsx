@@ -200,6 +200,12 @@ const Header = ({
       "#543150",
       "#F8970C",
       "#285736",
+      "#00BFA5",
+      "#FF7BAD",
+      "#84CE29",
+      "#FF6D00",
+      "#FF372B",
+      "#304FFE",
     ];
     const alphaUser =
       loggedInUser.slice(0, 1).toLowerCase().charCodeAt(0) - 97 + 1;
