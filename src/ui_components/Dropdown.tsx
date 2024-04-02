@@ -1,8 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h, FunctionalComponent } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import { useAtom } from "jotai";
-import { currentUserIdAtom } from "src/state/atoms";
+import {
+  currentUserIdAtom,
+  currentUserRoleAtom,
+  selectedCollectionAtom,
+} from "src/state/atoms";
+import { findUserRole } from "src/ui_components/ui_functions/findUserRole";
 
 interface DropdownProps {
   options: any[];
@@ -18,18 +23,35 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
     options[0].name || "🧨 no collection"
   );
   const [currentUserId] = useAtom(currentUserIdAtom);
-  // const [currentUserRole, setCurentUserRole] = useAtom(currentUserIdAtom);
+  const [currentUserRole, setCurentUserRole] = useAtom(currentUserRoleAtom);
+  const [selectedCollection] = useAtom(selectedCollectionAtom);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const selectOption = (option: any) => {
-    console.log("option", option);
     setSelectedOption(option.name);
     setIsOpen(false);
     onSelect(option);
   };
+
+  useEffect(() => {
+    console.log("currentUserRole", currentUserRole);
+  }, [currentUserRole]);
+
+  useEffect(() => {
+    const role = findUserRole(selectedCollection, currentUserId);
+    setCurentUserRole(role);
+  }, [selectedCollection]);
+
+  // useEffect(() => {
+  //   if (options.length > 0 && currentUserId) {
+  //     const role = findUserRole(selectOption, currentUserId);
+  //     console.log("role", role);
+  //     setCurentUserRole(role);
+  //   }
+  // }, [selectOption]);
 
   return (
     <div class="dropdown-comp">
@@ -63,10 +85,3 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
 };
 
 export default CollectionsDropdown;
-
-function findUserRole(collection: any, userId: string) {
-  if (!collection || !collection.users) return null;
-  if (collection.owner === userId) return "Admin";
-  const user = collection.users.find((user: any) => user.user === userId);
-  return user ? user.permission : null;
-}
