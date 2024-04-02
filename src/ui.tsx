@@ -50,6 +50,7 @@ import {
   isViewModeOpenAtom,
   currentCompanyAtom,
   currentUserNameAtom,
+  currentUserRoleAtom,
   currentUserIdAtom,
   collectionsAtom,
   collectionDocsTriggerAtom,
@@ -65,13 +66,14 @@ function Plugin() {
   const [selectedComponentPic, setSelectedComponentPic] = useAtom(
     selectedComponentPicAtom
   );
-  const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
+  const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [, setCurrentCompany] = useAtom(currentCompanyAtom);
   const [, setCurrentUserName] = useAtom(currentUserNameAtom);
   const [currentUserId, setCurrentUserId] = useAtom(currentUserIdAtom);
   const [, setCollections] = useAtom(collectionsAtom);
   const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   const [collectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
+  const [currentUserRole] = useAtom(currentUserRoleAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -230,6 +232,14 @@ function Plugin() {
       getUserCollections(token, currentUserId);
     }
   }, [token, currentUserId]);
+
+  useEffect(() => {
+    if (currentUserRole && currentUserRole === "Viewer") {
+      setIsViewModeOpen(true);
+    } else {
+      setIsViewModeOpen(false);
+    }
+  }, [currentUserRole]);
 
   on("SELECTION", ({ defaultNode, name, key }) => {
     setSelectedElement(defaultNode);
