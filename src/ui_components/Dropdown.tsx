@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h, FunctionalComponent } from "preact";
 import { useState } from "preact/hooks";
+import { useAtom } from "jotai";
+import { currentUserIdAtom } from "src/state/atoms";
 
 interface DropdownProps {
   options: any[];
   onSelect: any;
 }
 
-const Dropdown: FunctionalComponent<DropdownProps> = ({
+const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
   options,
   onSelect,
 }) => {
@@ -15,12 +17,15 @@ const Dropdown: FunctionalComponent<DropdownProps> = ({
   const [selectedOption, setSelectedOption] = useState<string | null>(
     options[0].name || "🧨 no collection"
   );
+  const [currentUserId] = useAtom(currentUserIdAtom);
+  // const [currentUserRole, setCurentUserRole] = useAtom(currentUserIdAtom);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const selectOption = (option: any) => {
+    console.log("option", option);
     setSelectedOption(option.name);
     setIsOpen(false);
     onSelect(option);
@@ -37,20 +42,30 @@ const Dropdown: FunctionalComponent<DropdownProps> = ({
       </button>
       {isOpen && (
         <ul class="dropdown-menu">
-          {options.map((option) => (
-            <li
-              onMouseDown={(e) => {
-                e.preventDefault();
-                selectOption(option);
-              }}
-            >
-              {option.name}
-            </li>
-          ))}
+          {options.map((option) => {
+            const role = findUserRole(option, currentUserId);
+            return (
+              <li
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  selectOption(option);
+                }}
+              >
+                {option.name} - {role}
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>
   );
 };
 
-export default Dropdown;
+export default CollectionsDropdown;
+
+function findUserRole(collection: any, userId: string) {
+  if (!collection || !collection.users) return null;
+  if (collection.owner === userId) return "Admin";
+  const user = collection.users.find((user: any) => user.user === userId);
+  return user ? user.permission : null;
+}

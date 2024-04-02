@@ -32,7 +32,7 @@ import HeaderActions from "./HeaderActions";
 import UserMenu from "./UserMenu";
 import { emit } from "@create-figma-plugin/utilities";
 import fetchAndUpdateData from "./ui_functions/fetchAndUpdateData";
-import Dropdown from "./Dropdown";
+import CollectionsDropdown from "./Dropdown";
 
 const Header = ({
   isLoginPageOpen,
@@ -230,7 +230,7 @@ const Header = ({
           (isIndexOpen ? (
             <div className="componentHeader">
               {collections && collections.length && (
-                <Dropdown
+                <CollectionsDropdown
                   options={collections}
                   onSelect={setSelectedCollection}
                 />
