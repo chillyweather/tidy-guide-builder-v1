@@ -1367,14 +1367,17 @@ body .header-login {
 
 .dropdown-comp .dropdown-toggle {
   background-color: transparent;
-  border: 1px solid transparent;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 4px;
+  border: 1px solid #B8BBC6;
+  border-radius: 4px;
+  min-width: 220px;
 }
 
-.dropdown-comp .dropdown-toggle:hover::after,
-.dropdown-comp .dropdown-toggle:focus::after {
+.dropdown-comp .dropdown-toggle::after,
+.dropdown-comp .dropdown-toggle::after {
   content: '';
   height: 12px;
   width: 12px;
@@ -1394,7 +1397,7 @@ body .header-login {
   padding: 8px;
   background-color: #ffffff;
   border: 1px solid #E3E3E3;
-  border-radius: 8px;
+  border-radius: 4px;
   position: absolute;
   z-index: 999;
   min-width: 240px;
@@ -4141,6 +4144,11 @@ input[type="checkbox"] {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  padding: 8px;
+  cursor: pointer;
+}
+.dropdown-menu .dropdown-item *{
+  pointer-events: none;
 }
 
 .publish-dropdown-item {
