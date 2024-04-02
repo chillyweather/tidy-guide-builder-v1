@@ -16,6 +16,7 @@ import {
   currentCompanyAtom,
   currentUserIdAtom,
   currentUserNameAtom,
+  currentUserRoleAtom,
   isViewModeOpenAtom,
   selectedComponentPicAtom,
   selectedNodeIdAtom,
@@ -60,6 +61,7 @@ const Header = ({
   const [selectedCollection, setSelectedCollection]: any = useAtom(
     selectedCollectionAtom
   );
+  const [userRole] = useAtom(currentUserRoleAtom);
 
   const [userRankStyle, setUserRankStyle] = useState({});
 
@@ -166,6 +168,7 @@ const Header = ({
       <button
         className={isViewModeOpen ? "mode-button viewer" : "mode-button editor"}
         onClick={handleToggle}
+        disabled={userRole === "Viewer"}
       >
         <div className={"thumb"}></div>
         <div className="mode-icon view">
