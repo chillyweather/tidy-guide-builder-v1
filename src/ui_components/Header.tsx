@@ -33,7 +33,7 @@ import HeaderActions from "./HeaderActions";
 import UserMenu from "./UserMenu";
 import { emit } from "@create-figma-plugin/utilities";
 import fetchAndUpdateData from "./ui_functions/fetchAndUpdateData";
-import CollectionsDropdown from "./Dropdown";
+import CollectionsDropdown from "./CollectionsDropdown";
 
 const Header = ({
   isLoginPageOpen,
@@ -244,7 +244,7 @@ const Header = ({
                   onSelect={setSelectedCollection}
                 />
               )}
-              <h2>Component Index</h2>
+              <h2>{selectedCollection && selectedCollection.name}</h2>
               <a
                 href={"https://tidy.guide/guide/overview"}
                 target={"_blank"}
