@@ -219,6 +219,8 @@ function Plugin() {
     if (data && data.length) {
       setDataForUpdate(data);
       setCurrentDocumentations(data);
+    } else {
+      setDataForUpdate([]);
     }
     setIsLoading(false);
   }
@@ -236,6 +238,7 @@ function Plugin() {
   }, [token, currentUserId]);
 
   useEffect(() => {
+    console.log("currentUserRole", currentUserRole);
     if (currentUserRole && currentUserRole === "Viewer") {
       setIsViewModeOpen(true);
     } else {

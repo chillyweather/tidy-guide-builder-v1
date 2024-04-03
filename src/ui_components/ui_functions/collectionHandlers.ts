@@ -107,6 +107,7 @@ export async function getCollectionDocs(token: string, collectionId: string) {
       headers: headersList,
     }
   );
+  if (!response.ok) return [];
 
   const data = await response.json();
   return data;
