@@ -252,6 +252,7 @@ declare const styles: {
   readonly "user-tag": string;
   readonly "userlist": string;
   readonly "userlist-item": string;
+  readonly "users-flex": string;
   readonly "validationFailedMessage": string;
   readonly "variants": string;
   readonly "video": string;

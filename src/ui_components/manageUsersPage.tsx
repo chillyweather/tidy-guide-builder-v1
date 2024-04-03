@@ -58,7 +58,7 @@ function renderUsers(collectionId: string) {
   }, [collectionId, trigger]);
 
   return (
-    <div>
+    <div className={"users-flex"}>
       <Button
         onClick={() => {
           setShowAddUserForm(true);
@@ -97,15 +97,15 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
   if (!token) return null;
   return (
     <div key={user._id} className={"user-card"}>
-      <p style={{ color: "green" }}>{user.name}</p>
-      <p style={{ color: "green" }}>{user.email}</p>
-      <p style={{ color: "green" }}>
+      <p>{user.name}</p>
+      <p>{user.email}</p>
+      <p>
         <div className={"tag " + user.rank}></div>
       </p>
       <details>
         <summary>
           <button>
-            <IconDotsVertical style={{ color: "green" }} />
+            <IconDotsVertical />
           </button>
         </summary>
         <div className="user-menu">

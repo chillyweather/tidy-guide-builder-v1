@@ -1508,11 +1508,18 @@ body:has(.manage-users) .header .mode-button {
 .user-mail {
   font-size: calc(var(--text-size) - (var(--text-size) / 6))
 }
-
+.users-flex{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 .user-card {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  color: var(--tidy-32);
+  border: 1px solid #E8E8F7;
+  border-radius: 6px;
 }
 
 .user-card.title{
