@@ -71,9 +71,9 @@ function renderUsers(collectionId: string) {
         Add user
       </Button>
       <div className={"user-card title"}>
-        <p style={{ color: "coral" }}>User name</p>
-        <p style={{ color: "coral" }}>Email</p>
-        <p style={{ color: "coral" }}>Role</p>
+        <p>User name</p>
+        <p>Email</p>
+        <p>Role</p>
       </div>
       {showAddUserForm && (
         <div className={"add-user-form-wrapper"}>
