@@ -228,6 +228,7 @@ declare const styles: {
   readonly "textSymbolsCounter": string;
   readonly "thumb": string;
   readonly "tidyLogo": string;
+  readonly "title": string;
   readonly "title-flex": string;
   readonly "title-icon": string;
   readonly "title-row": string;
@@ -251,6 +252,7 @@ declare const styles: {
   readonly "user-tag": string;
   readonly "userlist": string;
   readonly "userlist-item": string;
+  readonly "users-flex": string;
   readonly "validationFailedMessage": string;
   readonly "variants": string;
   readonly "video": string;

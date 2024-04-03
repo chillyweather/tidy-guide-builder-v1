@@ -1037,6 +1037,27 @@ button svg {
   background-color: #ffffff;
 }
 
+.header .mode-button:disabled {
+  background-color: #E0E2EB;
+  pointer-events: none;
+}
+
+.header .mode-button:disabled .thumb {
+  filter: invert(100%);
+}
+
+.header .mode-button:disabled .mode-icon {
+  filter: invert(100%) brightness(150%);
+}
+
+.header .mode-button:disabled .thumb::before {
+  background-color: #000000 !important;
+}
+
+.header .mode-button:disabled .thumb::after {
+  background-color: #ffffff !important;
+}
+
 .header .mode-button::after {
   content: 'Switch to view mode';
   position: absolute;
@@ -1487,15 +1508,31 @@ body:has(.manage-users) .header .mode-button {
 .user-mail {
   font-size: calc(var(--text-size) - (var(--text-size) / 6))
 }
-
+.users-flex{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 .user-card {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  color: var(--tidy-32);
+  border: 1px solid #E8E8F7;
+  border-radius: 6px;
+}
+
+.user-card.title{
+  color: var(--tidy-32);
+  background-color: #F8F8FB;
+  border: 1px solid #E8E8F7;
+  border-radius: 6px;
 }
 
 .user-card p {
   width: 48.75%;
+  margin: 0;
+  padding: 8px;
 }
 
 .user-card p:first-of-type {

@@ -26,6 +26,7 @@ function manageUsersPage() {
   );
   return (
     <div className={"manage-users"}>
+      <div className="delete-flex"></div>
       <h1>Manage users</h1>
       <br />
       <h3>Collections:</h3>
@@ -57,7 +58,7 @@ function renderUsers(collectionId: string) {
   }, [collectionId, trigger]);
 
   return (
-    <div>
+    <div className={"users-flex"}>
       <Button
         onClick={() => {
           setShowAddUserForm(true);
@@ -70,9 +71,9 @@ function renderUsers(collectionId: string) {
         Add user
       </Button>
       <div className={"user-card title"}>
-        <p style={{ color: "coral" }}>User name</p>
-        <p style={{ color: "coral" }}>Email</p>
-        <p style={{ color: "coral" }}>Role</p>
+        <p>User name</p>
+        <p>Email</p>
+        <p>Role</p>
       </div>
       {showAddUserForm && (
         <div className={"add-user-form-wrapper"}>
@@ -96,15 +97,15 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
   if (!token) return null;
   return (
     <div key={user._id} className={"user-card"}>
-      <p style={{ color: "green" }}>{user.name}</p>
-      <p style={{ color: "green" }}>{user.email}</p>
-      <p style={{ color: "green" }}>
+      <p>{user.name}</p>
+      <p>{user.email}</p>
+      <p>
         <div className={"tag " + user.rank}></div>
       </p>
       <details>
         <summary>
           <button>
-            <IconDotsVertical style={{ color: "green" }} />
+            <IconDotsVertical />
           </button>
         </summary>
         <div className="user-menu">
