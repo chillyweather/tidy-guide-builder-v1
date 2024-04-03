@@ -9,6 +9,7 @@ export const currentUserNameAtom = atom("");
 export const currentCompanyAtom = atom("");
 export const currentUserIdAtom = atom("");
 export const currentUserRoleAtom = atom("");
+export const currentDocumentationsAtom = atom(null);
 export const selectedCollectionAtom = atom(null);
 export const tokenAtom = atom("");
 

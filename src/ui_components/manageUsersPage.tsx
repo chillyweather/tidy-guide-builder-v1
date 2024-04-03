@@ -7,7 +7,7 @@ import {
   IconTrash,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
-import { collectionsAtom } from "src/state/atoms";
+import { collectionsAtom, currentUserIdAtom } from "src/state/atoms";
 import {
   getCollectionUsers,
   addCollectionUser,
@@ -120,17 +120,19 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
 }
 
 function renderCollections(collections: any[]) {
+  const [currentUserId] = useAtom(currentUserIdAtom);
   return (
     <div>
       {collections.length &&
         collections.map((collection: any) => {
-          return (
+          const isOwner = collection.owner === currentUserId;
+          return isOwner ? (
             <div key={collection._id}>
               <h4 style={{ color: "blue" }}>{collection.name}</h4>
               <h4>Users:</h4>
               {renderUsers(collection._id)}
             </div>
-          );
+          ) : null;
         })}
     </div>
   );

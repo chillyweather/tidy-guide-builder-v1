@@ -96,13 +96,6 @@ const Footer = ({
     );
   }, [saveData]);
 
-  // useEffect(() => {
-  //   if (dataForUpdate && saveData) {
-  //     setIsMainContentOpen(false);
-  //     setIsContenFromServerOpen(true);
-  //   }
-  // }, [dataForUpdate, saveData]);
-
   return (
     <div className={"footer"}>
       <div className="leftFooterContent">

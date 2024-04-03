@@ -54,6 +54,7 @@ import {
   currentUserIdAtom,
   collectionsAtom,
   collectionDocsTriggerAtom,
+  currentDocumentationsAtom,
 } from "./state/atoms";
 
 //styles
@@ -74,6 +75,7 @@ function Plugin() {
   const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   const [collectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
   const [currentUserRole] = useAtom(currentUserRoleAtom);
+  const [, setCurrentDocumentations] = useAtom(currentDocumentationsAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -213,10 +215,10 @@ function Plugin() {
   // }, [documentationData]);
 
   async function collectionDocsHandler(token: string, collectionId: string) {
-    console.log("collectionId", collectionId);
     const data = await getCollectionDocs(token, collectionId);
     if (data && data.length) {
       setDataForUpdate(data);
+      setCurrentDocumentations(data);
     }
     setIsLoading(false);
   }
@@ -270,14 +272,6 @@ function Plugin() {
       };
     });
   }, [selectedSections]);
-
-  // useEffect(() => {
-  //   console.log("selectedNodeId", selectedNodeId);
-  // }, [selectedNodeId]);
-
-  //   on("USER_EMAIL", (email) => {
-  //     setLoggedInUser(email);
-  //   });
 
   on("SESSION", ({ user, document, page }) => {
     setCurrentUser(user);
@@ -468,11 +462,19 @@ function Plugin() {
       if (isDocumented) {
         const response = await updateDocumentation(token, data._id, data);
         if (isBuildingOnCanvas) emit("BUILD", response);
-        await fetchAndUpdateData(token, setDataForUpdate);
+        await fetchAndUpdateData(
+          token,
+          setDataForUpdate,
+          selectedCollection._id
+        );
       } else {
         const response = await createDocumentation(token, data);
         if (isBuildingOnCanvas) emit("BUILD", response);
-        await fetchAndUpdateData(token, setDataForUpdate);
+        await fetchAndUpdateData(
+          token,
+          setDataForUpdate,
+          selectedCollection._id
+        );
         setDocumentationData((prevDocumentation: any) => {
           return {
             ...prevDocumentation,
@@ -487,6 +489,34 @@ function Plugin() {
     setIsBuilding(false);
     setIsBuildingOnCanvas(false);
   }
+  //   async function handleAddDocumentation(token: string, data: any) {
+  //     setIsLoading(true);
+  //     try {
+  //       const result = await getDocumentations(token);
+  //       const isDocumented = result.some((doc: any) => doc._id === data._id);
+  //
+  //       if (isDocumented) {
+  //         const response = await updateDocumentation(token, data._id, data);
+  //         if (isBuildingOnCanvas) emit("BUILD", response);
+  //         await fetchAndUpdateData(token, setDataForUpdate);
+  //       } else {
+  //         const response = await createDocumentation(token, data);
+  //         if (isBuildingOnCanvas) emit("BUILD", response);
+  //         await fetchAndUpdateData(token, setDataForUpdate);
+  //         setDocumentationData((prevDocumentation: any) => {
+  //           return {
+  //             ...prevDocumentation,
+  //             ["_id"]: response._id,
+  //           };
+  //         });
+  //       }
+  //     } catch (error) {
+  //       console.log("error", error);
+  //     }
+  //     setIsLoading(false);
+  //     setIsBuilding(false);
+  //     setIsBuildingOnCanvas(false);
+  //   }
 
   useEffect(() => {
     if (Object.keys(documentationData).length > 0 && isBuilding && token) {

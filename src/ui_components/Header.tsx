@@ -9,6 +9,7 @@ import {
   IconExternalLink,
   IconList,
   IconSearch,
+  IconClock,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import {
@@ -22,6 +23,7 @@ import {
   selectedNodeIdAtom,
   selectedNodeKeyAtom,
   selectedCollectionAtom,
+  currentDocumentationsAtom,
 } from "src/state/atoms";
 
 import { getCollectionDocs } from "./ui_functions/collectionHandlers";
@@ -62,6 +64,7 @@ const Header = ({
     selectedCollectionAtom
   );
   const [userRole] = useAtom(currentUserRoleAtom);
+  const [currentDocumentations] = useAtom(currentDocumentationsAtom);
 
   const [userRankStyle, setUserRankStyle] = useState({});
 
@@ -91,6 +94,7 @@ const Header = ({
   const [, setInitialSelectedSectionsLength] = useState(0);
   const [navState, setNavState] = useState(false);
   const [avatarColor, setAvatarColor] = useState("#F584AD");
+  const [lastCollectionUpdate, setLastCollectionUpdate] = useState("");
 
   function backToIndex() {
     setIsIndexOpen(true);
@@ -100,6 +104,14 @@ const Header = ({
     setIsDocJustOpened(true);
     setIsReset(true);
   }
+
+  useEffect(() => {
+    if (selectedCollection) {
+      console.log("selectedCollection", selectedCollection);
+      const timestamp = convertTimestamp(selectedCollection.updatedAt);
+      setLastCollectionUpdate(timestamp);
+    }
+  }, [selectedCollection]);
 
   useEffect(() => {
     if (
@@ -142,24 +154,17 @@ const Header = ({
     }
   }, [collections, selectedCollection, setSelectedCollection]);
 
-  // useEffect(() => {
-  //   console.log("selectedCollection", selectedCollection);
-  // }, [selectedCollection]);
-
   function Toggle() {
     const handleToggle = async () => {
-      // console.log("selectedMasterId", selectedMasterId);
       if (!token) return;
       setIsViewModeOpen(!isViewModeOpen);
       if (!isIndexOpen) {
         setIsMainContentOpen(false);
         setIsContenFromServerOpen(true);
         const data = await getCollectionDocs(token, selectedCollection?._id);
-        // await fetchAndUpdateData(token, setDataForUpdate);
         const currentDocumentation = dataForUpdate.find(
           (item: any) => item.title === documentationData.title
         );
-        // console.log("currentDocumentation", currentDocumentation);
         setSelectedMasterId(currentDocumentation._id);
       }
     };
@@ -232,6 +237,7 @@ const Header = ({
     styleSheet.innerText = styles;
     document.head.appendChild(styleSheet);
   }
+
   return (
     <div className="header">
       <div className="headerContent">
@@ -244,7 +250,7 @@ const Header = ({
                   onSelect={setSelectedCollection}
                 />
               )}
-              <h2>{selectedCollection && selectedCollection.name}</h2>
+              <h2>Last update: {lastCollectionUpdate}</h2>
               <a
                 href={"https://tidy.guide/guide/overview"}
                 target={"_blank"}
@@ -369,3 +375,16 @@ const Header = ({
 };
 
 export default Header;
+
+function convertTimestamp(timestamp: string) {
+  const date = new Date(timestamp);
+  const options = {
+    year: "numeric" as const,
+    month: "long" as const,
+    day: "numeric" as const,
+    hour: "2-digit" as const,
+    minute: "2-digit" as const,
+    hour12: true,
+  };
+  return new Intl.DateTimeFormat("en-US", options).format(date);
+}
