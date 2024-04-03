@@ -150,7 +150,11 @@ const Header = ({
 
   useEffect(() => {
     if (collections && collections.length && !selectedCollection) {
-      setSelectedCollection(collections[0]);
+      const userCollections = collections.filter(
+        (collection: any) => collection.owner === currentUserId
+      );
+      console.log("userCollections", userCollections);
+      setSelectedCollection(userCollections[0]);
     }
   }, [collections, selectedCollection, setSelectedCollection]);
 

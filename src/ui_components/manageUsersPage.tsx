@@ -16,14 +16,23 @@ import {
 import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
 import { Button } from "@create-figma-plugin/ui";
+import CollectionsDropdown from "./CollectionsDropdown";
 
 function manageUsersPage() {
   const [collections] = useAtom(collectionsAtom);
+  const [currentUserId] = useAtom(currentUserIdAtom);
+  const userCollections = collections.filter(
+    (collection: any) => collection.owner === currentUserId
+  );
   return (
     <div className={"manage-users"}>
       <h1>Manage users</h1>
       <br />
       <h3>Collections:</h3>
+      <CollectionsDropdown
+        options={userCollections}
+        onSelect={() => console.log("yey!!!")}
+      />
       {renderCollections(collections)}
     </div>
   );
