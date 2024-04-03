@@ -26,6 +26,7 @@ function manageUsersPage() {
   );
   return (
     <div className={"manage-users"}>
+      <div className="delete-flex"></div>
       <h1>Manage users</h1>
       <br />
       <h3>Collections:</h3>

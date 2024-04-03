@@ -228,6 +228,7 @@ declare const styles: {
   readonly "textSymbolsCounter": string;
   readonly "thumb": string;
   readonly "tidyLogo": string;
+  readonly "title": string;
   readonly "title-flex": string;
   readonly "title-icon": string;
   readonly "title-row": string;

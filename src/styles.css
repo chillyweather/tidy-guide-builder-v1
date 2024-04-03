@@ -1515,8 +1515,17 @@ body:has(.manage-users) .header .mode-button {
   justify-content: flex-start;
 }
 
+.user-card.title{
+  color: var(--tidy-32);
+  background-color: #F8F8FB;
+  border: 1px solid #E8E8F7;
+  border-radius: 6px;
+}
+
 .user-card p {
   width: 48.75%;
+  margin: 0;
+  padding: 8px;
 }
 
 .user-card p:first-of-type {
