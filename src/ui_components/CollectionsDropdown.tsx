@@ -53,18 +53,18 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
       <button
         class="dropdown-toggle"
         onClick={toggleDropdown}
-        onBlur={() => setIsOpen(false)}
+        // onBlur={() => setIsOpen(false)}
       >
         {selectedCollection && (
           <div>{selectedCollection.name || "Select an option"}</div>
         )}
       </button>
       {isOpen && (
-        <ul class="dropdown-menu">
+        <div class="dropdown-menu">
           {options.map((option) => {
             const role = findUserRole(option, currentUserId);
             return (
-              <li
+              <div
                 className={"dropdown-item"}
                 onMouseDown={(e) => {
                   e.preventDefault();
@@ -72,10 +72,10 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
                 }}
               >
                 <div>{option.name}</div> <span className={"tag " + role}></span>
-              </li>
+              </div>
             );
           })}
-        </ul>
+        </div>
       )}
     </div>
   );

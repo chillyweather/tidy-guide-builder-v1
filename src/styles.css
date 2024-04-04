@@ -1441,21 +1441,39 @@ body .header-login {
 
 .dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin) {
   order: 1;
-  margin-bottom: 12px;
+  margin-top: 24px;
+  margin-bottom: 36px;
 }
 
 .dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin)::after {
-  content: '';
+  content: 'Shared collections';
   position: absolute;
   width: 100%;
-  height: 1px;
-  bottom: -6px;
+  top: calc(100% + 6px);
   left: 0;
-  background-color: #EFF2FA;
+  color: #787878;
+  font-size: calc(var(--text-size) / 6 * 5);
+  padding-left: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #EFF2FA;
+  pointer-events: none;
+}
+
+.dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin)::before {
+  content: 'Account collections';
+  position: absolute;
+  color: #787878;
+  font-size: calc(var(--text-size) / 6 * 5);
+  padding-left: 8px;
+  width: 100%;
+  top: -20px;
+  left: 0;
+  pointer-events: none;
 }
 
 .dropdown-menu .dropdown-item {
   display: flex;
+  position: relative;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -1464,6 +1482,7 @@ body .header-login {
   cursor: pointer;
   order: 2;
   border-radius: 4px;
+  color: var(--tidy-32)
 }
 
 .dropdown-menu .dropdown-item * {
