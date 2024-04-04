@@ -34,8 +34,16 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
     setIsOpen(false);
     onSelect(option || {});
   };
+  //
+  //   useEffect(() => {
+  //     const userCollections = options.filter(
+  //       (collection: any) => collection.owner === currentUserId
+  //     );
+  //     setSelectedCollection(userCollections[0]);
+  //   }, [options]);
 
   useEffect(() => {
+    console.log("selectedCollection", selectedCollection);
     const role = findUserRole(selectedCollection, currentUserId);
     setCurentUserRole(role);
   }, [selectedCollection]);
@@ -47,7 +55,9 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
         onClick={toggleDropdown}
         onBlur={() => setIsOpen(false)}
       >
-        <div>{options[0].name || "Select an option"}</div>
+        {selectedCollection && (
+          <div>{selectedCollection.name || "Select an option"}</div>
+        )}
       </button>
       {isOpen && (
         <ul class="dropdown-menu">
