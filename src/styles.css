@@ -169,7 +169,7 @@ body:has(.login) {
 .componentHeader h2 {
   position: absolute;
   pointer-events: none;
-  top: 70px;
+  top: 69px;
   left: 20px;
   font-weight: 600;
   color: var(--tidy-32);
@@ -477,10 +477,10 @@ li {
 
 .link-icon {
   position: absolute;
-  color: var(--tidy-disabled-btn-text);
+  color: var(--tidy-32);
   padding: 5px;
-  top: 66px;
-  left: 165px;
+  top: 64px;
+  right: 60px;
 }
 
 .link-icon svg {
@@ -1499,6 +1499,12 @@ body .header-login {
 
 .headerContent .header-login {
   padding: 0 !important;
+}
+.componentHeader h2.updated{
+  color: #6C768E;
+  font-size: var(--text-size);
+  font-weight: 400;
+  left: 0;
 }
 
 .flex-col {

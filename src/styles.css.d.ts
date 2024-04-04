@@ -243,6 +243,7 @@ declare const styles: {
   readonly "twoColumnCardBodyContent": string;
   readonly "twoColumns": string;
   readonly "unselected": string;
+  readonly "updated": string;
   readonly "user-card": string;
   readonly "user-company": string;
   readonly "user-item": string;
