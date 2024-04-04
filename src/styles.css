@@ -209,6 +209,16 @@ form select {
   font-size: var(--text-size);
   color: var(--tidy-32);
 }
+form select:focus-visible, form input:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 2px #C2DAFE;
+}
+.add-user-form-wrapper button:focus-visible{
+  border: none;
+  outline: none;
+  box-shadow: 0 0 0 2px #C2DAFE;
+  border-radius: 6px;
+}
 
 .add-user-form {
   display: flex;
