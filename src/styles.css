@@ -254,6 +254,10 @@ body:has(.delete-flex) .container {
   width: calc(100vw - 48px);
 }
 
+.delete-flex.hidden {
+  display: none !important;
+}
+
 .settings-section-flex {
   display: flex;
   flex-direction: row;
@@ -1484,6 +1488,10 @@ body .header-login {
   margin: 0 24px;
 }
 
+.manage-users h2 {
+  color: var(--tidy-32);
+}
+
 body:has(.manage-users) .header .mode-button {
   display: none;
 }
@@ -1508,11 +1516,14 @@ body:has(.manage-users) .header .mode-button {
 .user-mail {
   font-size: calc(var(--text-size) - (var(--text-size) / 6))
 }
-.users-flex{
+
+.users-flex {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   gap: 6px;
 }
+
 .user-card {
   display: flex;
   align-items: center;
@@ -1520,9 +1531,10 @@ body:has(.manage-users) .header .mode-button {
   color: var(--tidy-32);
   border: 1px solid #E8E8F7;
   border-radius: 6px;
+  width: 100%;
 }
 
-.user-card.title{
+.user-card.title {
   color: var(--tidy-32);
   background-color: #F8F8FB;
   border: 1px solid #E8E8F7;

@@ -26,10 +26,10 @@ function manageUsersPage() {
   );
   return (
     <div className={"manage-users"}>
-      <div className="delete-flex"></div>
-      <h1>Manage users</h1>
+      <div className="delete-flex hidden"></div>
+      <h2>Manage users</h2>
       <br />
-      <h3>Collections:</h3>
+      {/* <h3>Collections:</h3> */}
       <CollectionsDropdown
         options={userCollections}
         onSelect={() => console.log("yey!!!")}
@@ -138,8 +138,8 @@ function renderCollections(collections: any[]) {
           const isOwner = collection.owner === currentUserId;
           return isOwner ? (
             <div key={collection._id}>
-              <h4 style={{ color: "blue" }}>{collection.name}</h4>
-              <h4>Users:</h4>
+              {/* <h4 style={{ color: "blue" }}>{collection.name}</h4> */}
+              {/* <h4>Users:</h4> */}
               {renderUsers(collection._id)}
             </div>
           ) : null;
