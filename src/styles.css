@@ -1442,11 +1442,8 @@ body .header-login {
   order: 1;
   margin-bottom: 12px;
 }
-.dropdown-menu .dropdown-item:has(.admin)~.dropdown-item {
-  margin-bottom: 12px;
-}
 
-.dropdown-menu .dropdown-item:has(.admin)~.dropdown-item::after {
+.dropdown-menu .dropdown-item:has(.admin)::after {
   content: '';
   position: absolute;
   width: 100%;
