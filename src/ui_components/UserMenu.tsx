@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { h } from "preact";
-import { useContext } from "preact/hooks";
+import { useContext, useEffect } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { useAtom } from "jotai";
 import { currentCompanyAtom, currentUserNameAtom } from "src/state/atoms";
@@ -33,12 +33,14 @@ const UserMenu = ({
     // @ts-ignore
     document.getElementById("userMenu").open = false;
   }
+
+  useEffect(() => {
+    console.log("currentUserName", currentUserName);
+  }, [currentUserName]);
+
   return (
     <div className={"user-menu"}>
-
-      <div className={"user-company"}>
-        {currentCompany}
-      </div>
+      <div className={"user-company"}>{currentCompany}</div>
 
       <hr />
 
