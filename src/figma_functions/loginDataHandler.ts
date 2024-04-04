@@ -23,6 +23,7 @@ export async function loginDataHandler(
   companyName: string = "",
   id: string = ""
 ) {
+  console.log("%c login data handler is running!!!", "color: Lime");
   if (token) {
     await figma.clientStorage.setAsync("token", token);
     await figma.clientStorage.setAsync("email", email);
@@ -46,12 +47,12 @@ export async function loginDataHandler(
     const savedCompanyName = await figma.clientStorage.getAsync("companyName");
     const savedId = await figma.clientStorage.getAsync("userId");
 
-    console.log("%c savedId", "color:green", savedId);
-    console.log("%c savedToken", "color:green", savedToken);
-    console.log("%c savedEmail", "color:green", savedEmail);
-    console.log("%c savedRank", "color:green", savedRank);
-    console.log("%c savedUserName", "color:green", savedUserName);
-    console.log("%c savedCompanyName", "color:green", savedCompanyName);
+    // console.log("%c savedId", "color:green", savedId);
+    // console.log("%c savedToken", "color:green", savedToken);
+    // console.log("%c savedEmail", "color:green", savedEmail);
+    // console.log("%c savedRank", "color:green", savedRank);
+    // console.log("%c savedUserName", "color:green", savedUserName);
+    // console.log("%c savedCompanyName", "color:green", savedCompanyName);
 
     if (savedToken && savedEmail) {
       emit(

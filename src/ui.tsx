@@ -185,7 +185,16 @@ function Plugin() {
   const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
 
   on("AUTH_CHANGE", async (token, email, rank, userName, companyName, id) => {
-    console.log("AUTH_CHANGE", token, email, rank, userName, companyName, id);
+    console.log(
+      "%c AUTH_CHANGE",
+      "color: blue",
+      token,
+      email,
+      rank,
+      userName,
+      companyName,
+      id
+    );
     if (token) {
       setToken(token);
       setLoggedInUser(email);
@@ -221,12 +230,9 @@ function Plugin() {
 
   useEffect(() => {
     if (collections && collections.length && !selectedCollection) {
-      console.log("will start");
-      console.log("currentUserId", currentUserId);
       const userCollections = collections.filter(
         (collection: any) => collection.owner === currentUserId
       );
-      console.log("userCollections", userCollections);
       setSelectedCollection(userCollections[0]);
     }
   }, [collections, selectedCollection, setSelectedCollection, token]);
@@ -641,7 +647,7 @@ function Plugin() {
         const x = document.getElementsByTagName("details");
         let i;
         for (i = 0; i < x.length; i++) {
-            x[i].open = false;
+          x[i].open = false;
         }
       }}
       onKeyDown={(e) => {

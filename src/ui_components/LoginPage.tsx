@@ -76,7 +76,7 @@ const Login = ({
         const user = response.name;
         const company = response.company;
         const id = response._id;
-        console.log("id", id);
+
         emit("SAVE_USER_LOGIN_DATA", token, email, rank, user, company, id);
         setToken(token);
         setLoggedInUser(email);
