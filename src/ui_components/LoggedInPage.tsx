@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
 import { TidyLogo } from "../images/TidyLogo";
-import { useState, useContext } from "preact/hooks";
+import { useContext } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
 
 const LoggedIn = ({ setToken }: { setToken: any }) => {

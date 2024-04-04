@@ -153,7 +153,6 @@ const Header = ({
       const userCollections = collections.filter(
         (collection: any) => collection.owner === currentUserId
       );
-      console.log("userCollections", userCollections);
       setSelectedCollection(userCollections[0]);
     }
   }, [collections, selectedCollection, setSelectedCollection]);
