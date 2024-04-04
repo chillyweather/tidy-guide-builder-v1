@@ -13,6 +13,7 @@ declare const styles: {
   readonly "_toggle_1rqu7_1": string;
   readonly "absDiv": string;
   readonly "add-button": string;
+  readonly "add-user-button": string;
   readonly "add-user-form": string;
   readonly "add-user-form-wrapper": string;
   readonly "addLink": string;
@@ -159,6 +160,7 @@ declare const styles: {
   readonly "nav-wrapper": string;
   readonly "navigation": string;
   readonly "navigation-button": string;
+  readonly "no-margin": string;
   readonly "noFeedback": string;
   readonly "noIcon": string;
   readonly "noPredefined": string;

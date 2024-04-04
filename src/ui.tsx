@@ -638,13 +638,10 @@ function Plugin() {
       className={"container"}
       onClick={() => {
         //@ts-ignore
-        document.getElementById("userMenu").open = false;
         const x = document.getElementsByTagName("details");
         let i;
         for (i = 0; i < x.length; i++) {
-          if (x[i].classList.contains("open") == true) {
             x[i].open = false;
-          }
         }
       }}
       onKeyDown={(e) => {
