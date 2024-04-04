@@ -1483,9 +1483,13 @@ body .header-login {
   flex-grow: 1;
 }
 
+body:has(.delete-flex) #userMenu {
+  display: none;
+}
+
 .manage-users {
-  width: calc(100% - 48px);
-  margin: 0 24px;
+  width: calc(100% - 80px);
+  margin: 0 40px;
 }
 
 .manage-users h2 {
@@ -1532,10 +1536,12 @@ body:has(.manage-users) .header .mode-button {
   border-radius: 6px;
   cursor: pointer;
 }
-.users-flex .users-button:hover{
+
+.users-flex .users-button:hover {
   background-color: var(--tidy-btn-hover);
 }
-.users-flex .users-button:active{
+
+.users-flex .users-button:active {
   background-color: var(--tidy-btn-pressed);
 }
 

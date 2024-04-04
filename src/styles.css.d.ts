@@ -250,6 +250,7 @@ declare const styles: {
   readonly "user-menu": string;
   readonly "user-name": string;
   readonly "user-tag": string;
+  readonly "userMenu": string;
   readonly "userlist": string;
   readonly "userlist-item": string;
   readonly "users-button": string;
