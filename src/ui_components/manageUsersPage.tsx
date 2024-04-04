@@ -19,6 +19,11 @@ import BuilderContext from "src/BuilderContext";
 import { Button } from "@create-figma-plugin/ui";
 import CollectionsDropdown from "./CollectionsDropdown";
 
+function colorMe(event: any) {
+  console.log('yyyy');
+  console.log(event.target);
+}
+
 function manageUsersPage() {
   const [collections] = useAtom(collectionsAtom);
   const [currentUserId] = useAtom(currentUserIdAtom);
@@ -61,7 +66,7 @@ function renderUsers(collectionId: string) {
   return (
     <div className={"users-flex"}>
       <Button
-      className={"users-button"}
+        className={"users-button"}
         onClick={() => {
           setShowAddUserForm(true);
         }}
@@ -96,7 +101,61 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
   const { token } = useContext(BuilderContext) || {};
   if (!token) return null;
   return (
+    // function colorAvatar(event) {
+    //   const colorList = [
+    //     "#F584AD",
+    //     "#AC93F0",
+    //     "#D1423F",
+    //     "#DC1677",
+    //     "#C233A0",
+    //     "#6163E1",
+    //     "#246DB6",
+    //     "#008290",
+    //     "#7BA100",
+    //     "#9355D2",
+    //     "#6D8391",
+    //     "#3B814F",
+    //     "#8190EA",
+    //     "#50CE71",
+    //     "#F2BA3B",
+    //     "#030303",
+    //     "#E38072",
+    //     "#543150",
+    //     "#F8970C",
+    //     "#285736",
+    //     "#00BFA5",
+    //     "#FF7BAD",
+    //     "#84CE29",
+    //     "#FF6D00",
+    //     "#FF372B",
+    //     "#304FFE",
+    //   ];
+    //   const alphaUser =
+    //     loggedInUser.slice(0, 1).toLowerCase().charCodeAt(0) - 97 + 1;
+    //   const alphaToken =
+    //     loggedInUser
+    //       .slice(loggedInUser.lastIndexOf("@") - 1, loggedInUser.lastIndexOf("@"))
+    //       .toLowerCase()
+    //       .charCodeAt(0) -
+    //     97 +
+    //     1;
+    //   let selectedColorIndex = alphaUser - alphaToken;
+    //   if (selectedColorIndex < 0) {
+    //     selectedColorIndex *= -1;
+    //   }
+    //   // console.log(selectedColorIndex);
+    // }
+
+
     <div key={user._id} className={"user-card"}>
+      <div
+        className={"user-tag"}
+        first-letter={user.email.slice(0, 1)}
+        last-letter={user.email.slice(user.email.lastIndexOf("@") - 1, user.email.lastIndexOf("@"))}
+        onLoad={(event) => { colorMe(event); }}
+      >
+        {user.email.slice(0, 1)}
+      </div>
       <p>{user.name}</p>
       <p>{user.email}</p>
       <p>

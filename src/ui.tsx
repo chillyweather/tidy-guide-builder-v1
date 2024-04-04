@@ -620,6 +620,8 @@ function Plugin() {
     <div
       className={"container"}
       onClick={() => {
+        //@ts-ignore
+        document.getElementById("userMenu").open = false;
         const x = document.getElementsByTagName("details");
         let i;
         for (i = 0; i < x.length; i++) {
