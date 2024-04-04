@@ -512,6 +512,10 @@ li {
   margin-top: 10px;
 }
 
+body:has(.mode-button.viewer) .link-icon{
+  right: -106px;
+}
+
 .link-icon {
   position: absolute;
   color: var(--tidy-32);
