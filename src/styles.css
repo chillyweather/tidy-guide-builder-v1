@@ -1644,7 +1644,8 @@ details[open] summary {
   height: 24px;
   width: 24px;
   pointer-events: none;
-  margin-left: 8px
+  margin-left: 8px;
+  font-size: var(--text-size);
 }
 
 .user-tag {
