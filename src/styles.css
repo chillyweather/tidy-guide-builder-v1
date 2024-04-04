@@ -1438,8 +1438,11 @@ body .header-login {
   flex-direction: column;
 }
 
-.dropdown-menu .dropdown-item:has(.admin)~.dropdown-item {
+.dropdown-menu .dropdown-item:has(.admin) {
   order: 1;
+  margin-bottom: 12px;
+}
+.dropdown-menu .dropdown-item:has(.admin)~.dropdown-item {
   margin-bottom: 12px;
 }
 

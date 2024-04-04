@@ -614,7 +614,7 @@ function Plugin() {
   //   console.log("showContentFromServer", showContentFromServer);
   //   console.log("showMainContent", showMainContent);
   // }, [showContentFromServer, showMainContent]);
-
+  let dontClose = true;
   return (
     <div
       className={"container"}
@@ -622,7 +622,9 @@ function Plugin() {
         const x = document.getElementsByTagName("details");
         let i;
         for (i = 0; i < x.length; i++) {
-          x[i].open = false;
+          if (dontClose == true) {
+            x[i].open = false;
+          }
         }
       }}
       onKeyDown={(e) => {
@@ -764,7 +766,7 @@ function Plugin() {
               selectedMasterId={selectedMasterId}
               selectedSections={selectedSections}
               setSelectedSections={setSelectedSections}
-              //! add component key
+            //! add component key
             />
           )}
         {/* content in View mode */}
