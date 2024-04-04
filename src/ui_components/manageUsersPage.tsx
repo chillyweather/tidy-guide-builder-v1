@@ -139,7 +139,6 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
         first-letter={user.email.slice(0, 1)}
         last-letter={user.email.slice(user.email.lastIndexOf("@") - 1, user.email.lastIndexOf("@"))}
         style={{ backgroundColor: colorMe(user.email.slice(0, 1), user.email.slice(user.email.lastIndexOf("@") - 1, user.email.lastIndexOf("@"))) }}
-      // onLoad={colorMe(user.email.slice(0, 1), user.email.slice(user.email.lastIndexOf("@") - 1, user.email.lastIndexOf("@")))}
       >
         {user.email.slice(0, 1)}
       </div>
@@ -229,7 +228,7 @@ function AddUserForm({
         <option value="Editor">Editor</option>
       </select>
 
-      <Button type="submit">Add</Button>
+      <Button type="submit" className={"users-button no-margin add-user-button"}>Add</Button>
     </form>
   );
 }

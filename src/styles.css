@@ -199,18 +199,45 @@ body:has(.login) {
 }
 
 /* user management */
+
+form select {
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 120px;
+  font-size: var(--text-size);
+  color: var(--tidy-32);
+}
+
 .add-user-form {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 12px;
   width: 100%;
+  margin: 0;
+}
+
+.add-user-form:has(input:placeholder-shown) .add-user-button {
+  pointer-events: none;
+  background-color: #E8E8E8;
+  color: #A6A8AD;
+}
+
+.add-user-form input {
+  width: 100%;
+  font-size: var(--text-size);
 }
 
 .add-user-form-wrapper {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
   width: 100%;
+  border: 2px solid var(--tidy-btn-pressed);
+  border-radius: 6px;
 }
 
 /* end user management */
@@ -1413,6 +1440,7 @@ body .header-login {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: calc(100% - 16px);
+  pointer-events: none;
 }
 
 .dropdown-comp .dropdown-toggle::after,
@@ -1568,6 +1596,16 @@ body:has(.manage-users) .header .mode-button {
   gap: 6px;
 }
 
+.users-flex .users-button.no-margin {
+  margin: 0;
+}
+
+.users-flex .users-button:disabled {
+  pointer-events: none;
+  background-color: #E8E8E8;
+  color: #A6A8AD;
+}
+
 .users-flex .users-button {
   background-color: var(--tidy-primary);
   color: #ffffff;
@@ -1575,6 +1613,8 @@ body:has(.manage-users) .header .mode-button {
   margin-bottom: 16px;
   border-radius: 6px;
   cursor: pointer;
+  min-width: 62px;
+  font-size: var(--text-size);
 }
 
 .users-flex .users-button:hover {
@@ -1615,7 +1655,7 @@ body:has(.manage-users) .header .mode-button {
   padding: 8px;
 }
 
-.user-card.title p:first-of-type{
+.user-card.title p:first-of-type {
   margin-right: 32px;
 }
 
