@@ -1405,6 +1405,7 @@ body .header-login {
 .dropdown-comp .dropdown-toggle div {
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: calc(100% - 16px);
 }
 
 .dropdown-comp .dropdown-toggle::after,
