@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { render } from "@create-figma-plugin/ui";
 
@@ -615,7 +616,7 @@ function Plugin() {
   //   console.log("showMainContent", showMainContent);
   // }, [showContentFromServer, showMainContent]);
   // eslint-disable-next-line prefer-const
-  
+
   return (
     <div
       className={"container"}
@@ -625,7 +626,7 @@ function Plugin() {
         const x = document.getElementsByTagName("details");
         let i;
         for (i = 0; i < x.length; i++) {
-          if (x[i].classList.contains('open') == true) {
+          if (x[i].classList.contains("open") == true) {
             x[i].open = false;
           }
         }

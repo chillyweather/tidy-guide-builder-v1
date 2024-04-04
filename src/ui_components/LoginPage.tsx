@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
-import { useState } from "preact/hooks";
+import { useState, useContext } from "preact/hooks";
+import BuilderContext from "src/BuilderContext";
 import { useAtom } from "jotai";
 import {
   currentUserNameAtom,
@@ -44,6 +45,7 @@ const Login = ({
   const [, setCurrentCompany] = useAtom(currentCompanyAtom);
   const [, setCurrentUserName] = useAtom(currentUserNameAtom);
   const [, setTokenAtomData] = useAtom(tokenAtom);
+  const { setLoggedInUser } = useContext(BuilderContext) || {};
 
   const handleEmailChange = (e: any) => {
     setIsLoginFailed(false);
@@ -77,6 +79,7 @@ const Login = ({
         console.log("id", id);
         emit("SAVE_USER_LOGIN_DATA", token, email, rank, user, company, id);
         setToken(token);
+        setLoggedInUser(email);
         setTokenAtomData(token);
         setUserRank(rank);
         setCurrentCompany(response.company);
