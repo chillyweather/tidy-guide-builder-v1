@@ -1615,6 +1615,10 @@ body:has(.manage-users) .header .mode-button {
   padding: 8px;
 }
 
+.user-card.title p:first-of-type{
+  margin-right: 32px;
+}
+
 .user-card p:first-of-type {
   width: 28.75%;
 }
@@ -1635,10 +1639,14 @@ body:has(.manage-users) .header .mode-button {
 details[open] summary {
   pointer-events: none;
 }
-.user-card .user-tag{
+
+.user-card .user-tag {
   height: 24px;
   width: 24px;
+  pointer-events: none;
+  margin-left: 8px
 }
+
 .user-tag {
   height: 32px;
   width: 32px;
