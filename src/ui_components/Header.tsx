@@ -155,7 +155,7 @@ const Header = ({
       );
       setSelectedCollection(userCollections[0]);
     }
-  }, [collections, selectedCollection, setSelectedCollection]);
+  }, [collections, selectedCollection, setSelectedCollection, token]);
 
   function Toggle() {
     const handleToggle = async () => {
