@@ -1438,12 +1438,12 @@ body .header-login {
   flex-direction: column;
 }
 
-.dropdown-menu .dropdown-item:has(.admin) {
+.dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin) {
   order: 1;
   margin-bottom: 12px;
 }
 
-.dropdown-menu .dropdown-item:has(.admin)::after {
+.dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin)::after {
   content: '';
   position: absolute;
   width: 100%;
