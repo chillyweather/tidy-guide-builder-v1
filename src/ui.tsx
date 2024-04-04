@@ -614,6 +614,7 @@ function Plugin() {
   //   console.log("showContentFromServer", showContentFromServer);
   //   console.log("showMainContent", showMainContent);
   // }, [showContentFromServer, showMainContent]);
+  // eslint-disable-next-line prefer-const
   let dontClose = true;
   return (
     <div
@@ -766,7 +767,7 @@ function Plugin() {
               selectedMasterId={selectedMasterId}
               selectedSections={selectedSections}
               setSelectedSections={setSelectedSections}
-            //! add component key
+              //! add component key
             />
           )}
         {/* content in View mode */}
