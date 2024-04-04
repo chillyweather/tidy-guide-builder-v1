@@ -253,7 +253,7 @@ const Header = ({
                   onSelect={setSelectedCollection}
                 />
               )}
-              <h2>Last update: {lastCollectionUpdate}</h2>
+              <h2 className={"updated"}>Last update: {lastCollectionUpdate}</h2>
               <a
                 href={"https://tidy.guide/guide/overview"}
                 target={"_blank"}
