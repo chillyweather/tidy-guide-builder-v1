@@ -47,7 +47,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
         onClick={toggleDropdown}
         onBlur={() => setIsOpen(false)}
       >
-        {options[0].name || "Select an option"}
+        <div>{options[0].name || "Select an option"}</div>
       </button>
       {isOpen && (
         <ul class="dropdown-menu">

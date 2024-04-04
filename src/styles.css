@@ -1397,8 +1397,14 @@ body .header-login {
   gap: 4px;
   border: 1px solid #B8BBC6;
   border-radius: 4px;
-  min-width: 240px;
+  width: 240px;
+  max-width: 240px;
   padding: 7px;
+}
+
+.dropdown-comp .dropdown-toggle div {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .dropdown-comp .dropdown-toggle::after,
@@ -1432,12 +1438,12 @@ body .header-login {
   flex-direction: column;
 }
 
-.dropdown-menu .dropdown-item:has(.admin) {
+.dropdown-menu .dropdown-item:has(.admin)~.dropdown-item {
   order: 1;
   margin-bottom: 12px;
 }
 
-.dropdown-menu .dropdown-item:has(.admin)::after {
+.dropdown-menu .dropdown-item:has(.admin)~.dropdown-item::after {
   content: '';
   position: absolute;
   width: 100%;
