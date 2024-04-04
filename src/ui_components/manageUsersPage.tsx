@@ -64,6 +64,7 @@ function renderUsers(collectionId: string) {
         className={"users-button"}
         onClick={() => {
           setShowAddUserForm(true);
+          setTimeout(function () { document.getElementById("mailInput")?.focus(); }, 100);
         }}
         disabled={showAddUserForm}
       >
@@ -129,7 +130,7 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
     if (selectedColorIndex < 0) {
       selectedColorIndex *= -1;
     }
-    
+
     return colorList[selectedColorIndex]
   }
   return (
@@ -215,6 +216,7 @@ function AddUserForm({
     <form onSubmit={handleSubmit} className={"add-user-form"}>
       <input
         type="text"
+        id="mailInput"
         value={email}
         placeholder={"Email"}
         onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
