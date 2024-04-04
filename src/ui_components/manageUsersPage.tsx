@@ -5,6 +5,7 @@ import {
   IconX,
   IconPencil,
   IconTrash,
+  IconPlus,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import { collectionsAtom, currentUserIdAtom } from "src/state/atoms";
@@ -60,14 +61,13 @@ function renderUsers(collectionId: string) {
   return (
     <div className={"users-flex"}>
       <Button
+      className={"users-button"}
         onClick={() => {
           setShowAddUserForm(true);
         }}
-        style={{
-          cursor: "pointer",
-        }}
         disabled={showAddUserForm}
       >
+        <IconPlus />
         Add user
       </Button>
       <div className={"user-card title"}>
