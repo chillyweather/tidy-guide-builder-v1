@@ -57,6 +57,7 @@ import {
   collectionDocsTriggerAtom,
   currentDocumentationsAtom,
 } from "./state/atoms";
+// import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
 //styles
 import "!./styles.css";
@@ -72,8 +73,10 @@ function Plugin() {
   const [, setCurrentCompany] = useAtom(currentCompanyAtom);
   const [, setCurrentUserName] = useAtom(currentUserNameAtom);
   const [currentUserId, setCurrentUserId] = useAtom(currentUserIdAtom);
-  const [, setCollections] = useAtom(collectionsAtom);
-  const [selectedCollection]: any = useAtom(selectedCollectionAtom);
+  const [collections, setCollections] = useAtom(collectionsAtom);
+  const [selectedCollection, setSelectedCollection]: any = useAtom(
+    selectedCollectionAtom
+  );
   const [collectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
   const [currentUserRole] = useAtom(currentUserRoleAtom);
   const [, setCurrentDocumentations] = useAtom(currentDocumentationsAtom);
@@ -182,6 +185,7 @@ function Plugin() {
   const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
 
   on("AUTH_CHANGE", async (token, email, rank, userName, companyName, id) => {
+    console.log("AUTH_CHANGE", token, email, rank, userName, companyName, id);
     if (token) {
       setToken(token);
       setLoggedInUser(email);
@@ -211,9 +215,21 @@ function Plugin() {
   //   }
   // });
 
-  // useEffect(() => {
-  //   console.log("documentationData", documentationData);
-  // }, [documentationData]);
+  useEffect(() => {
+    console.log("token", token);
+  }, [token]);
+
+  useEffect(() => {
+    if (collections && collections.length && !selectedCollection) {
+      console.log("will start");
+      console.log("currentUserId", currentUserId);
+      const userCollections = collections.filter(
+        (collection: any) => collection.owner === currentUserId
+      );
+      console.log("userCollections", userCollections);
+      setSelectedCollection(userCollections[0]);
+    }
+  }, [collections, selectedCollection, setSelectedCollection, token]);
 
   async function collectionDocsHandler(token: string, collectionId: string) {
     const data = await getCollectionDocs(token, collectionId);

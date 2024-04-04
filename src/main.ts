@@ -2,9 +2,10 @@ import { emit, on, once, showUI } from "@create-figma-plugin/utilities";
 import documentationBuilder from "./figma_functions/documentationBuilder";
 // import { tempData } from "./tempData";
 import { checkSelection } from "./figma_functions/checkSelection";
-import { tokenAndEmailHandler } from "./figma_functions/loginDataHandler";
+import { loginDataHandler } from "./figma_functions/loginDataHandler";
 import { getNode } from "./figma_functions/getNode";
 import imageFromFigma from "./figma_functions/imageFromFigma";
+import { logoutDataHandler } from "./figma_functions/logoutDataHandler";
 
 const loadFonts = async () => {
   await figma.loadFontAsync({ family: "Inter", style: "Regular" });
@@ -14,7 +15,7 @@ const loadFonts = async () => {
 };
 
 export default async function () {
-  await tokenAndEmailHandler();
+  await loginDataHandler();
 
   const user = figma.currentUser;
   const document = figma.root.name;
@@ -32,11 +33,11 @@ export default async function () {
   if (selectionData) emit("SELECTION", selectionData);
 
   once("SAVE_USER_LOGIN_DATA", (token, email, rank, user, company, id) => {
-    tokenAndEmailHandler(token, email, rank, user, company, id);
+    loginDataHandler(token, email, rank, user, company, id);
   });
 
   on("LOGOUT", async () => {
-    figma.clientStorage.deleteAsync("token");
+    logoutDataHandler();
   });
 
   on("GET_SELECTION", async () => {

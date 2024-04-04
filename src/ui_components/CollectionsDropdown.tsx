@@ -43,7 +43,6 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
   //   }, [options]);
 
   useEffect(() => {
-    console.log("selectedCollection", selectedCollection);
     const role = findUserRole(selectedCollection, currentUserId);
     setCurentUserRole(role);
   }, [selectedCollection]);

@@ -8,9 +8,14 @@ import { emit } from "@create-figma-plugin/utilities";
  * Returns the saved token if both token and email are present in the client storage, otherwise returns null.
  * @param token - The token value to be stored in the client storage.
  * @param email - The email value to be stored in the client storage.
+ * @param rank - The rank value to be stored in the client storage.
+ * @param userName - The userName value to be stored in the client storage.
+ * @param companyName - The companyName value to be stored in the client storage.
+ * @param id - The id value to be stored in the client storage.
  * @returns The saved token if both token and email are present, otherwise null.
  */
-export async function tokenAndEmailHandler(
+
+export async function loginDataHandler(
   token?: string,
   email?: string,
   rank: string = "Viewer",
@@ -25,14 +30,14 @@ export async function tokenAndEmailHandler(
     await figma.clientStorage.setAsync("userName", userName);
     await figma.clientStorage.setAsync("companyName", companyName);
     await figma.clientStorage.setAsync("userId", id);
+    console.log("%c userId", "color: coral", id);
+    console.log("%c token", "color: coral", token);
+    console.log("%c email", "color: coral", email);
+    console.log("%c rank", "color: coral", rank);
+    console.log("%c userName", "color: coral", userName);
+    console.log("%c companyName", "color: coral", companyName);
 
     emit("AUTH_CHANGE", token, email, rank, userName, companyName, id);
-
-    // console.log("token set :>> ", token);
-    // console.log("email set :>> ", email);
-    // console.log("rank set :>> ", rank);
-    // console.log("userName set :>> ", userName);
-    // console.log("companyName set :>> ", companyName);
   } else {
     const savedToken = await figma.clientStorage.getAsync("token");
     const savedEmail = await figma.clientStorage.getAsync("email");
@@ -41,11 +46,12 @@ export async function tokenAndEmailHandler(
     const savedCompanyName = await figma.clientStorage.getAsync("companyName");
     const savedId = await figma.clientStorage.getAsync("userId");
 
-    // console.log("savedToken", savedToken);
-    // console.log("savedEmail", savedEmail);
-    // console.log("savedRank", savedRank);
-    // console.log("savedUserName", savedUserName);
-    // console.log("savedCompanyName", savedCompanyName);
+    console.log("%c savedId", "color:green", savedId);
+    console.log("%c savedToken", "color:green", savedToken);
+    console.log("%c savedEmail", "color:green", savedEmail);
+    console.log("%c savedRank", "color:green", savedRank);
+    console.log("%c savedUserName", "color:green", savedUserName);
+    console.log("%c savedCompanyName", "color:green", savedCompanyName);
 
     if (savedToken && savedEmail) {
       emit(

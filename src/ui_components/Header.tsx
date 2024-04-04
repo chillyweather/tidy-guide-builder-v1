@@ -148,15 +148,6 @@ const Header = ({
     }
   }, [documentationData]);
 
-  useEffect(() => {
-    if (collections && collections.length && !selectedCollection) {
-      const userCollections = collections.filter(
-        (collection: any) => collection.owner === currentUserId
-      );
-      setSelectedCollection(userCollections[0]);
-    }
-  }, [collections, selectedCollection, setSelectedCollection, token]);
-
   function Toggle() {
     const handleToggle = async () => {
       if (!token) return;
