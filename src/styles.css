@@ -1382,6 +1382,13 @@ body .header-login {
 /* body:has(.navigation a) .header-login {
   display: none;
 } */
+.componentHeader .dropdown-comp .dropdown-toggle {
+  font-size: calc(var(--text-size) / 6 * 8);
+  border: none !important;
+  width: fit-content;
+  max-width: 400px;
+  padding-left: 0;
+}
 
 .dropdown-comp {
   white-space: pre;
@@ -1500,7 +1507,8 @@ body .header-login {
 .headerContent .header-login {
   padding: 0 !important;
 }
-.componentHeader h2.updated{
+
+.componentHeader h2.updated {
   color: #6C768E;
   font-size: var(--text-size);
   font-weight: 400;
