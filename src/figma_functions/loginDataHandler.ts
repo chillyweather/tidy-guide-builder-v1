@@ -23,7 +23,7 @@ export async function loginDataHandler(
   companyName: string = "",
   id: string = ""
 ) {
-  console.log("%c login data handler is running!!!", "color: Lime");
+  // console.log("%c login data handler is running!!!", "color: Lime");
   if (token) {
     await figma.clientStorage.setAsync("token", token);
     await figma.clientStorage.setAsync("email", email);
@@ -31,12 +31,12 @@ export async function loginDataHandler(
     await figma.clientStorage.setAsync("userName", userName);
     await figma.clientStorage.setAsync("companyName", companyName);
     await figma.clientStorage.setAsync("userId", id);
-    console.log("%c userId", "color: coral", id);
-    console.log("%c token", "color: coral", token);
-    console.log("%c email", "color: coral", email);
-    console.log("%c rank", "color: coral", rank);
-    console.log("%c userName", "color: coral", userName);
-    console.log("%c companyName", "color: coral", companyName);
+    // console.log("%c userId", "color: coral", id);
+    // console.log("%c token", "color: coral", token);
+    // console.log("%c email", "color: coral", email);
+    // console.log("%c rank", "color: coral", rank);
+    // console.log("%c userName", "color: coral", userName);
+    // console.log("%c companyName", "color: coral", companyName);
 
     emit("AUTH_CHANGE", token, email, rank, userName, companyName, id);
   } else {

@@ -33,7 +33,6 @@ export default async function () {
   if (selectionData) emit("SELECTION", selectionData);
 
   on("SAVE_USER_LOGIN_DATA", (token, email, rank, user, company, id) => {
-    console.log("🧨");
     loginDataHandler(token, email, rank, user, company, id);
   });
 
