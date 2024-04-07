@@ -201,11 +201,7 @@ function renderCollections(collections: any[]) {
         collections.map((collection: any) => {
           const isOwner = collection.owner === currentUserId;
           return isOwner ? (
-            <div key={collection._id}>
-              {/* <h4 style={{ color: "blue" }}>{collection.name}</h4> */}
-              {/* <h4>Users:</h4> */}
-              {renderUsers(collection._id)}
-            </div>
+            <div key={collection._id}>{renderUsers(collection._id)}</div>
           ) : null;
         })}
     </div>
