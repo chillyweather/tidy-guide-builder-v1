@@ -4,14 +4,12 @@ import { IconTrash, IconCopy } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
 import {
   getDocumentation,
-  getDocumentations,
+  // getDocumentations,
   createDocumentation,
 } from "./ui_functions/documentationHandlers";
 import { useAtom } from "jotai";
-import {
-  isViewModeOpenAtom,
-  // collectionDocsTriggerAtom
-} from "src/state/atoms";
+import { isViewModeOpenAtom, selectedCollectionAtom } from "src/state/atoms";
+import { getCollectionDocs } from "./ui_functions/collectionHandlers";
 
 const IndexPage = ({
   data,
@@ -35,6 +33,7 @@ const IndexPage = ({
   token: string;
 }) => {
   const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
+  const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
   const sortedData = data.sort((a: any, b: any) =>
     a.title.localeCompare(b.title)
@@ -88,7 +87,12 @@ const IndexPage = ({
               <button
                 className={"cardAuxButton noPredefined"}
                 onClick={async () =>
-                  await handleDocClone(token, element._id, setDataForUpdate)
+                  await handleDocClone(
+                    token,
+                    element._id,
+                    setDataForUpdate,
+                    selectedCollection
+                  )
                 }
               >
                 <IconCopy />
@@ -121,17 +125,19 @@ export default IndexPage;
 async function handleDocClone(
   token: string,
   id: string,
-  setData: (value: any) => void
+  setData: (value: any) => void,
+  selectedCollection: any
 ) {
   const docFromServer = await getDocumentation(token, id);
 
   delete docFromServer._id;
   docFromServer.title = docFromServer.title + " copy";
+  docFromServer["collection"] = selectedCollection?._id;
 
   const clonedDoc = await createDocumentation(token, docFromServer);
   if (!clonedDoc._id) return;
 
-  const newDocs = await getDocumentations(token);
+  const newDocs = await getCollectionDocs(token, selectedCollection?._id);
   if (!newDocs) return;
 
   setData(newDocs);
