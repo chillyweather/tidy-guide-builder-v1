@@ -187,7 +187,7 @@ function Plugin() {
   on("AUTH_CHANGE", async (token, email, rank, userName, companyName, id) => {
     console.log(
       "%c AUTH_CHANGE",
-      "color: blue",
+      "color: orange",
       token,
       email,
       rank,
@@ -283,7 +283,6 @@ function Plugin() {
         ["docs"]: [],
         ["title"]: documentationTitle,
         ["draft"]: isDraft,
-        ["collection"]: selectedCollection?._id,
         ["inProgress"]: isWip,
       };
     });
@@ -410,10 +409,11 @@ function Plugin() {
           ["title"]: documentationTitle,
           ["inProgress"]: isWip,
           ["draft"]: isDraft,
+          ["collection"]: selectedCollection?._id,
         };
       });
     }
-  }, [documentationTitle, isWip, isDraft]);
+  }, [documentationTitle, isWip, isDraft, selectedCollection]);
 
   useEffect(() => {
     if (selectedNodeKey) {
@@ -494,7 +494,9 @@ function Plugin() {
           selectedCollection._id
         );
       } else {
+        console.log("data", data);
         const response = await createDocumentation(token, data);
+        console.log("response", data);
         if (isBuildingOnCanvas) emit("BUILD", response);
         await fetchAndUpdateData(
           token,
