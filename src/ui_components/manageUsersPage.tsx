@@ -64,7 +64,9 @@ function renderUsers(collectionId: string) {
         className={"users-button"}
         onClick={() => {
           setShowAddUserForm(true);
-          setTimeout(function () { document.getElementById("mailInput")?.focus(); }, 100);
+          setTimeout(function () {
+            document.getElementById("mailInput")?.focus();
+          }, 100);
         }}
         disabled={showAddUserForm}
       >
@@ -78,7 +80,11 @@ function renderUsers(collectionId: string) {
       </div>
       {showAddUserForm && (
         <div className={"add-user-form-wrapper"}>
-          <AddUserForm collectionId={collectionId} setTrigger={setTrigger} />
+          <AddUserForm
+            collectionId={collectionId}
+            setTrigger={setTrigger}
+            setShowAddUserForm={setShowAddUserForm}
+          />
           <button onClick={() => setShowAddUserForm(false)}>
             <IconX />
           </button>
@@ -126,20 +132,32 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
       "#304FFE",
     ];
 
-    let selectedColorIndex = (a.charCodeAt(0) - 97 + 1) - (b.charCodeAt(0) - 97 + 1);
+    let selectedColorIndex =
+      a.charCodeAt(0) - 97 + 1 - (b.charCodeAt(0) - 97 + 1);
     if (selectedColorIndex < 0) {
       selectedColorIndex *= -1;
     }
 
-    return colorList[selectedColorIndex]
+    return colorList[selectedColorIndex];
   }
   return (
     <div key={user._id} className={"user-card"}>
       <div
         className={"user-tag"}
         first-letter={user.email.slice(0, 1)}
-        last-letter={user.email.slice(user.email.lastIndexOf("@") - 1, user.email.lastIndexOf("@"))}
-        style={{ backgroundColor: colorMe(user.email.slice(0, 1), user.email.slice(user.email.lastIndexOf("@") - 1, user.email.lastIndexOf("@"))) }}
+        last-letter={user.email.slice(
+          user.email.lastIndexOf("@") - 1,
+          user.email.lastIndexOf("@")
+        )}
+        style={{
+          backgroundColor: colorMe(
+            user.email.slice(0, 1),
+            user.email.slice(
+              user.email.lastIndexOf("@") - 1,
+              user.email.lastIndexOf("@")
+            )
+          ),
+        }}
       >
         {user.email.slice(0, 1)}
       </div>
@@ -197,9 +215,11 @@ function renderCollections(collections: any[]) {
 function AddUserForm({
   collectionId,
   setTrigger,
+  setShowAddUserForm,
 }: {
   collectionId: string;
   setTrigger: any;
+  setShowAddUserForm: any;
 }): any {
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("Viewer");
@@ -210,6 +230,7 @@ function AddUserForm({
     e.preventDefault();
     await addCollectionUser(token, collectionId, email, role);
     setTrigger((prevTrigger: number) => prevTrigger + 1);
+    setShowAddUserForm(false);
   };
 
   return (
@@ -230,7 +251,12 @@ function AddUserForm({
         <option value="Editor">Editor</option>
       </select>
 
-      <Button type="submit" className={"users-button no-margin add-user-button"}>Add</Button>
+      <Button
+        type="submit"
+        className={"users-button no-margin add-user-button"}
+      >
+        Add
+      </Button>
     </form>
   );
 }
