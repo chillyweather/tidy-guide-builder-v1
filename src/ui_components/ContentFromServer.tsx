@@ -24,6 +24,7 @@ const ContentFromServer = ({
   selectedSections: any;
   setSelectedSections: any;
 }) => {
+  console.log("%c content from server!!!!!!!!!!!!!!!!", "color: OrangeRed");
   const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [, setSelectedComponentPic] = useAtom(selectedComponentPicAtom);

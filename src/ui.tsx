@@ -56,6 +56,7 @@ import {
   collectionsAtom,
   collectionDocsTriggerAtom,
   currentDocumentationsAtom,
+  isPublishAndViewAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -80,6 +81,7 @@ function Plugin() {
   const [collectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
   const [currentUserRole] = useAtom(currentUserRoleAtom);
   const [, setCurrentDocumentations] = useAtom(currentDocumentationsAtom);
+  const [isPublishAndView, setIsPublishAndView] = useAtom(isPublishAndViewAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -165,23 +167,11 @@ function Plugin() {
   //user rank
   const [userRank, setUserRank] = useState("");
 
-  // //anatomy section image
-  // const [anatomySectionImage, setAnatomySectionImage] = useState("");
-  // const [spacingSectionImage, setSpacingSectionImage] = useState("");
-  // const [propertySectionImage, setPropertySectionImage] = useState("");
-  // const [variantsSectionImage, setVariantsSectionImage] = useState("");
-
   //current image array
   const [currentImageArray, setCurrentImageArray] = useState<Uint8Array | null>(
     null
   );
 
-  // const [componentPics, setComponentPics] = useState<any>({});
-
-  //current image type
-  // const [currentImageType, setCurrentImageType] = useState("");
-
-  //is current name valid
   const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
 
   on("AUTH_CHANGE", async (token, email, rank, userName, companyName, id) => {
@@ -207,22 +197,6 @@ function Plugin() {
       setIsLoading(false);
     }
   });
-  // on("AUTH_CHANGE", async (token, email, rank, userName, companyName, id) => {
-  //   if (token) {
-  //     setToken(token);
-  //     setLoggedInUser(email);
-  //     setUserRank(rank);
-  //     setCurrentCompany(companyName);
-  //     setCurrentUserName(userName);
-  //     setCurrentUserId(id);
-  //     const data = await getDocumentations(token);
-  //     setDataForUpdate(data);
-  //     setIsLoading(false);
-  //   } else {
-  //     setShowLoginPage(true);
-  //     setIsLoading(false);
-  //   }
-  // });
 
   useEffect(() => {
     console.log("token", token);
@@ -332,6 +306,14 @@ function Plugin() {
     const collections = await getCollections(token, userId);
     setCollections(collections);
   }
+
+  // useEffect(() => {
+  //   if (isPublishAndView) {
+  //     setIsPublishAndView(false);
+  //     setIsViewModeOpen(true);
+  //     setIsFromSavedData(true);
+  //   }
+  // }, [dataForUpdate, isPublishAndView, setIsPublishAndView]);
 
   useEffect(() => {
     if (currentImageArray) {
@@ -494,9 +476,8 @@ function Plugin() {
           selectedCollection._id
         );
       } else {
-        console.log("data", data);
         const response = await createDocumentation(token, data);
-        console.log("response", data);
+        setSelectedMasterId(response._id);
         if (isBuildingOnCanvas) emit("BUILD", response);
         await fetchAndUpdateData(
           token,
@@ -516,35 +497,15 @@ function Plugin() {
     setIsLoading(false);
     setIsBuilding(false);
     setIsBuildingOnCanvas(false);
+    if (isPublishAndView) {
+      setIsPublishAndView(false);
+      setTimeout(() => {
+        setShowMainContent(false);
+        setShowContentFromServer(true);
+        setIsViewModeOpen(true);
+      }, 300);
+    }
   }
-  //   async function handleAddDocumentation(token: string, data: any) {
-  //     setIsLoading(true);
-  //     try {
-  //       const result = await getDocumentations(token);
-  //       const isDocumented = result.some((doc: any) => doc._id === data._id);
-  //
-  //       if (isDocumented) {
-  //         const response = await updateDocumentation(token, data._id, data);
-  //         if (isBuildingOnCanvas) emit("BUILD", response);
-  //         await fetchAndUpdateData(token, setDataForUpdate);
-  //       } else {
-  //         const response = await createDocumentation(token, data);
-  //         if (isBuildingOnCanvas) emit("BUILD", response);
-  //         await fetchAndUpdateData(token, setDataForUpdate);
-  //         setDocumentationData((prevDocumentation: any) => {
-  //           return {
-  //             ...prevDocumentation,
-  //             ["_id"]: response._id,
-  //           };
-  //         });
-  //       }
-  //     } catch (error) {
-  //       console.log("error", error);
-  //     }
-  //     setIsLoading(false);
-  //     setIsBuilding(false);
-  //     setIsBuildingOnCanvas(false);
-  //   }
 
   useEffect(() => {
     if (Object.keys(documentationData).length > 0 && isBuilding && token) {
@@ -627,19 +588,7 @@ function Plugin() {
     setToken,
   };
 
-  // function closeAllPopups() {
-  //   setShowCancelPopup(false);
-  //   setShowResetPopup(false);
-  //   setShowDeletePopup(false);
-  // }
-
   const isPreviewDataExists = Object.keys(previewData).length > 0;
-
-  // useEffect(() => {
-  //   console.log("showContentFromServer", showContentFromServer);
-  //   console.log("showMainContent", showMainContent);
-  // }, [showContentFromServer, showMainContent]);
-  // eslint-disable-next-line prefer-const
 
   return (
     <div
@@ -735,7 +684,6 @@ function Plugin() {
           userRank={userRank}
         />
         {showLoginPage && token && <LoggedIn setToken={setToken} />}
-
         {!showLoginPage &&
           !showSigninPage &&
           isFirstTime &&
@@ -753,7 +701,6 @@ function Plugin() {
               token={token}
             />
           )}
-
         {!showLoginPage &&
           !showSigninPage &&
           !isFirstTime &&
@@ -771,13 +718,12 @@ function Plugin() {
               token={token}
             />
           )}
-        {showMainContent && (
+        {showMainContent && !isViewModeOpen && (
           <MainContent
             selectedSections={selectedSections}
             setSelectedSections={setSelectedSections}
           />
         )}
-
         {/* content in Edit mode */}
         {selectedMasterId &&
           !showMainContent &&
@@ -795,20 +741,26 @@ function Plugin() {
             />
           )}
         {/* content in View mode */}
+        {console.log("selectedMasterId", selectedMasterId)}
+        {console.log("showContentFromServer", showContentFromServer)}
+        {console.log("showMainContent", showMainContent)}
+        {console.log("showLoginPage", showLoginPage)}
+        {console.log("showSigninPage", showSigninPage)}
+        {console.log("showIndexPage", showIndexPage)}
+        {console.log("isViewModeOpen", isViewModeOpen)}
         {selectedMasterId &&
           showContentFromServer &&
+          isViewModeOpen &&
           !showMainContent &&
           !showLoginPage &&
           !showSigninPage &&
-          !showIndexPage &&
-          isViewModeOpen && (
+          !showIndexPage && (
             <DetailsPage
               data={dataForUpdate}
               selectedMasterId={selectedMasterId}
             />
           )}
         {showSettingsPage && <Settings />}
-
         {!showLoginPage &&
           !showSigninPage &&
           !showIndexPage &&

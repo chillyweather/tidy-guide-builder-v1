@@ -1,5 +1,7 @@
 import { h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
+import { useAtom } from "jotai";
+import { isPublishAndViewAtom } from "src/state/atoms";
 import BuilderContext from "../BuilderContext";
 import PublishCanvas from "../images/publish-icon-canvas.jpg";
 import PublishViewer from "../images/publish-icon-viewer.jpg";
@@ -16,6 +18,7 @@ const Footer = ({
   const [buildOnCanvas, setBuildOnCanvas] = useState(false);
   const [publishToViewer, setPublishToViewer] = useState(false);
   const [isPublishDropdownOpen, setIsPublishDropdownOpen] = useState(false);
+  const [, setIsPublishAndView] = useAtom(isPublishAndViewAtom);
 
   const {
     documentationTitle,
@@ -25,12 +28,15 @@ const Footer = ({
     setShowResetPopup,
     // setIsMainContentOpen,
     // setIsContenFromServerOpen,
-    // dataForUpdate,
+    dataForUpdate,
   } = useContext(BuilderContext) || {};
 
   const isValid = !!documentationTitle?.length && isCurrentNameValid;
 
   function PublishButtonDropdown() {
+    useEffect(() => {
+      console.log("dataForUpdate", dataForUpdate);
+    }, [dataForUpdate]);
     return (
       <div
         className={"feedbackPopupBackground invisible"}
@@ -63,11 +69,12 @@ const Footer = ({
               setIsDraft(false);
               setPublishToViewer(true);
               setIsPublishDropdownOpen(false);
+              setIsPublishAndView(true);
             }}
           >
             <div className={"publish-content-wrapper"}>
-              <h4>Publish to Viewer</h4>
-              <p>Publish to Tidy Viewer</p>
+              <h4>Publish and view</h4>
+              <p>Publish & switch to view mode</p>
             </div>
             <img src={PublishViewer} className={"publish-icon"} />
           </button>

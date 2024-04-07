@@ -259,19 +259,6 @@ function HeaderActions() {
         >
           <IconPlus />
         </button>
-        {/* <button
-          disabled={isEmpty}
-          onClick={() => {
-            setIsPreviewing(true);
-            setShowPreviewPopup(true);
-            setTimeout(function () {
-              document.getElementById("close-popup")?.focus();
-            }, 300);
-          }}
-          className={"secondary"}
-        >
-          <IconPlayerPlayFilled />
-        </button> */}
       </div>
       <div className={"menuDiv"}>
         <div

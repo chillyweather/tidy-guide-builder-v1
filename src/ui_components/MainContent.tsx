@@ -10,6 +10,7 @@ const MainContent = ({
   selectedSections: any;
   setSelectedSections: any;
 }) => {
+  console.log("%c MainContent!!!!!!!!!!!!!", "color: lime");
   return (
     <div className="mainContent">
       <HeaderCard />
