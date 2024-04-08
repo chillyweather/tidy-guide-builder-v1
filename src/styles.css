@@ -522,6 +522,7 @@ body:has(.mode-button.viewer) .link-icon{
   padding: 5px;
   top: 64px;
   right: 60px;
+  display: none;
 }
 
 .link-icon svg {
