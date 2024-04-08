@@ -682,6 +682,7 @@ function Plugin() {
           isDocJustOpened={isDocJustOpened}
           setIsDocJustOpened={setIsDocJustOpened}
           userRank={userRank}
+          showMainContent={showMainContent}
         />
         {showLoginPage && token && <LoggedIn setToken={setToken} />}
         {!showLoginPage &&
@@ -741,13 +742,6 @@ function Plugin() {
             />
           )}
         {/* content in View mode */}
-        {console.log("selectedMasterId", selectedMasterId)}
-        {console.log("showContentFromServer", showContentFromServer)}
-        {console.log("showMainContent", showMainContent)}
-        {console.log("showLoginPage", showLoginPage)}
-        {console.log("showSigninPage", showSigninPage)}
-        {console.log("showIndexPage", showIndexPage)}
-        {console.log("isViewModeOpen", isViewModeOpen)}
         {selectedMasterId &&
           showContentFromServer &&
           isViewModeOpen &&

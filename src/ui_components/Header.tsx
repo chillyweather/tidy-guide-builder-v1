@@ -44,6 +44,7 @@ const Header = ({
   isDocJustOpened,
   setIsDocJustOpened,
   userRank,
+  showMainContent,
 }: {
   isLoginPageOpen: boolean;
   setIsLoginPageOpen: (value: boolean) => void;
@@ -51,6 +52,7 @@ const Header = ({
   isDocJustOpened: boolean;
   setIsDocJustOpened: (value: boolean) => void;
   userRank: string;
+  showMainContent: boolean;
 }) => {
   const [selectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
@@ -167,7 +169,7 @@ const Header = ({
       <button
         className={isViewModeOpen ? "mode-button viewer" : "mode-button editor"}
         onClick={handleToggle}
-        disabled={userRole === "Viewer"}
+        disabled={userRole === "Viewer" || showMainContent}
       >
         <div className={"thumb"}></div>
         <div className="mode-icon view">
