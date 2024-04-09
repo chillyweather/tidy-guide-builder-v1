@@ -4403,6 +4403,13 @@ input[type="checkbox"] {
   transform: rotate(180deg);
 }
 
+input:focus, input:focus-visible {
+  outline: 2px solid white !important;
+  mix-blend-mode: multiply;
+  background-color: transparent;
+  /* outline-color: transparent !important; */
+}
+
 @keyframes rotateAnim {
   0% {
     transform: rotate(0deg);
@@ -4425,9 +4432,9 @@ input[type="checkbox"] {
   margin: 0 32px;
 }
 
-body:has(.mode-button.viewer) {
+/* body:has(.mode-button.viewer) {
   --tidy-ec: #D7EE95;
-}
+} */
 
 body:has(.viewer-data-wrapper) .container {
   scroll-behavior: smooth;
