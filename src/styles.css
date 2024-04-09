@@ -4425,9 +4425,9 @@ input[type="checkbox"] {
   margin: 0 32px;
 }
 
-body:has(.mode-button.viewer) {
+/* body:has(.mode-button.viewer) {
   --tidy-ec: #D7EE95;
-}
+} */
 
 body:has(.viewer-data-wrapper) .container {
   scroll-behavior: smooth;
