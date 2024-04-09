@@ -271,11 +271,20 @@ function AddUserForm({
   userEmail?: string;
   userId?: string;
 }): any {
+  const [selectedCollection]: any = useAtom(selectedCollectionAtom);
+
+  const userPermission = selectedCollection?.users.find(
+    (element: any) => element.user === userId
+  ).permission;
+
   const [email, setEmail] = useState(userEmail || "");
-  const [role, setRole] = useState("Viewer");
+  const [role, setRole] = useState(userPermission || "Viewer");
   const { token } = useContext(BuilderContext) || {};
   if (!token) return null;
   const [, setUserToEdit] = useAtom(userToEditAtom);
+
+  console.log("userId", userId);
+  console.log("selectedCollection", selectedCollection);
 
   const handleSubmit = async (e: any) => {
     if (type === "Add") {
