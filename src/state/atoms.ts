@@ -19,3 +19,7 @@ export const collectionsAtom = atom([]);
 
 //triggers
 export const collectionDocsTriggerAtom = atom(0);
+
+//settings
+export const showEditUserFormAtom = atom(false);
+export const userToEditAtom = atom(null);

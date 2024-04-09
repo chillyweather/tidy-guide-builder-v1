@@ -65,6 +65,40 @@ export async function addCollectionUser(
   return data;
 }
 
+export async function changeUserPermissions(
+  token: string,
+  userId: string,
+  collectionId: string,
+  permission: string
+) {
+  const headersList = {
+    Accept: "*/*",
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+  };
+
+  const bodyContent = JSON.stringify({
+    userId,
+    permission,
+    collectionId,
+  });
+
+  console.log("bodyContent", bodyContent);
+
+  const response = await fetch(
+    `https://api.tidyframework.com/api/collections/${collectionId}/users`,
+    {
+      method: "PUT",
+      body: bodyContent,
+      headers: headersList,
+    }
+  );
+
+  const data = await response.json();
+  console.log("data", data);
+  return data;
+}
+
 export async function deleteCollectionUser(
   token: string,
   collectionId: string,

@@ -8,11 +8,18 @@ import {
   IconPlus,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
-import { collectionsAtom, currentUserIdAtom } from "src/state/atoms";
+import {
+  collectionsAtom,
+  currentUserIdAtom,
+  showEditUserFormAtom,
+  userToEditAtom,
+  selectedCollectionAtom,
+} from "src/state/atoms";
 import {
   getCollectionUsers,
   addCollectionUser,
   deleteCollectionUser,
+  changeUserPermissions,
 } from "src/ui_components/ui_functions/collectionHandlers";
 import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
@@ -45,6 +52,8 @@ export default manageUsersPage;
 function renderUsers(collectionId: string) {
   const [collectionUsers, setCollectionUsers] = useState([]);
   const [showAddUserForm, setShowAddUserForm] = useState(false);
+  const [showEditUserForm, setShowEditUserForm] = useAtom(showEditUserFormAtom);
+  const [userToEdit, setUserToEdit]: any = useAtom(userToEditAtom);
   const [trigger, setTrigger] = useState(0);
 
   const { token } = useContext(BuilderContext) || {};
@@ -83,13 +92,34 @@ function renderUsers(collectionId: string) {
           <AddUserForm
             collectionId={collectionId}
             setTrigger={setTrigger}
-            setShowAddUserForm={setShowAddUserForm}
+            setShowForm={setShowAddUserForm}
           />
           <button onClick={() => setShowAddUserForm(false)}>
             <IconX />
           </button>
         </div>
       )}
+      {showEditUserForm && (
+        <div className={"add-user-form-wrapper"}>
+          <AddUserForm
+            collectionId={collectionId}
+            setTrigger={setTrigger}
+            setShowForm={setShowEditUserForm}
+            type="Edit"
+            userEmail={userToEdit?.email}
+            userId={userToEdit?.id}
+          />
+          <button
+            onClick={() => {
+              setShowEditUserForm(false);
+              setUserToEdit(null);
+            }}
+          >
+            <IconX />
+          </button>
+        </div>
+      )}
+
       {collectionUsers &&
         collectionUsers.length &&
         collectionUsers.map((user: any) => {
@@ -101,6 +131,12 @@ function renderUsers(collectionId: string) {
 
 function generateUserCard(user: any, collectionId: string, setTrigger: any) {
   const { token } = useContext(BuilderContext) || {};
+  const [, setShowEditUserForm] = useAtom(showEditUserFormAtom);
+  const [userToEdit, setUserToEdit]: any = useAtom(userToEditAtom);
+  const [selectedCollection]: any = useAtom(selectedCollectionAtom);
+  const isOwner = selectedCollection?.owner === user.id;
+  console.log("user", user);
+  console.log("selectedCollection", selectedCollection);
   if (!token) return null;
   function colorMe(a: any, b: any) {
     const colorList = [
@@ -141,54 +177,66 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
     return colorList[selectedColorIndex];
   }
   return (
-    <div key={user._id} className={"user-card"}>
-      <div
-        className={"user-tag"}
-        first-letter={user.email.slice(0, 1)}
-        last-letter={user.email.slice(
-          user.email.lastIndexOf("@") - 1,
-          user.email.lastIndexOf("@")
-        )}
-        style={{
-          backgroundColor: colorMe(
-            user.email.slice(0, 1),
-            user.email.slice(
+    <div className={"user-card-wrapper"}>
+      {user.id !== userToEdit?.id && (
+        <div key={user._id} className={"user-card"}>
+          <div
+            className={"user-tag"}
+            first-letter={user.email.slice(0, 1)}
+            last-letter={user.email.slice(
               user.email.lastIndexOf("@") - 1,
               user.email.lastIndexOf("@")
-            )
-          ),
-        }}
-      >
-        {user.email.slice(0, 1)}
-      </div>
-      <p>{user.name}</p>
-      <p>{user.email}</p>
-      <p>
-        <div className={"tag " + user.rank}></div>
-      </p>
-      <details>
-        <summary>
-          <button>
-            <IconDotsVertical />
-          </button>
-        </summary>
-        <div className="user-menu">
-          <div className="user-item">
-            <IconPencil />
-            Edit
-          </div>
-          <div
-            className="user-item"
-            onClick={async () => {
-              await deleteCollectionUser(token, collectionId, user.email);
-              setTrigger((prevTrigger: number) => prevTrigger + 1);
+            )}
+            style={{
+              backgroundColor: colorMe(
+                user.email.slice(0, 1),
+                user.email.slice(
+                  user.email.lastIndexOf("@") - 1,
+                  user.email.lastIndexOf("@")
+                )
+              ),
             }}
           >
-            <IconTrash />
-            Remove
+            {user.email.slice(0, 1)}
           </div>
+          <p>{user.name}</p>
+          <p>{user.email}</p>
+          <p>
+            <div className={"tag " + user.rank}></div>
+          </p>
+          {!isOwner && (
+            <details>
+              <summary>
+                <button>
+                  <IconDotsVertical />
+                </button>
+              </summary>
+              <div className="user-menu">
+                <div
+                  className="user-item"
+                  onClick={() => {
+                    setShowEditUserForm(true);
+                    setUserToEdit(user);
+                  }}
+                >
+                  <IconPencil />
+                  Edit
+                </div>
+                <div
+                  className="user-item"
+                  onClick={async () => {
+                    await deleteCollectionUser(token, collectionId, user.email);
+                    setTrigger((prevTrigger: number) => prevTrigger + 1);
+                  }}
+                >
+                  <IconTrash />
+                  Remove
+                </div>
+              </div>
+            </details>
+          )}
         </div>
-      </details>
+      )}
     </div>
   );
 }
@@ -211,22 +259,37 @@ function renderCollections(collections: any[]) {
 function AddUserForm({
   collectionId,
   setTrigger,
-  setShowAddUserForm,
+  setShowForm,
+  type = "Add",
+  userEmail = "",
+  userId = "",
 }: {
   collectionId: string;
   setTrigger: any;
-  setShowAddUserForm: any;
+  setShowForm: any;
+  type?: "Add" | "Edit";
+  userEmail?: string;
+  userId?: string;
 }): any {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(userEmail || "");
   const [role, setRole] = useState("Viewer");
   const { token } = useContext(BuilderContext) || {};
   if (!token) return null;
+  const [, setUserToEdit] = useAtom(userToEditAtom);
 
   const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    await addCollectionUser(token, collectionId, email, role);
-    setTrigger((prevTrigger: number) => prevTrigger + 1);
-    setShowAddUserForm(false);
+    if (type === "Add") {
+      e.preventDefault();
+      await addCollectionUser(token, collectionId, email, role);
+      setTrigger((prevTrigger: number) => prevTrigger + 1);
+      setShowForm(false);
+    } else if (type === "Edit") {
+      e.preventDefault();
+      await changeUserPermissions(token, userId, collectionId, role);
+      setUserToEdit(null);
+      setTrigger((prevTrigger: number) => prevTrigger + 1);
+      setShowForm(false);
+    }
   };
 
   return (
@@ -237,6 +300,7 @@ function AddUserForm({
         value={email}
         placeholder={"Email"}
         onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
+        disabled={type === "Edit"}
       />
 
       <select
@@ -251,7 +315,7 @@ function AddUserForm({
         type="submit"
         className={"users-button no-margin add-user-button"}
       >
-        Add
+        {type === "Edit" ? "Change" : "Add"}
       </Button>
     </form>
   );

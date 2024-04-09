@@ -209,11 +209,14 @@ form select {
   font-size: var(--text-size);
   color: var(--tidy-32);
 }
-form select:focus-visible, form input:focus-visible{
+
+form select:focus-visible,
+form input:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px #C2DAFE;
 }
-.add-user-form-wrapper button:focus-visible{
+
+.add-user-form-wrapper button:focus-visible {
   border: none;
   outline: none;
   box-shadow: 0 0 0 2px #C2DAFE;
@@ -512,7 +515,7 @@ li {
   margin-top: 10px;
 }
 
-body:has(.mode-button.viewer) .link-icon{
+body:has(.mode-button.viewer) .link-icon {
   right: -106px;
 }
 
@@ -1645,6 +1648,10 @@ body:has(.manage-users) .header .mode-button {
   align-items: center;
   justify-content: center;
   gap: 6px;
+}
+
+.user-card-wrapper {
+  width: 100%;
 }
 
 .user-card {

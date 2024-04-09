@@ -247,6 +247,7 @@ declare const styles: {
   readonly "unselected": string;
   readonly "updated": string;
   readonly "user-card": string;
+  readonly "user-card-wrapper": string;
   readonly "user-company": string;
   readonly "user-item": string;
   readonly "user-mail": string;
