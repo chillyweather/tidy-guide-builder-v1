@@ -222,7 +222,7 @@ function HeaderActions() {
           <p className={"selectedComp"}>{selectedElementName}</p>
         )}
         {!selectedElementName && (
-          <p className={"noSelected"}>No selected compontent</p>
+          <p className={"noSelected"}>Select component on canvas</p>
         )}
 
         {selectedElementName ? (
