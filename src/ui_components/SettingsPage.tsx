@@ -17,7 +17,7 @@ const Settings = () => {
           <div className="settings-section-content">
             <div className="title-flex">
               <IconUser className={"title-icon icon-16"} />
-              <h4>Manage users</h4>
+              <h4>Manage members</h4>
             </div>
             {/* <p>Show all users in your company</p> */}
           </div>

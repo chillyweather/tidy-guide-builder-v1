@@ -80,7 +80,7 @@ const UserMenu = ({
         }}
       >
         <IconSettings />
-        <p>Settings</p>
+        <p>Settings & Members</p>
       </div>
 
       <hr />
