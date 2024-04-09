@@ -135,8 +135,6 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
   const [userToEdit, setUserToEdit]: any = useAtom(userToEditAtom);
   const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   const isOwner = selectedCollection?.owner === user.id;
-  console.log("user", user);
-  console.log("selectedCollection", selectedCollection);
   if (!token) return null;
   function colorMe(a: any, b: any) {
     const colorList = [
@@ -272,13 +270,14 @@ function AddUserForm({
   userId?: string;
 }): any {
   const [selectedCollection]: any = useAtom(selectedCollectionAtom);
+  const [userToEdit]: any = useAtom(userToEditAtom);
 
-  const userPermission = selectedCollection?.users.find(
-    (element: any) => element.user === userId
-  ).permission;
+  // const userPermission = selectedCollection?.users.find(
+  //   (element: any) => element.user === userId
+  // ).permission;
 
   const [email, setEmail] = useState(userEmail || "");
-  const [role, setRole] = useState(userPermission || "Viewer");
+  const [role, setRole] = useState(userToEdit.rank || "Viewer");
   const { token } = useContext(BuilderContext) || {};
   if (!token) return null;
   const [, setUserToEdit] = useAtom(userToEditAtom);
