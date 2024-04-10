@@ -517,6 +517,13 @@ function Plugin() {
     }
   }, [documentationData, isBuilding, token]);
 
+  useEffect(() => {
+    console.log("dataForUpdate", dataForUpdate);
+    console.log("documentationData", documentationData);
+    console.log("selectedSections", selectedSections);
+    console.log("selectedMasterId", selectedMasterId);
+  }, [dataForUpdate, documentationData, selectedSections]);
+
   // useEffect(() => {
   //   console.log("selectedMasterId", selectedMasterId);
   // }, [selectedMasterId]);

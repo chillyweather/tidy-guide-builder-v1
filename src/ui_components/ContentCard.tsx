@@ -500,7 +500,7 @@ export const ContentCard = (cardData: any, index: number) => {
           onClick={handleDeleteSection}
           // onMouseLeave={() => setShowTooltip(false)}
         >
-          <IconTrash style={{ color: "red" }} />
+          <IconTrash />
         </button>
         {/* <span className={`tooltiptext ${showTooltip ? "show" : ""}`}>
           Double click to delete section
