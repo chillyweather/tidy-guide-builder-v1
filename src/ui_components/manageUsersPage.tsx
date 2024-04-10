@@ -35,7 +35,7 @@ function manageUsersPage() {
   return (
     <div className={"manage-users"}>
       <div className="delete-flex hidden"></div>
-      <h2>Manage users</h2>
+      <h2>Manage members</h2>
       <br />
       {/* <h3>Collections:</h3> */}
       <CollectionsDropdown
@@ -80,10 +80,10 @@ function renderUsers(collectionId: string) {
         disabled={showAddUserForm}
       >
         <IconPlus />
-        Add user
+        Add
       </Button>
       <div className={"user-card title"}>
-        <p>User name</p>
+        <p>Name</p>
         <p>Email</p>
         <p>Role</p>
       </div>
