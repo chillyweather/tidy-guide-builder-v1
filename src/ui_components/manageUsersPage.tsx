@@ -271,13 +271,8 @@ function AddUserForm({
 }): any {
   const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   const [userToEdit]: any = useAtom(userToEditAtom);
-
-  // const userPermission = selectedCollection?.users.find(
-  //   (element: any) => element.user === userId
-  // ).permission;
-
   const [email, setEmail] = useState(userEmail || "");
-  const [role, setRole] = useState(userToEdit.rank || "Viewer");
+  const [role, setRole] = useState(userToEdit ? userToEdit.rank : "Viewer");
   const { token } = useContext(BuilderContext) || {};
   if (!token) return null;
   const [, setUserToEdit] = useAtom(userToEditAtom);
@@ -287,6 +282,7 @@ function AddUserForm({
 
   const handleSubmit = async (e: any) => {
     if (type === "Add") {
+      console.log("we are here");
       e.preventDefault();
       await addCollectionUser(token, collectionId, email, role);
       setTrigger((prevTrigger: number) => prevTrigger + 1);
