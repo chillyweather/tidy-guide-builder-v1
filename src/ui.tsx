@@ -179,16 +179,6 @@ function Plugin() {
   const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
 
   on("AUTH_CHANGE", async (token, email, rank, userName, companyName, id) => {
-    console.log(
-      "%c AUTH_CHANGE",
-      "color: orange",
-      token,
-      email,
-      rank,
-      userName,
-      companyName,
-      id
-    );
     if (token) {
       setToken(token);
       setLoggedInUser(email);
@@ -202,9 +192,9 @@ function Plugin() {
     }
   });
 
-  useEffect(() => {
-    console.log("token", token);
-  }, [token]);
+  // useEffect(() => {
+  //   console.log("documentationData", documentationData);
+  // }, [documentationData]);
 
   useEffect(() => {
     if (collections && collections.length && !selectedCollection) {
@@ -506,8 +496,9 @@ function Plugin() {
       setTimeout(() => {
         setShowMainContent(false);
         setShowContentFromServer(true);
+        setIsFromSavedData(true);
         setIsViewModeOpen(true);
-      }, 300);
+      }, 600);
     }
   }
 
@@ -518,15 +509,17 @@ function Plugin() {
   }, [documentationData, isBuilding, token]);
 
   useEffect(() => {
-    console.log("dataForUpdate", dataForUpdate);
-    console.log("documentationData", documentationData);
-    console.log("selectedSections", selectedSections);
-    console.log("selectedMasterId", selectedMasterId);
-  }, [dataForUpdate, documentationData, selectedSections]);
+    if (isViewModeOpen && selectedMasterId && dataForUpdate) {
+      const foundData = dataForUpdate.find(
+        (item: any) => item._id === selectedMasterId
+      );
+      setSelectedSections(foundData.docs);
+    }
+  }, [selectedMasterId, isViewModeOpen, dataForUpdate]);
 
-  // useEffect(() => {
-  //   console.log("selectedMasterId", selectedMasterId);
-  // }, [selectedMasterId]);
+  useEffect(() => {
+    console.log("selectedSections", selectedSections);
+  }, [selectedSections]);
 
   const contextStates = {
     currentDocument,

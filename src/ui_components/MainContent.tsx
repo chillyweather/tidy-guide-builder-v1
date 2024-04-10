@@ -10,7 +10,11 @@ const MainContent = ({
   selectedSections: any;
   setSelectedSections: any;
 }) => {
-  console.log("%c MainContent!!!!!!!!!!!!!", "color: lime");
+  console.log(
+    "%c SelectedSections!!!!!!!!!!!!!",
+    "color: lime",
+    selectedSections
+  );
   return (
     <div className="mainContent">
       <HeaderCard />

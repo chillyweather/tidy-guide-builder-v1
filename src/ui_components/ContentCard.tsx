@@ -62,42 +62,42 @@ function removeDraggable(event: any) {
   );
 }
 
-export const ContentCard = (cardData: any, index: number) => {
+export const ContentCard = (card: any, index: number) => {
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
 
   //card title
-  const [cardTitle, setCardTitle] = useState(cardData.title);
+  const [cardTitle, setCardTitle] = useState(card.title);
   // general use
   const [isHidden, setIsHidden] = useState(
-    isFromSavedData ? cardData.hidden : false
+    isFromSavedData ? card.hidden : false
   );
   const [publish, setPublish] = useState<boolean>(
-    isFromSavedData ? cardData.publish : true
+    isFromSavedData ? card.publish : true
   );
   // text card
   const [paragraphTextContent, setParagraphTextContent] = useState(
-    isFromSavedData && cardData.text ? cardData.text : ""
+    isFromSavedData && card.text ? card.text : ""
   );
   // two column card
   const [leftTitle, setLeftTitle] = useState(
-    isFromSavedData ? cardData.content.subtitle1 : ""
+    isFromSavedData ? card.content.subtitle1 : ""
   );
   const [leftTextContent, setLeftTextContent] = useState(
-    isFromSavedData ? cardData.content.text1 : ""
+    isFromSavedData ? card.content.text1 : ""
   );
   const [rightTitle, setRightTitle] = useState(
-    isFromSavedData ? cardData.content.subtitle2 : ""
+    isFromSavedData ? card.content.subtitle2 : ""
   );
   const [rightTextContent, setRightTextContent] = useState(
-    isFromSavedData ? cardData.content.text2 : ""
+    isFromSavedData ? card.content.text2 : ""
   );
   // list
   const [listItems, setListItems] = useState<string[]>(
-    isFromSavedData ? cardData.content.inputs : [""]
+    isFromSavedData ? card.content.inputs : [""]
   );
   // link
   const [sources, setSources]: any[] = useState(
-    isFromSavedData ? cardData.content.sources : [{ source: "", link: "" }]
+    isFromSavedData ? card.content.sources : [{ source: "", link: "" }]
   );
   //video card data
   const [selectedVideo, setSelectedVideo] = useState(-1);
@@ -105,11 +105,11 @@ export const ContentCard = (cardData: any, index: number) => {
   const [videoLink, setVideoLink] = useState("");
   const [foundVideoData, setFoundVideoData]: any = useState({});
   const [videoDataElements, setVideoDataElements]: any[] = useState(
-    isFromSavedData ? cardData.content.videoDataElements : []
+    isFromSavedData ? card.content.videoDataElements : []
   );
   //image card data
   const [remoteImageLink, setRemoteImageLink] = useState(
-    isFromSavedData ? cardData.content.remoteImageLink : ""
+    isFromSavedData ? card.content.remoteImageLink : ""
   );
   //release notes card data
   const [releaseNotesMessage, setReleaseNotesMessage] = useState("");
@@ -142,7 +142,7 @@ export const ContentCard = (cardData: any, index: number) => {
   } = useContext(BuilderContext) || {};
 
   on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
-    if (bytes.length && type === cardData.datatype) {
+    if (bytes.length && type === card.datatype) {
       setCurrentImageArray(bytes);
     }
   });
@@ -162,18 +162,18 @@ export const ContentCard = (cardData: any, index: number) => {
 
   useEffect(() => {
     if (
-      !cardData.content.remoteImageLink &&
+      !card.content.remoteImageLink &&
       currentImageArray &&
       loggedInUser &&
-      cardData.datatype
+      card.datatype
     ) {
       handleImageFromFigmaUpload(
         currentImageArray,
         loggedInUser,
-        cardData.datatype
+        card.datatype
       );
     }
-  }, [currentImageArray, loggedInUser, cardData.content.remoteImageLink]);
+  }, [currentImageArray, loggedInUser, card.content.remoteImageLink]);
 
   // useEffect(() => {
   //   if (selectedNodeId && selectedNodeKey) {
@@ -189,9 +189,9 @@ export const ContentCard = (cardData: any, index: number) => {
   //!-------from here content changes depending on isFromSavedData state------------//
   //!-------------------------------------------------------------------------------//
 
-  const id = cardData.docId;
+  const id = card.docId;
   const isSelected = selectedCard === id;
-  const cardType = cardData.datatype;
+  const cardType = card.datatype;
 
   //data for export
   interface CardDataProps {
@@ -265,7 +265,7 @@ export const ContentCard = (cardData: any, index: number) => {
     } else if (cardType === "two-columns") {
       return (
         <TwoColumnCard
-          data={cardData}
+          data={card}
           leftTitle={leftTitle}
           setLeftTitle={setLeftTitle}
           leftTextContent={leftTextContent}
@@ -342,7 +342,7 @@ export const ContentCard = (cardData: any, index: number) => {
   };
 
   const handleDuplicateSection = (e: MouseEvent) => {
-    duplicateSection(e, index, cardData, setSelectedSections);
+    duplicateSection(e, index, card, setSelectedSections);
   };
 
   const elementIsEmpty = (element: any) => {
