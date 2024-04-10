@@ -10,6 +10,7 @@ import CancelPopup from "./ui_components/popups/cancelPopup";
 import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
 import DeletePopup from "./ui_components/popups/deletePopup";
+import DeleteSectionPopup from "./ui_components/popups/deleteSectionPopup";
 import PreviewPopup from "./ui_components/popups/previewPopup";
 import PasswordResetPopup from "./ui_components/popups/passwordResetPopup";
 import DeleteAccountPopup from "./ui_components/popups/deleteAccountPopup";
@@ -57,6 +58,7 @@ import {
   collectionDocsTriggerAtom,
   currentDocumentationsAtom,
   isPublishAndViewAtom,
+  showDeleteSectionPopupAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -103,7 +105,9 @@ function Plugin() {
   const [showMainContent, setShowMainContent] = useState(false);
   const [showContentFromServer, setShowContentFromServer] = useState(false);
   const [showSettingsPage, setShowSettingsPage] = useState(false);
+
   //navigation-popups
+  const [showDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
   const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
   const [showCancelPopup, setShowCancelPopup] = useState(false);
   const [showWaitingInfoPopup, setShowWaitingInfoPopup] = useState(false);
@@ -626,6 +630,12 @@ function Plugin() {
         {showDeletePopup && (
           <DeletePopup
             setShowDeletePopup={setShowDeletePopup}
+            elementToDelete={elementToDelete}
+            dataForUpdate={dataForUpdate}
+          />
+        )}
+        {showDeleteSectionPopup && (
+          <DeleteSectionPopup
             elementToDelete={elementToDelete}
             dataForUpdate={dataForUpdate}
           />

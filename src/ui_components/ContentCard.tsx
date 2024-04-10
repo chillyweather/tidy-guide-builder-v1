@@ -117,7 +117,7 @@ export const ContentCard = (cardData: any, index: number) => {
   // const currentAuthor = useContext(BuilderContext)?.currentUser.name;
 
   //tooltip
-  const [showTooltip, setShowTooltip] = useState(false);
+  // const [showTooltip, setShowTooltip] = useState(false);
 
   //image array for upload (anatomy, spacing, property, variants)
   const [currentImageArray, setCurrentImageArray] = useState<Uint8Array>();
@@ -497,14 +497,14 @@ export const ContentCard = (cardData: any, index: number) => {
       <div className="tooltip hoverButton">
         <button
           className="cardAuxButton"
-          onDblClick={handleDeleteSection}
-          onMouseLeave={() => setShowTooltip(false)}
+          onClick={handleDeleteSection}
+          // onMouseLeave={() => setShowTooltip(false)}
         >
-          <IconTrash />
+          <IconTrash style={{ color: "red" }} />
         </button>
-        <span className={`tooltiptext ${showTooltip ? "show" : ""}`}>
+        {/* <span className={`tooltiptext ${showTooltip ? "show" : ""}`}>
           Double click to delete section
-        </span>
+        </span> */}
       </div>
     );
   }

@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
-import { useState } from "preact/hooks";
-import { useContext, useRef, useEffect } from "preact/hooks";
+import { useContext } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 import { deleteDocumentation } from "../ui_functions/documentationHandlers";
 import Spinner from "../../images/loader-spinner-white.png";
@@ -12,9 +12,9 @@ function DeletePopup({
   elementToDelete,
   dataForUpdate,
 }: {
-  setShowDeletePopup: Function;
+  setShowDeletePopup: (value: boolean) => void;
   elementToDelete: string;
-  dataForUpdate: any;
+  dataForUpdate: (value: any) => void;
 }) {
   const { token, setDataForUpdate } = useContext(BuilderContext) || {};
   return (
@@ -78,8 +78,8 @@ function DeletePopup({
 async function handleDelete(
   token: string | undefined,
   elementId: string,
-  setDataForUpdate: Function,
-  setShowDeletePopup: Function,
+  setDataForUpdate: (value: any) => void,
+  setShowDeletePopup: (value: boolean) => void,
   dataForUpdate: any
 ) {
   const result = await deleteDocumentation(token!, elementId);

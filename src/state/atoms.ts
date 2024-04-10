@@ -23,3 +23,8 @@ export const collectionDocsTriggerAtom = atom(0);
 //settings
 export const showEditUserFormAtom = atom(false);
 export const userToEditAtom = atom(null);
+export const sectionToDeleteIndexAtom = atom(-1);
+export const sectionToDeleteAtom = atom(null);
+
+//popup handlers
+export const showDeleteSectionPopupAtom = atom(false);
