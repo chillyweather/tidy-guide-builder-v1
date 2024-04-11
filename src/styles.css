@@ -7,8 +7,9 @@
 /* [X] Remove jagged edges from toggle disabled state */
 /* [ ] Add Modal to delete sections, w DIMA at Sunday */
 /* [ ] Adding Toast for users "Unsaved changes, must publish" w "ok" button */
-/* [ ] Renaming collections */
-/* [ ] Renaming that can include spacebars */
+/* [X] Renaming collections */
+/* [X] Renaming that can include spacebars */
+/* [X] Bluring collection name when clicking header */
 
 :root {
   --tidy-background: #F7F8FB;
