@@ -116,8 +116,8 @@ export const ContentCard = (card: any, index: number) => {
   const [releaseNotesDate, setReleaseNotesDate] = useState("");
   // const currentAuthor = useContext(BuilderContext)?.currentUser.name;
 
-  //tooltip
-  // const [showTooltip, setShowTooltip] = useState(false);
+  // tooltip
+  const [showTooltip, setShowTooltip] = useState(false);
 
   //image array for upload (anatomy, spacing, property, variants)
   const [currentImageArray, setCurrentImageArray] = useState<Uint8Array>();
@@ -498,13 +498,13 @@ export const ContentCard = (card: any, index: number) => {
         <button
           className="cardAuxButton"
           onClick={handleDeleteSection}
-          // onMouseLeave={() => setShowTooltip(false)}
+          onMouseLeave={() => setShowTooltip(false)}
         >
           <IconTrash />
         </button>
-        {/* <span className={`tooltiptext ${showTooltip ? "show" : ""}`}>
-          Double click to delete section
-        </span> */}
+        <span className={`tooltiptext ${showTooltip ? "show" : ""}`}>
+          Deleting sections requires publish
+        </span>
       </div>
     );
   }
