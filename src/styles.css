@@ -1100,7 +1100,7 @@ button svg {
 }
 
 .header .mode-button:disabled .thumb {
-  filter: invert(100%);
+  filter: invert(100%) blur(1px);
 }
 
 .header .mode-button:disabled .mode-icon {
