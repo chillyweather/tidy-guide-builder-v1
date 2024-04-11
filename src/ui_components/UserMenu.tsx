@@ -40,9 +40,8 @@ const UserMenu = ({
 
   return (
     <div className={"user-menu"}>
-      <div className={"user-company"}>{currentCompany}</div>
-
-      <hr />
+      {/* <div className={"user-company"}>{currentCompany}</div>
+      <hr /> */}
 
       <div className="user-item">
         <div className="user-tag" first-letter={loggedInUser.slice(0, 1)}>
