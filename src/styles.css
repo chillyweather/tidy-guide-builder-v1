@@ -4,7 +4,8 @@
 /* TODOS */
 /* Remove "company name" from settings */
 /* Remove jagged edges from toggle disabled state */
-/* Add Modal to delete sections */
+/* Add Modal to delete sections, w DIMA at Sunday */
+/* Adding Toast for users "Unsaved changes, must publish" w "ok" button */
 
 :root {
   --tidy-background: #F7F8FB;
