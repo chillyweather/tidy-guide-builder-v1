@@ -2,11 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=block");
 
 /* TODOS */
-/* Remove "company name" from settings */
-/* Remove jagged edges from toggle disabled state */
-/* Add Modal to delete sections, w DIMA at Sunday */
-/* Adding Toast for users "Unsaved changes, must publish" w "ok" button */
-/* Renaming collections */
+/* [X] Remove "company name" from settings */
+/* [ ] Remove jagged edges from toggle disabled state */
+/* [ ] Add Modal to delete sections, w DIMA at Sunday */
+/* [ ] Adding Toast for users "Unsaved changes, must publish" w "ok" button */
+/* [ ] Renaming collections */
 
 :root {
   --tidy-background: #F7F8FB;
