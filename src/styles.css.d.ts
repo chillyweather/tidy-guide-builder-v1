@@ -184,6 +184,7 @@ declare const styles: {
   readonly "red-icon": string;
   readonly "redButton": string;
   readonly "releasenotes": string;
+  readonly "rename-button": string;
   readonly "resetPopup": string;
   readonly "resources": string;
   readonly "rightContent": string;

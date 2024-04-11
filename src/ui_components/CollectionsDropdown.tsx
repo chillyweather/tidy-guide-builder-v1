@@ -102,7 +102,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
   return (
     <div class="dropdown-comp">
       <button
-        class="dropdown-toggle"
+        className="dropdown-toggle"
         onClick={toggleDropdown}
         onBlur={() => setIsOpen(false)}
       >
@@ -133,6 +133,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
       </button>
       {isOwner && (
         <button
+        className={"rename-button"}
           onClick={() => {
             setEditTitle(true);
           }}
