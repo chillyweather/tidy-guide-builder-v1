@@ -1454,7 +1454,8 @@ body .header-login {
   width: fit-content;
   position: relative;
 }
-.dropdown-comp .rename-button{
+
+.dropdown-comp .rename-button {
   position: absolute;
   right: -24px;
   top: 0;
@@ -1495,6 +1496,10 @@ body .header-login {
 .dropdown-comp .dropdown-toggle:focus {
   background-color: transparent;
   border: 1px solid #E3E3E3;
+}
+
+.dropdown-comp:has(div[contenteditable="true"]) .dropdown-menu {
+  display: none;
 }
 
 .dropdown-comp .dropdown-menu {
