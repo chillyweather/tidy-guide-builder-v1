@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=block");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=block");
 
+/* TODOS */
+/* Remove "company name" from settings */
+/* Remove jagged edges from toggle disabled state */
+/* Add Modal to delete sections */
+
 :root {
   --tidy-background: #F7F8FB;
   --tidy-primary: #6B73FF;
