@@ -113,6 +113,8 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
               ref={inputRef}
               contentEditable={editTitle}
               onBlur={(e) => {
+                //@ts-ignore
+                window.getSelection().removeAllRanges()
                 setEditTitle(false);
                 updateCollections(e);
               }}
@@ -133,7 +135,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
       </button>
       {isOwner && (
         <button
-        className={"rename-button"}
+          className={"rename-button"}
           onClick={() => {
             setEditTitle(true);
           }}
