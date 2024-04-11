@@ -1455,7 +1455,12 @@ body .header-login {
   position: relative;
 }
 
+.componentHeader:hover .rename-button {
+  display: block;
+}
+
 .dropdown-comp .rename-button {
+  display: none;
   position: absolute;
   right: -24px;
   top: 0;
