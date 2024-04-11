@@ -113,8 +113,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
               ref={inputRef}
               contentEditable={editTitle}
               onBlur={(e) => {
-                //@ts-ignore
-                window.getSelection().removeAllRanges()
+                window.getSelection()?.removeAllRanges();
                 setEditTitle(false);
                 updateCollections(e);
               }}
