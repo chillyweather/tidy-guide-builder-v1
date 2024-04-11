@@ -4,10 +4,12 @@
 /* TODOS */
 /* [X] Remove "company name" from settings */
 /* [X] Make Delete buttons red on hover */
-/* [ ] Remove jagged edges from toggle disabled state */
+/* [X] Remove jagged edges from toggle disabled state */
 /* [ ] Add Modal to delete sections, w DIMA at Sunday */
 /* [ ] Adding Toast for users "Unsaved changes, must publish" w "ok" button */
-/* [ ] Renaming collections */
+/* [X] Renaming collections */
+/* [X] Renaming that can include spacebars */
+/* [X] Bluring collection name when clicking header */
 
 :root {
   --tidy-background: #F7F8FB;
@@ -1444,9 +1446,25 @@ body .header-login {
 }
 
 .dropdown-comp {
+  /* display: flex;
+  gap: 12px;
+  align-items: center;
+  transform: translateY(16px); */
   white-space: pre;
   height: 0;
+  width: fit-content;
   position: relative;
+}
+
+.componentHeader:hover .rename-button {
+  display: block;
+}
+
+.dropdown-comp .rename-button {
+  display: none;
+  position: absolute;
+  right: -24px;
+  top: 0;
 }
 
 .dropdown-comp .dropdown-toggle {
@@ -1484,6 +1502,10 @@ body .header-login {
 .dropdown-comp .dropdown-toggle:focus {
   background-color: transparent;
   border: 1px solid #E3E3E3;
+}
+
+.dropdown-comp:has(div[contenteditable="true"]) .dropdown-menu {
+  display: none;
 }
 
 .dropdown-comp .dropdown-menu {
