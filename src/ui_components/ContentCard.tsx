@@ -494,7 +494,7 @@ export const ContentCard = (card: any, index: number) => {
 
   function DeleteButtonWithTooltip() {
     return (
-      <div className="tooltip hoverButton">
+      <div className="tooltip hoverButton redButton">
         <button
           className="cardAuxButton"
           onClick={handleDeleteSection}

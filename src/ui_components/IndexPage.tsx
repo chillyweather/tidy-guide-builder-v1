@@ -100,7 +100,7 @@ const IndexPage = ({
             )}
             {!isViewModeOpen && (
               <button
-                className={"cardAuxButton noPredefined"}
+                className={"cardAuxButton noPredefined redButton"}
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowDeletePopup(true);

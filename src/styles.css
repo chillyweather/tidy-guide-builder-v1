@@ -6,6 +6,7 @@
 /* Remove jagged edges from toggle disabled state */
 /* Add Modal to delete sections, w DIMA at Sunday */
 /* Adding Toast for users "Unsaved changes, must publish" w "ok" button */
+/* Renaming collections */
 
 :root {
   --tidy-background: #F7F8FB;
@@ -4276,6 +4277,10 @@ input[type="checkbox"] {
   opacity: 1;
 }
 
+.redButton:hover svg {
+  color: crimson;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -4409,7 +4414,8 @@ input[type="checkbox"] {
   transform: rotate(180deg);
 }
 
-input:focus, input:focus-visible {
+input:focus,
+input:focus-visible {
   outline: 2px solid white !important;
   mix-blend-mode: multiply;
   background-color: transparent;

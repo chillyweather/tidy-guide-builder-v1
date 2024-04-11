@@ -182,6 +182,7 @@ declare const styles: {
   readonly "publish-dropdown-item": string;
   readonly "publish-icon": string;
   readonly "red-icon": string;
+  readonly "redButton": string;
   readonly "releasenotes": string;
   readonly "resetPopup": string;
   readonly "resources": string;
