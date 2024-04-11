@@ -204,6 +204,7 @@ declare const styles: {
   readonly "sectionHeader": string;
   readonly "sectionTitle": string;
   readonly "sections": string;
+  readonly "select-collection-dropdown-title": string;
   readonly "selected": string;
   readonly "selectedComp": string;
   readonly "selectedComponentActions": string;

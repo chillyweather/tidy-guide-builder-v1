@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h, FunctionalComponent } from "preact";
-import { useState, useEffect } from "preact/hooks";
+import { useState, useEffect, useRef, useContext } from "preact/hooks";
+import BuilderContext from "src/BuilderContext";
+import { IconEdit } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import {
   currentUserIdAtom,
   currentUserRoleAtom,
   selectedCollectionAtom,
+  collectionDocsTriggerAtom,
 } from "src/state/atoms";
 import { findUserRole } from "src/ui_components/ui_functions/findUserRole";
+import { renameCollection } from "./ui_functions/collectionHandlers";
 
 interface DropdownProps {
   options: any[];
@@ -18,12 +22,17 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
   options,
   onSelect,
 }) => {
+  const inputRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [editTitle, setEditTitle] = useState(false);
+  const [isOwner, setIsOwner] = useState(false);
   const [currentUserId] = useAtom(currentUserIdAtom);
   const [, setCurentUserRole] = useAtom(currentUserRoleAtom);
   const [selectedCollection, setSelectedCollection]: any = useAtom(
     selectedCollectionAtom
   );
+  const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
+  const { token } = useContext(BuilderContext) || {};
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -34,18 +43,61 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
     setIsOpen(false);
     onSelect(option || {});
   };
-  //
-  //   useEffect(() => {
-  //     const userCollections = options.filter(
-  //       (collection: any) => collection.owner === currentUserId
-  //     );
-  //     setSelectedCollection(userCollections[0]);
-  //   }, [options]);
+
+  useEffect(() => {
+    if (selectedCollection) {
+      if (currentUserId === selectedCollection.owner) {
+        setIsOwner(true);
+      } else {
+        setIsOwner(false);
+      }
+    }
+  }, [selectedCollection]);
 
   useEffect(() => {
     const role = findUserRole(selectedCollection, currentUserId);
     setCurentUserRole(role);
   }, [selectedCollection]);
+
+  useEffect(() => {
+    const element = inputRef.current;
+    if (editTitle && isOwner) {
+      element?.focus();
+
+      const range = document.createRange();
+      range.selectNodeContents(element as Node);
+
+      const selection = window.getSelection();
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+    } else {
+      element?.blur();
+    }
+  }, [editTitle, selectedCollection]);
+
+  async function updateCollections(
+    e:
+      | h.JSX.TargetedFocusEvent<HTMLDivElement>
+      | h.JSX.TargetedKeyboardEvent<HTMLDivElement>
+  ) {
+    if (
+      e.currentTarget.textContent &&
+      e.currentTarget.textContent !== selectedCollection.name
+    ) {
+      setSelectedCollection({
+        ...selectedCollection,
+        name: e.currentTarget.textContent,
+      });
+      const data = await renameCollection(
+        token,
+        selectedCollection._id,
+        e.currentTarget.textContent
+      );
+      if (data) {
+        setCollectionDocsTrigger((prevTrigger) => prevTrigger + 1);
+      }
+    }
+  }
 
   return (
     <div class="dropdown-comp">
@@ -55,9 +107,39 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
         onBlur={() => setIsOpen(false)}
       >
         {selectedCollection && (
-          <div>{selectedCollection.name || "Select an option"}</div>
+          <div className={"select-collection-dropdown-title"}>
+            <div
+              id={"dropdown-title"}
+              ref={inputRef}
+              contentEditable={editTitle}
+              onBlur={(e) => {
+                setEditTitle(false);
+                updateCollections(e);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  setEditTitle(false);
+                  e.preventDefault();
+                  updateCollections(e);
+                } else if (e.key === " ") {
+                  e.stopPropagation();
+                }
+              }}
+            >
+              {selectedCollection.name || "Select an option"}
+            </div>
+          </div>
         )}
       </button>
+      {isOwner && (
+        <button
+          onClick={() => {
+            setEditTitle(true);
+          }}
+        >
+          <IconEdit />
+        </button>
+      )}
       {isOpen && (
         <div class="dropdown-menu">
           {options.map((option) => {

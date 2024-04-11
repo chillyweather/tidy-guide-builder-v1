@@ -1463,8 +1463,8 @@ body .header-login {
 
 .dropdown-comp .dropdown-toggle div {
   overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: calc(100% - 16px);
+  /* text-overflow: ellipsis;
+  max-width: calc(100% - 16px); */
   pointer-events: none;
 }
 
@@ -1497,6 +1497,13 @@ body .header-login {
   margin-top: 4px;
   display: flex;
   flex-direction: column;
+}
+
+.select-collection-dropdown-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
 }
 
 .dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin) {

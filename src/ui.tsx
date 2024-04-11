@@ -217,6 +217,11 @@ function Plugin() {
   }
 
   useEffect(() => {
+    console.log("collectionDocsTrigger", collectionDocsTrigger);
+    console.log("dataForUpdate", dataForUpdate);
+  }, [dataForUpdate, selectedCollection, collectionDocsTrigger]);
+
+  useEffect(() => {
     if (selectedCollection) {
       collectionDocsHandler(token, selectedCollection._id);
     }
@@ -226,7 +231,7 @@ function Plugin() {
     if (token && currentUserId) {
       getUserCollections(token, currentUserId);
     }
-  }, [token, currentUserId]);
+  }, [token, currentUserId, collectionDocsTrigger]);
 
   useEffect(() => {
     console.log("currentUserRole", currentUserRole);
