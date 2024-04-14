@@ -16,8 +16,12 @@ const LinkCard = ({
   return (
     <div className={"linkBlockColumn"}>
       {LinkBlock(sources, setSources)}
-      <button onClick={addSource} className={"addLink"}>
-        <IconPlus />
+      <button
+        onClick={() => {
+          addSource();
+        }}
+        className={"addLink"}>
+        <IconPlus className={"no-events"} />
       </button>
     </div>
   );
