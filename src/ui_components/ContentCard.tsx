@@ -3,6 +3,8 @@ import { h } from "preact";
 import { on } from "@create-figma-plugin/utilities";
 import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
+import { useAtom } from "jotai";
+import { showDeleteSectionPopupAtom } from "../state/atoms";
 import {
   IconGripVertical,
   IconChevronDown,
@@ -26,12 +28,12 @@ import ReleaseNotesIcon from "./../images/release-notes.svg";
 // import TokensIcon from "./../images/tokens.svg";
 
 import {
-  deleteSection,
+  // deleteSection,
   duplicateSection,
   openSection,
 } from "./ui_functions/cardActions";
 
-import { deleteFileFromServer } from "./ui_functions/fileManagementFunctions";
+// import { deleteFileFromServer } from "./ui_functions/fileManagementFunctions";
 
 //content cards
 import HeaderCard from "./sectionCards/HeaderCard";
@@ -121,6 +123,8 @@ export const ContentCard = (card: any, index: number) => {
 
   //image array for upload (anatomy, spacing, property, variants)
   const [currentImageArray, setCurrentImageArray] = useState<Uint8Array>();
+
+  const [, setShowDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
 
   const {
     // currentAuthor,
@@ -331,14 +335,15 @@ export const ContentCard = (card: any, index: number) => {
     openSection(e, id, selectedCard!, setSelectedCard);
   };
 
-  const handleDeleteSection = async (e: MouseEvent) => {
-    deleteSection(e, index, setSelectedSections);
-    if (!remoteImageLink) return;
-
-    const deletion = await deleteFileFromServer(remoteImageLink);
-    if (deletion) {
-      console.log(deletion);
-    }
+  const handleDeleteSection = async () => {
+    setShowDeleteSectionPopup(true);
+    //     deleteSection(e, index, setSelectedSections);
+    //     if (!remoteImageLink) return;
+    //
+    //     const deletion = await deleteFileFromServer(remoteImageLink);
+    //     if (deletion) {
+    //       console.log(deletion);
+    //     }
   };
 
   const handleDuplicateSection = (e: MouseEvent) => {
