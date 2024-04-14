@@ -74,6 +74,13 @@ function DeleteSectionPopup({
           //   if (e.key === "Escape") setShowDeletePopup(false);
           // }}
           >
+            <img src=""
+              style={{ display: 'none' }}
+              onError={(event) => {
+                //@ts-ignore
+                event.target.parentElement.focus();
+              }}
+            />
             Cancel
           </button>
           <button
@@ -94,12 +101,6 @@ function DeleteSectionPopup({
               // );
             }}
           >
-            <img src=""
-              onError={(event) => {
-                //@ts-ignore
-                event.target.parentElement.focus();
-              }}
-            />
             <img src={Spinner} />
             <span>Delete</span>
           </button>

@@ -1030,7 +1030,7 @@ button svg {
   background-color: #BA321C;
 }
 
-#delete-button:focus {
+#delete-button:focus-visible {
   box-shadow: 0 0 0 4px #F9DBDB;
 }
 
