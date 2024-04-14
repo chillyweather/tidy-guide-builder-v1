@@ -29,18 +29,18 @@ function DeleteSectionPopup({
   const [, setShowDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
 
   const handleDeleteSection = async (e: MouseEvent) => {
-    deleteSection(e, sectionToDeleteIndex, setSelectedSections);
-    const remoteImageLink = sectionToDelete?.content.remoteImageLink;
-    if (
-      !remoteImageLink ||
-      !remoteImageLink.startsWith("https://nyc3.digitaloceanspaces.com")
-    )
-      return;
-
-    const deletion = await deleteFileFromServer(remoteImageLink);
-    if (deletion) {
-      console.log(deletion);
-    }
+    deleteSection(sectionToDeleteIndex, setSelectedSections);
+    //     const remoteImageLink = sectionToDelete?.content.remoteImageLink;
+    //     if (
+    //       !remoteImageLink ||
+    //       !remoteImageLink.startsWith("https://nyc3.digitaloceanspaces.com")
+    //     )
+    //       return;
+    //
+    //     const deletion = await deleteFileFromServer(remoteImageLink);
+    //     if (deletion) {
+    //       console.log(deletion);
+    //     }
   };
 
   return (
@@ -81,6 +81,7 @@ function DeleteSectionPopup({
             id={"delete-button"}
             onClick={async (e) => {
               handleDeleteSection(e);
+              setShowDeleteSectionPopup(false);
               // document
               //   .getElementById("delete-button")
               //   ?.classList.add("spinner");

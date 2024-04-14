@@ -4,7 +4,11 @@ import { on } from "@create-figma-plugin/utilities";
 import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { useAtom } from "jotai";
-import { showDeleteSectionPopupAtom } from "../state/atoms";
+import {
+  showDeleteSectionPopupAtom,
+  sectionToDeleteAtom,
+  sectionToDeleteIndexAtom,
+} from "../state/atoms";
 import {
   IconGripVertical,
   IconChevronDown,
@@ -125,6 +129,8 @@ export const ContentCard = (card: any, index: number) => {
   const [currentImageArray, setCurrentImageArray] = useState<Uint8Array>();
 
   const [, setShowDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
+  const [, setSectionToDelete] = useAtom(sectionToDeleteAtom);
+  const [, setSectionToDeleteIndex] = useAtom(sectionToDeleteIndexAtom);
 
   const {
     // currentAuthor,
@@ -337,6 +343,8 @@ export const ContentCard = (card: any, index: number) => {
 
   const handleDeleteSection = async () => {
     setShowDeleteSectionPopup(true);
+    setSectionToDeleteIndex(index);
+    setSectionToDelete(card);
     //     deleteSection(e, index, setSelectedSections);
     //     if (!remoteImageLink) return;
     //

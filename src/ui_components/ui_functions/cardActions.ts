@@ -14,13 +14,11 @@ export const openSection = (
 };
 
 export const deleteSection = (
-  e: MouseEvent,
   index: number,
   setSelectedSections: (
     sections: any[] | ((prevSections: any[]) => any[])
   ) => void
 ) => {
-  e.stopPropagation();
   setSelectedSections((prevSections: any[]) => {
     const newSections = Array.from(prevSections);
     newSections.splice(index, 1);
