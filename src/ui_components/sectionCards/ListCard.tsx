@@ -33,7 +33,6 @@ const ListCard: FunctionComponent<ListCardProps> = ({
   useEffect(() => {
     if (addButtonRef.current && document.activeElement?.tagName !== "INPUT") {
       //@ts-ignore
-      // console.warn(addButtonRef.current.parentElement.parentElement.getElementsByTagName("input").length)
       addButtonRef.current.parentElement.parentElement.getElementsByTagName("input")[addButtonRef.current.parentElement.parentElement.getElementsByTagName("input").length-1].focus();
     }
   }, [listItems]);
@@ -61,9 +60,8 @@ const ListCard: FunctionComponent<ListCardProps> = ({
             {index === listItems.length - 1 && (
               <button
                 ref={addButtonRef}
-                onClick={(event) => {
+                onClick={() => {
                   addInputField();
-                  // console.warn(event.target);
                 }}
                 className="listButtonStyle"
               >
