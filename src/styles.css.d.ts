@@ -160,6 +160,7 @@ declare const styles: {
   readonly "nav-wrapper": string;
   readonly "navigation": string;
   readonly "navigation-button": string;
+  readonly "no-events": string;
   readonly "no-margin": string;
   readonly "noFeedback": string;
   readonly "noIcon": string;
