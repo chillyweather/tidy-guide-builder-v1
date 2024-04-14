@@ -17,8 +17,13 @@ const LinkCard = ({
     <div className={"linkBlockColumn"}>
       {LinkBlock(sources, setSources)}
       <button
-        onClick={() => {
+        onClick={(event) => {
           addSource();
+          setTimeout(function(){
+            //@ts-ignore;
+            event.target.parentElement.parentElement.parentElement.getElementsByTagName("input")[event.target.parentElement.parentElement.parentElement.getElementsByTagName("input").length-3].focus();
+        }, 200);
+          
         }}
         className={"addLink"}>
         <IconPlus className={"no-events"} />
