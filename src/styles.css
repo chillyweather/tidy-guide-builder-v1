@@ -4188,9 +4188,10 @@ input[type="checkbox"] {
 }
 
 .dialogTitle {
-  font-family: 'DM Serif Text', serif;
+  /* font-family: 'DM Serif Text', serif; */
+  font-family: Inter;
   line-height: 120%;
-  font-size: calc(var(--text-size) * 2.25);
+  font-size: calc(var(--text-size) * 1.65);
   font-weight: normal;
 }
 
