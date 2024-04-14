@@ -205,6 +205,7 @@ function Plugin() {
     }
   }, [collections, selectedCollection, setSelectedCollection, token]);
 
+  //MARK: Get collection docs
   async function collectionDocsHandler(token: string, collectionId: string) {
     const data = await getCollectionDocs(token, collectionId);
     if (data && data.length) {
