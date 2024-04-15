@@ -915,13 +915,29 @@ button svg {
 .headerContent button {
   background-color: transparent;
 }
+.empty-flex{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+.empty-img {
+  max-width: 268px;
+}
+
+.empty-para {
+  font-size: var(--text-size);
+  text-align: center;
+}
 
 .blue-button {
   background-color: var(--tidy-primary);
   color: #ffffff;
   min-height: 16px;
   min-width: 16px;
-  padding: 8px;
+  padding: 16px 24px;
   border-radius: 8px;
 }
 
