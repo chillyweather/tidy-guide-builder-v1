@@ -916,6 +916,55 @@ button svg {
   background-color: transparent;
 }
 
+div .empty-flex {
+  display: none;
+}
+
+.empty-0 .empty-flex {
+  display: flex;
+}
+
+.empty-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.empty-img {
+  max-width: 268px;
+}
+
+.empty-para {
+  font-size: var(--text-size);
+  text-align: center;
+}
+
+.blue-button {
+  background-color: var(--tidy-primary);
+  color: #ffffff;
+  min-height: 16px;
+  min-width: 16px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.blue-button svg {
+  filter: invert(100%) brightness(300%);
+}
+
+.blue-button:hover {
+  background-color: var(--tidy-btn-hover);
+}
+
+.blue-button:active {
+  background-color: var(--tidy-btn-pressed);
+}
+
 .headerActions {
   padding: 4px 16px;
   align-items: center;
@@ -4229,7 +4278,8 @@ input[type="checkbox"] {
   padding: 0;
   margin-top: 12px;
 }
-.popupButtons button{
+
+.popupButtons button {
   min-width: 90px !important;
 }
 

@@ -32,6 +32,7 @@ declare const styles: {
   readonly "back-button": string;
   readonly "back-link": string;
   readonly "backToTop": string;
+  readonly "blue-button": string;
   readonly "bold-me": string;
   readonly "bottom-right": string;
   readonly "broken": string;
@@ -84,7 +85,11 @@ declare const styles: {
   readonly "edit": string;
   readonly "editor": string;
   readonly "elementsMenu": string;
+  readonly "empty-0": string;
+  readonly "empty-flex": string;
   readonly "empty-image": string;
+  readonly "empty-img": string;
+  readonly "empty-para": string;
   readonly "empty-state": string;
   readonly "eyeIcon": string;
   readonly "feedbackPopup": string;

@@ -31,7 +31,7 @@ function DeletePopup({
         >
           <IconX />
         </button>
-        <h2 className={"dialogTitle"}>Delete element?</h2>
+        <h2 className={"dialogTitle"}>Delete element</h2>
         <p>
           Are you sure you want to delete this element?
           <br />

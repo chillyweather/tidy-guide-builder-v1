@@ -57,11 +57,11 @@ function DeleteSectionPopup({
         >
           <IconX />
         </button>
-        <h2 className={"dialogTitle"}>Delete element?</h2>
+        <h2 className={"dialogTitle"}>Delete element</h2>
         <p>
           Are you sure you want to delete this element?
           <br />
-          This action cannot be undone.{" "}
+          This action will only take effect after Publish.
         </p>
         <div className="popupButtons footer">
           <button
