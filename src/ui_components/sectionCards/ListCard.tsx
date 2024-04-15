@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { IconX, IconPlus } from "@tabler/icons-react";
 import { h, FunctionComponent } from "preact";
-import { useRef, useEffect, useContext } from "preact/hooks";
-import BuilderContext from "../../BuilderContext";
+import { useRef, useEffect } from "preact/hooks";
 
 interface ListCardProps {
   listItems: any[];
-  setListItems: Function;
+  setListItems: (items: any[]) => void;
 }
 
 const ListCard: FunctionComponent<ListCardProps> = ({
@@ -26,14 +27,19 @@ const ListCard: FunctionComponent<ListCardProps> = ({
 
   const handleInputChange = (index: number, event: Event) => {
     const newInputs = [...listItems];
-    newInputs[index] = (event.target as HTMLInputElement).value;
+    const newValue = (event.target as HTMLInputElement).value;
+    if (newValue === "") return;
+    newInputs[index] = newValue;
     setListItems(newInputs);
   };
 
   useEffect(() => {
-    if (addButtonRef.current && document.activeElement?.tagName !== "INPUT") {
-      //@ts-ignore
-      addButtonRef.current.parentElement.parentElement.getElementsByTagName("input")[addButtonRef.current.parentElement.parentElement.getElementsByTagName("input").length-1].focus();
+    if (addButtonRef.current) {
+      const parentElement = addButtonRef.current.parentElement?.parentElement;
+      if (parentElement) {
+        const inputElements = parentElement.getElementsByTagName("input");
+        inputElements[inputElements.length - 1].focus();
+      }
     }
   }, [listItems]);
 
@@ -47,9 +53,11 @@ const ListCard: FunctionComponent<ListCardProps> = ({
                 type="text"
                 value={value}
                 onInput={(e) => handleInputChange(index, e)}
-                // onKeyDown={(e) => {
-                //   e.key === "Enter" && addInputField();
-                // }}
+                onKeyDown={(e) => {
+                  e.key === "Enter" &&
+                    (e.target as HTMLInputElement).value &&
+                    addInputField();
+                }}
                 className="listInputStyle"
                 placeholder="Enter text..."
               />
@@ -65,7 +73,7 @@ const ListCard: FunctionComponent<ListCardProps> = ({
                 }}
                 className="listButtonStyle"
               >
-                <IconPlus className={"no-events"}/>
+                <IconPlus className={"no-events"} />
               </button>
             )}
           </div>
