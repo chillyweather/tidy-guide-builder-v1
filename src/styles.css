@@ -916,6 +916,14 @@ button svg {
   background-color: transparent;
 }
 
+.empty-index{
+  color: var(--tidy-32);
+}
+
+.componentBTN-wrapper + .empty-index{
+  display: none;
+}
+
 div .empty-flex {
   display: none;
 }

@@ -750,6 +750,9 @@ function Plugin() {
               token={token}
             />
           )}
+        {<div className="empty-index">
+          <h2>Looks like you don't have any Documentation</h2>
+        </div>}
         {showMainContent && !isViewModeOpen && (
           <MainContent
             selectedSections={selectedSections}
@@ -769,7 +772,7 @@ function Plugin() {
               selectedMasterId={selectedMasterId}
               selectedSections={selectedSections}
               setSelectedSections={setSelectedSections}
-              //! add component key
+            //! add component key
             />
           )}
         {/* content in View mode */}
