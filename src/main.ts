@@ -29,8 +29,8 @@ export default async function () {
 
   emit("SESSION", sessionData);
 
-  const selectionData = await checkSelection();
-  if (selectionData) emit("SELECTION", selectionData);
+  // const selectionData = await checkSelection();
+  // if (selectionData) emit("SELECTION", selectionData);
 
   on("SAVE_USER_LOGIN_DATA", (token, email, rank, user, company, id) => {
     loginDataHandler(token, email, rank, user, company, id);
