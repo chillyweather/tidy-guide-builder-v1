@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 //@ts-nocheck
 import { h } from "preact";
-import { useEffect } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import Sortable from "sortablejs";
 import { DraggableItem } from "./DraggableItem";
 import { ContentCard } from "./ContentCard";
@@ -48,7 +48,7 @@ export const DraggableCardList = ({
       );
     });
   };
-
+  // const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
   return <div id={"sections"}>
     {ListOfCards(items)}
     <div className={"empty-" + items.length}>
@@ -56,13 +56,17 @@ export const DraggableCardList = ({
         <img src={Elements} className={"empty-img"} />
         <p className={"empty-para"}>Start documenting and shaping your design system with ease.<br />
           We're excited to see what you create!</p>
-        <button className={"blue-button"}>
+        <button className={"blue-button"}
+          onClick={() => {
+            document.getElementById("plus-button")?.click();
+          }}
+        >
           <IconPlus />
           Add elements
         </button>
       </div>
     </div>
-  </div>;
+  </div>
 };
 
 export default DraggableCardList;
