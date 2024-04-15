@@ -751,7 +751,7 @@ function Plugin() {
               token={token}
             />
           )}
-        {<div className="empty-index">
+        {showIndexPage && (<div className="empty-index">
           <img src={EmptyState} className={"empty-index-image"} />
           <div className="empty-index-flex">
             <h2>Looks like you don't have any Documentation</h2>
@@ -763,7 +763,7 @@ function Plugin() {
           >
             Start Documenting
           </button>
-        </div>}
+        </div>)}
         {showMainContent && !isViewModeOpen && (
           <MainContent
             selectedSections={selectedSections}

@@ -445,6 +445,7 @@ body:has(.delete-flex) .container {
   width: calc(100vw - 64px);
   left: 0;
   bottom: -10px;
+  pointer-events: none;
   border-bottom: 1px solid var(--tidy-divider);
 }
 
