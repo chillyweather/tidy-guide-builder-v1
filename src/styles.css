@@ -916,21 +916,36 @@ button svg {
   background-color: transparent;
 }
 
-.empty-index{
+.empty-index {
   display: flex;
   flex-direction: column;
   gap: 24px;
   align-items: center;
   color: var(--tidy-32);
+  font-size: var(--text-size);
 }
-.empty-index-flex{
+
+.empty-index-flex {
   display: flex;
   flex-direction: column;
   gap: 6px;
   align-items: center;
 }
 
-.componentBTN-wrapper + .empty-index{
+.empty-index-image {
+  width: 120px;
+  height: 120px;
+  margin-top: 80px;
+}
+
+.empty-index h2 {
+  max-width: 75%;
+  line-height: 120%;
+  text-align: center;
+  font-weight: 600;
+}
+
+.componentBTN-wrapper+.empty-index {
   display: none;
 }
 
