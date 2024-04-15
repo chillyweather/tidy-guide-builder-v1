@@ -140,7 +140,6 @@ function Plugin() {
   const [isWip, setIsWip] = useState(false);
   //selected element
   const [selectedElement, setSelectedElement] = useState<any>(null);
-  // const [selectedElementKey, setSelectedElementKey] = useState<any>("");
   const [selectedElementName, setSelectedElementName] = useState("");
   const [selectedCard, setSelectedCard] = useState<any>("");
   //selected cards
@@ -243,11 +242,27 @@ function Plugin() {
     }
   }, [currentUserRole]);
 
-  on("SELECTION", ({ defaultNode, name, key }) => {
-    setSelectedElement(defaultNode);
-    setSelectedNodeId(defaultNode.id);
-    setSelectedElementName(name);
-    setSelectedNodeKey(key);
+  useEffect(() => {
+    console.log("selectedElement", selectedElement);
+  }, [selectedElement]);
+
+  on("SELECTION", (data) => {
+    console.log("data", data);
+    console.log("selectedElement", selectedElement);
+    if (!data) {
+      // setSelectedElement(null);
+      // setSelectedElementName("");
+      // setSelectedNodeKey("");
+      // setSelectedNodeId("");
+      // setSelectedComponentPic("");
+      return;
+    }
+    const { defaultNode, name, key } = data;
+
+    setSelectedElement(selectedElement || defaultNode);
+    setSelectedNodeId(selectedNodeId || defaultNode.id);
+    setSelectedElementName(selectedElementName || name);
+    setSelectedNodeKey(selectedNodeKey || key);
     setDocumentationData((prevDocumentation: any) => {
       return {
         ...prevDocumentation,

@@ -62,18 +62,12 @@ export default async function () {
             format: "PNG",
             constraint: { type: "SCALE", value: 2 },
           });
-          // const bytes = await foundElement.defaultVariant.exportAsync({
-          //   format: "SVG",
-          // });
           emit("COMPONENT_PIC_FOR_UPLOAD", { bytes });
         } else {
           const bytes = await foundElement.exportAsync({
             format: "PNG",
             constraint: { type: "SCALE", value: 2 },
           });
-          // const bytes = await foundElement.exportAsync({
-          //   format: "SVG",
-          // });
           emit("COMPONENT_PIC_FOR_UPLOAD", { bytes });
         }
       }
@@ -81,7 +75,7 @@ export default async function () {
   });
 
   on("CLEAR_SELECTION", () => {
-    figma.currentPage.selection = [];
+    // figma.currentPage.selection = [];
   });
 
   on("GET_NEW_SELECTION", async (key, id) => {
@@ -108,6 +102,16 @@ export default async function () {
     console.log("delete account");
     await figma.clientStorage.deleteAsync("token");
     figma.notify("Account deleted");
+  });
+
+  figma.on("selectionchange", async () => {
+    const selectionData = await checkSelection();
+    // console.log("selectionData", selectionData);
+    if (selectionData) {
+      emit("SELECTION", selectionData);
+    } else {
+      emit("SELECTION", null);
+    }
   });
 
   once("CLOSE", () => {
