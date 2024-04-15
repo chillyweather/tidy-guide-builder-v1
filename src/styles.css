@@ -976,6 +976,10 @@ div .empty-flex {
   text-align: center;
 }
 
+body:has(.mode-button.viewer) .blue-button {
+  display: none;
+}
+
 .blue-button {
   background-color: var(--tidy-primary);
   color: #ffffff;
