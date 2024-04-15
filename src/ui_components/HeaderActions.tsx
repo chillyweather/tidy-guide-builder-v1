@@ -37,6 +37,7 @@ import {
   selectedNodeIdAtom,
   selectedNodeKeyAtom,
   selectedComponentPicAtom,
+  selectionDataAtom,
 } from "src/state/atoms";
 import { deleteFileFromServer } from "./ui_functions/fileManagementFunctions";
 import { useEffect } from "react";
@@ -180,6 +181,7 @@ function HeaderActions() {
   const [selectedComponentPic, setSelectedComponentPic] = useAtom(
     selectedComponentPicAtom
   );
+  const [selectionData] = useAtom(selectionDataAtom);
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
 
   const {
@@ -240,6 +242,7 @@ function HeaderActions() {
         ) : (
           <button
             className="connect-element-button"
+            disabled={!selectionData}
             onClick={() => {
               emit("GET_SELECTION");
             }}
@@ -247,13 +250,13 @@ function HeaderActions() {
             <IconLink
               style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
             />
-            Get component
+            Get selected component
           </button>
         )}
       </div>
       <div className={"selectedComponentActions"}>
         <button
-        id={"plus-button"}
+          id={"plus-button"}
           onClick={() => {
             setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
           }}

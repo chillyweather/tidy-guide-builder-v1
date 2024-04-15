@@ -75,7 +75,7 @@ export default async function () {
   });
 
   on("CLEAR_SELECTION", () => {
-    // figma.currentPage.selection = [];
+    figma.currentPage.selection = [];
   });
 
   on("GET_NEW_SELECTION", async (key, id) => {
@@ -108,9 +108,9 @@ export default async function () {
     const selectionData = await checkSelection();
     // console.log("selectionData", selectionData);
     if (selectionData) {
-      emit("SELECTION", selectionData);
+      emit("CHANGED_SELECTION", selectionData);
     } else {
-      emit("SELECTION", null);
+      emit("CHANGED_SELECTION", null);
     }
   });
 

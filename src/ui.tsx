@@ -59,6 +59,7 @@ import {
   currentDocumentationsAtom,
   isPublishAndViewAtom,
   showDeleteSectionPopupAtom,
+  selectionDataAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -84,6 +85,7 @@ function Plugin() {
   const [currentUserRole] = useAtom(currentUserRoleAtom);
   const [, setCurrentDocumentations] = useAtom(currentDocumentationsAtom);
   const [isPublishAndView, setIsPublishAndView] = useAtom(isPublishAndViewAtom);
+  const [, setSelectionData] = useAtom(selectionDataAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -246,6 +248,10 @@ function Plugin() {
     console.log("selectedElement", selectedElement);
   }, [selectedElement]);
 
+  on("CHANGED_SELECTION", (data) => {
+    setSelectionData(data);
+  });
+
   on("SELECTION", (data) => {
     console.log("data", data);
     console.log("selectedElement", selectedElement);
@@ -259,10 +265,14 @@ function Plugin() {
     }
     const { defaultNode, name, key } = data;
 
-    setSelectedElement(selectedElement || defaultNode);
-    setSelectedNodeId(selectedNodeId || defaultNode.id);
-    setSelectedElementName(selectedElementName || name);
-    setSelectedNodeKey(selectedNodeKey || key);
+    setSelectedElement(defaultNode);
+    setSelectedNodeId(defaultNode.id);
+    setSelectedElementName(name);
+    setSelectedNodeKey(key);
+    // setSelectedElement(selectedElement || defaultNode);
+    // setSelectedNodeId(selectedNodeId || defaultNode.id);
+    // setSelectedElementName(selectedElementName || name);
+    // setSelectedNodeKey(selectedNodeKey || key);
     setDocumentationData((prevDocumentation: any) => {
       return {
         ...prevDocumentation,

@@ -261,6 +261,7 @@ const Header = ({
                     setIsIndexOpen(false);
                     setIsMainContentOpen(true);
                     setIsFromSavedData(false);
+                    emit("GET_SELECTION");
                   }}
                 >
                   <IconPlus />

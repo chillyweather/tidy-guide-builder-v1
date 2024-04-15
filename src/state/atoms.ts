@@ -5,6 +5,7 @@ export const selectedNodeKeyAtom = atom("");
 export const selectedComponentPicAtom = atom("");
 export const isViewModeOpenAtom = atom(false);
 export const isPublishAndViewAtom = atom(false);
+export const selectionDataAtom = atom(null);
 
 export const currentUserNameAtom = atom("");
 export const currentCompanyAtom = atom("");
@@ -20,7 +21,6 @@ export const collectionsAtom = atom([]);
 //triggers
 export const collectionDocsTriggerAtom = atom(0);
 
-//settings
 export const showEditUserFormAtom = atom(false);
 export const userToEditAtom = atom(null);
 export const sectionToDeleteIndexAtom = atom(-1);

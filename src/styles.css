@@ -3313,6 +3313,11 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: #D9D9F2;
 }
 
+.headerActions .connect-element-button:disabled {
+  color: unset;
+  background-color: #EDEDED;
+}
+
 .selectedComponentGroup {
   display: flex;
   align-items: center;
