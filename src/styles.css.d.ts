@@ -82,6 +82,7 @@ declare const styles: {
   readonly "dropdown-item": string;
   readonly "dropdown-menu": string;
   readonly "dropdown-toggle": string;
+  readonly "dropdown-wrapper": string;
   readonly "edit": string;
   readonly "editor": string;
   readonly "elementsMenu": string;
