@@ -253,6 +253,7 @@ function HeaderActions() {
       </div>
       <div className={"selectedComponentActions"}>
         <button
+        id={"plus-button"}
           onClick={() => {
             setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
           }}

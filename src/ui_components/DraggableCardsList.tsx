@@ -48,7 +48,7 @@ export const DraggableCardList = ({
       );
     });
   };
-  const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
+  // const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
   return <div id={"sections"}>
     {ListOfCards(items)}
     <div className={"empty-" + items.length}>
@@ -58,7 +58,7 @@ export const DraggableCardList = ({
           We're excited to see what you create!</p>
         <button className={"blue-button"}
           onClick={() => {
-            setIsAddSectionPopupOpen(!isAddSectionPopupOpen);
+            document.getElementById("plus-button")?.click();
           }}
         >
           <IconPlus />
