@@ -47,7 +47,10 @@ export const DraggableCardList = ({
     });
   };
 
-  return <div id={"sections"}>{ListOfCards(items)}</div>;
+  return <div id={"sections"}>
+    {ListOfCards(items)}
+    <div className={"empty-" + items.length}></div>
+    </div>;
 };
 
 export default DraggableCardList;
