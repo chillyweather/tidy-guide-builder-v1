@@ -101,65 +101,67 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
 
   return (
     <div class="dropdown-comp">
-      <button
-        className="dropdown-toggle"
-        onClick={toggleDropdown}
-        onBlur={() => setIsOpen(false)}
-      >
-        {selectedCollection && (
-          <div className={"select-collection-dropdown-title"}>
-            <div
-              id={"dropdown-title"}
-              ref={inputRef}
-              contentEditable={editTitle}
-              onBlur={(e) => {
-                window.getSelection()?.removeAllRanges();
-                setEditTitle(false);
-                updateCollections(e);
-              }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  setEditTitle(false);
-                  e.preventDefault();
-                  updateCollections(e);
-                } else if (e.key === " ") {
-                  e.stopPropagation();
-                }
-              }}
-            >
-              {selectedCollection.name || "Select an option"}
-            </div>
-          </div>
-        )}
-      </button>
-      {isOwner && (
+      <div className="dropdown-wrapper">
         <button
-          className={"rename-button"}
-          onClick={() => {
-            setEditTitle(true);
-          }}
+          className="dropdown-toggle"
+          onClick={toggleDropdown}
+          onBlur={() => setIsOpen(false)}
         >
-          <IconEdit />
-        </button>
-      )}
-      {isOpen && (
-        <div class="dropdown-menu">
-          {options.map((option) => {
-            const role = findUserRole(option, currentUserId);
-            return (
+          {selectedCollection && (
+            <div className={"select-collection-dropdown-title"}>
               <div
-                className={"dropdown-item"}
-                onMouseDown={(e) => {
-                  e.preventDefault();
-                  selectOption(option);
+                id={"dropdown-title"}
+                ref={inputRef}
+                contentEditable={editTitle}
+                onBlur={(e) => {
+                  window.getSelection()?.removeAllRanges();
+                  setEditTitle(false);
+                  updateCollections(e);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setEditTitle(false);
+                    e.preventDefault();
+                    updateCollections(e);
+                  } else if (e.key === " ") {
+                    e.stopPropagation();
+                  }
                 }}
               >
-                <div>{option.name}</div> <span className={"tag " + role}></span>
+                {selectedCollection.name || "Select an option"}
               </div>
-            );
-          })}
-        </div>
-      )}
+            </div>
+          )}
+        </button>
+        {isOwner && (
+          <button
+            className={"rename-button"}
+            onClick={() => {
+              setEditTitle(true);
+            }}
+          >
+            <IconEdit />
+          </button>
+        )}
+        {isOpen && (
+          <div class="dropdown-menu">
+            {options.map((option) => {
+              const role = findUserRole(option, currentUserId);
+              return (
+                <div
+                  className={"dropdown-item"}
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    selectOption(option);
+                  }}
+                >
+                  <div>{option.name}</div> <span className={"tag " + role}></span>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

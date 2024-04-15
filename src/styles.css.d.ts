@@ -82,6 +82,7 @@ declare const styles: {
   readonly "dropdown-item": string;
   readonly "dropdown-menu": string;
   readonly "dropdown-toggle": string;
+  readonly "dropdown-wrapper": string;
   readonly "edit": string;
   readonly "editor": string;
   readonly "elementsMenu": string;
@@ -89,6 +90,9 @@ declare const styles: {
   readonly "empty-flex": string;
   readonly "empty-image": string;
   readonly "empty-img": string;
+  readonly "empty-index": string;
+  readonly "empty-index-flex": string;
+  readonly "empty-index-image": string;
   readonly "empty-para": string;
   readonly "empty-state": string;
   readonly "eyeIcon": string;

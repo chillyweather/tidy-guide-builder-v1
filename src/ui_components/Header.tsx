@@ -256,6 +256,7 @@ const Header = ({
               </a>
               {!isViewModeOpen && (
                 <button
+                  id="new-button"
                   className="flex-button add-button"
                   onClick={() => {
                     setIsIndexOpen(false);

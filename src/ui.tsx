@@ -33,6 +33,7 @@ import Login from "./ui_components/LoginPage";
 import SignIn from "./ui_components/SigninPage";
 import Settings from "./ui_components/SettingsPage";
 import MainContent from "./ui_components/MainContent";
+import EmptyState from "./images/empty-state.svg";
 import {
   getDocumentations,
   updateDocumentation,
@@ -760,6 +761,19 @@ function Plugin() {
               token={token}
             />
           )}
+        {showIndexPage && (<div className="empty-index">
+          <img src={EmptyState} className={"empty-index-image"} />
+          <div className="empty-index-flex">
+            <h2>Looks like you don't have any Documentation</h2>
+            <p>Fortunately, it's easy to create documentation</p>
+          </div>
+          <button
+            className={"blue-button"}
+            onClick={() => { document.getElementById("new-button")?.click(); }}
+          >
+            Start Documenting
+          </button>
+        </div>)}
         {showMainContent && !isViewModeOpen && (
           <MainContent
             selectedSections={selectedSections}
@@ -779,7 +793,7 @@ function Plugin() {
               selectedMasterId={selectedMasterId}
               selectedSections={selectedSections}
               setSelectedSections={setSelectedSections}
-              //! add component key
+            //! add component key
             />
           )}
         {/* content in View mode */}
