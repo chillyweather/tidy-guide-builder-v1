@@ -6,6 +6,8 @@ import { useEffect } from "preact/hooks";
 import Sortable from "sortablejs";
 import { DraggableItem } from "./DraggableItem";
 import { ContentCard } from "./ContentCard";
+import Elements from "./../images/elements-min.png";
+import { IconPlus } from "@tabler/icons-react";
 
 export const DraggableCardList = ({
   items,
@@ -49,8 +51,18 @@ export const DraggableCardList = ({
 
   return <div id={"sections"}>
     {ListOfCards(items)}
-    <div className={"empty-" + items.length}></div>
-    </div>;
+    <div className={"empty-" + items.length}>
+      <div className="empty-flex">
+        <img src={Elements} className={"empty-img"} />
+        <p className={"empty-para"}>Start documenting and shaping your design system with ease.<br />
+          We're excited to see what you create!</p>
+        <button className={"blue-button"}>
+          <IconPlus />
+          Add elements
+        </button>
+      </div>
+    </div>
+  </div>;
 };
 
 export default DraggableCardList;

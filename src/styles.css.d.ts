@@ -85,6 +85,7 @@ declare const styles: {
   readonly "edit": string;
   readonly "editor": string;
   readonly "elementsMenu": string;
+  readonly "empty-0": string;
   readonly "empty-flex": string;
   readonly "empty-image": string;
   readonly "empty-img": string;

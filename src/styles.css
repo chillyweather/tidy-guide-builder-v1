@@ -916,6 +916,14 @@ button svg {
   background-color: transparent;
 }
 
+div .empty-flex {
+  display: none;
+}
+
+.empty-0 .empty-flex {
+  display: flex;
+}
+
 .empty-flex {
   display: flex;
   flex-direction: column;
