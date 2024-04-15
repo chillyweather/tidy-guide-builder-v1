@@ -48,7 +48,7 @@ export const DraggableCardList = ({
       );
     });
   };
-  // const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
+  
   return <div id={"sections"}>
     {ListOfCards(items)}
     <div className={"empty-" + items.length}>
