@@ -915,7 +915,8 @@ button svg {
 .headerContent button {
   background-color: transparent;
 }
-.empty-flex{
+
+.empty-flex {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -923,6 +924,7 @@ button svg {
   justify-content: center;
   margin-top: 60px;
 }
+
 .empty-img {
   max-width: 268px;
 }
@@ -939,6 +941,12 @@ button svg {
   min-width: 16px;
   padding: 16px 24px;
   border-radius: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.blue-button svg {
+  filter: invert(100%) brightness(300%);
 }
 
 .blue-button:hover {

@@ -3,6 +3,7 @@ import { h } from "preact";
 import { DraggableCardList } from "./DraggableCardsList";
 import HeaderCard from "./sectionCards/HeaderCard";
 import Elements from "./../images/elements-min.png";
+import { IconPlus } from "@tabler/icons-react";
 
 const MainContent = ({
   selectedSections,
@@ -27,7 +28,10 @@ const MainContent = ({
         <img src={Elements} className={"empty-img"} />
         <p className={"empty-para"}>Start documenting and shaping your design system with ease.<br />
           We're excited to see what you create!</p>
-        <button className={"blue-button"}>Add elements</button>
+        <button className={"blue-button"}>
+          <IconPlus />
+          Add elements
+          </button>
       </div>
     </div>
   );
