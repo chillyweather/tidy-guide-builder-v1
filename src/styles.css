@@ -2785,8 +2785,8 @@ summary button {
 
 .addSectionPopup {
   position: fixed;
-  top: 96;
-  right: 16px;
+  top: 116px;
+  right: 24px;
   width: 60vw;
   max-height: 76%;
   background-color: #ffffff;
