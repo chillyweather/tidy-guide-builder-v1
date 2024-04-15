@@ -70,15 +70,12 @@ function DeleteSectionPopup({
             onClick={() => {
               setShowDeleteSectionPopup(false);
             }}
-          // onKeyDown={(e) => {
-          //   if (e.key === "Escape") setShowDeletePopup(false);
-          // }}
           >
-            <img src=""
-              style={{ display: 'none' }}
+            <img
+              src=""
+              style={{ display: "none" }}
               onError={(event) => {
-                //@ts-ignore
-                event.target.parentElement.focus();
+                (event.target as HTMLElement)?.parentElement?.focus();
               }}
             />
             Cancel
@@ -106,7 +103,7 @@ function DeleteSectionPopup({
           </button>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 
