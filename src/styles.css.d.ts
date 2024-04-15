@@ -91,6 +91,7 @@ declare const styles: {
   readonly "empty-image": string;
   readonly "empty-img": string;
   readonly "empty-index": string;
+  readonly "empty-index-flex": string;
   readonly "empty-para": string;
   readonly "empty-state": string;
   readonly "eyeIcon": string;

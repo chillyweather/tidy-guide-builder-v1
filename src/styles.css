@@ -917,7 +917,17 @@ button svg {
 }
 
 .empty-index{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
   color: var(--tidy-32);
+}
+.empty-index-flex{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
 }
 
 .componentBTN-wrapper + .empty-index{
