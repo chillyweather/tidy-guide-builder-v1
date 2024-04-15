@@ -32,6 +32,7 @@ declare const styles: {
   readonly "back-button": string;
   readonly "back-link": string;
   readonly "backToTop": string;
+  readonly "blue-button": string;
   readonly "bold-me": string;
   readonly "bottom-right": string;
   readonly "broken": string;

@@ -22,6 +22,7 @@ const MainContent = ({
         items={selectedSections}
         setItems={setSelectedSections}
       />
+      <button className={"blue-button"}>Add elements</button>
     </div>
   );
 };
