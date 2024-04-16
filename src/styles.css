@@ -10,7 +10,7 @@
 /* [X] Renaming collections */
 /* [X] Renaming that can include spacebars */
 /* [X] Bluring collection name when clicking header */
-/* [ ] Style disabled states for cards of Predefined elements */
+/* [X] Style disabled states for cards of Predefined elements */
 
 :root {
   --tidy-background: #F7F8FB;
