@@ -83,6 +83,7 @@ declare const styles: {
   readonly "dropdown-comp": string;
   readonly "dropdown-item": string;
   readonly "dropdown-menu": string;
+  readonly "dropdown-title": string;
   readonly "dropdown-toggle": string;
   readonly "dropdown-wrapper": string;
   readonly "duplicateButton": string;

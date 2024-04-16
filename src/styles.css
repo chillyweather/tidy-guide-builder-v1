@@ -1555,6 +1555,12 @@ body .header-login {
   gap: 0;
 }
 
+.dropdown-comp:hover .dropdown-wrapper {
+  background-color: #F0F1FA;
+  box-shadow: 0 0 0 1px #E4E6F6 inset;
+  border-radius: 6px;
+}
+
 .dropdown-comp:hover .rename-button {
   visibility: visible;
 }
@@ -1563,17 +1569,23 @@ body .header-login {
   visibility: hidden;
 }
 
+.dropdown-comp .rename-button:hover {
+  background-color: transparent;
+}
+
 .dropdown-comp .dropdown-toggle {
   background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 4px;
+  gap: 16px;
   border: 1px solid #B8BBC6;
   border-radius: 4px;
   width: 240px;
   max-width: 240px;
   padding: 7px;
+  background-color: #F0F1FA;
+  border-radius: 6px;
 }
 
 .dropdown-comp .dropdown-toggle div {
@@ -1594,9 +1606,17 @@ body .header-login {
   transform: translateY(1px);
 }
 
+.dropdown-comp #dropdown-title:focus {
+  outline: none;
+  border: none;
+}
+.dropdown-comp #dropdown-title::selection{
+  background-color: #E8F2BB;
+}
+
 .dropdown-comp .dropdown-toggle:hover,
 .dropdown-comp .dropdown-toggle:focus {
-  background-color: transparent;
+  background-color: #F0F1FA;
   border: 1px solid #E3E3E3;
 }
 
@@ -1623,6 +1643,8 @@ body .header-login {
   justify-content: flex-start;
   align-items: center;
   gap: 8px;
+  font-size: var(--text-size);
+  padding-left: 12px;
 }
 
 .dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin) {
@@ -3383,7 +3405,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   height: 12px;
   stroke: #6B73FF;
 }
-.headerActions .connect-element-button[disabled] .connect-component{
+
+.headerActions .connect-element-button[disabled] .connect-component {
   stroke: #A6A8AD;
 }
 
