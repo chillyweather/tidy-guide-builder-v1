@@ -49,8 +49,9 @@ function AddSectionPopupCard(card: any) {
   const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
 
   const [isHovering, setIsHovering] = useState(false);
-  const { setSelectedSections, selectedSections } =
+  const { setSelectedSections, selectedSections, selectedElement } =
     useContext(BuilderContext) || {};
+  const pdTypes = ["anatomy", "spacing", "property", "variants"];
 
   return (
     <div className={"addSection-outer"}>
@@ -58,7 +59,10 @@ function AddSectionPopupCard(card: any) {
         className={"addSectionCard"}
         id={card.title}
         type={card.datatype}
-        disabled={card.dataType === "tokens"}
+        disabled={
+          card.dataType === "tokens" ||
+          (pdTypes.includes(card.datatype) && !selectedElement)
+        }
         onClick={() => {
           addSection();
         }}
@@ -106,6 +110,9 @@ function AddSectionPopupCard(card: any) {
           <p class={"addSectionDescription"}>{card.description}</p>
         </div>
         <div
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
           className={"tooltipIcon"}
           alt={"This element is already in use and can be selected only once."}
         >
@@ -117,8 +124,9 @@ function AddSectionPopupCard(card: any) {
 
   async function addSection() {
     const type = card.datatype;
-    const pdTypes = ["anatomy", "spacing", "property", "variants"];
+
     if (pdTypes.includes(card.datatype)) {
+      if (!selectedElement) return;
       emit("PIC_FROM_FIGMA", {
         type,
         nodeId: selectedNodeId,
