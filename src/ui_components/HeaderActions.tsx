@@ -254,7 +254,6 @@ function HeaderActions() {
             onClick={() => {
               emit("GET_SELECTION");
             }}
-            style={{ opacity: selectionData ? 1 : 0.5 }}
           >
             <IconLink
               style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
