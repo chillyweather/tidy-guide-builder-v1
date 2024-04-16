@@ -61,6 +61,7 @@ declare const styles: {
   readonly "delete-button": string;
   readonly "delete-content": string;
   readonly "delete-flex": string;
+  readonly "deleteButton": string;
   readonly "deleteInput": string;
   readonly "deletePara": string;
   readonly "deletePopup": string;

@@ -507,17 +507,13 @@ export const ContentCard = (card: any, index: number) => {
 
   function DeleteButtonWithTooltip() {
     return (
-      <div className="tooltip hoverButton redButton">
+      <div className="tooltip hoverButton redButton tooltipButton deleteButton">
         <button
           className="cardAuxButton"
           onClick={handleDeleteSection}
-          onMouseLeave={() => setShowTooltip(false)}
         >
           <IconTrash />
         </button>
-        <span className={`tooltiptext ${showTooltip ? "show" : ""}`}>
-          Deleting sections requires publish
-        </span>
       </div>
     );
   }
