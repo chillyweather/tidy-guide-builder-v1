@@ -147,7 +147,7 @@ const Login = ({
         </div>
       </div>
       <button type="submit">Login</button>
-      <p style="margin-top: -1.25em;text-align: left; width: 100%;">
+      <p style="margin-top: -1.25em;text-align: center; width: 100%;">
         Forgot your password? Click{" "}
         <a
           href={"#"}
