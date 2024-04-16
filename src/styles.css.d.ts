@@ -117,6 +117,7 @@ declare const styles: {
   readonly "hidden": string;
   readonly "hideMe": string;
   readonly "hidePredefined": string;
+  readonly "hideTooltip": string;
   readonly "hoverButton": string;
   readonly "icon-16": string;
   readonly "image": string;

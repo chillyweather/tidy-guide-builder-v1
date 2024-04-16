@@ -4391,6 +4391,10 @@ input[type="checkbox"] {
   animation: rotateAnim 1000ms infinite linear;
 }
 
+.hideTooltip span {
+  display: none;
+}
+
 .tooltipIcon {
   position: relative;
   color: #787878;

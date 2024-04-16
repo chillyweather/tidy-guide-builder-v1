@@ -491,17 +491,12 @@ export const ContentCard = (card: any, index: number) => {
                 <IconEye />
                 <IconEyeOff />
               </button>
-              <div className="tooltip">
-                {/* <button
-                  className={"cardAuxButton noPredefined"}
-                  onClick={handleDuplicateSection}
-                >
-                  <IconCopy />
-                </button> */}
-                <span>
-                  Duplicate section
-                </span>
-              </div>
+              <button
+                className={"cardAuxButton noPredefined"}
+                onClick={handleDuplicateSection}
+              >
+                <IconCopy />
+              </button>
               {DeleteButtonWithTooltip()}
             </div>
           </div>
