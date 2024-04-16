@@ -197,6 +197,8 @@ function Plugin() {
   useEffect(() => {
     if (selectedElement) {
       setIsPdSectionOpen(true);
+    } else {
+      setIsPdSectionOpen(false);
     }
   }, [selectedElement]);
 
