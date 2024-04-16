@@ -805,7 +805,7 @@ function Plugin() {
               //! add component key
             />
           )}
-        {/* content in View mode */}
+        {/* //MARK: View mode content */}
         {selectedMasterId &&
           showContentFromServer &&
           isViewModeOpen &&
