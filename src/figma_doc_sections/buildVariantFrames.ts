@@ -143,7 +143,8 @@ export function buildThirdLevelFrame(
     `${variantKeys[variantKeys.length - 1]}-frame`,
     direction,
     18,
-    18
+    18,
+    46
   );
 }
 

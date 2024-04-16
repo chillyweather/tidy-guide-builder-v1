@@ -169,7 +169,7 @@ function Plugin() {
   //is draft
   const [isDraft, setIsDraft] = useState(false);
   //is pd section open
-  const [isPdSectionOpen, setIsPdSectionOpen] = useState(true);
+  const [isPdSectionOpen, setIsPdSectionOpen] = useState(!!selectedElement);
   //user rank
   const [userRank, setUserRank] = useState("");
 
@@ -194,9 +194,11 @@ function Plugin() {
     }
   });
 
-  // useEffect(() => {
-  //   console.log("documentationData", documentationData);
-  // }, [documentationData]);
+  useEffect(() => {
+    if (selectedElement) {
+      setIsPdSectionOpen(true);
+    }
+  }, [selectedElement]);
 
   useEffect(() => {
     if (collections && collections.length && !selectedCollection) {
@@ -773,11 +775,14 @@ function Plugin() {
               </div>
               <button
                 className={"blue-button"}
-                onClick={() => { document.getElementById("new-button")?.click(); }}
+                onClick={() => {
+                  document.getElementById("new-button")?.click();
+                }}
               >
                 Start Documenting
               </button>
-            </div>)}
+            </div>
+          )}
         {showMainContent && !isViewModeOpen && (
           <MainContent
             selectedSections={selectedSections}
@@ -797,7 +802,7 @@ function Plugin() {
               selectedMasterId={selectedMasterId}
               selectedSections={selectedSections}
               setSelectedSections={setSelectedSections}
-            //! add component key
+              //! add component key
             />
           )}
         {/* content in View mode */}
