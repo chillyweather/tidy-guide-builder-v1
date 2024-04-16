@@ -2912,6 +2912,22 @@ summary button {
   border: 1px solid #e8e8f7;
 }
 
+.addSectionCard[disabled] {
+  pointer-events: none;
+  cursor: default;
+  color: #818188;
+  /* KKKK */
+}
+
+.addSectionCard[disabled] .addSectionIcon {
+  opacity: 0.5;
+}
+
+.addSectionCard[disabled] .addSectionTitle,
+.addSectionCard[disabled] .addSectionDescription {
+  color: var(--tidy-disabled-ic);
+}
+
 .addSectionCard:active {
   border-color: #6B73FF;
 }
