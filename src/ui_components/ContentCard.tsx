@@ -122,9 +122,6 @@ export const ContentCard = (card: any, index: number) => {
   const [releaseNotesDate, setReleaseNotesDate] = useState("");
   // const currentAuthor = useContext(BuilderContext)?.currentUser.name;
 
-  // tooltip
-  const [showTooltip, setShowTooltip] = useState(false);
-
   //image array for upload (anatomy, spacing, property, variants)
   const [currentImageArray, setCurrentImageArray] = useState<Uint8Array>();
 
