@@ -32,7 +32,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
     selectedCollectionAtom
   );
   const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
-  const { token } = useContext(BuilderContext) || {};
+  const { token, setDataForUpdate } = useContext(BuilderContext) || {};
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -152,10 +152,12 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
                   className={"dropdown-item"}
                   onMouseDown={(e) => {
                     e.preventDefault();
+                    setDataForUpdate({});
                     selectOption(option);
                   }}
                 >
-                  <div>{option.name}</div> <span className={"tag " + role}></span>
+                  <div>{option.name}</div>{" "}
+                  <span className={"tag " + role}></span>
                 </div>
               );
             })}
