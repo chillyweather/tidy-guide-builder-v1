@@ -4435,6 +4435,9 @@ input[type="checkbox"] {
 .trashButton::after {
   --tipText: 'Delete forever';
 }
+.deleteButton::after {
+  --tipText: 'Deleting sections requires publish';
+}
 
 .tooltipIcon {
   position: relative;
