@@ -3375,6 +3375,9 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   color: unset;
   background-color: #EDEDED;
 }
+.headerActions .connect-element-button[disabled]{
+  opacity: 0.4;
+}
 
 .selectedComponentGroup {
   display: flex;
