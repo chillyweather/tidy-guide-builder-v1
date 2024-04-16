@@ -83,6 +83,7 @@ declare const styles: {
   readonly "dropdown-menu": string;
   readonly "dropdown-toggle": string;
   readonly "dropdown-wrapper": string;
+  readonly "duplicateButton": string;
   readonly "edit": string;
   readonly "editor": string;
   readonly "elementsMenu": string;
@@ -117,7 +118,6 @@ declare const styles: {
   readonly "hidden": string;
   readonly "hideMe": string;
   readonly "hidePredefined": string;
-  readonly "hideTooltip": string;
   readonly "hoverButton": string;
   readonly "icon-16": string;
   readonly "image": string;

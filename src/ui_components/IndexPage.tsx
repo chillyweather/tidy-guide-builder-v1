@@ -85,7 +85,7 @@ const IndexPage = ({
             </div>
             {!isViewModeOpen && (
               <button
-                className={"cardAuxButton noPredefined"}
+                className={"cardAuxButton noPredefined duplicateButton"}
                 onClick={async () =>
                   await handleDocClone(
                     token,

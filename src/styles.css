@@ -4391,8 +4391,41 @@ input[type="checkbox"] {
   animation: rotateAnim 1000ms infinite linear;
 }
 
-.hideTooltip span {
-  display: none;
+.duplicateButton {
+  position: relative;
+}
+
+.componentBTN-wrapper .componentBTN:first-of-type .duplicateButton::after {
+  top: 125%;
+}
+
+.duplicateButton::after {
+  content: 'Duplicate';
+  visibility: hidden;
+  position: absolute;
+  width: 16ch;
+  height: fit-content;
+  text-wrap: balance;
+  line-height: 1.3;
+  font-size: calc(var(--text-size) - (var(--text-size) / 7));
+  background-color: #DEDEE8;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 4%);
+  color: var(--tidy-32);
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: -125%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.duplicateButton:hover::after {
+  visibility: visible;
+  opacity: 1;
 }
 
 .tooltipIcon {
