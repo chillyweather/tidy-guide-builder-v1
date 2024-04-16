@@ -251,9 +251,11 @@ declare const styles: {
   readonly "title-wrapper": string;
   readonly "tokens": string;
   readonly "tooltip": string;
+  readonly "tooltipButton": string;
   readonly "tooltipIcon": string;
   readonly "tooltiptext": string;
   readonly "top": string;
+  readonly "trashButton": string;
   readonly "true": string;
   readonly "two-columns": string;
   readonly "twoColumnCardBodyContent": string;

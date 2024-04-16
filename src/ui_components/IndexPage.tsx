@@ -85,7 +85,7 @@ const IndexPage = ({
             </div>
             {!isViewModeOpen && (
               <button
-                className={"cardAuxButton noPredefined duplicateButton"}
+                className={"cardAuxButton noPredefined tooltipButton duplicateButton"}
                 onClick={async () =>
                   await handleDocClone(
                     token,
@@ -100,7 +100,7 @@ const IndexPage = ({
             )}
             {!isViewModeOpen && (
               <button
-                className={"cardAuxButton noPredefined redButton"}
+                className={"cardAuxButton noPredefined redButton tooltipButton trashButton"}
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowDeletePopup(true);

@@ -4391,16 +4391,16 @@ input[type="checkbox"] {
   animation: rotateAnim 1000ms infinite linear;
 }
 
-.duplicateButton {
+.tooltipButton {
   position: relative;
 }
 
-.componentBTN-wrapper .componentBTN:first-of-type .duplicateButton::after {
+.componentBTN-wrapper .componentBTN:first-of-type .tooltipButton::after {
   top: 125%;
 }
 
-.duplicateButton::after {
-  content: 'Duplicate';
+.tooltipButton::after {
+  content: var(--tipText);
   visibility: hidden;
   position: absolute;
   width: 16ch;
@@ -4416,6 +4416,7 @@ input[type="checkbox"] {
   padding: 8px;
   position: absolute;
   z-index: 1;
+  font-weight: 400;
   bottom: 125%;
   left: -125%;
   transform: translateX(-50%);
@@ -4423,9 +4424,16 @@ input[type="checkbox"] {
   transition: opacity 0.3s;
 }
 
-.duplicateButton:hover::after {
+.tooltipButton:hover::after {
   visibility: visible;
   opacity: 1;
+}
+
+.duplicateButton::after {
+  --tipText: 'Duplicate';
+}
+.trashButton::after {
+  --tipText: 'Delete forever';
 }
 
 .tooltipIcon {
