@@ -15,13 +15,13 @@ export async function checkSelection() {
       node.type !== "COMPONENT" &&
       node.type !== "COMPONENT_SET"
     ) {
-      figma.notify("Please select an instance, component or component set");
+      // figma.notify("Please select an instance, component or component set");
       return;
     }
 
     const defaultNode = await getDefaultElement(node);
     if (!defaultNode) {
-      figma.notify("Please select an instance, component or component set");
+      // figma.notify("Please select an instance, component or component set");
       return;
     }
 

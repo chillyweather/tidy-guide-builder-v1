@@ -96,9 +96,9 @@ export async function getDefaultElement(node: SceneNode) {
   } else if (node.type === "COMPONENT_SET") {
     return node.defaultVariant;
   } else {
-    figma.closePlugin(
-      "Please, select Component, Component Set or Instance node"
-    );
+    // figma.closePlugin(
+    //   "Please, select Component, Component Set or Instance node"
+    // );
     return null;
   }
 }
