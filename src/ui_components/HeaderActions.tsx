@@ -256,9 +256,9 @@ function HeaderActions() {
             }}
           >
             <IconLink
-              style={{ color: "#9747FF", height: "14px", cursor: "pointer" }}
+              className={"connect-component"}
             />
-            Get selected component
+            Connect component
           </button>
         )}
       </div>

@@ -53,6 +53,7 @@ declare const styles: {
   readonly "componentBTN": string;
   readonly "componentBTN-wrapper": string;
   readonly "componentHeader": string;
+  readonly "connect-component": string;
   readonly "connect-element-button": string;
   readonly "container": string;
   readonly "create-figma-plugin": string;

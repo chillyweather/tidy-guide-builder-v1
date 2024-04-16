@@ -3342,22 +3342,22 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 }
 
 .headerActions .connect-element-button {
-  background-color: #D9D9F2;
-  color: var(--tidy-text) !important;
+  color: #6B73FF !important;
+  border: 1px solid;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 4px;
-  padding: 6px 10px;
+  padding: 4px 10px;
   color: unset;
-  font-size: calc(var(--text-size) - (var(--text-size) / 7));
-  background-color: #F0F0FA;
+  font-size: var(--text-size);
+  background-color: transparent !important;
   border-radius: 9999px;
 }
 
 .headerActions .connect-element-button:hover {
-  color: unset;
-  background-color: #E8E8F7;
+  color: #8793FD !important;
+  background-color: #EBEDFF !important;
 }
 
 .headerActions .connect-element-button:focus-visible {
@@ -3371,12 +3371,19 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   background-color: #D9D9F2;
 }
 
-.headerActions .connect-element-button:disabled {
-  color: unset;
-  background-color: #EDEDED;
+.headerActions .connect-element-button[disabled] {
+  border-color: #EDEDED;
+  background-color: #EDEDED !important;
+  color: #A6A8AD !important;
+  pointer-events: none;
 }
-.headerActions .connect-element-button[disabled]{
-  opacity: 0.4;
+
+.connect-component {
+  height: 12px;
+  stroke: #6B73FF;
+}
+.headerActions .connect-element-button[disabled] .connect-component{
+  stroke: #A6A8AD;
 }
 
 .selectedComponentGroup {
@@ -4435,9 +4442,11 @@ input[type="checkbox"] {
 .duplicateButton::after {
   --tipText: 'Duplicate';
 }
+
 .trashButton::after {
   --tipText: 'Delete forever';
 }
+
 .deleteButton::after {
   --tipText: 'Deleting sections requires publish';
 }
