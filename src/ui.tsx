@@ -261,11 +261,6 @@ function Plugin() {
     console.log("data", data);
     console.log("selectedElement", selectedElement);
     if (!data) {
-      // setSelectedElement(null);
-      // setSelectedElementName("");
-      // setSelectedNodeKey("");
-      // setSelectedNodeId("");
-      // setSelectedComponentPic("");
       return;
     }
     const { defaultNode, name, key } = data;
@@ -274,10 +269,6 @@ function Plugin() {
     setSelectedNodeId(defaultNode.id);
     setSelectedElementName(name);
     setSelectedNodeKey(key);
-    // setSelectedElement(selectedElement || defaultNode);
-    // setSelectedNodeId(selectedNodeId || defaultNode.id);
-    // setSelectedElementName(selectedElementName || name);
-    // setSelectedNodeKey(selectedNodeKey || key);
     setDocumentationData((prevDocumentation: any) => {
       return {
         ...prevDocumentation,
