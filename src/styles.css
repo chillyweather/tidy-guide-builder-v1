@@ -4760,9 +4760,9 @@ body:has(.settings-section-flex) .search-flex .searchbox,
 }
 
 .header .search-flex .searchbox input {
-  background-color: none;
-  border: none;
-  outline: none;
+  background-color: transparent;
+  border: none !important;
+  outline: 2px solid white !important;
   height: 100%;
 }
 
