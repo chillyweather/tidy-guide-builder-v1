@@ -14,11 +14,13 @@ import { findUserRole } from "src/ui_components/ui_functions/findUserRole";
 import { renameCollection } from "./ui_functions/collectionHandlers";
 
 interface DropdownProps {
+  rename: boolean;
   options: any[];
   onSelect: any;
 }
 
 const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
+  rename,
   options,
   onSelect,
 }) => {
@@ -135,6 +137,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
         </button>
         {isOwner && (
           <button
+            hidden={!rename}
             className={"rename-button"}
             onClick={() => {
               setEditTitle(true);
