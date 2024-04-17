@@ -41,7 +41,6 @@ function manageUsersPage() {
       <br />
       {/* <h3>Collections:</h3> */}
       <CollectionsDropdown
-        rename={false}
         options={userCollections}
         onSelect={() => console.log("yey!!!")}
       />
