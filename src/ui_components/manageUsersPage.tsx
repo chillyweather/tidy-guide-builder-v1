@@ -285,7 +285,7 @@ function AddUserForm({
   if (!token) return null;
   // const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   const [userToEdit]: any = useAtom(userToEditAtom);
-  const [isAddUserError, setIsAddUserError] = useAtom(isAddUserErrorAtom);
+  const [, setIsAddUserError] = useAtom(isAddUserErrorAtom);
   const [, setAddUserMessage] = useAtom(addUserMessageAtom);
   const [email, setEmail] = useState(userEmail || "");
   const [role, setRole] = useState(userToEdit ? userToEdit.rank : "Viewer");
