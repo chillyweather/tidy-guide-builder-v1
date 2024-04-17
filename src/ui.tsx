@@ -62,6 +62,7 @@ import {
   showDeleteSectionPopupAtom,
   selectionDataAtom,
   currentUserCollectionsAtom,
+  isCollectionSwitchingAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -89,6 +90,9 @@ function Plugin() {
   const [isPublishAndView, setIsPublishAndView] = useAtom(isPublishAndViewAtom);
   const [, setSelectionData] = useAtom(selectionDataAtom);
   const [, setCurrentUserCollections] = useAtom(currentUserCollectionsAtom);
+  const [isCollectionSwitching, setIsCollectionSwitching] = useAtom(
+    isCollectionSwitchingAtom
+  );
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -222,6 +226,7 @@ function Plugin() {
     } else {
       setDataForUpdate([]);
     }
+    setIsCollectionSwitching(false);
     setIsLoading(false);
   }
 
@@ -769,6 +774,7 @@ function Plugin() {
           )}
         {!showLoginPage &&
           !showSigninPage &&
+          !isCollectionSwitching &&
           showIndexPage &&
           !showSettingsPage && (
             <div className="empty-index">

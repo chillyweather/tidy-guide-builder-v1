@@ -26,6 +26,7 @@ export const showEditUserFormAtom = atom(false);
 export const userToEditAtom = atom(null);
 export const sectionToDeleteIndexAtom = atom(-1);
 export const sectionToDeleteAtom = atom(null);
+export const isCollectionSwitchingAtom = atom(false);
 
 //popup handlers
 export const showDeleteSectionPopupAtom = atom(false);

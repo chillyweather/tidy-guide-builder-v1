@@ -9,6 +9,7 @@ import {
   currentUserRoleAtom,
   selectedCollectionAtom,
   collectionDocsTriggerAtom,
+  isCollectionSwitchingAtom,
 } from "src/state/atoms";
 import { findUserRole } from "src/ui_components/ui_functions/findUserRole";
 import { renameCollection } from "./ui_functions/collectionHandlers";
@@ -34,6 +35,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
     selectedCollectionAtom
   );
   const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
+  const [, setIsCollectionSwitching] = useAtom(isCollectionSwitchingAtom);
   const { token, setDataForUpdate, isSettingsPageOpen } =
     useContext(BuilderContext) || {};
 
@@ -160,9 +162,8 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
                   className={"dropdown-item"}
                   onMouseDown={(e) => {
                     e.preventDefault();
-                    if (!isSettingsPageOpen) {
-                      setDataForUpdate({});
-                    }
+                    setIsCollectionSwitching(true);
+                    setDataForUpdate({});
                     selectOption(option);
                   }}
                 >
