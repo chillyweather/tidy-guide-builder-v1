@@ -41,7 +41,6 @@ function manageUsersPage() {
       <br />
       {/* <h3>Collections:</h3> */}
       <CollectionsDropdown
-        rename={false}
         options={userCollections}
         onSelect={() => console.log("yey!!!")}
       />
@@ -285,16 +284,13 @@ function AddUserForm({
 }): any {
   const { token } = useContext(BuilderContext) || {};
   if (!token) return null;
-  const [selectedCollection]: any = useAtom(selectedCollectionAtom);
+  // const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   const [userToEdit]: any = useAtom(userToEditAtom);
   const [isAddUserError, setIsAddUserError] = useAtom(isAddUserErrorAtom);
   const [, setAddUserMessage] = useAtom(addUserMessageAtom);
   const [email, setEmail] = useState(userEmail || "");
   const [role, setRole] = useState(userToEdit ? userToEdit.rank : "Viewer");
   const [, setUserToEdit] = useAtom(userToEditAtom);
-
-  console.log("userId", userId);
-  console.log("selectedCollection", selectedCollection);
 
   const handleSubmit = async (e: any) => {
     if (type === "Add") {
@@ -306,7 +302,6 @@ function AddUserForm({
         role
       );
       const message = response.message;
-      console.log("message", message);
       switch (message) {
         case "User already exists in the collection":
           setIsAddUserError(true);
