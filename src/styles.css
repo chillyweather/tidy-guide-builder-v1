@@ -1557,7 +1557,7 @@ body .header-login {
 
 .dropdown-comp:hover .dropdown-wrapper {
   background-color: #F0F1FA;
-  box-shadow: 0 0 0 1px #E4E6F6 inset;
+  box-shadow: 0 0 0 1px #E4E6F6;
   border-radius: 6px;
 }
 
