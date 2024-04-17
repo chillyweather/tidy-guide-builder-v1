@@ -162,7 +162,8 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
                   className={"dropdown-item"}
                   onMouseDown={(e) => {
                     e.preventDefault();
-                    setIsCollectionSwitching(true);
+                    if (option.name !== selectedCollection.name)
+                      setIsCollectionSwitching(true);
                     setDataForUpdate({});
                     selectOption(option);
                   }}
