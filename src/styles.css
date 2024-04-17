@@ -4396,6 +4396,10 @@ input[type="checkbox"] {
   border-color: transparent;
 }
 
+/* .dialog-text-content {
+  text-wrap: wrap;
+} */
+
 .popupButtons {
   position: relative;
   background-color: transparent;

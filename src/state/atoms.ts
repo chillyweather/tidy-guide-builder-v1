@@ -30,6 +30,7 @@ export const isCollectionSwitchingAtom = atom(false);
 
 //popup handlers
 export const showDeleteSectionPopupAtom = atom(false);
+export const showCrashLogoutPopupAtom = atom(false);
 
 //add user (settings)
 export const addUserMessageAtom = atom("");

@@ -114,6 +114,15 @@ export default async function () {
     }
   });
 
+  once("LOGOUT", () => {
+    figma.clientStorage.deleteAsync("token");
+    figma.clientStorage.deleteAsync("email");
+    figma.clientStorage.deleteAsync("rank");
+    figma.clientStorage.deleteAsync("userName");
+    figma.clientStorage.deleteAsync("companyName");
+    figma.clientStorage.deleteAsync("userId");
+  });
+
   once("CLOSE", () => {
     figma.closePlugin();
   });
