@@ -1736,7 +1736,9 @@ body .header-login {
 .headerContent .header-login {
   padding: 0 !important;
 }
-.headerContent .header-login:focus-visible, .headerContent summary:focus-visible{
+
+.headerContent .header-login:focus-visible,
+.headerContent summary:focus-visible {
   outline: none;
   opacity: 0.8;
 }
@@ -4750,6 +4752,10 @@ body:has(.viewer-data-wrapper) .container {
 .header .search-flex .searchbox svg {
   width: 14px;
   height: 14px;
+}
+
+.header .search-flex .searchbox:focus-within {
+  border-color: var(--tidy-primary);
 }
 
 .header .search-flex .searchbox input {
