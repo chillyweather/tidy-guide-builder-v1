@@ -100,6 +100,7 @@ declare const styles: {
   readonly "empty-index-image": string;
   readonly "empty-para": string;
   readonly "empty-state": string;
+  readonly "error-msg": string;
   readonly "eyeIcon": string;
   readonly "feedbackPopup": string;
   readonly "feedbackPopupBackground": string;

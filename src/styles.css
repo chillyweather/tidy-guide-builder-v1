@@ -262,14 +262,24 @@ form input:focus-visible {
 }
 
 .add-user-form-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 12px;
+  padding-bottom: 30px;
   gap: 12px;
   width: 100%;
   border: 2px solid var(--tidy-btn-pressed);
   border-radius: 6px;
+}
+
+.error-msg {
+  color: #DB3B21;
+  position: absolute;
+  margin: 0;
+  bottom: 6px;
+  left: 12px;
 }
 
 .no-events {
