@@ -4727,6 +4727,7 @@ body:has(.viewer-data-wrapper) .container {
   justify-content: space-between;
 }
 
+body:has(.settings-section-flex) .search-flex .searchbox,
 .header:has(.editor) .search-flex .searchbox {
   visibility: hidden;
 }
