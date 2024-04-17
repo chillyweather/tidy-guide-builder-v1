@@ -14,6 +14,8 @@ import {
   showEditUserFormAtom,
   userToEditAtom,
   selectedCollectionAtom,
+  addUserMessageAtom,
+  isAddUserErrorAtom,
 } from "src/state/atoms";
 import {
   getCollectionUsers,
@@ -54,6 +56,8 @@ function renderUsers(collectionId: string) {
   const [showAddUserForm, setShowAddUserForm] = useState(false);
   const [showEditUserForm, setShowEditUserForm] = useAtom(showEditUserFormAtom);
   const [userToEdit, setUserToEdit]: any = useAtom(userToEditAtom);
+  const [isAddUserError, setIsAddUserError] = useAtom(isAddUserErrorAtom);
+  const [addUserMessage, setAddUserMessage] = useAtom(addUserMessageAtom);
   const [trigger, setTrigger] = useState(0);
 
   const { token } = useContext(BuilderContext) || {};
@@ -88,15 +92,24 @@ function renderUsers(collectionId: string) {
         <p>Role</p>
       </div>
       {showAddUserForm && (
-        <div className={"add-user-form-wrapper"}>
-          <AddUserForm
-            collectionId={collectionId}
-            setTrigger={setTrigger}
-            setShowForm={setShowAddUserForm}
-          />
-          <button onClick={() => setShowAddUserForm(false)}>
-            <IconX />
-          </button>
+        <div className="add-user-form-and-validation-wrapper">
+          <div className={"add-user-form-wrapper"}>
+            <AddUserForm
+              collectionId={collectionId}
+              setTrigger={setTrigger}
+              setShowForm={setShowAddUserForm}
+            />
+            <button
+              onClick={() => {
+                setShowAddUserForm(false);
+                setIsAddUserError(false);
+                setAddUserMessage("");
+              }}
+            >
+              <IconX />
+            </button>
+          </div>
+          {isAddUserError && <p>{addUserMessage}</p>}
         </div>
       )}
       {showEditUserForm && (
@@ -269,12 +282,14 @@ function AddUserForm({
   userEmail?: string;
   userId?: string;
 }): any {
-  const [selectedCollection]: any = useAtom(selectedCollectionAtom);
-  const [userToEdit]: any = useAtom(userToEditAtom);
-  const [email, setEmail] = useState(userEmail || "");
-  const [role, setRole] = useState(userToEdit ? userToEdit.rank : "Viewer");
   const { token } = useContext(BuilderContext) || {};
   if (!token) return null;
+  const [selectedCollection]: any = useAtom(selectedCollectionAtom);
+  const [userToEdit]: any = useAtom(userToEditAtom);
+  const [isAddUserError, setIsAddUserError] = useAtom(isAddUserErrorAtom);
+  const [, setAddUserMessage] = useAtom(addUserMessageAtom);
+  const [email, setEmail] = useState(userEmail || "");
+  const [role, setRole] = useState(userToEdit ? userToEdit.rank : "Viewer");
   const [, setUserToEdit] = useAtom(userToEditAtom);
 
   console.log("userId", userId);
@@ -282,11 +297,35 @@ function AddUserForm({
 
   const handleSubmit = async (e: any) => {
     if (type === "Add") {
-      console.log("we are here");
       e.preventDefault();
-      await addCollectionUser(token, collectionId, email, role);
+      const response = await addCollectionUser(
+        token,
+        collectionId,
+        email,
+        role
+      );
+      const message = response.message;
+      console.log("message", message);
+      switch (message) {
+        case "User already exists in the collection":
+          setIsAddUserError(true);
+          setAddUserMessage("User already exists in this collection");
+          break;
+        case "User or collection not found":
+          setIsAddUserError(true);
+          setAddUserMessage("This user does not exist in the system");
+          break;
+        case "User added to collection":
+          setIsAddUserError(false);
+          setAddUserMessage("User added");
+          setShowForm(false);
+          break;
+        default:
+          setIsAddUserError(true);
+          setAddUserMessage("Something went wrong, please try again later");
+          break;
+      }
       setTrigger((prevTrigger: number) => prevTrigger + 1);
-      setShowForm(false);
     } else if (type === "Edit") {
       e.preventDefault();
       await changeUserPermissions(token, userId, collectionId, role);

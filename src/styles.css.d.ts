@@ -15,6 +15,7 @@ declare const styles: {
   readonly "add-button": string;
   readonly "add-user-button": string;
   readonly "add-user-form": string;
+  readonly "add-user-form-and-validation-wrapper": string;
   readonly "add-user-form-wrapper": string;
   readonly "addLink": string;
   readonly "addSection-outer": string;
