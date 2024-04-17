@@ -169,7 +169,8 @@ const Header = ({
       <button
         className={isViewModeOpen ? "mode-button viewer" : "mode-button editor"}
         onClick={handleToggle}
-        disabled={userRole === "Viewer" || showMainContent}
+        disabled={userRole === "Viewer" || showMainContent
+        }
       >
         <div className={"thumb"}></div>
         <div className="mode-icon view">
