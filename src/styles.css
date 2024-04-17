@@ -1605,7 +1605,7 @@ body .header-login {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  border: 1px solid #B8BBC6;
+  /* border: 1px solid #B8BBC6; */
   border-radius: 4px;
   width: 240px;
   max-width: 240px;
@@ -1644,7 +1644,7 @@ body .header-login {
 .dropdown-comp .dropdown-toggle:hover,
 .dropdown-comp .dropdown-toggle:focus {
   background-color: #F0F1FA;
-  border: 1px solid #E3E3E3;
+  /* border: 1px solid #E3E3E3; */
 }
 
 .dropdown-comp:has(div[contenteditable="true"]) .dropdown-menu {
