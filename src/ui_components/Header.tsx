@@ -242,6 +242,7 @@ const Header = ({
             <div className="componentHeader">
               {collections && collections.length && (
                 <CollectionsDropdown
+                  rename={true}
                   options={collections}
                   onSelect={setSelectedCollection}
                 />
