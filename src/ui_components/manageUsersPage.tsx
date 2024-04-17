@@ -16,6 +16,7 @@ import {
   selectedCollectionAtom,
   addUserMessageAtom,
   isAddUserErrorAtom,
+  currentUserCollectionsAtom,
 } from "src/state/atoms";
 import {
   getCollectionUsers,
@@ -26,22 +27,19 @@ import {
 import { useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
 import { Button } from "@create-figma-plugin/ui";
-import CollectionsDropdown from "./CollectionsDropdown";
+import CollectionsInSettingsDropdown from "./CollectionsInSettingsDropdown";
 
 function manageUsersPage() {
   const [collections] = useAtom(collectionsAtom);
-  const [currentUserId] = useAtom(currentUserIdAtom);
-  const userCollections = collections.filter(
-    (collection: any) => collection.owner === currentUserId
-  );
+  const [userCollections] = useAtom(currentUserCollectionsAtom);
+
   return (
     <div className={"manage-users"}>
       <div className="delete-flex hidden"></div>
       <h2>Manage members</h2>
       <br />
       {/* <h3>Collections:</h3> */}
-      <CollectionsDropdown
-        rename={false}
+      <CollectionsInSettingsDropdown
         options={userCollections}
         onSelect={() => console.log("yey!!!")}
       />

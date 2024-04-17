@@ -61,6 +61,7 @@ import {
   isPublishAndViewAtom,
   showDeleteSectionPopupAtom,
   selectionDataAtom,
+  currentUserCollectionsAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -87,6 +88,7 @@ function Plugin() {
   const [, setCurrentDocumentations] = useAtom(currentDocumentationsAtom);
   const [isPublishAndView, setIsPublishAndView] = useAtom(isPublishAndViewAtom);
   const [, setSelectionData] = useAtom(selectionDataAtom);
+  const [, setCurrentUserCollections] = useAtom(currentUserCollectionsAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -222,6 +224,15 @@ function Plugin() {
     }
     setIsLoading(false);
   }
+
+  useEffect(() => {
+    if (collections && currentUserId) {
+      const userCollections = collections.filter(
+        (collection: any) => collection.owner === currentUserId
+      );
+      setCurrentUserCollections(userCollections);
+    }
+  }, [collections, currentUserId]);
 
   useEffect(() => {
     console.log("collectionDocsTrigger", collectionDocsTrigger);

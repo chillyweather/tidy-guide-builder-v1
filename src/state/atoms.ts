@@ -12,11 +12,13 @@ export const currentCompanyAtom = atom("");
 export const currentUserIdAtom = atom("");
 export const currentUserRoleAtom = atom("");
 export const currentDocumentationsAtom = atom(null);
-export const selectedCollectionAtom = atom(null);
 export const tokenAtom = atom("");
 
-//results of network requests
+//collections
 export const collectionsAtom = atom([]);
+export const currentUserCollectionsAtom = atom([]);
+export const selectedCollectionAtom = atom(null);
+export const selectedCollectionInSettingsAtom = atom(null);
 
 //triggers
 export const collectionDocsTriggerAtom = atom(0);
