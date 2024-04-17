@@ -1555,11 +1555,13 @@ body .header-login {
   gap: 0;
   border-radius: 6px;
 }
-.dropdown-comp .dropdown-wrapper:has(.dropdown-menu){
+
+.dropdown-comp .dropdown-wrapper:has(.dropdown-menu) {
   box-shadow: 0 0 0 1px #5C6CFF !important;
   background-color: #F0F1FA;
 }
-.dropdown-comp .dropdown-wrapper:has(.dropdown-menu) .rename-button{
+
+.dropdown-comp .dropdown-wrapper:has(.dropdown-menu) .rename-button {
   visibility: visible !important;
 }
 
@@ -1617,7 +1619,8 @@ body .header-login {
   outline: none;
   border: none;
 }
-.dropdown-comp #dropdown-title::selection{
+
+.dropdown-comp #dropdown-title::selection {
   background-color: #E8F2BB;
 }
 
@@ -1634,15 +1637,16 @@ body .header-login {
 .dropdown-comp .dropdown-menu {
   padding: 4px;
   background-color: #ffffff;
-  border: 1px solid #E3E3E3;
+  border: 1px solid #F7F7F7;
   border-radius: 4px;
   position: absolute;
   z-index: 999;
   min-width: 240px;
   margin: 0;
-  margin-top: 40px;
+  margin-top: 36px;
   display: flex;
   flex-direction: column;
+  box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
 }
 
 .select-collection-dropdown-title {
