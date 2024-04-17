@@ -110,7 +110,7 @@ function renderUsers(collectionId: string) {
               <IconX />
             </button>
           </div>
-          {isAddUserError && <p>{addUserMessage}</p>}
+          {isAddUserError && <p className={"error-msg"}>{addUserMessage}</p>}
         </div>
       )}
       {showEditUserForm && (
