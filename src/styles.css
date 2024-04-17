@@ -1736,6 +1736,10 @@ body .header-login {
 .headerContent .header-login {
   padding: 0 !important;
 }
+.headerContent .header-login:focus-visible, .headerContent summary:focus-visible{
+  outline: none;
+  opacity: 0.8;
+}
 
 .componentHeader h2.updated {
   color: #6C768E;
