@@ -13,6 +13,17 @@
 /* [X] Style disabled states for cards of Predefined elements */
 /* [X] Mode toggle disabled state */
 
+/* [ ] name of collection in fixed (with ...) */
+/* [ ] Connect Component button is too big (10 font) */
+/* [ ] Web App link */
+/* [ ] more gap between mode toggle and avatar */
+/* [ ] dropdown in manage members should look different */
+/* [ ] more padding below error msg (in manage members) */
+/* [ ] tooltips should be in hug */
+/* [ ] Signup msg "Something went wrong, please, try again" should be red */
+/* [ ] 'Wrong email or password, please, try again' - Login text in red */
+/* [ ] Empty state broom should be smaller */
+
 :root {
   --tidy-background: #F7F8FB;
   --tidy-primary: #6B73FF;
