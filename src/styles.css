@@ -1553,12 +1553,19 @@ body .header-login {
   width: fit-content;
   display: flex;
   gap: 0;
+  border-radius: 6px;
+}
+.dropdown-comp .dropdown-wrapper:has(.dropdown-menu){
+  box-shadow: 0 0 0 1px #5C6CFF !important;
+  background-color: #F0F1FA;
+}
+.dropdown-comp .dropdown-wrapper:has(.dropdown-menu) .rename-button{
+  visibility: visible !important;
 }
 
 .dropdown-comp:hover .dropdown-wrapper {
   background-color: #F0F1FA;
   box-shadow: 0 0 0 1px #E4E6F6;
-  border-radius: 6px;
 }
 
 .dropdown-comp:hover .rename-button {
