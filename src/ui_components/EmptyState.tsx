@@ -1,6 +1,4 @@
 import { emit } from "@create-figma-plugin/utilities";
-import { useContext } from "preact/hooks";
-import BuilderContext from "../BuilderContext";
 import { h } from "preact";
 import emptyImage from "../images/empty.svg";
 
