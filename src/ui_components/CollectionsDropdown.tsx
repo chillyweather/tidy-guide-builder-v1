@@ -2,7 +2,7 @@
 import { h, FunctionalComponent } from "preact";
 import { useState, useEffect, useRef, useContext } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
-import { IconEdit } from "@tabler/icons-react";
+import { IconPencil } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import {
   currentUserIdAtom,
@@ -150,7 +150,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
               setEditTitle(true);
             }}
           >
-            <IconEdit />
+            <IconPencil />
           </button>
         )}
         {isOpen && (
