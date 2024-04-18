@@ -13,8 +13,6 @@ function PreviewPopup() {
     // documentationData,
   } = useContext(BuilderContext) || {};
 
-  console.log("previewData", previewData);
-
   return (
     <div
       className={"feedbackPopupBackground"}
@@ -32,7 +30,6 @@ function PreviewPopup() {
         >
           <IconX />
         </button>
-        {console.log("previewData", previewData)}
         <div className="previewContent">
           <DetailsPage data={previewData} />
         </div>

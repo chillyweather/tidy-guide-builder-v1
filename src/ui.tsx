@@ -246,11 +246,6 @@ function Plugin() {
   }, [collections, currentUserId]);
 
   useEffect(() => {
-    console.log("collectionDocsTrigger", collectionDocsTrigger);
-    console.log("dataForUpdate", dataForUpdate);
-  }, [dataForUpdate, selectedCollection, collectionDocsTrigger]);
-
-  useEffect(() => {
     if (selectedCollection) {
       collectionDocsHandler(token, selectedCollection._id);
     }
@@ -263,7 +258,6 @@ function Plugin() {
   }, [token, currentUserId, collectionDocsTrigger]);
 
   useEffect(() => {
-    console.log("currentUserRole", currentUserRole);
     if (currentUserRole && currentUserRole === "Viewer") {
       setIsViewModeOpen(true);
     } else {
@@ -271,17 +265,11 @@ function Plugin() {
     }
   }, [currentUserRole]);
 
-  useEffect(() => {
-    console.log("selectedElement", selectedElement);
-  }, [selectedElement]);
-
   on("CHANGED_SELECTION", (data) => {
     setSelectionData(data);
   });
 
   on("SELECTION", (data) => {
-    console.log("data", data);
-    console.log("selectedElement", selectedElement);
     if (!data) {
       return;
     }

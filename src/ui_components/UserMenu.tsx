@@ -34,10 +34,6 @@ const UserMenu = ({
     document.getElementById("userMenu").open = false;
   }
 
-  useEffect(() => {
-    console.log("currentUserName", currentUserName);
-  }, [currentUserName]);
-
   return (
     <div className={"user-menu"}>
       {/* <div className={"user-company"}>{currentCompany}</div>

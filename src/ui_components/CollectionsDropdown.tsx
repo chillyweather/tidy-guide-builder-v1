@@ -36,8 +36,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
   );
   const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
   const [, setIsCollectionSwitching] = useAtom(isCollectionSwitchingAtom);
-  const { token, setDataForUpdate, isSettingsPageOpen } =
-    useContext(BuilderContext) || {};
+  const { token, setDataForUpdate } = useContext(BuilderContext) || {};
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -48,10 +47,6 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
     setIsOpen(false);
     onSelect(option || {});
   };
-
-  useEffect(() => {
-    console.log("isSettingsPageOpen", isSettingsPageOpen);
-  }, [isSettingsPageOpen]);
 
   useEffect(() => {
     if (selectedCollection) {
