@@ -3,9 +3,11 @@ import { atom } from "jotai";
 export const selectedNodeIdAtom = atom("");
 export const selectedNodeKeyAtom = atom("");
 export const selectedComponentPicAtom = atom("");
+export const isToBuildComponentPicAtom = atom(false);
 export const isViewModeOpenAtom = atom(false);
 export const isPublishAndViewAtom = atom(false);
 export const selectionDataAtom = atom(null);
+export const isDetailsPageOpenAtom = atom(false);
 
 export const currentUserNameAtom = atom("");
 export const currentCompanyAtom = atom("");

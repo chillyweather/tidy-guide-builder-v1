@@ -65,11 +65,14 @@ import {
   currentUserCollectionsAtom,
   isCollectionSwitchingAtom,
   showCrashLogoutPopupAtom,
+  isDetailsPageOpenAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
 //styles
 import "!./styles.css";
+// import { show } from "./styles.css";
+// import { selected } from "./styles.css";
 
 function Plugin() {
   //!Jotai states
@@ -97,6 +100,9 @@ function Plugin() {
   );
   const [showCrashLogoutPopup, setShowCrashLogoutPopup] = useAtom(
     showCrashLogoutPopupAtom
+  );
+  const [isDetailsPageOpen, setIsDetailsPageOpen] = useAtom(
+    isDetailsPageOpenAtom
   );
 
   //!TODO: plugin-level states
@@ -204,6 +210,22 @@ function Plugin() {
       setIsLoading(false);
     }
   });
+
+  useEffect(() => {
+    if (showLoginPage || showSigninPage || showSettingsPage || showIndexPage) {
+      setIsDetailsPageOpen(false);
+    }
+  }, [
+    setIsDetailsPageOpen,
+    showLoginPage,
+    showSigninPage,
+    showIndexPage,
+    showSettingsPage,
+  ]);
+
+  useEffect(() => {
+    console.log("isDetailsPageOpen", isDetailsPageOpen);
+  }, [isDetailsPageOpen]);
 
   useEffect(() => {
     if (selectedElement) {
@@ -317,6 +339,7 @@ function Plugin() {
   });
 
   on("COMPONENT_PIC_FOR_UPLOAD", async ({ bytes }) => {
+    console.log("bytes", bytes);
     setCurrentImageArray(bytes);
   });
 
@@ -326,11 +349,15 @@ function Plugin() {
     }
   }
 
+  //MARK: Upload component pic
   async function uploadComponentPic(bytes: Uint8Array, loggedInUser: string) {
+    console.log("selectedComponentPic1", selectedComponentPic);
     const url = await sendRaster(bytes, loggedInUser, "componentPic");
+    console.log("url", url);
     if (url) {
       setSelectedComponentPic(url);
     }
+    console.log("selectedComponentPic2", selectedComponentPic);
   }
 
   async function getUserCollections(token: string, userId: string) {
@@ -347,10 +374,16 @@ function Plugin() {
   // }, [dataForUpdate, isPublishAndView, setIsPublishAndView]);
 
   useEffect(() => {
-    if (currentImageArray) {
+    console.log("first fires");
+    if (
+      currentImageArray &&
+      currentImageArray.length &&
+      !selectedComponentPic &&
+      (showMainContent || isDetailsPageOpen)
+    ) {
       uploadComponentPic(currentImageArray, loggedInUser);
     }
-  }, [currentImageArray]);
+  }, [currentImageArray, selectedComponentPic]);
 
   useEffect(() => {
     const found = checkIfDocumentationExists(dataForUpdate, selectedNodeKey);
@@ -507,6 +540,7 @@ function Plugin() {
           selectedCollection._id
         );
       } else {
+        console.log("data", data);
         const response = await createDocumentation(token, data);
         setSelectedMasterId(response._id);
         if (isBuildingOnCanvas) emit("BUILD", response);

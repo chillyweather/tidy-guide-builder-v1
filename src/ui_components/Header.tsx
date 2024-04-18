@@ -24,6 +24,8 @@ import {
   selectedNodeKeyAtom,
   selectedCollectionAtom,
   currentDocumentationsAtom,
+  isToBuildComponentPicAtom,
+  isDetailsPageOpenAtom,
 } from "src/state/atoms";
 
 import { getCollectionDocs } from "./ui_functions/collectionHandlers";
@@ -36,6 +38,7 @@ import UserMenu from "./UserMenu";
 import { emit } from "@create-figma-plugin/utilities";
 import fetchAndUpdateData from "./ui_functions/fetchAndUpdateData";
 import CollectionsDropdown from "./CollectionsDropdown";
+//TODO:delete from server on Back
 
 const Header = ({
   isLoginPageOpen,
@@ -54,9 +57,11 @@ const Header = ({
   userRank: string;
   showMainContent: boolean;
 }) => {
-  const [selectedNodeId] = useAtom(selectedNodeIdAtom);
-  const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
-  const [selectedComponentPic] = useAtom(selectedComponentPicAtom);
+  const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
+  const [selectedComponentPic, setSelectedComponentPic] = useAtom(
+    selectedComponentPicAtom
+  );
   const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [currentCompany] = useAtom(currentCompanyAtom);
   const [currentUserName] = useAtom(currentUserNameAtom);
@@ -67,6 +72,10 @@ const Header = ({
   );
   const [userRole] = useAtom(currentUserRoleAtom);
   const [currentDocumentations] = useAtom(currentDocumentationsAtom);
+  const [isToBuildComponentPic, setIsToBuildComponentPic] = useAtom(
+    isToBuildComponentPicAtom
+  );
+  const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
 
   const [userRankStyle, setUserRankStyle] = useState({});
 
@@ -86,7 +95,9 @@ const Header = ({
     setIsIndexOpen,
     setIsMainContentOpen,
     setIsReset,
+    setSelectedElement,
     setIsSettingsPageOpen,
+    setSelectedElementName,
     setSelectedMasterId,
     token,
   } = useContext(BuilderContext) || {};
@@ -99,6 +110,13 @@ const Header = ({
   const [lastCollectionUpdate, setLastCollectionUpdate] = useState("");
 
   function backToIndex() {
+    setIsDetailsPageOpen(false);
+    setIsToBuildComponentPic(false);
+    setSelectedElement(null);
+    setSelectedElementName("");
+    setSelectedNodeKey("");
+    setSelectedNodeId("");
+    setSelectedComponentPic("");
     setIsIndexOpen(true);
     setIsMainContentOpen(false);
     setIsContenFromServerOpen(false);
@@ -114,21 +132,22 @@ const Header = ({
     }
   }, [selectedCollection]);
 
-  useEffect(() => {
-    if (
-      selectedNodeId &&
-      selectedNodeKey &&
-      !selectedComponentPic &&
-      isMainContentOpen
-    ) {
-      emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
-    }
-  }, [
-    selectedNodeId,
-    selectedNodeKey,
-    selectedComponentPic,
-    isMainContentOpen,
-  ]);
+  // useEffect(() => {
+  //   if (
+  //     selectedNodeId &&
+  //     selectedNodeKey &&
+  //     !selectedComponentPic
+  //     //  &&
+  //     // isMainContentOpen
+  //   ) {
+  //     emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
+  //   }
+  // }, [
+  //   selectedNodeId,
+  //   selectedNodeKey,
+  //   selectedComponentPic,
+  //   isMainContentOpen,
+  // ]);
 
   useEffect(() => {
     if (userRank === "Admin") {
@@ -262,6 +281,7 @@ const Header = ({
                     setIsMainContentOpen(true);
                     setIsFromSavedData(false);
                     emit("GET_SELECTION");
+                    setIsToBuildComponentPic(true);
                   }}
                 >
                   <IconPlus />

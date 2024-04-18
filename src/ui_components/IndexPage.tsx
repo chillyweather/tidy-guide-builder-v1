@@ -8,7 +8,11 @@ import {
   createDocumentation,
 } from "./ui_functions/documentationHandlers";
 import { useAtom } from "jotai";
-import { isViewModeOpenAtom, selectedCollectionAtom } from "src/state/atoms";
+import {
+  isViewModeOpenAtom,
+  selectedCollectionAtom,
+  isDetailsPageOpenAtom,
+} from "src/state/atoms";
 import { getCollectionDocs } from "./ui_functions/collectionHandlers";
 
 const IndexPage = ({
@@ -34,6 +38,7 @@ const IndexPage = ({
 }) => {
   const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [selectedCollection]: any = useAtom(selectedCollectionAtom);
+  const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
   const sortedData = data.sort((a: any, b: any) =>
     a.title.localeCompare(b.title)
@@ -59,6 +64,7 @@ const IndexPage = ({
               }
               // style={{ opacity: draft ? 0.5 : 1 }}
               onClick={(e) => {
+                setIsDetailsPageOpen(true);
                 if (e.metaKey || e.ctrlKey) {
                   //
                   emit(
@@ -85,7 +91,9 @@ const IndexPage = ({
             </div>
             {!isViewModeOpen && (
               <button
-                className={"cardAuxButton noPredefined tooltipButton duplicateButton"}
+                className={
+                  "cardAuxButton noPredefined tooltipButton duplicateButton"
+                }
                 onClick={async () =>
                   await handleDocClone(
                     token,
@@ -100,7 +108,9 @@ const IndexPage = ({
             )}
             {!isViewModeOpen && (
               <button
-                className={"cardAuxButton noPredefined redButton tooltipButton trashButton"}
+                className={
+                  "cardAuxButton noPredefined redButton tooltipButton trashButton"
+                }
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowDeletePopup(true);

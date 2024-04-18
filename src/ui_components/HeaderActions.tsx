@@ -38,6 +38,7 @@ import {
   selectedNodeKeyAtom,
   selectedComponentPicAtom,
   selectionDataAtom,
+  isToBuildComponentPicAtom,
 } from "src/state/atoms";
 import { deleteFileFromServer } from "./ui_functions/fileManagementFunctions";
 import { useEffect } from "react";
@@ -47,7 +48,6 @@ const cardsForPopup = sectionData;
 function AddSectionPopupCard(card: any) {
   const [selectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
-
   const [isHovering, setIsHovering] = useState(false);
   const { setSelectedSections, selectedSections, selectedElement } =
     useContext(BuilderContext) || {};
@@ -190,6 +190,9 @@ function HeaderActions() {
     selectedComponentPicAtom
   );
   const [selectionData] = useAtom(selectionDataAtom);
+  const [isToBuildComponentPic, setIsToBuildComponentPic] = useAtom(
+    isToBuildComponentPicAtom
+  );
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
 
   const {
@@ -198,6 +201,9 @@ function HeaderActions() {
     setSelectedElement,
     documentationTitle,
     isScroll,
+    // isMainContentOpen,
+    // selectedMasterId,
+    // isIndexOpen,
     // setShowPreviewPopup,
     // setIsPreviewing,
     // selectedSections,
@@ -205,11 +211,44 @@ function HeaderActions() {
 
   // const isEmpty = selectedSections && selectedSections.length === 0;
 
+  // useEffect(() => {
+  //   console.log("selectedNodeId", selectedNodeId);
+  //   console.log("selectedNodeKey", selectedNodeKey);
+  //   console.log("selectedComponentPic", selectedComponentPic);
+  // }, [selectedNodeId, selectedNodeKey, selectedComponentPic]);
+
   useEffect(() => {
-    if (selectedNodeId && selectedNodeKey && !selectedComponentPic) {
+    if (isToBuildComponentPic && selectedNodeKey && selectedNodeId) {
       emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
     }
-  }, [selectedNodeId, selectedNodeKey, selectedComponentPic]);
+  }, [
+    isToBuildComponentPic,
+    setIsToBuildComponentPic,
+    selectedNodeKey,
+    selectedNodeId,
+  ]);
+
+  // useEffect(() => {
+  //   if (
+  //     // selectedNodeId &&
+  //     // selectedNodeKey &&
+  //     // !selectedComponentPic &&
+  //     // !isIndexOpen &&
+  //     // (isMainContentOpen || selectedMasterId)
+  //     isToBuildComponentPic
+  //   ) {
+  //     emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
+  //   }
+  // }, [
+  //   isToBuildComponentPic,
+  //   setIsToBuildComponentPic,
+  //   // selectedNodeId,
+  //   // selectedNodeKey,
+  //   // selectedComponentPic,
+  //   // isIndexOpen,
+  //   // isMainContentOpen,
+  //   // selectedMasterId,
+  // ]);
 
   return (
     <div
@@ -253,11 +292,10 @@ function HeaderActions() {
             disabled={!selectionData}
             onClick={() => {
               emit("GET_SELECTION");
+              setIsToBuildComponentPic(true);
             }}
           >
-            <IconLink
-              className={"connect-component"}
-            />
+            <IconLink className={"connect-component"} />
             Connect component
           </button>
         )}

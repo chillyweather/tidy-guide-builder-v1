@@ -1,12 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
 import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
 import Spinner from "../../images/loader-spinner-white.png";
-import {
-  getMyAccountData,
-  deleteAccount,
-} from "../ui_functions/authentication";
 import { emit } from "@create-figma-plugin/utilities";
 import { handleDeleteAccount } from "../ui_functions/deleteHandlers";
 
@@ -15,13 +12,13 @@ function DeleteAccountPopup({
   setIsSettingsPageOpen,
   setIsLoginPageOpen,
 }: {
-  setShowDeleteAccountPopup: Function;
-  setIsSettingsPageOpen: Function;
-  setIsLoginPageOpen: Function;
+  setShowDeleteAccountPopup: (show: boolean) => void;
+  setIsSettingsPageOpen: (show: boolean) => void;
+  setIsLoginPageOpen: (show: boolean) => void;
 }) {
   const [spinner, setSpinner] = useState(false);
   const [deleteConfirmation, setDeleteConfirmation] = useState("");
-  const { token, setToken, loggedInUser } = useContext(BuilderContext) || {};
+  const { token, setToken } = useContext(BuilderContext) || {};
   return (
     <div
       className={"feedbackPopupBackground"}
@@ -49,11 +46,12 @@ function DeleteAccountPopup({
             type="text"
             value={deleteConfirmation}
             placeholder={"Type 'DELETE' to confirm"}
-            //@ts-ignore
-            onInput={(e) => setDeleteConfirmation(e.target.value)}
+            onInput={(e: any) => setDeleteConfirmation(e.target?.value)}
           />
         </label>
-        <p style={{ color: "#DB3B21" }}>Warning: This action is irreversible.</p>
+        <p style={{ color: "#DB3B21" }}>
+          Warning: This action is irreversible.
+        </p>
         <div className="popupButtons footer">
           <button
             className={"button"}

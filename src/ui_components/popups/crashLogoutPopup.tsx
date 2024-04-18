@@ -29,7 +29,7 @@ function CrashLogoutPopup() {
               emit("CLOSE");
             }}
           >
-            Exit without saving
+            Close plugin
           </button>
         </div>
       </div>
