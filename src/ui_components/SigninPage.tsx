@@ -158,10 +158,14 @@ const SignIn = ({
     <form onSubmit={handleSubmit} className="section login">
       <div className="navigation"></div>
       <TidyLogo />
-      <p>
-        {isLoginFailed
-          ? "Something went wrong, please, try again"
-          : "Please enter your credentials"}
+      <p
+        className={"redPara"}
+        dangerouslySetInnerHTML={{
+          __html: isLoginFailed
+            ? "<u>Something went wrong, please, try again</u>"
+            : "Please enter your credentials"
+        }}>
+        { }
       </p>
 
       {/* //! user name */}

@@ -21,7 +21,7 @@
 /* [ ] more padding below error msg (in manage members) */
 /* [ ] tooltips should be in hug */
 /* [ ] Signup msg "Something went wrong, please, try again" should be red */
-/* [ ] 'Wrong email or password, please, try again' - Login text in red */
+/* [X] 'Wrong email or password, please, try again' - Login text in red */
 /* [ ] Empty state broom should be smaller */
 
 :root {
