@@ -224,10 +224,6 @@ function Plugin() {
   ]);
 
   useEffect(() => {
-    console.log("isDetailsPageOpen", isDetailsPageOpen);
-  }, [isDetailsPageOpen]);
-
-  useEffect(() => {
     if (selectedElement) {
       setIsPdSectionOpen(true);
     } else {
@@ -339,7 +335,7 @@ function Plugin() {
   });
 
   on("COMPONENT_PIC_FOR_UPLOAD", async ({ bytes }) => {
-    console.log("bytes", bytes);
+    // console.log("bytes", bytes);
     setCurrentImageArray(bytes);
   });
 
@@ -351,13 +347,10 @@ function Plugin() {
 
   //MARK: Upload component pic
   async function uploadComponentPic(bytes: Uint8Array, loggedInUser: string) {
-    console.log("selectedComponentPic1", selectedComponentPic);
     const url = await sendRaster(bytes, loggedInUser, "componentPic");
-    console.log("url", url);
     if (url) {
       setSelectedComponentPic(url);
     }
-    console.log("selectedComponentPic2", selectedComponentPic);
   }
 
   async function getUserCollections(token: string, userId: string) {
@@ -374,7 +367,6 @@ function Plugin() {
   // }, [dataForUpdate, isPublishAndView, setIsPublishAndView]);
 
   useEffect(() => {
-    console.log("first fires");
     if (
       currentImageArray &&
       currentImageArray.length &&
