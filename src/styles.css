@@ -14,7 +14,7 @@
 /* [X] Mode toggle disabled state */
 
 /* [ ] name of collection in fixed (with ...) */
-/* [ ] Connect Component button is too big (10 font) */
+/* [X] Connect Component button is too big (10 font) */
 /* [ ] Web App link */
 /* [ ] more gap between mode toggle and avatar */
 /* [ ] dropdown in manage members should look different */
@@ -3346,7 +3346,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 
 .noSelected {
   color: #757575;
-  font-size: calc(var(--text-size) - (var(--text-size) / 7));
+  font-size: calc(var(--text-size) / 6 * 5);
   font-style: italic;
   font-weight: 400;
 }
@@ -3383,8 +3383,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 }
 
 #selectedName svg {
-  height: 16px;
-  width: 16px;
+  height: 12px;
+  width: 12px;
   color: var(--tidy-32);
   cursor: pointer;
 }
@@ -3422,7 +3422,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   gap: 4px;
   padding: 4px 10px;
   color: unset;
-  font-size: var(--text-size);
+  font-size: calc(var(--text-size) / 6 * 5);
   background-color: transparent !important;
   border-radius: 9999px;
 }
