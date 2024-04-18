@@ -12,7 +12,6 @@ export const Text = ({ element, index }: any) => (
         </a>
       </div>
     )}
-    {console.log("element", element)}
     {element.text && element.text.length && <p>{element.text}</p>}
   </div>
 );

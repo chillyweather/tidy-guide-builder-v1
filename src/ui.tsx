@@ -15,6 +15,7 @@ import PreviewPopup from "./ui_components/popups/previewPopup";
 import PasswordResetPopup from "./ui_components/popups/passwordResetPopup";
 import DeleteAccountPopup from "./ui_components/popups/deleteAccountPopup";
 import WaitingInfoPopup from "./ui_components/popups/waitingInfoPopup";
+import CrashLogoutPopup from "./ui_components/popups/crashLogoutPopup";
 import Toast from "./ui_components/Toast";
 //dependencies
 import { sendRaster } from "./ui_components/ui_functions/sendRaster";
@@ -63,6 +64,7 @@ import {
   selectionDataAtom,
   currentUserCollectionsAtom,
   isCollectionSwitchingAtom,
+  showCrashLogoutPopupAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -92,6 +94,9 @@ function Plugin() {
   const [, setCurrentUserCollections] = useAtom(currentUserCollectionsAtom);
   const [isCollectionSwitching, setIsCollectionSwitching] = useAtom(
     isCollectionSwitchingAtom
+  );
+  const [showCrashLogoutPopup, setShowCrashLogoutPopup] = useAtom(
+    showCrashLogoutPopupAtom
   );
 
   //!TODO: plugin-level states
@@ -227,6 +232,7 @@ function Plugin() {
       setDataForUpdate([]);
     }
     setIsCollectionSwitching(false);
+    //MARK: Set loading to false
     setIsLoading(false);
   }
 
@@ -238,11 +244,6 @@ function Plugin() {
       setCurrentUserCollections(userCollections);
     }
   }, [collections, currentUserId]);
-
-  useEffect(() => {
-    console.log("collectionDocsTrigger", collectionDocsTrigger);
-    console.log("dataForUpdate", dataForUpdate);
-  }, [dataForUpdate, selectedCollection, collectionDocsTrigger]);
 
   useEffect(() => {
     if (selectedCollection) {
@@ -257,7 +258,6 @@ function Plugin() {
   }, [token, currentUserId, collectionDocsTrigger]);
 
   useEffect(() => {
-    console.log("currentUserRole", currentUserRole);
     if (currentUserRole && currentUserRole === "Viewer") {
       setIsViewModeOpen(true);
     } else {
@@ -265,17 +265,11 @@ function Plugin() {
     }
   }, [currentUserRole]);
 
-  useEffect(() => {
-    console.log("selectedElement", selectedElement);
-  }, [selectedElement]);
-
   on("CHANGED_SELECTION", (data) => {
     setSelectionData(data);
   });
 
   on("SELECTION", (data) => {
-    console.log("data", data);
-    console.log("selectedElement", selectedElement);
     if (!data) {
       return;
     }
@@ -561,8 +555,20 @@ function Plugin() {
   }, [selectedMasterId, isViewModeOpen, dataForUpdate]);
 
   useEffect(() => {
-    console.log("selectedSections", selectedSections);
-  }, [selectedSections]);
+    let timeoutId: any;
+    if (isLoading) {
+      timeoutId = setTimeout(() => {
+        emit("LOGOUT");
+        setIsLoading(false);
+        setShowCrashLogoutPopup(true);
+      }, 10000); // 10 seconds
+    }
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [isLoading]);
 
   const contextStates = {
     currentDocument,
@@ -700,6 +706,7 @@ function Plugin() {
             user={currentUser}
           />
         )}
+        {showCrashLogoutPopup && <CrashLogoutPopup />}
         {isToastOpen && toastMessage && (
           <Toast message={toastMessage} onClose={closePopup} type={toastType} />
         )}

@@ -94,24 +94,31 @@ export default async function () {
     try {
       await documentationBuilder(data, loadFonts);
     } catch (error) {
-      console.log("error on documentation build in Figma :>> ", error);
+      // console.log("error on documentation build in Figma :>> ", error);
     }
   });
 
   on("DELETE_ACCOUNT", async () => {
-    console.log("delete account");
     await figma.clientStorage.deleteAsync("token");
     figma.notify("Account deleted");
   });
 
   figma.on("selectionchange", async () => {
     const selectionData = await checkSelection();
-    // console.log("selectionData", selectionData);
     if (selectionData) {
       emit("CHANGED_SELECTION", selectionData);
     } else {
       emit("CHANGED_SELECTION", null);
     }
+  });
+
+  once("LOGOUT", () => {
+    figma.clientStorage.deleteAsync("token");
+    figma.clientStorage.deleteAsync("email");
+    figma.clientStorage.deleteAsync("rank");
+    figma.clientStorage.deleteAsync("userName");
+    figma.clientStorage.deleteAsync("companyName");
+    figma.clientStorage.deleteAsync("userId");
   });
 
   once("CLOSE", () => {

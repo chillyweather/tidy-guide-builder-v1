@@ -49,10 +49,6 @@ const DetailsPage = ({
     }
   }, [docData, selectedMasterId]);
 
-  useEffect(() => {
-    console.log("navigationLinks", navigationLinks);
-  }, [navigationLinks]);
-
   return (
     <div className="viewer-data-wrapper">
       {docData && (

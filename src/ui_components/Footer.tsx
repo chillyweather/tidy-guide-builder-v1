@@ -28,15 +28,11 @@ const Footer = ({
     setShowResetPopup,
     // setIsMainContentOpen,
     // setIsContenFromServerOpen,
-    dataForUpdate,
   } = useContext(BuilderContext) || {};
 
   const isValid = !!documentationTitle?.length && isCurrentNameValid;
 
   function PublishButtonDropdown() {
-    useEffect(() => {
-      console.log("dataForUpdate", dataForUpdate);
-    }, [dataForUpdate]);
     return (
       <div
         className={"feedbackPopupBackground invisible"}

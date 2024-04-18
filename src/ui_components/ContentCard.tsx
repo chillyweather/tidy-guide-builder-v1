@@ -370,10 +370,6 @@ export const ContentCard = (card: any, index: number) => {
   // };
 
   useEffect(() => {
-    console.log("isHidden", isHidden);
-  }, [isHidden]);
-
-  useEffect(() => {
     if (isBuilding) {
       setDocumentationData((prevDocumentation: any) => {
         const newDocumentation = { ...prevDocumentation };
@@ -453,7 +449,9 @@ export const ContentCard = (card: any, index: number) => {
         <div className="rightContent">
           {!isSelected && (
             <button
-              className={"cardAuxButton hoverButton noPredefined tooltipButton duplicateButton"}
+              className={
+                "cardAuxButton hoverButton noPredefined tooltipButton duplicateButton"
+              }
               onClick={handleDuplicateSection}
             >
               <IconCopy />
@@ -489,7 +487,9 @@ export const ContentCard = (card: any, index: number) => {
                 <IconEyeOff />
               </button>
               <button
-                className={"cardAuxButton noPredefined tooltipButon duplicateButton"}
+                className={
+                  "cardAuxButton noPredefined tooltipButon duplicateButton"
+                }
                 onClick={handleDuplicateSection}
               >
                 <IconCopy />
@@ -505,10 +505,7 @@ export const ContentCard = (card: any, index: number) => {
   function DeleteButtonWithTooltip() {
     return (
       <div className="tooltip hoverButton redButton tooltipButton deleteButton">
-        <button
-          className="cardAuxButton"
-          onClick={handleDeleteSection}
-        >
+        <button className="cardAuxButton" onClick={handleDeleteSection}>
           <IconTrash />
         </button>
       </div>

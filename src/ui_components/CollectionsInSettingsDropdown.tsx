@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h, FunctionalComponent } from "preact";
-import { useState, useEffect, useContext } from "preact/hooks";
-import BuilderContext from "src/BuilderContext";
+import { useState, useEffect } from "preact/hooks";
 import { useAtom } from "jotai";
 import {
   currentUserIdAtom,
@@ -25,7 +24,6 @@ const CollectionsInSettingsDropdown: FunctionalComponent<DropdownProps> = ({
   const [selectedCollection, setSelectedCollection]: any = useAtom(
     selectedCollectionInSettingsAtom
   );
-  const { isSettingsPageOpen } = useContext(BuilderContext) || {};
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -36,10 +34,6 @@ const CollectionsInSettingsDropdown: FunctionalComponent<DropdownProps> = ({
     setIsOpen(false);
     onSelect(option || {});
   };
-
-  useEffect(() => {
-    console.log("isSettingsPageOpen", isSettingsPageOpen);
-  }, [isSettingsPageOpen]);
 
   useEffect(() => {
     const role = findUserRole(selectedCollection, currentUserId);

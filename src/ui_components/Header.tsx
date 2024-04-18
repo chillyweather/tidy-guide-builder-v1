@@ -109,7 +109,6 @@ const Header = ({
 
   useEffect(() => {
     if (selectedCollection) {
-      console.log("selectedCollection", selectedCollection);
       const timestamp = convertTimestamp(selectedCollection.updatedAt);
       setLastCollectionUpdate(timestamp);
     }
@@ -169,8 +168,7 @@ const Header = ({
       <button
         className={isViewModeOpen ? "mode-button viewer" : "mode-button editor"}
         onClick={handleToggle}
-        disabled={userRole === "Viewer" || showMainContent
-        }
+        disabled={userRole === "Viewer" || showMainContent}
       >
         <div className={"thumb"}></div>
         <div className="mode-icon view">
@@ -225,7 +223,6 @@ const Header = ({
     if (selectedColorIndex < 0) {
       selectedColorIndex *= -1;
     }
-    // console.log(selectedColorIndex);
     const selectedColor = colorList[selectedColorIndex];
     setAvatarColor(selectedColor);
 

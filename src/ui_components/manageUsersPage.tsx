@@ -41,7 +41,9 @@ function manageUsersPage() {
       {/* <h3>Collections:</h3> */}
       <CollectionsInSettingsDropdown
         options={userCollections}
-        onSelect={() => console.log("yey!!!")}
+        onSelect={() => {
+          // console.log("yey!!!");
+        }}
       />
       {renderCollections(collections)}
     </div>

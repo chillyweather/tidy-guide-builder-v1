@@ -70,7 +70,6 @@ const Login = ({
     try {
       const response = await login(email, password);
       const token = response.token;
-      console.log("response", response);
       if (token) {
         const rank = response.rank;
         const user = response.name;

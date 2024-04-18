@@ -110,8 +110,6 @@ export async function changeUserPermissions(
     collectionId,
   });
 
-  console.log("bodyContent", bodyContent);
-
   const response = await fetch(
     `https://api.tidyframework.com/api/collections/${collectionId}/users`,
     {
@@ -122,7 +120,6 @@ export async function changeUserPermissions(
   );
 
   const data = await response.json();
-  console.log("data", data);
   return data;
 }
 
