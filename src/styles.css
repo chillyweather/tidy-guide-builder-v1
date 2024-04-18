@@ -4386,6 +4386,11 @@ input[type="checkbox"] {
   font-weight: 600;
 }
 
+.redPara u {
+  text-decoration: none;
+  color: red;
+}
+
 .dialogFlex {
   display: flex;
   flex-direction: column;
