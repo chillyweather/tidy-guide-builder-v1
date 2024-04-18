@@ -1688,6 +1688,13 @@ body .header-login {
   gap: 8px;
   font-size: var(--text-size);
   padding-left: 12px;
+  width: 160px;
+  overflow: hidden;
+}
+#dropdown-title[contenteditable="false"]{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin) {

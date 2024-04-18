@@ -118,14 +118,26 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
                 ref={inputRef}
                 contentEditable={editTitle}
                 onBlur={(e) => {
+                  //@ts-ignore
+                  window.tempTitle = document.getElementById("dropdown-title").innerText
+                  //@ts-ignore
+                  document.getElementById("dropdown-title").innerText = "";
                   window.getSelection()?.removeAllRanges();
                   setEditTitle(false);
+                  //@ts-ignore
+                  document.getElementById("dropdown-title").innerText = window.tempTitle;
                   updateCollections(e);
                 }}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
+                    //@ts-ignore
+                    window.tempTitle = document.getElementById("dropdown-title").innerText
+                    //@ts-ignore
+                    document.getElementById("dropdown-title").innerText = "";
+                    window.getSelection()?.removeAllRanges();
                     setEditTitle(false);
-                    e.preventDefault();
+                    //@ts-ignore
+                    document.getElementById("dropdown-title").innerText = window.tempTitle;
                     updateCollections(e);
                   } else if (e.key === " ") {
                     e.stopPropagation();
