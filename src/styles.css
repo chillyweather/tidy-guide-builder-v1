@@ -23,6 +23,8 @@
 /* [X] Signup msg "Something went wrong, please, try again" should be red */
 /* [X] 'Wrong email or password, please, try again' - Login text in red */
 /* [ ] Empty state broom should be smaller */
+/* [ ] Add video (already downloaded) to website */
+/* [ ] Make video with custom cursor, like in https://algo.tv/figma */
 
 :root {
   --tidy-background: #F7F8FB;
