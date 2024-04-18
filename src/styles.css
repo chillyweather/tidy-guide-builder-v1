@@ -4531,7 +4531,7 @@ input[type="checkbox"] {
 }
 
 .deleteButton::after {
-  --tipText: 'Deleting sections requires publish';
+  --tipText: "Requires publish";
 }
 
 .tooltipIcon {
