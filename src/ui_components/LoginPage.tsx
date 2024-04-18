@@ -102,10 +102,13 @@ const Login = ({
     <form onSubmit={handleSubmit} className="section login">
       <div className="navigation"></div>
       <TidyLogo />
-      <p>
-        {isLoginFailed
-          ? "Wrong email or password, please, try again"
-          : "Please enter your credentials"}
+      <p
+      className={"redPara"}
+      dangerouslySetInnerHTML={{
+        __html: isLoginFailed
+          ? "<u>Wrong email or password, please, try again</u>"
+          : "Please enter your credentials"
+      }}>
       </p>
       <div className={isLoginFailed ? "inputDiv inputDiv-invalid" : "inputDiv"}>
         <input

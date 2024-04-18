@@ -199,6 +199,7 @@ declare const styles: {
   readonly "publish-icon": string;
   readonly "red-icon": string;
   readonly "redButton": string;
+  readonly "redPara": string;
   readonly "releasenotes": string;
   readonly "rename-button": string;
   readonly "resetPopup": string;
