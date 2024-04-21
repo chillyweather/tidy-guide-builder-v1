@@ -565,7 +565,7 @@ li {
 }
 
 body:has(.mode-button.viewer) .link-icon {
-  right: -106px;
+  right: -100px;
 }
 
 .link-icon {
@@ -974,8 +974,8 @@ button svg {
 }
 
 .empty-index-image {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   margin-top: 80px;
 }
 
