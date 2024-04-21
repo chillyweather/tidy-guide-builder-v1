@@ -571,19 +571,25 @@ body:has(.mode-button.viewer) .link-icon {
 .link-icon {
   position: absolute;
   color: var(--tidy-32);
-  padding: 5px;
-  top: 64px;
+  padding: 6px;
+  top: 60px;
   right: 60px;
-  display: none;
+  color: var(--tidy-primary);
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px var(--tidy-primary) inset;
 }
 
 .link-icon svg {
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
 }
 
 .link-icon:hover {
-  color: #616161;
+  background-color: #EBEDFF;
+}
+
+.link-icon:active {
+  color: #5C6CFF;
 }
 
 .title-wrapper strong,
@@ -1691,7 +1697,8 @@ body .header-login {
   width: 160px;
   overflow: hidden;
 }
-#dropdown-title[contenteditable="false"]{
+
+#dropdown-title[contenteditable="false"] {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
