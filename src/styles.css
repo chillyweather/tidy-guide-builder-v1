@@ -1594,6 +1594,19 @@ body:has(.users-flex) .dropdown-comp .dropdown-toggle {
   border: 1px solid #B8BBC6;
 }
 
+body:has(.users-flex) .dropdown-comp .dropdown-toggle:hover {
+  border: 1px solid #212121;
+}
+
+body:has(.users-flex) .dropdown-comp:hover .dropdown-wrapper {
+  box-shadow: none;
+}
+
+body:has(.users-flex) .dropdown-comp:active .dropdown-wrapper .dropdown-toggle {
+  box-shadow: none;
+  border: 1px solid #5C6CFF;
+}
+
 .dropdown-comp .dropdown-wrapper {
   width: fit-content;
   display: flex;
