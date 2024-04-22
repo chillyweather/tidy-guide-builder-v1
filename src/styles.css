@@ -567,7 +567,7 @@ li {
 }
 
 body:has(.mode-button.viewer) .link-icon {
-  right: -100px;
+  right: -108px;
 }
 
 .link-icon {
@@ -575,7 +575,7 @@ body:has(.mode-button.viewer) .link-icon {
   color: var(--tidy-32);
   padding: 6px;
   top: 60px;
-  right: 60px;
+  right: 50px;
   color: var(--tidy-primary);
   border-radius: 6px;
   box-shadow: 0 0 0 1px var(--tidy-primary) inset;
