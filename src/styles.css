@@ -1589,6 +1589,11 @@ body .header-login {
   position: relative;
 }
 
+body:has(.users-flex) .dropdown-comp .dropdown-toggle {
+  background-color: #ffffff;
+  border: 1px solid #B8BBC6;
+}
+
 .dropdown-comp .dropdown-wrapper {
   width: fit-content;
   display: flex;
@@ -1847,7 +1852,7 @@ body:has(.manage-users) .header .mode-button {
 .users-flex .users-button {
   background-color: var(--tidy-primary);
   color: #ffffff;
-  /* padding: 8px 12px; */
+  padding-left: 10px;
   margin-bottom: 16px;
   border-radius: 6px;
   cursor: pointer;
