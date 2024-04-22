@@ -16,7 +16,7 @@
 /* [X] name of collection in fixed (with ...) */
 /* [X] Connect Component button is too big (10 font) */
 /* [X] Web App link */
-/* [ ] more gap between mode toggle and avatar */
+/* [X] more gap between mode toggle and avatar */
 /* [ ] dropdown in manage members should look different */
 /* [ ] more padding below error msg (in manage members) */
 /* [X] tooltips should be in hug */
@@ -283,7 +283,7 @@ form input:focus-visible {
   justify-content: center;
   align-items: center;
   padding: 12px;
-  padding-bottom: 30px;
+  padding-bottom: 42px;
   gap: 12px;
   width: 100%;
   border: 2px solid var(--tidy-btn-pressed);
@@ -294,7 +294,7 @@ form input:focus-visible {
   color: #DB3B21;
   position: absolute;
   margin: 0;
-  bottom: 6px;
+  bottom: 12px;
   left: 12px;
 }
 
