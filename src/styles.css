@@ -895,7 +895,7 @@ button svg {
 
 .side-flex {
   display: flex;
-  gap: 4px;
+  gap: 12px;
 }
 
 .header button:hover,
