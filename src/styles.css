@@ -28,7 +28,8 @@
 /* [X] Add video (already downloaded) to website */
 /* [X] Make video with custom cursor, like in https://algo.tv/figma */
 /* [X] Titles in Webapp should be 52px */
-/* [X] Make sure Overview cards are in 4/3 proportions */
+
+/* [ ] Do's and don'ts - make it like in design (new layout + new icons) */
 
 :root {
   --tidy-background: #F7F8FB;
