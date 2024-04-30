@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // import { setColorStyle } from "./utilityFunctions";
 // const TGPaddingsMarker = setColorStyle("TG-admin/Paddings", "A0B802");
 
@@ -27,7 +28,8 @@ function buildIndexesFrame(frame: FrameNode) {
   indexes.itemSpacing = 16;
   figma.currentPage.appendChild(indexes);
   indexes.fills = [];
-  indexes.counterAxisSizingMode = "AUTO";
+  indexes.maxWidth = 400;
+  indexes.minWidth = 240;
   indexes.name = `${frame.name} - indexes`;
   return indexes;
 }

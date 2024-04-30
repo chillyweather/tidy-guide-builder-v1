@@ -47,10 +47,10 @@ const imageFromFigma = async (
 
   if (buildFunctions[type]) {
     builtGraphics = await buildFunctions[type](tempNode, resultFrame);
+    console.log("builtGraphics", builtGraphics);
     if (!builtGraphics) {
-      resultFrame.remove();
       tempNode.remove();
-      throw Error(`Error in building graphics of ${type}`);
+      return;
     }
 
     if (type === "spacing" || type === "property") {
@@ -62,10 +62,19 @@ const imageFromFigma = async (
     throw Error(`Invalid type: ${type}`);
   }
 
-  const bytes = await resultFrame.exportAsync({
-    format: "SVG",
-  });
-  emit("IMAGE_ARRAY_FOR_UPLOAD", { bytes, type });
+  if (type === "anatomy") {
+    const frameChildren = resultFrame.children;
+    const frameChildrenGroup = figma.group(frameChildren, resultFrame);
+    const bytes = await frameChildrenGroup.exportAsync({
+      format: "SVG",
+    });
+    emit("IMAGE_ARRAY_FOR_UPLOAD", { bytes, type });
+  } else {
+    const bytes = await resultFrame.exportAsync({
+      format: "SVG",
+    });
+    emit("IMAGE_ARRAY_FOR_UPLOAD", { bytes, type });
+  }
 
   tempNode.remove();
   resultFrame.remove();

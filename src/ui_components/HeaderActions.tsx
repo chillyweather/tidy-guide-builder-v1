@@ -133,6 +133,7 @@ function AddSectionPopupCard(card: any) {
         key: selectedNodeKey,
       });
     }
+
     const newCard = {
       ...card,
       id: generateUniqueId(),

@@ -32,6 +32,8 @@ export async function buildPropSection(
   parentFrame: FrameNode
 ) {
   const booleanProps = await findAllBooleanProps(node);
+  if (!booleanProps) return null;
+
   turnAllBooleansOff(node, booleanProps);
 
   //! build size property (if size)
@@ -103,7 +105,8 @@ export async function buildPropSection(
     propertyFrame.appendChild(allElementsFrame);
     allElementsFrame.layoutSizingHorizontal = "FILL";
   } else {
-    parentFrame.remove();
+    // node.remove();
+    parentFrame?.remove();
     return null;
   }
   parentFrame.name = parentFrame.name + "- Properties";
