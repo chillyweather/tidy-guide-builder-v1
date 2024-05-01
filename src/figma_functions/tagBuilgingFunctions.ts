@@ -52,7 +52,6 @@ export async function addTextNodesToArray(
     node.absoluteRenderBounds.width,
     node.height,
     node.name,
-    null,
     styleName,
     node.fontName,
     node.fontSize,

@@ -40,29 +40,38 @@ export default async function buildTags(
   //! need to implement better sorting
   elementsCoordinatesAndDimensions.sort((a, b) => a[0] - b[0]);
 
+  //   //data for tag placement
+  //   interface FrameData {
+  //     width: number;
+  //     height: number;
+  //     absoluteBoundingBox: {
+  //       x: number;
+  //       y: number;
+  //     };
+  //   }
+  //
+  //   const frameData: FrameData = {
+  //     width: frame.width,
+  //     height: frame.height,
+  //     absoluteBoundingBox: {
+  //       x: frame.absoluteBoundingBox.x,
+  //       y: frame.absoluteBoundingBox.y,
+  //     },
+  //   };
+
   elementsCoordinatesAndDimensions.forEach((element, index, array) => {
+    console.log("element", element);
     const [
       elementX,
       elementY,
       elementWidth,
       elementHeight,
       elementName,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      linkTarget,
       elementStyleName,
       elementFontName,
       elementFontSize,
-    ]: [
-      number,
-      number,
-      number,
-      number,
-      string,
-      string,
-      string,
-      FontName,
-      number,
-    ] = element;
+    ]: [number, number, number, number, string, string, FontName, number] =
+      element;
 
     console.log("element", element);
 
@@ -93,7 +102,7 @@ export default async function buildTags(
     setTextContent(tag, "elementIndex", `${abc[index]}`);
     setTextContent(indexWithLabel, "elementIndex", `${abc[index]}`);
 
-    if (elementStyleName) {
+    if (elementStyleName && elementFontName && elementFontSize) {
       setTextContent(
         indexWithLabel,
         "Text",
