@@ -19,6 +19,7 @@ export default async function buildTags(
   textElements: any,
   elementMaxWidth?: number
 ) {
+  console.log("buildTags");
   if (!tagComponent) return;
 
   const links = tagComponent.findAll((node) => node.name === "link");
@@ -38,29 +39,61 @@ export default async function buildTags(
 
   //! sort by elementX value
   //! need to implement better sorting
-  elementsCoordinatesAndDimensions.sort((a, b) => a[0] - b[0]);
 
-  //   //data for tag placement
-  //   interface FrameData {
-  //     width: number;
-  //     height: number;
-  //     absoluteBoundingBox: {
-  //       x: number;
-  //       y: number;
-  //     };
-  //   }
-  //
-  //   const frameData: FrameData = {
-  //     width: frame.width,
-  //     height: frame.height,
-  //     absoluteBoundingBox: {
-  //       x: frame.absoluteBoundingBox.x,
-  //       y: frame.absoluteBoundingBox.y,
-  //     },
-  //   };
+  //data for tag placement
+  interface FrameData {
+    width: number;
+    height: number;
+    x: number;
+    y: number;
+  }
+
+  const frameData: FrameData = {
+    width: frame.width,
+    height: frame.height,
+    x: frame.absoluteBoundingBox.x,
+    y: frame.absoluteBoundingBox.y,
+  };
+
+  function getPriority(dot: any, rectangle: FrameData) {
+    // Calculate distance to each edge and return the highest value
+    const topDistance = rectangle.y + rectangle.height - dot[1];
+    const bottomDistance = dot[1] - rectangle.y;
+    const leftDistance = dot[0] - rectangle.x;
+    const rightDistance = rectangle.x + rectangle.width - dot[0];
+
+    // const topDistance = rectangle.y + rectangle.height - (dot[1] + dot[3] / 2);
+    // const bottomDistance = dot[1] + dot[3] / 2 - rectangle.y;
+    // const leftDistance = dot[0] + dot[2] / 2 - rectangle.x;
+    // const rightDistance = rectangle.x + rectangle.width - (dot[0] + dot[2] / 2);
+
+    const priorities = [
+      topDistance,
+      bottomDistance,
+      leftDistance,
+      rightDistance,
+    ];
+
+    return priorities;
+  }
+
+  elementsCoordinatesAndDimensions.sort((a, b) => {
+    const prioritiesA = getPriority(a, frameData);
+    console.log("prioritiesA", prioritiesA);
+    const prioritiesB = getPriority(b, frameData);
+    console.log("prioritiesB", prioritiesB);
+    return Math.min(...prioritiesA) - Math.min(...prioritiesB);
+  });
+  // elementsCoordinatesAndDimensions.sort((a, b) => a[0] - b[0]);
+
+  elementsCoordinatesAndDimensions.forEach((element: any) => {
+    console.log("<<<<<<<<<<<< 🦊 >>>>>>>>>>>>");
+    const priorities = getPriority(element, frameData);
+    console.log("priorities", priorities);
+    console.log("priority", Math.min(...priorities));
+  });
 
   elementsCoordinatesAndDimensions.forEach((element, index, array) => {
-    console.log("element", element);
     const [
       elementX,
       elementY,
@@ -72,8 +105,6 @@ export default async function buildTags(
       elementFontSize,
     ]: [number, number, number, number, string, string, FontName, number] =
       element;
-
-    console.log("element", element);
 
     const midX = elementX + elementWidth / 2;
     const midY = elementY + elementHeight / 2;
