@@ -28,21 +28,16 @@ export default async function buildTags(
   const abc = "abcdefghijklmnopqrstuvwxyz0123456789♠♣♥♦●■▲▼○□◆◇◊★☆";
   const minSizeProperty = frame.minWidth ? frame.minWidth : null;
 
-  // const minSizeElement = elementMinSize ? findMinSizeElement(frame) : null;
   const tagElements: any[] = [];
-  const frameMidPoint = frame.y + frame.height / 2;
 
   elementsCoordinatesAndDimensions.length = 0;
 
   await findAllNodes(frame, instances, textElements);
-  console.log(
-    "elementsCoordinatesAndDimensions",
-    elementsCoordinatesAndDimensions
-  );
 
   const indexes = buildIndexesFrame(frame);
 
   //! sort by elementX value
+  //! need to implement better sorting
   elementsCoordinatesAndDimensions.sort((a, b) => a[0] - b[0]);
 
   elementsCoordinatesAndDimensions.forEach((element, index, array) => {
@@ -69,9 +64,10 @@ export default async function buildTags(
       number,
     ] = element;
 
+    console.log("element", element);
+
     const midX = elementX + elementWidth / 2;
     const midY = elementY + elementHeight / 2;
-    const aboveMidLine = midY > frameMidPoint;
 
     const tag = buildTagElements(
       tagDirection,
@@ -81,7 +77,6 @@ export default async function buildTags(
       midX,
       index,
       array,
-      aboveMidLine,
       elementX,
       elementY,
       elementWidth,
@@ -174,7 +169,6 @@ function buildTagElements(
   midX: number,
   index: number,
   array: any,
-  aboveMidLine: boolean,
   elementX: number,
   elementY: number,
   elementWidth: number,

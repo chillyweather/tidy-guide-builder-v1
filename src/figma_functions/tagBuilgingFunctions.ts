@@ -76,7 +76,7 @@ export async function findAllNodes(
         (node.type === "FRAME" || node.type === "GROUP") &&
         node.children
       ) {
-        findAllNodes(node, instances, textElements);
+        await findAllNodes(node, instances, textElements);
       }
     }
   }
