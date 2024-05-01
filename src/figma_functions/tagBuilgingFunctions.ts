@@ -30,7 +30,6 @@ function isIcon(node: SceneNode) {
 
 async function addInstancesToArray(node: any, array: any[]) {
   const docFrame = await findDocFrame(node);
-
   array.push([
     node.absoluteBoundingBox.x,
     node.absoluteBoundingBox.y,

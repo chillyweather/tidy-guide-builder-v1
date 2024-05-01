@@ -116,12 +116,12 @@ export default async function () {
     const date = Date.now();
     const parsedDate = new Date(date);
     console.log("LOGOUT at ", parsedDate);
-    // figma.clientStorage.deleteAsync("token");
-    // figma.clientStorage.deleteAsync("email");
-    // figma.clientStorage.deleteAsync("rank");
-    // figma.clientStorage.deleteAsync("userName");
-    // figma.clientStorage.deleteAsync("companyName");
-    // figma.clientStorage.deleteAsync("userId");
+    figma.clientStorage.deleteAsync("token");
+    figma.clientStorage.deleteAsync("email");
+    figma.clientStorage.deleteAsync("rank");
+    figma.clientStorage.deleteAsync("userName");
+    figma.clientStorage.deleteAsync("companyName");
+    figma.clientStorage.deleteAsync("userId");
   });
 
   once("CLOSE", () => {

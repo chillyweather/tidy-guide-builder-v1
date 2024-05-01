@@ -35,6 +35,10 @@ export default async function buildTags(
   elementsCoordinatesAndDimensions.length = 0;
 
   await findAllNodes(frame, instances, textElements);
+  console.log(
+    "elementsCoordinatesAndDimensions",
+    elementsCoordinatesAndDimensions
+  );
 
   const indexes = buildIndexesFrame(frame);
 
