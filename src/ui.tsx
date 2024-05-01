@@ -98,10 +98,9 @@ function Plugin() {
   const [isCollectionSwitching, setIsCollectionSwitching] = useAtom(
     isCollectionSwitchingAtom
   );
-  const [
-    showCrashLogoutPopup,
-    // setShowCrashLogoutPopup
-  ] = useAtom(showCrashLogoutPopupAtom);
+  const [showCrashLogoutPopup, setShowCrashLogoutPopup] = useAtom(
+    showCrashLogoutPopupAtom
+  );
   const [isDetailsPageOpen, setIsDetailsPageOpen] = useAtom(
     isDetailsPageOpenAtom
   );
@@ -582,21 +581,21 @@ function Plugin() {
   }, [selectedMasterId, isViewModeOpen, dataForUpdate]);
 
   //! Logout after 10 seconds of inactivity - IMPORTANT
-  // useEffect(() => {
-  //   let timeoutId: any;
-  //   if (isLoading) {
-  //     timeoutId = setTimeout(() => {
-  //       emit("LOGOUT");
-  //       setIsLoading(false);
-  //       setShowCrashLogoutPopup(true);
-  //     }, 10000); // 10 seconds
-  //   }
-  //   return () => {
-  //     if (timeoutId) {
-  //       clearTimeout(timeoutId);
-  //     }
-  //   };
-  // }, [isLoading]);
+  useEffect(() => {
+    let timeoutId: any;
+    if (isLoading) {
+      timeoutId = setTimeout(() => {
+        emit("LOGOUT");
+        setIsLoading(false);
+        setShowCrashLogoutPopup(true);
+      }, 10000); // 10 seconds
+    }
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [isLoading]);
 
   const contextStates = {
     currentDocument,
