@@ -4,110 +4,42 @@ import { getTagInstance } from "./tagBuilgingFunctions";
 export function buildTagElements(
   tagComp: ComponentSetNode | ComponentNode | undefined,
   frame: any,
-  midY: number,
-  midX: number,
-  index: number,
-  array: any,
   elementX: number,
   elementY: number,
   elementWidth: number,
-  elementHeight: number
+  elementHeight: number,
+  distances: any
 ): InstanceNode {
-  if (index === 0) {
-    const firstMarkerDirection = "left";
-    const tag = getTagInstance(firstMarkerDirection, tagComp);
-    figma.currentPage.appendChild(tag);
-    placeTags(
-      firstMarkerDirection,
-      frame,
-      midY,
-      tag,
-      midX,
-      elementX,
-      elementY,
-      elementWidth, //maybe should be removed
-      elementHeight
-    );
-    return tag;
-  }
-  if (index === 1) {
-    const tag = getTagInstance("bottom", tagComp);
-    figma.currentPage.appendChild(tag);
-    placeTags(
-      "bottom",
-      frame,
-      midY,
-      tag,
-      midX,
-      elementX,
-      elementY,
-      elementWidth,
-      elementHeight
-    );
-    return tag;
-  }
-  if (index === array.length - 1 && array.length > 3) {
-    const tag = getTagInstance("right", tagComp);
-    figma.currentPage.appendChild(tag);
-    placeTags(
-      "right",
-      frame,
-      midY,
-      tag,
-      midX,
-      elementX,
-      elementY,
-      elementWidth,
-      elementHeight
-    );
-    return tag;
-  }
-  if (index % 2 !== 0) {
-    const tag = getTagInstance("bottom", tagComp);
-    figma.currentPage.appendChild(tag);
-    placeTags(
-      "bottom",
-      frame,
-      midY,
-      tag,
-      midX,
-      elementX,
-      elementY,
-      elementWidth,
-      elementHeight
-    );
-    return tag;
-  } else {
-    const tag = getTagInstance("top", tagComp);
-    figma.currentPage.appendChild(tag);
-    placeTags(
-      "top",
-      frame,
-      midY,
-      tag,
-      midX,
-      elementX,
-      elementY,
-      elementWidth,
-      elementHeight
-    );
-    return tag;
-  }
+  const distanceData = Object.entries(distances);
+  const minDistance = distanceData.sort((a: any, b: any) => a[1] - b[1])[0];
+  const direction = minDistance[0];
+
+  const tag = getTagInstance(direction, tagComp);
+  figma.currentPage.appendChild(tag);
+  placeTags(
+    direction,
+    frame,
+    tag,
+    elementX,
+    elementY,
+    elementWidth,
+    elementHeight
+  );
+  return tag;
 }
 
-const tagDistanceFromObject = 2;
-
-export function placeTags(
+function placeTags(
   tagDirection: any,
   frame: any,
-  midY: number,
   tag: any,
-  midX: number,
   elementX: number,
   elementY: number,
   elementWidth: number,
   elementHeight: number
 ) {
+  const midX = elementX + elementWidth / 2;
+  const midY = elementY + elementHeight / 2;
+  const tagDistanceFromObject = 2;
   const frameLeftX = frame.absoluteBoundingBox.x;
   const frameRightX = frameLeftX + frame.width;
   const frameTopY = frame.absoluteBoundingBox.y;

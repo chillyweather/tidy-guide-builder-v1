@@ -14,8 +14,6 @@ import { setTextContent } from "./utilityFunctions";
 export default async function buildTags(
   tagComponent: ComponentSetNode | undefined,
   frame: any,
-  start: string,
-  tagDirection: string,
   instances: any,
   textElements: any,
   elementMaxWidth?: number
@@ -56,16 +54,10 @@ export default async function buildTags(
   };
 
   function getDistances(dot: any, rectangle: FrameData) {
-    // Calculate distance to each edge and return the highest value
-    const topDistance = rectangle.y + rectangle.height - (dot[1] + dot[3]);
-    const bottomDistance = dot[1] - rectangle.y;
+    const bottomDistance = rectangle.y + rectangle.height - (dot[1] + dot[3]);
+    const topDistance = dot[1] - rectangle.y;
     const leftDistance = dot[0] - rectangle.x;
     const rightDistance = rectangle.x + rectangle.width - (dot[0] + dot[2]);
-
-    // const topDistance = rectangle.y + rectangle.height - (dot[1] + dot[3] / 2);
-    // const bottomDistance = dot[1] + dot[3] / 2 - rectangle.y;
-    // const leftDistance = dot[0] + dot[2] / 2 - rectangle.x;
-    // const rightDistance = rectangle.x + rectangle.width - (dot[0] + dot[2] / 2);
 
     const distances = {
       top: topDistance,
@@ -100,7 +92,8 @@ export default async function buildTags(
     return prioritiesA[0] - prioritiesB[0];
   });
 
-  elementsCoordinatesAndDimensions.forEach((element, index, array) => {
+  elementsCoordinatesAndDimensions.forEach((element, index) => {
+    const distances = getDistances(element, frameData);
     const [
       elementX,
       elementY,
@@ -113,26 +106,21 @@ export default async function buildTags(
     ]: [number, number, number, number, string, string, FontName, number] =
       element;
 
-    const midX = elementX + elementWidth / 2;
-    const midY = elementY + elementHeight / 2;
-
     const tag = buildTagElements(
       tagComponent,
       frame,
-      midY,
-      midX,
-      index,
-      array,
       elementX,
       elementY,
       elementWidth,
-      elementHeight
+      elementHeight,
+      distances
     );
 
     const indexWithLabelComp = tagComponent.findOne(
       (node) => node.name === "type=text" && node.type === "COMPONENT"
     );
     if (!indexWithLabelComp || indexWithLabelComp.type !== "COMPONENT") return;
+
     const indexWithLabel = indexWithLabelComp.createInstance();
     indexes.appendChild(indexWithLabel);
 
