@@ -22,6 +22,7 @@ import {
   IconTrash,
   IconEye,
   IconEyeOff,
+  // IconDownload,
 } from "@tabler/icons-react";
 import { Toggle, Text } from "@create-figma-plugin/ui";
 import AnatomyIcon from "./../images/anatomy.svg";
@@ -447,6 +448,9 @@ export const ContentCard = (card: any, index: number) => {
           />
         </div>
         <div className="rightContent">
+          {/* <button>
+            <IconDownload />
+          </button> */}
           {!isSelected && (
             <button
               className={
@@ -476,6 +480,9 @@ export const ContentCard = (card: any, index: number) => {
               {PublishToggle(publish, setPublish, "Publish to Tidy Viewer")}
             </div>
             <div className="rightContent">
+              {/* <button>
+                <IconDownload />
+              </button> */}
               <button
                 className={"cardAuxButton eyeIcon"}
                 onClick={() => {

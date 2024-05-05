@@ -313,6 +313,28 @@ function Plugin() {
     });
   });
 
+  //MARK: Auto open details page
+  useEffect(() => {
+    if (
+      isFirstTime &&
+      selectedNodeKey &&
+      dataForUpdate &&
+      dataForUpdate.length
+    ) {
+      console.log("selectedNodeKey", selectedNodeKey);
+      const foundDocId = dataForUpdate.find(
+        (doc: any) => doc.componentKey === selectedNodeKey
+      )?._id;
+      if (foundDocId) {
+        setSelectedMasterId(foundDocId);
+        setIsDetailsPageOpen(true);
+        setIsFromSavedData(true);
+        setShowIndexPage(false);
+        setShowContentFromServer(true);
+      }
+    }
+  }, [isFirstTime, selectedNodeKey, dataForUpdate]);
+
   useEffect(() => {
     const currentSections = JSON.parse(JSON.stringify(selectedSections));
     setDocumentationData((prevDocumentation: any) => {
