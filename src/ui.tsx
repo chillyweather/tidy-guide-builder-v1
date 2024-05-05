@@ -205,7 +205,7 @@ function Plugin() {
       setCurrentCompany(companyName);
       setCurrentUserName(userName);
       setCurrentUserId(id);
-      setIsLoading(false);
+      // setIsLoading(false);
     } else {
       setShowLoginPage(true);
       setIsLoading(false);
