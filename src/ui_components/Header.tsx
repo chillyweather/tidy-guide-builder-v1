@@ -270,7 +270,7 @@ const Header = ({
                 target={"_blank"}
                 className={"link-icon"}
               >
-                <IconExternalLink />
+                <IconExternalLink stroke={1.5} />
               </a>
               {!isViewModeOpen && (
                 <button
