@@ -103,8 +103,6 @@ async function buildElementTags(
   const tagBuildResults = await buildTags(
     tagComponentSet,
     currentAtom,
-    "A",
-    "auto",
     true,
     true
   );
