@@ -960,6 +960,12 @@ button svg {
 .headerContent button {
   background-color: transparent;
 }
+#new-button{
+  transform: translate(442px, 44px);
+}
+.header:has(.dropdown-toggle) #new-button{
+  transform: translate(442px, 60px);
+}
 
 .empty-index {
   display: flex;
