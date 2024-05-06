@@ -136,9 +136,10 @@ export const ContentCard = (card: any, index: number) => {
 
   useEffect(() => {
     if (isFromSavedData && card.content.anatomyIndexPosition) {
-      setAnatomyIndexPosition(card.content.anatomyIndexPosition);
+      if (card.content.anatomyIndexPosition !== anatomyIndexPosition)
+        setAnatomyIndexPosition(card.content.anatomyIndexPosition);
     }
-  }, [anatomyIndexPosition, isFromSavedData]);
+  }, []);
 
   const {
     // currentAuthor,
