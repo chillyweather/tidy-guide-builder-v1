@@ -133,11 +133,12 @@ function renderUsers(collectionId: string) {
           </button>
         </div>
       )}
-
       {collectionUsers &&
         collectionUsers.length &&
         collectionUsers.map((user: any) => {
-          return generateUserCard(user, collectionId, setTrigger);
+          if (user) {
+            return generateUserCard(user, collectionId, setTrigger);
+          }
         })}
     </div>
   );

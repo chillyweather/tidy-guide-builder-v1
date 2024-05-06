@@ -11,7 +11,8 @@ const imageFromFigma = async (
   loadFonts: () => Promise<void>,
   type: string,
   nodeId: string,
-  key: string
+  key: string,
+  deleteGraphic = true
 ) => {
   const pdTypes = ["anatomy", "spacing", "property", "variants"];
   if (!key || !pdTypes.includes(type)) return;
@@ -77,7 +78,7 @@ const imageFromFigma = async (
   }
 
   tempNode.remove();
-  resultFrame.remove();
+  if (deleteGraphic) resultFrame.remove();
   return;
 };
 

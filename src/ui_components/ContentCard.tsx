@@ -8,6 +8,7 @@ import {
   showDeleteSectionPopupAtom,
   sectionToDeleteAtom,
   sectionToDeleteIndexAtom,
+  anatomyIndexPositionAtom,
 } from "../state/atoms";
 import {
   IconGripVertical,
@@ -22,7 +23,7 @@ import {
   IconTrash,
   IconEye,
   IconEyeOff,
-  IconDownload,
+  IconArrowBarDown,
 } from "@tabler/icons-react";
 import { Toggle, Text } from "@create-figma-plugin/ui";
 import AnatomyIcon from "./../images/anatomy.svg";
@@ -129,6 +130,15 @@ export const ContentCard = (card: any, index: number) => {
   const [, setShowDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
   const [, setSectionToDelete] = useAtom(sectionToDeleteAtom);
   const [, setSectionToDeleteIndex] = useAtom(sectionToDeleteIndexAtom);
+  const [anatomyIndexPosition, setAnatomyIndexPosition] = useAtom(
+    anatomyIndexPositionAtom
+  );
+
+  useEffect(() => {
+    if (isFromSavedData && card.content.anatomyIndexPosition) {
+      setAnatomyIndexPosition(card.content.anatomyIndexPosition);
+    }
+  }, [anatomyIndexPosition, isFromSavedData]);
 
   const {
     // currentAuthor,
@@ -144,9 +154,9 @@ export const ContentCard = (card: any, index: number) => {
     documentationData,
     documentationTitle,
     setPreviewData,
-    isPreviewing,
-    setIsPreviewing,
-    previewData,
+    // isPreviewing,
+    // setIsPreviewing,
+    // previewData,
   } = useContext(BuilderContext) || {};
 
   on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
@@ -222,6 +232,8 @@ export const ContentCard = (card: any, index: number) => {
     text: paragraphTextContent,
     hidden: isHidden || false,
     content: {
+      //anatomy content
+      anatomyIndexPosition: anatomyIndexPosition,
       //two column content
       subtitle1: leftTitle,
       subtitle2: rightTitle,
@@ -360,20 +372,6 @@ export const ContentCard = (card: any, index: number) => {
     duplicateSection(e, index, card, setSelectedSections);
   };
 
-  // const elementIsEmpty = (element: any) => {
-  //   const content = element.content;
-  //   return (
-  //     !element.text &&
-  //     !content.subtitle1 &&
-  //     !content.text1 &&
-  //     !content.inputs[0] &&
-  //     !content.remoteImageLink &&
-  //     !content.videoDataElements.length &&
-  //     !content.releaseNotesMessage &&
-  //     !content.sources[0].source
-  //   );
-  // };
-
   useEffect(() => {
     if (isBuilding) {
       setDocumentationData((prevDocumentation: any) => {
@@ -397,19 +395,19 @@ export const ContentCard = (card: any, index: number) => {
   }, [documentationData]);
 
   //! test for preview
-  useEffect(() => {
-    const isPrevData = Object.keys(previewData).length > 0;
-    if (isPreviewing && isPrevData) {
-      setPreviewData((prevData: any) => {
-        const newDocumentation = { ...prevData };
-        const newDocs = newDocumentation.docs;
-        newDocs["title"] = documentationTitle;
-        newDocs[index] = currentCardData;
-        setIsPreviewing(false);
-        return newDocumentation;
-      });
-    }
-  }, [isPreviewing]);
+  // useEffect(() => {
+  //   const isPrevData = Object.keys(previewData).length > 0;
+  //   if (isPreviewing && isPrevData) {
+  //     setPreviewData((prevData: any) => {
+  //       const newDocumentation = { ...prevData };
+  //       const newDocs = newDocumentation.docs;
+  //       newDocs["title"] = documentationTitle;
+  //       newDocs[index] = currentCardData;
+  //       setIsPreviewing(false);
+  //       return newDocumentation;
+  //     });
+  //   }
+  // }, [isPreviewing]);
   //!-------------------
 
   return cardType === "header" ? (
@@ -452,8 +450,11 @@ export const ContentCard = (card: any, index: number) => {
           />
         </div>
         <div className="rightContent">
-          <button onClick={handleBuildClick}>
-            <IconDownload />
+          <button
+            onClick={handleBuildClick}
+            className={"cardAuxButton hoverButton"}
+          >
+            <IconArrowBarDown />
           </button>
           {!isSelected && (
             <button
@@ -485,7 +486,7 @@ export const ContentCard = (card: any, index: number) => {
             </div>
             <div className="rightContent">
               <button onClick={handleBuildClick}>
-                <IconDownload />
+                <IconArrowBarDown />
               </button>
               <button
                 className={"cardAuxButton eyeIcon"}

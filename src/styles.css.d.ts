@@ -28,6 +28,7 @@ declare const styles: {
   readonly "addSectionTitle": string;
   readonly "admin": string;
   readonly "anatomy": string;
+  readonly "anatomy-buttons-wrapper": string;
   readonly "anchorLink": string;
   readonly "back": string;
   readonly "back-button": string;
@@ -225,6 +226,7 @@ declare const styles: {
   readonly "sections": string;
   readonly "select-collection-dropdown-title": string;
   readonly "selected": string;
+  readonly "selected-index-layout": string;
   readonly "selectedComp": string;
   readonly "selectedComponentActions": string;
   readonly "selectedComponentGroup": string;

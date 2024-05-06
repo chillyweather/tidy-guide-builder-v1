@@ -960,10 +960,12 @@ button svg {
 .headerContent button {
   background-color: transparent;
 }
-#new-button{
+
+#new-button {
   transform: translate(442px, 44px);
 }
-.header:has(.dropdown-toggle) #new-button{
+
+.header:has(.dropdown-toggle) #new-button {
   transform: translate(442px, 60px);
 }
 
@@ -3863,6 +3865,17 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   margin: 0 58px;
   color: var(--tidy-disabled);
   font-style: italic;
+}
+
+.selected-index-layout {
+  background-color: #F0F8FF
+}
+
+.anatomy-buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
 }
 
 .textCardBodyContent {
