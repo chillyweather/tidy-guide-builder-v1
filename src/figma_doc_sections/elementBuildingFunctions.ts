@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { buildAutoLayoutFrame } from "../figma_functions/utilityFunctions";
 import {
   documentationWidth,

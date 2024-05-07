@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   IconBoxAlignLeftFilled,
   IconBoxAlignRightFilled,
@@ -5,6 +6,12 @@ import {
   IconBoxAlignBottomFilled,
 } from "@tabler/icons-react";
 import { h } from "preact";
+import { useState } from "preact/hooks";
+import { TextboxNumeric } from "@create-figma-plugin/ui";
+import {
+  IconSpaceVertical16,
+  // IconSpaceHorizontal16,
+} from "@create-figma-plugin/ui";
 
 const AnatomyCard = ({
   anatomyIndexPosition,
@@ -53,8 +60,27 @@ const AnatomyCard = ({
       >
         <IconBoxAlignTopFilled />
       </button>
+      {/* <SpacingInput /> */}
     </div>
   );
 };
+
+function SpacingInput() {
+  const [value, setValue] = useState<string>("42");
+  function handleInput(event: h.JSX.TargetedEvent<HTMLInputElement>) {
+    const newValue = event.currentTarget.value;
+    console.log(newValue);
+    setValue(newValue);
+  }
+  return (
+    <TextboxNumeric
+      icon={<IconSpaceVertical16 />}
+      onInput={handleInput}
+      value={value}
+      variant="border"
+      style={{ color: "black" }}
+    />
+  );
+}
 
 export default AnatomyCard;

@@ -36,7 +36,6 @@ import Settings from "./ui_components/SettingsPage";
 import MainContent from "./ui_components/MainContent";
 import EmptyState from "./images/empty-state.svg";
 import {
-  getDocumentations,
   updateDocumentation,
   createDocumentation,
 } from "./ui_components/ui_functions/documentationHandlers";
@@ -541,15 +540,16 @@ function Plugin() {
     }
   }, [documentationTitle]);
 
-  //Mark: Add/update documentation
+  //MARK: Add/update documentation
   async function handleAddDocumentation(token: string, data: any) {
     setIsLoading(true);
     try {
-      const result = await getDocumentations(token);
+      const result = await getCollectionDocs(token, selectedCollection._id);
       const isDocumented = result.some((doc: any) => doc._id === data._id);
 
       if (isDocumented) {
         const response = await updateDocumentation(token, data._id, data);
+        console.log("response", response);
         if (isBuildingOnCanvas) emit("BUILD", response);
         await fetchAndUpdateData(
           token,

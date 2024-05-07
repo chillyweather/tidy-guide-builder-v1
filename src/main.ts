@@ -100,8 +100,19 @@ export default async function () {
 
   on(
     "BUILD_ONE_SECTION",
-    async ({ selectedElement, cardType, anatomyIndexPosition }) => {
-      buildOneSection(selectedElement, cardType, anatomyIndexPosition);
+    async ({
+      selectedNodeId,
+      selectedNodeKey,
+      cardType,
+      anatomyIndexPosition,
+    }) => {
+      buildOneSection(
+        loadFonts,
+        selectedNodeId,
+        selectedNodeKey,
+        cardType,
+        anatomyIndexPosition
+      );
     }
   );
 

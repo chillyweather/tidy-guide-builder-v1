@@ -9,6 +9,8 @@ import {
   showDeleteSectionPopupAtom,
   sectionToDeleteAtom,
   sectionToDeleteIndexAtom,
+  selectedNodeIdAtom,
+  selectedNodeKeyAtom,
 } from "../state/atoms";
 import {
   IconGripVertical,
@@ -72,7 +74,7 @@ function removeDraggable(event: any) {
 
 export const ContentCard = (card: any, index: number) => {
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
-  const selectedElement = useContext(BuilderContext)?.selectedElement;
+  // const selectedElement = useContext(BuilderContext)?.selectedElement;
 
   //card title
   const [cardTitle, setCardTitle] = useState(card.title);
@@ -135,6 +137,8 @@ export const ContentCard = (card: any, index: number) => {
   const [, setShowDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
   const [, setSectionToDelete] = useAtom(sectionToDeleteAtom);
   const [, setSectionToDeleteIndex] = useAtom(sectionToDeleteIndexAtom);
+  const [selectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
 
   // useEffect(() => {
   //   console.log("anatomyIndexPosition", anatomyIndexPosition);
@@ -233,7 +237,7 @@ export const ContentCard = (card: any, index: number) => {
     hidden: isHidden || false,
     content: {
       //anatomy content
-      anatomyIndexPosition: anatomyIndexPosition,
+      anatomyIndexPosition: anatomyIndexPosition || "left",
       //two column content
       subtitle1: leftTitle,
       subtitle2: rightTitle,
@@ -354,7 +358,8 @@ export const ContentCard = (card: any, index: number) => {
 
   function handleBuildClick() {
     emit("BUILD_ONE_SECTION", {
-      selectedElement,
+      selectedNodeId,
+      selectedNodeKey,
       cardType,
       anatomyIndexPosition,
     });

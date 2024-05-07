@@ -15,7 +15,7 @@ export async function buildAtomTags(
   variantProperties: any,
   labelComponent: ComponentNode,
   tagComponentSet: ComponentSetNode | undefined,
-  indexPosition = "left",
+  indexPosition = "left"
 ) {
   const tagGroups: FrameNode[] = [];
 
@@ -23,7 +23,7 @@ export async function buildAtomTags(
     for (const size of elementSizes) {
       const propNames = Object.keys(variantProperties);
       const sizeProp = propNames.find(
-        (propName) => propName.toLowerCase() === "size",
+        (propName) => propName.toLowerCase() === "size"
       );
       if (sizeProp) {
         setVariantProps(element, sizeProp, size);
@@ -34,7 +34,7 @@ export async function buildAtomTags(
         tagComponentSet,
         indexPosition,
         labelComponent,
-        size,
+        size
       );
 
       tagGroups.push(tagGroup);
@@ -44,7 +44,7 @@ export async function buildAtomTags(
       element,
       booleanProperties,
       tagComponentSet,
-      indexPosition,
+      indexPosition
     );
     tagGroups.push(tagGroup);
   }
@@ -57,11 +57,11 @@ async function buildOneTag(
   tagComponentSet: ComponentSetNode | undefined,
   indexPosition = "left",
   labelComponent?: ComponentNode,
-  size?: string,
+  size?: string
 ) {
   const TGGray600 = await setColorStyle(
     ".TG-admin/anatomy-secondary",
-    "707070",
+    "707070"
   );
 
   const resultFrame = buildAutoLayoutFrame("tagFrame", "HORIZONTAL", 20, 0);
@@ -69,7 +69,7 @@ async function buildOneTag(
     element,
     booleanProperties,
     tagComponentSet,
-    indexPosition,
+    indexPosition
   );
 
   resultFrame.appendChild(group);
@@ -79,7 +79,7 @@ async function buildOneTag(
   if (labelComponent) {
     const title = setTitlePosition(
       labelComponent.createInstance(),
-      resultFrame,
+      resultFrame
     );
     if (title.children[0] && title.children[0].type === "TEXT")
       await title.children[0].setFillStyleIdAsync(TGGray600.id);
@@ -101,7 +101,7 @@ async function buildElementTags(
   element: InstanceNode,
   booleanProperties: any,
   tagComponentSet: ComponentSetNode | undefined,
-  indexPosition = "left",
+  indexPosition = "left"
 ) {
   const currentAtom = element.clone();
   turnAllBooleansOn(currentAtom, booleanProperties);
@@ -110,7 +110,7 @@ async function buildElementTags(
     tagComponentSet,
     currentAtom,
     true,
-    true,
+    true
   );
 
   if (!tagBuildResults) return currentAtom;
@@ -118,7 +118,7 @@ async function buildElementTags(
   const indexes = tagBuildResults.indexes;
   const tagGroup = figma.group(
     [currentAtom, ...tagElements],
-    figma.currentPage,
+    figma.currentPage
   );
   tagGroup.name = `${element.name}-with-tags`;
 
@@ -130,7 +130,7 @@ async function buildElementTags(
 function setIndexPosition(
   tagGroup: GroupNode,
   indexes: FrameNode,
-  indexPosition: string,
+  indexPosition: string
 ) {
   if (indexPosition === "left" || indexPosition === "right") {
     const tagAutoLayoutFrame = buildAutoLayoutFrame(
@@ -138,7 +138,7 @@ function setIndexPosition(
       "HORIZONTAL",
       20,
       20,
-      12,
+      32
     );
     if (indexPosition === "left") {
       tagAutoLayoutFrame.appendChild(indexes);
@@ -154,7 +154,7 @@ function setIndexPosition(
       "VERTICAL",
       20,
       20,
-      32,
+      32
     );
     if (indexPosition === "top") {
       tagAutoLayoutFrame.appendChild(indexes);
