@@ -9,7 +9,8 @@ export async function buildOneSection(
   nodeId: any,
   nodeKey: any,
   type: string,
-  indexPosition?: string
+  indexPosition?: string,
+  indexSpacing?: string
 ) {
   await loadFonts();
   const foundNode = await getNodeAndDefaultElement(nodeId, nodeKey);
@@ -17,7 +18,12 @@ export async function buildOneSection(
 
   if (!foundNode || foundNode.type !== "COMPONENT") return;
 
-  const result = await buildSectionContent(type, instance, indexPosition);
+  const result = await buildSectionContent(
+    type,
+    instance,
+    indexPosition,
+    indexSpacing
+  );
 
   instance.remove();
   return result;
@@ -26,14 +32,15 @@ export async function buildOneSection(
 async function buildSectionContent(
   type: string,
   node: InstanceNode,
-  indexPosition?: string
+  indexPosition?: string,
+  indexSpacing?: string
 ) {
   const frame = buildResultFrame();
 
   if (type === "anatomy") {
     const title = buildTitle("Anatomy");
     frame.appendChild(title);
-    await buildAnatomySection(node, frame, indexPosition);
+    await buildAnatomySection(node, frame, indexPosition, indexSpacing);
   }
   return frame;
 }

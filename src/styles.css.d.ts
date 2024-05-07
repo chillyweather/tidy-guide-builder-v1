@@ -242,6 +242,7 @@ declare const styles: {
   readonly "signup": string;
   readonly "singleLink": string;
   readonly "spacing": string;
+  readonly "spacing-input-wrapper": string;
   readonly "spinner": string;
   readonly "split": string;
   readonly "split-disabled": string;

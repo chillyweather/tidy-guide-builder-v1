@@ -126,6 +126,9 @@ export const ContentCard = (card: any, index: number) => {
   const [anatomyIndexPosition, setAnatomyIndexPosition] = useState(
     isFromSavedData ? card.content.anatomyIndexPosition : "left"
   );
+  const [anatomyIndexSpacing, setAnatomyIndexSpacing] = useState(
+    isFromSavedData ? card.content.anatomyIndexSpacing : "32"
+  );
   //release notes card data
   const [releaseNotesMessage, setReleaseNotesMessage] = useState("");
   const [releaseNotesDate, setReleaseNotesDate] = useState("");
@@ -238,6 +241,7 @@ export const ContentCard = (card: any, index: number) => {
     content: {
       //anatomy content
       anatomyIndexPosition: anatomyIndexPosition || "left",
+      anatomyIndexSpacing: anatomyIndexSpacing || "32",
       //two column content
       subtitle1: leftTitle,
       subtitle2: rightTitle,
@@ -272,6 +276,8 @@ export const ContentCard = (card: any, index: number) => {
         <AnatomyCard
           anatomyIndexPosition={anatomyIndexPosition}
           setAnatomyIndexPosition={setAnatomyIndexPosition}
+          anatomyIndexSpacing={anatomyIndexSpacing}
+          setAnatomyIndexSpacing={setAnatomyIndexSpacing}
         />
       );
     } else if (cardType === "spacing") {
@@ -362,6 +368,7 @@ export const ContentCard = (card: any, index: number) => {
       selectedNodeKey,
       cardType,
       anatomyIndexPosition,
+      anatomyIndexSpacing,
     });
   }
 

@@ -6,19 +6,22 @@ import {
   IconBoxAlignBottomFilled,
 } from "@tabler/icons-react";
 import { h } from "preact";
-import { useState } from "preact/hooks";
-import { TextboxNumeric } from "@create-figma-plugin/ui";
+import NumericInput from "../NumericCheckbox";
 import {
-  IconSpaceVertical16,
-  // IconSpaceHorizontal16,
-} from "@create-figma-plugin/ui";
+  IconSpacingVertical,
+  IconSpacingHorizontal,
+} from "@tabler/icons-react";
 
 const AnatomyCard = ({
   anatomyIndexPosition,
   setAnatomyIndexPosition,
+  anatomyIndexSpacing,
+  setAnatomyIndexSpacing,
 }: {
   anatomyIndexPosition: string;
   setAnatomyIndexPosition: (position: string) => void;
+  anatomyIndexSpacing: string;
+  setAnatomyIndexSpacing: (spacing: string) => void;
 }) => {
   type AnatomyIndexPosition = "left" | "right" | "top" | "bottom";
 
@@ -60,27 +63,21 @@ const AnatomyCard = ({
       >
         <IconBoxAlignTopFilled />
       </button>
-      {/* <SpacingInput /> */}
+      <div className="spacing-input-wrapper">
+        {anatomyIndexPosition === "left" || anatomyIndexPosition === "right" ? (
+          <IconSpacingHorizontal
+            style={{ color: "lightGray", height: "16px" }}
+          />
+        ) : (
+          <IconSpacingVertical style={{ color: "lightGray", height: "16px" }} />
+        )}
+        <NumericInput
+          value={parseInt(anatomyIndexSpacing)}
+          onChange={(value) => setAnatomyIndexSpacing(value.toString())}
+        />
+      </div>
     </div>
   );
 };
-
-function SpacingInput() {
-  const [value, setValue] = useState<string>("42");
-  function handleInput(event: h.JSX.TargetedEvent<HTMLInputElement>) {
-    const newValue = event.currentTarget.value;
-    console.log(newValue);
-    setValue(newValue);
-  }
-  return (
-    <TextboxNumeric
-      icon={<IconSpaceVertical16 />}
-      onInput={handleInput}
-      value={value}
-      variant="border"
-      style={{ color: "black" }}
-    />
-  );
-}
 
 export default AnatomyCard;

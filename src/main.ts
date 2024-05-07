@@ -105,13 +105,15 @@ export default async function () {
       selectedNodeKey,
       cardType,
       anatomyIndexPosition,
+      anatomyIndexSpacing,
     }) => {
       buildOneSection(
         loadFonts,
         selectedNodeId,
         selectedNodeKey,
         cardType,
-        anatomyIndexPosition
+        anatomyIndexPosition,
+        anatomyIndexSpacing
       );
     }
   );

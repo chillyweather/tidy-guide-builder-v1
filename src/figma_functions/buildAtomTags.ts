@@ -15,7 +15,8 @@ export async function buildAtomTags(
   variantProperties: any,
   labelComponent: ComponentNode,
   tagComponentSet: ComponentSetNode | undefined,
-  indexPosition = "left"
+  indexPosition = "left",
+  indexSpacing = "32"
 ) {
   const tagGroups: FrameNode[] = [];
 
@@ -33,6 +34,7 @@ export async function buildAtomTags(
         booleanProperties,
         tagComponentSet,
         indexPosition,
+        indexSpacing,
         labelComponent,
         size
       );
@@ -44,7 +46,8 @@ export async function buildAtomTags(
       element,
       booleanProperties,
       tagComponentSet,
-      indexPosition
+      indexPosition,
+      indexSpacing
     );
     tagGroups.push(tagGroup);
   }
@@ -56,6 +59,7 @@ async function buildOneTag(
   booleanProperties: any,
   tagComponentSet: ComponentSetNode | undefined,
   indexPosition = "left",
+  indexSpacing = "32",
   labelComponent?: ComponentNode,
   size?: string
 ) {
@@ -69,7 +73,8 @@ async function buildOneTag(
     element,
     booleanProperties,
     tagComponentSet,
-    indexPosition
+    indexPosition,
+    indexSpacing
   );
 
   resultFrame.appendChild(group);
@@ -101,7 +106,8 @@ async function buildElementTags(
   element: InstanceNode,
   booleanProperties: any,
   tagComponentSet: ComponentSetNode | undefined,
-  indexPosition = "left"
+  indexPosition = "left",
+  indexSpacing = "32"
 ) {
   const currentAtom = element.clone();
   turnAllBooleansOn(currentAtom, booleanProperties);
@@ -123,22 +129,29 @@ async function buildElementTags(
   tagGroup.name = `${element.name}-with-tags`;
 
   console.log("indexPosition in the very end of it", indexPosition);
-  const tagAutoLayoutFrame = setIndexPosition(tagGroup, indexes, indexPosition);
+  const tagAutoLayoutFrame = setIndexPosition(
+    tagGroup,
+    indexes,
+    indexPosition,
+    indexSpacing
+  );
   return tagAutoLayoutFrame;
 }
 
 function setIndexPosition(
   tagGroup: GroupNode,
   indexes: FrameNode,
-  indexPosition: string
+  indexPosition: string,
+  indexSpacing: string
 ) {
+  const spacing = parseInt(indexSpacing);
   if (indexPosition === "left" || indexPosition === "right") {
     const tagAutoLayoutFrame = buildAutoLayoutFrame(
       "tagAutoLayoutFrame",
       "HORIZONTAL",
       20,
       20,
-      32
+      spacing
     );
     if (indexPosition === "left") {
       tagAutoLayoutFrame.appendChild(indexes);
@@ -154,7 +167,7 @@ function setIndexPosition(
       "VERTICAL",
       20,
       20,
-      32
+      spacing
     );
     if (indexPosition === "top") {
       tagAutoLayoutFrame.appendChild(indexes);

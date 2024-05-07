@@ -16,7 +16,7 @@ import { buildVarSection } from "src/figma_doc_sections/buildVarSection";
 async function buildSection(
   element: any,
   sectionFrame: any,
-  currentNode: any = null,
+  currentNode: any = null
 ) {
   const content = element.content;
   switch (element.datatype) {
@@ -25,6 +25,7 @@ async function buildSection(
         currentNode,
         sectionFrame,
         element.content.anatomyIndexPosition,
+        element.content.anatomyIndexSpacing
       );
       break;
 
@@ -99,7 +100,7 @@ async function buildSection(
       break;
     default:
       throw new Error(
-        "Error: No datatype found for this section. Please check the section data.",
+        "Error: No datatype found for this section. Please check the section data."
       );
   }
 }

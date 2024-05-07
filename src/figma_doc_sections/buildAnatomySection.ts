@@ -10,6 +10,7 @@ export async function buildAnatomySection(
   node: InstanceNode,
   parentFrame: FrameNode,
   indexPosition: string = "left",
+  indexSpacing: string = "32"
 ) {
   const booleanProperties = await findAllBooleanProps(node);
   const variantProperties = await findAllVariantProps(node);
@@ -26,6 +27,7 @@ export async function buildAnatomySection(
     labelComponent,
     tagComponent,
     indexPosition,
+    indexSpacing
   );
 
   tags.forEach((tag) => {

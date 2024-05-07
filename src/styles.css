@@ -3878,6 +3878,12 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   align-items: center;
 }
 
+.spacing-input-wrapper {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
 .textCardBodyContent {
   width: calc(100% - 16px);
   border: 1px solid #F7F7F7;
