@@ -6,6 +6,7 @@ import { loginDataHandler } from "./figma_functions/loginDataHandler";
 import { getNode } from "./figma_functions/getNode";
 import imageFromFigma from "./figma_functions/imageFromFigma";
 import { logoutDataHandler } from "./figma_functions/logoutDataHandler";
+import { buildOneSection } from "./figma_functions/buildOneSection";
 
 const loadFonts = async () => {
   await figma.loadFontAsync({ family: "Inter", style: "Regular" });
@@ -96,6 +97,13 @@ export default async function () {
       console.log("error on documentation build in Figma :>> ", error);
     }
   });
+
+  on(
+    "BUILD_ONE_SECTION",
+    async ({ selectedElement, cardType, anatomyIndexPosition }) => {
+      buildOneSection(selectedElement, cardType, anatomyIndexPosition);
+    }
+  );
 
   on("DELETE_ACCOUNT", async () => {
     await figma.clientStorage.deleteAsync("token");
