@@ -67,11 +67,13 @@ const imageFromFigma = async (
     const frameChildrenGroup = figma.group(frameChildren, resultFrame);
     const bytes = await frameChildrenGroup.exportAsync({
       format: "SVG",
+      svgOutlineText: false,
     });
     emit("IMAGE_ARRAY_FOR_UPLOAD", { bytes, type });
   } else {
     const bytes = await resultFrame.exportAsync({
       format: "SVG",
+      svgOutlineText: false,
     });
     emit("IMAGE_ARRAY_FOR_UPLOAD", { bytes, type });
   }
