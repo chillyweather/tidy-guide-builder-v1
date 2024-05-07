@@ -5,18 +5,17 @@ import {
   IconBoxAlignBottomFilled,
 } from "@tabler/icons-react";
 import { h } from "preact";
-import { useAtom } from "jotai";
-import { anatomyIndexPositionAtom } from "../../state/atoms";
 
-const AnatomyCard = () => {
-  const [anatomyIndexPosition, setAnatomyIndexPosition] = useAtom(
-    anatomyIndexPositionAtom
-  );
-
+const AnatomyCard = ({
+  anatomyIndexPosition,
+  setAnatomyIndexPosition,
+}: {
+  anatomyIndexPosition: string;
+  setAnatomyIndexPosition: (position: string) => void;
+}) => {
   type AnatomyIndexPosition = "left" | "right" | "top" | "bottom";
 
   function handlePositionChange(position: AnatomyIndexPosition) {
-    console.log("position", position);
     setAnatomyIndexPosition(position);
   }
 

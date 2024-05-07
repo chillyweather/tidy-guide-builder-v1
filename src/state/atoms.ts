@@ -16,9 +16,6 @@ export const currentUserRoleAtom = atom("");
 export const currentDocumentationsAtom = atom(null);
 export const tokenAtom = atom("");
 
-//anatomy layout position
-export const anatomyIndexPositionAtom = atom("left"); // left, right, top, bottom
-
 //collections
 export const collectionsAtom = atom([]);
 export const currentUserCollectionsAtom = atom([]);

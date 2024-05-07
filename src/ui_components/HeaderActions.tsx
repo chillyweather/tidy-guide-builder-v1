@@ -188,11 +188,11 @@ function HeaderActions() {
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedComponentPic, setSelectedComponentPic] = useAtom(
-    selectedComponentPicAtom
+    selectedComponentPicAtom,
   );
   const [selectionData] = useAtom(selectionDataAtom);
   const [isToBuildComponentPic, setIsToBuildComponentPic] = useAtom(
-    isToBuildComponentPicAtom
+    isToBuildComponentPicAtom,
   );
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
 

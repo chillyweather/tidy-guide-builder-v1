@@ -3,12 +3,12 @@ import { h } from "preact";
 import { on } from "@create-figma-plugin/utilities";
 import { useContext, useState } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
+import { buildOneSection } from "src/figma_functions/buildOneSection";
 import { useAtom } from "jotai";
 import {
   showDeleteSectionPopupAtom,
   sectionToDeleteAtom,
   sectionToDeleteIndexAtom,
-  anatomyIndexPositionAtom,
 } from "../state/atoms";
 import {
   IconGripVertical,
@@ -60,52 +60,53 @@ import { sendRaster } from "./ui_functions/sendRaster";
 function makeDraggable(event: any) {
   event.target.parentElement.parentElement.parentElement.parentElement.setAttribute(
     "draggable",
-    true
+    true,
   );
 }
 function removeDraggable(event: any) {
   event.target.parentElement.parentElement.parentElement.parentElement.setAttribute(
     "draggable",
-    false
+    false,
   );
 }
 
 export const ContentCard = (card: any, index: number) => {
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
+  const selectedElement = useContext(BuilderContext)?.selectedElement;
 
   //card title
   const [cardTitle, setCardTitle] = useState(card.title);
   // general use
   const [isHidden, setIsHidden] = useState(
-    isFromSavedData ? card.hidden : false
+    isFromSavedData ? card.hidden : false,
   );
   const [publish, setPublish] = useState<boolean>(
-    isFromSavedData ? card.publish : true
+    isFromSavedData ? card.publish : true,
   );
   // text card
   const [paragraphTextContent, setParagraphTextContent] = useState(
-    isFromSavedData && card.text ? card.text : ""
+    isFromSavedData && card.text ? card.text : "",
   );
   // two column card
   const [leftTitle, setLeftTitle] = useState(
-    isFromSavedData ? card.content.subtitle1 : ""
+    isFromSavedData ? card.content.subtitle1 : "",
   );
   const [leftTextContent, setLeftTextContent] = useState(
-    isFromSavedData ? card.content.text1 : ""
+    isFromSavedData ? card.content.text1 : "",
   );
   const [rightTitle, setRightTitle] = useState(
-    isFromSavedData ? card.content.subtitle2 : ""
+    isFromSavedData ? card.content.subtitle2 : "",
   );
   const [rightTextContent, setRightTextContent] = useState(
-    isFromSavedData ? card.content.text2 : ""
+    isFromSavedData ? card.content.text2 : "",
   );
   // list
   const [listItems, setListItems] = useState<string[]>(
-    isFromSavedData ? card.content.inputs : [""]
+    isFromSavedData ? card.content.inputs : [""],
   );
   // link
   const [sources, setSources]: any[] = useState(
-    isFromSavedData ? card.content.sources : [{ source: "", link: "" }]
+    isFromSavedData ? card.content.sources : [{ source: "", link: "" }],
   );
   //video card data
   const [selectedVideo, setSelectedVideo] = useState(-1);
@@ -113,11 +114,15 @@ export const ContentCard = (card: any, index: number) => {
   const [videoLink, setVideoLink] = useState("");
   const [foundVideoData, setFoundVideoData]: any = useState({});
   const [videoDataElements, setVideoDataElements]: any[] = useState(
-    isFromSavedData ? card.content.videoDataElements : []
+    isFromSavedData ? card.content.videoDataElements : [],
   );
   //image card data
   const [remoteImageLink, setRemoteImageLink] = useState(
-    isFromSavedData ? card.content.remoteImageLink : ""
+    isFromSavedData ? card.content.remoteImageLink : "",
+  );
+  //layout for anatomy card
+  const [anatomyIndexPosition, setAnatomyIndexPosition] = useState(
+    isFromSavedData ? card.content.anatomyIndexPosition : "left",
   );
   //release notes card data
   const [releaseNotesMessage, setReleaseNotesMessage] = useState("");
@@ -130,16 +135,10 @@ export const ContentCard = (card: any, index: number) => {
   const [, setShowDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
   const [, setSectionToDelete] = useAtom(sectionToDeleteAtom);
   const [, setSectionToDeleteIndex] = useAtom(sectionToDeleteIndexAtom);
-  const [anatomyIndexPosition, setAnatomyIndexPosition] = useAtom(
-    anatomyIndexPositionAtom
-  );
 
-  useEffect(() => {
-    if (isFromSavedData && card.content.anatomyIndexPosition) {
-      if (card.content.anatomyIndexPosition !== anatomyIndexPosition)
-        setAnatomyIndexPosition(card.content.anatomyIndexPosition);
-    }
-  }, []);
+  // useEffect(() => {
+  //   console.log("anatomyIndexPosition", anatomyIndexPosition);
+  // }, [anatomyIndexPosition]);
 
   const {
     // currentAuthor,
@@ -169,12 +168,12 @@ export const ContentCard = (card: any, index: number) => {
   async function handleImageFromFigmaUpload(
     currentImageArray: Uint8Array,
     loggedInUser: string,
-    currentImageType: string
+    currentImageType: string,
   ) {
     const url = await sendRaster(
       currentImageArray,
       loggedInUser,
-      currentImageType
+      currentImageType,
     );
     setRemoteImageLink(url);
   }
@@ -189,7 +188,7 @@ export const ContentCard = (card: any, index: number) => {
       handleImageFromFigmaUpload(
         currentImageArray,
         loggedInUser,
-        card.datatype
+        card.datatype,
       );
     }
   }, [currentImageArray, loggedInUser, card.content.remoteImageLink]);
@@ -265,7 +264,12 @@ export const ContentCard = (card: any, index: number) => {
     } else if (cardType === "variants") {
       return <VariantsCard />;
     } else if (cardType === "anatomy") {
-      return <AnatomyCard />;
+      return (
+        <AnatomyCard
+          anatomyIndexPosition={anatomyIndexPosition}
+          setAnatomyIndexPosition={setAnatomyIndexPosition}
+        />
+      );
     } else if (cardType === "spacing") {
       return <SpacingsCard />;
     } else if (cardType === "release-notes") {
@@ -319,7 +323,7 @@ export const ContentCard = (card: any, index: number) => {
           setVideoDataElements,
           setVideoLink,
           videoDataElements,
-          videoLink
+          videoLink,
         );
       }
     } else {
@@ -330,7 +334,7 @@ export const ContentCard = (card: any, index: number) => {
   function PublishToggle(
     publish: boolean,
     setPublish: (value: boolean) => void,
-    label: string
+    label: string,
   ) {
     function handleChange(event: any) {
       const newValue = event.currentTarget.checked;
@@ -349,7 +353,7 @@ export const ContentCard = (card: any, index: number) => {
   }
 
   function handleBuildClick() {
-    console.log("building");
+    buildOneSection(selectedElement, cardType, anatomyIndexPosition);
   }
 
   const handleOpenSection = (e: MouseEvent) => {

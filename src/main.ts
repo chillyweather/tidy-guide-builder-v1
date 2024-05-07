@@ -90,11 +90,10 @@ export default async function () {
   });
 
   on("BUILD", async (data) => {
-    //!----building documentation on canvas----//
     try {
       await documentationBuilder(data, loadFonts);
     } catch (error) {
-      // console.log("error on documentation build in Figma :>> ", error);
+      console.log("error on documentation build in Figma :>> ", error);
     }
   });
 

@@ -14,7 +14,8 @@ export async function buildAtomTags(
   elementSizes: string[],
   variantProperties: any,
   labelComponent: ComponentNode,
-  tagComponentSet: ComponentSetNode | undefined
+  tagComponentSet: ComponentSetNode | undefined,
+  indexPosition = "left",
 ) {
   const tagGroups: FrameNode[] = [];
 
@@ -22,7 +23,7 @@ export async function buildAtomTags(
     for (const size of elementSizes) {
       const propNames = Object.keys(variantProperties);
       const sizeProp = propNames.find(
-        (propName) => propName.toLowerCase() === "size"
+        (propName) => propName.toLowerCase() === "size",
       );
       if (sizeProp) {
         setVariantProps(element, sizeProp, size);
@@ -31,8 +32,9 @@ export async function buildAtomTags(
         element,
         booleanProperties,
         tagComponentSet,
+        indexPosition,
         labelComponent,
-        size
+        size,
       );
 
       tagGroups.push(tagGroup);
@@ -41,7 +43,8 @@ export async function buildAtomTags(
     const tagGroup = await buildOneTag(
       element,
       booleanProperties,
-      tagComponentSet
+      tagComponentSet,
+      indexPosition,
     );
     tagGroups.push(tagGroup);
   }
@@ -52,19 +55,21 @@ async function buildOneTag(
   element: InstanceNode,
   booleanProperties: any,
   tagComponentSet: ComponentSetNode | undefined,
+  indexPosition = "left",
   labelComponent?: ComponentNode,
-  size?: string
+  size?: string,
 ) {
   const TGGray600 = await setColorStyle(
     ".TG-admin/anatomy-secondary",
-    "707070"
+    "707070",
   );
 
   const resultFrame = buildAutoLayoutFrame("tagFrame", "HORIZONTAL", 20, 0);
   const group = await buildElementTags(
     element,
     booleanProperties,
-    tagComponentSet
+    tagComponentSet,
+    indexPosition,
   );
 
   resultFrame.appendChild(group);
@@ -74,7 +79,7 @@ async function buildOneTag(
   if (labelComponent) {
     const title = setTitlePosition(
       labelComponent.createInstance(),
-      resultFrame
+      resultFrame,
     );
     if (title.children[0] && title.children[0].type === "TEXT")
       await title.children[0].setFillStyleIdAsync(TGGray600.id);
@@ -95,7 +100,8 @@ function setTitlePosition(title: InstanceNode, frame: FrameNode) {
 async function buildElementTags(
   element: InstanceNode,
   booleanProperties: any,
-  tagComponentSet: ComponentSetNode | undefined
+  tagComponentSet: ComponentSetNode | undefined,
+  indexPosition = "left",
 ) {
   const currentAtom = element.clone();
   turnAllBooleansOn(currentAtom, booleanProperties);
@@ -104,7 +110,7 @@ async function buildElementTags(
     tagComponentSet,
     currentAtom,
     true,
-    true
+    true,
   );
 
   if (!tagBuildResults) return currentAtom;
@@ -112,17 +118,51 @@ async function buildElementTags(
   const indexes = tagBuildResults.indexes;
   const tagGroup = figma.group(
     [currentAtom, ...tagElements],
-    figma.currentPage
+    figma.currentPage,
   );
   tagGroup.name = `${element.name}-with-tags`;
-  const tagAutoLayoutFrame = buildAutoLayoutFrame(
-    "tagAutoLayoutFrame",
-    "HORIZONTAL",
-    20,
-    20,
-    12
-  );
-  tagAutoLayoutFrame.appendChild(indexes);
-  tagAutoLayoutFrame.appendChild(tagGroup);
+
+  console.log("indexPosition in the very end of it", indexPosition);
+  const tagAutoLayoutFrame = setIndexPosition(tagGroup, indexes, indexPosition);
   return tagAutoLayoutFrame;
+}
+
+function setIndexPosition(
+  tagGroup: GroupNode,
+  indexes: FrameNode,
+  indexPosition: string,
+) {
+  if (indexPosition === "left" || indexPosition === "right") {
+    const tagAutoLayoutFrame = buildAutoLayoutFrame(
+      "tagAutoLayoutFrame",
+      "HORIZONTAL",
+      20,
+      20,
+      12,
+    );
+    if (indexPosition === "left") {
+      tagAutoLayoutFrame.appendChild(indexes);
+      tagAutoLayoutFrame.appendChild(tagGroup);
+    } else {
+      tagAutoLayoutFrame.appendChild(tagGroup);
+      tagAutoLayoutFrame.appendChild(indexes);
+    }
+    return tagAutoLayoutFrame;
+  } else {
+    const tagAutoLayoutFrame = buildAutoLayoutFrame(
+      "tagAutoLayoutFrame",
+      "VERTICAL",
+      20,
+      20,
+      32,
+    );
+    if (indexPosition === "top") {
+      tagAutoLayoutFrame.appendChild(indexes);
+      tagAutoLayoutFrame.appendChild(tagGroup);
+    } else {
+      tagAutoLayoutFrame.appendChild(tagGroup);
+      tagAutoLayoutFrame.appendChild(indexes);
+    }
+    return tagAutoLayoutFrame;
+  }
 }

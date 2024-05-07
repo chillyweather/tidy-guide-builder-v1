@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { findAllBooleanProps } from "../figma_functions/utilityFunctions";
 import { findAllVariantProps } from "../figma_functions/utilityFunctions";
 import { getElementSizes } from "../figma_functions/utilityFunctions";
@@ -7,11 +8,12 @@ import buildAllTags from "../figma_layout_components/buildTagComponent";
 
 export async function buildAnatomySection(
   node: InstanceNode,
-  parentFrame: FrameNode
+  parentFrame: FrameNode,
+  indexPosition: string = "left",
 ) {
   const booleanProperties = await findAllBooleanProps(node);
-  const elementSizes = await getElementSizes(node);
   const variantProperties = await findAllVariantProps(node);
+  const elementSizes = await getElementSizes(node);
 
   const labelComponent = buildLabelComponent();
   const tagComponent = await buildAllTags();
@@ -22,7 +24,8 @@ export async function buildAnatomySection(
     elementSizes!,
     variantProperties,
     labelComponent,
-    tagComponent
+    tagComponent,
+    indexPosition,
   );
 
   tags.forEach((tag) => {

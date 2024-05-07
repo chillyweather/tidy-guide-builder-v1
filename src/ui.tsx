@@ -541,6 +541,7 @@ function Plugin() {
     }
   }, [documentationTitle]);
 
+  //Mark: Add/update documentation
   async function handleAddDocumentation(token: string, data: any) {
     setIsLoading(true);
     try {
