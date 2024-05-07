@@ -544,7 +544,7 @@ function Plugin() {
   async function handleAddDocumentation(token: string, data: any) {
     setIsLoading(true);
     try {
-      const result = await getDocumentations(token);
+      const result = await getCollectionDocs(token, selectedCollection._id); 
       const isDocumented = result.some((doc: any) => doc._id === data._id);
 
       if (isDocumented) {
