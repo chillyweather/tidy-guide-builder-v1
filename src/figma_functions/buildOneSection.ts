@@ -3,6 +3,7 @@ import { buildAnatomySection } from "src/figma_doc_sections/buildAnatomySection"
 import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
 import { buildTitle } from "src/figma_doc_sections/elementBuildingFunctions";
 import { getNode } from "./getNode";
+import { computeMaximumBounds } from "@create-figma-plugin/utilities";
 
 export async function buildOneSection(
   loadFonts: () => Promise<void>,
@@ -61,6 +62,7 @@ function buildResultFrame() {
   resultFrame.bottomLeftRadius = radiusValue;
   resultFrame.bottomRightRadius = radiusValue;
 
+  placeResultTopRight(resultFrame);
   return resultFrame;
 }
 
@@ -73,4 +75,13 @@ async function getNodeAndDefaultElement(
 
   const defaultElement = await getDefaultElement(node);
   if (defaultElement) return defaultElement;
+}
+
+function placeResultTopRight(resultFrame: FrameNode) {
+  const bounds = computeMaximumBounds(Array.from(figma.currentPage.children));
+  figma.currentPage.appendChild(resultFrame);
+  resultFrame.x = bounds[1].x + 100;
+  resultFrame.y = bounds[0].y;
+
+  figma.viewport.scrollAndZoomIntoView([resultFrame]);
 }
