@@ -36,7 +36,7 @@ async function addInstancesToArray(node: any, array: any[]) {
     node.absoluteRenderBounds.width,
     node.absoluteRenderBounds.height,
     isIcon(node) ? "Icon" : node.name,
-    docFrame ? docFrame.id : node.mainComponent.id,
+    node.mainComponent.id,
   ]);
 }
 
