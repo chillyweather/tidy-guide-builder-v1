@@ -43,6 +43,47 @@ export async function renameCollection(
   return data;
 }
 
+export async function addNewCollection(token: string, name: string) {
+  const headersList = {
+    Accept: "application/json",
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+  };
+
+  const bodyContent = JSON.stringify({ name: name });
+
+  const response = await fetch(
+    "https://api.tidyframework.com/api/collections/",
+    {
+      method: "POST",
+      body: bodyContent,
+      headers: headersList,
+    }
+  );
+
+  const data = await response.json();
+  return data;
+}
+
+export async function deleteCollection(token: string, collectionId: string) {
+  const headersList = {
+    Accept: "*/*",
+    Authorization: `Bearer ${token}`,
+    "Content-Type": "application/json",
+  };
+
+  const response = await fetch(
+    `https://api.tidyframework.com/api/collections/${collectionId}`,
+    {
+      method: "DELETE",
+      headers: headersList,
+    }
+  );
+
+  const data = await response.json();
+  return data;
+}
+
 export async function getCollectionUsers(token: string, collectionId: string) {
   const headersList = {
     Accept: "*/*",

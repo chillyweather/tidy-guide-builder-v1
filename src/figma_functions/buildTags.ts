@@ -16,7 +16,7 @@ export default async function buildTags(
   frame: any,
   instances: any,
   textElements: any,
-  elementMaxWidth?: number,
+  elementMaxWidth?: number
 ) {
   if (!tagComponent) return;
 
@@ -32,6 +32,10 @@ export default async function buildTags(
   elementsCoordinatesAndDimensions.length = 0;
 
   await findAllNodes(frame, instances, textElements);
+  console.log(
+    "elementsCoordinatesAndDimensions",
+    elementsCoordinatesAndDimensions
+  );
 
   const indexes = buildIndexesFrame(frame);
 
@@ -54,10 +58,12 @@ export default async function buildTags(
   };
 
   function getDistances(dot: any, rectangle: FrameData) {
-    const bottomDistance = rectangle.y + rectangle.height - (dot[1] + dot[3]);
-    const topDistance = dot[1] - rectangle.y;
-    const leftDistance = dot[0] - rectangle.x;
-    const rightDistance = rectangle.x + rectangle.width - (dot[0] + dot[2]);
+    const bottomDistance =
+      rectangle.y + rectangle.height - (dot.elementY + dot.elementHeight);
+    const topDistance = dot.elementY - rectangle.y;
+    const leftDistance = dot.elementX - rectangle.x;
+    const rightDistance =
+      rectangle.x + rectangle.width - (dot.elementX + dot.elementWidth);
 
     const distances = {
       top: topDistance,
@@ -94,7 +100,7 @@ export default async function buildTags(
 
   elementsCoordinatesAndDimensions.forEach((element, index) => {
     const distances = getDistances(element, frameData);
-    const [
+    const {
       elementX,
       elementY,
       elementWidth,
@@ -103,8 +109,16 @@ export default async function buildTags(
       elementStyleName,
       elementFontName,
       elementFontSize,
-    ]: [number, number, number, number, string, string, FontName, number] =
-      element;
+    }: {
+      elementX: number;
+      elementY: number;
+      elementWidth: number;
+      elementHeight: number;
+      elementName: string;
+      elementStyleName: string;
+      elementFontName: FontName;
+      elementFontSize: number;
+    } = element;
 
     const tag = buildTagElements(
       tagComponent,
@@ -113,11 +127,11 @@ export default async function buildTags(
       elementY,
       elementWidth,
       elementHeight,
-      distances,
+      distances
     );
 
     const indexWithLabelComp = tagComponent.findOne(
-      (node) => node.name === "type=text" && node.type === "COMPONENT",
+      (node) => node.name === "type=text" && node.type === "COMPONENT"
     );
     if (!indexWithLabelComp || indexWithLabelComp.type !== "COMPONENT") return;
 
@@ -128,10 +142,11 @@ export default async function buildTags(
     setTextContent(indexWithLabel, "elementIndex", `${abc[index]}`);
 
     if (elementStyleName && elementFontName && elementFontSize) {
+      console.log("element", element);
       setTextContent(
         indexWithLabel,
         "Text",
-        `${elementName}, ${elementStyleName} (${elementFontName.family} ${elementFontName.style} - ${elementFontSize}px)`,
+        `${elementName}, ${elementStyleName} (${elementFontName.family} ${elementFontName.style} - ${elementFontSize}px)`
       );
     } else {
       setTextContent(indexWithLabel, "Text", elementName);
@@ -176,10 +191,10 @@ export default async function buildTags(
 function addMinWidthIndex(
   minSize: number,
   tagComponent: ComponentSetNode,
-  indexes: FrameNode,
+  indexes: FrameNode
 ) {
   const indexWithLabelComponent = tagComponent.findOne(
-    (node) => node.name === "type=size" && node.type === "COMPONENT",
+    (node) => node.name === "type=size" && node.type === "COMPONENT"
   );
   if (!indexWithLabelComponent || indexWithLabelComponent.type !== "COMPONENT")
     return;
@@ -198,7 +213,7 @@ function addMinWidthIndex(
 function addEffectsInfo(
   frame: any,
   tagComponent: ComponentSetNode,
-  indexes: FrameNode,
+  indexes: FrameNode
 ) {
   const effects: any = getEffects(frame);
   if (!effects) return;
@@ -225,11 +240,11 @@ function addEffectsInfo(
 function addBorderRadius(
   frame: any,
   tagComponent: ComponentSetNode,
-  indexes: FrameNode,
+  indexes: FrameNode
 ) {
   if (frame.cornerRadius !== 0) {
     const tag = tagComponent.findOne(
-      (node) => node.name === "type=cornerRadius",
+      (node) => node.name === "type=cornerRadius"
     );
     if (!(tag && tag.type === "COMPONENT")) return;
     if (frame.cornerRadius !== figma.mixed) {
@@ -275,11 +290,11 @@ function addMaxWidth(
   frame: any,
   tagComponent: ComponentSetNode,
   indexes: FrameNode,
-  maxWidth: number,
+  maxWidth: number
 ) {
   if (maxWidth && maxWidth > 0) {
     const foundTagComponent = tagComponent.findOne(
-      (node) => node.name === "type=size" && node.type === "COMPONENT",
+      (node) => node.name === "type=size" && node.type === "COMPONENT"
     );
     if (!foundTagComponent || foundTagComponent.type !== "COMPONENT") return;
     const tag = foundTagComponent.createInstance();
@@ -292,7 +307,7 @@ function addMaxWidth(
 function addStrokeInfo(
   frame: any,
   tagComp: ComponentSetNode,
-  indexes: FrameNode,
+  indexes: FrameNode
 ) {
   if (frame.strokes && frame.strokes.length > 0) {
     const strokeAlign = frame.strokeAlign;
@@ -308,7 +323,7 @@ function addStrokeInfo(
       for (const res in result) {
         if (result[res] > 0) {
           const foundTagComponent = tagComp.findOne(
-            (node) => node.name === "type=info" && node.type === "COMPONENT",
+            (node) => node.name === "type=info" && node.type === "COMPONENT"
           );
           if (!foundTagComponent || foundTagComponent.type !== "COMPONENT")
             return;
@@ -319,7 +334,7 @@ function addStrokeInfo(
       }
     } else {
       const foundTagComponent = tagComp.findOne(
-        (node) => node.name === "type=info" && node.type === "COMPONENT",
+        (node) => node.name === "type=info" && node.type === "COMPONENT"
       );
       if (!foundTagComponent || foundTagComponent.type !== "COMPONENT") return;
       const tag = foundTagComponent.createInstance();
@@ -334,12 +349,12 @@ function setStrokeProps(
   strokeWeight: string,
   strokeAlign: any,
   indexes: FrameNode,
-  strokeKind: string,
+  strokeKind: string
 ) {
   setTextContent(
     tag,
     "Text",
-    `${strokeKind} - ${strokeWeight}px, ${strokeAlign}`,
+    `${strokeKind} - ${strokeWeight}px, ${strokeAlign}`
   );
 
   const indexLink = tag.findOne((element: any) => element.name === "link");

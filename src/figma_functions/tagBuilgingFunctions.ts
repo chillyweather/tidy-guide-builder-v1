@@ -29,15 +29,23 @@ function isIcon(node: SceneNode) {
 }
 
 async function addInstancesToArray(node: any, array: any[]) {
-  const docFrame = await findDocFrame(node);
-  array.push([
-    node.absoluteBoundingBox.x,
-    node.absoluteBoundingBox.y,
-    node.absoluteRenderBounds.width,
-    node.absoluteRenderBounds.height,
-    isIcon(node) ? "Icon" : node.name,
-    node.mainComponent.id,
-  ]);
+  // const docFrame = await findDocFrame(node);
+  array.push({
+    elementX: node.absoluteBoundingBox.x,
+    elementY: node.absoluteBoundingBox.y,
+    elementWidth: node.absoluteRenderBounds.width,
+    elementHeight: node.absoluteRenderBounds.height,
+    elementName: isIcon(node) ? "Icon" : node.name,
+    elementMain: node.mainComponent.id,
+  });
+  // array.push([
+  //   node.absoluteBoundingBox.x,
+  //   node.absoluteBoundingBox.y,
+  //   node.absoluteRenderBounds.width,
+  //   node.absoluteRenderBounds.height,
+  //   isIcon(node) ? "Icon" : node.name,
+  //   node.mainComponent.id,
+  // ]);
 }
 
 export async function addTextNodesToArray(
@@ -46,17 +54,28 @@ export async function addTextNodesToArray(
 ): Promise<void> {
   const styleName = await findFontStyleName(node);
 
-  array.push([
-    node.absoluteBoundingBox.x,
-    node.absoluteBoundingBox.y,
-    node.absoluteRenderBounds.width,
-    node.height,
-    node.name,
-    null,
-    styleName,
-    node.fontName,
-    node.fontSize,
-  ]);
+  array.push({
+    elementX: node.absoluteBoundingBox.x,
+    elementY: node.absoluteBoundingBox.y,
+    elementWidth: node.absoluteRenderBounds.width,
+    elementHeight: node.height,
+    elementName: node.name,
+    elementMain: null,
+    elementStyleName: styleName,
+    elementFontName: node.fontName,
+    elementFontSize: node.fontSize,
+  });
+  // array.push([
+  //   node.absoluteBoundingBox.x,
+  //   node.absoluteBoundingBox.y,
+  //   node.absoluteRenderBounds.width,
+  //   node.height,
+  //   node.name,
+  //   null,
+  //   styleName,
+  //   node.fontName,
+  //   node.fontSize,
+  // ]);
 }
 
 export async function findAllNodes(
