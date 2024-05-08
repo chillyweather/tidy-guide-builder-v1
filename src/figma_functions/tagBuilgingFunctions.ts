@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { findDocFrame } from "./utilityFunctions";
+import { findDocFrame, findMasterComponent } from "./utilityFunctions";
 
 //^ here we collect all the info on instances
 export const elementsCoordinatesAndDimensions = [];
@@ -9,7 +9,7 @@ async function findFontStyleName(textNode: TextNode) {
     return "style not determined";
   } else {
     const foundStyle = await figma.getStyleByIdAsync(
-      textNode.textStyleId as string
+      textNode.textStyleId as string,
     );
     if (foundStyle?.remote === false) {
       return foundStyle.name;
@@ -42,7 +42,7 @@ async function addInstancesToArray(node: any, array: any[]) {
 
 export async function addTextNodesToArray(
   node: any,
-  array: any[]
+  array: any[],
 ): Promise<void> {
   const styleName = await findFontStyleName(node);
 
@@ -62,7 +62,7 @@ export async function addTextNodesToArray(
 export async function findAllNodes(
   frame: FrameNode | GroupNode,
   instances: any,
-  textElements: any
+  textElements: any,
 ): Promise<void> {
   figma.skipInvisibleInstanceChildren = true;
   for (const node of frame.children) {
@@ -125,7 +125,7 @@ export function addLink({
   link: string;
 }): void {
   const linkText = component.findOne(
-    (node) => node.name === "link" && node.type === "TEXT"
+    (node) => node.name === "link" && node.type === "TEXT",
   );
   if (!(linkText && linkText.type === "TEXT")) return;
   linkText.hyperlink = { type: "NODE", value: link };

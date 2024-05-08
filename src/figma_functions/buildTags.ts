@@ -16,7 +16,7 @@ export default async function buildTags(
   frame: any,
   instances: any,
   textElements: any,
-  elementMaxWidth?: number
+  elementMaxWidth?: number,
 ) {
   if (!tagComponent) return;
 
@@ -113,11 +113,11 @@ export default async function buildTags(
       elementY,
       elementWidth,
       elementHeight,
-      distances
+      distances,
     );
 
     const indexWithLabelComp = tagComponent.findOne(
-      (node) => node.name === "type=text" && node.type === "COMPONENT"
+      (node) => node.name === "type=text" && node.type === "COMPONENT",
     );
     if (!indexWithLabelComp || indexWithLabelComp.type !== "COMPONENT") return;
 
@@ -131,7 +131,7 @@ export default async function buildTags(
       setTextContent(
         indexWithLabel,
         "Text",
-        `${elementName}, ${elementStyleName} (${elementFontName.family} ${elementFontName.style} - ${elementFontSize}px)`
+        `${elementName}, ${elementStyleName} (${elementFontName.family} ${elementFontName.style} - ${elementFontSize}px)`,
       );
     } else {
       setTextContent(indexWithLabel, "Text", elementName);
@@ -145,7 +145,7 @@ export default async function buildTags(
     tagElements.push(tag);
   });
 
-  if (minSizeProperty) addMinSizeIndex(minSizeProperty, tagComponent, indexes);
+  if (minSizeProperty) addMinWidthIndex(minSizeProperty, tagComponent, indexes);
 
   if (elementMaxWidth && elementMaxWidth > 0)
     addMaxWidth(frame, tagComponent, indexes, elementMaxWidth);
@@ -173,13 +173,13 @@ export default async function buildTags(
   return { tagElements, indexes };
 }
 
-function addMinSizeIndex(
+function addMinWidthIndex(
   minSize: number,
   tagComponent: ComponentSetNode,
-  indexes: FrameNode
+  indexes: FrameNode,
 ) {
   const indexWithLabelComponent = tagComponent.findOne(
-    (node) => node.name === "type=size" && node.type === "COMPONENT"
+    (node) => node.name === "type=size" && node.type === "COMPONENT",
   );
   if (!indexWithLabelComponent || indexWithLabelComponent.type !== "COMPONENT")
     return;
@@ -198,7 +198,7 @@ function addMinSizeIndex(
 function addEffectsInfo(
   frame: any,
   tagComponent: ComponentSetNode,
-  indexes: FrameNode
+  indexes: FrameNode,
 ) {
   const effects: any = getEffects(frame);
   if (!effects) return;
@@ -225,11 +225,11 @@ function addEffectsInfo(
 function addBorderRadius(
   frame: any,
   tagComponent: ComponentSetNode,
-  indexes: FrameNode
+  indexes: FrameNode,
 ) {
   if (frame.cornerRadius !== 0) {
     const tag = tagComponent.findOne(
-      (node) => node.name === "type=cornerRadius"
+      (node) => node.name === "type=cornerRadius",
     );
     if (!(tag && tag.type === "COMPONENT")) return;
     if (frame.cornerRadius !== figma.mixed) {
@@ -275,11 +275,11 @@ function addMaxWidth(
   frame: any,
   tagComponent: ComponentSetNode,
   indexes: FrameNode,
-  maxWidth: number
+  maxWidth: number,
 ) {
   if (maxWidth && maxWidth > 0) {
     const foundTagComponent = tagComponent.findOne(
-      (node) => node.name === "type=size" && node.type === "COMPONENT"
+      (node) => node.name === "type=size" && node.type === "COMPONENT",
     );
     if (!foundTagComponent || foundTagComponent.type !== "COMPONENT") return;
     const tag = foundTagComponent.createInstance();
@@ -292,7 +292,7 @@ function addMaxWidth(
 function addStrokeInfo(
   frame: any,
   tagComp: ComponentSetNode,
-  indexes: FrameNode
+  indexes: FrameNode,
 ) {
   if (frame.strokes && frame.strokes.length > 0) {
     const strokeAlign = frame.strokeAlign;
@@ -308,7 +308,7 @@ function addStrokeInfo(
       for (const res in result) {
         if (result[res] > 0) {
           const foundTagComponent = tagComp.findOne(
-            (node) => node.name === "type=info" && node.type === "COMPONENT"
+            (node) => node.name === "type=info" && node.type === "COMPONENT",
           );
           if (!foundTagComponent || foundTagComponent.type !== "COMPONENT")
             return;
@@ -319,7 +319,7 @@ function addStrokeInfo(
       }
     } else {
       const foundTagComponent = tagComp.findOne(
-        (node) => node.name === "type=info" && node.type === "COMPONENT"
+        (node) => node.name === "type=info" && node.type === "COMPONENT",
       );
       if (!foundTagComponent || foundTagComponent.type !== "COMPONENT") return;
       const tag = foundTagComponent.createInstance();
@@ -334,12 +334,12 @@ function setStrokeProps(
   strokeWeight: string,
   strokeAlign: any,
   indexes: FrameNode,
-  strokeKind: string
+  strokeKind: string,
 ) {
   setTextContent(
     tag,
     "Text",
-    `${strokeKind} - ${strokeWeight}px, ${strokeAlign}`
+    `${strokeKind} - ${strokeWeight}px, ${strokeAlign}`,
   );
 
   const indexLink = tag.findOne((element: any) => element.name === "link");
