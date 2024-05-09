@@ -3793,6 +3793,9 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   align-items: center;
   gap: 6px;
 }
+.sectionCard:has(.cardBody):hover .rightContent .hoverButton{
+  display: none;
+}
 
 .cardAuxButton {
   background-color: transparent;
