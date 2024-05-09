@@ -3806,7 +3806,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   content: attr(tool-tip);
   position: absolute;
   bottom: 125%;
-  left: 50%;
+  left: 0;
   transform: translateX(-50%);
   /* max-width: 16ch; */
   width: fit-content;
