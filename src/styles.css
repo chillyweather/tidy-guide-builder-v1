@@ -3797,6 +3797,9 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 .sectionCard:has(.cardBody):hover .rightContent .hoverButton {
   display: none;
 }
+.sectionCard:has(.cardBody):hover .rightContent .hoverButton.redButton {
+  display: block;
+}
 
 *[tool-tip] {
   position: relative;
