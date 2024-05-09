@@ -474,6 +474,7 @@ export const ContentCard = (card: any, index: number) => {
           <button
             onClick={handleBuildClick}
             className={"cardAuxButton hoverButton"}
+            tool-tip={"testtest"}
           >
             <IconArrowBarDown />
           </button>
