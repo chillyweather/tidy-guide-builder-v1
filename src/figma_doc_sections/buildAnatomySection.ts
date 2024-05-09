@@ -3,7 +3,7 @@ import { findAllBooleanProps } from "../figma_functions/utilityFunctions";
 import { findAllVariantProps } from "../figma_functions/utilityFunctions";
 import { getElementSizes } from "../figma_functions/utilityFunctions";
 import { buildLabelComponent } from "../figma_layout_components/buildLabelComponent";
-import { buildAtomTags } from "../figma_functions/buildAtomTags";
+import { buildAtomTags } from "../figma_functions/Anatomy/buildAtomTags";
 import buildAllTags from "../figma_layout_components/buildTagComponent";
 
 export async function buildAnatomySection(

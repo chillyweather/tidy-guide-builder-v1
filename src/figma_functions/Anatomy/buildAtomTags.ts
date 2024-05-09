@@ -5,7 +5,7 @@ import {
   setVariantProps,
   turnAllBooleansOn,
   setColorStyle,
-} from "../figma_functions/utilityFunctions";
+} from "../utilityFunctions";
 import buildTags from "./buildTags";
 
 export async function buildAtomTags(

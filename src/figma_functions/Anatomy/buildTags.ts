@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { computeMaximumBounds } from "@create-figma-plugin/utilities";
-import { buildIndexesFrame } from "./tns_subFunctions";
+import { buildIndexesFrame } from "../tns_subFunctions";
 import {
   findAllNodes,
   elementsCoordinatesAndDimensions,
   // getTagInstance,
 } from "./tagBuilgingFunctions";
 import { buildTagElements } from "./buildTagElements";
-import { setVariantProps } from "./utilityFunctions";
-import { getEffects } from "./getEffects";
-import { setTextContent } from "./utilityFunctions";
+import { setVariantProps } from "../utilityFunctions";
+import { getEffects } from "../getEffects";
+import { setTextContent } from "../utilityFunctions";
 
 export default async function buildTags(
   tagComponent: ComponentSetNode | undefined,

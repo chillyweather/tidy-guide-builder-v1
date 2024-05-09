@@ -11,7 +11,6 @@ import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
 import DeletePopup from "./ui_components/popups/deletePopup";
 import DeleteSectionPopup from "./ui_components/popups/deleteSectionPopup";
-import PreviewPopup from "./ui_components/popups/previewPopup";
 import PasswordResetPopup from "./ui_components/popups/passwordResetPopup";
 import DeleteAccountPopup from "./ui_components/popups/deleteAccountPopup";
 import WaitingInfoPopup from "./ui_components/popups/waitingInfoPopup";
@@ -693,8 +692,6 @@ function Plugin() {
     setToken,
   };
 
-  const isPreviewDataExists = Object.keys(previewData).length > 0;
-
   return (
     <div
       className={"container"}
@@ -725,7 +722,6 @@ function Plugin() {
           />
         )}
         {isLoading && <LoaderPage />}
-        {showPreviewPopup && isPreviewDataExists && <PreviewPopup />}
         {showCancelPopup && <CancelPopup />}
         {showResetPopup && <ResetPopup />}
         {showDeletePopup && (

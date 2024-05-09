@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+//@ts-nocheck
 import { h, FunctionalComponent } from "preact";
 import { useState, useEffect, useRef, useContext } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
-import { IconPencil } from "@tabler/icons-react";
+import { IconPencil, IconPlus } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import {
   currentUserIdAtom,
@@ -12,7 +14,10 @@ import {
   isCollectionSwitchingAtom,
 } from "src/state/atoms";
 import { findUserRole } from "src/ui_components/ui_functions/findUserRole";
-import { renameCollection } from "./ui_functions/collectionHandlers";
+import {
+  renameCollection,
+  addNewCollection,
+} from "./ui_functions/collectionHandlers";
 
 interface DropdownProps {
   rename: boolean;
@@ -29,6 +34,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [editTitle, setEditTitle] = useState(false);
   const [isOwner, setIsOwner] = useState(false);
+  const [addingNewCollection, setAddingNewCollection] = useState(false);
   const [currentUserId] = useAtom(currentUserIdAtom);
   const [, setCurentUserRole] = useAtom(currentUserRoleAtom);
   const [selectedCollection, setSelectedCollection]: any = useAtom(
@@ -103,6 +109,46 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
     }
   }
 
+  async function createNewCollection(
+    e:
+      | h.JSX.TargetedFocusEvent<HTMLDivElement>
+      | h.JSX.TargetedKeyboardEvent<HTMLDivElement>
+  ) {
+    if (
+      e.currentTarget.textContent &&
+      e.currentTarget.textContent !== selectedCollection.name
+    ) {
+      setSelectedCollection({
+        ...selectedCollection,
+        name: e.currentTarget.textContent,
+      });
+      const data = await addNewCollection(token, e.currentTarget.textContent);
+      if (data) {
+        setCollectionDocsTrigger((prevTrigger) => prevTrigger + 1);
+      }
+    }
+  }
+
+  const handleRenameEvent = (e) => {
+    if (e.type === "keydown" && e.key !== "Enter") return;
+    handleDropdownTitleRename(setEditTitle, updateCollections, e);
+  };
+
+  let hasAddedCollection = false;
+
+  const handleAddCollectionEvent = (e) => {
+    if (hasAddedCollection) return;
+    if (e.type !== "keydown" || e.key !== "Enter") return;
+    if (!addingNewCollection) return;
+
+    handleDropdownTitleAdd(setEditTitle, createNewCollection, e);
+    hasAddedCollection = true;
+  };
+
+  useEffect(() => {
+    hasAddedCollection = false;
+  }, [addingNewCollection]);
+
   return (
     <div class="dropdown-comp">
       <div className="dropdown-wrapper">
@@ -117,32 +163,16 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
                 id={"dropdown-title"}
                 ref={inputRef}
                 contentEditable={editTitle}
-                onBlur={(e) => {
-                  //@ts-ignore
-                  window.tempTitle = document.getElementById("dropdown-title").innerText
-                  //@ts-ignore
-                  document.getElementById("dropdown-title").innerText = "";
-                  window.getSelection()?.removeAllRanges();
-                  setEditTitle(false);
-                  //@ts-ignore
-                  document.getElementById("dropdown-title").innerText = window.tempTitle;
-                  updateCollections(e);
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    //@ts-ignore
-                    window.tempTitle = document.getElementById("dropdown-title").innerText
-                    //@ts-ignore
-                    document.getElementById("dropdown-title").innerText = "";
-                    window.getSelection()?.removeAllRanges();
-                    setEditTitle(false);
-                    //@ts-ignore
-                    document.getElementById("dropdown-title").innerText = window.tempTitle;
-                    updateCollections(e);
-                  } else if (e.key === " ") {
-                    e.stopPropagation();
-                  }
-                }}
+                onBlur={
+                  addingNewCollection
+                    ? handleAddCollectionEvent
+                    : handleRenameEvent
+                }
+                onKeyDown={
+                  addingNewCollection
+                    ? handleAddCollectionEvent
+                    : handleRenameEvent
+                }
               >
                 {selectedCollection.name || "Select an option"}
               </div>
@@ -150,15 +180,29 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
           )}
         </button>
         {isOwner && (
-          <button
-            hidden={!rename}
-            className={"rename-button"}
-            onClick={() => {
-              setEditTitle(true);
-            }}
-          >
-            <IconPencil />
-          </button>
+          <div className="collection-dropdown-buttons-wrapper">
+            <button
+              hidden={!rename}
+              className={"rename-button"}
+              onClick={() => {
+                setAddingNewCollection(false);
+                setEditTitle(true);
+              }}
+            >
+              <IconPencil />
+            </button>
+            <button
+              hidden={!rename}
+              className={"rename-button"}
+              onClick={() => {
+                setAddingNewCollection(true);
+                setEditTitle(true);
+                console.log("add new collection");
+              }}
+            >
+              <IconPlus />
+            </button>
+          </div>
         )}
         {isOpen && (
           <div class="dropdown-menu">
@@ -188,3 +232,37 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
 };
 
 export default CollectionsDropdown;
+
+function handleDropdownTitleRename(
+  setEditTitle,
+  updateCollections: (
+    e:
+      | h.JSX.TargetedFocusEvent<HTMLDivElement>
+      | h.JSX.TargetedKeyboardEvent<HTMLDivElement>
+  ) => Promise<void>,
+  e: h.JSX.TargetedKeyboardEvent<HTMLDivElement>
+) {
+  window.tempTitle = document.getElementById("dropdown-title").innerText;
+  document.getElementById("dropdown-title").innerText = "";
+  window.getSelection()?.removeAllRanges();
+  setEditTitle(false);
+  document.getElementById("dropdown-title").innerText = window.tempTitle;
+  updateCollections(e);
+}
+
+function handleDropdownTitleAdd(
+  setEditTitle,
+  createNewCollection: (
+    e:
+      | h.JSX.TargetedFocusEvent<HTMLDivElement>
+      | h.JSX.TargetedKeyboardEvent<HTMLDivElement>
+  ) => Promise<void>,
+  e: h.JSX.TargetedKeyboardEvent<HTMLDivElement>
+) {
+  window.tempTitle = document.getElementById("dropdown-title").innerText;
+  document.getElementById("dropdown-title").innerText = "";
+  window.getSelection()?.removeAllRanges();
+  setEditTitle(false);
+  document.getElementById("dropdown-title").innerText = window.tempTitle;
+  createNewCollection(e);
+}
