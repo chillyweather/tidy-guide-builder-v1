@@ -507,7 +507,7 @@ export const ContentCard = (card: any, index: number) => {
               {PublishToggle(publish, setPublish, "Publish to Tidy Viewer")}
             </div>
             <div className="rightContent">
-              <button onClick={handleBuildClick}>
+              <button onClick={handleBuildClick} tool-tip={"Build this section on canvas"}>
                 <IconArrowBarDown />
               </button>
               <button
