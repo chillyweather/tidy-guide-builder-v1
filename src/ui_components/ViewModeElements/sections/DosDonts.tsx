@@ -2,7 +2,7 @@ import { h } from "preact";
 
 export const DosDonts = ({ element, buildLists, index }: any) => {
   return (
-    <div className={"section twoColumnsSection"}>
+    <div className={"section twoColumnsSection dosDontSection"}>
       <div className={"anchorLink"} id={element.title + index}></div>
       {element.title && (
         <div className={"title-row"}>
