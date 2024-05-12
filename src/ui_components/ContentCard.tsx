@@ -18,6 +18,7 @@ import {
   IconPilcrow,
   IconVideo,
   IconColumns,
+  IconExposure,
   IconListDetails,
   IconLink,
   IconPhoto,
@@ -458,6 +459,7 @@ export const ContentCard = (card: any, index: number) => {
             <IconPilcrow className={"paragraph"} />
             <IconVideo className={"video"} />
             <IconColumns className={"twoColumns"} />
+            <IconExposure className={"dosDonts"} />
             <IconListDetails className={"list"} />
             <IconLink className={"link"} />
             <IconPhoto className={"image"} />

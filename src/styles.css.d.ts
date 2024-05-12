@@ -74,6 +74,7 @@ declare const styles: {
   readonly "dialogTitle": string;
   readonly "disabled": string;
   readonly "divider": string;
+  readonly "dosDonts": string;
   readonly "draft": string;
   readonly "draftComponent": string;
   readonly "drag-item": string;

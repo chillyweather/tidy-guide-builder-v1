@@ -3113,13 +3113,22 @@ summary button {
 }
 
 .addSectionIcon[type="two-columns"],
-.addSectionIcon[type="Two Columns (Do's and Don'ts)"] {
+.addSectionIcon[type="Two Columns"] {
   background-color: #EBFDEF;
   color: #26694A;
 }
+.addSectionIcon[type="dos-donts"],
+.addSectionIcon[type="Do's and Dont's"] {
+  background-color: #FEE5CD;
+  color: #E44D02;
+}
 
 .addSectionIcon[type="two-columns"] .twoColumns,
-.addSectionIcon[type="Two Columns (Do's and Don'ts)"] .twoColumns {
+.addSectionIcon[type="Two Columns"] .twoColumns {
+  display: block;
+}
+.addSectionIcon[type="dos-donts"] .dosDonts,
+.addSectionIcon[type="Do's and Dont's"] .dosDonts {
   display: block;
 }
 

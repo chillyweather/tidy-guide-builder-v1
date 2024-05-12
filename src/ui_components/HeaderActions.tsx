@@ -6,6 +6,7 @@ import BuilderContext from "../BuilderContext";
 import {
   IconChevronDown,
   IconColumns,
+  IconExposure,
   IconInfoCircle,
   IconLink,
   IconListDetails,
@@ -101,6 +102,7 @@ function AddSectionPopupCard(card: any) {
           <IconPilcrow className={"paragraph"} />
           <IconVideo className={"video"} />
           <IconColumns className={"twoColumns"} />
+          <IconExposure className={"dosDonts"} />
           <IconListDetails className={"list"} />
           <IconLink className={"link"} />
           <IconPhoto className={"image"} />
