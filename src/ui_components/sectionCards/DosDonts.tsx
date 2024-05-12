@@ -22,7 +22,7 @@ const DosDontsCard = ({
   setRightTextContent: Function;
 }) => {
   return (
-    <div className="twoColumnCardBodyContent">
+    <div className="twoColumnCardBodyContent dosDontCardBodyContent">
       <div className="oneColumn">
         <input
           className="columnTitle listInputStyle"
