@@ -84,8 +84,8 @@ export default async function buildTags(
     return [firstPriority, secondPriority];
   }
 
-  //elements with same distance from the edge sorted by
-  //distance to the edge on other axis
+  // NOTE: elements with same distance from the edge sorted by
+  // NOTE: distance to the edge on other axis
   elementsCoordinatesAndDimensions.sort((a, b) => {
     const prioritiesA = getPriority(a, frameData);
     const prioritiesB = getPriority(b, frameData);
@@ -94,12 +94,6 @@ export default async function buildTags(
     }
     return prioritiesA[0] - prioritiesB[0];
   });
-
-  // type ComponentIndex = {
-  //   key: string;
-  //   index: string;
-  //   name: string;
-  // };
 
   const usedComponentIndexes: any[] = [];
 
@@ -129,7 +123,7 @@ export default async function buildTags(
       elementFontSize: number;
     } = element;
 
-    //* elements (tags and indexes)
+    // NOTE: elements (tags and indexes)
     const tag = buildTagElements(
       tagComponent,
       frame,
@@ -146,7 +140,7 @@ export default async function buildTags(
     const indexWithLabel = indexWithLabelComp.createInstance();
     indexes.appendChild(indexWithLabel);
 
-    //* finding "sibling" elements with the same name and main element
+    // NOTE: finding "sibling" elements with the same name and main element
     function findUsedData(
       dataObj: any,
       mainElement: string,
