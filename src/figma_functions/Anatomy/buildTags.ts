@@ -10,6 +10,7 @@ import { buildTagElements } from "./buildTagElements";
 import { setVariantProps } from "../utilityFunctions";
 import { getEffects } from "../getEffects";
 import { setTextContent } from "../utilityFunctions";
+// import main from 'token2css';
 
 export default async function buildTags(
   tagComponent: ComponentSetNode | undefined,
@@ -32,10 +33,6 @@ export default async function buildTags(
   elementsCoordinatesAndDimensions.length = 0;
 
   await findAllNodes(frame, instances, textElements);
-  console.log(
-    "elementsCoordinatesAndDimensions",
-    elementsCoordinatesAndDimensions
-  );
 
   const indexes = buildIndexesFrame(frame);
 
@@ -98,7 +95,17 @@ export default async function buildTags(
     return prioritiesA[0] - prioritiesB[0];
   });
 
-  elementsCoordinatesAndDimensions.forEach((element, index) => {
+  // type ComponentIndex = {
+  //   key: string;
+  //   index: string;
+  //   name: string;
+  // };
+
+  const usedComponentIndexes: any[] = [];
+
+  let currentIndex = 0;
+
+  elementsCoordinatesAndDimensions.forEach((element) => {
     const distances = getDistances(element, frameData);
     const {
       elementX,
@@ -106,6 +113,7 @@ export default async function buildTags(
       elementWidth,
       elementHeight,
       elementName,
+      elementMain,
       elementStyleName,
       elementFontName,
       elementFontSize,
@@ -115,6 +123,7 @@ export default async function buildTags(
       elementWidth: number;
       elementHeight: number;
       elementName: string;
+      elementMain: string;
       elementStyleName: string;
       elementFontName: FontName;
       elementFontSize: number;
@@ -138,27 +147,73 @@ export default async function buildTags(
     const indexWithLabel = indexWithLabelComp.createInstance();
     indexes.appendChild(indexWithLabel);
 
-    setTextContent(tag, "elementIndex", `${abc[index]}`);
-    setTextContent(indexWithLabel, "elementIndex", `${abc[index]}`);
+    function findUsedData(
+      dataObj: any,
+      mainElement: string,
+      name: string
+    ): string | undefined {
+      for (let i = 0; i < dataObj.length; i++) {
+        if (
+          dataObj[i].mainElement === mainElement &&
+          dataObj[i].name === name
+        ) {
+          return dataObj[i].index;
+        }
+      }
+      return undefined;
+    }
 
-    if (elementStyleName && elementFontName && elementFontSize) {
-      console.log("element", element);
+    if (elementMain) {
+      const foundIndex = findUsedData(
+        usedComponentIndexes,
+        elementMain,
+        elementName
+      );
+      console.log("foundIndex", foundIndex);
+      if (!foundIndex) {
+        usedComponentIndexes.push({
+          mainElement: elementMain,
+          name: elementName,
+          index: abc[currentIndex],
+        });
+        setTextContent(tag, "elementIndex", `${abc[currentIndex]}`);
+        setTextContent(indexWithLabel, "elementIndex", `${abc[currentIndex]}`);
+        currentIndex += 1;
+      } else {
+        setTextContent(tag, "elementIndex", `${foundIndex}`);
+        indexWithLabel.remove();
+      }
+    } else {
+      setTextContent(tag, "elementIndex", `${abc[currentIndex]}`);
+      setTextContent(indexWithLabel, "elementIndex", `${abc[currentIndex]}`);
+      currentIndex += 1;
+    }
+
+    if (
+      elementStyleName &&
+      elementFontName &&
+      elementFontSize &&
+      !indexWithLabel.removed
+    ) {
       setTextContent(
         indexWithLabel,
         "Text",
         `${elementName}, ${elementStyleName} (${elementFontName.family} ${elementFontName.style} - ${elementFontSize}px)`
       );
-    } else {
+    } else if (!indexWithLabel.removed) {
       setTextContent(indexWithLabel, "Text", elementName);
     }
 
-    if (elementName === "Icon") {
+    if (elementName === "Icon" && indexWithLabel) {
       setTextContent(indexWithLabel, "Text", `Icon - ${elementWidth}px`);
     }
     tag.name = `.tag`;
-    indexWithLabel.name = `.${abc[index]}_${elementName}`;
+    if (!indexWithLabel.removed)
+      indexWithLabel.name = `.${abc[currentIndex]}_${elementName}`;
     tagElements.push(tag);
   });
+
+  console.log("usedComponentIndexes", usedComponentIndexes);
 
   if (minSizeProperty) addMinWidthIndex(minSizeProperty, tagComponent, indexes);
 

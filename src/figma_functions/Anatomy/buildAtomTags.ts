@@ -128,7 +128,6 @@ async function buildElementTags(
   );
   tagGroup.name = `${element.name}-with-tags`;
 
-  console.log("indexPosition in the very end of it", indexPosition);
   const tagAutoLayoutFrame = setIndexPosition(
     tagGroup,
     indexes,
