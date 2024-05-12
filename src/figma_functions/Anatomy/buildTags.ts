@@ -129,6 +129,7 @@ export default async function buildTags(
       elementFontSize: number;
     } = element;
 
+    //* elements (tags and indexes)
     const tag = buildTagElements(
       tagComponent,
       frame,
@@ -138,15 +139,14 @@ export default async function buildTags(
       elementHeight,
       distances
     );
-
     const indexWithLabelComp = tagComponent.findOne(
       (node) => node.name === "type=text" && node.type === "COMPONENT"
     );
     if (!indexWithLabelComp || indexWithLabelComp.type !== "COMPONENT") return;
-
     const indexWithLabel = indexWithLabelComp.createInstance();
     indexes.appendChild(indexWithLabel);
 
+    //* finding "sibling" elements with the same name and main element
     function findUsedData(
       dataObj: any,
       mainElement: string,
@@ -169,7 +169,6 @@ export default async function buildTags(
         elementMain,
         elementName
       );
-      console.log("foundIndex", foundIndex);
       if (!foundIndex) {
         usedComponentIndexes.push({
           mainElement: elementMain,
