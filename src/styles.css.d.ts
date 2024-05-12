@@ -115,6 +115,7 @@ declare const styles: {
   readonly "flex-link": string;
   readonly "footer": string;
   readonly "fullscreen": string;
+  readonly "green": string;
   readonly "header": string;
   readonly "header-button": string;
   readonly "header-login": string;
@@ -201,6 +202,7 @@ declare const styles: {
   readonly "publish-dropdown": string;
   readonly "publish-dropdown-item": string;
   readonly "publish-icon": string;
+  readonly "red": string;
   readonly "red-icon": string;
   readonly "redButton": string;
   readonly "redPara": string;

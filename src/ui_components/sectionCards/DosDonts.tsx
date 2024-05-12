@@ -25,13 +25,13 @@ const DosDontsCard = ({
     <div className="twoColumnCardBodyContent dosDontCardBodyContent">
       <div className="oneColumn">
         <input
-          className="columnTitle listInputStyle"
+          className="columnTitle listInputStyle invisible"
           type="text"
           placeholder="Type title..."
           value={leftTitle}
           onInput={(e) => setLeftTitle(e.currentTarget.value)}
         />
-        <div className="dialogFlex">
+        <div className="dialogFlex green">
           <textarea
             className="columnTextArea listInputStyle"
             rows={15}
@@ -49,13 +49,13 @@ const DosDontsCard = ({
       </div>
       <div className="oneColumn">
         <input
-          className="columnTitle listInputStyle"
+          className="columnTitle listInputStyle invisible"
           type="text"
           placeholder="Type title..."
           value={rightTitle}
           onInput={(e) => setRightTitle(e.currentTarget.value)}
         />
-        <div className="dialogFlex">
+        <div className="dialogFlex red">
           <textarea
             className="columnTextArea listInputStyle"
             rows={15}
