@@ -59,6 +59,7 @@ import VideoCard from "./sectionCards/VideoCard";
 import SpacingsCard from "./sectionCards/SpacingsCard";
 import { useEffect } from "preact/hooks";
 import { sendRaster } from "./ui_functions/sendRaster";
+import DosDontsCard from "./sectionCards/DosDonts";
 
 function makeDraggable(event: any) {
   event.target.parentElement.parentElement.parentElement.parentElement.setAttribute(
@@ -301,6 +302,20 @@ export const ContentCard = (card: any, index: number) => {
     } else if (cardType === "two-columns") {
       return (
         <TwoColumnCard
+          data={card}
+          leftTitle={leftTitle}
+          setLeftTitle={setLeftTitle}
+          leftTextContent={leftTextContent}
+          setLeftTextContent={setLeftTextContent}
+          rightTitle={rightTitle}
+          setRightTitle={setRightTitle}
+          rightTextContent={rightTextContent}
+          setRightTextContent={setRightTextContent}
+        />
+      );
+    } else if (cardType === "dos-donts") {
+      return (
+        <DosDontsCard
           data={card}
           leftTitle={leftTitle}
           setLeftTitle={setLeftTitle}

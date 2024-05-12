@@ -1375,6 +1375,7 @@ body:has(.settings-wrapper) .mode-button {
   flex-direction: column;
   align-items: center;
   font-size: var(--text-size);
+  overflow-x: hidden;
 }
 
 body .nav-wrapper {
