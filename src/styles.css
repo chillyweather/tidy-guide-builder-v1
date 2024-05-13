@@ -4579,7 +4579,7 @@ input[type="checkbox"] {
 .dialogFlex.red:focus-within::after {
   content: '';
   position: absolute;
-  top: 18px;
+  top: 19px;
   left: 14px;
   width: 6px;
   height: 6px;
