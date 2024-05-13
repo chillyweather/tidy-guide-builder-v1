@@ -4562,13 +4562,13 @@ input[type="checkbox"] {
   border-color: transparent;
 }
 
-.dialogFlex.red:focus-within {
+/* .dialogFlex.red:focus-within {
   border-color: #FF6347;
 }
 
 .dialogFlex.green:focus-within {
   border-color: #3CB371;
-}
+} */
 
 .dialogFlex.green textarea,
 .dialogFlex.red textarea {
