@@ -25,7 +25,7 @@ export default async function buildTags(
   links.forEach((link) => {
     link.visible = false;
   });
-  const abc = "abcdefghijklmnopqrstuvwxyz0123456789♠♣♥♦●■▲▼○□◆◇◊★☆";
+  const abc = Array.from({ length: 999 }, (_, i) => (i + 1).toString());
   const minSizeProperty = frame.minWidth ? frame.minWidth : null;
 
   const tagElements: any[] = [];

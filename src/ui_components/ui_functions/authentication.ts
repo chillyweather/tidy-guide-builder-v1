@@ -78,8 +78,8 @@ export async function getMyAccountData(token: string) {
   return response.json();
 }
 
-export async function getUsersFromMyCompany(token: string) {
-  const path = "https://api.tidyframework.com/api/users/company";
+export async function getUsers(token: string) {
+  const path = "https://api.tidyframework.com/api/users";
   const response = await fetch(path, {
     method: "GET",
     headers: {

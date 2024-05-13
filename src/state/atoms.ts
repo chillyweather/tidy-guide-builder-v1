@@ -9,6 +9,7 @@ export const isPublishAndViewAtom = atom(false);
 export const selectionDataAtom = atom(null);
 export const isDetailsPageOpenAtom = atom(false);
 
+export const usersAtom = atom([]);
 export const currentUserNameAtom = atom("");
 export const currentCompanyAtom = atom("");
 export const currentUserIdAtom = atom("");

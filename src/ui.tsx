@@ -42,6 +42,7 @@ import {
   getCollections,
   getCollectionDocs,
 } from "./ui_components/ui_functions/collectionHandlers";
+import { getUsers } from "./ui_components/ui_functions/authentication";
 
 import { useAtom } from "jotai";
 import {
@@ -64,6 +65,7 @@ import {
   isCollectionSwitchingAtom,
   showCrashLogoutPopupAtom,
   isDetailsPageOpenAtom,
+  usersAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -103,6 +105,7 @@ function Plugin() {
   const [isDetailsPageOpen, setIsDetailsPageOpen] = useAtom(
     isDetailsPageOpenAtom
   );
+  const [, setUsers] = useAtom(usersAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -276,6 +279,12 @@ function Plugin() {
   }, [token, currentUserId, collectionDocsTrigger]);
 
   useEffect(() => {
+    if (token) {
+      setCurrentUsers(token);
+    }
+  }, [token]);
+
+  useEffect(() => {
     if (currentUserRole && currentUserRole === "Viewer") {
       setIsViewModeOpen(true);
     } else {
@@ -378,6 +387,11 @@ function Plugin() {
   async function getUserCollections(token: string, userId: string) {
     const collections = await getCollections(token, userId);
     setCollections(collections);
+  }
+
+  async function setCurrentUsers(token: string) {
+    const users = await getUsers(token);
+    setUsers(users);
   }
 
   // useEffect(() => {

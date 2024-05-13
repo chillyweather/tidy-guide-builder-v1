@@ -2,16 +2,25 @@
 import { h } from "preact";
 import { useContext, useState } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
-import { IconAlertCircleFilled, IconArrowRight, IconUser, IconChevronRight } from "@tabler/icons-react";
+import {
+  IconAlertCircleFilled,
+  IconArrowRight,
+  IconUser,
+  IconChevronRight,
+} from "@tabler/icons-react";
 import manageUsersPage from "./manageUsersPage";
+import manageCollectionsPage from "./manageCollectionsPage";
 
 const Settings = () => {
   const { setShowDeleteAccountPopup } = useContext(BuilderContext) || {};
   const [showSettingsContent, setShowSettingsContent] = useState(true);
   const [showManageUsersPage, setShowManageUsersPage] = useState(false);
+  const [showManageCollectionsPage, setShowManageCollectionsPage] =
+    useState(false);
 
   const SettingsContent = (
     <div className={"settings-wrapper"}>
+      {/* users */}
       <div className="settings-section-plus-userlist">
         <div className="settings-section-flex">
           <div className="settings-section-content">
@@ -28,9 +37,34 @@ const Settings = () => {
             onClick={() => {
               setShowSettingsContent(false);
               setShowManageUsersPage(true);
+              setShowManageCollectionsPage(false);
             }}
           >
-           <IconChevronRight />
+            <IconChevronRight />
+          </button>
+        </div>
+      </div>
+      {/* collections */}
+      <div className="settings-section-plus-userlist">
+        <div className="settings-section-flex">
+          <div className="settings-section-content">
+            <div className="title-flex">
+              <IconUser className={"title-icon icon-16"} />
+              <h4>Manage collections</h4>
+            </div>
+            {/* <p>Show all users in your company</p> */}
+          </div>
+          {IconArrowRight}
+          <button
+            id={"settings-primary-button"}
+            className={"button primary"}
+            onClick={() => {
+              setShowSettingsContent(false);
+              setShowManageUsersPage(false);
+              setShowManageCollectionsPage(true);
+            }}
+          >
+            <IconChevronRight />
           </button>
         </div>
       </div>
@@ -40,9 +74,7 @@ const Settings = () => {
             <IconAlertCircleFilled className={"red-icon icon-16"} />
             <h4>Delete Account</h4>
           </div>
-          <p>
-          Permanently delete the account and remove access to all users.
-          </p>
+          <p>Permanently delete the account and remove access to all users.</p>
         </div>
         <button
           id={"delete-button"}
@@ -59,6 +91,7 @@ const Settings = () => {
     <div style={{ width: "100%" }}>
       {showSettingsContent && SettingsContent}
       {showManageUsersPage && manageUsersPage()}
+      {showManageCollectionsPage && manageCollectionsPage()}
     </div>
   );
 };
