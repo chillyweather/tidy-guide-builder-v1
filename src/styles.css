@@ -4565,8 +4565,25 @@ input[type="checkbox"] {
 .dialogFlex.red:focus-within {
   border-color: #FF6347;
 }
+
 .dialogFlex.green:focus-within {
   border-color: #3CB371;
+}
+
+.dialogFlex.green:focus-within::after,
+.dialogFlex.red:focus-within::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 8px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #3CB371;
+}
+
+.dialogFlex.red:focus-within::after {
+  background-color: #FF6347;
 }
 
 /* .dialog-text-content {
