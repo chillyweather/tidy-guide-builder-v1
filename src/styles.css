@@ -515,7 +515,7 @@ body:has(.delete-flex) .container {
 }
 
 h1 {
-  font-family: "DM Serif Text", serif;
+  /* font-family: "DM Serif Text", serif; */
   line-height: 120%;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -523,12 +523,12 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: calc(var(--text-size) * 2.25);
-  font-weight: normal;
+  font-weight: 500;
   color: var(--tidy-text);
 }
 
 h3 {
-  font-family: "DM Serif Text", serif;
+  /* font-family: "DM Serif Text", serif; */
   line-height: 120%;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -536,7 +536,7 @@ h3 {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: calc((var(--text-size) * 2) - (var(--text-size) / 3.5));
-  font-weight: normal;
+  font-weight: 500;
   color: var(--tidy-text);
 }
 
