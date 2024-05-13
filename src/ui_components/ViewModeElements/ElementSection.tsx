@@ -5,6 +5,7 @@ import { Video } from "./sections/Video";
 import { Image } from "./sections/Image";
 import { List } from "./sections/List";
 import { TwoColumns } from "./sections/TwoColumns";
+import { DosDonts } from "./sections/DosDonts";
 import { Text } from "./sections/Text";
 
 const ElementSection = ({
@@ -43,6 +44,15 @@ const ElementSection = ({
     case "two-columns":
       return (
         <TwoColumns
+          element={element}
+          buildLists={renderList}
+          index={index}
+          headerData={navigationLinks}
+        />
+      );
+      case "dos-donts":
+      return (
+        <DosDonts
           element={element}
           buildLists={renderList}
           index={index}

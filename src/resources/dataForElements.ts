@@ -107,11 +107,23 @@ const sectionData = [
     publish: true,
   },
   {
-    title: "Two Columns (Do's and Don'ts)",
+    title: "Two Columns",
     content: content,
     datatype: "two-columns",
     description:
       "And Saint Attila raised the hand grenade up on high, saying, 'O Lord, bless this thy hand grenade, that with it thou mayst blow thine enemies to tiny bits, in thy mercy.",
+    data: [],
+    id: "0",
+    docId: "0",
+    repeatable: true,
+    publish: true,
+  },
+  {
+    title: "Do's and Dont's",
+    content: content,
+    datatype: "dos-donts",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     data: [],
     id: "0",
     docId: "0",

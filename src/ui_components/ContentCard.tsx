@@ -18,6 +18,7 @@ import {
   IconPilcrow,
   IconVideo,
   IconColumns,
+  IconExposure,
   IconListDetails,
   IconLink,
   IconPhoto,
@@ -58,6 +59,7 @@ import VideoCard from "./sectionCards/VideoCard";
 import SpacingsCard from "./sectionCards/SpacingsCard";
 import { useEffect } from "preact/hooks";
 import { sendRaster } from "./ui_functions/sendRaster";
+import DosDontsCard from "./sectionCards/DosDonts";
 
 function makeDraggable(event: any) {
   event.target.parentElement.parentElement.parentElement.parentElement.setAttribute(
@@ -311,6 +313,20 @@ export const ContentCard = (card: any, index: number) => {
           setRightTextContent={setRightTextContent}
         />
       );
+    } else if (cardType === "dos-donts") {
+      return (
+        <DosDontsCard
+          data={card}
+          leftTitle={leftTitle}
+          setLeftTitle={setLeftTitle}
+          leftTextContent={leftTextContent}
+          setLeftTextContent={setLeftTextContent}
+          rightTitle={rightTitle}
+          setRightTitle={setRightTitle}
+          rightTextContent={rightTextContent}
+          setRightTextContent={setRightTextContent}
+        />
+      );
     } else if (cardType === "list") {
       return <ListCard listItems={listItems} setListItems={setListItems} />;
     } else if (cardType === "link") {
@@ -458,6 +474,7 @@ export const ContentCard = (card: any, index: number) => {
             <IconPilcrow className={"paragraph"} />
             <IconVideo className={"video"} />
             <IconColumns className={"twoColumns"} />
+            <IconExposure className={"dosDonts"} stroke-width="1.5" />
             <IconListDetails className={"list"} />
             <IconLink className={"link"} />
             <IconPhoto className={"image"} />
