@@ -14,7 +14,7 @@ export const DosDonts = ({ element, buildLists, index }: any) => {
       )}
       {Object.keys(element.content).length && (
         <div class={"two-columns"}>
-          <div>
+          <div className={"list-flex"}>
             <strong>
               <h4>Do's</h4>
             </strong>
@@ -22,7 +22,7 @@ export const DosDonts = ({ element, buildLists, index }: any) => {
               {buildLists(element.content.text1.split("\n"), "unordered")}
             </p>
           </div>
-          <div>
+          <div className={"list-flex"}>
             <strong>
               <h4>Don'ts</h4>
             </strong>

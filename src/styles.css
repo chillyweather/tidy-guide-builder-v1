@@ -2353,7 +2353,14 @@ li::before {
 }
 
 .viewer-data-wrapper .dosDontSection .list-flex {
+  display: flex;
   flex-direction: row;
+  width: 100%;
+}
+
+.viewer-data-wrapper .dosDontSection .list-flex strong {
+  display: block;
+  width: 50%;
 }
 
 .section>.listWrapper {
