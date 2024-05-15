@@ -9,30 +9,17 @@ import {
   IconPlus,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
-import {
-  collectionsAtom,
-  currentUserIdAtom,
-  usersAtom,
-  // showEditUserFormAtom,
-  // userToEditAtom,
-  // selectedCollectionAtom,
-  // addUserMessageAtom,
-  // isAddUserErrorAtom,
-  // currentUserCollectionsAtom,
-} from "src/state/atoms";
-import // getCollectionUsers,
-// addCollectionUser,
-// deleteCollectionUser,
-// changeUserPermissions,
-"src/ui_components/ui_functions/collectionHandlers";
-import { useContext, useEffect, useState } from "preact/hooks";
+import { collectionsAtom, currentUserIdAtom, usersAtom } from "src/state/atoms";
+
+export type FormType = "Add" | "Edit";
+
+import { StateUpdater, useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
 import { Button } from "@create-figma-plugin/ui";
 import AddCollectionForm from "./AddCollectionForm";
 
 function manageCollectionsPage() {
   const [collections] = useAtom(collectionsAtom);
-  // const [userCollections] = useAtom(currentUserCollectionsAtom);
 
   return (
     <div className={"manage-users"}>
@@ -48,11 +35,13 @@ export default manageCollectionsPage;
 
 function generateContent(collections: any) {
   const [showAddCollectionForm, setShowAddCollectionForm] = useState(false);
+  const [currentFormType, setCurrentFormType] = useState<FormType>("Add");
   return (
     <div className={"users-flex"}>
       <Button
         className={"users-button"}
         onClick={() => {
+          setCurrentFormType("Add");
           setShowAddCollectionForm(true);
           // setTimeout(function () {
           //   document.getElementById("mailInput")?.focus();
@@ -70,7 +59,7 @@ function generateContent(collections: any) {
       </div>
       {showAddCollectionForm && (
         <div className={"add-user-form-wrapper"}>
-          <AddCollectionForm />
+          <AddCollectionForm type={currentFormType} />
           <button
             onClick={() => {
               setShowAddCollectionForm(false);
@@ -81,13 +70,21 @@ function generateContent(collections: any) {
         </div>
       )}
       {collections.map((collection: any) => {
-        return generateCollectionCard(collection);
+        return generateCollectionCard(
+          collection,
+          setShowAddCollectionForm,
+          setCurrentFormType
+        );
       })}
     </div>
   );
 }
 
-function generateCollectionCard(collection: any) {
+function generateCollectionCard(
+  collection: any,
+  setShowAddCollectionForm: StateUpdater<boolean>,
+  setCurrentFormType: StateUpdater<FormType>
+) {
   const { token } = useContext(BuilderContext) || {};
   const [currentUser] = useAtom(currentUserIdAtom);
   const [collectionOwnerEmail, setCollectionOwnerEmail] = useState("");
@@ -125,10 +122,10 @@ function generateCollectionCard(collection: any) {
             <div className="user-menu">
               <div
                 className="user-item"
-                // onClick={() => {
-                //   setShowEditUserForm(true);
-                //   setUserToEdit(user);
-                // }}
+                onClick={() => {
+                  setCurrentFormType("Edit");
+                  setShowAddCollectionForm(true);
+                }}
               >
                 <IconPencil />
                 Edit
@@ -136,8 +133,10 @@ function generateCollectionCard(collection: any) {
               <div
                 className="user-item"
                 onClick={async () => {
-                  // await deleteCollectionUser(token, collectionId, user.email);
-                  // setTrigger((prevTrigger: number) => prevTrigger + 1);
+                  console.log("delete collection");
+                  // NOTE: check if there are documents in the collection
+                  // NOTE: if there are documents, show popup
+                  // NOTE: if there are no documents, delete collection
                 }}
               >
                 <IconTrash />
