@@ -154,6 +154,7 @@ declare const styles: {
   readonly "linkBlockColumn": string;
   readonly "links-block": string;
   readonly "list": string;
+  readonly "list-flex": string;
   readonly "listButtonStyle": string;
   readonly "listCardContentStyle": string;
   readonly "listCollumnStyle": string;
