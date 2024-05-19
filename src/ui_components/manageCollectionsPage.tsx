@@ -3,15 +3,27 @@ import { h } from "preact";
 import { findUserRole } from "./ui_functions/findUserRole";
 import {
   IconDotsVertical,
-  IconX,
   IconPencil,
-  IconTrash,
   IconPlus,
+  IconTrash,
+  IconX,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
-import { collectionsAtom, currentUserIdAtom, usersAtom } from "src/state/atoms";
+import {
+  collectionsAtom,
+  collectionToEditAtom,
+  collectionDocsTriggerAtom,
+  currentUserIdAtom,
+  errorMessageAtom,
+  isAddErrorAtom,
+  showEditCollectionFormAtom,
+  showNonEmptyCollectionPopupAtom,
+  usersAtom,
+} from "src/state/atoms";
 
 export type FormType = "Add" | "Edit";
+
+import { deleteCollection } from "./ui_functions/collectionHandlers";
 
 import { StateUpdater, useContext, useEffect, useState } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
@@ -34,8 +46,13 @@ function manageCollectionsPage() {
 export default manageCollectionsPage;
 
 function generateContent(collections: any) {
-  const [showAddCollectionForm, setShowAddCollectionForm] = useState(false);
+  const [showAddCollectionForm, setShowAddCollectionForm] = useAtom(
+    showEditCollectionFormAtom
+  );
   const [currentFormType, setCurrentFormType] = useState<FormType>("Add");
+  const [isAddUserError, setIsAddUserError] = useAtom(isAddErrorAtom);
+  const [addUserMessage, setAddUserMessage] = useAtom(errorMessageAtom);
+  const [collectionToEdit]: any = useAtom(collectionToEditAtom);
   return (
     <div className={"users-flex"}>
       <Button
@@ -59,14 +76,24 @@ function generateContent(collections: any) {
       </div>
       {showAddCollectionForm && (
         <div className={"add-user-form-wrapper"}>
-          <AddCollectionForm type={currentFormType} />
+          <AddCollectionForm
+            type={currentFormType}
+            name={
+              currentFormType === "Edit"
+                ? collectionToEdit && collectionToEdit.name
+                : ""
+            }
+          />
           <button
             onClick={() => {
               setShowAddCollectionForm(false);
+              setIsAddUserError(false);
+              setAddUserMessage("");
             }}
           >
             <IconX />
           </button>
+          {isAddUserError && <p className={"error-msg"}>{addUserMessage}</p>}
         </div>
       )}
       {collections.map((collection: any) => {
@@ -85,12 +112,21 @@ function generateCollectionCard(
   setShowAddCollectionForm: StateUpdater<boolean>,
   setCurrentFormType: StateUpdater<FormType>
 ) {
+  const [, setShowNonEmptyCollectionPopup] = useAtom(
+    showNonEmptyCollectionPopupAtom
+  );
+  const [, setCollectionToEdit] = useAtom(collectionToEditAtom);
   const { token } = useContext(BuilderContext) || {};
   const [currentUser] = useAtom(currentUserIdAtom);
   const [collectionOwnerEmail, setCollectionOwnerEmail] = useState("");
   const [users] = useAtom(usersAtom);
-  // const isOwner = selectedCollection?.owner === .id;
+  const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
+  const isOwner = collection.owner === currentUser;
   if (!token) return null;
+
+  function triggerCollectionRefresh() {
+    setCollectionDocsTrigger((n: number) => n + 1);
+  }
 
   const userRole = findUserRole(collection, currentUser);
 
@@ -124,24 +160,30 @@ function generateCollectionCard(
                 className="user-item"
                 onClick={() => {
                   setCurrentFormType("Edit");
+                  setCollectionToEdit(collection);
                   setShowAddCollectionForm(true);
                 }}
               >
                 <IconPencil />
                 Edit
               </div>
-              <div
-                className="user-item"
-                onClick={async () => {
-                  console.log("delete collection");
-                  // NOTE: check if there are documents in the collection
-                  // NOTE: if there are documents, show popup
-                  // NOTE: if there are no documents, delete collection
-                }}
-              >
-                <IconTrash />
-                Remove
-              </div>
+              {isOwner && (
+                <div
+                  className="user-item"
+                  onClick={async () => {
+                    console.log("delete collection", collection);
+                    if (collection.documentations.length) {
+                      setShowNonEmptyCollectionPopup(true);
+                    } else {
+                      await deleteCollection(token, collection._id);
+                      triggerCollectionRefresh();
+                    }
+                  }}
+                >
+                  <IconTrash />
+                  Remove
+                </div>
+              )}
             </div>
           </details>
         )}

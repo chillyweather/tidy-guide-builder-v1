@@ -14,8 +14,8 @@ import {
   showEditUserFormAtom,
   userToEditAtom,
   selectedCollectionAtom,
-  addUserMessageAtom,
-  isAddUserErrorAtom,
+  errorMessageAtom,
+  isAddErrorAtom,
   currentUserCollectionsAtom,
 } from "src/state/atoms";
 import {
@@ -56,8 +56,8 @@ function renderUsers(collectionId: string) {
   const [showAddUserForm, setShowAddUserForm] = useState(false);
   const [showEditUserForm, setShowEditUserForm] = useAtom(showEditUserFormAtom);
   const [userToEdit, setUserToEdit]: any = useAtom(userToEditAtom);
-  const [isAddUserError, setIsAddUserError] = useAtom(isAddUserErrorAtom);
-  const [addUserMessage, setAddUserMessage] = useAtom(addUserMessageAtom);
+  const [isAddUserError, setIsAddUserError] = useAtom(isAddErrorAtom);
+  const [addErrorMessage, setAddErrorMessage] = useAtom(errorMessageAtom);
   const [trigger, setTrigger] = useState(0);
 
   const { token } = useContext(BuilderContext) || {};
@@ -103,12 +103,12 @@ function renderUsers(collectionId: string) {
               onClick={() => {
                 setShowAddUserForm(false);
                 setIsAddUserError(false);
-                setAddUserMessage("");
+                setAddErrorMessage("");
               }}
             >
               <IconX />
             </button>
-            {isAddUserError && <p className={"error-msg"}>{addUserMessage}</p>}
+            {isAddUserError && <p className={"error-msg"}>{addErrorMessage}</p>}
           </div>
         </div>
       )}

@@ -4,7 +4,7 @@
 import { h, FunctionalComponent } from "preact";
 import { useState, useEffect, useRef, useContext } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
-import { IconPencil, IconPlus } from "@tabler/icons-react";
+// import { IconPencil, IconPlus } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import {
   currentUserIdAtom,
@@ -26,7 +26,7 @@ interface DropdownProps {
 }
 
 const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
-  rename,
+  // rename,
   options,
   onSelect,
 }) => {
@@ -34,7 +34,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [editTitle, setEditTitle] = useState(false);
   const [isOwner, setIsOwner] = useState(false);
-  const [addingNewCollection, setAddingNewCollection] = useState(false);
+  const [addingNewCollection] = useState(false);
   const [currentUserId] = useAtom(currentUserIdAtom);
   const [, setCurentUserRole] = useAtom(currentUserRoleAtom);
   const [selectedCollection, setSelectedCollection]: any = useAtom(
@@ -179,7 +179,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
             </div>
           )}
         </button>
-        {isOwner && (
+        {/* {isOwner && (
           <div className="collection-dropdown-buttons-wrapper">
             <button
               hidden={!rename}
@@ -203,7 +203,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
               <IconPlus />
             </button>
           </div>
-        )}
+        )} */}
         {isOpen && (
           <div class="dropdown-menu">
             {options.map((option) => {

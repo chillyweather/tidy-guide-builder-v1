@@ -15,6 +15,7 @@ import PasswordResetPopup from "./ui_components/popups/passwordResetPopup";
 import DeleteAccountPopup from "./ui_components/popups/deleteAccountPopup";
 import WaitingInfoPopup from "./ui_components/popups/waitingInfoPopup";
 import CrashLogoutPopup from "./ui_components/popups/crashLogoutPopup";
+import NoDeleteCollectionPopup from "./ui_components/popups/noDeleteCollectionPopup";
 import Toast from "./ui_components/Toast";
 //dependencies
 import { sendRaster } from "./ui_components/ui_functions/sendRaster";
@@ -66,6 +67,7 @@ import {
   showCrashLogoutPopupAtom,
   isDetailsPageOpenAtom,
   usersAtom,
+  showNonEmptyCollectionPopupAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -138,6 +140,9 @@ function Plugin() {
   const [showPreviewPopup, setShowPreviewPopup] = useState(false);
   const [showPasswordResetPopup, setShowPasswordResetPopup] = useState(false);
   const [showDeleteAccountPopup, setShowDeleteAccountPopup] = useState(false);
+  const [showNonEmptyCollectionPopup] = useAtom(
+    showNonEmptyCollectionPopupAtom
+  );
 
   //data from server
   const [dataForUpdate, setDataForUpdate] = useState<any>({});
@@ -706,6 +711,10 @@ function Plugin() {
     setToken,
   };
 
+  useEffect(() => {
+    console.log("showNonEmptyCollectionPopup", showNonEmptyCollectionPopup);
+  }, [showNonEmptyCollectionPopup]);
+
   return (
     <div
       className={"container"}
@@ -769,6 +778,7 @@ function Plugin() {
           />
         )}
         {showCrashLogoutPopup && <CrashLogoutPopup />}
+        {showNonEmptyCollectionPopup && <NoDeleteCollectionPopup />}
         {isToastOpen && toastMessage && (
           <Toast message={toastMessage} onClose={closePopup} type={toastType} />
         )}

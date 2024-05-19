@@ -25,8 +25,11 @@ export const selectedCollectionInSettingsAtom = atom(null);
 
 //triggers
 export const collectionDocsTriggerAtom = atom(0);
+
 export const showEditUserFormAtom = atom(false);
+export const showEditCollectionFormAtom = atom(false);
 export const userToEditAtom = atom(null);
+export const collectionToEditAtom = atom(null);
 export const sectionToDeleteIndexAtom = atom(-1);
 export const sectionToDeleteAtom = atom(null);
 export const isCollectionSwitchingAtom = atom(false);
@@ -35,6 +38,9 @@ export const isCollectionSwitchingAtom = atom(false);
 export const showDeleteSectionPopupAtom = atom(false);
 export const showCrashLogoutPopupAtom = atom(false);
 
-//add user (settings)
-export const addUserMessageAtom = atom("");
-export const isAddUserErrorAtom = atom(false);
+//add user/collection (settings)
+export const errorMessageAtom = atom("");
+export const isAddErrorAtom = atom(false);
+
+//show non empty collection
+export const showNonEmptyCollectionPopupAtom = atom(false);

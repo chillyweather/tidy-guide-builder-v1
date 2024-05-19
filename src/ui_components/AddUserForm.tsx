@@ -5,8 +5,8 @@ import BuilderContext from "src/BuilderContext";
 
 import { useAtom } from "jotai";
 import {
-  addUserMessageAtom,
-  isAddUserErrorAtom,
+  errorMessageAtom,
+  isAddErrorAtom,
   userToEditAtom,
 } from "src/state/atoms";
 import {
@@ -34,8 +34,8 @@ export default function AddUserForm({
   if (!token) return null;
   // const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   const [userToEdit]: any = useAtom(userToEditAtom);
-  const [, setIsAddUserError] = useAtom(isAddUserErrorAtom);
-  const [, setAddUserMessage] = useAtom(addUserMessageAtom);
+  const [, setIsAddUserError] = useAtom(isAddErrorAtom);
+  const [, setAddUserMessage] = useAtom(errorMessageAtom);
   const [email, setEmail] = useState(userEmail || "");
   const [role, setRole] = useState(userToEdit ? userToEdit.rank : "Viewer");
   const [, setUserToEdit] = useAtom(userToEditAtom);
