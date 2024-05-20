@@ -32,6 +32,11 @@ import AddCollectionForm from "./AddCollectionForm";
 
 function manageCollectionsPage() {
   const [collections] = useAtom(collectionsAtom);
+  const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
+
+  useEffect(() => {
+    setCollectionDocsTrigger((n: number) => n + 1);
+  }, []);
 
   return (
     <div className={"manage-users"}>
@@ -144,10 +149,14 @@ function generateCollectionCard(
 
   return (
     <div className={"user-card-wrapper"}>
-      <div className={"user-card"}>
+      <div className={"collection-card"}>
         <p>{collection.name}</p>
         <p>{collectionOwnerEmail}</p>
-        <p>{userRole}</p>
+
+        <div
+          className={"tag " + userRole}
+          style={{ marginRight: "18px" }}
+        ></div>
         {userRole !== "Viewer" && (
           <details>
             <summary>
@@ -155,9 +164,9 @@ function generateCollectionCard(
                 <IconDotsVertical />
               </button>
             </summary>
-            <div className="user-menu">
+            <div className="edit-collection-menu">
               <div
-                className="user-item"
+                className="edit-collection-item"
                 onClick={() => {
                   setCurrentFormType("Edit");
                   setCollectionToEdit(collection);
@@ -169,9 +178,8 @@ function generateCollectionCard(
               </div>
               {isOwner && (
                 <div
-                  className="user-item"
+                  className="edit-collection-item"
                   onClick={async () => {
-                    console.log("delete collection", collection);
                     if (collection.documentations.length) {
                       setShowNonEmptyCollectionPopup(true);
                     } else {

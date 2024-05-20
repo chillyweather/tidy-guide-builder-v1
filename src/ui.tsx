@@ -390,7 +390,21 @@ function Plugin() {
   }
 
   async function getUserCollections(token: string, userId: string) {
-    const collections = await getCollections(token, userId);
+    let collections = await getCollections(token, userId);
+
+    collections = collections.sort((a: any, b: any) => {
+      const aIsOwnedByUser = a.owner === userId;
+      const bIsOwnedByUser = b.owner === userId;
+
+      if (aIsOwnedByUser && !bIsOwnedByUser) {
+        return -1;
+      }
+      if (!aIsOwnedByUser && bIsOwnedByUser) {
+        return 1;
+      }
+      return 0;
+    });
+
     setCollections(collections);
   }
 

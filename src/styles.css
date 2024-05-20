@@ -1593,6 +1593,7 @@ body .header-login {
   font-size: calc(var(--text-size) / 6 * 8);
   border: none !important;
   width: fit-content;
+  min-width: 240px;
   max-width: 400px;
   padding-left: 0;
 }
@@ -1628,6 +1629,7 @@ body:has(.users-flex) .dropdown-comp:active .dropdown-wrapper .dropdown-toggle {
 
 .dropdown-comp .dropdown-wrapper {
   width: fit-content;
+  min-width: 240px;
   display: flex;
   gap: 0;
   border-radius: 6px;
@@ -1743,13 +1745,13 @@ body:has(.users-flex) .dropdown-comp:active .dropdown-wrapper .dropdown-toggle {
   text-overflow: ellipsis;
 }
 
-.dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin) {
+/* .dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin) {
   order: 1;
   margin-top: 24px;
   margin-bottom: 36px;
-}
+} */
 
-.dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin)::after {
+/* .dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin)::after {
   content: 'Shared collections';
   position: absolute;
   width: 100%;
@@ -1761,9 +1763,9 @@ body:has(.users-flex) .dropdown-comp:active .dropdown-wrapper .dropdown-toggle {
   padding-top: 8px;
   border-top: 1px solid #EFF2FA;
   pointer-events: none;
-}
+} */
 
-.dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin)::before {
+/* .dropdown-menu:has(.dropdown-item+.dropdown-item) .dropdown-item:has(.admin)::before {
   content: 'Account collections';
   position: absolute;
   color: #787878;
@@ -1773,7 +1775,7 @@ body:has(.users-flex) .dropdown-comp:active .dropdown-wrapper .dropdown-toggle {
   top: -20px;
   left: 0;
   pointer-events: none;
-}
+} */
 
 .dropdown-menu .dropdown-item {
   display: flex;
@@ -1919,6 +1921,30 @@ body:has(.manage-users) .header .mode-button {
   border: 1px solid #E8E8F7;
   border-radius: 6px;
   width: 100%;
+  padding: 10 8 10 8;
+}
+
+.collection-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--tidy-32);
+  border: 1px solid #E8E8F7;
+  border-radius: 6px;
+  width: 100%;
+  padding: 10 8 10 8;
+}
+
+.collection-card p:first-of-type {
+  margin: 0;
+  padding: 0;
+  width: 35.5%;
+}
+
+.collection-card p:last-of-type {
+  margin: 0;
+  padding: 0;
+  width: 49%;
 }
 
 .user-card.title {
@@ -1931,7 +1957,7 @@ body:has(.manage-users) .header .mode-button {
 .user-card p {
   width: 48.75%;
   margin: 0;
-  padding: 8px;
+  /* padding: 8px; */
 }
 
 .user-card.title p:first-of-type {
@@ -1948,7 +1974,7 @@ body:has(.manage-users) .header .mode-button {
 
 .user-card .user-menu {
   top: 20px;
-  min-width: 140px;
+  min-width: 120px;
 }
 
 .user-card .user-menu .user-item {
@@ -1963,7 +1989,7 @@ details[open] summary {
   height: 24px;
   width: 24px;
   pointer-events: none;
-  margin-left: 8px;
+  margin-right: 4px;
   font-size: var(--text-size);
 }
 
@@ -2006,6 +2032,23 @@ details[open] summary {
   padding: 8px;
   border-radius: 6px;
   min-width: 240px;
+  z-index: 9;
+  box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
+}
+
+.edit-collection-menu {
+  position: absolute;
+  top: 24px;
+  right: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--tidy-32);
+  background-color: #ffffff;
+  border: 1px solid #EFEFEF;
+  padding: 8px;
+  border-radius: 6px;
+  min-width: 160px;
   z-index: 9;
   box-shadow: -109px 0px 44px 0px rgba(143, 143, 143, 0.01), -27px 0px 16px 0px rgba(143, 143, 143, 0.04), -7px 0px 15px 0px rgba(143, 143, 143, 0.10);
 }
@@ -2072,6 +2115,16 @@ details[open] summary {
   font-size: var(--text-size);
   padding: 8px;
   height: 48px;
+  cursor: pointer;
+}
+
+.edit-collection-item {
+  display: flex;
+  gap: 6px;
+  border-radius: 4px;
+  align-items: center;
+  font-size: var(--text-size);
+  padding: 8px;
   cursor: pointer;
 }
 
@@ -4409,12 +4462,12 @@ input[type="checkbox"] {
   z-index: 100;
   width: 100vw;
   height: 100vh;
-  background-color: #fcfcfea6;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 998;
-  backdrop-filter: blur(1px);
+  /* backdrop-filter: blur(0.1px); */
 }
 
 .invisible {

@@ -5,40 +5,54 @@ import { useAtom } from "jotai";
 import {
   currentUserIdAtom,
   currentUserRoleAtom,
+  selectedCollectionAtom,
   selectedCollectionInSettingsAtom,
 } from "src/state/atoms";
 import { findUserRole } from "src/ui_components/ui_functions/findUserRole";
 
 interface DropdownProps {
   options: any[];
-  onSelect: any;
 }
 
 const CollectionsInSettingsDropdown: FunctionalComponent<DropdownProps> = ({
   options,
-  onSelect,
 }) => {
+  const [filteredOptions, setFilteredOptions]: any = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [currentUserId] = useAtom(currentUserIdAtom);
   const [, setCurentUserRole] = useAtom(currentUserRoleAtom);
-  const [selectedCollection, setSelectedCollection]: any = useAtom(
-    selectedCollectionInSettingsAtom
-  );
+  const [selectedCollectionInSettings, setSelectedCollectionInSettings]: any =
+    useAtom(selectedCollectionInSettingsAtom);
+  const [selectedCollection]: any = useAtom(selectedCollectionAtom);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const selectOption = (option: any) => {
-    setSelectedCollection(option);
-    setIsOpen(false);
-    onSelect(option || {});
+    console.log("option", option);
+    setSelectedCollectionInSettings(option);
+    // setSelectedCollection(option);
+    // setIsOpen(false);
   };
 
   useEffect(() => {
-    const role = findUserRole(selectedCollection, currentUserId);
+    const filteredCollections = options.filter(
+      (collection) => collection.owner === currentUserId
+    );
+    setFilteredOptions(filteredCollections);
+  }, [options]);
+
+  useEffect(() => {
+    if (selectedCollection) {
+      setSelectedCollectionInSettings(selectedCollection);
+    }
+  }, []);
+
+  useEffect(() => {
+    const role = findUserRole(selectedCollectionInSettings, currentUserId);
     setCurentUserRole(role);
-  }, [selectedCollection]);
+  }, [selectedCollectionInSettings]);
 
   return (
     <div class="dropdown-comp">
@@ -48,22 +62,24 @@ const CollectionsInSettingsDropdown: FunctionalComponent<DropdownProps> = ({
           onClick={toggleDropdown}
           onBlur={() => setIsOpen(false)}
         >
-          {options[0] && (
+          {filteredOptions[0] && (
             <div className={"select-collection-dropdown-title"}>
               <div
                 id={"dropdown-title"}
                 onBlur={() => {
-                  window.getSelection()?.removeAllRanges();
+                  setIsOpen(false);
                 }}
               >
-                {options[0].name || "Select an option"}
+                {(selectedCollectionInSettings &&
+                  selectedCollectionInSettings.name) ||
+                  "Select an option"}
               </div>
             </div>
           )}
         </button>
         {isOpen && (
           <div class="dropdown-menu">
-            {options.map((option) => {
+            {filteredOptions.map((option: any) => {
               const role = findUserRole(option, currentUserId);
               return (
                 <div
@@ -74,6 +90,7 @@ const CollectionsInSettingsDropdown: FunctionalComponent<DropdownProps> = ({
                     //   setDataForUpdate({});
                     // }
                     selectOption(option);
+                    setIsOpen(false);
                   }}
                 >
                   <div>{option.name}</div>{" "}

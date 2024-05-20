@@ -50,6 +50,7 @@ declare const styles: {
   readonly "checkBoxElement": string;
   readonly "chevIcon": string;
   readonly "closePopupButton": string;
+  readonly "collection-card": string;
   readonly "columnTextArea": string;
   readonly "columnTitle": string;
   readonly "componentBTN": string;
@@ -92,6 +93,8 @@ declare const styles: {
   readonly "dropdown-wrapper": string;
   readonly "duplicateButton": string;
   readonly "edit": string;
+  readonly "edit-collection-item": string;
+  readonly "edit-collection-menu": string;
   readonly "editor": string;
   readonly "elementsMenu": string;
   readonly "empty-0": string;

@@ -10,13 +10,15 @@ import {
 import { useAtom } from "jotai";
 import {
   collectionsAtom,
-  currentUserIdAtom,
+  // currentUserIdAtom,
   showEditUserFormAtom,
   userToEditAtom,
   selectedCollectionAtom,
   errorMessageAtom,
   isAddErrorAtom,
-  currentUserCollectionsAtom,
+  collectionDocsTriggerAtom,
+  // currentUserCollectionsAtom,
+  selectedCollectionInSettingsAtom,
 } from "src/state/atoms";
 import {
   getCollectionUsers,
@@ -30,7 +32,20 @@ import AddUserForm from "./AddUserForm";
 
 function manageUsersPage() {
   const [collections] = useAtom(collectionsAtom);
-  const [userCollections] = useAtom(currentUserCollectionsAtom);
+  const [selectedCollectionInSettings]: any = useAtom(
+    selectedCollectionInSettingsAtom
+  );
+  const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
+  // const [selectedCollection, setSelectedCollectionInSettings]: any = useAtom(
+  //   selectedCollectionInSettingsAtom
+  // );
+  function triggerCollectionRefresh() {
+    setCollectionDocsTrigger((n: number) => n + 1);
+  }
+
+  useEffect(() => {
+    triggerCollectionRefresh();
+  }, []);
 
   return (
     <div className={"manage-users"}>
@@ -38,13 +53,12 @@ function manageUsersPage() {
       <h2>Manage members</h2>
       <br />
       {/* <h3>Collections:</h3> */}
-      <CollectionsInSettingsDropdown
-        options={userCollections}
-        onSelect={() => {
-          // console.log("yey!!!");
-        }}
-      />
-      {renderCollections(collections)}
+      <CollectionsInSettingsDropdown options={collections} />
+      <div>
+        {selectedCollectionInSettings &&
+          renderUsers(selectedCollectionInSettings._id)}
+      </div>
+      ;
     </div>
   );
 }
@@ -253,20 +267,10 @@ function generateUserCard(user: any, collectionId: string, setTrigger: any) {
   );
 }
 
-function renderCollections(collections: any[]) {
-  const [currentUserId] = useAtom(currentUserIdAtom);
-  return (
-    <div>
-      {collections.length &&
-        collections.map((collection: any) => {
-          const isOwner = collection.owner === currentUserId;
-          return isOwner ? (
-            <div key={collection._id}>{renderUsers(collection._id)}</div>
-          ) : null;
-        })}
-    </div>
-  );
-}
+// function renderCollections(collections: any[]) {
+//   // const [currentUserId] = useAtom(currentUserIdAtom);
+//
+// }
 
 // function AddUserForm({
 //   collectionId,

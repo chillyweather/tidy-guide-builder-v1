@@ -259,7 +259,6 @@ const Header = ({
             <div className="componentHeader">
               {collections && collections.length && (
                 <CollectionsDropdown
-                  rename={true}
                   options={collections}
                   onSelect={setSelectedCollection}
                 />
@@ -301,32 +300,36 @@ const Header = ({
                 <IconArrowLeft />
                 Back
               </button>
-              <div className="searchbox">
-                <IconSearch />
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    // @ts-ignore
-                    document.getElementsByClassName("headerSection")[0].click();
-                    // @ts-ignore
-                    window.find(
-                      (e.target as HTMLFormElement).getElementsByTagName(
-                        "input"
-                      )[0].value
-                    );
-                    // @ts-ignore
-                    window
-                      .getSelection()
-                      .anchorNode.parentElement.scrollIntoView();
-                  }}
-                >
-                  <input
-                    id={"search-input"}
-                    type={"search"}
-                    placeholder={"Type to search..."}
-                  ></input>
-                </form>
-              </div>
+              {!isSettingsPageOpen && (
+                <div className="searchbox">
+                  <IconSearch />
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      document
+                        .getElementsByClassName("headerSection")[0]
+                        // @ts-ignore
+                        .click();
+                      // @ts-ignore
+                      window.find(
+                        (e.target as HTMLFormElement).getElementsByTagName(
+                          "input"
+                        )[0].value
+                      );
+                      // @ts-ignore
+                      window
+                        .getSelection()
+                        .anchorNode.parentElement.scrollIntoView();
+                    }}
+                  >
+                    <input
+                      id={"search-input"}
+                      type={"search"}
+                      placeholder={"Type to search..."}
+                    ></input>
+                  </form>
+                </div>
+              )}
               <div></div>
             </div>
           ))}

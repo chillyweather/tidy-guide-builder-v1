@@ -33,9 +33,11 @@ const Footer = ({
   const isValid = !!documentationTitle?.length && isCurrentNameValid;
 
   function PublishButtonDropdown() {
+    console.log("PublishButtonDropdown");
     return (
       <div
-        className={"feedbackPopupBackground invisible"}
+        className={"feedbackPopupBackground"}
+        // className={"feedbackPopupBackground invisible"}
         onClick={() => {
           setIsPublishDropdownOpen(false);
         }}
@@ -99,6 +101,10 @@ const Footer = ({
     );
   }, [saveData]);
 
+  // useEffect(() => {
+  //   console.log("isPublishDropdownOpen", isPublishDropdownOpen);
+  // }, [isPublishDropdownOpen]);
+
   return (
     <div className={"footer"}>
       <div className="leftFooterContent">
@@ -143,6 +149,7 @@ const Footer = ({
           <button
             className={isValid ? "primary" : "primary primary-disabled"}
             onClick={() => {
+              console.log("first button clicked");
               setIsPublishDropdownOpen(!isPublishDropdownOpen);
               setTimeout(function () {
                 document.getElementById("publish-button")?.focus();
