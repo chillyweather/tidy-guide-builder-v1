@@ -1,11 +1,14 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { getTextNodeColor } from "../utilityFunctions";
 
 //^ here we collect all the info on instances
 export const elementsCoordinatesAndDimensions = [];
 //^ find style applied to text element
 async function findFontStyleName(textNode: TextNode) {
   if (textNode.textStyleId === "") {
-    return "style not determined";
+    return "Style not determined";
   } else {
     const foundStyle = await figma.getStyleByIdAsync(
       textNode.textStyleId as string
@@ -28,7 +31,6 @@ function isIcon(node: SceneNode) {
 }
 
 async function addInstancesToArray(node: any, array: any[]) {
-  // const docFrame = await findDocFrame(node);
   array.push({
     elementX: node.absoluteBoundingBox.x,
     elementY: node.absoluteBoundingBox.y,
@@ -37,21 +39,18 @@ async function addInstancesToArray(node: any, array: any[]) {
     elementName: isIcon(node) ? "Icon" : node.name,
     elementMain: node.mainComponent.id,
   });
-  // array.push([
-  //   node.absoluteBoundingBox.x,
-  //   node.absoluteBoundingBox.y,
-  //   node.absoluteRenderBounds.width,
-  //   node.absoluteRenderBounds.height,
-  //   isIcon(node) ? "Icon" : node.name,
-  //   node.mainComponent.id,
-  // ]);
 }
 
 export async function addTextNodesToArray(
   node: any,
   array: any[]
 ): Promise<void> {
+  console.log("node", node);
+  const nodeFillColor = getTextNodeColor({ node });
+  const variable = await getFillColorVariable(node);
   const styleName = await findFontStyleName(node);
+  const letterSpacing = getLetterSpacing(node);
+  const textCase = getTextCase(node);
 
   array.push({
     elementX: node.absoluteBoundingBox.x,
@@ -63,18 +62,63 @@ export async function addTextNodesToArray(
     elementStyleName: styleName,
     elementFontName: node.fontName,
     elementFontSize: node.fontSize,
+    elementFontWeight: node.fontWeight,
+    elementLineHeight: node.lineHeight.unit,
+    elementLetterSpacing: letterSpacing,
+    elementTextDecoration: node.textDecoration,
+    elementTextCase: textCase,
+    elementFill: nodeFillColor,
+    elementVariable: variable?.name,
   });
-  // array.push([
-  //   node.absoluteBoundingBox.x,
-  //   node.absoluteBoundingBox.y,
-  //   node.absoluteRenderBounds.width,
-  //   node.height,
-  //   node.name,
-  //   null,
-  //   styleName,
-  //   node.fontName,
-  //   node.fontSize,
-  // ]);
+}
+
+function getTextCase(node: TextNode) {
+  //@ts-ignore
+  const textCase: TextCase | figma.mixed = node.textCase;
+  switch (textCase) {
+    case "SMALL_CAPS":
+      return "small-caps";
+    case "SMALL_CAPS_FORCED":
+      return "small-caps-forced";
+    case "UPPER":
+      return "uppercase";
+    case "LOWER":
+      return "lowercase";
+    case "TITLE":
+      return "capitalize";
+    default:
+      return "none";
+  }
+}
+
+function getLetterSpacing(node: TextNode) {
+  //@ts-ignore
+  const letterSpacing: LetterSpacing | figma.mixed = node.letterSpacing;
+  if (letterSpacing) {
+    const unit = letterSpacing.unit;
+    const value = letterSpacing.value;
+    if (value === 0) {
+      return "0";
+    } else if (unit === "PIXELS") {
+      return `${value}px`;
+    } else {
+      return `${value}%`;
+    }
+  }
+}
+
+async function getFillColorVariable(node: TextNode) {
+  // @ts-ignore
+  const fills: ReadonlyArray<Paint> | figma.mixed = node.fills;
+  if (fills.length === 0) {
+    return null;
+  }
+  const boundVariable = fills[0].boundVariables.color;
+  if (!boundVariable) {
+    return null;
+  }
+  const found = await figma.variables.getVariableByIdAsync(boundVariable.id);
+  return found;
 }
 
 export async function findAllNodes(

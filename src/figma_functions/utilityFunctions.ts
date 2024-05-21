@@ -355,3 +355,48 @@ export function cloneFrame(frame: FrameNode | InstanceNode) {
 
   return newFrame;
 }
+
+//!--------NEW----------//
+
+/**
+ * Retrieves the color of a TextNode.
+ * @param {object} options - The options for retrieving the color.
+ * @param {TextNode} options.node - The TextNode to retrieve the color from.
+ * @returns {string | null} The color of the TextNode in hexadecimal format, or null if no color is found.
+ */
+export function getTextNodeColor({ node }: { node: TextNode }): string | null {
+  //@ts-ignore
+  const fills: ReadonlyArray<Paint> | figma.mixed = node.fills;
+
+  if (fills.length === 0) {
+    return null;
+  } else {
+    const fill = fills[0].color;
+    const hexFill = rgbToHex({ r: fill.r, g: fill.g, b: fill.b });
+    return hexFill;
+  }
+}
+
+/**
+ * Converts RGB values to a hexadecimal color code.
+ * @param r - The red component of the RGB color (0-1).
+ * @param g - The green component of the RGB color (0-1).
+ * @param b - The blue component of the RGB color (0-1).
+ * @returns The hexadecimal color code.
+ */
+export function rgbToHex({
+  r,
+  g,
+  b,
+}: {
+  r: number;
+  g: number;
+  b: number;
+}): string {
+  const toHex = (value: number) => {
+    const hex = Math.round(value * 255).toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
+  };
+
+  return ("#" + toHex(r) + toHex(g) + toHex(b)).toUpperCase();
+}

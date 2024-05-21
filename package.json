@@ -19,7 +19,7 @@
     "@create-figma-plugin/build": "^3.0.2",
     "@create-figma-plugin/tsconfig": "^3.0.2",
     "@figma/eslint-plugin-figma-plugins": "^0.14.0",
-    "@figma/plugin-typings": "^1.87.0",
+    "@figma/plugin-typings": "^1.93.0",
     "@types/node": "^20.11.5",
     "@types/prismjs": "^1.26.0",
     "@types/react": ">=18",

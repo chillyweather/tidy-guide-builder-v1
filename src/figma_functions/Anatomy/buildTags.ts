@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { computeMaximumBounds } from "@create-figma-plugin/utilities";
-import { buildIndexesFrame } from "../tns_subFunctions";
+import { buildIndexesFrame } from "../tagPlacementFunctions";
 import {
   findAllNodes,
   elementsCoordinatesAndDimensions,
@@ -111,6 +111,13 @@ export default async function buildTags(
       elementStyleName,
       elementFontName,
       elementFontSize,
+      elementFontWeight,
+      elementLineHeight,
+      elementLetterSpacing,
+      elementTextDecoration,
+      elementTextCase,
+      elementFill,
+      elementVariable,
     }: {
       elementX: number;
       elementY: number;
@@ -121,6 +128,13 @@ export default async function buildTags(
       elementStyleName: string;
       elementFontName: FontName;
       elementFontSize: number;
+      elementFontWeight: string;
+      elementLineHeight: number;
+      elementLetterSpacing: number;
+      elementTextDecoration: TextDecoration;
+      elementTextCase: TextCase;
+      elementFill: string;
+      elementVariable: string;
     } = element;
 
     // NOTE: elements (tags and indexes)
@@ -191,22 +205,33 @@ export default async function buildTags(
       setTextContent(
         indexWithLabel,
         "Text",
-        `${elementName}, ${elementStyleName} (${elementFontName.family} ${elementFontName.style} - ${elementFontSize}px)`
+        `🆃 ${elementName}
+        
+🆃 ${elementStyleName}
+        Font family: ${elementFontName.family}
+        Font size: ${elementFontSize}px
+        Font style: ${elementFontName.style}
+        Font weight: ${elementFontWeight}
+        Line height: ${elementLineHeight}
+        Letter spacing: ${elementLetterSpacing}
+        Text decoration: ${elementTextDecoration}
+        Text case: ${elementTextCase}
+        
+        Text color: ${elementFill}
+        🎨 ${elementVariable}`
       );
     } else if (!indexWithLabel.removed) {
-      setTextContent(indexWithLabel, "Text", elementName);
+      setTextContent(indexWithLabel, "Text", `💠 ${elementName}`);
     }
 
     if (elementName === "Icon" && indexWithLabel) {
-      setTextContent(indexWithLabel, "Text", `Icon - ${elementWidth}px`);
+      setTextContent(indexWithLabel, "Text", `🅘 Icon - ${elementWidth}px`);
     }
     tag.name = `.tag`;
     if (!indexWithLabel.removed)
       indexWithLabel.name = `.${abc[currentIndex]}_${elementName}`;
     tagElements.push(tag);
   });
-
-  console.log("usedComponentIndexes", usedComponentIndexes);
 
   if (minSizeProperty) addMinWidthIndex(minSizeProperty, tagComponent, indexes);
 

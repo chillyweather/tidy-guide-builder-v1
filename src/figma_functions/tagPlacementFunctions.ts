@@ -76,41 +76,6 @@ function getFonts(textNode: TextNode) {
   return { family: `${font}`, style: `${style}` };
 }
 
-// function reColor(marker: InstanceNode) {
-//   const num = marker.findOne(
-//     (node) => node.name === ".DS anatomy spacing-meter-value"
-//   );
-//   const vector = marker.findOne(
-//     (node) => node.name === ".DS anatomy spacing-meter-marker"
-//   );
-//   const line = marker.findOne((node) => node.name === "Line");
-//   const barMarker = marker.findOne(
-//     (node) => node.name === ".DS anatomy spacing-bar-marker"
-//   );
-//   const body = marker.findOne(
-//     (node) => node.name === ".DS anatomy spacing-bar-body"
-//   );
-//
-//   //@ts-ignore
-//   (body).fills = [
-//     {
-//       type: "SOLID",
-//       visible: true,
-//       opacity: 0.5,
-//       blendMode: "NORMAL",
-//       color: {
-//         r: 0.9041666984558105,
-//         g: 0.9375,
-//         b: 0.6875,
-//       },
-//     },
-//   ];
-//   num.fillStyleId = TGPaddingsMarker.id;
-//   barMarker.fillStyleId = TGPaddingsMarker.id;
-//   vector.strokeStyleId = TGPaddingsMarker.id;
-//   line.strokeStyleId = TGPaddingsMarker.id;
-// }
-
 export {
   getFrameMeasurements,
   buildIndexesFrame,
