@@ -13,6 +13,7 @@ const loadFonts = async () => {
   await figma.loadFontAsync({ family: "Inter", style: "Bold" });
   await figma.loadFontAsync({ family: "Inter", style: "Semi Bold" });
   await figma.loadFontAsync({ family: "Inter", style: "Medium" });
+  await figma.loadFontAsync({ family: "IBM Plex Mono", style: "Medium" });
 };
 
 export default async function () {

@@ -7,9 +7,10 @@ import {
   // getTagInstance,
 } from "./tagBuilgingFunctions";
 import { buildTagElements } from "./buildTagElements";
-import { setVariantProps } from "../utilityFunctions";
+import { buildAutoLayoutFrame, setVariantProps } from "../utilityFunctions";
 import { getEffects } from "../getEffects";
 import { setTextContent } from "../utilityFunctions";
+import { buildIndexElementForText } from "./buildIndexElementForText";
 // import main from 'token2css';
 
 export default async function buildTags(
@@ -111,13 +112,6 @@ export default async function buildTags(
       elementStyleName,
       elementFontName,
       elementFontSize,
-      elementFontWeight,
-      elementLineHeight,
-      elementLetterSpacing,
-      elementTextDecoration,
-      elementTextCase,
-      elementFill,
-      elementVariable,
     }: {
       elementX: number;
       elementY: number;
@@ -128,13 +122,6 @@ export default async function buildTags(
       elementStyleName: string;
       elementFontName: FontName;
       elementFontSize: number;
-      elementFontWeight: string;
-      elementLineHeight: number;
-      elementLetterSpacing: number;
-      elementTextDecoration: TextDecoration;
-      elementTextCase: TextCase;
-      elementFill: string;
-      elementVariable: string;
     } = element;
 
     // NOTE: elements (tags and indexes)
@@ -152,7 +139,15 @@ export default async function buildTags(
     );
     if (!indexWithLabelComp || indexWithLabelComp.type !== "COMPONENT") return;
     const indexWithLabel = indexWithLabelComp.createInstance();
-    indexes.appendChild(indexWithLabel);
+    const indexElement = buildAutoLayoutFrame(
+      "indexElement",
+      "VERTICAL",
+      0,
+      0,
+      8
+    );
+    indexElement.appendChild(indexWithLabel);
+    indexes.appendChild(indexElement);
 
     // NOTE: finding "sibling" elements with the same name and main element
     function findUsedData(
@@ -189,6 +184,7 @@ export default async function buildTags(
       } else {
         setTextContent(tag, "elementIndex", `${foundIndex}`);
         indexWithLabel.remove();
+        indexElement.remove();
       }
     } else {
       setTextContent(tag, "elementIndex", `${abc[currentIndex]}`);
@@ -202,30 +198,13 @@ export default async function buildTags(
       elementFontSize &&
       !indexWithLabel.removed
     ) {
-      setTextContent(
-        indexWithLabel,
-        "Text",
-        `🆃 ${elementName}
-        
-🆃 ${elementStyleName}
-        Font family: ${elementFontName.family}
-        Font size: ${elementFontSize}px
-        Font style: ${elementFontName.style}
-        Font weight: ${elementFontWeight}
-        Line height: ${elementLineHeight}
-        Letter spacing: ${elementLetterSpacing}
-        Text decoration: ${elementTextDecoration}
-        Text case: ${elementTextCase}
-        
-        Text color: ${elementFill}
-        🎨 ${elementVariable}`
-      );
+      buildIndexElementForText(indexElement, indexWithLabel, element);
     } else if (!indexWithLabel.removed) {
-      setTextContent(indexWithLabel, "Text", `💠 ${elementName}`);
+      setTextContent(indexWithLabel, "Text", `❖ ${elementName}`);
     }
 
     if (elementName === "Icon" && indexWithLabel) {
-      setTextContent(indexWithLabel, "Text", `🅘 Icon - ${elementWidth}px`);
+      setTextContent(indexWithLabel, "Text", `✤ Icon - ${elementWidth}px`);
     }
     tag.name = `.tag`;
     if (!indexWithLabel.removed)
@@ -235,8 +214,9 @@ export default async function buildTags(
 
   if (minSizeProperty) addMinWidthIndex(minSizeProperty, tagComponent, indexes);
 
-  if (elementMaxWidth && elementMaxWidth > 0)
+  if (elementMaxWidth && elementMaxWidth > 0) {
     addMaxWidth(frame, tagComponent, indexes, elementMaxWidth);
+  }
   addBorderRadius(frame, tagComponent, indexes);
   addEffectsInfo(frame, tagComponent, indexes);
   //! error here
@@ -252,11 +232,12 @@ export default async function buildTags(
   indexes.y = yLimit + 52;
 
   tagElements.push(indexes);
-  indexes.children.forEach((child) => {
-    if (child.type === "INSTANCE") {
-      makeLabelTextFlow(child);
-    }
-  });
+
+  // indexes.children.forEach((child) => {
+  //   if (child.type === "INSTANCE") {
+  //     makeLabelTextFlow(child);
+  //   }
+  // });
 
   return { tagElements, indexes };
 }
