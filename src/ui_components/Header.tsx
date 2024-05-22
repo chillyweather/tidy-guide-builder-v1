@@ -30,6 +30,9 @@ import {
   showLoginPageAtom,
   selectedElementAtom,
   selectedElementNameAtom,
+  showIndexPageAtom,
+  showMainContentAtom,
+  showContentFromServerAtom,
 } from "src/state/atoms";
 
 import { getCollectionDocs } from "./ui_functions/collectionHandlers";
@@ -66,39 +69,34 @@ const Header = ({
     selectedComponentPicAtom
   );
   const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
-  const [currentCompany] = useAtom(currentCompanyAtom);
-  const [currentUserName] = useAtom(currentUserNameAtom);
   const [collections] = useAtom(collectionsAtom);
-  const [currentUserId] = useAtom(currentUserIdAtom);
   const [selectedCollection, setSelectedCollection]: any = useAtom(
     selectedCollectionAtom
   );
   const [userRole] = useAtom(currentUserRoleAtom);
   const [currentDocumentations] = useAtom(currentDocumentationsAtom);
-  const [isToBuildComponentPic, setIsToBuildComponentPic] = useAtom(
-    isToBuildComponentPicAtom
-  );
+  const [, setIsToBuildComponentPic] = useAtom(isToBuildComponentPicAtom);
   const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
   const [selectedElement, setSelectedElement] = useAtom(selectedElementAtom);
   const [, setSelectedElementName] = useAtom(selectedElementNameAtom);
+  const [isIndexOpen, setIsIndexOpen] = useAtom(showIndexPageAtom);
+  const [isMainContentOpen, setIsMainContentOpen] =
+    useAtom(showMainContentAtom);
+  const [isContenFromServerOpen, setIsContenFromServerOpen] = useAtom(
+    showContentFromServerAtom
+  );
 
   const [userRankStyle, setUserRankStyle] = useState({});
 
   const {
     dataForUpdate,
     documentationData,
-    isContenFromServerOpen,
-    isMainContentOpen,
     isSettingsPageOpen,
-    isIndexOpen,
     selectedMasterId,
     selectedSections,
     setDataForUpdate,
-    setIsContenFromServerOpen,
     setIsFromSavedData,
-    setIsIndexOpen,
-    setIsMainContentOpen,
     setIsReset,
     setIsSettingsPageOpen,
     setSelectedMasterId,

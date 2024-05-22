@@ -6,7 +6,6 @@ import { emit, on } from "@create-figma-plugin/utilities";
 import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import BuilderContext from "./BuilderContext";
-import CancelPopup from "./ui_components/popups/cancelPopup";
 import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
 import DeletePopup from "./ui_components/popups/deletePopup";
@@ -72,6 +71,9 @@ import {
   showLoginPageAtom,
   selectedElementAtom,
   selectedElementNameAtom,
+  showIndexPageAtom,
+  showMainContentAtom,
+  showContentFromServerAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -130,15 +132,16 @@ function Plugin() {
   //navigation
   const [showLoginPage, setShowLoginPage] = useAtom(showLoginPageAtom);
   const [showSigninPage, setShowSigninPage] = useState(false);
-  const [showIndexPage, setShowIndexPage] = useState(true);
-  const [showMainContent, setShowMainContent] = useState(false);
-  const [showContentFromServer, setShowContentFromServer] = useState(false);
+  const [showIndexPage, setShowIndexPage] = useAtom(showIndexPageAtom);
+  const [showMainContent, setShowMainContent] = useAtom(showMainContentAtom);
+  const [showContentFromServer, setShowContentFromServer] = useAtom(
+    showContentFromServerAtom
+  );
   const [showSettingsPage, setShowSettingsPage] = useState(false);
 
   //navigation-popups
   const [showDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
   const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
-  const [showCancelPopup, setShowCancelPopup] = useState(false);
   const [showWaitingInfoPopup, setShowWaitingInfoPopup] = useState(false);
   const [showResetPopup, setShowResetPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
@@ -673,12 +676,9 @@ function Plugin() {
     documentationData,
     documentationTitle,
     isBuilding,
-    isContenFromServerOpen: showContentFromServer,
     isDraft,
     isFromSavedData,
-    isIndexOpen: showIndexPage,
     isLoading,
-    isMainContentOpen: showMainContent,
     isPdSectionOpen,
     isReset,
     isScroll,
@@ -686,7 +686,6 @@ function Plugin() {
     loggedInUser,
     selectedCard,
     selectedSections,
-    showCancelPopup,
     showResetPopup,
     token,
     isCurrentNameValid,
@@ -702,12 +701,9 @@ function Plugin() {
     setDocumentationData,
     setDocumentationTitle,
     setIsBuilding,
-    setIsContenFromServerOpen: setShowContentFromServer,
     setIsDraft,
     setIsFromSavedData,
-    setIsIndexOpen: setShowIndexPage,
     setIsLoading,
-    setIsMainContentOpen: setShowMainContent,
     setIsPdSectionOpen,
     setIsReset,
     setIsWip,
@@ -715,7 +711,6 @@ function Plugin() {
     setSelectedCard,
     setSelectedMasterId,
     setSelectedSections,
-    setShowCancelPopup,
     setShowResetPopup,
     setIsCurrentNameValid,
     setShowPreviewPopup,
@@ -747,7 +742,6 @@ function Plugin() {
       }}
       onKeyDown={(e) => {
         if (e.key === "Escape") {
-          setShowCancelPopup(false);
           setShowResetPopup(false);
           setShowDeletePopup(false);
           setShowPreviewPopup(false);
@@ -764,7 +758,6 @@ function Plugin() {
           />
         )}
         {isLoading && <LoaderPage />}
-        {showCancelPopup && <CancelPopup />}
         {showResetPopup && <ResetPopup />}
         {showDeletePopup && (
           <DeletePopup

@@ -49,6 +49,7 @@ const IndexPage = ({
 
   useEffect(() => {
     setCurrentPage("index");
+    setIsIndexOpen(true);
   }, []);
 
   return (

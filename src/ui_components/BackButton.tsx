@@ -11,6 +11,9 @@ import {
   selectedComponentPicAtom,
   selectedElementAtom,
   selectedElementNameAtom,
+  showIndexPageAtom,
+  showMainContentAtom,
+  showContentFromServerAtom,
 } from "../state/atoms";
 import { IconArrowLeft } from "@tabler/icons-react";
 
@@ -23,6 +26,9 @@ export default function BackButton() {
   const [, setSelectedComponentPic] = useAtom(selectedComponentPicAtom);
   const [, setSelectedElement] = useAtom(selectedElementAtom);
   const [, setSelectedElementName] = useAtom(selectedElementNameAtom);
+  const [, setIsIndexOpen] = useAtom(showIndexPageAtom);
+  const [, setIsMainContentOpen] = useAtom(showMainContentAtom);
+  const [, setIsContenFromServerOpen] = useAtom(showContentFromServerAtom);
 
   function backToIndex() {
     setIsDetailsPageOpen(false);
@@ -32,9 +38,9 @@ export default function BackButton() {
     setSelectedNodeKey("");
     setSelectedNodeId("");
     setSelectedComponentPic("");
-    // setIsIndexOpen(true);
-    // setIsMainContentOpen(false);
-    // setIsContenFromServerOpen(false);
+    setIsIndexOpen(true);
+    setIsMainContentOpen(false);
+    setIsContenFromServerOpen(false);
     // setIsSettingsPageOpen(false);
     // setIsDocJustOpened(true);
     // setIsReset(true);

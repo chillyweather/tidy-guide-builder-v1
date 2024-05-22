@@ -3,6 +3,9 @@ import { CurrenPage } from "./atomTypes";
 
 //page states
 export const showLoginPageAtom = atom(false);
+export const showIndexPageAtom = atom(false);
+export const showMainContentAtom = atom(false);
+export const showContentFromServerAtom = atom(false);
 
 export const selectedNodeIdAtom = atom("");
 export const selectedNodeKeyAtom = atom("");

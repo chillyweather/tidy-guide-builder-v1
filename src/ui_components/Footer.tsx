@@ -26,8 +26,6 @@ const Footer = ({
     isDraft,
     setIsDraft,
     setShowResetPopup,
-    // setIsMainContentOpen,
-    // setIsContenFromServerOpen,
   } = useContext(BuilderContext) || {};
 
   const isValid = !!documentationTitle?.length && isCurrentNameValid;
