@@ -1,4 +1,8 @@
 import { atom } from "jotai";
+import { CurrenPage } from "./atomTypes";
+
+//page states
+export const showLoginPageAtom = atom(false);
 
 export const selectedNodeIdAtom = atom("");
 export const selectedNodeKeyAtom = atom("");
@@ -16,6 +20,11 @@ export const currentUserIdAtom = atom("");
 export const currentUserRoleAtom = atom("");
 export const currentDocumentationsAtom = atom(null);
 export const tokenAtom = atom("");
+export const currentPageAtom = atom<CurrenPage>("login");
+
+//context replacements
+export const selectedElementAtom = atom(null);
+export const selectedElementNameAtom = atom("");
 
 //collections
 export const collectionsAtom = atom([]);

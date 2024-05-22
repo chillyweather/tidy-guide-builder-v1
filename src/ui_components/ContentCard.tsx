@@ -76,7 +76,6 @@ function removeDraggable(event: any) {
 
 export const ContentCard = (card: any, index: number) => {
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
-  // const selectedElement = useContext(BuilderContext)?.selectedElement;
 
   //card title
   const [cardTitle, setCardTitle] = useState(card.title);
@@ -524,7 +523,10 @@ export const ContentCard = (card: any, index: number) => {
               {PublishToggle(publish, setPublish, "Publish to Tidy Viewer")}
             </div>
             <div className="rightContent">
-              <button onClick={handleBuildClick} tool-tip={"Build this section on canvas"}>
+              <button
+                onClick={handleBuildClick}
+                tool-tip={"Build this section on canvas"}
+              >
                 <IconArrowBarDown />
               </button>
               <button

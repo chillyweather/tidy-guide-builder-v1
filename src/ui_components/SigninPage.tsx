@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import { useAtom } from "jotai";
 import { TidyLogo } from "../images/TidyLogo";
 import {
@@ -12,7 +12,7 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import { createNewAccount } from "./ui_functions/authentication";
-import { tokenAtom } from "src/state/atoms";
+import { tokenAtom, currentPageAtom } from "src/state/atoms";
 // import { getDocumentation } from "../auxiliaryFunctions/documentationHandlers";
 
 const SignIn = ({
@@ -46,6 +46,7 @@ const SignIn = ({
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [repeatedPasswordVisible, setRepeatedPasswordVisible] = useState(false);
   const [, setTokenAtomData] = useAtom(tokenAtom);
+  const [, setCurrentPage] = useAtom(currentPageAtom);
 
   //error visibility states
   const [isEmailErrorVisible, setIsEmailErrorVisible] = useState(false);
@@ -54,6 +55,10 @@ const SignIn = ({
     useState(false);
   const [isPasswordsMatchErrorVisible, setIsPasswordsMatchErrorVisible] =
     useState(false);
+
+  useEffect(() => {
+    setCurrentPage("signin");
+  }, []);
 
   function validateEmail(email: string) {
     const re =
@@ -163,9 +168,10 @@ const SignIn = ({
         dangerouslySetInnerHTML={{
           __html: isLoginFailed
             ? "<u>Something went wrong, please, try again</u>"
-            : "Please enter your credentials"
-        }}>
-        { }
+            : "Please enter your credentials",
+        }}
+      >
+        {}
       </p>
 
       {/* //! user name */}

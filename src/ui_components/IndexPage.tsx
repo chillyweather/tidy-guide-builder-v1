@@ -2,6 +2,7 @@
 import { h } from "preact";
 import { IconTrash, IconCopy } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
+import { useEffect } from "preact/hooks";
 import {
   getDocumentation,
   // getDocumentations,
@@ -12,6 +13,7 @@ import {
   isViewModeOpenAtom,
   selectedCollectionAtom,
   isDetailsPageOpenAtom,
+  currentPageAtom,
 } from "src/state/atoms";
 import { getCollectionDocs } from "./ui_functions/collectionHandlers";
 
@@ -39,10 +41,15 @@ const IndexPage = ({
   const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
+  const [, setCurrentPage] = useAtom(currentPageAtom);
   if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
   const sortedData = data.sort((a: any, b: any) =>
     a.title.localeCompare(b.title)
   );
+
+  useEffect(() => {
+    setCurrentPage("index");
+  }, []);
 
   return (
     <div className={"componentBTN-wrapper"}>
@@ -65,6 +72,7 @@ const IndexPage = ({
               // style={{ opacity: draft ? 0.5 : 1 }}
               onClick={(e) => {
                 setIsDetailsPageOpen(true);
+                setCurrentPage("details");
                 if (e.metaKey || e.ctrlKey) {
                   //
                   emit(

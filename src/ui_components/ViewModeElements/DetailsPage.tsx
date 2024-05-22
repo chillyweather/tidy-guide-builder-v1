@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import ElementSection from "./ElementSection";
 import { useEffect, useState } from "preact/hooks";
+import { useAtom } from "jotai";
+import { currentPageAtom } from "src/state/atoms";
 import { h } from "preact";
 const DetailsPage = ({
   data,
@@ -9,8 +11,13 @@ const DetailsPage = ({
   data: any;
   selectedMasterId: string;
 }) => {
+  const [, setCurrentPage] = useAtom(currentPageAtom);
   const [docData, setDocData]: any = useState(null);
   const [navigationLinks, setNavigationLinks]: any = useState([]);
+
+  useEffect(() => {
+    setCurrentPage("details");
+  }, []);
 
   useEffect(() => {
     if (data) {

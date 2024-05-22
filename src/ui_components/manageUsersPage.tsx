@@ -19,6 +19,7 @@ import {
   collectionDocsTriggerAtom,
   // currentUserCollectionsAtom,
   selectedCollectionInSettingsAtom,
+  currentPageAtom,
 } from "src/state/atoms";
 import {
   getCollectionUsers,
@@ -36,6 +37,7 @@ function manageUsersPage() {
     selectedCollectionInSettingsAtom
   );
   const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
+  const [, setCurrentPage] = useAtom(currentPageAtom);
   // const [selectedCollection, setSelectedCollectionInSettings]: any = useAtom(
   //   selectedCollectionInSettingsAtom
   // );
@@ -44,6 +46,7 @@ function manageUsersPage() {
   }
 
   useEffect(() => {
+    setCurrentPage("setings-section");
     triggerCollectionRefresh();
   }, []);
 

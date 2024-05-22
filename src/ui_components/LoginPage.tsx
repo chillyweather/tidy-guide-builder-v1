@@ -1,13 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
-import { useState, useContext } from "preact/hooks";
+import { useState, useContext, useEffect } from "preact/hooks";
 import BuilderContext from "src/BuilderContext";
 import { useAtom } from "jotai";
 import {
   currentUserNameAtom,
   currentCompanyAtom,
   tokenAtom,
+  currentPageAtom,
 } from "src/state/atoms";
 
 import { TidyLogo } from "../images/TidyLogo";
@@ -45,7 +46,12 @@ const Login = ({
   const [, setCurrentCompany] = useAtom(currentCompanyAtom);
   const [, setCurrentUserName] = useAtom(currentUserNameAtom);
   const [, setTokenAtomData] = useAtom(tokenAtom);
+  const [, setCurrentPage] = useAtom(currentPageAtom);
   const { setLoggedInUser } = useContext(BuilderContext) || {};
+
+  useEffect(() => {
+    setCurrentPage("login");
+  }, []);
 
   const handleEmailChange = (e: any) => {
     setIsLoginFailed(false);
@@ -103,13 +109,13 @@ const Login = ({
       <div className="navigation"></div>
       <TidyLogo />
       <p
-      className={"redPara"}
-      dangerouslySetInnerHTML={{
-        __html: isLoginFailed
-          ? "<u>Wrong email or password, please, try again</u>"
-          : "Please enter your credentials"
-      }}>
-      </p>
+        className={"redPara"}
+        dangerouslySetInnerHTML={{
+          __html: isLoginFailed
+            ? "<u>Wrong email or password, please, try again</u>"
+            : "Please enter your credentials",
+        }}
+      ></p>
       <div className={isLoginFailed ? "inputDiv inputDiv-invalid" : "inputDiv"}>
         <input
           type="text"

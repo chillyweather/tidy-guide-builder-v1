@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { useContext, useState } from "preact/hooks";
+import { useAtom } from "jotai";
+import { currentPageAtom } from "src/state/atoms";
 import BuilderContext from "src/BuilderContext";
 import {
   IconAlertCircleFilled,
@@ -10,6 +12,7 @@ import {
 } from "@tabler/icons-react";
 import manageUsersPage from "./manageUsersPage";
 import manageCollectionsPage from "./manageCollectionsPage";
+import { useEffect } from "react";
 
 const Settings = () => {
   const { setShowDeleteAccountPopup } = useContext(BuilderContext) || {};
@@ -17,6 +20,11 @@ const Settings = () => {
   const [showManageUsersPage, setShowManageUsersPage] = useState(false);
   const [showManageCollectionsPage, setShowManageCollectionsPage] =
     useState(false);
+  const [, setCurrentPage] = useAtom(currentPageAtom);
+
+  useEffect(() => {
+    setCurrentPage("settings");
+  }, []);
 
   const SettingsContent = (
     <div className={"settings-wrapper"}>

@@ -19,6 +19,7 @@ import {
   showEditCollectionFormAtom,
   showNonEmptyCollectionPopupAtom,
   usersAtom,
+  currentPageAtom,
 } from "src/state/atoms";
 
 export type FormType = "Add" | "Edit";
@@ -33,8 +34,10 @@ import AddCollectionForm from "./AddCollectionForm";
 function manageCollectionsPage() {
   const [collections] = useAtom(collectionsAtom);
   const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
+  const [, setCurrentPage] = useAtom(currentPageAtom);
 
   useEffect(() => {
+    setCurrentPage("setings-section");
     setCollectionDocsTrigger((n: number) => n + 1);
   }, []);
 

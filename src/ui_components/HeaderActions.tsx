@@ -40,6 +40,8 @@ import {
   selectedComponentPicAtom,
   selectionDataAtom,
   isToBuildComponentPicAtom,
+  selectedElementAtom,
+  selectedElementNameAtom,
 } from "src/state/atoms";
 import { deleteFileFromServer } from "./ui_functions/fileManagementFunctions";
 import { useEffect } from "react";
@@ -49,8 +51,9 @@ const cardsForPopup = sectionData;
 function AddSectionPopupCard(card: any) {
   const [selectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
+  const [selectedElement] = useAtom(selectedElementAtom);
   const [isHovering, setIsHovering] = useState(false);
-  const { setSelectedSections, selectedSections, selectedElement } =
+  const { setSelectedSections, selectedSections } =
     useContext(BuilderContext) || {};
   const pdTypes = ["anatomy", "spacing", "property", "variants"];
 
@@ -190,35 +193,20 @@ function HeaderActions() {
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedComponentPic, setSelectedComponentPic] = useAtom(
-    selectedComponentPicAtom,
+    selectedComponentPicAtom
   );
   const [selectionData] = useAtom(selectionDataAtom);
   const [isToBuildComponentPic, setIsToBuildComponentPic] = useAtom(
-    isToBuildComponentPicAtom,
+    isToBuildComponentPicAtom
   );
+  const [selectedElementName, setSelectedElementName] = useAtom(
+    selectedElementNameAtom
+  );
+
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
+  const [, setSelectedElement] = useAtom(selectedElementAtom);
 
-  const {
-    selectedElementName,
-    setSelectedElementName,
-    setSelectedElement,
-    documentationTitle,
-    isScroll,
-    // isMainContentOpen,
-    // selectedMasterId,
-    // isIndexOpen,
-    // setShowPreviewPopup,
-    // setIsPreviewing,
-    // selectedSections,
-  } = useContext(BuilderContext) || {};
-
-  // const isEmpty = selectedSections && selectedSections.length === 0;
-
-  // useEffect(() => {
-  //   console.log("selectedNodeId", selectedNodeId);
-  //   console.log("selectedNodeKey", selectedNodeKey);
-  //   console.log("selectedComponentPic", selectedComponentPic);
-  // }, [selectedNodeId, selectedNodeKey, selectedComponentPic]);
+  const { documentationTitle, isScroll } = useContext(BuilderContext) || {};
 
   useEffect(() => {
     if (isToBuildComponentPic && selectedNodeKey && selectedNodeId) {
@@ -230,28 +218,6 @@ function HeaderActions() {
     selectedNodeKey,
     selectedNodeId,
   ]);
-
-  // useEffect(() => {
-  //   if (
-  //     // selectedNodeId &&
-  //     // selectedNodeKey &&
-  //     // !selectedComponentPic &&
-  //     // !isIndexOpen &&
-  //     // (isMainContentOpen || selectedMasterId)
-  //     isToBuildComponentPic
-  //   ) {
-  //     emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
-  //   }
-  // }, [
-  //   isToBuildComponentPic,
-  //   setIsToBuildComponentPic,
-  //   // selectedNodeId,
-  //   // selectedNodeKey,
-  //   // selectedComponentPic,
-  //   // isIndexOpen,
-  //   // isMainContentOpen,
-  //   // selectedMasterId,
-  // ]);
 
   return (
     <div

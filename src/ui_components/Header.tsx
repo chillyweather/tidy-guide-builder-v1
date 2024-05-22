@@ -26,6 +26,10 @@ import {
   currentDocumentationsAtom,
   isToBuildComponentPicAtom,
   isDetailsPageOpenAtom,
+  currentPageAtom,
+  showLoginPageAtom,
+  selectedElementAtom,
+  selectedElementNameAtom,
 } from "src/state/atoms";
 
 import { getCollectionDocs } from "./ui_functions/collectionHandlers";
@@ -41,7 +45,6 @@ import CollectionsDropdown from "./CollectionsDropdown";
 //TODO:delete from server on Back
 
 const Header = ({
-  isLoginPageOpen,
   setIsLoginPageOpen,
   setFeedbackPage,
   isDocJustOpened,
@@ -49,7 +52,6 @@ const Header = ({
   userRank,
   showMainContent,
 }: {
-  isLoginPageOpen: boolean;
   setIsLoginPageOpen: (value: boolean) => void;
   setFeedbackPage: (value: boolean) => void;
   isDocJustOpened: boolean;
@@ -57,6 +59,7 @@ const Header = ({
   userRank: string;
   showMainContent: boolean;
 }) => {
+  const [isLoginPageOpen] = useAtom(showLoginPageAtom);
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedComponentPic, setSelectedComponentPic] = useAtom(
@@ -76,6 +79,9 @@ const Header = ({
     isToBuildComponentPicAtom
   );
   const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
+  const [, setCurrentPage] = useAtom(currentPageAtom);
+  const [selectedElement, setSelectedElement] = useAtom(selectedElementAtom);
+  const [, setSelectedElementName] = useAtom(selectedElementNameAtom);
 
   const [userRankStyle, setUserRankStyle] = useState({});
 
@@ -86,7 +92,6 @@ const Header = ({
     isMainContentOpen,
     isSettingsPageOpen,
     isIndexOpen,
-    selectedElement,
     selectedMasterId,
     selectedSections,
     setDataForUpdate,
@@ -95,9 +100,7 @@ const Header = ({
     setIsIndexOpen,
     setIsMainContentOpen,
     setIsReset,
-    setSelectedElement,
     setIsSettingsPageOpen,
-    setSelectedElementName,
     setSelectedMasterId,
     token,
   } = useContext(BuilderContext) || {};
@@ -109,7 +112,7 @@ const Header = ({
   const [avatarColor, setAvatarColor] = useState("#F584AD");
   const [lastCollectionUpdate, setLastCollectionUpdate] = useState("");
 
-  function backToIndex() {
+  function backToIndex(): void {
     setIsDetailsPageOpen(false);
     setIsToBuildComponentPic(false);
     setSelectedElement(null);
@@ -131,23 +134,6 @@ const Header = ({
       setLastCollectionUpdate(timestamp);
     }
   }, [selectedCollection]);
-
-  // useEffect(() => {
-  //   if (
-  //     selectedNodeId &&
-  //     selectedNodeKey &&
-  //     !selectedComponentPic
-  //     //  &&
-  //     // isMainContentOpen
-  //   ) {
-  //     emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
-  //   }
-  // }, [
-  //   selectedNodeId,
-  //   selectedNodeKey,
-  //   selectedComponentPic,
-  //   isMainContentOpen,
-  // ]);
 
   useEffect(() => {
     if (userRank === "Admin") {
@@ -276,6 +262,7 @@ const Header = ({
                   id="new-button"
                   className="flex-button add-button"
                   onClick={() => {
+                    setCurrentPage("new-documnent");
                     setIsIndexOpen(false);
                     setIsMainContentOpen(true);
                     setIsFromSavedData(false);

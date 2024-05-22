@@ -68,6 +68,10 @@ import {
   isDetailsPageOpenAtom,
   usersAtom,
   showNonEmptyCollectionPopupAtom,
+  currentPageAtom,
+  showLoginPageAtom,
+  selectedElementAtom,
+  selectedElementNameAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -108,6 +112,7 @@ function Plugin() {
     isDetailsPageOpenAtom
   );
   const [, setUsers] = useAtom(usersAtom);
+  const [openPage] = useAtom(currentPageAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -123,7 +128,7 @@ function Plugin() {
   const [currentPage, setCurrentPage] = useState("");
 
   //navigation
-  const [showLoginPage, setShowLoginPage] = useState(false);
+  const [showLoginPage, setShowLoginPage] = useAtom(showLoginPageAtom);
   const [showSigninPage, setShowSigninPage] = useState(false);
   const [showIndexPage, setShowIndexPage] = useState(true);
   const [showMainContent, setShowMainContent] = useState(false);
@@ -166,8 +171,10 @@ function Plugin() {
   //work in progress
   const [isWip, setIsWip] = useState(false);
   //selected element
-  const [selectedElement, setSelectedElement] = useState<any>(null);
-  const [selectedElementName, setSelectedElementName] = useState("");
+  const [selectedElement, setSelectedElement] = useAtom(selectedElementAtom);
+  const [selectedElementName, setSelectedElementName] = useAtom(
+    selectedElementNameAtom
+  );
   const [selectedCard, setSelectedCard] = useState<any>("");
   //selected cards
   const [selectedSections, setSelectedSections] = useState<any[]>([]);
@@ -218,6 +225,11 @@ function Plugin() {
       setIsLoading(false);
     }
   });
+
+  useEffect(() => {
+    console.log("openPage", openPage);
+  }, [openPage]);
+  console.log("openPage", openPage);
 
   useEffect(() => {
     if (showLoginPage || showSigninPage || showSettingsPage || showIndexPage) {
@@ -666,7 +678,6 @@ function Plugin() {
     isFromSavedData,
     isIndexOpen: showIndexPage,
     isLoading,
-    isLoginPageOpen: showLoginPage,
     isMainContentOpen: showMainContent,
     isPdSectionOpen,
     isReset,
@@ -674,9 +685,6 @@ function Plugin() {
     isWip,
     loggedInUser,
     selectedCard,
-    selectedElement,
-    // selectedElementKey,
-    selectedElementName,
     selectedSections,
     showCancelPopup,
     showResetPopup,
@@ -705,10 +713,7 @@ function Plugin() {
     setIsWip,
     setLoggedInUser,
     setSelectedCard,
-    setSelectedElement,
-    // setSelectedElementKey,
     setSelectedMasterId,
-    setSelectedElementName,
     setSelectedSections,
     setShowCancelPopup,
     setShowResetPopup,
@@ -822,7 +827,6 @@ function Plugin() {
           />
         )}
         <Header
-          isLoginPageOpen={showLoginPage}
           setIsLoginPageOpen={setShowLoginPage}
           setFeedbackPage={setShowFeedbackPopup}
           isDocJustOpened={isDocJustOpened}

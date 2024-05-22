@@ -15,7 +15,6 @@ interface IContext {
   isFromSavedData: boolean;
   isIndexOpen: boolean;
   isLoading: boolean;
-  isLoginPageOpen: boolean;
   isMainContentOpen: boolean;
   isPdSectionOpen: boolean;
   isPreviewing: boolean;
@@ -26,8 +25,6 @@ interface IContext {
   loggedInUser: string;
   previewData: any;
   selectedCard: string;
-  selectedElement: any;
-  selectedElementName: string;
   selectedMasterId: string;
   selectedSections: any[];
   setCurrentDocument: any;
@@ -53,8 +50,6 @@ interface IContext {
   setLoggedInUser: any;
   setPreviewData: any;
   setSelectedCard: any;
-  setSelectedElement: any;
-  setSelectedElementName: any;
   setSelectedMasterId: any;
   setSelectedSections: any;
   setShowCancelPopup: any;
