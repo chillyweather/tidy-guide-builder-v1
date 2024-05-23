@@ -1,8 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { useContext, useState } from "preact/hooks";
+import { useContext } from "preact/hooks";
 import { useAtom } from "jotai";
-import { currentPageAtom } from "src/state/atoms";
+import {
+  currentPageAtom,
+  showSettingsContentAtom,
+  showManageUsersPageAtom,
+  showManageCollectionsPageAtom,
+} from "src/state/atoms";
 import BuilderContext from "src/BuilderContext";
 import {
   IconAlertCircleFilled,
@@ -16,15 +21,26 @@ import { useEffect } from "react";
 
 const Settings = () => {
   const { setShowDeleteAccountPopup } = useContext(BuilderContext) || {};
-  const [showSettingsContent, setShowSettingsContent] = useState(true);
-  const [showManageUsersPage, setShowManageUsersPage] = useState(false);
-  const [showManageCollectionsPage, setShowManageCollectionsPage] =
-    useState(false);
+  const [showSettingsContent, setShowSettingsContent] = useAtom(
+    showSettingsContentAtom
+  );
+  const [showManageUsersPage, setShowManageUsersPage] = useAtom(
+    showManageUsersPageAtom
+  );
+  const [showManageCollectionsPage, setShowManageCollectionsPage] = useAtom(
+    showManageCollectionsPageAtom
+  );
   const [, setCurrentPage] = useAtom(currentPageAtom);
 
   useEffect(() => {
     setCurrentPage("settings");
   }, []);
+
+  useEffect(() => {
+    console.log("showSettingsContent", showSettingsContent);
+    console.log("showManageUsersPage", showManageUsersPage);
+    console.log("showManageCollectionsPage", showManageCollectionsPage);
+  }, [showSettingsContent, showManageUsersPage, showManageCollectionsPage]);
 
   const SettingsContent = (
     <div className={"settings-wrapper"}>

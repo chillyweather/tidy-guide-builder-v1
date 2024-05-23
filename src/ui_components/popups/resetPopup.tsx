@@ -1,11 +1,12 @@
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
-import { useState } from "preact/hooks";
-import { useContext, useRef, useEffect } from "preact/hooks";
+import { useContext } from "preact/hooks";
 import BuilderContext from "../../BuilderContext";
+import { useAtom } from "jotai";
+import { isResetAtom } from "../../state/atoms";
 
 function ResetPopup() {
-  const setIsReset = useContext(BuilderContext)?.setIsReset;
+  const [, setIsReset] = useAtom(isResetAtom);
   const showResetPopup = useContext(BuilderContext)?.showResetPopup;
   const setShowResetPopup = useContext(BuilderContext)?.setShowResetPopup;
   if (!showResetPopup) {
@@ -18,7 +19,10 @@ function ResetPopup() {
       onClick={() => setShowResetPopup(false)}
       tabIndex={0}
     >
-      <div className={"feedbackPopup resetPopup"} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={"feedbackPopup resetPopup"}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           className={"closePopupButton"}
           onClick={() => setShowResetPopup(false)}

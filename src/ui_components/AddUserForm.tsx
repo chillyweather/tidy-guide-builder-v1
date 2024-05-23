@@ -8,6 +8,7 @@ import {
   errorMessageAtom,
   isAddErrorAtom,
   userToEditAtom,
+  showEditUserFormAtom,
 } from "src/state/atoms";
 import {
   addCollectionUser,
@@ -18,14 +19,13 @@ import { Button } from "@create-figma-plugin/ui";
 export default function AddUserForm({
   collectionId,
   setTrigger,
-  setShowForm,
+
   type = "Add",
   userEmail = "",
   userId = "",
 }: {
   collectionId: string;
   setTrigger: any;
-  setShowForm: any;
   type?: "Add" | "Edit";
   userEmail?: string;
   userId?: string;
@@ -39,6 +39,7 @@ export default function AddUserForm({
   const [email, setEmail] = useState(userEmail || "");
   const [role, setRole] = useState(userToEdit ? userToEdit.rank : "Viewer");
   const [, setUserToEdit] = useAtom(userToEditAtom);
+  const [, setShowForm] = useAtom(showEditUserFormAtom);
 
   const handleSubmit = async (e: any) => {
     if (type === "Add") {

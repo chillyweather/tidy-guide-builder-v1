@@ -47,33 +47,36 @@ import { getUsers } from "./ui_components/ui_functions/authentication";
 import { useAtom } from "jotai";
 import {
   selectedNodeIdAtom,
-  selectedNodeKeyAtom,
-  selectedComponentPicAtom,
-  selectedCollectionAtom,
-  isViewModeOpenAtom,
+  collectionDocsTriggerAtom,
+  collectionsAtom,
   currentCompanyAtom,
+  currentDocumentationsAtom,
+  // currentPageAtom,
+  currentUserCollectionsAtom,
+  currentUserIdAtom,
   currentUserNameAtom,
   currentUserRoleAtom,
-  currentUserIdAtom,
-  collectionsAtom,
-  collectionDocsTriggerAtom,
-  currentDocumentationsAtom,
-  isPublishAndViewAtom,
-  showDeleteSectionPopupAtom,
-  selectionDataAtom,
-  currentUserCollectionsAtom,
   isCollectionSwitchingAtom,
-  showCrashLogoutPopupAtom,
   isDetailsPageOpenAtom,
-  usersAtom,
-  showNonEmptyCollectionPopupAtom,
-  currentPageAtom,
-  showLoginPageAtom,
+  isPublishAndViewAtom,
+  isResetAtom,
+  isViewModeOpenAtom,
+  selectedCollectionAtom,
+  selectedComponentPicAtom,
   selectedElementAtom,
   selectedElementNameAtom,
-  showIndexPageAtom,
-  showMainContentAtom,
+  selectedNodeKeyAtom,
+  selectionDataAtom,
   showContentFromServerAtom,
+  showCrashLogoutPopupAtom,
+  showDeleteSectionPopupAtom,
+  showIndexPageAtom,
+  showLoginPageAtom,
+  showMainContentAtom,
+  showNonEmptyCollectionPopupAtom,
+  showSettingsPageAtom,
+  showEditUserFormAtom,
+  usersAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -114,7 +117,8 @@ function Plugin() {
     isDetailsPageOpenAtom
   );
   const [, setUsers] = useAtom(usersAtom);
-  const [openPage] = useAtom(currentPageAtom);
+  const [showEditUserForm] = useAtom(showEditUserFormAtom);
+  // const [openPage] = useAtom(currentPageAtom);
 
   //!TODO: plugin-level states
   const [isLoginFailed, setIsLoginFailed] = useState(false);
@@ -137,7 +141,7 @@ function Plugin() {
   const [showContentFromServer, setShowContentFromServer] = useAtom(
     showContentFromServerAtom
   );
-  const [showSettingsPage, setShowSettingsPage] = useState(false);
+  const [showSettingsPage, setShowSettingsPage] = useAtom(showSettingsPageAtom);
 
   //navigation-popups
   const [showDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
@@ -160,7 +164,6 @@ function Plugin() {
   const [isBuildingOnCanvas, setIsBuildingOnCanvas] = useState(true);
   //is plugin first time open
   const [isFirstTime, setIsFirstTime] = useState(true);
-  const [isDocJustOpened, setIsDocJustOpened] = useState(true);
 
   //show toast
   const [isToastOpen, setIsToastOpen] = useState(false);
@@ -199,7 +202,7 @@ function Plugin() {
   //found existing documentation
   const [, setFoundDocumentation]: any = useState(null);
   //reset documentation
-  const [isReset, setIsReset] = useState(false);
+  const [isReset, setIsReset] = useAtom(isResetAtom);
   //is draft
   const [isDraft, setIsDraft] = useState(false);
   //is pd section open
@@ -230,9 +233,8 @@ function Plugin() {
   });
 
   useEffect(() => {
-    console.log("openPage", openPage);
-  }, [openPage]);
-  console.log("openPage", openPage);
+    console.log("showEditUserForm", showEditUserForm);
+  }, [showEditUserForm]);
 
   useEffect(() => {
     if (showLoginPage || showSigninPage || showSettingsPage || showIndexPage) {
@@ -680,7 +682,6 @@ function Plugin() {
     isFromSavedData,
     isLoading,
     isPdSectionOpen,
-    isReset,
     isScroll,
     isWip,
     loggedInUser,
@@ -705,7 +706,6 @@ function Plugin() {
     setIsFromSavedData,
     setIsLoading,
     setIsPdSectionOpen,
-    setIsReset,
     setIsWip,
     setLoggedInUser,
     setSelectedCard,
@@ -718,8 +718,6 @@ function Plugin() {
     setIsPreviewing,
     documentationId,
     setDocumentationId,
-    isSettingsPageOpen: showSettingsPage,
-    setIsSettingsPageOpen: setShowSettingsPage,
     showDeleteAccountPopup,
     setShowDeleteAccountPopup,
     setToken,
@@ -822,8 +820,6 @@ function Plugin() {
         <Header
           setIsLoginPageOpen={setShowLoginPage}
           setFeedbackPage={setShowFeedbackPopup}
-          isDocJustOpened={isDocJustOpened}
-          setIsDocJustOpened={setIsDocJustOpened}
           userRank={userRank}
           showMainContent={showMainContent}
         />

@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { buildAnatomySection } from "src/figma_doc_sections/buildAnatomySection";
+import { buildSpacingSection } from "src/figma_doc_sections/buildSpacingSection";
+import { buildVarSection } from "src/figma_doc_sections/buildVarSection";
+import { buildPropSection } from "src/figma_doc_sections/buildPropSection";
 import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
 import { buildTitle } from "src/figma_doc_sections/elementBuildingFunctions";
 import { getNode } from "./getNode";
@@ -42,8 +45,57 @@ async function buildSectionContent(
     const title = buildTitle("Anatomy");
     frame.appendChild(title);
     await buildAnatomySection(node, frame, indexPosition, indexSpacing);
+  } else if (type === "variants") {
+    const title = buildTitle("Variants");
+    frame.appendChild(title);
+    await buildVarSection(node, frame);
+  } else if (type === "spacing") {
+    const title = buildTitle("Spacing");
+    frame.appendChild(title);
+    await buildSpacingSection(node, frame);
+    adjustSpacingFrame(frame);
+  } else if (type === "property") {
+    const title = buildTitle("Property");
+    frame.appendChild(title);
+    const propSection = await buildPropSection(node, frame);
+    if (propSection) adjustPropFrame(propSection);
+    //? how to indicate that there are no properties???
+  } else {
+    frame.remove();
+    return;
   }
   return frame;
+}
+
+function adjustPropFrame(frame: FrameNode) {
+  const allElementsFrame = frame.findOne(
+    (node) => node.name === "allElementsFrame"
+  );
+  if (!(allElementsFrame && allElementsFrame.type === "FRAME")) return;
+  allElementsFrame.layoutSizingHorizontal = "HUG";
+}
+
+function adjustSpacingFrame(frame: FrameNode) {
+  let childWidth = 0;
+  const spacingElements = frame.findOne(
+    (node) => node.name === "spacing-element"
+  );
+  if (!(spacingElements && spacingElements.type === "FRAME")) return;
+  const spacingElementsChildren = spacingElements.children;
+
+  spacingElementsChildren.forEach((element) => {
+    if (element.type !== "FRAME") return;
+    element.layoutSizingHorizontal = "HUG";
+    if (element.width > childWidth) childWidth = element.width;
+  });
+
+  spacingElements.resize(childWidth, spacingElements.height);
+
+  spacingElements.layoutSizingHorizontal = "FIXED";
+  spacingElementsChildren.forEach((element) => {
+    if (element.type !== "FRAME") return;
+    element.layoutSizingHorizontal = "FILL";
+  });
 }
 
 function buildResultFrame() {

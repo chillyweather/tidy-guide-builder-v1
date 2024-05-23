@@ -4,7 +4,11 @@ import { h } from "preact";
 import { useContext, useEffect } from "preact/hooks";
 import BuilderContext from "../BuilderContext";
 import { useAtom } from "jotai";
-import { currentCompanyAtom, currentUserNameAtom } from "src/state/atoms";
+import {
+  currentCompanyAtom,
+  currentUserNameAtom,
+  showSettingsContentAtom,
+} from "src/state/atoms";
 import {
   IconMessage2Check,
   IconSettings,
@@ -28,6 +32,7 @@ const UserMenu = ({
 }) => {
   const [currentCompany] = useAtom(currentCompanyAtom);
   const [currentUserName] = useAtom(currentUserNameAtom);
+  const [, setShowSettingsContent] = useAtom(showSettingsContentAtom);
   const loggedInUser = useContext(BuilderContext)?.loggedInUser || "";
   function closeMenu() {
     // @ts-ignore
@@ -72,6 +77,7 @@ const UserMenu = ({
           setIsMainContentOpen(false);
           setIsContenFromServerOpen(false);
           setIsSettingsPageOpen(true);
+          setShowSettingsContent(true);
         }}
       >
         <IconSettings />

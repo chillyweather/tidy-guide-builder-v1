@@ -6,6 +6,10 @@ export const showLoginPageAtom = atom(false);
 export const showIndexPageAtom = atom(false);
 export const showMainContentAtom = atom(false);
 export const showContentFromServerAtom = atom(false);
+export const showSettingsPageAtom = atom(false);
+export const showSettingsContentAtom = atom(true);
+export const showManageUsersPageAtom = atom(false);
+export const showManageCollectionsPageAtom = atom(false);
 
 export const selectedNodeIdAtom = atom("");
 export const selectedNodeKeyAtom = atom("");
@@ -28,6 +32,8 @@ export const currentPageAtom = atom<CurrenPage>("login");
 //context replacements
 export const selectedElementAtom = atom(null);
 export const selectedElementNameAtom = atom("");
+export const isDocJustOpenedAtom = atom(false);
+export const isResetAtom = atom(false);
 
 //collections
 export const collectionsAtom = atom([]);

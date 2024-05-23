@@ -15,9 +15,7 @@ interface IContext {
   isLoading: boolean;
   isPdSectionOpen: boolean;
   isPreviewing: boolean;
-  isReset: boolean;
   isScroll: boolean;
-  isSettingsPageOpen: boolean;
   isWip: boolean;
   loggedInUser: string;
   previewData: any;
@@ -38,8 +36,6 @@ interface IContext {
   setIsLoading: any;
   setIsPdSectionOpen: any;
   setIsPreviewing: any;
-  setIsReset: any;
-  setIsSettingsPageOpen: any;
   setIsWip: any;
   setLoggedInUser: any;
   setPreviewData: any;

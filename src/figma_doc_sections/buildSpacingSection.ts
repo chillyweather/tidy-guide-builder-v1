@@ -33,6 +33,7 @@ export async function buildSpacingSection(
   atomSpacings.forEach((node) => {
     if (!node) return;
     frame.appendChild(node);
+    node.name = "spacing-element";
     node.layoutSizingHorizontal = "FILL";
     node.primaryAxisAlignItems = "CENTER";
   });

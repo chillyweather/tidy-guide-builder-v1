@@ -9,21 +9,16 @@ import {
   IconExternalLink,
   IconList,
   IconSearch,
-  IconClock,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import {
   collectionsAtom,
-  currentCompanyAtom,
-  currentUserIdAtom,
-  currentUserNameAtom,
   currentUserRoleAtom,
   isViewModeOpenAtom,
   selectedComponentPicAtom,
   selectedNodeIdAtom,
   selectedNodeKeyAtom,
   selectedCollectionAtom,
-  currentDocumentationsAtom,
   isToBuildComponentPicAtom,
   isDetailsPageOpenAtom,
   currentPageAtom,
@@ -33,7 +28,11 @@ import {
   showIndexPageAtom,
   showMainContentAtom,
   showContentFromServerAtom,
+  showSettingsPageAtom,
+  isDocJustOpenedAtom,
+  isResetAtom,
 } from "src/state/atoms";
+import BackButton from "./BackButton";
 
 import { getCollectionDocs } from "./ui_functions/collectionHandlers";
 
@@ -43,38 +42,29 @@ import BuilderContext from "../BuilderContext";
 import HeaderActions from "./HeaderActions";
 import UserMenu from "./UserMenu";
 import { emit } from "@create-figma-plugin/utilities";
-import fetchAndUpdateData from "./ui_functions/fetchAndUpdateData";
 import CollectionsDropdown from "./CollectionsDropdown";
-//TODO:delete from server on Back
 
 const Header = ({
   setIsLoginPageOpen,
   setFeedbackPage,
-  isDocJustOpened,
-  setIsDocJustOpened,
   userRank,
   showMainContent,
 }: {
   setIsLoginPageOpen: (value: boolean) => void;
   setFeedbackPage: (value: boolean) => void;
-  isDocJustOpened: boolean;
-  setIsDocJustOpened: (value: boolean) => void;
   userRank: string;
   showMainContent: boolean;
 }) => {
   const [isLoginPageOpen] = useAtom(showLoginPageAtom);
-  const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
-  const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
-  const [selectedComponentPic, setSelectedComponentPic] = useAtom(
-    selectedComponentPicAtom
-  );
+  const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
+  const [, setSelectedComponentPic] = useAtom(selectedComponentPicAtom);
   const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [collections] = useAtom(collectionsAtom);
   const [selectedCollection, setSelectedCollection]: any = useAtom(
     selectedCollectionAtom
   );
   const [userRole] = useAtom(currentUserRoleAtom);
-  const [currentDocumentations] = useAtom(currentDocumentationsAtom);
   const [, setIsToBuildComponentPic] = useAtom(isToBuildComponentPicAtom);
   const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
@@ -86,19 +76,18 @@ const Header = ({
   const [isContenFromServerOpen, setIsContenFromServerOpen] = useAtom(
     showContentFromServerAtom
   );
+  const [isSettingsPageOpen, setIsSettingsPageOpen] =
+    useAtom(showSettingsPageAtom);
+  const [isDocJustOpened, setIsDocJustOpened] = useAtom(isDocJustOpenedAtom);
+  const [, setIsReset] = useAtom(isResetAtom);
 
-  const [userRankStyle, setUserRankStyle] = useState({});
+  const [, setUserRankStyle] = useState({});
 
   const {
     dataForUpdate,
     documentationData,
-    isSettingsPageOpen,
-    selectedMasterId,
     selectedSections,
-    setDataForUpdate,
     setIsFromSavedData,
-    setIsReset,
-    setIsSettingsPageOpen,
     setSelectedMasterId,
     token,
   } = useContext(BuilderContext) || {};
@@ -275,16 +264,7 @@ const Header = ({
             </div>
           ) : (
             <div className={"search-flex"}>
-              <button
-                className="flex-button back-button"
-                onClick={() => {
-                  // isDataChanged() ? setShowCancelPopup(true) :
-                  backToIndex();
-                }}
-              >
-                <IconArrowLeft />
-                Back
-              </button>
+              <BackButton />
               {!isSettingsPageOpen && (
                 <div className="searchbox">
                   <IconSearch />

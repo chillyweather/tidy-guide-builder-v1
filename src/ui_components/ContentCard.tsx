@@ -144,12 +144,7 @@ export const ContentCard = (card: any, index: number) => {
   const [selectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
 
-  // useEffect(() => {
-  //   console.log("anatomyIndexPosition", anatomyIndexPosition);
-  // }, [anatomyIndexPosition]);
-
   const {
-    // currentAuthor,
     loggedInUser,
     currentPage,
     currentDocument,
@@ -162,9 +157,6 @@ export const ContentCard = (card: any, index: number) => {
     documentationData,
     documentationTitle,
     setPreviewData,
-    // isPreviewing,
-    // setIsPreviewing,
-    // previewData,
   } = useContext(BuilderContext) || {};
 
   on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
@@ -200,16 +192,6 @@ export const ContentCard = (card: any, index: number) => {
       );
     }
   }, [currentImageArray, loggedInUser, card.content.remoteImageLink]);
-
-  // useEffect(() => {
-  //   if (selectedNodeId && selectedNodeKey) {
-  //     emit("PIC_FROM_FIGMA", {
-  //       type: cardData.datatype,
-  //       nodeId: selectedNodeId,
-  //       key: selectedNodeKey,
-  //     });
-  //   }
-  // }, [selectedNodeId, selectedNodeKey]);
 
   //!-------------------------------------------------------------------------------//
   //!-------from here content changes depending on isFromSavedData state------------//
@@ -429,22 +411,6 @@ export const ContentCard = (card: any, index: number) => {
     if (Object.keys(documentationData).length > 0)
       setPreviewData(JSON.parse(JSON.stringify(documentationData)));
   }, [documentationData]);
-
-  //! test for preview
-  // useEffect(() => {
-  //   const isPrevData = Object.keys(previewData).length > 0;
-  //   if (isPreviewing && isPrevData) {
-  //     setPreviewData((prevData: any) => {
-  //       const newDocumentation = { ...prevData };
-  //       const newDocs = newDocumentation.docs;
-  //       newDocs["title"] = documentationTitle;
-  //       newDocs[index] = currentCardData;
-  //       setIsPreviewing(false);
-  //       return newDocumentation;
-  //     });
-  //   }
-  // }, [isPreviewing]);
-  //!-------------------
 
   return cardType === "header" ? (
     <div className={isHidden ? "sectionCard draft" : "sectionCard"}>

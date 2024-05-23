@@ -1,3 +1,4 @@
+"use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import {
@@ -9,19 +10,6 @@ import {
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
 import {
-  collectionsAtom,
-  // currentUserIdAtom,
-  showEditUserFormAtom,
-  userToEditAtom,
-  selectedCollectionAtom,
-  errorMessageAtom,
-  isAddErrorAtom,
-  collectionDocsTriggerAtom,
-  // currentUserCollectionsAtom,
-  selectedCollectionInSettingsAtom,
-  currentPageAtom,
-} from "src/state/atoms";
-import {
   getCollectionUsers,
   deleteCollectionUser,
 } from "src/ui_components/ui_functions/collectionHandlers";
@@ -31,6 +19,18 @@ import { Button } from "@create-figma-plugin/ui";
 import CollectionsInSettingsDropdown from "./CollectionsInSettingsDropdown";
 import AddUserForm from "./AddUserForm";
 
+import {
+  collectionDocsTriggerAtom,
+  collectionsAtom,
+  currentPageAtom,
+  errorMessageAtom,
+  isAddErrorAtom,
+  selectedCollectionAtom,
+  selectedCollectionInSettingsAtom,
+  showEditUserFormAtom,
+  userToEditAtom,
+} from "src/state/atoms";
+
 function manageUsersPage() {
   const [collections] = useAtom(collectionsAtom);
   const [selectedCollectionInSettings]: any = useAtom(
@@ -38,9 +38,6 @@ function manageUsersPage() {
   );
   const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
-  // const [selectedCollection, setSelectedCollectionInSettings]: any = useAtom(
-  //   selectedCollectionInSettingsAtom
-  // );
   function triggerCollectionRefresh() {
     setCollectionDocsTrigger((n: number) => n + 1);
   }
@@ -71,6 +68,7 @@ export default manageUsersPage;
 function renderUsers(collectionId: string) {
   const [collectionUsers, setCollectionUsers] = useState([]);
   const [showAddUserForm, setShowAddUserForm] = useState(false);
+  //NOTE: problem with atoms
   const [showEditUserForm, setShowEditUserForm] = useAtom(showEditUserFormAtom);
   const [userToEdit, setUserToEdit]: any = useAtom(userToEditAtom);
   const [isAddUserError, setIsAddUserError] = useAtom(isAddErrorAtom);
@@ -78,12 +76,15 @@ function renderUsers(collectionId: string) {
   const [trigger, setTrigger] = useState(0);
 
   const { token } = useContext(BuilderContext) || {};
-
   useEffect(() => {
     async function fetchCollectionUsers() {
-      if (!token) return null;
-      const data = await getCollectionUsers(token, collectionId);
-      setCollectionUsers(data);
+      try {
+        if (!token) return null;
+        const data = await getCollectionUsers(token, collectionId);
+        setCollectionUsers(data);
+      } catch (error) {
+        console.log("error", error);
+      }
     }
     fetchCollectionUsers();
   }, [collectionId, trigger]);
@@ -111,11 +112,7 @@ function renderUsers(collectionId: string) {
       {showAddUserForm && (
         <div className="add-user-form-and-validation-wrapper">
           <div className={"add-user-form-wrapper"}>
-            <AddUserForm
-              collectionId={collectionId}
-              setTrigger={setTrigger}
-              setShowForm={setShowAddUserForm}
-            />
+            <AddUserForm collectionId={collectionId} setTrigger={setTrigger} />
             <button
               onClick={() => {
                 setShowAddUserForm(false);
@@ -134,7 +131,6 @@ function renderUsers(collectionId: string) {
           <AddUserForm
             collectionId={collectionId}
             setTrigger={setTrigger}
-            setShowForm={setShowEditUserForm}
             type="Edit"
             userEmail={userToEdit?.email}
             userId={userToEdit?.id}

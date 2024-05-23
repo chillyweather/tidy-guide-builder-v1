@@ -68,11 +68,7 @@ function generateContent(collections: any) {
         onClick={() => {
           setCurrentFormType("Add");
           setShowAddCollectionForm(true);
-          // setTimeout(function () {
-          //   document.getElementById("mailInput")?.focus();
-          // }, 100);
         }}
-        // disabled={showAddUserForm}
       >
         <IconPlus />
         Add
