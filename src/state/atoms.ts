@@ -1,6 +1,9 @@
 import { atom } from "jotai";
 import { CurrenPage } from "./atomTypes";
 
+//settings
+export const appSettingsAtom = atom({});
+
 //page states
 export const showLoginPageAtom = atom(false);
 export const showIndexPageAtom = atom(false);
@@ -10,6 +13,7 @@ export const showSettingsPageAtom = atom(false);
 export const showSettingsContentAtom = atom(true);
 export const showManageUsersPageAtom = atom(false);
 export const showManageCollectionsPageAtom = atom(false);
+export const showManageCanvasAppearanceAtom = atom(false);
 
 export const selectedNodeIdAtom = atom("");
 export const selectedNodeKeyAtom = atom("");

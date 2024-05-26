@@ -29,7 +29,11 @@ declare const styles: {
   readonly "admin": string;
   readonly "anatomy": string;
   readonly "anatomy-buttons-wrapper": string;
+  readonly "anatomy-tags-settings": string;
+  readonly "anatomy-tags-settings-with-preview": string;
   readonly "anchorLink": string;
+  readonly "appearance-button": string;
+  readonly "appearance-button-wrapper": string;
   readonly "back": string;
   readonly "back-button": string;
   readonly "back-link": string;
@@ -174,6 +178,7 @@ declare const styles: {
   readonly "loginFlex": string;
   readonly "loginNew": string;
   readonly "mainContent": string;
+  readonly "manage-canvas": string;
   readonly "manage-users": string;
   readonly "menuDiv": string;
   readonly "modal-bg": string;
@@ -256,6 +261,9 @@ declare const styles: {
   readonly "split-disabled": string;
   readonly "subtitle": string;
   readonly "tag": string;
+  readonly "tag-preview": string;
+  readonly "tag-preview-frame": string;
+  readonly "tags-settings-element": string;
   readonly "text-size": string;
   readonly "textCardBodyContent": string;
   readonly "textDetails": string;

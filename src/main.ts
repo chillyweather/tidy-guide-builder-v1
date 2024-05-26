@@ -3,6 +3,7 @@ import documentationBuilder from "./figma_functions/documentationBuilder";
 // import { tempData } from "./tempData";
 import { checkSelection } from "./figma_functions/checkSelection";
 import { loginDataHandler } from "./figma_functions/loginDataHandler";
+import { settingsDataHandler } from "./figma_functions/settingsDataHandler";
 import { getNode } from "./figma_functions/getNode";
 import imageFromFigma from "./figma_functions/imageFromFigma";
 import { logoutDataHandler } from "./figma_functions/logoutDataHandler";
@@ -18,6 +19,7 @@ const loadFonts = async () => {
 
 export default async function () {
   await loginDataHandler();
+  await settingsDataHandler();
 
   const user = figma.currentUser;
   const document = figma.root.name;
@@ -55,6 +57,9 @@ export default async function () {
     imageFromFigma(loadFonts, type, nodeId, key);
   });
 
+  on("UPDATE_APP_SETTINGS", async (data) => {
+    figma.clientStorage.setAsync("appSettings", data);
+  });
   on("GET_COMPONENT_PIC", async (key, id) => {
     if (key) {
       const foundElement = await getNode(id, key);

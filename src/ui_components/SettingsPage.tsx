@@ -7,6 +7,7 @@ import {
   showSettingsContentAtom,
   showManageUsersPageAtom,
   showManageCollectionsPageAtom,
+  showManageCanvasAppearanceAtom,
 } from "src/state/atoms";
 import BuilderContext from "src/BuilderContext";
 import {
@@ -17,6 +18,7 @@ import {
 } from "@tabler/icons-react";
 import manageUsersPage from "./manageUsersPage";
 import manageCollectionsPage from "./manageCollectionsPage";
+import manageCanvasAppearance from "./manageCanvasAppearance";
 import { useEffect } from "react";
 
 const Settings = () => {
@@ -29,6 +31,9 @@ const Settings = () => {
   );
   const [showManageCollectionsPage, setShowManageCollectionsPage] = useAtom(
     showManageCollectionsPageAtom
+  );
+  const [showManageCanvasAppearance, setShowManageCanvasAppearance] = useAtom(
+    showManageCanvasAppearanceAtom
   );
   const [, setCurrentPage] = useAtom(currentPageAtom);
 
@@ -52,8 +57,7 @@ const Settings = () => {
           description: "Set up how your Figma layout will look",
           onClick: () => {
             setShowSettingsContent(false);
-            setShowManageUsersPage(true);
-            setShowManageCollectionsPage(false);
+            setShowManageCanvasAppearance(true);
           },
         }}
       />
@@ -107,6 +111,7 @@ const Settings = () => {
       {showSettingsContent && SettingsContent}
       {showManageUsersPage && manageUsersPage()}
       {showManageCollectionsPage && manageCollectionsPage()}
+      {showManageCanvasAppearance && manageCanvasAppearance()}
     </div>
   );
 };

@@ -75,8 +75,8 @@ import {
   showMainContentAtom,
   showNonEmptyCollectionPopupAtom,
   showSettingsPageAtom,
-  showEditUserFormAtom,
   usersAtom,
+  appSettingsAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -117,7 +117,7 @@ function Plugin() {
     isDetailsPageOpenAtom
   );
   const [, setUsers] = useAtom(usersAtom);
-  const [showEditUserForm] = useAtom(showEditUserFormAtom);
+  const [appSettings, setAppSettings] = useAtom(appSettingsAtom);
   // const [openPage] = useAtom(currentPageAtom);
 
   //!TODO: plugin-level states
@@ -232,9 +232,15 @@ function Plugin() {
     }
   });
 
+  on("SETTINGS", (settings: any) => {
+    if (settings) {
+      setAppSettings(settings);
+    }
+  });
+
   useEffect(() => {
-    console.log("showEditUserForm", showEditUserForm);
-  }, [showEditUserForm]);
+    console.log("appSettings", appSettings);
+  }, [appSettings]);
 
   useEffect(() => {
     if (showLoginPage || showSigninPage || showSettingsPage || showIndexPage) {

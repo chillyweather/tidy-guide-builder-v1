@@ -22,6 +22,7 @@ import {
   showManageCollectionsPageAtom,
   showEditCollectionFormAtom,
   showEditUserFormAtom,
+  showManageCanvasAppearanceAtom,
 } from "../state/atoms";
 import { IconArrowLeft } from "@tabler/icons-react";
 
@@ -47,22 +48,28 @@ export default function BackButton() {
   );
   const [, setShowEditCollectionForm] = useAtom(showEditCollectionFormAtom);
   const [, setShowEditUserForm] = useAtom(showEditUserFormAtom);
+  const [, setShowManageCanvasAppearance] = useAtom(
+    showManageCanvasAppearanceAtom
+  );
 
   function backToIndex() {
-    setIsSettingsPageOpen(false);
-    setIsIndexOpen(true);
-
-    setIsMainContentOpen(false);
+    setIsContenFromServerOpen(false);
     setIsDetailsPageOpen(false);
+    setIsDocJustOpened(true);
+    setIsIndexOpen(true);
+    setIsMainContentOpen(false);
+    setIsReset(true);
+    setIsSettingsPageOpen(false);
     setIsToBuildComponentPic(false);
+    setSelectedComponentPic("");
     setSelectedElement(null);
     setSelectedElementName("");
-    setSelectedNodeKey("");
     setSelectedNodeId("");
-    setSelectedComponentPic("");
-    setIsContenFromServerOpen(false);
-    setIsDocJustOpened(true);
-    setIsReset(true);
+    setSelectedNodeKey("");
+    setShowManageCanvasAppearance(false);
+    setShowManageUsersPage(false);
+    setShowSettingsContent(false);
+    setShowSettingsContent(false);
   }
 
   function backToSettings() {
@@ -71,7 +78,8 @@ export default function BackButton() {
     setShowEditUserForm(false);
     setShowManageCollectionsPage(false);
     setShowManageUsersPage(false);
-    setShowSettingsContent(true);
+    setShowSettingsContent(false);
+    setShowManageCanvasAppearance(false);
   }
 
   return (
