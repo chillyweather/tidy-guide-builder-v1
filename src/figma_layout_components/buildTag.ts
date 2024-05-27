@@ -76,6 +76,7 @@ export async function buildTag(
   tag.layoutPositioning = "AUTO";
   tag.primaryAxisAlignItems = "CENTER";
   tag.counterAxisAlignItems = "CENTER";
+
   if (type === "bottom") {
     const lineBox = await createLineBox(settings);
     tag.counterAxisSizingMode = "AUTO";
@@ -83,9 +84,9 @@ export async function buildTag(
     tag.appendChild(tagLabel);
     tag.appendChild(lineBox);
     tag.resize(24, 32);
-    addNewTextProperty(tag, index, "index", "A");
     return tag;
   }
+
   if (type === "top") {
     const lineBox = await createLineBox(settings);
     tag.counterAxisSizingMode = "AUTO";
@@ -93,9 +94,9 @@ export async function buildTag(
     tag.appendChild(lineBox);
     tag.appendChild(tagLabel);
     tag.resize(24, 32);
-    addNewTextProperty(tag, index, "index", "A");
     return tag;
   }
+
   if (type === "left") {
     const lineBox = await createLineBox(settings);
     tag.counterAxisSizingMode = "AUTO";
@@ -105,9 +106,9 @@ export async function buildTag(
     lineBox.rotation = 90;
     lineBox.layoutAlign = "STRETCH";
     tag.resize(32, 24);
-    addNewTextProperty(tag, index, "index", "A");
     return tag;
   }
+
   if (type === "right") {
     const lineBox = await createLineBox(settings);
     tag.counterAxisSizingMode = "AUTO";
@@ -117,9 +118,19 @@ export async function buildTag(
     lineBox.rotation = 90;
     lineBox.layoutAlign = "STRETCH";
     tag.resize(32, 24);
-    addNewTextProperty(tag, index, "index", "A");
     return tag;
   }
+
+  if (
+    type === "top" ||
+    type === "bottom" ||
+    type === "left" ||
+    type === "right"
+  ) {
+    tag.itemSpacing = -4;
+    addNewTextProperty(tag, index, "index", "A");
+  }
+
   if (type === "index") {
     tag.counterAxisSizingMode = "AUTO";
     tag.layoutMode = "HORIZONTAL";
