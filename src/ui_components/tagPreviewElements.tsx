@@ -79,7 +79,7 @@ export const TagLine = ({ color, type = "solid" }: TagLineProps) => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          width: "2.5px",
+          width: "3.2px",
           height: "124px",
         }}
       >
@@ -95,7 +95,7 @@ export const TagLine = ({ color, type = "solid" }: TagLineProps) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        width: "2.5px",
+        width: "3.2px",
         height: "124px",
         backgroundColor: color,
       }}

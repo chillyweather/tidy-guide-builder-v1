@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { videoTextBoxElement } from "./textBoxForLinksElement";
 import { IconX } from "@tabler/icons-react";

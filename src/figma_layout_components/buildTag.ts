@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { setColorStyle } from "../figma_functions/utilityFunctions";
+import { createTagLabel } from "./createTagLabel";
+import { createLineBox } from "./createTagLine";
 import {
   addNewTextProperty,
   addNewBooleanProperty,
@@ -35,105 +38,6 @@ export function addText(letterText: string) {
   return letter;
 }
 
-export async function createEllipse(textNode: TextNode) {
-  const TGGray900 = await setColorStyle(".TG-admin/anatomy-primary", "292929");
-
-  const ellipse = figma.createFrame();
-  ellipse.bottomLeftRadius = 50;
-  ellipse.bottomRightRadius = 50;
-  ellipse.topRightRadius = 50;
-  ellipse.topLeftRadius = 50;
-  await ellipse.setFillStyleIdAsync(TGGray900.id);
-  ellipse.appendChild(textNode);
-  ellipse.layoutPositioning = "AUTO";
-  ellipse.layoutMode = "VERTICAL";
-  ellipse.resize(24, 24);
-  ellipse.primaryAxisAlignItems = "CENTER";
-  ellipse.counterAxisAlignItems = "CENTER";
-  ellipse.name = "index";
-  return ellipse;
-}
-
-async function buildLine() {
-  const line = figma.createVector();
-  line.strokes = [
-    {
-      type: "SOLID",
-      visible: true,
-      opacity: 1,
-      blendMode: "NORMAL",
-      color: {
-        r: 0.9833333492279053,
-        g: 0.012291669845581055,
-        b: 0.012291669845581055,
-      },
-    },
-  ];
-  line.strokeAlign = "CENTER";
-  line.strokeCap = "ROUND";
-  line.strokeJoin = "MITER";
-  line.strokeMiterLimit = 4;
-  line.dashPattern = [1, 2];
-  line.strokeWeight = 1;
-  await line.setVectorNetworkAsync({
-    regions: [],
-    segments: [
-      {
-        start: 0,
-        end: 1,
-        tangentStart: {
-          x: 0,
-          y: 0,
-        },
-        tangentEnd: {
-          x: 0,
-          y: 0,
-        },
-      },
-    ],
-    vertices: [
-      {
-        x: 40,
-        y: 0,
-        strokeCap: "ROUND",
-        strokeJoin: "MITER",
-        cornerRadius: 0,
-        handleMirroring: "NONE",
-      },
-      {
-        x: 0,
-        y: 4.664075386320289e-13,
-        strokeCap: "ROUND",
-        strokeJoin: "MITER",
-        cornerRadius: 0,
-        handleMirroring: "NONE",
-      },
-    ],
-  });
-  return line;
-}
-
-export async function createLineBox() {
-  const TGGray900 = await setColorStyle(".TG-admin/anatomy-primary", "292929");
-
-  const rect = await buildLine();
-  rect.resize(40, rect.height);
-  const lineBox = figma.createFrame();
-  // lineBox.appendChild(line);
-  lineBox.appendChild(rect);
-  lineBox.layoutPositioning = "AUTO";
-  lineBox.layoutMode = "VERTICAL";
-  lineBox.counterAxisAlignItems = "CENTER";
-  lineBox.counterAxisSizingMode = "FIXED";
-  lineBox.resize(24, 82);
-  lineBox.layoutGrow = 1;
-  lineBox.fills = [];
-  rect.rotation = 90;
-  rect.layoutGrow = 1;
-  await rect.setStrokeStyleIdAsync(TGGray900.id);
-  return lineBox;
-}
-
 export async function buildLabelText(label: string) {
   const anatomyLabelsColor = await setColorStyle(
     ".TG-admin/anatomy-labels",
@@ -153,6 +57,7 @@ export async function buildLabelText(label: string) {
 export async function buildTag(
   letter: string,
   type: string,
+  settings?: any,
   label?: string,
   isLink = true
 ) {
@@ -166,35 +71,37 @@ export async function buildTag(
 
   const index = addText(`${letter}`);
   index.name = "elementIndex";
-  const ellipse = await createEllipse(index);
+  const tagLabel = await createTagLabel(index, settings);
   const tag = figma.createComponent();
   tag.layoutPositioning = "AUTO";
+  tag.primaryAxisAlignItems = "CENTER";
+  tag.counterAxisAlignItems = "CENTER";
   if (type === "bottom") {
-    const lineBox = await createLineBox();
+    const lineBox = await createLineBox(settings);
     tag.counterAxisSizingMode = "AUTO";
     tag.layoutMode = "VERTICAL";
-    tag.appendChild(ellipse);
+    tag.appendChild(tagLabel);
     tag.appendChild(lineBox);
     tag.resize(24, 32);
     addNewTextProperty(tag, index, "index", "A");
     return tag;
   }
   if (type === "top") {
-    const lineBox = await createLineBox();
+    const lineBox = await createLineBox(settings);
     tag.counterAxisSizingMode = "AUTO";
     tag.layoutMode = "VERTICAL";
     tag.appendChild(lineBox);
-    tag.appendChild(ellipse);
+    tag.appendChild(tagLabel);
     tag.resize(24, 32);
     addNewTextProperty(tag, index, "index", "A");
     return tag;
   }
   if (type === "left") {
-    const lineBox = await createLineBox();
+    const lineBox = await createLineBox(settings);
     tag.counterAxisSizingMode = "AUTO";
     tag.layoutMode = "HORIZONTAL";
     tag.appendChild(lineBox);
-    tag.appendChild(ellipse);
+    tag.appendChild(tagLabel);
     lineBox.rotation = 90;
     lineBox.layoutAlign = "STRETCH";
     tag.resize(32, 24);
@@ -202,10 +109,10 @@ export async function buildTag(
     return tag;
   }
   if (type === "right") {
-    const lineBox = await createLineBox();
+    const lineBox = await createLineBox(settings);
     tag.counterAxisSizingMode = "AUTO";
     tag.layoutMode = "HORIZONTAL";
-    tag.appendChild(ellipse);
+    tag.appendChild(tagLabel);
     tag.appendChild(lineBox);
     lineBox.rotation = 90;
     lineBox.layoutAlign = "STRETCH";
@@ -216,7 +123,7 @@ export async function buildTag(
   if (type === "index") {
     tag.counterAxisSizingMode = "AUTO";
     tag.layoutMode = "HORIZONTAL";
-    tag.appendChild(ellipse);
+    tag.appendChild(tagLabel);
     tag.resize(24, 24);
     addNewTextProperty(tag, index, "index", "A");
     return tag;
@@ -235,7 +142,7 @@ export async function buildTag(
     tag.counterAxisAlignItems = "CENTER";
     tag.itemSpacing = 8;
     tag.layoutMode = "HORIZONTAL";
-    tag.appendChild(ellipse);
+    tag.appendChild(tagLabel);
     tag.appendChild(text);
 
     if (isLink) {
@@ -250,11 +157,11 @@ export async function buildTag(
 
     text.textCase = "ORIGINAL";
     if (type !== "text") {
-      await ellipse.setFillStyleIdAsync(TGGray600.id);
+      await tagLabel.setFillStyleIdAsync(TGGray600.id);
     }
     if (type === "info") {
-      ellipse.paddingLeft = 1;
-      ellipse.paddingBottom = 1;
+      tagLabel.paddingLeft = 1;
+      tagLabel.paddingBottom = 1;
     }
 
     if (type === "size") {
@@ -529,7 +436,7 @@ export async function buildTag(
         await icon.setFillStyleIdAsync(TGWhite.id);
       }
       icon.strokes = [];
-      ellipse.appendChild(icon);
+      tagLabel.appendChild(icon);
     }
 
     if (type === "cornerRadius") {
@@ -724,12 +631,12 @@ export async function buildTag(
         await icon.setFillStyleIdAsync(TGWhite.id);
       }
       icon.strokes = [];
-      ellipse.appendChild(icon);
+      tagLabel.appendChild(icon);
     }
 
     if (type === "text") {
       if (TGGray900) {
-        await ellipse.setFillStyleIdAsync(TGGray900.id);
+        await tagLabel.setFillStyleIdAsync(TGGray900.id);
       }
       addNewTextProperty(tag, index, "index", "A");
     }

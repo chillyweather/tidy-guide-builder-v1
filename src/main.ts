@@ -8,6 +8,7 @@ import { getNode } from "./figma_functions/getNode";
 import imageFromFigma from "./figma_functions/imageFromFigma";
 import { logoutDataHandler } from "./figma_functions/logoutDataHandler";
 import { buildOneSection } from "./figma_functions/buildOneSection";
+import handleCanvasColors from "./figma_functions/handleCanvasColors";
 
 const loadFonts = async () => {
   await figma.loadFontAsync({ family: "Inter", style: "Regular" });
@@ -59,7 +60,10 @@ export default async function () {
 
   on("UPDATE_APP_SETTINGS", async (data) => {
     figma.clientStorage.setAsync("appSettings", data);
+
+    handleCanvasColors(data);
   });
+
   on("GET_COMPONENT_PIC", async (key, id) => {
     if (key) {
       const foundElement = await getNode(id, key);

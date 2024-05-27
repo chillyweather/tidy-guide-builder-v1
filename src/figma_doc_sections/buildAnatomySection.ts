@@ -12,12 +12,13 @@ export async function buildAnatomySection(
   indexPosition: string = "left",
   indexSpacing: string = "32"
 ) {
+  const settings = await figma.clientStorage.getAsync("appSettings");
   const booleanProperties = await findAllBooleanProps(node);
   const variantProperties = await findAllVariantProps(node);
   const elementSizes = await getElementSizes(node);
 
   const labelComponent = buildLabelComponent();
-  const tagComponent = await buildAllTags();
+  const tagComponent = await buildAllTags(settings);
 
   const tags = await buildAtomTags(
     node,

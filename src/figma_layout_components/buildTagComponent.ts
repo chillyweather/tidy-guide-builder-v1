@@ -1,25 +1,32 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { buildTag } from "./buildTag";
 
-export default async function buildAllTags() {
-  const tagBottomLine = await buildTag("A", "bottom");
+export default async function buildAllTags(settings: any) {
+  const tagBottomLine = await buildTag("A", "bottom", settings);
   tagBottomLine!.name = "type=bottom line";
-  const tagTopLine = await buildTag("B", "top");
+  const tagTopLine = await buildTag("B", "top", settings);
   tagTopLine!.name = "type=top line";
-  const tagLeftLine = await buildTag("C", "left");
+  const tagLeftLine = await buildTag("C", "left", settings);
   tagLeftLine!.name = "type=left line";
-  const tagRightLine = await buildTag("D", "right");
+  const tagRightLine = await buildTag("D", "right", settings);
   tagRightLine!.name = "type=right line";
-  const tagIndex = await buildTag("E", "index");
+  const tagIndex = await buildTag("E", "index", settings);
   tagIndex!.name = "type=index only";
-  const tagText = await buildTag("F", "text", "Text");
+  const tagText = await buildTag("F", "text", settings, "Text");
   tagText!.name = "type=text";
-  const tagImportant = await buildTag("!", "important", "Text");
+  const tagImportant = await buildTag("!", "important", settings, "Text");
   tagImportant!.name = "type=important";
-  const tagInfo = await buildTag("»", "info", "Text");
+  const tagInfo = await buildTag("»", "info", settings, "Text");
   tagInfo!.name = "type=info";
-  const tagSize = await buildTag("", "size", "Text", false);
+  const tagSize = await buildTag("", "size", settings, "Text", false);
   tagSize!.name = "type=size";
-  const tagCornerRadius = await buildTag("", "cornerRadius", "Text", false);
+  const tagCornerRadius = await buildTag(
+    "",
+    "cornerRadius",
+    settings,
+    "Text",
+    false
+  );
   tagCornerRadius!.name = "type=cornerRadius";
 
   const tags = [

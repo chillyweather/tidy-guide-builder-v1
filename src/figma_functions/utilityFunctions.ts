@@ -242,7 +242,7 @@ export function hexToRGB(hex: string) {
 }
 
 //& color style creation
-function createPaintStyle(name: string, hex: string) {
+export function createPaintStyle(name: string, hex: string) {
   const baseStyle = figma.createPaintStyle();
   baseStyle.name = name;
   const paint: Paint = {

@@ -35,6 +35,7 @@ export default function manageCanvasAppearance() {
 
   useEffect(() => {
     if (Object.keys(appSettings).length) {
+      console.log("appSettings", appSettings);
       emit("UPDATE_APP_SETTINGS", appSettings);
     }
   }, [appSettings]);
