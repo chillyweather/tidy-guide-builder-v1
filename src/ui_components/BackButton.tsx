@@ -70,17 +70,20 @@ export default function BackButton() {
     setShowManageUsersPage(false);
     setShowSettingsContent(false);
     setShowSettingsContent(false);
-  }
-
-  function backToSettings() {
-    setIsSettingsPageOpen(false);
+    setShowManageCollectionsPage(false);
     setShowEditCollectionForm(false);
     setShowEditUserForm(false);
-    setShowManageCollectionsPage(false);
-    setShowManageUsersPage(false);
-    setShowSettingsContent(false);
-    setShowManageCanvasAppearance(false);
   }
+
+  // function backToSettings() {
+  //   setIsSettingsPageOpen(false);
+  //   setShowEditCollectionForm(false);
+  //   setShowEditUserForm(false);
+  //   setShowManageCollectionsPage(false);
+  //   setShowManageUsersPage(false);
+  //   setShowSettingsContent(false);
+  //   setShowManageCanvasAppearance(false);
+  // }
 
   return (
     <button
@@ -96,7 +99,7 @@ export default function BackButton() {
             backToIndex();
             break;
           case "setings-section":
-            backToSettings();
+            backToIndex();
             setCurrentPage("settings");
             break;
           case "logout":

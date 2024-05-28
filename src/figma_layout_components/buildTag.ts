@@ -84,6 +84,8 @@ export async function buildTag(
     tag.appendChild(tagLabel);
     tag.appendChild(lineBox);
     tag.resize(24, 32);
+    tag.itemSpacing = -4;
+    addNewTextProperty(tag, index, "index", "A");
     return tag;
   }
 
@@ -94,6 +96,8 @@ export async function buildTag(
     tag.appendChild(lineBox);
     tag.appendChild(tagLabel);
     tag.resize(24, 32);
+    tag.itemSpacing = -4;
+    addNewTextProperty(tag, index, "index", "A");
     return tag;
   }
 
@@ -106,6 +110,8 @@ export async function buildTag(
     lineBox.rotation = 90;
     lineBox.layoutAlign = "STRETCH";
     tag.resize(32, 24);
+    tag.itemSpacing = -4;
+    addNewTextProperty(tag, index, "index", "A");
     return tag;
   }
 
@@ -118,17 +124,9 @@ export async function buildTag(
     lineBox.rotation = 90;
     lineBox.layoutAlign = "STRETCH";
     tag.resize(32, 24);
-    return tag;
-  }
-
-  if (
-    type === "top" ||
-    type === "bottom" ||
-    type === "left" ||
-    type === "right"
-  ) {
     tag.itemSpacing = -4;
     addNewTextProperty(tag, index, "index", "A");
+    return tag;
   }
 
   if (type === "index") {
