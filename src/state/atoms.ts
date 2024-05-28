@@ -1,5 +1,13 @@
 import { atom } from "jotai";
+import { Screens } from "./navigationTypes";
 import { CurrenPage } from "./atomTypes";
+
+//navigation
+export const historyAtom = atom<Screens[]>([Screens.HOME]);
+export const currentScreenAtom = atom(
+  (get) => get(historyAtom)[get(historyAtom).length - 1]
+);
+export const currentPageAtom = atom<CurrenPage>("login");
 
 //settings
 export const appSettingsAtom = atom({});
@@ -31,13 +39,13 @@ export const currentUserIdAtom = atom("");
 export const currentUserRoleAtom = atom("");
 export const currentDocumentationsAtom = atom(null);
 export const tokenAtom = atom("");
-export const currentPageAtom = atom<CurrenPage>("login");
 
 //context replacements
 export const selectedElementAtom = atom(null);
 export const selectedElementNameAtom = atom("");
 export const isDocJustOpenedAtom = atom(false);
 export const isResetAtom = atom(false);
+export const dataForUpdateAtom = atom({});
 
 //collections
 export const collectionsAtom = atom([]);

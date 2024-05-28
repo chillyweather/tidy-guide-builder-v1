@@ -20,6 +20,9 @@ import Toast from "./ui_components/Toast";
 import { sendRaster } from "./ui_components/ui_functions/sendRaster";
 import fetchAndUpdateData from "./ui_components/ui_functions/fetchAndUpdateData";
 
+//navigation screens
+// import { Screens } from "./state/navigationTypes";
+
 //new components
 import ContentFromServer from "./ui_components/ContentFromServer";
 // import ContentFromServerViewMode from "./ui_components/ContentFromServerViewMode";
@@ -77,6 +80,7 @@ import {
   showSettingsPageAtom,
   usersAtom,
   appSettingsAtom,
+  dataForUpdateAtom,
 } from "./state/atoms";
 // import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
@@ -157,7 +161,7 @@ function Plugin() {
   );
 
   //data from server
-  const [dataForUpdate, setDataForUpdate] = useState<any>({});
+  const [dataForUpdate, setDataForUpdate]: any = useAtom(dataForUpdateAtom);
   //build documentation
   const [isBuilding, setIsBuilding] = useState(false);
   //if we need to build on canvas
@@ -798,6 +802,7 @@ function Plugin() {
         {isToastOpen && toastMessage && (
           <Toast message={toastMessage} onClose={closePopup} type={toastType} />
         )}
+        {/* //!change navigation */}
         {!token && showLoginPage && (
           <Login
             setToken={setToken}
