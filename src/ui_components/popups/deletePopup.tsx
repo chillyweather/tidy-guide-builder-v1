@@ -2,6 +2,8 @@
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
 import { useContext } from "preact/hooks";
+import { useAtom } from "jotai";
+import { dataForUpdateAtom } from "src/state/atoms";
 import BuilderContext from "../../BuilderContext";
 import { deleteDocumentation } from "../ui_functions/documentationHandlers";
 import Spinner from "../../images/loader-spinner-white.png";
@@ -10,12 +12,11 @@ import { handleDeletePictures } from "../ui_functions/deleteHandlers";
 function DeletePopup({
   setShowDeletePopup,
   elementToDelete,
-  dataForUpdate,
 }: {
   setShowDeletePopup: (value: boolean) => void;
   elementToDelete: string;
-  dataForUpdate: (value: any) => void;
 }) {
+  const [dataForUpdate] = useAtom(dataForUpdateAtom);
   const { token, setDataForUpdate } = useContext(BuilderContext) || {};
   return (
     <div

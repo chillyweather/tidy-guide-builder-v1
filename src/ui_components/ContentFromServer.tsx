@@ -11,19 +11,19 @@ import {
   selectedNodeKeyAtom,
   selectedNodeIdAtom,
   selectedComponentPicAtom,
+  dataForUpdateAtom,
 } from "src/state/atoms";
 
 const ContentFromServer = ({
-  data,
   selectedMasterId,
   selectedSections,
   setSelectedSections,
 }: {
-  data: any;
   selectedMasterId: string;
   selectedSections: any;
   setSelectedSections: any;
 }) => {
+  const [data]: any = useAtom(dataForUpdateAtom);
   const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [, setSelectedComponentPic] = useAtom(selectedComponentPicAtom);

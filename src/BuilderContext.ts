@@ -25,7 +25,6 @@ interface IContext {
   setCurrentDocument: any;
   setCurrentPage: any;
   setCurrentUser: any;
-  setDataForUpdate: any;
   setDocumentationData: any;
   setDocumentationId: any;
   setDocumentationTitle: any;
@@ -50,7 +49,6 @@ interface IContext {
   showPreviewPopup: boolean;
   showResetPopup: boolean;
   token: string;
-  dataForUpdate: any;
 }
 
 const BuilderContext = createContext<IContext | null>(null);

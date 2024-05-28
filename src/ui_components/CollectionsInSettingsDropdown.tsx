@@ -86,9 +86,6 @@ const CollectionsInSettingsDropdown: FunctionalComponent<DropdownProps> = ({
                   className={"dropdown-item"}
                   onMouseDown={(e) => {
                     e.preventDefault();
-                    // if (!isSettingsPageOpen) {
-                    //   setDataForUpdate({});
-                    // }
                     selectOption(option);
                     setIsOpen(false);
                   }}

@@ -8,39 +8,17 @@ import { useAtom } from "jotai";
 import {
   showDeleteSectionPopupAtom,
   sectionToDeleteIndexAtom,
-  sectionToDeleteAtom,
 } from "src/state/atoms";
-import { deleteDocumentation } from "../ui_functions/documentationHandlers";
 import Spinner from "../../images/loader-spinner-white.png";
-import { handleDeletePictures } from "../ui_functions/deleteHandlers";
 import { deleteSection } from "../ui_functions/cardActions";
-import { deleteFileFromServer } from "../ui_functions/fileManagementFunctions";
 
-function DeleteSectionPopup({
-  elementToDelete,
-  dataForUpdate,
-}: {
-  elementToDelete: string;
-  dataForUpdate: (value: any) => void;
-}) {
+function DeleteSectionPopup() {
   const { setSelectedSections } = useContext(BuilderContext) || {};
   const [sectionToDeleteIndex] = useAtom(sectionToDeleteIndexAtom);
-  const [sectionToDelete]: any = useAtom(sectionToDeleteAtom);
   const [, setShowDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
 
   const handleDeleteSection = async (e: MouseEvent) => {
     deleteSection(sectionToDeleteIndex, setSelectedSections);
-    //     const remoteImageLink = sectionToDelete?.content.remoteImageLink;
-    //     if (
-    //       !remoteImageLink ||
-    //       !remoteImageLink.startsWith("https://nyc3.digitaloceanspaces.com")
-    //     )
-    //       return;
-    //
-    //     const deletion = await deleteFileFromServer(remoteImageLink);
-    //     if (deletion) {
-    //       console.log(deletion);
-    //     }
   };
 
   return (
@@ -86,16 +64,6 @@ function DeleteSectionPopup({
             onClick={async (e) => {
               handleDeleteSection(e);
               setShowDeleteSectionPopup(false);
-              // document
-              //   .getElementById("delete-button")
-              //   ?.classList.add("spinner");
-              // handleDelete(
-              //   token,
-              //   elementToDelete,
-              //   setDataForUpdate,
-              //   setShowDeletePopup,
-              //   dataForUpdate
-              // );
             }}
           >
             <img src={Spinner} />

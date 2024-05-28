@@ -14,12 +14,11 @@ import {
   selectedCollectionAtom,
   isDetailsPageOpenAtom,
   currentPageAtom,
+  dataForUpdateAtom,
 } from "src/state/atoms";
 import { getCollectionDocs } from "./ui_functions/collectionHandlers";
 
 const IndexPage = ({
-  data,
-  setDataForUpdate,
   setSelectedMasterId,
   setIsIndexOpen,
   setIsContenFromServerOpen,
@@ -28,8 +27,6 @@ const IndexPage = ({
   setElementToDelete,
   token,
 }: {
-  data: any;
-  setDataForUpdate: (data: any) => void;
   setSelectedMasterId: (id: any) => void;
   setIsIndexOpen: (isOpen: boolean) => void;
   setIsContenFromServerOpen: (isOpen: boolean) => void;
@@ -38,12 +35,13 @@ const IndexPage = ({
   setElementToDelete: (element: any) => void;
   token: string;
 }) => {
+  const [dataForUpdate, setDataForUpdate]: any = useAtom(dataForUpdateAtom);
   const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
-  if (Object.keys(data).length === 0) return <div>{!!"no data"}</div>;
-  const sortedData = data.sort((a: any, b: any) =>
+  if (Object.keys(dataForUpdate).length === 0) return <div>{!!"no data"}</div>;
+  const sortedData = dataForUpdate.sort((a: any, b: any) =>
     a.title.localeCompare(b.title)
   );
 

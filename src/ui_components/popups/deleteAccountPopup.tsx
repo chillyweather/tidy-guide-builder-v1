@@ -2,6 +2,8 @@
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
 import { useContext, useState } from "preact/hooks";
+import { useAtom } from "jotai";
+import { showLoginPageAtom } from "src/state/atoms";
 import BuilderContext from "../../BuilderContext";
 import Spinner from "../../images/loader-spinner-white.png";
 import { emit } from "@create-figma-plugin/utilities";
@@ -10,12 +12,11 @@ import { handleDeleteAccount } from "../ui_functions/deleteHandlers";
 function DeleteAccountPopup({
   setShowDeleteAccountPopup,
   setIsSettingsPageOpen,
-  setIsLoginPageOpen,
 }: {
   setShowDeleteAccountPopup: (show: boolean) => void;
   setIsSettingsPageOpen: (show: boolean) => void;
-  setIsLoginPageOpen: (show: boolean) => void;
 }) {
+  const [, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
   const [spinner, setSpinner] = useState(false);
   const [deleteConfirmation, setDeleteConfirmation] = useState("");
   const { token, setToken } = useContext(BuilderContext) || {};

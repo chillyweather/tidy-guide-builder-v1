@@ -12,16 +12,12 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import { createNewAccount } from "./ui_functions/authentication";
-import { tokenAtom, currentPageAtom } from "src/state/atoms";
-// import { getDocumentation } from "../auxiliaryFunctions/documentationHandlers";
+import { tokenAtom, currentPageAtom, showLoginPageAtom } from "src/state/atoms";
 
 const SignIn = ({
   setToken,
   setIsLoginFailed,
   isLoginFailed,
-  setIsLoginPageOpen,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setIsLoading,
   setIsSigninPageOpen,
   setIsSettingPageOpen,
   setShowWaitingInfoPopup,
@@ -29,14 +25,11 @@ const SignIn = ({
   setToken: (value: string) => void;
   setIsLoginFailed: (value: boolean) => void;
   isLoginFailed: boolean;
-  setIsLoginPageOpen: (value: boolean) => void;
   setIsLoading: (value: boolean) => void;
   setIsSigninPageOpen: (value: boolean) => void;
   setIsSettingPageOpen: (value: boolean) => void;
   setShowWaitingInfoPopup: (value: boolean) => void;
 }) => {
-  // type UserRank = "Viewer" | "Editor" | "Admin";
-  // const userRanks = ["Viewer", "Editor", "Admin"];
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
   const [rank] = useState("Admin");
@@ -47,6 +40,7 @@ const SignIn = ({
   const [repeatedPasswordVisible, setRepeatedPasswordVisible] = useState(false);
   const [, setTokenAtomData] = useAtom(tokenAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
+  const [, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
 
   //error visibility states
   const [isEmailErrorVisible, setIsEmailErrorVisible] = useState(false);
@@ -114,11 +108,6 @@ const SignIn = ({
     setIsPasswordsMatchErrorVisible(false);
   };
 
-  // const handleUserRankChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   //@ts-ignore
-  //   setRank((e.target.value as UserRank) || "Viewer");
-  // };
-
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
     const isFormValid = validateForm();
@@ -148,7 +137,6 @@ const SignIn = ({
         setIsSigninPageOpen(false);
         setIsSettingPageOpen(false);
       } else if (response.message === "User created") {
-        // setIsLoginFailed(true);
         setIsSigninPageOpen(false);
         setIsSettingPageOpen(false);
         setIsLoginPageOpen(true);
@@ -209,15 +197,6 @@ const SignIn = ({
           className="icon icon-tabler icon-tabler-usergroup"
         />
       </div>
-
-      {/* //! user permissions level */}
-      {/* <select value={rank} onChange={handleUserRankChange}>
-        {userRanks.map((rank) => (
-          <option key={rank} value={rank}>
-            {rank}
-          </option>
-        ))}
-      </select> */}
 
       {/* //! email */}
       <div className="inputDiv">

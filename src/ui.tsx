@@ -704,11 +704,9 @@ function Plugin() {
     selectedMasterId,
     previewData,
     isPreviewing,
-    dataForUpdate,
     setCurrentDocument,
     setCurrentPage,
     setCurrentUser,
-    setDataForUpdate,
     setDocumentationData,
     setDocumentationTitle,
     setIsBuilding,
@@ -771,15 +769,9 @@ function Plugin() {
           <DeletePopup
             setShowDeletePopup={setShowDeletePopup}
             elementToDelete={elementToDelete}
-            dataForUpdate={dataForUpdate}
           />
         )}
-        {showDeleteSectionPopup && (
-          <DeleteSectionPopup
-            elementToDelete={elementToDelete}
-            dataForUpdate={dataForUpdate}
-          />
-        )}
+        {showDeleteSectionPopup && <DeleteSectionPopup />}
         {showWaitingInfoPopup && (
           <WaitingInfoPopup setShowWaitingInfoPopup={setShowWaitingInfoPopup} />
         )}
@@ -787,7 +779,6 @@ function Plugin() {
           <DeleteAccountPopup
             setShowDeleteAccountPopup={setShowDeleteAccountPopup}
             setIsSettingsPageOpen={setShowSettingsPage}
-            setIsLoginPageOpen={setShowLoginPage}
           />
         )}
         {showPasswordResetPopup && (
@@ -806,9 +797,8 @@ function Plugin() {
         {!token && showLoginPage && (
           <Login
             setToken={setToken}
-            setIsLoginFailed={setIsLoginFailed}
             isLoginFailed={isLoginFailed}
-            setIsLoginPageOpen={setShowLoginPage}
+            setIsLoginFailed={setIsLoginFailed}
             setIsSettingPageOpen={setShowSettingsPage}
             setIsSigninPageOpen={setShowSigninPage}
             setShowPasswordResetPopup={setShowPasswordResetPopup}
@@ -821,19 +811,13 @@ function Plugin() {
             setToken={setToken}
             setIsLoginFailed={setIsLoginFailed}
             isLoginFailed={isLoginFailed}
-            setIsLoginPageOpen={setShowLoginPage}
             setIsLoading={setIsLoading}
             setIsSigninPageOpen={setShowSigninPage}
             setIsSettingPageOpen={setShowSettingsPage}
             setShowWaitingInfoPopup={setShowWaitingInfoPopup}
           />
         )}
-        <Header
-          setIsLoginPageOpen={setShowLoginPage}
-          setFeedbackPage={setShowFeedbackPopup}
-          userRank={userRank}
-          showMainContent={showMainContent}
-        />
+        <Header setFeedbackPage={setShowFeedbackPopup} userRank={userRank} />
         {showLoginPage && token && <LoggedIn setToken={setToken} />}
         {!showLoginPage &&
           !showSigninPage &&
@@ -841,8 +825,6 @@ function Plugin() {
           !showMainContent &&
           !showSettingsPage && (
             <IndexPage
-              data={dataForUpdate}
-              setDataForUpdate={setDataForUpdate}
               setSelectedMasterId={setSelectedMasterId}
               setIsIndexOpen={setShowIndexPage}
               setIsContenFromServerOpen={setShowContentFromServer}
@@ -858,8 +840,6 @@ function Plugin() {
           showIndexPage &&
           !showSettingsPage && (
             <IndexPage
-              data={dataForUpdate}
-              setDataForUpdate={setDataForUpdate}
               setSelectedMasterId={setSelectedMasterId}
               setIsIndexOpen={setShowIndexPage}
               setIsContenFromServerOpen={setShowContentFromServer}
@@ -905,7 +885,6 @@ function Plugin() {
           !showSigninPage &&
           !isViewModeOpen && (
             <ContentFromServer
-              data={dataForUpdate}
               selectedMasterId={selectedMasterId}
               selectedSections={selectedSections}
               setSelectedSections={setSelectedSections}
@@ -919,13 +898,10 @@ function Plugin() {
           !showMainContent &&
           !showLoginPage &&
           !showSigninPage &&
-          !showIndexPage && (
-            <DetailsPage
-              data={dataForUpdate}
-              selectedMasterId={selectedMasterId}
-            />
-          )}
+          !showIndexPage && <DetailsPage selectedMasterId={selectedMasterId} />}
+
         {showSettingsPage && <Settings />}
+
         {!showLoginPage &&
           !showSigninPage &&
           !showIndexPage &&

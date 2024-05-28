@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h, FunctionalComponent } from "preact";
-import { useState, useEffect, useContext } from "preact/hooks";
-import BuilderContext from "src/BuilderContext";
+import { useState, useEffect } from "preact/hooks";
 import { useAtom } from "jotai";
 import {
   currentUserIdAtom,
   currentUserRoleAtom,
   selectedCollectionAtom,
   isCollectionSwitchingAtom,
+  dataForUpdateAtom,
 } from "src/state/atoms";
 import { findUserRole } from "src/ui_components/ui_functions/findUserRole";
 
@@ -15,7 +15,6 @@ interface DropdownProps {
   options: any[];
   onSelect: any;
 }
-//
 
 const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
   options,
@@ -29,7 +28,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
     selectedCollectionAtom
   );
   const [, setIsCollectionSwitching] = useAtom(isCollectionSwitchingAtom);
-  const { setDataForUpdate } = useContext(BuilderContext) || {};
+  const [, setDataForUpdate] = useAtom(dataForUpdateAtom);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);

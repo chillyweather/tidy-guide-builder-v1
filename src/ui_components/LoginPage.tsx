@@ -9,6 +9,7 @@ import {
   currentCompanyAtom,
   tokenAtom,
   currentPageAtom,
+  showLoginPageAtom,
 } from "src/state/atoms";
 
 import { TidyLogo } from "../images/TidyLogo";
@@ -21,7 +22,6 @@ const Login = ({
   setToken,
   setIsLoginFailed,
   isLoginFailed,
-  setIsLoginPageOpen,
   setIsSettingPageOpen,
   setIsSigninPageOpen,
   setShowPasswordResetPopup,
@@ -31,13 +31,13 @@ const Login = ({
   setToken: (value: string) => void;
   setIsLoginFailed: (value: boolean) => void;
   isLoginFailed: boolean;
-  setIsLoginPageOpen: (value: boolean) => void;
   setIsSettingPageOpen: (value: boolean) => void;
   setIsSigninPageOpen: (value: boolean) => void;
   setShowPasswordResetPopup: (value: boolean) => void;
   setShowWaitingInfoPopup: (value: boolean) => void;
   setUserRank: (value: string) => void;
 }) => {
+  const [, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -92,7 +92,6 @@ const Login = ({
         setIsLoginPageOpen(false);
         setIsSettingPageOpen(false);
       } else if (response.message === "User exists but not active") {
-        // setIsLoginFailed(true);
         setShowWaitingInfoPopup(true);
       }
     } catch (error) {

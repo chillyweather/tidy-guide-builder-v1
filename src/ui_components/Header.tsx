@@ -31,6 +31,7 @@ import {
   showSettingsPageAtom,
   isDocJustOpenedAtom,
   isResetAtom,
+  dataForUpdateAtom,
 } from "src/state/atoms";
 import BackButton from "./BackButton";
 
@@ -45,17 +46,13 @@ import { emit } from "@create-figma-plugin/utilities";
 import CollectionsDropdown from "./CollectionsDropdown";
 
 const Header = ({
-  setIsLoginPageOpen,
   setFeedbackPage,
   userRank,
-  showMainContent,
 }: {
-  setIsLoginPageOpen: (value: boolean) => void;
   setFeedbackPage: (value: boolean) => void;
   userRank: string;
-  showMainContent: boolean;
 }) => {
-  const [isLoginPageOpen] = useAtom(showLoginPageAtom);
+  const [isLoginPageOpen, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
   const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [, setSelectedComponentPic] = useAtom(selectedComponentPicAtom);
@@ -80,11 +77,11 @@ const Header = ({
     useAtom(showSettingsPageAtom);
   const [isDocJustOpened, setIsDocJustOpened] = useAtom(isDocJustOpenedAtom);
   const [, setIsReset] = useAtom(isResetAtom);
+  const [dataForUpdate]: any = useAtom(dataForUpdateAtom);
 
   const [, setUserRankStyle] = useState({});
 
   const {
-    dataForUpdate,
     documentationData,
     selectedSections,
     setIsFromSavedData,
@@ -160,7 +157,7 @@ const Header = ({
       <button
         className={isViewModeOpen ? "mode-button viewer" : "mode-button editor"}
         onClick={handleToggle}
-        disabled={userRole === "Viewer" || showMainContent}
+        disabled={userRole === "Viewer" || isMainContentOpen}
       >
         <div className={"thumb"}></div>
         <div className="mode-icon view">
