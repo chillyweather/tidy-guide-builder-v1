@@ -1,19 +1,19 @@
 import { h } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
 import { useAtom } from "jotai";
-import { isPublishAndViewAtom } from "src/state/atoms";
+import {
+  isPublishAndViewAtom,
+  isBuildingAtom,
+  isBuildingOnCanvasAtom,
+} from "src/state/atoms";
 import BuilderContext from "../BuilderContext";
 import PublishCanvas from "../images/publish-icon-canvas.jpg";
 import PublishViewer from "../images/publish-icon-viewer.jpg";
 import { IconReload, IconChevronDown } from "@tabler/icons-react";
 
-const Footer = ({
-  setIsBuilding,
-  setIsBuildingOnCanvas,
-}: {
-  setIsBuilding: (value: boolean) => void;
-  setIsBuildingOnCanvas: (value: boolean) => void;
-}) => {
+const Footer = () => {
+  const [, setIsBuilding] = useAtom(isBuildingAtom);
+  const [, setIsBuildingOnCanvas] = useAtom(isBuildingOnCanvasAtom);
   const [saveData, setSaveData] = useState(false);
   const [buildOnCanvas, setBuildOnCanvas] = useState(false);
   const [publishToViewer, setPublishToViewer] = useState(false);

@@ -11,6 +11,10 @@ import {
   currentPageAtom,
   showLoginPageAtom,
   showSettingsPageAtom,
+  isLoginFailedAtom,
+  showSignupPageAtom,
+  showPasswordResetPopupAtom,
+  userRankAtom,
 } from "src/state/atoms";
 
 import { TidyLogo } from "../images/TidyLogo";
@@ -19,23 +23,11 @@ import { login } from "./ui_functions/authentication";
 import { validateEmail } from "./ui_functions/validateEmail";
 // import { getDocumentation } from "../auxiliaryFunctions/documentationHandlers";
 
-const Login = ({
-  setToken,
-  setIsLoginFailed,
-  isLoginFailed,
-  setIsSigninPageOpen,
-  setShowPasswordResetPopup,
-  setShowWaitingInfoPopup,
-  setUserRank,
-}: {
-  setToken: (value: string) => void;
-  setIsLoginFailed: (value: boolean) => void;
-  isLoginFailed: boolean;
-  setIsSigninPageOpen: (value: boolean) => void;
-  setShowPasswordResetPopup: (value: boolean) => void;
-  setShowWaitingInfoPopup: (value: boolean) => void;
-  setUserRank: (value: string) => void;
-}) => {
+const Login = () => {
+  const [, setUserRank] = useAtom(userRankAtom);
+  const [, setShowPasswordResetPopup] = useAtom(showPasswordResetPopupAtom);
+  const [, setIsSigninPageOpen] = useAtom(showSignupPageAtom);
+  const [isLoginFailed, setIsLoginFailed] = useAtom(isLoginFailedAtom);
   const [, setIsSettingPageOpen] = useAtom(showSettingsPageAtom);
   const [, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
   const [email, setEmail] = useState("");
@@ -45,7 +37,7 @@ const Login = ({
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [, setCurrentCompany] = useAtom(currentCompanyAtom);
   const [, setCurrentUserName] = useAtom(currentUserNameAtom);
-  const [, setTokenAtomData] = useAtom(tokenAtom);
+  const [, setToken] = useAtom(tokenAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
   const { setLoggedInUser } = useContext(BuilderContext) || {};
 
@@ -85,14 +77,11 @@ const Login = ({
         emit("SAVE_USER_LOGIN_DATA", token, email, rank, user, company, id);
         setToken(token);
         setLoggedInUser(email);
-        setTokenAtomData(token);
         setUserRank(rank);
         setCurrentCompany(response.company);
         setCurrentUserName(response.name);
         setIsLoginPageOpen(false);
         setIsSettingPageOpen(false);
-      } else if (response.message === "User exists but not active") {
-        setShowWaitingInfoPopup(true);
       }
     } catch (error) {
       console.log("Login failed:", error);

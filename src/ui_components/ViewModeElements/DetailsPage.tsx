@@ -2,9 +2,14 @@
 import ElementSection from "./ElementSection";
 import { useEffect, useState } from "preact/hooks";
 import { useAtom } from "jotai";
-import { currentPageAtom, dataForUpdateAtom } from "src/state/atoms";
+import {
+  currentPageAtom,
+  dataForUpdateAtom,
+  selectedMasterIdAtom,
+} from "src/state/atoms";
 import { h } from "preact";
-const DetailsPage = ({ selectedMasterId }: { selectedMasterId: string }) => {
+const DetailsPage = () => {
+  const [selectedMasterId] = useAtom(selectedMasterIdAtom);
   const [data]: any = useAtom(dataForUpdateAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
   const [docData, setDocData]: any = useState(null);

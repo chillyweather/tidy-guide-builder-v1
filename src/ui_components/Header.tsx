@@ -33,6 +33,7 @@ import {
   isResetAtom,
   dataForUpdateAtom,
   showFeedbackPopupAtom,
+  userRankAtom,
 } from "src/state/atoms";
 import BackButton from "./BackButton";
 
@@ -46,7 +47,8 @@ import UserMenu from "./UserMenu";
 import { emit } from "@create-figma-plugin/utilities";
 import CollectionsDropdown from "./CollectionsDropdown";
 
-const Header = ({ userRank }: { userRank: string }) => {
+const Header = () => {
+  // const [userRank] = useAtom(userRankAtom);
   const [, setFeedbackPage] = useAtom(showFeedbackPopupAtom);
   const [isLoginPageOpen, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
   const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
@@ -115,13 +117,13 @@ const Header = ({ userRank }: { userRank: string }) => {
     }
   }, [selectedCollection]);
 
-  useEffect(() => {
-    if (userRank === "Admin") {
-      setUserRankStyle({ color: "maroon" });
-    } else if (userRank === "Editor") {
-      setUserRankStyle({ color: "royalblue" });
-    }
-  }, [userRank]);
+  // useEffect(() => {
+  //   if (userRank === "Admin") {
+  //     setUserRankStyle({ color: "maroon" });
+  //   } else if (userRank === "Editor") {
+  //     setUserRankStyle({ color: "royalblue" });
+  //   }
+  // }, [userRank]);
 
   useEffect(() => {
     if (documentationData && documentationData.title && isDocJustOpened) {

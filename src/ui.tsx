@@ -9,10 +9,10 @@ import BuilderContext from "./BuilderContext";
 import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
 import DeletePopup from "./ui_components/popups/deletePopup";
+import EmptyIndex from "./ui_components/EmptyIndex";
 import DeleteSectionPopup from "./ui_components/popups/deleteSectionPopup";
 import PasswordResetPopup from "./ui_components/popups/passwordResetPopup";
 import DeleteAccountPopup from "./ui_components/popups/deleteAccountPopup";
-import WaitingInfoPopup from "./ui_components/popups/waitingInfoPopup";
 import CrashLogoutPopup from "./ui_components/popups/crashLogoutPopup";
 import NoDeleteCollectionPopup from "./ui_components/popups/noDeleteCollectionPopup";
 import Toast from "./ui_components/Toast";
@@ -36,7 +36,6 @@ import Login from "./ui_components/LoginPage";
 import SignIn from "./ui_components/SigninPage";
 import Settings from "./ui_components/SettingsPage";
 import MainContent from "./ui_components/MainContent";
-import EmptyState from "./images/empty-state.svg";
 import {
   updateDocumentation,
   createDocumentation,
@@ -62,15 +61,20 @@ import {
   dataForUpdateAtom,
   isCollectionSwitchingAtom,
   isDetailsPageOpenAtom,
+  isFromSavedDataAtom,
   isPublishAndViewAtom,
   isResetAtom,
   isViewModeOpenAtom,
+  isBuildingAtom,
+  isBuildingOnCanvasAtom,
   selectedCollectionAtom,
   selectedComponentPicAtom,
   selectedElementAtom,
   selectedElementNameAtom,
+  selectedMasterIdAtom,
   selectedNodeIdAtom,
   selectedNodeKeyAtom,
+  selectedSectionsAtom,
   selectionDataAtom,
   showContentFromServerAtom,
   showCrashLogoutPopupAtom,
@@ -84,10 +88,12 @@ import {
   showNonEmptyCollectionPopupAtom,
   showPasswordResetPopupAtom,
   showSettingsPageAtom,
+  showSignupPageAtom,
   tokenAtom,
   toastMessageAtom,
   toastTypeAtom,
   usersAtom,
+  userRankAtom,
 } from "./state/atoms";
 
 //styles
@@ -117,23 +123,18 @@ function Plugin() {
   const [isCollectionSwitching, setIsCollectionSwitching] = useAtom(
     isCollectionSwitchingAtom
   );
-  const [
-    showCrashLogoutPopup,
-    // setShowCrashLogoutPopup
-  ] = useAtom(showCrashLogoutPopupAtom);
+  const [showCrashLogoutPopup] = useAtom(showCrashLogoutPopupAtom);
   const [isDetailsPageOpen, setIsDetailsPageOpen] = useAtom(
     isDetailsPageOpenAtom
   );
   const [, setUsers] = useAtom(usersAtom);
   const [, setAppSettings] = useAtom(appSettingsAtom);
-  // const [openPage] = useAtom(currentPageAtom);
 
   //!TODO: plugin-level states
-  const [isLoginFailed, setIsLoginFailed] = useState(false);
   //loading state
   const [isLoading, setIsLoading] = useState(true);
   //saved token
-  const [token, setToken] = useState("");
+  const [token, setToken] = useAtom(tokenAtom);
   //logged in user data
   const [loggedInUser, setLoggedInUser] = useState("");
   //current session user data
@@ -143,7 +144,7 @@ function Plugin() {
 
   //navigation
   const [showLoginPage, setShowLoginPage] = useAtom(showLoginPageAtom);
-  const [showSigninPage, setShowSigninPage] = useState(false);
+  const [showSigninPage] = useAtom(showSignupPageAtom);
   const [showIndexPage, setShowIndexPage] = useAtom(showIndexPageAtom);
   const [showMainContent, setShowMainContent] = useAtom(showMainContentAtom);
   const [showContentFromServer, setShowContentFromServer] = useAtom(
@@ -154,13 +155,10 @@ function Plugin() {
   //navigation-popups
   const [showDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
   const [showFeedbackPopup] = useAtom(showFeedbackPopupAtom);
-  const [showWaitingInfoPopup, setShowWaitingInfoPopup] = useState(false);
   const [showResetPopup, setShowResetPopup] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useAtom(showDeletePopupAtom);
   const [showPreviewPopup, setShowPreviewPopup] = useState(false);
-  const [showPasswordResetPopup, setShowPasswordResetPopup] = useAtom(
-    showPasswordResetPopupAtom
-  );
+  const [showPasswordResetPopup] = useAtom(showPasswordResetPopupAtom);
   const [showDeleteAccountPopup, setShowDeleteAccountPopup] = useAtom(
     showDeleteAccountPopupAtom
   );
@@ -171,9 +169,11 @@ function Plugin() {
   //data from server
   const [dataForUpdate, setDataForUpdate]: any = useAtom(dataForUpdateAtom);
   //build documentation
-  const [isBuilding, setIsBuilding] = useState(false);
+  const [isBuilding, setIsBuilding] = useAtom(isBuildingAtom);
   //if we need to build on canvas
-  const [isBuildingOnCanvas, setIsBuildingOnCanvas] = useState(true);
+  const [isBuildingOnCanvas, setIsBuildingOnCanvas] = useAtom(
+    isBuildingOnCanvasAtom
+  );
   //is plugin first time open
   const [isFirstTime, setIsFirstTime] = useState(true);
 
@@ -195,7 +195,7 @@ function Plugin() {
   );
   const [selectedCard, setSelectedCard] = useState<any>("");
   //selected cards
-  const [selectedSections, setSelectedSections] = useState<any[]>([]);
+  const [selectedSections, setSelectedSections] = useAtom(selectedSectionsAtom);
   //element to delete
   //documentation
   const [documentationData, setDocumentationData] = useState<any>({ docs: [] });
@@ -205,11 +205,11 @@ function Plugin() {
   //is scroll
   const [isScroll, setIsScroll] = useState(false);
   //set selected master id
-  const [selectedMasterId, setSelectedMasterId] = useState("");
+  const [selectedMasterId, setSelectedMasterId] = useAtom(selectedMasterIdAtom);
   //is new element found
   const [, setIsNewElementFound] = useState(false);
   //is content from server
-  const [isFromSavedData, setIsFromSavedData] = useState(false);
+  const [isFromSavedData, setIsFromSavedData] = useAtom(isFromSavedDataAtom);
   //found existing documentation
   const [, setFoundDocumentation]: any = useState(null);
   //reset documentation
@@ -219,7 +219,7 @@ function Plugin() {
   //is pd section open
   const [isPdSectionOpen, setIsPdSectionOpen] = useState(!!selectedElement);
   //user rank
-  const [userRank, setUserRank] = useState("");
+  const [, setUserRank] = useAtom(userRankAtom);
 
   //current image array
   const [currentImageArray, setCurrentImageArray] = useState<Uint8Array | null>(
@@ -236,7 +236,6 @@ function Plugin() {
       setCurrentCompany(companyName);
       setCurrentUserName(userName);
       setCurrentUserId(id);
-      // setIsLoading(false);
     } else {
       setShowLoginPage(true);
       setIsLoading(false);
@@ -773,91 +772,41 @@ function Plugin() {
         {showResetPopup && <ResetPopup />}
         {showDeletePopup && <DeletePopup />}
         {showDeleteSectionPopup && <DeleteSectionPopup />}
-        {showWaitingInfoPopup && (
-          <WaitingInfoPopup setShowWaitingInfoPopup={setShowWaitingInfoPopup} />
-        )}
         {showDeleteAccountPopup && <DeleteAccountPopup />}
         {showPasswordResetPopup && <PasswordResetPopup />}
         {showCrashLogoutPopup && <CrashLogoutPopup />}
         {showNonEmptyCollectionPopup && <NoDeleteCollectionPopup />}
         {isToastOpen && toastMessage && <Toast onClose={closePopup} />}
         {/* //!change navigation */}
-        {!token && showLoginPage && (
-          <Login
-            setToken={setToken}
-            isLoginFailed={isLoginFailed}
-            setIsLoginFailed={setIsLoginFailed}
-            setIsSigninPageOpen={setShowSigninPage}
-            setShowPasswordResetPopup={setShowPasswordResetPopup}
-            setShowWaitingInfoPopup={setShowWaitingInfoPopup}
-            setUserRank={setUserRank}
-          />
-        )}
-        {!token && showSigninPage && (
-          <SignIn
-            setToken={setToken}
-            setIsLoginFailed={setIsLoginFailed}
-            isLoginFailed={isLoginFailed}
-            setIsLoading={setIsLoading}
-            setIsSigninPageOpen={setShowSigninPage}
-            setShowWaitingInfoPopup={setShowWaitingInfoPopup}
-          />
-        )}
-        <Header userRank={userRank} />
-        {showLoginPage && token && <LoggedIn setToken={setToken} />}
+
+        {!token && showLoginPage && <Login />}
+
+        {!token && showSigninPage && <SignIn />}
+
+        <Header />
+
+        {showLoginPage && token && <LoggedIn />}
+
         {!showLoginPage &&
           !showSigninPage &&
           isFirstTime &&
           !showMainContent &&
-          !showSettingsPage && (
-            <IndexPage
-              setSelectedMasterId={setSelectedMasterId}
-              setIsIndexOpen={setShowIndexPage}
-              setIsContenFromServerOpen={setShowContentFromServer}
-              setIsFromSavedData={setIsFromSavedData}
-              token={token}
-            />
-          )}
+          !showSettingsPage && <IndexPage />}
+
         {!showLoginPage &&
           !showSigninPage &&
           !isFirstTime &&
           showIndexPage &&
-          !showSettingsPage && (
-            <IndexPage
-              setSelectedMasterId={setSelectedMasterId}
-              setIsIndexOpen={setShowIndexPage}
-              setIsContenFromServerOpen={setShowContentFromServer}
-              setIsFromSavedData={setIsFromSavedData}
-              token={token}
-            />
-          )}
+          !showSettingsPage && <IndexPage />}
+
         {!showLoginPage &&
           !showSigninPage &&
           !isCollectionSwitching &&
           showIndexPage &&
-          !showSettingsPage && (
-            <div className="empty-index">
-              <img src={EmptyState} className={"empty-index-image"} />
-              <div className="empty-index-flex">
-                <h2>Looks like you don't have any Documentation</h2>
-                <p>Fortunately, it's easy to create documentation</p>
-              </div>
-              <button
-                className={"blue-button"}
-                onClick={() => {
-                  document.getElementById("new-button")?.click();
-                }}
-              >
-                Start Documenting
-              </button>
-            </div>
-          )}
-        {showMainContent && !isViewModeOpen && (
-          <MainContent
-            selectedSections={selectedSections}
-            setSelectedSections={setSelectedSections}
-          />
-        )}
+          !showSettingsPage && <EmptyIndex />}
+
+        {showMainContent && !isViewModeOpen && <MainContent />}
+
         {/* content in Edit mode */}
         {selectedMasterId &&
           !showMainContent &&
@@ -865,14 +814,8 @@ function Plugin() {
           !showIndexPage &&
           !showLoginPage &&
           !showSigninPage &&
-          !isViewModeOpen && (
-            <ContentFromServer
-              selectedMasterId={selectedMasterId}
-              selectedSections={selectedSections}
-              setSelectedSections={setSelectedSections}
-              //! add component key
-            />
-          )}
+          !isViewModeOpen && <ContentFromServer />}
+
         {/* //MARK: View mode content */}
         {selectedMasterId &&
           showContentFromServer &&
@@ -880,7 +823,7 @@ function Plugin() {
           !showMainContent &&
           !showLoginPage &&
           !showSigninPage &&
-          !showIndexPage && <DetailsPage selectedMasterId={selectedMasterId} />}
+          !showIndexPage && <DetailsPage />}
 
         {showSettingsPage && <Settings />}
 
@@ -888,14 +831,7 @@ function Plugin() {
           !showSigninPage &&
           !showIndexPage &&
           !showSettingsPage &&
-          !isViewModeOpen && (
-            <Footer
-              setIsBuilding={(value: boolean) => setIsBuilding(value)}
-              setIsBuildingOnCanvas={(value: boolean) =>
-                setIsBuildingOnCanvas(value)
-              }
-            />
-          )}
+          !isViewModeOpen && <Footer />}
       </BuilderContext.Provider>
     </div>
   );

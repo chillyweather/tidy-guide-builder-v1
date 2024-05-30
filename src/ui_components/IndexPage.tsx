@@ -9,29 +9,27 @@ import {
 } from "./ui_functions/documentationHandlers";
 import { useAtom } from "jotai";
 import {
-  isViewModeOpenAtom,
-  selectedCollectionAtom,
-  isDetailsPageOpenAtom,
   currentPageAtom,
   dataForUpdateAtom,
   elementToDeleteAtom,
+  isDetailsPageOpenAtom,
+  isViewModeOpenAtom,
+  selectedCollectionAtom,
+  selectedMasterIdAtom,
+  showContentFromServerAtom,
   showDeletePopupAtom,
+  showIndexPageAtom,
+  isFromSavedDataAtom,
+  tokenAtom,
 } from "src/state/atoms";
 import { getCollectionDocs } from "./ui_functions/collectionHandlers";
 
-const IndexPage = ({
-  setSelectedMasterId,
-  setIsIndexOpen,
-  setIsContenFromServerOpen,
-  setIsFromSavedData,
-  token,
-}: {
-  setSelectedMasterId: (id: any) => void;
-  setIsIndexOpen: (isOpen: boolean) => void;
-  setIsContenFromServerOpen: (isOpen: boolean) => void;
-  setIsFromSavedData: (isFromSavedData: boolean) => void;
-  token: string;
-}) => {
+const IndexPage = () => {
+  const [, setIsFromSavedData] = useAtom(isFromSavedDataAtom);
+  const [, setIsContenFromServerOpen] = useAtom(showContentFromServerAtom);
+  const [, setIsIndexOpen] = useAtom(showIndexPageAtom);
+  const [, setSelectedMasterId] = useAtom(selectedMasterIdAtom);
+  const [token] = useAtom(tokenAtom);
   const [, setShowDeletePopup] = useAtom(showDeletePopupAtom);
   const [, setElementToDelete] = useAtom(elementToDeleteAtom);
   const [dataForUpdate, setDataForUpdate]: any = useAtom(dataForUpdateAtom);

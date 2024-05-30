@@ -13,9 +13,11 @@ import {
   currentDocumentationsAtom,
   selectedCollectionAtom,
   currentPageAtom,
+  tokenAtom,
 } from "src/state/atoms";
 
-const LoggedIn = ({ setToken }: { setToken: any }) => {
+const LoggedIn = () => {
+  const [, setToken] = useAtom(tokenAtom);
   const [, setCurrentUserId] = useAtom(currentUserIdAtom);
   const [, setCurrentCompany] = useAtom(currentCompanyAtom);
   const [, setCurrentUserName] = useAtom(currentUserNameAtom);

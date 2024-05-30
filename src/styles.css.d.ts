@@ -26,7 +26,6 @@ declare const styles: {
   readonly "addSectionPopup": string;
   readonly "addSectionPupup-inner": string;
   readonly "addSectionTitle": string;
-  readonly "admin": string;
   readonly "anatomy": string;
   readonly "anatomy-buttons-wrapper": string;
   readonly "anatomy-tags-settings": string;

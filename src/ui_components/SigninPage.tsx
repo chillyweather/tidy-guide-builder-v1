@@ -17,22 +17,13 @@ import {
   currentPageAtom,
   showLoginPageAtom,
   showSettingsPageAtom,
+  isLoginFailedAtom,
+  showSignupPageAtom,
 } from "src/state/atoms";
 
-const SignIn = ({
-  setToken,
-  setIsLoginFailed,
-  isLoginFailed,
-  setIsSigninPageOpen,
-  setShowWaitingInfoPopup,
-}: {
-  setToken: (value: string) => void;
-  setIsLoginFailed: (value: boolean) => void;
-  isLoginFailed: boolean;
-  setIsLoading: (value: boolean) => void;
-  setIsSigninPageOpen: (value: boolean) => void;
-  setShowWaitingInfoPopup: (value: boolean) => void;
-}) => {
+const SignIn = () => {
+  const [, setIsSigninPageOpen] = useAtom(showSignupPageAtom);
+  const [isLoginFailed, setIsLoginFailed] = useAtom(isLoginFailedAtom);
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
   const [rank] = useState("Admin");
@@ -41,7 +32,7 @@ const SignIn = ({
   const [repeatedPassword, setRepeatedPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [repeatedPasswordVisible, setRepeatedPasswordVisible] = useState(false);
-  const [, setTokenAtomData] = useAtom(tokenAtom);
+  const [, setToken] = useAtom(tokenAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
   const [, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
   const [, setIsSettingPageOpen] = useAtom(showSettingsPageAtom);
@@ -137,14 +128,8 @@ const SignIn = ({
           id
         );
         setToken(token);
-        setTokenAtomData(token);
         setIsSigninPageOpen(false);
         setIsSettingPageOpen(false);
-      } else if (response.message === "User created") {
-        setIsSigninPageOpen(false);
-        setIsSettingPageOpen(false);
-        setIsLoginPageOpen(true);
-        setShowWaitingInfoPopup(true);
       }
     } catch (error) {
       setIsLoginFailed(true);

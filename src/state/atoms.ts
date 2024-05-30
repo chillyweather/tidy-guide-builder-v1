@@ -14,6 +14,7 @@ export const appSettingsAtom = atom({});
 
 //page states
 export const showLoginPageAtom = atom(false);
+export const showSignupPageAtom = atom(false);
 export const showIndexPageAtom = atom(false);
 export const showMainContentAtom = atom(false);
 export const showContentFromServerAtom = atom(false);
@@ -23,6 +24,11 @@ export const showManageUsersPageAtom = atom(false);
 export const showManageCollectionsPageAtom = atom(false);
 export const showManageCanvasAppearanceAtom = atom(false);
 
+export const isFromSavedDataAtom = atom(false);
+
+export const isBuildingAtom = atom(false);
+export const isBuildingOnCanvasAtom = atom(false);
+
 export const selectedNodeIdAtom = atom("");
 export const selectedNodeKeyAtom = atom("");
 export const selectedComponentPicAtom = atom("");
@@ -31,6 +37,7 @@ export const isViewModeOpenAtom = atom(false);
 export const isPublishAndViewAtom = atom(false);
 export const selectionDataAtom = atom(null);
 export const isDetailsPageOpenAtom = atom(false);
+export const selectedMasterIdAtom = atom("");
 
 export const usersAtom = atom([]);
 export const currentUserNameAtom = atom("");
@@ -39,7 +46,11 @@ export const currentCompanyAtom = atom("");
 export const currentUserIdAtom = atom("");
 export const currentUserRoleAtom = atom("");
 export const currentDocumentationsAtom = atom(null);
+export const userRankAtom = atom("");
+
+//login data
 export const tokenAtom = atom("");
+export const isLoginFailedAtom = atom(false);
 
 //context replacements
 export const selectedElementAtom = atom(null);
@@ -47,6 +58,7 @@ export const selectedElementNameAtom = atom("");
 export const isDocJustOpenedAtom = atom(false);
 export const isResetAtom = atom(false);
 export const dataForUpdateAtom = atom([]);
+export const selectedSectionsAtom = atom([]);
 
 //collections
 export const collectionsAtom = atom([]);
