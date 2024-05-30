@@ -10,6 +10,7 @@ import {
   tokenAtom,
   currentPageAtom,
   showLoginPageAtom,
+  showSettingsPageAtom,
 } from "src/state/atoms";
 
 import { TidyLogo } from "../images/TidyLogo";
@@ -22,7 +23,6 @@ const Login = ({
   setToken,
   setIsLoginFailed,
   isLoginFailed,
-  setIsSettingPageOpen,
   setIsSigninPageOpen,
   setShowPasswordResetPopup,
   setShowWaitingInfoPopup,
@@ -31,12 +31,12 @@ const Login = ({
   setToken: (value: string) => void;
   setIsLoginFailed: (value: boolean) => void;
   isLoginFailed: boolean;
-  setIsSettingPageOpen: (value: boolean) => void;
   setIsSigninPageOpen: (value: boolean) => void;
   setShowPasswordResetPopup: (value: boolean) => void;
   setShowWaitingInfoPopup: (value: boolean) => void;
   setUserRank: (value: string) => void;
 }) => {
+  const [, setIsSettingPageOpen] = useAtom(showSettingsPageAtom);
   const [, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

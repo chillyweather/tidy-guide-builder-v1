@@ -3,21 +3,22 @@ import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
 import { useContext } from "preact/hooks";
 import { useAtom } from "jotai";
-import { dataForUpdateAtom } from "src/state/atoms";
+import {
+  dataForUpdateAtom,
+  elementToDeleteAtom,
+  showDeletePopupAtom,
+} from "src/state/atoms";
+
 import BuilderContext from "../../BuilderContext";
 import { deleteDocumentation } from "../ui_functions/documentationHandlers";
 import Spinner from "../../images/loader-spinner-white.png";
 import { handleDeletePictures } from "../ui_functions/deleteHandlers";
 
-function DeletePopup({
-  setShowDeletePopup,
-  elementToDelete,
-}: {
-  setShowDeletePopup: (value: boolean) => void;
-  elementToDelete: string;
-}) {
-  const [dataForUpdate] = useAtom(dataForUpdateAtom);
-  const { token, setDataForUpdate } = useContext(BuilderContext) || {};
+function DeletePopup() {
+  const [, setShowDeletePopup] = useAtom(showDeletePopupAtom);
+  const [elementToDelete] = useAtom(elementToDeleteAtom);
+  const [dataForUpdate, setDataForUpdate] = useAtom(dataForUpdateAtom);
+  const { token } = useContext(BuilderContext) || {};
   return (
     <div
       className={"feedbackPopupBackground"}
@@ -45,9 +46,6 @@ function DeletePopup({
             onClick={() => {
               setShowDeletePopup(false);
             }}
-            // onKeyDown={(e) => {
-            //   if (e.key === "Escape") setShowDeletePopup(false);
-            // }}
           >
             Cancel
           </button>

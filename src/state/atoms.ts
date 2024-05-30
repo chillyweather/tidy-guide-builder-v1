@@ -34,6 +34,7 @@ export const isDetailsPageOpenAtom = atom(false);
 
 export const usersAtom = atom([]);
 export const currentUserNameAtom = atom("");
+export const currentFigmaUserAtom = atom({});
 export const currentCompanyAtom = atom("");
 export const currentUserIdAtom = atom("");
 export const currentUserRoleAtom = atom("");
@@ -45,7 +46,7 @@ export const selectedElementAtom = atom(null);
 export const selectedElementNameAtom = atom("");
 export const isDocJustOpenedAtom = atom(false);
 export const isResetAtom = atom(false);
-export const dataForUpdateAtom = atom({});
+export const dataForUpdateAtom = atom([]);
 
 //collections
 export const collectionsAtom = atom([]);
@@ -56,17 +57,27 @@ export const selectedCollectionInSettingsAtom = atom(null);
 //triggers
 export const collectionDocsTriggerAtom = atom(0);
 
-export const showEditUserFormAtom = atom(false);
-export const showEditCollectionFormAtom = atom(false);
 export const userToEditAtom = atom(null);
 export const collectionToEditAtom = atom(null);
 export const sectionToDeleteIndexAtom = atom(-1);
 export const sectionToDeleteAtom = atom(null);
 export const isCollectionSwitchingAtom = atom(false);
 
-//popup handlers
-export const showDeleteSectionPopupAtom = atom(false);
+//show forms
+export const showEditUserFormAtom = atom(false);
+export const showEditCollectionFormAtom = atom(false);
+
+//popup states
 export const showCrashLogoutPopupAtom = atom(false);
+export const showDeleteAccountPopupAtom = atom(false);
+export const showDeletePopupAtom = atom(false);
+export const showDeleteSectionPopupAtom = atom(false);
+export const showFeedbackPopupAtom = atom(false);
+export const showPasswordResetPopupAtom = atom(false);
+
+//toast states
+export const toastMessageAtom = atom("");
+export const toastTypeAtom = atom("idle");
 
 //add user/collection (settings)
 export const errorMessageAtom = atom("");
@@ -74,3 +85,6 @@ export const isAddErrorAtom = atom(false);
 
 //show non empty collection
 export const showNonEmptyCollectionPopupAtom = atom(false);
+
+//for delete popup
+export const elementToDeleteAtom = atom("");

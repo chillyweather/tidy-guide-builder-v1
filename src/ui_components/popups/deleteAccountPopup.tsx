@@ -3,23 +3,23 @@ import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
 import { useContext, useState } from "preact/hooks";
 import { useAtom } from "jotai";
-import { showLoginPageAtom } from "src/state/atoms";
+import {
+  showLoginPageAtom,
+  showSettingsPageAtom,
+  showDeleteAccountPopupAtom,
+} from "src/state/atoms";
 import BuilderContext from "../../BuilderContext";
 import Spinner from "../../images/loader-spinner-white.png";
 import { emit } from "@create-figma-plugin/utilities";
 import { handleDeleteAccount } from "../ui_functions/deleteHandlers";
 
-function DeleteAccountPopup({
-  setShowDeleteAccountPopup,
-  setIsSettingsPageOpen,
-}: {
-  setShowDeleteAccountPopup: (show: boolean) => void;
-  setIsSettingsPageOpen: (show: boolean) => void;
-}) {
+function DeleteAccountPopup() {
+  const [, setShowDeleteAccountPopup] = useAtom(showDeleteAccountPopupAtom);
   const [, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
   const [spinner, setSpinner] = useState(false);
   const [deleteConfirmation, setDeleteConfirmation] = useState("");
   const { token, setToken } = useContext(BuilderContext) || {};
+  const [, setIsSettingsPageOpen] = useAtom(showSettingsPageAtom);
   return (
     <div
       className={"feedbackPopupBackground"}

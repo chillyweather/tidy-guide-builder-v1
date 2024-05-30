@@ -5,7 +5,6 @@ import { emit } from "@create-figma-plugin/utilities";
 import { useEffect } from "preact/hooks";
 import {
   getDocumentation,
-  // getDocumentations,
   createDocumentation,
 } from "./ui_functions/documentationHandlers";
 import { useAtom } from "jotai";
@@ -15,6 +14,8 @@ import {
   isDetailsPageOpenAtom,
   currentPageAtom,
   dataForUpdateAtom,
+  elementToDeleteAtom,
+  showDeletePopupAtom,
 } from "src/state/atoms";
 import { getCollectionDocs } from "./ui_functions/collectionHandlers";
 
@@ -23,18 +24,16 @@ const IndexPage = ({
   setIsIndexOpen,
   setIsContenFromServerOpen,
   setIsFromSavedData,
-  setShowDeletePopup,
-  setElementToDelete,
   token,
 }: {
   setSelectedMasterId: (id: any) => void;
   setIsIndexOpen: (isOpen: boolean) => void;
   setIsContenFromServerOpen: (isOpen: boolean) => void;
   setIsFromSavedData: (isFromSavedData: boolean) => void;
-  setShowDeletePopup: (showPopup: boolean) => void;
-  setElementToDelete: (element: any) => void;
   token: string;
 }) => {
+  const [, setShowDeletePopup] = useAtom(showDeletePopupAtom);
+  const [, setElementToDelete] = useAtom(elementToDeleteAtom);
   const [dataForUpdate, setDataForUpdate]: any = useAtom(dataForUpdateAtom);
   const [isViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [selectedCollection]: any = useAtom(selectedCollectionAtom);
@@ -68,7 +67,6 @@ const IndexPage = ({
                   ? "inner-componentBTN draftComponent"
                   : "inner-componentBTN"
               }
-              // style={{ opacity: draft ? 0.5 : 1 }}
               onClick={(e) => {
                 setIsDetailsPageOpen(true);
                 setCurrentPage("details");
@@ -79,7 +77,6 @@ const IndexPage = ({
                     element.componentKey,
                     element.nodeId
                   );
-                  // setSelectedMasterId(element._id);
                 } else {
                   emit(
                     "GET_NEW_SELECTION",

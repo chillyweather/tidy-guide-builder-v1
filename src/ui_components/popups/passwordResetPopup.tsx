@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { useState } from "preact/hooks";
+import { useAtom } from "jotai";
+import { showPasswordResetPopupAtom } from "src/state/atoms";
 import { IconMail, IconX } from "@tabler/icons-react";
 import feedbackLoader from "../../images/feedback.gif";
 import {
@@ -8,15 +11,8 @@ import {
 } from "../ui_functions/authentication";
 import { validateEmail } from "../ui_functions/validateEmail";
 
-function PasswordResetPopup({
-  show,
-  user,
-  setShow,
-}: {
-  show: boolean;
-  user: any;
-  setShow: any;
-}) {
+function PasswordResetPopup() {
+  const [show, setShow] = useAtom(showPasswordResetPopupAtom);
   const [email, setEmail] = useState("");
   const [isHidden, setIsHidden] = useState(false);
   const [align, setAlign] = useState("left");
@@ -25,7 +21,7 @@ function PasswordResetPopup({
   const [popupText, setPopupText] = useState(
     "Enter the email address linked to your account. If it exists in our system, you'll be directed to the screen to create a new password shortly."
   );
-  const [popupSecondText, setPopupSecondText] = useState("");
+  const [, setPopupSecondText] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [repeatNewPassword, setRepeatNewPassword] = useState("");
   const [isNewPasswordSet, setIsNewPasswordSet] = useState(false);
@@ -56,10 +52,10 @@ function PasswordResetPopup({
             }}
           />
           <IconMail
-          size={24}
-          stroke={2}
-          className="icon icon-tabler icon-tabler-mail"
-        />
+            size={24}
+            stroke={2}
+            className="icon icon-tabler icon-tabler-mail"
+          />
           {!isEmailValid && (
             <div className="invalid-text">Invalid email address</div>
           )}

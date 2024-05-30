@@ -83,7 +83,7 @@ const CollectionsDropdown: FunctionalComponent<DropdownProps> = ({
                     e.preventDefault();
                     if (option.name !== selectedCollection.name)
                       setIsCollectionSwitching(true);
-                    setDataForUpdate({});
+                    setDataForUpdate([]);
                     selectOption(option);
                   }}
                 >

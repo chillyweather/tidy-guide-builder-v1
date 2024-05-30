@@ -12,14 +12,18 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import { createNewAccount } from "./ui_functions/authentication";
-import { tokenAtom, currentPageAtom, showLoginPageAtom } from "src/state/atoms";
+import {
+  tokenAtom,
+  currentPageAtom,
+  showLoginPageAtom,
+  showSettingsPageAtom,
+} from "src/state/atoms";
 
 const SignIn = ({
   setToken,
   setIsLoginFailed,
   isLoginFailed,
   setIsSigninPageOpen,
-  setIsSettingPageOpen,
   setShowWaitingInfoPopup,
 }: {
   setToken: (value: string) => void;
@@ -27,7 +31,6 @@ const SignIn = ({
   isLoginFailed: boolean;
   setIsLoading: (value: boolean) => void;
   setIsSigninPageOpen: (value: boolean) => void;
-  setIsSettingPageOpen: (value: boolean) => void;
   setShowWaitingInfoPopup: (value: boolean) => void;
 }) => {
   const [email, setEmail] = useState("");
@@ -41,6 +44,7 @@ const SignIn = ({
   const [, setTokenAtomData] = useAtom(tokenAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
   const [, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
+  const [, setIsSettingPageOpen] = useAtom(showSettingsPageAtom);
 
   //error visibility states
   const [isEmailErrorVisible, setIsEmailErrorVisible] = useState(false);

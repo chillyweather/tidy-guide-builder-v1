@@ -1,16 +1,12 @@
 import { h } from "preact";
 import { useEffect } from "preact/hooks";
+import { useAtom } from "jotai";
+import { toastMessageAtom, toastTypeAtom } from "src/state/atoms";
 import { createPortal } from "preact/compat";
 
-const Toast = ({
-  message,
-  onClose,
-  type,
-}: {
-  message: string;
-  onClose: Function;
-  type: string;
-}) => {
+const Toast = ({ onClose }: { onClose: () => void }) => {
+  const [message] = useAtom(toastMessageAtom);
+  const [type] = useAtom(toastTypeAtom);
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();

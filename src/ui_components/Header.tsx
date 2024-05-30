@@ -32,6 +32,7 @@ import {
   isDocJustOpenedAtom,
   isResetAtom,
   dataForUpdateAtom,
+  showFeedbackPopupAtom,
 } from "src/state/atoms";
 import BackButton from "./BackButton";
 
@@ -45,13 +46,8 @@ import UserMenu from "./UserMenu";
 import { emit } from "@create-figma-plugin/utilities";
 import CollectionsDropdown from "./CollectionsDropdown";
 
-const Header = ({
-  setFeedbackPage,
-  userRank,
-}: {
-  setFeedbackPage: (value: boolean) => void;
-  userRank: string;
-}) => {
+const Header = ({ userRank }: { userRank: string }) => {
+  const [, setFeedbackPage] = useAtom(showFeedbackPopupAtom);
   const [isLoginPageOpen, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
   const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);

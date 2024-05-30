@@ -49,16 +49,17 @@ import { getUsers } from "./ui_components/ui_functions/authentication";
 
 import { useAtom } from "jotai";
 import {
-  selectedNodeIdAtom,
+  appSettingsAtom,
   collectionDocsTriggerAtom,
   collectionsAtom,
   currentCompanyAtom,
   currentDocumentationsAtom,
-  // currentPageAtom,
+  currentFigmaUserAtom,
   currentUserCollectionsAtom,
   currentUserIdAtom,
   currentUserNameAtom,
   currentUserRoleAtom,
+  dataForUpdateAtom,
   isCollectionSwitchingAtom,
   isDetailsPageOpenAtom,
   isPublishAndViewAtom,
@@ -68,26 +69,29 @@ import {
   selectedComponentPicAtom,
   selectedElementAtom,
   selectedElementNameAtom,
+  selectedNodeIdAtom,
   selectedNodeKeyAtom,
   selectionDataAtom,
   showContentFromServerAtom,
   showCrashLogoutPopupAtom,
+  showDeleteAccountPopupAtom,
+  showDeletePopupAtom,
   showDeleteSectionPopupAtom,
+  showFeedbackPopupAtom,
   showIndexPageAtom,
   showLoginPageAtom,
   showMainContentAtom,
   showNonEmptyCollectionPopupAtom,
+  showPasswordResetPopupAtom,
   showSettingsPageAtom,
+  tokenAtom,
+  toastMessageAtom,
+  toastTypeAtom,
   usersAtom,
-  appSettingsAtom,
-  dataForUpdateAtom,
 } from "./state/atoms";
-// import { findUserRole } from "./ui_components/ui_functions/findUserRole";
 
 //styles
 import "!./styles.css";
-// import { show } from "./styles.css";
-// import { selected } from "./styles.css";
 
 function Plugin() {
   //!Jotai states
@@ -98,7 +102,7 @@ function Plugin() {
   );
   const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [, setCurrentCompany] = useAtom(currentCompanyAtom);
-  const [, setCurrentUserName] = useAtom(currentUserNameAtom);
+  const [currentUserName, setCurrentUserName] = useAtom(currentUserNameAtom);
   const [currentUserId, setCurrentUserId] = useAtom(currentUserIdAtom);
   const [collections, setCollections] = useAtom(collectionsAtom);
   const [selectedCollection, setSelectedCollection]: any = useAtom(
@@ -121,7 +125,7 @@ function Plugin() {
     isDetailsPageOpenAtom
   );
   const [, setUsers] = useAtom(usersAtom);
-  const [appSettings, setAppSettings] = useAtom(appSettingsAtom);
+  const [, setAppSettings] = useAtom(appSettingsAtom);
   // const [openPage] = useAtom(currentPageAtom);
 
   //!TODO: plugin-level states
@@ -133,7 +137,7 @@ function Plugin() {
   //logged in user data
   const [loggedInUser, setLoggedInUser] = useState("");
   //current session user data
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentFigmaUser, setFigmaCurrentUser] = useAtom(currentFigmaUserAtom);
   const [currentDocument, setCurrentDocument] = useState("");
   const [currentPage, setCurrentPage] = useState("");
 
@@ -145,17 +149,21 @@ function Plugin() {
   const [showContentFromServer, setShowContentFromServer] = useAtom(
     showContentFromServerAtom
   );
-  const [showSettingsPage, setShowSettingsPage] = useAtom(showSettingsPageAtom);
+  const [showSettingsPage] = useAtom(showSettingsPageAtom);
 
   //navigation-popups
   const [showDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
-  const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
+  const [showFeedbackPopup] = useAtom(showFeedbackPopupAtom);
   const [showWaitingInfoPopup, setShowWaitingInfoPopup] = useState(false);
   const [showResetPopup, setShowResetPopup] = useState(false);
-  const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const [showDeletePopup, setShowDeletePopup] = useAtom(showDeletePopupAtom);
   const [showPreviewPopup, setShowPreviewPopup] = useState(false);
-  const [showPasswordResetPopup, setShowPasswordResetPopup] = useState(false);
-  const [showDeleteAccountPopup, setShowDeleteAccountPopup] = useState(false);
+  const [showPasswordResetPopup, setShowPasswordResetPopup] = useAtom(
+    showPasswordResetPopupAtom
+  );
+  const [showDeleteAccountPopup, setShowDeleteAccountPopup] = useAtom(
+    showDeleteAccountPopupAtom
+  );
   const [showNonEmptyCollectionPopup] = useAtom(
     showNonEmptyCollectionPopupAtom
   );
@@ -171,8 +179,8 @@ function Plugin() {
 
   //show toast
   const [isToastOpen, setIsToastOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
-  const [toastType, setToastType] = useState("idle");
+  const [toastMessage, setToastMessage] = useAtom(toastMessageAtom);
+  const [, setToastType] = useAtom(toastTypeAtom);
 
   //!TODO: documentatation level states
   //documentation title
@@ -189,7 +197,6 @@ function Plugin() {
   //selected cards
   const [selectedSections, setSelectedSections] = useState<any[]>([]);
   //element to delete
-  const [elementToDelete, setElementToDelete] = useState("");
   //documentation
   const [documentationData, setDocumentationData] = useState<any>({ docs: [] });
   //preview data
@@ -243,8 +250,9 @@ function Plugin() {
   });
 
   useEffect(() => {
-    console.log("appSettings", appSettings);
-  }, [appSettings]);
+    console.log("currentUserName", currentUserName);
+    console.log("currentFigmaUser", currentFigmaUser);
+  }, [currentFigmaUser, currentUserName]);
 
   useEffect(() => {
     if (showLoginPage || showSigninPage || showSettingsPage || showIndexPage) {
@@ -385,7 +393,7 @@ function Plugin() {
   }, [selectedSections]);
 
   on("SESSION", ({ user, document, page }) => {
-    setCurrentUser(user);
+    setFigmaCurrentUser(user);
     setCurrentDocument(document);
     setCurrentPage(page);
   });
@@ -650,6 +658,10 @@ function Plugin() {
   }
 
   useEffect(() => {
+    console.log("dataForUpdate", dataForUpdate);
+  }, [dataForUpdate]);
+
+  useEffect(() => {
     if (Object.keys(documentationData).length > 0 && isBuilding && token) {
       handleAddDocumentation(token, documentationData);
     }
@@ -684,7 +696,7 @@ function Plugin() {
   const contextStates = {
     currentDocument,
     currentPage,
-    currentUser,
+    currentUser: currentFigmaUser,
     documentationData,
     documentationTitle,
     isBuilding,
@@ -706,7 +718,7 @@ function Plugin() {
     isPreviewing,
     setCurrentDocument,
     setCurrentPage,
-    setCurrentUser,
+    setCurrentUser: setFigmaCurrentUser,
     setDocumentationData,
     setDocumentationTitle,
     setIsBuilding,
@@ -756,50 +768,25 @@ function Plugin() {
       }}
     >
       <BuilderContext.Provider value={contextStates}>
-        {showFeedbackPopup && (
-          <FeedbackPopup
-            show={showFeedbackPopup}
-            setShow={setShowFeedbackPopup}
-            user={currentUser}
-          />
-        )}
+        {showFeedbackPopup && <FeedbackPopup />}
         {isLoading && <LoaderPage />}
         {showResetPopup && <ResetPopup />}
-        {showDeletePopup && (
-          <DeletePopup
-            setShowDeletePopup={setShowDeletePopup}
-            elementToDelete={elementToDelete}
-          />
-        )}
+        {showDeletePopup && <DeletePopup />}
         {showDeleteSectionPopup && <DeleteSectionPopup />}
         {showWaitingInfoPopup && (
           <WaitingInfoPopup setShowWaitingInfoPopup={setShowWaitingInfoPopup} />
         )}
-        {showDeleteAccountPopup && (
-          <DeleteAccountPopup
-            setShowDeleteAccountPopup={setShowDeleteAccountPopup}
-            setIsSettingsPageOpen={setShowSettingsPage}
-          />
-        )}
-        {showPasswordResetPopup && (
-          <PasswordResetPopup
-            show={showPasswordResetPopup}
-            setShow={setShowPasswordResetPopup}
-            user={currentUser}
-          />
-        )}
+        {showDeleteAccountPopup && <DeleteAccountPopup />}
+        {showPasswordResetPopup && <PasswordResetPopup />}
         {showCrashLogoutPopup && <CrashLogoutPopup />}
         {showNonEmptyCollectionPopup && <NoDeleteCollectionPopup />}
-        {isToastOpen && toastMessage && (
-          <Toast message={toastMessage} onClose={closePopup} type={toastType} />
-        )}
+        {isToastOpen && toastMessage && <Toast onClose={closePopup} />}
         {/* //!change navigation */}
         {!token && showLoginPage && (
           <Login
             setToken={setToken}
             isLoginFailed={isLoginFailed}
             setIsLoginFailed={setIsLoginFailed}
-            setIsSettingPageOpen={setShowSettingsPage}
             setIsSigninPageOpen={setShowSigninPage}
             setShowPasswordResetPopup={setShowPasswordResetPopup}
             setShowWaitingInfoPopup={setShowWaitingInfoPopup}
@@ -813,11 +800,10 @@ function Plugin() {
             isLoginFailed={isLoginFailed}
             setIsLoading={setIsLoading}
             setIsSigninPageOpen={setShowSigninPage}
-            setIsSettingPageOpen={setShowSettingsPage}
             setShowWaitingInfoPopup={setShowWaitingInfoPopup}
           />
         )}
-        <Header setFeedbackPage={setShowFeedbackPopup} userRank={userRank} />
+        <Header userRank={userRank} />
         {showLoginPage && token && <LoggedIn setToken={setToken} />}
         {!showLoginPage &&
           !showSigninPage &&
@@ -829,8 +815,6 @@ function Plugin() {
               setIsIndexOpen={setShowIndexPage}
               setIsContenFromServerOpen={setShowContentFromServer}
               setIsFromSavedData={setIsFromSavedData}
-              setShowDeletePopup={setShowDeletePopup}
-              setElementToDelete={setElementToDelete}
               token={token}
             />
           )}
@@ -844,8 +828,6 @@ function Plugin() {
               setIsIndexOpen={setShowIndexPage}
               setIsContenFromServerOpen={setShowContentFromServer}
               setIsFromSavedData={setIsFromSavedData}
-              setShowDeletePopup={setShowDeletePopup}
-              setElementToDelete={setElementToDelete}
               token={token}
             />
           )}
@@ -920,8 +902,3 @@ function Plugin() {
 }
 
 export default render(Plugin);
-
-// async function fetchAndUpdateData(token: string, setDataForUpdate: any) {
-//   const newData = await getDocumentations(token);
-//   setDataForUpdate(newData);
-// }

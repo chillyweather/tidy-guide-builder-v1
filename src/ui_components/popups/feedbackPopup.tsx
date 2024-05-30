@@ -2,19 +2,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { useState } from "preact/hooks";
+import { useAtom } from "jotai";
+import { showFeedbackPopupAtom, currentFigmaUserAtom } from "src/state/atoms";
 import { sendFeedback } from "../ui_functions/sendFeedback";
 import { IconX } from "@tabler/icons-react";
 import feedbackLoader from "../../images/feedback.gif";
 
-function FeedbackPopup({
-  show,
-  user,
-  setShow,
-}: {
-  show: boolean;
-  user: any;
-  setShow: any;
-}) {
+function FeedbackPopup() {
+  const [user]: any = useAtom(currentFigmaUserAtom);
+  const [show, setShow] = useAtom(showFeedbackPopupAtom);
   const [title, setTitle] = useState("");
   const [titleText, setTitleText] = useState("Give feedback");
   const [bodyText, setBodyText] = useState(
@@ -25,7 +21,6 @@ function FeedbackPopup({
   const [align, setAlign] = useState("left");
   const [body, setBody] = useState("");
   const [feedbackText, setFeedbackText] = useState("");
-  // Give feedback
 
   if (!show) {
     return null;
