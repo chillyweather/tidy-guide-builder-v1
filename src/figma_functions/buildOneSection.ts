@@ -14,7 +14,8 @@ export async function buildOneSection(
   nodeKey: any,
   type: string,
   indexPosition?: string,
-  indexSpacing?: string
+  indexSpacing?: string,
+  pluginSettings?: any
 ) {
   await loadFonts();
   const foundNode = await getNodeAndDefaultElement(nodeId, nodeKey);
@@ -26,7 +27,8 @@ export async function buildOneSection(
     type,
     instance,
     indexPosition,
-    indexSpacing
+    indexSpacing,
+    pluginSettings
   );
 
   instance.remove();
@@ -37,14 +39,21 @@ async function buildSectionContent(
   type: string,
   node: InstanceNode,
   indexPosition?: string,
-  indexSpacing?: string
+  indexSpacing?: string,
+  pluginSettings?: any
 ) {
   const frame = buildResultFrame();
 
   if (type === "anatomy") {
     const title = buildTitle("Anatomy");
     frame.appendChild(title);
-    await buildAnatomySection(node, frame, indexPosition, indexSpacing);
+    await buildAnatomySection(
+      node,
+      frame,
+      indexPosition,
+      indexSpacing,
+      pluginSettings
+    );
   } else if (type === "variants") {
     const title = buildTitle("Variants");
     frame.appendChild(title);

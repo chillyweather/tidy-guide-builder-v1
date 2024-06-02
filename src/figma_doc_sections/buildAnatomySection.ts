@@ -10,15 +10,15 @@ export async function buildAnatomySection(
   node: InstanceNode,
   parentFrame: FrameNode,
   indexPosition: string = "left",
-  indexSpacing: string = "32"
+  indexSpacing: string = "32",
+  pluginSettings: any
 ) {
-  const settings = await figma.clientStorage.getAsync("appSettings");
   const booleanProperties = await findAllBooleanProps(node);
   const variantProperties = await findAllVariantProps(node);
   const elementSizes = await getElementSizes(node);
 
   const labelComponent = buildLabelComponent();
-  const tagComponent = await buildAllTags(settings);
+  const tagComponent = await buildAllTags(pluginSettings);
 
   const tags = await buildAtomTags(
     node,

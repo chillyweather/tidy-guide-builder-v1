@@ -116,14 +116,17 @@ export default async function () {
       cardType,
       anatomyIndexPosition,
       anatomyIndexSpacing,
+      appSettings,
     }) => {
+      console.log("appSettings in main", appSettings);
       buildOneSection(
         loadFonts,
         selectedNodeId,
         selectedNodeKey,
         cardType,
         anatomyIndexPosition,
-        anatomyIndexSpacing
+        anatomyIndexSpacing,
+        appSettings
       );
     }
   );

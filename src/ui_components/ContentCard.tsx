@@ -11,6 +11,7 @@ import {
   sectionToDeleteIndexAtom,
   selectedNodeIdAtom,
   selectedNodeKeyAtom,
+  appSettingsAtom,
 } from "../state/atoms";
 import {
   IconGripVertical,
@@ -76,6 +77,7 @@ function removeDraggable(event: any) {
 
 export const ContentCard = (card: any, index: number) => {
   const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
+  const [appSettings] = useAtom(appSettingsAtom);
 
   //card title
   const [cardTitle, setCardTitle] = useState(card.title);
@@ -366,6 +368,7 @@ export const ContentCard = (card: any, index: number) => {
       cardType,
       anatomyIndexPosition,
       anatomyIndexSpacing,
+      appSettings,
     });
   }
 
