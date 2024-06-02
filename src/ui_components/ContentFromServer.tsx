@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { useState, useContext, useEffect } from "preact/hooks";
-import BuilderContext from "../BuilderContext";
+import { useState, useEffect } from "preact/hooks";
 import { DraggableCardList } from "./DraggableCardsList";
 //content cards
 import HeaderCard from "./sectionCards/HeaderCard";
@@ -14,6 +13,11 @@ import {
   dataForUpdateAtom,
   selectedMasterIdAtom,
   selectedSectionsAtom,
+  isDraftAtom,
+  documentationTitleAtom,
+  documentationIdAtom,
+  isWipAtom,
+  documentationDataAtom,
 } from "src/state/atoms";
 
 const ContentFromServer = () => {
@@ -24,14 +28,11 @@ const ContentFromServer = () => {
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [, setSelectedComponentPic] = useAtom(selectedComponentPicAtom);
   const [thisCardIsDraft, setThisCardIsDraft] = useState(false);
-
-  const {
-    setIsDraft,
-    setDocumentationTitle,
-    setIsWip,
-    setDocumentationData,
-    setDocumentationId,
-  } = useContext(BuilderContext) || {};
+  const [, setIsDraft] = useAtom(isDraftAtom);
+  const [, setDocumentationTitle] = useAtom(documentationTitleAtom);
+  const [, setDocumentationId] = useAtom(documentationIdAtom);
+  const [, setIsWip] = useAtom(isWipAtom);
+  const [, setDocumentationData] = useAtom(documentationDataAtom);
 
   const foundData = data.find((item: any) => item._id === selectedMasterId);
 

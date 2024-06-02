@@ -46,6 +46,7 @@ export const currentCompanyAtom = atom("");
 export const currentUserIdAtom = atom("");
 export const currentUserRoleAtom = atom("");
 export const currentDocumentationsAtom = atom(null);
+export const documentationDataAtom = atom({ docs: [] });
 export const userRankAtom = atom("");
 
 //login data
@@ -59,6 +60,15 @@ export const isDocJustOpenedAtom = atom(false);
 export const isResetAtom = atom(false);
 export const dataForUpdateAtom = atom([]);
 export const selectedSectionsAtom = atom([]);
+
+//current documentation
+export const documentationTitleAtom = atom("");
+export const documentationIdAtom = atom("");
+
+export const isDraftAtom = atom(false);
+export const isWipAtom = atom(false);
+
+export const isScrollAtom = atom(false);
 
 //collections
 export const collectionsAtom = atom([]);
@@ -79,13 +89,14 @@ export const isCollectionSwitchingAtom = atom(false);
 export const showEditUserFormAtom = atom(false);
 export const showEditCollectionFormAtom = atom(false);
 
-//popup states
+//popup trigger states
 export const showCrashLogoutPopupAtom = atom(false);
 export const showDeleteAccountPopupAtom = atom(false);
 export const showDeletePopupAtom = atom(false);
 export const showDeleteSectionPopupAtom = atom(false);
 export const showFeedbackPopupAtom = atom(false);
 export const showPasswordResetPopupAtom = atom(false);
+export const showResetPopupAtom = atom(false);
 
 //toast states
 export const toastMessageAtom = atom("");
@@ -100,3 +111,7 @@ export const showNonEmptyCollectionPopupAtom = atom(false);
 
 //for delete popup
 export const elementToDeleteAtom = atom("");
+
+//small interface elements
+export const isPdSectionOpenAtom = atom(false);
+export const isCurrentNameValidAtom = atom(false);

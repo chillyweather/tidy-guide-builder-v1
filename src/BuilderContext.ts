@@ -42,11 +42,9 @@ interface IContext {
   setSelectedMasterId: any;
   setSelectedSections: any;
   setShowDeleteAccountPopup: any;
-  setShowPreviewPopup: any;
   setShowResetPopup: any;
   setToken: any;
   showDeleteAccountPopup: boolean;
-  showPreviewPopup: boolean;
   showResetPopup: boolean;
   token: string;
 }

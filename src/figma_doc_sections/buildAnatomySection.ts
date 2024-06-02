@@ -11,7 +11,7 @@ export async function buildAnatomySection(
   parentFrame: FrameNode,
   indexPosition: string = "left",
   indexSpacing: string = "32",
-  pluginSettings: any
+  pluginSettings?: any
 ) {
   const booleanProperties = await findAllBooleanProps(node);
   const variantProperties = await findAllVariantProps(node);

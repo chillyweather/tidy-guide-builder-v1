@@ -94,6 +94,15 @@ import {
   toastTypeAtom,
   usersAtom,
   userRankAtom,
+  isPdSectionOpenAtom,
+  documentationTitleAtom,
+  isScrollAtom,
+  isDraftAtom,
+  showResetPopupAtom,
+  isCurrentNameValidAtom,
+  documentationIdAtom,
+  isWipAtom,
+  documentationDataAtom,
 } from "./state/atoms";
 
 //styles
@@ -155,9 +164,8 @@ function Plugin() {
   //navigation-popups
   const [showDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
   const [showFeedbackPopup] = useAtom(showFeedbackPopupAtom);
-  const [showResetPopup, setShowResetPopup] = useState(false);
+  const [showResetPopup, setShowResetPopup] = useAtom(showResetPopupAtom);
   const [showDeletePopup, setShowDeletePopup] = useAtom(showDeletePopupAtom);
-  const [showPreviewPopup, setShowPreviewPopup] = useState(false);
   const [showPasswordResetPopup] = useAtom(showPasswordResetPopupAtom);
   const [showDeleteAccountPopup, setShowDeleteAccountPopup] = useAtom(
     showDeleteAccountPopupAtom
@@ -184,10 +192,12 @@ function Plugin() {
 
   //!TODO: documentatation level states
   //documentation title
-  const [documentationTitle, setDocumentationTitle] = useState("");
-  const [documentationId, setDocumentationId] = useState("");
+  const [documentationTitle, setDocumentationTitle] = useAtom(
+    documentationTitleAtom
+  );
+  const [documentationId, setDocumentationId] = useAtom(documentationIdAtom);
   //work in progress
-  const [isWip, setIsWip] = useState(false);
+  const [isWip, setIsWip] = useAtom(isWipAtom);
   //selected element
   const [selectedElement, setSelectedElement] = useAtom(selectedElementAtom);
   const [selectedElementName, setSelectedElementName] = useAtom(
@@ -198,12 +208,14 @@ function Plugin() {
   const [selectedSections, setSelectedSections] = useAtom(selectedSectionsAtom);
   //element to delete
   //documentation
-  const [documentationData, setDocumentationData] = useState<any>({ docs: [] });
+  const [documentationData, setDocumentationData] = useAtom(
+    documentationDataAtom
+  );
   //preview data
   const [previewData, setPreviewData] = useState<any>({});
   const [isPreviewing, setIsPreviewing] = useState(false);
   //is scroll
-  const [isScroll, setIsScroll] = useState(false);
+  const [isScroll, setIsScroll] = useAtom(isScrollAtom);
   //set selected master id
   const [selectedMasterId, setSelectedMasterId] = useAtom(selectedMasterIdAtom);
   //is new element found
@@ -215,9 +227,9 @@ function Plugin() {
   //reset documentation
   const [isReset, setIsReset] = useAtom(isResetAtom);
   //is draft
-  const [isDraft, setIsDraft] = useState(false);
+  const [isDraft, setIsDraft] = useAtom(isDraftAtom);
   //is pd section open
-  const [isPdSectionOpen, setIsPdSectionOpen] = useState(!!selectedElement);
+  const [isPdSectionOpen, setIsPdSectionOpen] = useAtom(isPdSectionOpenAtom);
   //user rank
   const [, setUserRank] = useAtom(userRankAtom);
 
@@ -226,7 +238,9 @@ function Plugin() {
     null
   );
 
-  const [isCurrentNameValid, setIsCurrentNameValid] = useState(true);
+  const [isCurrentNameValid, setIsCurrentNameValid] = useAtom(
+    isCurrentNameValidAtom
+  );
 
   on("AUTH_CHANGE", async (token, email, rank, userName, companyName, id) => {
     if (token) {
@@ -711,7 +725,6 @@ function Plugin() {
     showResetPopup,
     token,
     isCurrentNameValid,
-    showPreviewPopup,
     selectedMasterId,
     previewData,
     isPreviewing,
@@ -732,7 +745,6 @@ function Plugin() {
     setSelectedSections,
     setShowResetPopup,
     setIsCurrentNameValid,
-    setShowPreviewPopup,
     setPreviewData,
     setIsPreviewing,
     documentationId,
@@ -761,7 +773,6 @@ function Plugin() {
         if (e.key === "Escape") {
           setShowResetPopup(false);
           setShowDeletePopup(false);
-          setShowPreviewPopup(false);
           setShowDeleteAccountPopup(false);
         }
       }}

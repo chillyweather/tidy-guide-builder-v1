@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { useContext, useState } from "preact/hooks";
-import BuilderContext from "src/BuilderContext";
+import { useState } from "preact/hooks";
 
 import { useAtom } from "jotai";
 import {
@@ -9,6 +8,7 @@ import {
   isAddErrorAtom,
   userToEditAtom,
   showEditUserFormAtom,
+  tokenAtom,
 } from "src/state/atoms";
 import {
   addCollectionUser,
@@ -19,7 +19,6 @@ import { Button } from "@create-figma-plugin/ui";
 export default function AddUserForm({
   collectionId,
   setTrigger,
-
   type = "Add",
   userEmail = "",
   userId = "",
@@ -30,7 +29,7 @@ export default function AddUserForm({
   userEmail?: string;
   userId?: string;
 }): any {
-  const { token } = useContext(BuilderContext) || {};
+  const [token] = useAtom(tokenAtom);
   if (!token) return null;
   // const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   const [userToEdit]: any = useAtom(userToEditAtom);

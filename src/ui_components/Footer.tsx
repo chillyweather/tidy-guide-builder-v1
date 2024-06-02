@@ -1,12 +1,15 @@
 import { h } from "preact";
-import { useContext, useEffect, useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { useAtom } from "jotai";
 import {
   isPublishAndViewAtom,
   isBuildingAtom,
   isBuildingOnCanvasAtom,
+  isDraftAtom,
+  documentationTitleAtom,
+  showResetPopupAtom,
+  isCurrentNameValidAtom,
 } from "src/state/atoms";
-import BuilderContext from "../BuilderContext";
 import PublishCanvas from "../images/publish-icon-canvas.jpg";
 import PublishViewer from "../images/publish-icon-viewer.jpg";
 import { IconReload, IconChevronDown } from "@tabler/icons-react";
@@ -19,19 +22,14 @@ const Footer = () => {
   const [publishToViewer, setPublishToViewer] = useState(false);
   const [isPublishDropdownOpen, setIsPublishDropdownOpen] = useState(false);
   const [, setIsPublishAndView] = useAtom(isPublishAndViewAtom);
-
-  const {
-    documentationTitle,
-    isCurrentNameValid,
-    isDraft,
-    setIsDraft,
-    setShowResetPopup,
-  } = useContext(BuilderContext) || {};
+  const [isDraft, setIsDraft] = useAtom(isDraftAtom);
+  const [documentationTitle] = useAtom(documentationTitleAtom);
+  const [, setShowResetPopup] = useAtom(showResetPopupAtom);
+  const [isCurrentNameValid] = useAtom(isCurrentNameValidAtom);
 
   const isValid = !!documentationTitle?.length && isCurrentNameValid;
 
   function PublishButtonDropdown() {
-    console.log("PublishButtonDropdown");
     return (
       <div
         className={"feedbackPopupBackground"}
@@ -99,10 +97,6 @@ const Footer = () => {
     );
   }, [saveData]);
 
-  // useEffect(() => {
-  //   console.log("isPublishDropdownOpen", isPublishDropdownOpen);
-  // }, [isPublishDropdownOpen]);
-
   return (
     <div className={"footer"}>
       <div className="leftFooterContent">
@@ -113,7 +107,6 @@ const Footer = () => {
       </div>
       <div className="rightFooterContent">
         <button
-          // disabled
           className={"second"}
           onClick={() => {
             setIsDraft(true);

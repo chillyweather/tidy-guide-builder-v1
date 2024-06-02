@@ -20,14 +20,14 @@ import {
   showNonEmptyCollectionPopupAtom,
   usersAtom,
   currentPageAtom,
+  tokenAtom,
 } from "src/state/atoms";
 
 export type FormType = "Add" | "Edit";
 
 import { deleteCollection } from "./ui_functions/collectionHandlers";
 
-import { StateUpdater, useContext, useEffect, useState } from "preact/hooks";
-import BuilderContext from "src/BuilderContext";
+import { StateUpdater, useEffect, useState } from "preact/hooks";
 import { Button } from "@create-figma-plugin/ui";
 import AddCollectionForm from "./AddCollectionForm";
 
@@ -120,7 +120,7 @@ function generateCollectionCard(
     showNonEmptyCollectionPopupAtom
   );
   const [, setCollectionToEdit] = useAtom(collectionToEditAtom);
-  const { token } = useContext(BuilderContext) || {};
+  const [token] = useAtom(tokenAtom);
   const [currentUser] = useAtom(currentUserIdAtom);
   const [collectionOwnerEmail, setCollectionOwnerEmail] = useState("");
   const [users] = useAtom(usersAtom);

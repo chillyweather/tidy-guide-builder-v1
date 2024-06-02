@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
-import { useContext } from "preact/hooks";
 import { useAtom } from "jotai";
 import {
   dataForUpdateAtom,
   elementToDeleteAtom,
   showDeletePopupAtom,
+  tokenAtom,
 } from "src/state/atoms";
 
-import BuilderContext from "../../BuilderContext";
 import { deleteDocumentation } from "../ui_functions/documentationHandlers";
 import Spinner from "../../images/loader-spinner-white.png";
 import { handleDeletePictures } from "../ui_functions/deleteHandlers";
@@ -18,7 +17,7 @@ function DeletePopup() {
   const [, setShowDeletePopup] = useAtom(showDeletePopupAtom);
   const [elementToDelete] = useAtom(elementToDeleteAtom);
   const [dataForUpdate, setDataForUpdate] = useAtom(dataForUpdateAtom);
-  const { token } = useContext(BuilderContext) || {};
+  const [token] = useAtom(tokenAtom);
   return (
     <div
       className={"feedbackPopupBackground"}

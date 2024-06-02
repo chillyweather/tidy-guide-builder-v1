@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { useContext, useState, useEffect } from "preact/hooks";
-import BuilderContext from "src/BuilderContext";
+import { useState, useEffect } from "preact/hooks";
 
 import { Button } from "@create-figma-plugin/ui";
 import { FormType } from "./manageCollectionsPage";
@@ -13,6 +12,7 @@ import {
   collectionToEditAtom,
   showEditCollectionFormAtom,
   collectionDocsTriggerAtom,
+  tokenAtom,
 } from "src/state/atoms";
 import {
   addNewCollection,
@@ -26,7 +26,7 @@ export default function AddCollectionForm({
   type?: FormType;
   name?: string;
 }): any {
-  const { token } = useContext(BuilderContext) || {};
+  const [token] = useAtom(tokenAtom);
   if (!token) return null;
   const [collectionName, setCollectionName] = useState(name || "");
   const [isNameUsed, setIsNameUsed] = useState(false);

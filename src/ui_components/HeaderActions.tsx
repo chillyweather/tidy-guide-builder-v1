@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { useState, useContext } from "preact/hooks";
-import BuilderContext from "../BuilderContext";
+import { useState } from "preact/hooks";
 import {
   IconChevronDown,
   IconColumns,
@@ -42,6 +41,10 @@ import {
   isToBuildComponentPicAtom,
   selectedElementAtom,
   selectedElementNameAtom,
+  selectedSectionsAtom,
+  isPdSectionOpenAtom,
+  documentationTitleAtom,
+  isScrollAtom,
 } from "src/state/atoms";
 import { deleteFileFromServer } from "./ui_functions/fileManagementFunctions";
 import { useEffect } from "react";
@@ -53,8 +56,8 @@ function AddSectionPopupCard(card: any) {
   const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedElement] = useAtom(selectedElementAtom);
   const [isHovering, setIsHovering] = useState(false);
-  const { setSelectedSections, selectedSections } =
-    useContext(BuilderContext) || {};
+  const [selectedSections, setSelectedSections]: any =
+    useAtom(selectedSectionsAtom);
   const pdTypes = ["anatomy", "spacing", "property", "variants"];
 
   return (
@@ -154,9 +157,7 @@ function AddSectionPopupCard(card: any) {
 }
 
 function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
-  const { isPdSectionOpen, setIsPdSectionOpen } =
-    useContext(BuilderContext) || {};
-
+  const [isPdSectionOpen, setIsPdSectionOpen] = useAtom(isPdSectionOpenAtom);
   return (
     <div class={"addSectionPopup"}>
       <div className="addSectionPupup-inner">
@@ -206,7 +207,8 @@ function HeaderActions() {
   const [isAddSectionPopupOpen, setIsAddSectionPopupOpen] = useState(false);
   const [, setSelectedElement] = useAtom(selectedElementAtom);
 
-  const { documentationTitle, isScroll } = useContext(BuilderContext) || {};
+  const [documentationTitle] = useAtom(documentationTitleAtom);
+  const [isScroll] = useAtom(isScrollAtom);
 
   useEffect(() => {
     if (isToBuildComponentPic && selectedNodeKey && selectedNodeId) {

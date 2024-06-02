@@ -12,6 +12,7 @@ import {
   selectedNodeIdAtom,
   selectedNodeKeyAtom,
   appSettingsAtom,
+  isFromSavedDataAtom,
 } from "../state/atoms";
 import {
   IconGripVertical,
@@ -76,7 +77,7 @@ function removeDraggable(event: any) {
 }
 
 export const ContentCard = (card: any, index: number) => {
-  const isFromSavedData = useContext(BuilderContext)?.isFromSavedData;
+  const [isFromSavedData] = useAtom(isFromSavedDataAtom);
   const [appSettings] = useAtom(appSettingsAtom);
 
   //card title
@@ -135,7 +136,6 @@ export const ContentCard = (card: any, index: number) => {
   //release notes card data
   const [releaseNotesMessage, setReleaseNotesMessage] = useState("");
   const [releaseNotesDate, setReleaseNotesDate] = useState("");
-  // const currentAuthor = useContext(BuilderContext)?.currentUser.name;
 
   //image array for upload (anatomy, spacing, property, variants)
   const [currentImageArray, setCurrentImageArray] = useState<Uint8Array>();

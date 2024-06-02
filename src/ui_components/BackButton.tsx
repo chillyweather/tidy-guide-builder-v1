@@ -1,7 +1,5 @@
 import { h } from "preact";
 import { useAtom } from "jotai";
-// import { useContext } from "preact/hooks";
-// import BuilderContext from "src/BuilderContext";
 import {
   currentPageAtom,
   isDetailsPageOpenAtom,
