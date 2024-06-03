@@ -21,9 +21,6 @@ import AddUserForm from "./AddUserForm";
 import {
   collectionDocsTriggerAtom,
   collectionsAtom,
-  currentPageAtom,
-  errorMessageAtom,
-  isAddErrorAtom,
   selectedCollectionAtom,
   selectedCollectionInSettingsAtom,
   showEditUserFormAtom,
@@ -37,13 +34,11 @@ function manageUsersPage() {
     selectedCollectionInSettingsAtom
   );
   const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
-  const [, setCurrentPage] = useAtom(currentPageAtom);
   function triggerCollectionRefresh() {
     setCollectionDocsTrigger((n: number) => n + 1);
   }
 
   useEffect(() => {
-    setCurrentPage("setings-section");
     triggerCollectionRefresh();
   }, []);
 
@@ -71,8 +66,8 @@ function renderUsers(collectionId: string) {
   //NOTE: problem with atoms
   const [showEditUserForm, setShowEditUserForm] = useAtom(showEditUserFormAtom);
   const [userToEdit, setUserToEdit]: any = useAtom(userToEditAtom);
-  const [isAddUserError, setIsAddUserError] = useAtom(isAddErrorAtom);
-  const [addErrorMessage, setAddErrorMessage] = useAtom(errorMessageAtom);
+  const [isAddUserError, setIsAddUserError] = useState(false);
+  const [addErrorMessage, setAddErrorMessage] = useState("");
   const [trigger, setTrigger] = useState(0);
 
   const [token] = useAtom(tokenAtom);
@@ -112,7 +107,12 @@ function renderUsers(collectionId: string) {
       {showAddUserForm && (
         <div className="add-user-form-and-validation-wrapper">
           <div className={"add-user-form-wrapper"}>
-            <AddUserForm collectionId={collectionId} setTrigger={setTrigger} />
+            <AddUserForm
+              collectionId={collectionId}
+              setTrigger={setTrigger}
+              setAddUserMessage={setAddErrorMessage}
+              setIsAddUserError={setIsAddUserError}
+            />
             <button
               onClick={() => {
                 setShowAddUserForm(false);
@@ -134,6 +134,8 @@ function renderUsers(collectionId: string) {
             type="Edit"
             userEmail={userToEdit?.email}
             userId={userToEdit?.id}
+            setAddUserMessage={setAddErrorMessage}
+            setIsAddUserError={setIsAddUserError}
           />
           <button
             onClick={() => {

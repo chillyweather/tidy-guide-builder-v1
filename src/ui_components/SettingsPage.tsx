@@ -46,6 +46,28 @@ const Settings = () => {
     console.log("showManageCollectionsPage", showManageCollectionsPage);
   }, [showSettingsContent, showManageUsersPage, showManageCollectionsPage]);
 
+  function handleSections(sectionName: string) {
+    switch (sectionName) {
+      case "users":
+        setCurrentPage("settings-section");
+        setShowManageUsersPage(true);
+        setShowSettingsContent(false);
+        break;
+      case "collections":
+        setCurrentPage("settings-section");
+        setShowManageCollectionsPage(true);
+        setShowSettingsContent(false);
+        break;
+      case "canvas":
+        setCurrentPage("canvas-appearance");
+        setShowManageCanvasAppearance(true);
+        setShowSettingsContent(false);
+        break;
+      default:
+        break;
+    }
+  }
+
   const SettingsContent = (
     <div className={"settings-wrapper"}>
       {/* appearance on canavas */}
@@ -55,8 +77,7 @@ const Settings = () => {
           title: "Appearance on canvas",
           description: "Set up how your Figma layout will look",
           onClick: () => {
-            setShowSettingsContent(false);
-            setShowManageCanvasAppearance(true);
+            handleSections("canvas");
           },
         }}
       />
@@ -67,9 +88,7 @@ const Settings = () => {
           title: "Manage users",
           description: "Show all users in your company",
           onClick: () => {
-            setShowSettingsContent(false);
-            setShowManageUsersPage(true);
-            setShowManageCollectionsPage(false);
+            handleSections("users");
           },
         }}
       />
@@ -80,9 +99,7 @@ const Settings = () => {
           title: "Manage collections",
           description: "Show all collections in your company",
           onClick: () => {
-            setShowSettingsContent(false);
-            setShowManageUsersPage(false);
-            setShowManageCollectionsPage(true);
+            handleSections("collections");
           },
         }}
       />

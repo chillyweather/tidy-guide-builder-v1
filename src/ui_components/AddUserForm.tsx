@@ -4,8 +4,6 @@ import { useState } from "preact/hooks";
 
 import { useAtom } from "jotai";
 import {
-  errorMessageAtom,
-  isAddErrorAtom,
   userToEditAtom,
   showEditUserFormAtom,
   tokenAtom,
@@ -22,19 +20,21 @@ export default function AddUserForm({
   type = "Add",
   userEmail = "",
   userId = "",
+  setIsAddUserError,
+  setAddUserMessage,
 }: {
   collectionId: string;
   setTrigger: any;
   type?: "Add" | "Edit";
   userEmail?: string;
   userId?: string;
+  setIsAddUserError: any;
+  setAddUserMessage: any;
 }): any {
   const [token] = useAtom(tokenAtom);
   if (!token) return null;
   // const [selectedCollection]: any = useAtom(selectedCollectionAtom);
   const [userToEdit]: any = useAtom(userToEditAtom);
-  const [, setIsAddUserError] = useAtom(isAddErrorAtom);
-  const [, setAddUserMessage] = useAtom(errorMessageAtom);
   const [email, setEmail] = useState(userEmail || "");
   const [role, setRole] = useState(userToEdit ? userToEdit.rank : "Viewer");
   const [, setUserToEdit] = useAtom(userToEditAtom);

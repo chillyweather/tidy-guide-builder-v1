@@ -14,12 +14,8 @@ import {
   collectionToEditAtom,
   collectionDocsTriggerAtom,
   currentUserIdAtom,
-  errorMessageAtom,
-  isAddErrorAtom,
-  showEditCollectionFormAtom,
   showNonEmptyCollectionPopupAtom,
   usersAtom,
-  currentPageAtom,
   tokenAtom,
 } from "src/state/atoms";
 
@@ -34,10 +30,8 @@ import AddCollectionForm from "./AddCollectionForm";
 function manageCollectionsPage() {
   const [collections] = useAtom(collectionsAtom);
   const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
-  const [, setCurrentPage] = useAtom(currentPageAtom);
 
   useEffect(() => {
-    setCurrentPage("setings-section");
     setCollectionDocsTrigger((n: number) => n + 1);
   }, []);
 
@@ -54,13 +48,17 @@ function manageCollectionsPage() {
 export default manageCollectionsPage;
 
 function generateContent(collections: any) {
-  const [showAddCollectionForm, setShowAddCollectionForm] = useAtom(
-    showEditCollectionFormAtom
-  );
+  const [showAddCollectionForm, setShowAddCollectionForm] = useState(false);
   const [currentFormType, setCurrentFormType] = useState<FormType>("Add");
-  const [isAddUserError, setIsAddUserError] = useAtom(isAddErrorAtom);
-  const [addUserMessage, setAddUserMessage] = useAtom(errorMessageAtom);
+  const [isAddUserError, setIsAddUserError] = useState(false);
+  const [addUserMessage, setAddUserMessage] = useState("");
+
   const [collectionToEdit]: any = useAtom(collectionToEditAtom);
+
+  useEffect(() => {
+    console.log("collectionToEdit", collectionToEdit);
+  }, [collectionToEdit]);
+
   return (
     <div className={"users-flex"}>
       <Button
@@ -87,6 +85,9 @@ function generateContent(collections: any) {
                 ? collectionToEdit && collectionToEdit.name
                 : ""
             }
+            setShowForm={setShowAddCollectionForm}
+            setIsAddUserError={setIsAddUserError}
+            setAddUserMessage={setAddUserMessage}
           />
           <button
             onClick={() => {

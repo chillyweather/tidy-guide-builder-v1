@@ -248,8 +248,8 @@ function Plugin() {
   });
 
   useEffect(() => {
-    console.log("showIndexPage", showIndexPage);
-  }, [showIndexPage]);
+    console.log("collections", collections);
+  }, [collections]);
 
   useEffect(() => {
     if (showLoginPage || showSigninPage || showSettingsPage || showIndexPage) {
@@ -709,12 +709,10 @@ function Plugin() {
 
       {isToastOpen && toastMessage && <Toast onClose={closePopup} />}
 
-      {!token && showLoginPage && <Login />}
       {!token && showSigninPage && <SignIn />}
+      {showLoginPage && (token ? <LoggedIn /> : <Login />)}
 
       <Header />
-
-      {showLoginPage && token && <LoggedIn />}
 
       {(isFirstTime || showIndexPage) && <IndexPage />}
 
@@ -724,21 +722,15 @@ function Plugin() {
 
       {/* content in Edit mode */}
       {selectedMasterId &&
-        !showMainContent &&
         showContentFromServer &&
-        !showIndexPage &&
-        !showLoginPage &&
-        !showSigninPage &&
+        !showMainContent &&
         !isViewModeOpen && <ContentFromServer />}
 
       {/* //MARK: View mode content */}
       {selectedMasterId &&
         showContentFromServer &&
-        isViewModeOpen &&
         !showMainContent &&
-        !showLoginPage &&
-        !showSigninPage &&
-        !showIndexPage && <DetailsPage />}
+        isViewModeOpen && <DetailsPage />}
 
       {showSettingsPage && <Settings />}
 

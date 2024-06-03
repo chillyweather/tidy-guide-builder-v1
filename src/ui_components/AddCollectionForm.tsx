@@ -7,10 +7,7 @@ import { FormType } from "./manageCollectionsPage";
 import { useAtom } from "jotai";
 import {
   collectionsAtom,
-  errorMessageAtom,
-  isAddErrorAtom,
   collectionToEditAtom,
-  showEditCollectionFormAtom,
   collectionDocsTriggerAtom,
   tokenAtom,
 } from "src/state/atoms";
@@ -22,19 +19,22 @@ import {
 export default function AddCollectionForm({
   type = "Add",
   name = "",
+  setShowForm,
+  setIsAddUserError,
+  setAddUserMessage,
 }: {
   type?: FormType;
   name?: string;
+  setShowForm: any;
+  setIsAddUserError: any;
+  setAddUserMessage: any;
 }): any {
   const [token] = useAtom(tokenAtom);
   if (!token) return null;
   const [collectionName, setCollectionName] = useState(name || "");
   const [isNameUsed, setIsNameUsed] = useState(false);
   const [collections]: any = useAtom(collectionsAtom);
-  const [, setIsAddUserError] = useAtom(isAddErrorAtom);
-  const [, setAddUserMessage] = useAtom(errorMessageAtom);
   const [collectionToEdit]: any = useAtom(collectionToEditAtom);
-  const [, setShowForm] = useAtom(showEditCollectionFormAtom);
   const [, setCollectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
 
   function triggerCollectionRefresh() {
@@ -58,6 +58,7 @@ export default function AddCollectionForm({
       console.log(`collection ${collectionName} is added`);
       setShowForm(false);
     }
+    setShowForm(false);
   }
 
   useEffect(() => {

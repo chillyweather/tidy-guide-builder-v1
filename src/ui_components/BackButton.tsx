@@ -1,5 +1,6 @@
 import { h } from "preact";
 import { useAtom } from "jotai";
+import { useEffect } from "preact/hooks";
 import {
   currentPageAtom,
   isDetailsPageOpenAtom,
@@ -18,7 +19,6 @@ import {
   showSettingsContentAtom,
   showManageUsersPageAtom,
   showManageCollectionsPageAtom,
-  showEditCollectionFormAtom,
   showEditUserFormAtom,
   showManageCanvasAppearanceAtom,
 } from "../state/atoms";
@@ -44,11 +44,14 @@ export default function BackButton() {
   const [, setShowManageCollectionsPage] = useAtom(
     showManageCollectionsPageAtom
   );
-  const [, setShowEditCollectionForm] = useAtom(showEditCollectionFormAtom);
   const [, setShowEditUserForm] = useAtom(showEditUserFormAtom);
   const [, setShowManageCanvasAppearance] = useAtom(
     showManageCanvasAppearanceAtom
   );
+
+  useEffect(() => {
+    console.log("currentPage", currentPage);
+  }, [currentPage]);
 
   function backToIndex() {
     setIsContenFromServerOpen(false);
@@ -69,19 +72,15 @@ export default function BackButton() {
     setShowSettingsContent(false);
     setShowSettingsContent(false);
     setShowManageCollectionsPage(false);
-    setShowEditCollectionForm(false);
     setShowEditUserForm(false);
   }
 
-  // function backToSettings() {
-  //   setIsSettingsPageOpen(false);
-  //   setShowEditCollectionForm(false);
-  //   setShowEditUserForm(false);
-  //   setShowManageCollectionsPage(false);
-  //   setShowManageUsersPage(false);
-  //   setShowSettingsContent(false);
-  //   setShowManageCanvasAppearance(false);
-  // }
+  function backToSettings() {
+    setShowManageCanvasAppearance(false);
+    setShowManageCollectionsPage(false);
+    setShowManageUsersPage(false);
+    setShowSettingsContent(true);
+  }
 
   return (
     <button
@@ -96,8 +95,12 @@ export default function BackButton() {
           case "settings":
             backToIndex();
             break;
-          case "setings-section":
+          case "settings-section":
             backToIndex();
+            setCurrentPage("index");
+            break;
+          case "canvas-appearance":
+            backToSettings();
             setCurrentPage("settings");
             break;
           case "logout":

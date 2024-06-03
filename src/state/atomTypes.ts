@@ -3,7 +3,8 @@ export type CurrenPage =
   | "details"
   | "new-documnent"
   | "settings"
-  | "setings-section"
+  | "settings-section"
+  | "canvas-appearance"
   | "login"
   | "signin"
   | "logout";
