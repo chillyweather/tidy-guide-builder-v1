@@ -5,6 +5,13 @@ import {
   currentUserNameAtom,
   showSettingsContentAtom,
   loggedInUserAtom,
+  isFirstTimeAtom,
+  showLoginPageAtom,
+  showSettingsPageAtom,
+  showIndexPageAtom,
+  showMainContentAtom,
+  showContentFromServerAtom,
+  showFeedbackPopupAtom,
 } from "src/state/atoms";
 import {
   IconMessage2Check,
@@ -12,21 +19,14 @@ import {
   IconLogout,
 } from "@tabler/icons-react";
 
-const UserMenu = ({
-  setIsLoginPageOpen,
-  setIsSettingsPageOpen,
-  setIsIndexOpen,
-  setIsContenFromServerOpen,
-  setIsMainContentOpen,
-  setFeedbackPage,
-}: {
-  setIsLoginPageOpen: (value: boolean) => void;
-  setIsSettingsPageOpen: (value: boolean) => void;
-  setIsIndexOpen: (value: boolean) => void;
-  setIsContenFromServerOpen: (value: boolean) => void;
-  setIsMainContentOpen: (value: boolean) => void;
-  setFeedbackPage: (value: boolean) => void;
-}) => {
+const UserMenu = () => {
+  const [, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
+  const [, setIsIndexOpen] = useAtom(showIndexPageAtom);
+  const [, setIsMainContentOpen] = useAtom(showMainContentAtom);
+  const [, setIsContenFromServerOpen] = useAtom(showContentFromServerAtom);
+  const [, setIsSettingsPageOpen] = useAtom(showSettingsPageAtom);
+  const [, setFeedbackPage] = useAtom(showFeedbackPopupAtom);
+  const [, setIsFirstTime] = useAtom(isFirstTimeAtom);
   const [currentUserName] = useAtom(currentUserNameAtom);
   const [, setShowSettingsContent] = useAtom(showSettingsContentAtom);
   const [loggedInUser] = useAtom(loggedInUserAtom);
@@ -71,6 +71,7 @@ const UserMenu = ({
           setIsContenFromServerOpen(false);
           setIsSettingsPageOpen(true);
           setShowSettingsContent(true);
+          setIsFirstTime(false);
         }}
       >
         <IconSettings />
@@ -83,11 +84,12 @@ const UserMenu = ({
         className="user-item"
         onClick={() => {
           closeMenu();
-          setIsIndexOpen(true);
+          setIsIndexOpen(false);
           setIsMainContentOpen(false);
           setIsContenFromServerOpen(false);
           setIsSettingsPageOpen(false);
           setIsLoginPageOpen(true);
+          setIsFirstTime(false);
         }}
       >
         <IconLogout />

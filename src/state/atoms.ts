@@ -28,6 +28,7 @@ export const showManageCanvasAppearanceAtom = atom(false);
 
 export const isFromSavedDataAtom = atom(false);
 
+export const isFirstTimeAtom = atom(true);
 export const isBuildingAtom = atom(false);
 export const isBuildingOnCanvasAtom = atom(false);
 

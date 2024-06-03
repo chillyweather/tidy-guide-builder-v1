@@ -15,24 +15,17 @@ import {
   collectionsAtom,
   currentUserRoleAtom,
   isViewModeOpenAtom,
-  // selectedComponentPicAtom,
-  // selectedNodeIdAtom,
-  // selectedNodeKeyAtom,
   selectedCollectionAtom,
   isToBuildComponentPicAtom,
-  // isDetailsPageOpenAtom,
   currentPageAtom,
   showLoginPageAtom,
   selectedElementAtom,
-  // selectedElementNameAtom,
   showIndexPageAtom,
   showMainContentAtom,
   showContentFromServerAtom,
   showSettingsPageAtom,
   isDocJustOpenedAtom,
-  // isResetAtom,
   dataForUpdateAtom,
-  showFeedbackPopupAtom,
   tokenAtom,
   selectedMasterIdAtom,
   documentationDataAtom,
@@ -51,11 +44,7 @@ import { emit } from "@create-figma-plugin/utilities";
 import CollectionsDropdown from "./CollectionsDropdown";
 
 const Header = () => {
-  const [, setFeedbackPage] = useAtom(showFeedbackPopupAtom);
   const [isLoginPageOpen, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
-  // const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
-  // const [, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
-  // const [, setSelectedComponentPic] = useAtom(selectedComponentPicAtom);
   const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [collections] = useAtom(collectionsAtom);
   const [selectedCollection, setSelectedCollection]: any = useAtom(
@@ -63,23 +52,16 @@ const Header = () => {
   );
   const [userRole] = useAtom(currentUserRoleAtom);
   const [, setIsToBuildComponentPic] = useAtom(isToBuildComponentPicAtom);
-  // const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
-  const [
-    selectedElement,
-    // setSelectedElement
-  ] = useAtom(selectedElementAtom);
-  // const [, setSelectedElementName] = useAtom(selectedElementNameAtom);
+  const [selectedElement] = useAtom(selectedElementAtom);
   const [isIndexOpen, setIsIndexOpen] = useAtom(showIndexPageAtom);
   const [isMainContentOpen, setIsMainContentOpen] =
     useAtom(showMainContentAtom);
   const [isContenFromServerOpen, setIsContenFromServerOpen] = useAtom(
     showContentFromServerAtom
   );
-  const [isSettingsPageOpen, setIsSettingsPageOpen] =
-    useAtom(showSettingsPageAtom);
+  const [isSettingsPageOpen] = useAtom(showSettingsPageAtom);
   const [isDocJustOpened, setIsDocJustOpened] = useAtom(isDocJustOpenedAtom);
-  // const [, setIsReset] = useAtom(isResetAtom);
   const [dataForUpdate]: any = useAtom(dataForUpdateAtom);
   const [, setSelectedMasterId] = useAtom(selectedMasterIdAtom);
   const [token] = useAtom(tokenAtom);
@@ -94,36 +76,12 @@ const Header = () => {
   const [avatarColor, setAvatarColor] = useState("#F584AD");
   const [lastCollectionUpdate, setLastCollectionUpdate] = useState("");
 
-  // function backToIndex(): void {
-  //   setIsDetailsPageOpen(false);
-  //   setIsToBuildComponentPic(false);
-  //   setSelectedElement(null);
-  //   setSelectedElementName("");
-  //   setSelectedNodeKey("");
-  //   setSelectedNodeId("");
-  //   setSelectedComponentPic("");
-  //   setIsIndexOpen(true);
-  //   setIsMainContentOpen(false);
-  //   setIsContenFromServerOpen(false);
-  //   setIsSettingsPageOpen(false);
-  //   setIsDocJustOpened(true);
-  //   setIsReset(true);
-  // }
-
   useEffect(() => {
     if (selectedCollection) {
       const timestamp = convertTimestamp(selectedCollection.updatedAt);
       setLastCollectionUpdate(timestamp);
     }
   }, [selectedCollection]);
-
-  // useEffect(() => {
-  //   if (userRank === "Admin") {
-  //     setUserRankStyle({ color: "maroon" });
-  //   } else if (userRank === "Editor") {
-  //     setUserRankStyle({ color: "royalblue" });
-  //   }
-  // }, [userRank]);
 
   useEffect(() => {
     if (documentationData && documentationData.title && isDocJustOpened) {
@@ -334,14 +292,7 @@ const Header = () => {
               </div>
             </summary>
             {colorAvatar()}
-            <UserMenu
-              setIsLoginPageOpen={setIsLoginPageOpen}
-              setIsSettingsPageOpen={setIsSettingsPageOpen}
-              setIsIndexOpen={setIsIndexOpen}
-              setIsContenFromServerOpen={setIsContenFromServerOpen}
-              setIsMainContentOpen={setIsMainContentOpen}
-              setFeedbackPage={setFeedbackPage}
-            />
+            <UserMenu />
           </details>
         </div>
       </div>

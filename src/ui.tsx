@@ -99,6 +99,7 @@ import {
   selectedCardAtom,
   currentFigmaFileAtom,
   currentFigmaPageAtom,
+  isFirstTimeAtom,
 } from "./state/atoms";
 
 //styles
@@ -113,7 +114,7 @@ function Plugin() {
   );
   const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [, setCurrentCompany] = useAtom(currentCompanyAtom);
-  const [currentUserName, setCurrentUserName] = useAtom(currentUserNameAtom);
+  const [, setCurrentUserName] = useAtom(currentUserNameAtom);
   const [currentUserId, setCurrentUserId] = useAtom(currentUserIdAtom);
   const [collections, setCollections] = useAtom(collectionsAtom);
   const [selectedCollection, setSelectedCollection]: any = useAtom(
@@ -138,7 +139,7 @@ function Plugin() {
   const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useAtom(tokenAtom);
   const [loggedInUser, setLoggedInUser] = useAtom(loggedInUserAtom);
-  const [currentFigmaUser, setFigmaCurrentUser] = useAtom(currentFigmaUserAtom);
+  const [, setFigmaCurrentUser] = useAtom(currentFigmaUserAtom);
   const [, setCurrentDocument] = useAtom(currentFigmaFileAtom);
   const [, setCurrentPage] = useAtom(currentFigmaPageAtom);
 
@@ -172,7 +173,7 @@ function Plugin() {
     isBuildingOnCanvasAtom
   );
   //is plugin first time open
-  const [isFirstTime, setIsFirstTime] = useState(true);
+  const [isFirstTime, setIsFirstTime] = useAtom(isFirstTimeAtom);
 
   //show toast
   const [isToastOpen, setIsToastOpen] = useState(false);
@@ -247,9 +248,8 @@ function Plugin() {
   });
 
   useEffect(() => {
-    console.log("currentUserName", currentUserName);
-    console.log("currentFigmaUser", currentFigmaUser);
-  }, [currentFigmaUser, currentUserName]);
+    console.log("showIndexPage", showIndexPage);
+  }, [showIndexPage]);
 
   useEffect(() => {
     if (showLoginPage || showSigninPage || showSettingsPage || showIndexPage) {
@@ -706,33 +706,19 @@ function Plugin() {
       {showPasswordResetPopup && <PasswordResetPopup />}
       {showCrashLogoutPopup && <CrashLogoutPopup />}
       {showNonEmptyCollectionPopup && <NoDeleteCollectionPopup />}
+
       {isToastOpen && toastMessage && <Toast onClose={closePopup} />}
 
       {!token && showLoginPage && <Login />}
-
       {!token && showSigninPage && <SignIn />}
 
       <Header />
 
       {showLoginPage && token && <LoggedIn />}
 
-      {!showLoginPage &&
-        !showSigninPage &&
-        isFirstTime &&
-        !showMainContent &&
-        !showSettingsPage && <IndexPage />}
+      {(isFirstTime || showIndexPage) && <IndexPage />}
 
-      {!showLoginPage &&
-        !showSigninPage &&
-        !isFirstTime &&
-        showIndexPage &&
-        !showSettingsPage && <IndexPage />}
-
-      {!showLoginPage &&
-        !showSigninPage &&
-        !isCollectionSwitching &&
-        showIndexPage &&
-        !showSettingsPage && <EmptyIndex />}
+      {!isCollectionSwitching && showIndexPage && <EmptyIndex />}
 
       {showMainContent && !isViewModeOpen && <MainContent />}
 
@@ -756,11 +742,7 @@ function Plugin() {
 
       {showSettingsPage && <Settings />}
 
-      {!showLoginPage &&
-        !showSigninPage &&
-        !showIndexPage &&
-        !showSettingsPage &&
-        !isViewModeOpen && <Footer />}
+      {(showContentFromServer || showMainContent) && <Footer />}
     </div>
   );
 }
