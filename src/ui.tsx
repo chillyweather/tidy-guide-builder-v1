@@ -5,7 +5,7 @@ import { render } from "@create-figma-plugin/ui";
 import { emit, on } from "@create-figma-plugin/utilities";
 import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
-import BuilderContext from "./BuilderContext";
+
 import FeedbackPopup from "./ui_components/popups/feedbackPopup";
 import ResetPopup from "./ui_components/popups/resetPopup";
 import DeletePopup from "./ui_components/popups/deletePopup";
@@ -16,16 +16,9 @@ import DeleteAccountPopup from "./ui_components/popups/deleteAccountPopup";
 import CrashLogoutPopup from "./ui_components/popups/crashLogoutPopup";
 import NoDeleteCollectionPopup from "./ui_components/popups/noDeleteCollectionPopup";
 import Toast from "./ui_components/Toast";
-//dependencies
 import { sendRaster } from "./ui_components/ui_functions/sendRaster";
 import fetchAndUpdateData from "./ui_components/ui_functions/fetchAndUpdateData";
-
-//navigation screens
-// import { Screens } from "./state/navigationTypes";
-
-//new components
 import ContentFromServer from "./ui_components/ContentFromServer";
-// import ContentFromServerViewMode from "./ui_components/ContentFromServerViewMode";
 import DetailsPage from "./ui_components/ViewModeElements/DetailsPage";
 import Footer from "./ui_components/Footer";
 import Header from "./ui_components/Header";
@@ -100,7 +93,6 @@ import {
   isDraftAtom,
   showResetPopupAtom,
   isCurrentNameValidAtom,
-  documentationIdAtom,
   isWipAtom,
   documentationDataAtom,
   loggedInUserAtom,
@@ -147,10 +139,9 @@ function Plugin() {
   const [token, setToken] = useAtom(tokenAtom);
   const [loggedInUser, setLoggedInUser] = useAtom(loggedInUserAtom);
   const [currentFigmaUser, setFigmaCurrentUser] = useAtom(currentFigmaUserAtom);
-  const [currentDocument, setCurrentDocument] = useAtom(currentFigmaFileAtom);
-  const [currentPage, setCurrentPage] = useAtom(currentFigmaPageAtom);
+  const [, setCurrentDocument] = useAtom(currentFigmaFileAtom);
+  const [, setCurrentPage] = useAtom(currentFigmaPageAtom);
 
-  //navigation
   const [showLoginPage, setShowLoginPage] = useAtom(showLoginPageAtom);
   const [showSigninPage] = useAtom(showSignupPageAtom);
   const [showIndexPage, setShowIndexPage] = useAtom(showIndexPageAtom);
@@ -175,9 +166,8 @@ function Plugin() {
 
   //data from server
   const [dataForUpdate, setDataForUpdate]: any = useAtom(dataForUpdateAtom);
-  //build documentation
+
   const [isBuilding, setIsBuilding] = useAtom(isBuildingAtom);
-  //if we need to build on canvas
   const [isBuildingOnCanvas, setIsBuildingOnCanvas] = useAtom(
     isBuildingOnCanvasAtom
   );
@@ -194,7 +184,6 @@ function Plugin() {
   const [documentationTitle, setDocumentationTitle] = useAtom(
     documentationTitleAtom
   );
-  const [documentationId, setDocumentationId] = useAtom(documentationIdAtom);
   //work in progress
   const [isWip, setIsWip] = useAtom(isWipAtom);
   //selected element
@@ -202,7 +191,7 @@ function Plugin() {
   const [selectedElementName, setSelectedElementName] = useAtom(
     selectedElementNameAtom
   );
-  const [selectedCard, setSelectedCard] = useAtom(selectedCardAtom);
+  const [, setSelectedCard] = useAtom(selectedCardAtom);
   //selected cards
   const [selectedSections, setSelectedSections] = useAtom(selectedSectionsAtom);
   //element to delete
@@ -211,24 +200,22 @@ function Plugin() {
     documentationDataAtom
   );
   //preview data
-  const [previewData, setPreviewData] = useState<any>({});
-  const [isPreviewing, setIsPreviewing] = useState(false);
   //is scroll
-  const [isScroll, setIsScroll] = useAtom(isScrollAtom);
+  const [, setIsScroll] = useAtom(isScrollAtom);
   //set selected master id
   const [selectedMasterId, setSelectedMasterId] = useAtom(selectedMasterIdAtom);
   //is new element found
   const [, setIsNewElementFound] = useState(false);
   //is content from server
-  const [isFromSavedData, setIsFromSavedData] = useAtom(isFromSavedDataAtom);
+  const [, setIsFromSavedData] = useAtom(isFromSavedDataAtom);
   //found existing documentation
   const [, setFoundDocumentation]: any = useState(null);
   //reset documentation
   const [isReset, setIsReset] = useAtom(isResetAtom);
   //is draft
-  const [isDraft, setIsDraft] = useAtom(isDraftAtom);
+  const [isDraft] = useAtom(isDraftAtom);
   //is pd section open
-  const [isPdSectionOpen, setIsPdSectionOpen] = useAtom(isPdSectionOpenAtom);
+  const [, setIsPdSectionOpen] = useAtom(isPdSectionOpenAtom);
   //user rank
   const [, setUserRank] = useAtom(userRankAtom);
 
@@ -237,9 +224,7 @@ function Plugin() {
     null
   );
 
-  const [isCurrentNameValid, setIsCurrentNameValid] = useAtom(
-    isCurrentNameValidAtom
-  );
+  const [, setIsCurrentNameValid] = useAtom(isCurrentNameValidAtom);
 
   on("AUTH_CHANGE", async (token, email, rank, userName, companyName, id) => {
     if (token) {
@@ -295,7 +280,6 @@ function Plugin() {
     }
   }, [collections, selectedCollection, setSelectedCollection, token]);
 
-  //MARK: Get collection docs
   async function collectionDocsHandler(token: string, collectionId: string) {
     const data = await getCollectionDocs(token, collectionId);
     if (data && data.length) {
@@ -305,7 +289,6 @@ function Plugin() {
       setDataForUpdate([]);
     }
     setIsCollectionSwitching(false);
-    //MARK: Set loading to false
     setIsLoading(false);
   }
 
@@ -380,7 +363,6 @@ function Plugin() {
       dataForUpdate &&
       dataForUpdate.length
     ) {
-      console.log("selectedNodeKey", selectedNodeKey);
       const foundDocId = dataForUpdate.find(
         (doc: any) => doc.componentKey === selectedNodeKey
       )?._id;
@@ -428,7 +410,6 @@ function Plugin() {
     }
   }
 
-  //MARK: Upload component pic
   async function uploadComponentPic(bytes: Uint8Array, loggedInUser: string) {
     const url = await sendRaster(bytes, loggedInUser, "componentPic");
     if (url) {
@@ -459,14 +440,6 @@ function Plugin() {
     const users = await getUsers(token);
     setUsers(users);
   }
-
-  // useEffect(() => {
-  //   if (isPublishAndView) {
-  //     setIsPublishAndView(false);
-  //     setIsViewModeOpen(true);
-  //     setIsFromSavedData(true);
-  //   }
-  // }, [dataForUpdate, isPublishAndView, setIsPublishAndView]);
 
   useEffect(() => {
     if (
@@ -557,9 +530,6 @@ function Plugin() {
 
   useEffect(() => {
     if (selectedNodeKey) {
-      // if (!selectedComponentPic) {
-      //   emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
-      // }
       setDocumentationData((prevDocumentation: any) => {
         return {
           ...prevDocumentation,
@@ -704,54 +674,6 @@ function Plugin() {
     };
   }, [isLoading]);
 
-  const contextStates = {
-    currentDocument,
-    currentPage,
-    currentUser: currentFigmaUser,
-    documentationData,
-    documentationTitle,
-    isBuilding,
-    isDraft,
-    isFromSavedData,
-    isLoading,
-    isPdSectionOpen,
-    isScroll,
-    isWip,
-    loggedInUser,
-    selectedCard,
-    selectedSections,
-    showResetPopup,
-    token,
-    isCurrentNameValid,
-    selectedMasterId,
-    previewData,
-    isPreviewing,
-    setCurrentDocument,
-    setCurrentPage,
-    setCurrentUser: setFigmaCurrentUser,
-    setDocumentationData,
-    setDocumentationTitle,
-    setIsBuilding,
-    setIsDraft,
-    setIsFromSavedData,
-    setIsLoading,
-    setIsPdSectionOpen,
-    setIsWip,
-    setLoggedInUser,
-    setSelectedCard,
-    setSelectedMasterId,
-    setSelectedSections,
-    setShowResetPopup,
-    setIsCurrentNameValid,
-    setPreviewData,
-    setIsPreviewing,
-    documentationId,
-    setDocumentationId,
-    showDeleteAccountPopup,
-    setShowDeleteAccountPopup,
-    setToken,
-  };
-
   useEffect(() => {
     console.log("showNonEmptyCollectionPopup", showNonEmptyCollectionPopup);
   }, [showNonEmptyCollectionPopup]);
@@ -775,73 +697,70 @@ function Plugin() {
         }
       }}
     >
-      <BuilderContext.Provider value={contextStates}>
-        {showFeedbackPopup && <FeedbackPopup />}
-        {isLoading && <LoaderPage />}
-        {showResetPopup && <ResetPopup />}
-        {showDeletePopup && <DeletePopup />}
-        {showDeleteSectionPopup && <DeleteSectionPopup />}
-        {showDeleteAccountPopup && <DeleteAccountPopup />}
-        {showPasswordResetPopup && <PasswordResetPopup />}
-        {showCrashLogoutPopup && <CrashLogoutPopup />}
-        {showNonEmptyCollectionPopup && <NoDeleteCollectionPopup />}
-        {isToastOpen && toastMessage && <Toast onClose={closePopup} />}
-        {/* //!change navigation */}
+      {showFeedbackPopup && <FeedbackPopup />}
+      {isLoading && <LoaderPage />}
+      {showResetPopup && <ResetPopup />}
+      {showDeletePopup && <DeletePopup />}
+      {showDeleteSectionPopup && <DeleteSectionPopup />}
+      {showDeleteAccountPopup && <DeleteAccountPopup />}
+      {showPasswordResetPopup && <PasswordResetPopup />}
+      {showCrashLogoutPopup && <CrashLogoutPopup />}
+      {showNonEmptyCollectionPopup && <NoDeleteCollectionPopup />}
+      {isToastOpen && toastMessage && <Toast onClose={closePopup} />}
 
-        {!token && showLoginPage && <Login />}
+      {!token && showLoginPage && <Login />}
 
-        {!token && showSigninPage && <SignIn />}
+      {!token && showSigninPage && <SignIn />}
 
-        <Header />
+      <Header />
 
-        {showLoginPage && token && <LoggedIn />}
+      {showLoginPage && token && <LoggedIn />}
 
-        {!showLoginPage &&
-          !showSigninPage &&
-          isFirstTime &&
-          !showMainContent &&
-          !showSettingsPage && <IndexPage />}
+      {!showLoginPage &&
+        !showSigninPage &&
+        isFirstTime &&
+        !showMainContent &&
+        !showSettingsPage && <IndexPage />}
 
-        {!showLoginPage &&
-          !showSigninPage &&
-          !isFirstTime &&
-          showIndexPage &&
-          !showSettingsPage && <IndexPage />}
+      {!showLoginPage &&
+        !showSigninPage &&
+        !isFirstTime &&
+        showIndexPage &&
+        !showSettingsPage && <IndexPage />}
 
-        {!showLoginPage &&
-          !showSigninPage &&
-          !isCollectionSwitching &&
-          showIndexPage &&
-          !showSettingsPage && <EmptyIndex />}
+      {!showLoginPage &&
+        !showSigninPage &&
+        !isCollectionSwitching &&
+        showIndexPage &&
+        !showSettingsPage && <EmptyIndex />}
 
-        {showMainContent && !isViewModeOpen && <MainContent />}
+      {showMainContent && !isViewModeOpen && <MainContent />}
 
-        {/* content in Edit mode */}
-        {selectedMasterId &&
-          !showMainContent &&
-          showContentFromServer &&
-          !showIndexPage &&
-          !showLoginPage &&
-          !showSigninPage &&
-          !isViewModeOpen && <ContentFromServer />}
+      {/* content in Edit mode */}
+      {selectedMasterId &&
+        !showMainContent &&
+        showContentFromServer &&
+        !showIndexPage &&
+        !showLoginPage &&
+        !showSigninPage &&
+        !isViewModeOpen && <ContentFromServer />}
 
-        {/* //MARK: View mode content */}
-        {selectedMasterId &&
-          showContentFromServer &&
-          isViewModeOpen &&
-          !showMainContent &&
-          !showLoginPage &&
-          !showSigninPage &&
-          !showIndexPage && <DetailsPage />}
+      {/* //MARK: View mode content */}
+      {selectedMasterId &&
+        showContentFromServer &&
+        isViewModeOpen &&
+        !showMainContent &&
+        !showLoginPage &&
+        !showSigninPage &&
+        !showIndexPage && <DetailsPage />}
 
-        {showSettingsPage && <Settings />}
+      {showSettingsPage && <Settings />}
 
-        {!showLoginPage &&
-          !showSigninPage &&
-          !showIndexPage &&
-          !showSettingsPage &&
-          !isViewModeOpen && <Footer />}
-      </BuilderContext.Provider>
+      {!showLoginPage &&
+        !showSigninPage &&
+        !showIndexPage &&
+        !showSettingsPage &&
+        !isViewModeOpen && <Footer />}
     </div>
   );
 }
