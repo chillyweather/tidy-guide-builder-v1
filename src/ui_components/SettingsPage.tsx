@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { useContext } from "preact/hooks";
 import { useAtom } from "jotai";
 import {
   currentPageAtom,
@@ -8,8 +7,8 @@ import {
   showManageUsersPageAtom,
   showManageCollectionsPageAtom,
   showManageCanvasAppearanceAtom,
+  showDeleteAccountPopupAtom,
 } from "src/state/atoms";
-import BuilderContext from "src/BuilderContext";
 import {
   IconAlertCircleFilled,
   IconArrowRight,
@@ -22,7 +21,7 @@ import manageCanvasAppearance from "./manageCanvasAppearance";
 import { useEffect } from "react";
 
 const Settings = () => {
-  const { setShowDeleteAccountPopup } = useContext(BuilderContext) || {};
+  const [, setShowDeleteAccountPopup] = useAtom(showDeleteAccountPopupAtom);
   const [showSettingsContent, setShowSettingsContent] = useAtom(
     showSettingsContentAtom
   );
@@ -98,7 +97,7 @@ const Settings = () => {
         <button
           id={"delete-button"}
           className={"button primary"}
-          onClick={setShowDeleteAccountPopup}
+          onClick={() => setShowDeleteAccountPopup(true)}
         >
           Delete this account
         </button>

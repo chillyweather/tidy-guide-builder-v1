@@ -1,23 +1,22 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
-import { useContext, useEffect } from "preact/hooks";
-import BuilderContext from "../../BuilderContext";
+
 import { useAtom } from "jotai";
 import {
   showDeleteSectionPopupAtom,
   sectionToDeleteIndexAtom,
+  selectedSectionsAtom,
 } from "src/state/atoms";
 import Spinner from "../../images/loader-spinner-white.png";
 import { deleteSection } from "../ui_functions/cardActions";
 
 function DeleteSectionPopup() {
-  const { setSelectedSections } = useContext(BuilderContext) || {};
+  const [, setSelectedSections] = useAtom(selectedSectionsAtom);
   const [sectionToDeleteIndex] = useAtom(sectionToDeleteIndexAtom);
   const [, setShowDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
 
-  const handleDeleteSection = async (e: MouseEvent) => {
+  const handleDeleteSection = async () => {
     deleteSection(sectionToDeleteIndex, setSelectedSections);
   };
 
@@ -61,8 +60,8 @@ function DeleteSectionPopup() {
           <button
             className={"button primary"}
             id={"delete-button"}
-            onClick={async (e) => {
-              handleDeleteSection(e);
+            onClick={async () => {
+              handleDeleteSection();
               setShowDeleteSectionPopup(false);
             }}
           >

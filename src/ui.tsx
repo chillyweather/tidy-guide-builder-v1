@@ -103,6 +103,10 @@ import {
   documentationIdAtom,
   isWipAtom,
   documentationDataAtom,
+  loggedInUserAtom,
+  selectedCardAtom,
+  currentFigmaFileAtom,
+  currentFigmaPageAtom,
 } from "./state/atoms";
 
 //styles
@@ -137,19 +141,14 @@ function Plugin() {
     isDetailsPageOpenAtom
   );
   const [, setUsers] = useAtom(usersAtom);
-  const [, setAppSettings] = useAtom(appSettingsAtom);
+  const [appSettings, setAppSettings] = useAtom(appSettingsAtom);
 
-  //!TODO: plugin-level states
-  //loading state
   const [isLoading, setIsLoading] = useState(true);
-  //saved token
   const [token, setToken] = useAtom(tokenAtom);
-  //logged in user data
-  const [loggedInUser, setLoggedInUser] = useState("");
-  //current session user data
+  const [loggedInUser, setLoggedInUser] = useAtom(loggedInUserAtom);
   const [currentFigmaUser, setFigmaCurrentUser] = useAtom(currentFigmaUserAtom);
-  const [currentDocument, setCurrentDocument] = useState("");
-  const [currentPage, setCurrentPage] = useState("");
+  const [currentDocument, setCurrentDocument] = useAtom(currentFigmaFileAtom);
+  const [currentPage, setCurrentPage] = useAtom(currentFigmaPageAtom);
 
   //navigation
   const [showLoginPage, setShowLoginPage] = useAtom(showLoginPageAtom);
@@ -203,7 +202,7 @@ function Plugin() {
   const [selectedElementName, setSelectedElementName] = useAtom(
     selectedElementNameAtom
   );
-  const [selectedCard, setSelectedCard] = useState<any>("");
+  const [selectedCard, setSelectedCard] = useAtom(selectedCardAtom);
   //selected cards
   const [selectedSections, setSelectedSections] = useAtom(selectedSectionsAtom);
   //element to delete
@@ -629,8 +628,7 @@ function Plugin() {
 
       if (isDocumented) {
         const response = await updateDocumentation(token, data._id, data);
-        console.log("response", response);
-        if (isBuildingOnCanvas) emit("BUILD", response);
+        if (isBuildingOnCanvas) emit("BUILD", response, appSettings);
         await fetchAndUpdateData(
           token,
           setDataForUpdate,
@@ -640,7 +638,7 @@ function Plugin() {
         console.log("data", data);
         const response = await createDocumentation(token, data);
         setSelectedMasterId(response._id);
-        if (isBuildingOnCanvas) emit("BUILD", response);
+        if (isBuildingOnCanvas) emit("BUILD", response, appSettings);
         await fetchAndUpdateData(
           token,
           setDataForUpdate,

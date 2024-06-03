@@ -1,14 +1,11 @@
 import { h } from "preact";
 import { IconX } from "@tabler/icons-react";
-import { useContext } from "preact/hooks";
-import BuilderContext from "../../BuilderContext";
 import { useAtom } from "jotai";
-import { isResetAtom } from "../../state/atoms";
+import { isResetAtom, showResetPopupAtom } from "../../state/atoms";
 
 function ResetPopup() {
   const [, setIsReset] = useAtom(isResetAtom);
-  const showResetPopup = useContext(BuilderContext)?.showResetPopup;
-  const setShowResetPopup = useContext(BuilderContext)?.setShowResetPopup;
+  const [showResetPopup, setShowResetPopup] = useAtom(showResetPopupAtom);
   if (!showResetPopup) {
     return null;
   }
@@ -37,9 +34,6 @@ function ResetPopup() {
             onClick={() => {
               setShowResetPopup(false);
             }}
-            // onKeyDown={(e) => {
-            //   if (e.key === "Escape") setShowResetPopup(false);
-            // }}
           >
             Cancel
           </button>

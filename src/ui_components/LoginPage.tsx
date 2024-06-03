@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
-import { useState, useContext, useEffect } from "preact/hooks";
-import BuilderContext from "src/BuilderContext";
+import { useState, useEffect } from "preact/hooks";
 import { useAtom } from "jotai";
 import {
-  currentUserNameAtom,
   currentCompanyAtom,
-  tokenAtom,
   currentPageAtom,
-  showLoginPageAtom,
-  showSettingsPageAtom,
+  currentUserNameAtom,
   isLoginFailedAtom,
-  showSignupPageAtom,
+  loggedInUserAtom,
+  showLoginPageAtom,
   showPasswordResetPopupAtom,
+  showSettingsPageAtom,
+  showSignupPageAtom,
+  tokenAtom,
   userRankAtom,
 } from "src/state/atoms";
 
@@ -39,8 +39,7 @@ const Login = () => {
   const [, setCurrentUserName] = useAtom(currentUserNameAtom);
   const [, setToken] = useAtom(tokenAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
-  const { setLoggedInUser } = useContext(BuilderContext) || {};
-
+  const [, setLoggedInUser] = useAtom(loggedInUserAtom);
   useEffect(() => {
     setCurrentPage("login");
   }, []);

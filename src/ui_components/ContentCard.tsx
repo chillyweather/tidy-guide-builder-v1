@@ -1,18 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { emit, on } from "@create-figma-plugin/utilities";
-import { useContext, useState } from "preact/hooks";
-import BuilderContext from "../BuilderContext";
-// import { buildOneSection } from "src/figma_functions/buildOneSection";
+import { useState } from "preact/hooks";
 import { useAtom } from "jotai";
 import {
-  showDeleteSectionPopupAtom,
+  appSettingsAtom,
+  documentationDataAtom,
+  documentationTitleAtom,
+  isFromSavedDataAtom,
+  loggedInUserAtom,
   sectionToDeleteAtom,
   sectionToDeleteIndexAtom,
   selectedNodeIdAtom,
   selectedNodeKeyAtom,
-  appSettingsAtom,
-  isFromSavedDataAtom,
+  showDeleteSectionPopupAtom,
+  isBuildingAtom,
+  selectedCardAtom,
+  selectedSectionsAtom,
+  currentFigmaPageAtom,
+  currentFigmaFileAtom,
 } from "../state/atoms";
 import {
   IconGripVertical,
@@ -79,6 +85,12 @@ function removeDraggable(event: any) {
 export const ContentCard = (card: any, index: number) => {
   const [isFromSavedData] = useAtom(isFromSavedDataAtom);
   const [appSettings] = useAtom(appSettingsAtom);
+  const [loggedInUser] = useAtom(loggedInUserAtom);
+  const [, setDocumentationData] = useAtom(documentationDataAtom);
+  const [documentationTitle] = useAtom(documentationTitleAtom);
+  const [isBuilding, setIsBuilding] = useAtom(isBuildingAtom);
+  const [selectedCard, setSelectedCard] = useAtom(selectedCardAtom);
+  const [, setSelectedSections]: any = useAtom(selectedSectionsAtom);
 
   //card title
   const [cardTitle, setCardTitle] = useState(card.title);
@@ -136,8 +148,6 @@ export const ContentCard = (card: any, index: number) => {
   //release notes card data
   const [releaseNotesMessage, setReleaseNotesMessage] = useState("");
   const [releaseNotesDate, setReleaseNotesDate] = useState("");
-
-  //image array for upload (anatomy, spacing, property, variants)
   const [currentImageArray, setCurrentImageArray] = useState<Uint8Array>();
 
   const [, setShowDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
@@ -145,21 +155,8 @@ export const ContentCard = (card: any, index: number) => {
   const [, setSectionToDeleteIndex] = useAtom(sectionToDeleteIndexAtom);
   const [selectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
-
-  const {
-    loggedInUser,
-    currentPage,
-    currentDocument,
-    selectedCard,
-    setSelectedCard,
-    setSelectedSections,
-    isBuilding,
-    setIsBuilding,
-    setDocumentationData,
-    documentationData,
-    documentationTitle,
-    setPreviewData,
-  } = useContext(BuilderContext) || {};
+  const [currentPage] = useAtom(currentFigmaPageAtom);
+  const [currentDocument] = useAtom(currentFigmaFileAtom);
 
   on("IMAGE_ARRAY_FOR_UPLOAD", async ({ bytes, type }) => {
     if (bytes.length && type === card.datatype) {
@@ -410,10 +407,10 @@ export const ContentCard = (card: any, index: number) => {
     }
   }, [isBuilding]);
 
-  useEffect(() => {
-    if (Object.keys(documentationData).length > 0)
-      setPreviewData(JSON.parse(JSON.stringify(documentationData)));
-  }, [documentationData]);
+  // useEffect(() => {
+  //   if (Object.keys(documentationData).length > 0)
+  //     setPreviewData(JSON.parse(JSON.stringify(documentationData)));
+  // }, [documentationData]);
 
   return cardType === "header" ? (
     <div className={isHidden ? "sectionCard draft" : "sectionCard"}>

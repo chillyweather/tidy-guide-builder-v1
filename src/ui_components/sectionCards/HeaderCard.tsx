@@ -1,15 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
-import { useState, useContext, useEffect } from "preact/hooks";
-import BuilderContext from "../../BuilderContext";
+import { useAtom } from "jotai";
+import { useEffect } from "preact/hooks";
+import {
+  documentationTitleAtom,
+  isWipAtom,
+  documentationDataAtom,
+} from "src/state/atoms";
 import CheckboxElement from "../Checkbox";
 
 const HeaderCard = () => {
-  const setDocumentationData = useContext(BuilderContext)?.setDocumentationData;
-  const documentationTitle = useContext(BuilderContext)?.documentationTitle;
-  const setDocumentationTitle =
-    useContext(BuilderContext)?.setDocumentationTitle;
-  const isWip = useContext(BuilderContext)?.isWip;
-  const setIsWip = useContext(BuilderContext)?.setIsWip;
+  const [, setDocumentationData] = useAtom(documentationDataAtom);
+  const [documentationTitle, setDocumentationTitle] = useAtom(
+    documentationTitleAtom
+  );
+  const [isWip, setIsWip] = useAtom(isWipAtom);
 
   const handleValueChange = (newValue: boolean) => {
     setIsWip(newValue);

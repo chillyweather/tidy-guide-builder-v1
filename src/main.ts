@@ -100,9 +100,9 @@ export default async function () {
     }
   });
 
-  on("BUILD", async (data) => {
+  on("BUILD", async (data, appSettings) => {
     try {
-      await documentationBuilder(data, loadFonts);
+      await documentationBuilder(data, loadFonts, appSettings);
     } catch (error) {
       console.log("error on documentation build in Figma :>> ", error);
     }

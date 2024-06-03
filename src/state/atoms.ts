@@ -8,6 +8,8 @@ export const currentScreenAtom = atom(
   (get) => get(historyAtom)[get(historyAtom).length - 1]
 );
 export const currentPageAtom = atom<CurrenPage>("login");
+export const currentFigmaPageAtom = atom("");
+export const currentFigmaFileAtom = atom("");
 
 //settings
 export const appSettingsAtom = atom({});
@@ -38,6 +40,7 @@ export const isPublishAndViewAtom = atom(false);
 export const selectionDataAtom = atom(null);
 export const isDetailsPageOpenAtom = atom(false);
 export const selectedMasterIdAtom = atom("");
+export const selectedCardAtom = atom("");
 
 export const usersAtom = atom([]);
 export const currentUserNameAtom = atom("");
@@ -48,6 +51,7 @@ export const currentUserRoleAtom = atom("");
 export const currentDocumentationsAtom = atom(null);
 export const documentationDataAtom = atom({ docs: [] });
 export const userRankAtom = atom("");
+export const loggedInUserAtom = atom("");
 
 //login data
 export const tokenAtom = atom("");

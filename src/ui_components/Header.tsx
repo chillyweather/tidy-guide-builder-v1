@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import {
   IconArrowLeft,
@@ -11,49 +10,52 @@ import {
   IconSearch,
 } from "@tabler/icons-react";
 import { useAtom } from "jotai";
+import { useState, useEffect } from "preact/hooks";
 import {
   collectionsAtom,
   currentUserRoleAtom,
   isViewModeOpenAtom,
-  selectedComponentPicAtom,
-  selectedNodeIdAtom,
-  selectedNodeKeyAtom,
+  // selectedComponentPicAtom,
+  // selectedNodeIdAtom,
+  // selectedNodeKeyAtom,
   selectedCollectionAtom,
   isToBuildComponentPicAtom,
-  isDetailsPageOpenAtom,
+  // isDetailsPageOpenAtom,
   currentPageAtom,
   showLoginPageAtom,
   selectedElementAtom,
-  selectedElementNameAtom,
+  // selectedElementNameAtom,
   showIndexPageAtom,
   showMainContentAtom,
   showContentFromServerAtom,
   showSettingsPageAtom,
   isDocJustOpenedAtom,
-  isResetAtom,
+  // isResetAtom,
   dataForUpdateAtom,
   showFeedbackPopupAtom,
-  userRankAtom,
+  tokenAtom,
+  selectedMasterIdAtom,
+  documentationDataAtom,
+  selectedSectionsAtom,
+  isFromSavedDataAtom,
+  loggedInUserAtom,
 } from "src/state/atoms";
 import BackButton from "./BackButton";
 
 import { getCollectionDocs } from "./ui_functions/collectionHandlers";
 
 import { h } from "preact";
-import { useContext, useEffect, useState } from "preact/hooks";
-import BuilderContext from "../BuilderContext";
 import HeaderActions from "./HeaderActions";
 import UserMenu from "./UserMenu";
 import { emit } from "@create-figma-plugin/utilities";
 import CollectionsDropdown from "./CollectionsDropdown";
 
 const Header = () => {
-  // const [userRank] = useAtom(userRankAtom);
   const [, setFeedbackPage] = useAtom(showFeedbackPopupAtom);
   const [isLoginPageOpen, setIsLoginPageOpen] = useAtom(showLoginPageAtom);
-  const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
-  const [, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
-  const [, setSelectedComponentPic] = useAtom(selectedComponentPicAtom);
+  // const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
+  // const [, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
+  // const [, setSelectedComponentPic] = useAtom(selectedComponentPicAtom);
   const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
   const [collections] = useAtom(collectionsAtom);
   const [selectedCollection, setSelectedCollection]: any = useAtom(
@@ -61,10 +63,13 @@ const Header = () => {
   );
   const [userRole] = useAtom(currentUserRoleAtom);
   const [, setIsToBuildComponentPic] = useAtom(isToBuildComponentPicAtom);
-  const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
+  // const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
-  const [selectedElement, setSelectedElement] = useAtom(selectedElementAtom);
-  const [, setSelectedElementName] = useAtom(selectedElementNameAtom);
+  const [
+    selectedElement,
+    // setSelectedElement
+  ] = useAtom(selectedElementAtom);
+  // const [, setSelectedElementName] = useAtom(selectedElementNameAtom);
   const [isIndexOpen, setIsIndexOpen] = useAtom(showIndexPageAtom);
   const [isMainContentOpen, setIsMainContentOpen] =
     useAtom(showMainContentAtom);
@@ -74,18 +79,13 @@ const Header = () => {
   const [isSettingsPageOpen, setIsSettingsPageOpen] =
     useAtom(showSettingsPageAtom);
   const [isDocJustOpened, setIsDocJustOpened] = useAtom(isDocJustOpenedAtom);
-  const [, setIsReset] = useAtom(isResetAtom);
+  // const [, setIsReset] = useAtom(isResetAtom);
   const [dataForUpdate]: any = useAtom(dataForUpdateAtom);
-
-  const [, setUserRankStyle] = useState({});
-
-  const {
-    documentationData,
-    selectedSections,
-    setIsFromSavedData,
-    setSelectedMasterId,
-    token,
-  } = useContext(BuilderContext) || {};
+  const [, setSelectedMasterId] = useAtom(selectedMasterIdAtom);
+  const [token] = useAtom(tokenAtom);
+  const [documentationData]: any = useAtom(documentationDataAtom);
+  const [selectedSections] = useAtom(selectedSectionsAtom);
+  const [, setIsFromSavedData] = useAtom(isFromSavedDataAtom);
 
   const [, setInitialSelectedSections] = useState(null);
   const [, setInitialDocumentationData] = useState(null);
@@ -94,21 +94,21 @@ const Header = () => {
   const [avatarColor, setAvatarColor] = useState("#F584AD");
   const [lastCollectionUpdate, setLastCollectionUpdate] = useState("");
 
-  function backToIndex(): void {
-    setIsDetailsPageOpen(false);
-    setIsToBuildComponentPic(false);
-    setSelectedElement(null);
-    setSelectedElementName("");
-    setSelectedNodeKey("");
-    setSelectedNodeId("");
-    setSelectedComponentPic("");
-    setIsIndexOpen(true);
-    setIsMainContentOpen(false);
-    setIsContenFromServerOpen(false);
-    setIsSettingsPageOpen(false);
-    setIsDocJustOpened(true);
-    setIsReset(true);
-  }
+  // function backToIndex(): void {
+  //   setIsDetailsPageOpen(false);
+  //   setIsToBuildComponentPic(false);
+  //   setSelectedElement(null);
+  //   setSelectedElementName("");
+  //   setSelectedNodeKey("");
+  //   setSelectedNodeId("");
+  //   setSelectedComponentPic("");
+  //   setIsIndexOpen(true);
+  //   setIsMainContentOpen(false);
+  //   setIsContenFromServerOpen(false);
+  //   setIsSettingsPageOpen(false);
+  //   setIsDocJustOpened(true);
+  //   setIsReset(true);
+  // }
 
   useEffect(() => {
     if (selectedCollection) {
@@ -143,7 +143,7 @@ const Header = () => {
       if (!isIndexOpen) {
         setIsMainContentOpen(false);
         setIsContenFromServerOpen(true);
-        const data = await getCollectionDocs(token, selectedCollection?._id);
+        await getCollectionDocs(token, selectedCollection?._id);
         const currentDocumentation = dataForUpdate.find(
           (item: any) => item.title === documentationData.title
         );
@@ -167,7 +167,7 @@ const Header = () => {
       </button>
     );
   }
-  const loggedInUser = useContext(BuilderContext)?.loggedInUser || "";
+  const [loggedInUser] = useAtom(loggedInUserAtom);
   function colorAvatar() {
     const colorList = [
       "#F584AD",

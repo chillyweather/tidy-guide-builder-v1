@@ -1,13 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { h } from "preact";
-import { useContext, useEffect } from "preact/hooks";
-import BuilderContext from "../BuilderContext";
 import { useAtom } from "jotai";
 import {
-  currentCompanyAtom,
   currentUserNameAtom,
   showSettingsContentAtom,
+  loggedInUserAtom,
 } from "src/state/atoms";
 import {
   IconMessage2Check,
@@ -30,10 +27,9 @@ const UserMenu = ({
   setIsMainContentOpen: (value: boolean) => void;
   setFeedbackPage: (value: boolean) => void;
 }) => {
-  const [currentCompany] = useAtom(currentCompanyAtom);
   const [currentUserName] = useAtom(currentUserNameAtom);
   const [, setShowSettingsContent] = useAtom(showSettingsContentAtom);
-  const loggedInUser = useContext(BuilderContext)?.loggedInUser || "";
+  const [loggedInUser] = useAtom(loggedInUserAtom);
   function closeMenu() {
     // @ts-ignore
     document.getElementById("userMenu").open = false;
@@ -41,9 +37,6 @@ const UserMenu = ({
 
   return (
     <div className={"user-menu"}>
-      {/* <div className={"user-company"}>{currentCompany}</div>
-      <hr /> */}
-
       <div className="user-item">
         <div className="user-tag" first-letter={loggedInUser.slice(0, 1)}>
           {loggedInUser.slice(0, 1)}

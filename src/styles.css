@@ -2142,7 +2142,7 @@ details[open] summary {
   width: fit-content;
 }
 
-/* .tag::after {
+.tag::after {
   content: 'Forgot role';
 }
 
@@ -2150,9 +2150,9 @@ details[open] summary {
   position: absolute;
   top: 0;
   right: 0;
-} */
+}
 
-/* .tag.viewer {
+.tag.viewer {
   background-color: #EEEEEE;
 }
 
@@ -2175,7 +2175,7 @@ details[open] summary {
 
 .tag.admin::after {
   content: 'Admin';
-} */
+}
 
 .user-item {
   display: flex;

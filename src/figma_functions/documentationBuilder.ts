@@ -13,7 +13,8 @@ const documentationCornerRadius = 12;
 
 export default async function documentationBuilder(
   data: any,
-  loadFonts: () => Promise<void>
+  loadFonts: () => Promise<void>,
+  appSettings: any
 ) {
   await loadFonts();
 
@@ -54,7 +55,7 @@ export default async function documentationBuilder(
 
     addSectionToDocFrame(sectionFrame, element);
 
-    buildSectionContent(element, sectionFrame, currentNode);
+    buildSectionContent(element, sectionFrame, currentNode, appSettings);
 
     documentationFrame.layoutSizingHorizontal = "HUG";
   }

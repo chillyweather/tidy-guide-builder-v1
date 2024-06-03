@@ -16,7 +16,8 @@ import { buildVarSection } from "src/figma_doc_sections/buildVarSection";
 async function buildSection(
   element: any,
   sectionFrame: any,
-  currentNode: any = null
+  currentNode: any = null,
+  appSettings: any
 ) {
   const content = element.content;
   switch (element.datatype) {
@@ -25,7 +26,8 @@ async function buildSection(
         currentNode,
         sectionFrame,
         element.content.anatomyIndexPosition,
-        element.content.anatomyIndexSpacing
+        element.content.anatomyIndexSpacing,
+        appSettings
       );
       break;
 

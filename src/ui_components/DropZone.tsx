@@ -1,19 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { VerticalSpace } from "@create-figma-plugin/ui";
 import { h } from "preact";
-import { useContext, useState } from "preact/hooks";
-import BuilderContext from "../BuilderContext";
+import { useAtom } from "jotai";
+import { loggedInUserAtom } from "src/state/atoms";
 import { uploadFileToServer } from "src/ui_components/ui_functions/fileManagementFunctions";
 import { useEffect } from "react";
 import imageLoader from "../images/loader-spinner.png";
 import { IconCloudUpload } from "@tabler/icons-react";
 
 export function DropZone(
-  setRemoteImageLink: Function,
-  setIsImageLoading: Function,
+  setRemoteImageLink: any,
+  setIsImageLoading: (state: boolean) => void,
   isImageLoading: boolean,
   remoteImageLink: string
 ) {
-  const loggedInUser = useContext(BuilderContext)?.loggedInUser;
+  const [loggedInUser] = useAtom(loggedInUserAtom);
 
   async function handleDrop(event: DragEvent) {
     event.preventDefault();

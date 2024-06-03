@@ -13,12 +13,7 @@ export const openSection = (
   }
 };
 
-export const deleteSection = (
-  index: number,
-  setSelectedSections: (
-    sections: any[] | ((prevSections: any[]) => any[])
-  ) => void
-) => {
+export const deleteSection = (index: number, setSelectedSections: any) => {
   setSelectedSections((prevSections: any[]) => {
     const newSections = Array.from(prevSections);
     newSections.splice(index, 1);

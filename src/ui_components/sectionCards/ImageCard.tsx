@@ -1,7 +1,8 @@
-import { h, JSX, FunctionComponent } from "preact";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { h, FunctionComponent } from "preact";
 import { textBoxElement } from "../textBoxElement";
 import { DropZone } from "../DropZone";
-import { useEffect, useState } from "preact/hooks";
+import { useState } from "preact/hooks";
 import { IconX } from "@tabler/icons-react";
 import { deleteFileFromServer } from "../ui_functions/fileManagementFunctions";
 

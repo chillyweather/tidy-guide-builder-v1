@@ -2,17 +2,17 @@
 import { h } from "preact";
 import { emit } from "@create-figma-plugin/utilities";
 import { TidyLogo } from "../images/TidyLogo";
-import { useContext, useEffect } from "preact/hooks";
-import BuilderContext from "src/BuilderContext";
+import { useEffect } from "preact/hooks";
 import { useAtom } from "jotai";
 import {
-  currentUserIdAtom,
   currentCompanyAtom,
+  currentDocumentationsAtom,
+  currentPageAtom,
+  currentUserIdAtom,
   currentUserNameAtom,
   currentUserRoleAtom,
-  currentDocumentationsAtom,
+  loggedInUserAtom,
   selectedCollectionAtom,
-  currentPageAtom,
   tokenAtom,
 } from "src/state/atoms";
 
@@ -25,7 +25,7 @@ const LoggedIn = () => {
   const [, setCurrentDocumentations] = useAtom(currentDocumentationsAtom);
   const [, setSelectedCollection] = useAtom(selectedCollectionAtom);
   const [, setCurrentPage] = useAtom(currentPageAtom);
-  const { loggedInUser, setLoggedInUser } = useContext(BuilderContext) || {};
+  const [loggedInUser, setLoggedInUser] = useAtom(loggedInUserAtom);
 
   function resetStates() {
     setCurrentUserId("");
@@ -35,7 +35,6 @@ const LoggedIn = () => {
     setCurrentDocumentations(null);
     setSelectedCollection(null);
     setToken("");
-    //context
     setLoggedInUser("");
   }
 
