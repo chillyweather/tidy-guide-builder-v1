@@ -28,7 +28,10 @@ declare const styles: {
   readonly "addSectionTitle": string;
   readonly "admin": string;
   readonly "anatomy": string;
+  readonly "anatomy-buttons-internal-wrapper": string;
   readonly "anatomy-buttons-wrapper": string;
+  readonly "anatomy-input-wrapper": string;
+  readonly "anatomy-settings-button": string;
   readonly "anatomy-tags-settings": string;
   readonly "anatomy-tags-settings-with-preview": string;
   readonly "anchorLink": string;
@@ -55,6 +58,7 @@ declare const styles: {
   readonly "chevIcon": string;
   readonly "closePopupButton": string;
   readonly "collection-card": string;
+  readonly "color-picker-input": string;
   readonly "columnTextArea": string;
   readonly "columnTitle": string;
   readonly "componentBTN": string;

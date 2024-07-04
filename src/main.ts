@@ -118,7 +118,6 @@ export default async function () {
       anatomyIndexSpacing,
       appSettings,
     }) => {
-      console.log("appSettings in main", appSettings);
       buildOneSection(
         loadFonts,
         selectedNodeId,

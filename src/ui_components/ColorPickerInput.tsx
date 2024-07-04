@@ -18,18 +18,18 @@ const ColorPickerInput = ({
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+      <input
+        type="color"
+        value={color}
+        onInput={handleColorChange}
+        className={"color-picker-input"}
+      />
       <input
         type="text"
         value={color}
         onInput={handleInputChange}
         style={{ marginRight: "6px", height: "32px" }}
-      />
-      <input
-        type="color"
-        value={color}
-        onInput={handleColorChange}
-        style={{ height: "32px" }}
       />
     </div>
   );

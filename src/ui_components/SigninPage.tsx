@@ -13,16 +13,18 @@ import {
 } from "@tabler/icons-react";
 import { createNewAccount } from "./ui_functions/authentication";
 import {
-  tokenAtom,
   currentPageAtom,
-  showLoginPageAtom,
-  showSettingsPageAtom,
   isLoginFailedAtom,
+  showLoginPageAtom,
+  showIndexPageAtom,
+  showSettingsPageAtom,
   showSignupPageAtom,
+  tokenAtom,
 } from "src/state/atoms";
 
 const SignIn = () => {
   const [, setIsSigninPageOpen] = useAtom(showSignupPageAtom);
+  const [, setIsIndexPageOpen] = useAtom(showIndexPageAtom);
   const [isLoginFailed, setIsLoginFailed] = useAtom(isLoginFailedAtom);
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
@@ -47,6 +49,7 @@ const SignIn = () => {
 
   useEffect(() => {
     setCurrentPage("signin");
+    setIsIndexPageOpen(false);
   }, []);
 
   function validateEmail(email: string) {
@@ -130,6 +133,7 @@ const SignIn = () => {
         setToken(token);
         setIsSigninPageOpen(false);
         setIsSettingPageOpen(false);
+        setIsIndexPageOpen(true);
       }
     } catch (error) {
       setIsLoginFailed(true);

@@ -104,7 +104,12 @@ function buildOneSpacingGroup(
   const elementPadding = element.clone();
   const elementHSpacing = element.clone();
 
-  const sizes = buildSizeMarkers(elementSize, sizeMarker, spacingMarker);
+  const sizes = buildSizeMarkers(
+    elementSize,
+    sizeMarker,
+    spacingMarker,
+    element
+  );
   const paddings = buildPaddingMarkers(
     elementPadding,
     sizeMarker,
@@ -231,7 +236,6 @@ function buildSpacingsGroups(
   let spacingsGroup: any = elementHSpacing;
 
   if (sizes) {
-    // changeSizeMarkerDirection(element, sizes);
     sizeGroup = figma.group([elementSize, ...sizes], page);
   }
   if (paddings) {
@@ -274,9 +278,6 @@ async function placeLabels(
   setTitlePosition(sizeTitle, sizeAl);
   setTitlePosition(paddingsTitle, paddingsAl);
   setTitlePosition(spacingsTitle, spacingsAl);
-  // sizeAl.appendChild(sizeTitle);
-  // paddingsAl.appendChild(paddingsTitle);
-  // spacingsAl.appendChild(spacingsTitle);
   spacingsAl.appendChild(spacingsGroup);
   return { sizeAl, paddingsAl, spacingsAl };
 }
@@ -313,7 +314,8 @@ async function buildLabels(labelComponent: ComponentNode, page: PageNode) {
 export function buildSizeMarkers(
   elementSize: InstanceNode,
   sizeMarker: ComponentSetNode,
-  spacingMarker: ComponentSetNode
+  spacingMarker: ComponentSetNode,
+  element: InstanceNode
 ) {
   const sizeMarkers = buildSpacingMarks(
     elementSize,
@@ -333,7 +335,7 @@ export function buildSizeMarkers(
       setSizingMarkerValue(marker, position);
       if (position === "bottom") {
         try {
-          setMinSizeMarkerValue(elementSize, marker);
+          setMinSizeMarkerValue(element, marker);
         } catch (error) {
           console.log("error :>> ", error);
         }
@@ -394,25 +396,11 @@ function modifyMarkers(element: InstanceNode, marker: InstanceNode) {
   const position = `${marker.componentProperties.position.value}`;
 
   setSizingMarkerValue(marker, position);
-  //   const barMarker = marker.findOne(
-  //     (node) => node.name === ".DS-spacing-marker-bar"
-  //   );
-  //   const spacingMeter = marker.findOne(
-  //     (node) => node.name === ".DS-spacing-marker-value"
-  //   );
-  //   if (position === "left" || position === "right") {
-  //     // resizeHorizontalMarker(barMarker, spacingMeter, element, marker);
-  //     // changeHorizontalMarkerDirection(element, marker);--
-  //   } else {
-  //     // resizeVerticalMarker(barMarker, spacingMeter, element, marker);
-  //     changeVerticalMarkerDirection(element, marker);
-  //   }
 }
 
 function setMinSizeMarkerValue(element: InstanceNode, marker: InstanceNode) {
   const minSizeValue = element.minWidth;
   if (minSizeValue) {
-    const minSize = minSizeValue + element.paddingLeft + element.paddingRight;
-    setTextProps(marker, "text", `Minimal size - ${minSize}px`);
+    setTextProps(marker, "text", `Minimal size - ${minSizeValue}px`);
   }
 }

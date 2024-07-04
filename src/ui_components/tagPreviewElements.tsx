@@ -54,11 +54,11 @@ export const TagLabel = ({ label, color, shape }: TagLabelProps) => {
 
 interface TagLineProps {
   color: string;
-  type?: "solid" | "dashed";
+  type?: "Solid" | "Dash";
 }
 
-export const TagLine = ({ color, type = "solid" }: TagLineProps) => {
-  if (type === "dashed") {
+export const TagLine = ({ color, type = "Solid" }: TagLineProps) => {
+  if (type === "Dash") {
     const dashes = Array.from({ length: 16 }, (_, i) => (
       <div
         key={i}

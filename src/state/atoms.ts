@@ -17,7 +17,7 @@ export const appSettingsAtom = atom({});
 //page states
 export const showLoginPageAtom = atom(false);
 export const showSignupPageAtom = atom(false);
-export const showIndexPageAtom = atom(false);
+export const showIndexPageAtom = atom(true);
 export const showMainContentAtom = atom(false);
 export const showContentFromServerAtom = atom(false);
 export const showSettingsPageAtom = atom(false);
@@ -51,6 +51,7 @@ export const currentUserIdAtom = atom("");
 export const currentUserRoleAtom = atom("");
 export const currentDocumentationsAtom = atom(null);
 export const documentationDataAtom = atom({ docs: [] });
+// export const documentationDataAtom = atom({ docs: [] });
 export const userRankAtom = atom("");
 export const loggedInUserAtom = atom("");
 

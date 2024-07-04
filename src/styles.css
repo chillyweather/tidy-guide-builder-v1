@@ -1899,16 +1899,42 @@ body:has(.delete-flex) #userMenu {
 
 .tags-settings-element {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
-  background-color: #e7e9f0;
   padding: 8px;
   border-radius: 8px;
 }
 
+.color-picker-input {
+  -webkit-appearance: none;
+  height: 22px;
+  width: 26px;
+  margin-left: 4px;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.color-picker-input::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 50%;
+}
+
+.color-picker-input::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
 .manage-canvas h2 {
   color: var(--tidy-32);
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.36px;
 }
 
 body:has(.manage-users) .header .mode-button {
@@ -4085,14 +4111,44 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 }
 
 .selected-index-layout {
-  background-color: #F0F8FF
+  border-radius: 6px;
+  border: 1px solid #5C6CFF;
+  background: #E5E8FF;
+}
+
+.anatomy-input-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .anatomy-buttons-wrapper {
   display: flex;
   flex-direction: row;
+  gap: 24px;
+  align-items: center;
+}
+
+.anatomy-buttons-internal-wrapper {
+  display: flex;
+  flex-direction: row;
   gap: 8px;
   align-items: center;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid #D2DCF9;
+  background: #FFF;
+}
+
+.anatomy-settings-button {
+  background-color: #F0F8FF;
+  border: 1px solid #D7D9DF;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: #5C5C5C;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  cursor: pointer;
 }
 
 .spacing-input-wrapper {

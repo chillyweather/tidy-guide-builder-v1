@@ -200,11 +200,11 @@ export default async function buildTags(
     ) {
       buildIndexElementForText(indexElement, indexWithLabel, element);
     } else if (!indexWithLabel.removed) {
-      setTextContent(indexWithLabel, "Text", `❖ ${elementName}`);
+      setTextContent(indexWithLabel, "Text", `💠 ${elementName}`);
     }
 
     if (elementName === "Icon" && indexWithLabel) {
-      setTextContent(indexWithLabel, "Text", `✤ Icon - ${elementWidth}px`);
+      setTextContent(indexWithLabel, "Text", `⭐ Icon - ${elementWidth}px`);
     }
     tag.name = `.tag`;
     if (!indexWithLabel.removed)

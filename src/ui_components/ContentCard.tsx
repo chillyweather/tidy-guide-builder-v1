@@ -34,7 +34,7 @@ import {
   IconTrash,
   IconEye,
   IconEyeOff,
-  IconArrowBarDown,
+  IconArtboard,
 } from "@tabler/icons-react";
 import { Toggle, Text } from "@create-figma-plugin/ui";
 import AnatomyIcon from "./../images/anatomy.svg";
@@ -458,7 +458,7 @@ export const ContentCard = (card: any, index: number) => {
             className={"cardAuxButton hoverButton"}
             tool-tip={"Build this section on canvas"}
           >
-            <IconArrowBarDown />
+            <IconArtboard />
           </button>
           {!isSelected && (
             <button
@@ -493,7 +493,7 @@ export const ContentCard = (card: any, index: number) => {
                 onClick={handleBuildClick}
                 tool-tip={"Build this section on canvas"}
               >
-                <IconArrowBarDown />
+                <IconArtboard />
               </button>
               <button
                 className={"cardAuxButton eyeIcon"}

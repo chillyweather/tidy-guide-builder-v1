@@ -400,3 +400,87 @@ export function rgbToHex({
 
   return ("#" + toHex(r) + toHex(g) + toHex(b)).toUpperCase();
 }
+
+/**
+ * Creates a collapsible component from a given frame node.
+ * @param frame - The frame node to create the collapsible component from.
+ * @param hiddenInClosed - An array of strings representing the names of items to be hidden when the component is closed. Default is an empty array.
+ * @param hiddenInOpen - An array of strings representing the names of items to be hidden when the component is open. Default is an empty array.
+ */
+export function makeCollapsibleComponent(
+  frame: FrameNode,
+  hiddenInClosed: string[] = [],
+  hiddenInOpen: string[] = []
+) {
+  const open = frame.clone();
+  open.name = "on";
+  const closed = frame.clone();
+  closed.name = "off";
+
+  const foundHiddenInClosed = locateHiddenItems(
+    closed,
+    hiddenInClosed,
+    hiddenInOpen
+  );
+
+  foundHiddenInClosed.foundHiddenInClosed.forEach((element) => {
+    element.visible = false;
+  });
+  const foundHiddenInOpen = locateHiddenItems(
+    open,
+    hiddenInClosed,
+    hiddenInOpen
+  );
+
+  foundHiddenInOpen.foundHiddenInOpen.forEach((element) => {
+    element.visible = false;
+  });
+
+  const openComponent = figma.createComponentFromNode(open);
+  const closedComponent = figma.createComponentFromNode(closed);
+
+  const variants = [openComponent, closedComponent];
+  variants.forEach((variant) => {
+    figma.currentPage.appendChild(variant);
+  });
+
+  const variantComponentSet = figma.combineAsVariants(
+    variants,
+    figma.currentPage
+  );
+
+  variantComponentSet.editComponentProperty("Property 1", {
+    name: "Show details",
+  });
+  return variantComponentSet;
+}
+
+function locateHiddenItems(
+  frame: FrameNode,
+  hiddenInClosed: string[],
+  hiddenInOpen: string[]
+) {
+  const foundHiddenInClosed = frame.findAll((element: any) =>
+    element.name.endsWith("~")
+  );
+  if (hiddenInClosed.length) {
+    hiddenInClosed.forEach((element) => {
+      const found = frame.findOne((node) => node.name === element);
+      if (found) {
+        foundHiddenInClosed.push(found);
+      }
+    });
+  }
+  const foundHiddenInOpen = frame.findAll((element: any) =>
+    element.name.endsWith("^")
+  );
+  if (hiddenInOpen.length) {
+    hiddenInOpen.forEach((element) => {
+      const found = frame.findOne((node) => node.name === element);
+      if (found) {
+        foundHiddenInOpen.push(found);
+      }
+    });
+  }
+  return { foundHiddenInClosed, foundHiddenInOpen };
+}

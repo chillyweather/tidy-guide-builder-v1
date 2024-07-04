@@ -29,6 +29,12 @@ const Footer = () => {
 
   const isValid = !!documentationTitle?.length && isCurrentNameValid;
 
+  // useEffect(() => {
+  //   console.log("+++++++++++++++");
+  //   console.log("isCurrentNameValid", isCurrentNameValid);
+  //   console.log("+++++++++++++++");
+  // }, [isValid, documentationTitle, isCurrentNameValid]);
+
   function PublishButtonDropdown() {
     return (
       <div

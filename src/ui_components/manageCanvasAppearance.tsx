@@ -6,12 +6,13 @@ import { useEffect, useState } from "preact/hooks";
 import ColorPickerInput from "./ColorPickerInput";
 import { TagLabel, TagLine } from "./tagPreviewElements";
 import {
-  IconCircleNumber1,
-  IconSquareNumber1,
-  IconSquareRoundedNumber1,
-  IconSquareRotated,
+  IconCircleFilled,
+  IconSquareFilled,
+  IconSquareRoundedFilled,
+  IconSquareRotatedFilled,
 } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
+import RadioButton from "./RadioButton";
 
 export default function manageCanvasAppearance() {
   const [appSettings, setAppSettings]: any = useAtom(appSettingsAtom);
@@ -20,9 +21,7 @@ export default function manageCanvasAppearance() {
   const [labelType, setLabelType] = useState<
     "round" | "square" | "square-rounded" | "square-rounded-rotated"
   >(appSettings.labelType || "round");
-  const [lineType, setLineType] = useState<"solid" | "dashed">(
-    appSettings.lineType || "solid"
-  );
+  const [lineType, setLineType] = useState(appSettings.lineType || "Solid");
   const [tagColor, setTagColor] = useState(appSettings.tagColor || "#F1592A");
 
   useEffect(() => {
@@ -40,49 +39,98 @@ export default function manageCanvasAppearance() {
     }
   }, [appSettings]);
 
+  const icons = {
+    round: (
+      <IconCircleFilled
+        style={{
+          color: labelType === "round" ? "#5C6CFF" : "#9597A2",
+          height: "13px",
+          width: "13px",
+        }}
+      />
+    ),
+    square: (
+      <IconSquareFilled
+        style={{
+          color: labelType === "square" ? "#5C6CFF" : "#9597A2",
+          height: "13px",
+          width: "13px",
+        }}
+      />
+    ),
+    "square-rounded": (
+      <IconSquareRoundedFilled
+        style={{
+          color: labelType === "square-rounded" ? "#5C6CFF" : "#9597A2",
+          height: "13px",
+          width: "13px",
+        }}
+      />
+    ),
+    "square-rounded-rotated": (
+      <IconSquareRotatedFilled
+        style={{
+          color: labelType === "square-rounded-rotated" ? "#5C6CFF" : "#9597A2",
+          height: "13px",
+          width: "13px",
+        }}
+      />
+    ),
+  };
+
   return (
     <div className="manage-canvas">
-      <h2>
-        <strong>Layout elements</strong>
-      </h2>
-      <br />
-      <h2>Anatomy Tags</h2>
+      <h2>Appearance</h2>
       <div className="anatomy-tags-settings-with-preview">
         <div className="anatomy-tags-settings">
           <div className="tags-settings-element">
-            <p>Tag Color</p>
+            <p style={{ margin: 0 }}>Color:</p>
             <ColorPickerInput color={tagColor} setColor={setTagColor} />
           </div>
           <div className="tags-settings-element">
-            <p>Label Shape</p>
-            <div className="appearance-button-wrapper">
+            <p style={{ margin: 0 }}>Shape:</p>
+            <div
+              className="appearance-button-wrapper"
+              style={{
+                border: "1px solid #D2DCF9",
+                borderRadius: "6px",
+                height: "36px",
+                padding: "4px",
+              }}
+            >
               <Button
-                label={<IconCircleNumber1 size={24} />}
+                label={icons.round}
                 type="round"
+                labelType={labelType}
                 setType={setLabelType}
               />
               <Button
-                label={<IconSquareNumber1 size={24} />}
+                label={icons.square}
                 type="square"
+                labelType={labelType}
                 setType={setLabelType}
               />
               <Button
-                label={<IconSquareRoundedNumber1 size={24} />}
+                label={icons["square-rounded"]}
                 type="square-rounded"
+                labelType={labelType}
                 setType={setLabelType}
               />
               <Button
-                label={<IconSquareRotated size={24} />}
+                label={icons["square-rounded-rotated"]}
                 type="square-rounded-rotated"
+                labelType={labelType}
                 setType={setLabelType}
               />
             </div>
           </div>
           <div className="tags-settings-element">
-            <p>Line Type</p>
+            <p style={{ margin: 0 }}>Stroke style:</p>
             <div className="appearance-button-wrapper">
-              <Button label="⏐" type="solid" setType={setLineType} />
-              <Button label="┊" type="dashed" setType={setLineType} />
+              <RadioButton
+                selectedOption={lineType}
+                setSelectedOption={setLineType}
+              />
             </div>
           </div>
         </div>
@@ -100,18 +148,35 @@ export default function manageCanvasAppearance() {
 const Button = ({
   label,
   type,
+  labelType,
   setType,
 }: {
   label: JSX.Element | string;
   type: string;
+  labelType: string;
   setType: (type: any) => void;
 }) => {
   function handleClick(type: string) {
     setType(type);
   }
 
+  const selectedStyle = {
+    border: "1px solid #5C6CFF",
+    height: "26px",
+    width: "26px",
+    backgroundColor: "#E5E8FF",
+  };
+  const idleStyle = {
+    height: "26px",
+    width: "26px",
+  };
+
   return (
-    <button className="appearance-button" onClick={() => handleClick(type)}>
+    <button
+      className="appearance-button"
+      onClick={() => handleClick(type)}
+      style={type === labelType ? selectedStyle : idleStyle}
+    >
       {label}
     </button>
   );

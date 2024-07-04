@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { buildAutoLayoutFrame, setTextContent } from "../utilityFunctions";
+import { makeCollapsibleComponent } from "../utilityFunctions";
 
 export function buildIndexElementForText(
   parent: FrameNode,
@@ -39,10 +41,17 @@ export function buildIndexElementForText(
   const data = buildAutoLayoutFrame("index-data", "VERTICAL", 0, 0, 12);
   data.appendChild(textStyleFrame);
   data.appendChild(textDataFrame);
+  textDataFrame.name = "text-data~";
   data.appendChild(textColorFrame);
   data.paddingLeft = 50;
 
-  parent.appendChild(data);
+  const collapsibleComponent = makeCollapsibleComponent(data);
+  //@ts-ignore
+  const collapsibleInstance = collapsibleComponent.children[0].createInstance();
+  collapsibleComponent.remove();
+  data.remove();
+
+  parent.appendChild(collapsibleInstance);
 }
 
 function buildTextColorSection(element: any, frame: FrameNode): FrameNode {
@@ -69,7 +78,7 @@ function buildTextColorSection(element: any, frame: FrameNode): FrameNode {
   hex.characters = element.elementFill;
 
   const colorWithHex = buildAutoLayoutFrame(
-    "color-with-hex",
+    "color-with-hex~",
     "HORIZONTAL",
     0,
     0,
@@ -89,7 +98,7 @@ function buildTextColorSection(element: any, frame: FrameNode): FrameNode {
       4
     );
     const colorStyle = figma.createText();
-    colorStyle.characters = `✿ ${element.elementVariable}`;
+    colorStyle.characters = `🎨 ${element.elementVariable}`;
     colorStyleFrame.appendChild(colorStyle);
     colorStyleFrame.cornerRadius = 4;
     colorStyleFrame.fills = [
@@ -113,7 +122,7 @@ function buildTextColorSection(element: any, frame: FrameNode): FrameNode {
 }
 
 function buildTextStyleData(element: any, frame: FrameNode): FrameNode {
-  const styleData = `¶ ${element.elementStyleName}`;
+  const styleData = `🔤 ${element.elementStyleName}`;
   const text = figma.createText();
   text.characters = styleData;
   frame.appendChild(text);
@@ -138,14 +147,14 @@ function buildTextStyleData(element: any, frame: FrameNode): FrameNode {
 }
 
 function buildTextData(element: any, frame: FrameNode): FrameNode {
-  const textData = `Font family: ${element.elementFontName.family}
-Font size: ${element.elementFontSize}px
-Font style: ${element.elementFontName.style}
-Font weight: ${element.elementFontWeight}
-Line height: ${element.elementLineHeight}
-Letter spacing: ${element.elementLetterSpacing}
-Text decoration: ${element.elementTextDecoration}
-Text case: ${element.elementTextCase}`;
+  const textData = `font-family: ${element.elementFontName.family};
+font-size: ${element.elementFontSize}px;
+font-style: ${element.elementFontName.style};
+font-weight: ${element.elementFontWeight};
+line-height: ${element.elementLineHeight};
+letter-spacing: ${element.elementLetterSpacing};
+text-decoration: ${element.elementTextDecoration};
+text-case: ${element.elementTextCase};`;
 
   const text = figma.createText();
   text.fontName = { family: "IBM Plex Mono", style: "Medium" };

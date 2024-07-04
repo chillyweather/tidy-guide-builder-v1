@@ -248,8 +248,8 @@ function Plugin() {
   });
 
   useEffect(() => {
-    console.log("collections", collections);
-  }, [collections]);
+    console.log("showIndexPage", showIndexPage);
+  }, [showIndexPage]);
 
   useEffect(() => {
     if (showLoginPage || showSigninPage || showSettingsPage || showIndexPage) {
@@ -571,7 +571,13 @@ function Plugin() {
   }
 
   useEffect(() => {
-    if (documentationTitle && dataForUpdate.length) {
+    // console.log("dataForUpdate", dataForUpdate);
+    // console.log("documentationData", documentationData);
+    if (
+      documentationTitle
+      // &&
+      // (dataForUpdate.length || documentationData.docs.length)
+    ) {
       const foundDoc = dataForUpdate.find(
         (doc: any) =>
           doc.title.toLowerCase() === documentationTitle.toLowerCase()
@@ -714,7 +720,8 @@ function Plugin() {
 
       <Header />
 
-      {(isFirstTime || showIndexPage) && <IndexPage />}
+      {showIndexPage && !showLoginPage && !showSigninPage && <IndexPage />}
+      {/* {(isFirstTime || showIndexPage) && <IndexPage />} */}
 
       {!isCollectionSwitching && showIndexPage && <EmptyIndex />}
 

@@ -9,6 +9,7 @@ import {
   currentUserNameAtom,
   isLoginFailedAtom,
   loggedInUserAtom,
+  showIndexPageAtom,
   showLoginPageAtom,
   showPasswordResetPopupAtom,
   showSettingsPageAtom,
@@ -26,6 +27,7 @@ import { validateEmail } from "./ui_functions/validateEmail";
 const Login = () => {
   const [, setUserRank] = useAtom(userRankAtom);
   const [, setShowPasswordResetPopup] = useAtom(showPasswordResetPopupAtom);
+  const [, setIsIndexPageOpen] = useAtom(showIndexPageAtom);
   const [, setIsSigninPageOpen] = useAtom(showSignupPageAtom);
   const [isLoginFailed, setIsLoginFailed] = useAtom(isLoginFailedAtom);
   const [, setIsSettingPageOpen] = useAtom(showSettingsPageAtom);
@@ -42,6 +44,7 @@ const Login = () => {
   const [, setLoggedInUser] = useAtom(loggedInUserAtom);
   useEffect(() => {
     setCurrentPage("login");
+    setIsIndexPageOpen(false);
   }, []);
 
   const handleEmailChange = (e: any) => {
@@ -81,6 +84,7 @@ const Login = () => {
         setCurrentUserName(response.name);
         setIsLoginPageOpen(false);
         setIsSettingPageOpen(false);
+        setIsIndexPageOpen(true);
       }
     } catch (error) {
       console.log("Login failed:", error);
