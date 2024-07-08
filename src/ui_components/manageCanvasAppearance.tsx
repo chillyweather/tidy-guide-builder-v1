@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { h } from "preact";
 import { useAtom } from "jotai";
-import { appSettingsAtom } from "../state/atoms";
+import {
+  appSettingsAtom,
+  // settingsUnitsAtom,
+  settingsRemRootAtom,
+} from "../state/atoms";
 import { useEffect, useState } from "preact/hooks";
 import ColorPickerInput from "./ColorPickerInput";
 import { TagLabel, TagLine } from "./tagPreviewElements";
@@ -13,6 +17,7 @@ import {
 } from "@tabler/icons-react";
 import { emit } from "@create-figma-plugin/utilities";
 import RadioButton from "./RadioButton";
+import { NumericInput } from "tidy-ds";
 
 export default function manageCanvasAppearance() {
   const [appSettings, setAppSettings]: any = useAtom(appSettingsAtom);
@@ -21,16 +26,26 @@ export default function manageCanvasAppearance() {
   const [labelType, setLabelType] = useState<
     "round" | "square" | "square-rounded" | "square-rounded-rotated"
   >(appSettings.labelType || "round");
-  const [lineType, setLineType] = useState(appSettings.lineType || "Solid");
   const [tagColor, setTagColor] = useState(appSettings.tagColor || "#F1592A");
+  const [lineType, setLineType] = useState(appSettings.lineType || "Solid");
+  const [units, setUnits] = useState(appSettings.units || "px");
+  const [rootValue, setRootValue] = useAtom(settingsRemRootAtom);
 
   useEffect(() => {
     setAppSettings({
       labelType,
       lineType,
       tagColor,
+      units,
+      rootValue,
     });
-  }, [labelType, lineType, tagColor]);
+  }, [labelType, lineType, tagColor, units]);
+
+  useEffect(() => {
+    if (appSettings.rootValue) {
+      setRootValue(appSettings.rootValue);
+    }
+  }, []);
 
   useEffect(() => {
     if (Object.keys(appSettings).length) {
@@ -130,9 +145,21 @@ export default function manageCanvasAppearance() {
               <RadioButton
                 selectedOption={lineType}
                 setSelectedOption={setLineType}
+                options={["Solid", "Dash"]}
               />
             </div>
           </div>
+          <div className="tags-settings-element">
+            <p style={{ margin: 0 }}>Units:</p>
+            <div className="appearance-button-wrapper">
+              <RadioButton
+                selectedOption={units}
+                setSelectedOption={setUnits}
+                options={["px", "rem"]}
+              />
+            </div>
+          </div>
+          <NumericInput value={rootValue} onChange={setRootValue} />
         </div>
         <div className="tag-preview-frame">
           <div className="tag-preview">

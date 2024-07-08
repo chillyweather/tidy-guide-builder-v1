@@ -18,6 +18,7 @@ import {
   usersAtom,
   tokenAtom,
 } from "src/state/atoms";
+import { Dispatch } from "preact/hooks";
 
 export type FormType = "Add" | "Edit";
 
@@ -114,8 +115,8 @@ function generateContent(collections: any) {
 
 function generateCollectionCard(
   collection: any,
-  setShowAddCollectionForm: StateUpdater<boolean>,
-  setCurrentFormType: StateUpdater<FormType>
+  setShowAddCollectionForm: Dispatch<StateUpdater<boolean>>,
+  setCurrentFormType: Dispatch<StateUpdater<FormType>>
 ) {
   const [, setShowNonEmptyCollectionPopup] = useAtom(
     showNonEmptyCollectionPopupAtom

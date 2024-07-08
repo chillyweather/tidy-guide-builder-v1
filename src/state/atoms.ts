@@ -13,6 +13,9 @@ export const currentFigmaFileAtom = atom("");
 
 //settings
 export const appSettingsAtom = atom({});
+export const settingsUnitsAtom = atom("px");
+export const settingsRemRootAtom = atom(16);
+// export const settingsStrokeStyleAtom = atom("solid");
 
 //page states
 export const showLoginPageAtom = atom(false);
