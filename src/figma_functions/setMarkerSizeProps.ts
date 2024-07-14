@@ -12,7 +12,7 @@ export function setMarkerSizeProps(
 ) {
   if (units === "rem") {
     const remSize = Math.round((+markerSize / rootSize) * 1000) / 1000;
-    setTextProps(marker, "text", `${remSize}rem`);
+    setTextProps(marker, "text", `${remSize}`);
   }
   if (units === "percent") {
     if (direction === "VERTICAL") {

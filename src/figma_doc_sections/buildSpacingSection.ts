@@ -25,7 +25,6 @@ export async function buildSpacingSection(
     node,
     booleanProps,
     labelComponent,
-    node.name,
     elementSizes,
     variantProps,
     sizeMarker,

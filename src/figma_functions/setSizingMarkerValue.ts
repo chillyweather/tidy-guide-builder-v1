@@ -11,7 +11,7 @@ export function setSizingMarkerValue(
   if (!markerText) return;
   //! find position property
   const nodeHeight = isRem
-    ? (node.height / settings.rootValue).toFixed(2) + "rem"
+    ? (node.height / settings.rootValue).toFixed(2)
     : Math.round(node.height);
   if (position === "left" || position === "right") {
     setTextProps(node, "text", `${nodeHeight}`);
@@ -23,7 +23,7 @@ export function setSizingMarkerValue(
   } else {
     if (markerText.type === "TEXT") {
       markerText.characters = isRem
-        ? `${(Math.round(node.width) / settings.rootValue).toFixed(2)}rem`
+        ? `${(Math.round(node.width) / settings.rootValue).toFixed(2)}`
         : `${Math.round(node.width)}`;
     }
   }

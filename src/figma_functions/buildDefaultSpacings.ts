@@ -13,7 +13,6 @@ export async function buildAtomSpacings(
   element: InstanceNode,
   booleanProperties: any,
   labelComponent: ComponentNode,
-  elementType: string,
   buttonSizes: string[],
   variantProperties: any,
   sizeMarker: ComponentSetNode,
@@ -105,7 +104,8 @@ function buildOneSpacingGroup(
     elementSize,
     sizeMarker,
     spacingMarker,
-    element
+    element,
+    settings
   );
   const paddings = buildPaddingMarkers(
     elementPadding,
@@ -320,7 +320,8 @@ export function buildSizeMarkers(
   elementSize: InstanceNode,
   sizeMarker: ComponentSetNode,
   spacingMarker: ComponentSetNode,
-  element: InstanceNode
+  element: InstanceNode,
+  settings?: any
 ) {
   const sizeMarkers = buildSpacingMarks(
     elementSize,
@@ -337,7 +338,7 @@ export function buildSizeMarkers(
   sizeMarkers.forEach((marker) => {
     if (marker) {
       const position = `${marker.componentProperties.position.value}`;
-      setSizingMarkerValue(marker, position);
+      setSizingMarkerValue(marker, position, settings);
       if (position === "bottom") {
         try {
           setMinSizeMarkerValue(element, marker);
@@ -368,14 +369,13 @@ function buildPaddingMarkers(
     spacingMarker
   );
   paddingMarkers?.forEach((marker) => {
-    if (marker) modifyMarkers(elementPadding, marker);
+    if (marker) modifyMarkers(marker);
   });
   return paddingMarkers;
 }
 
 function buildSpacingMarkers(
   elementHSpacing: InstanceNode,
-  // elementType: string,
   sizeMarker: ComponentSetNode,
   spacingMarker: ComponentSetNode
 ) {
@@ -392,12 +392,12 @@ function buildSpacingMarkers(
     spacingMarker
   );
   spacingMarkers?.forEach((marker) => {
-    if (marker) modifyMarkers(elementHSpacing, marker);
+    if (marker) modifyMarkers(marker);
   });
   return spacingMarkers;
 }
 
-function modifyMarkers(element: InstanceNode, marker: InstanceNode) {
+function modifyMarkers(marker: InstanceNode) {
   const position = `${marker.componentProperties.position.value}`;
 
   setSizingMarkerValue(marker, position);
