@@ -3,7 +3,7 @@ import { h } from "preact";
 import { useAtom } from "jotai";
 import {
   appSettingsAtom,
-  // settingsUnitsAtom,
+  settingsUnitsAtom,
   settingsRemRootAtom,
 } from "../state/atoms";
 import { useEffect, useState } from "preact/hooks";
@@ -28,7 +28,7 @@ export default function manageCanvasAppearance() {
   >(appSettings.labelType || "round");
   const [tagColor, setTagColor] = useState(appSettings.tagColor || "#F1592A");
   const [lineType, setLineType] = useState(appSettings.lineType || "Solid");
-  const [units, setUnits] = useState(appSettings.units || "px");
+  const [units, setUnits] = useAtom(settingsUnitsAtom);
   const [rootValue, setRootValue] = useAtom(settingsRemRootAtom);
 
   useEffect(() => {
@@ -39,17 +39,19 @@ export default function manageCanvasAppearance() {
       units,
       rootValue,
     });
-  }, [labelType, lineType, tagColor, units]);
+  }, [labelType, lineType, tagColor, units, rootValue]);
 
   useEffect(() => {
     if (appSettings.rootValue) {
       setRootValue(appSettings.rootValue);
     }
+    if (appSettings.units) {
+      setUnits(appSettings.units);
+    }
   }, []);
 
   useEffect(() => {
     if (Object.keys(appSettings).length) {
-      console.log("appSettings", appSettings);
       emit("UPDATE_APP_SETTINGS", appSettings);
     }
   }, [appSettings]);

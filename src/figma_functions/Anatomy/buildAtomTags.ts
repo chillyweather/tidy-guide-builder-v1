@@ -16,7 +16,8 @@ export async function buildAtomTags(
   labelComponent: ComponentNode,
   tagComponentSet: ComponentSetNode | undefined,
   indexPosition = "left",
-  indexSpacing = "32"
+  indexSpacing = "32",
+  pluginSettings?: any
 ) {
   const tagGroups: FrameNode[] = [];
 
@@ -36,7 +37,8 @@ export async function buildAtomTags(
         indexPosition,
         indexSpacing,
         labelComponent,
-        size
+        size,
+        pluginSettings
       );
 
       tagGroups.push(tagGroup);
@@ -47,7 +49,10 @@ export async function buildAtomTags(
       booleanProperties,
       tagComponentSet,
       indexPosition,
-      indexSpacing
+      indexSpacing,
+      labelComponent,
+      "",
+      pluginSettings
     );
     tagGroups.push(tagGroup);
   }
@@ -61,7 +66,8 @@ async function buildOneTag(
   indexPosition = "left",
   indexSpacing = "32",
   labelComponent?: ComponentNode,
-  size?: string
+  size?: string,
+  pluginSettings?: any
 ) {
   const TGGray600 = await setColorStyle(
     ".TG-admin/anatomy-secondary",
@@ -74,7 +80,8 @@ async function buildOneTag(
     booleanProperties,
     tagComponentSet,
     indexPosition,
-    indexSpacing
+    indexSpacing,
+    pluginSettings
   );
 
   resultFrame.appendChild(group);
@@ -107,7 +114,8 @@ async function buildElementTags(
   booleanProperties: any,
   tagComponentSet: ComponentSetNode | undefined,
   indexPosition = "left",
-  indexSpacing = "32"
+  indexSpacing = "32",
+  pluginSettings?: any
 ) {
   const currentAtom = element.clone();
   turnAllBooleansOn(currentAtom, booleanProperties);
@@ -116,7 +124,9 @@ async function buildElementTags(
     tagComponentSet,
     currentAtom,
     true,
-    true
+    true,
+    element.maxWidth,
+    pluginSettings
   );
 
   if (!tagBuildResults) return currentAtom;

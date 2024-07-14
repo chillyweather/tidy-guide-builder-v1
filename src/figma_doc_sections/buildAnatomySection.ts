@@ -28,7 +28,8 @@ export async function buildAnatomySection(
     labelComponent,
     tagComponent,
     indexPosition,
-    indexSpacing
+    indexSpacing,
+    pluginSettings
   );
 
   tags.forEach((tag) => {

@@ -61,7 +61,7 @@ async function buildSectionContent(
   } else if (type === "spacing") {
     const title = buildTitle("Spacing");
     frame.appendChild(title);
-    await buildSpacingSection(node, frame);
+    await buildSpacingSection(node, frame, pluginSettings);
     adjustSpacingFrame(frame);
   } else if (type === "property") {
     const title = buildTitle("Property");

@@ -1,14 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { setTextProps } from "./utilityFunctions";
 
 export function setSizingMarkerValue(
   node: InstanceNode,
-  position = `${node.componentProperties.position.value}`
+  position = `${node.componentProperties.position.value}`,
+  settings: any = {}
 ) {
+  const isRem = settings?.units === "rem" || false;
   const markerText = node.findOne((node) => node.type === "TEXT");
   if (!markerText) return;
   //! find position property
+  const nodeHeight = isRem
+    ? (node.height / settings.rootValue).toFixed(2) + "rem"
+    : Math.round(node.height);
   if (position === "left" || position === "right") {
-    setTextProps(node, "text", `${Math.round(node.height)}`);
+    setTextProps(node, "text", `${nodeHeight}`);
     if (markerText) {
       const diff = 16 - markerText.width;
       const newWidth = node.width - diff;
@@ -16,7 +22,9 @@ export function setSizingMarkerValue(
     }
   } else {
     if (markerText.type === "TEXT") {
-      markerText.characters = `${Math.round(node.width)}`;
+      markerText.characters = isRem
+        ? `${(Math.round(node.width) / settings.rootValue).toFixed(2)}rem`
+        : `${Math.round(node.width)}`;
     }
   }
 }

@@ -16,10 +16,15 @@ import { buildIndexElementForText } from "./buildIndexElementForText";
 export default async function buildTags(
   tagComponent: ComponentSetNode | undefined,
   frame: any,
-  instances: any,
-  textElements: any,
-  elementMaxWidth?: number
+  instances: boolean,
+  textElements: boolean,
+  elementMaxWidth?: number | null,
+  pluginSettings?: any
 ) {
+  const isRem = pluginSettings?.units === "rem" || false;
+  const rootValue = pluginSettings?.rootValue || 16;
+  const unit = isRem ? "rem" : "px";
+
   if (!tagComponent) return;
 
   const links = tagComponent.findAll((node) => node.name === "link");
@@ -198,13 +203,30 @@ export default async function buildTags(
       elementFontSize &&
       !indexWithLabel.removed
     ) {
-      buildIndexElementForText(indexElement, indexWithLabel, element);
+      buildIndexElementForText(
+        indexElement,
+        indexWithLabel,
+        element,
+        isRem,
+        unit,
+        rootValue
+      );
     } else if (!indexWithLabel.removed) {
       setTextContent(indexWithLabel, "Text", `💠 ${elementName}`);
     }
 
     if (elementName === "Icon" && indexWithLabel) {
-      setTextContent(indexWithLabel, "Text", `⭐ Icon - ${elementWidth}px`);
+      isRem
+        ? setTextContent(
+            indexWithLabel,
+            "Text",
+            `⭐ Icon - ${(elementWidth / rootValue).toFixed(3)}${unit}`
+          )
+        : setTextContent(
+            indexWithLabel,
+            "Text",
+            `⭐ Icon - ${elementWidth}${unit}`
+          );
     }
     tag.name = `.tag`;
     if (!indexWithLabel.removed)
@@ -212,15 +234,31 @@ export default async function buildTags(
     tagElements.push(tag);
   });
 
-  if (minSizeProperty) addMinWidthIndex(minSizeProperty, tagComponent, indexes);
+  if (minSizeProperty)
+    addMinWidthIndex(
+      minSizeProperty,
+      tagComponent,
+      indexes,
+      isRem,
+      rootValue,
+      unit
+    );
 
   if (elementMaxWidth && elementMaxWidth > 0) {
-    addMaxWidth(frame, tagComponent, indexes, elementMaxWidth);
+    addMaxWidth(
+      frame,
+      tagComponent,
+      indexes,
+      elementMaxWidth,
+      isRem,
+      rootValue,
+      unit
+    );
   }
-  addBorderRadius(frame, tagComponent, indexes);
+  addBorderRadius(frame, tagComponent, indexes, isRem, rootValue, unit);
   addEffectsInfo(frame, tagComponent, indexes);
   //! error here
-  addStrokeInfo(frame, tagComponent, indexes);
+  addStrokeInfo(frame, tagComponent, indexes, isRem, rootValue, unit);
 
   //! find size of all tags (and frame) together
   const tagBounds = computeMaximumBounds(tagElements);
@@ -245,7 +283,10 @@ export default async function buildTags(
 function addMinWidthIndex(
   minSize: number,
   tagComponent: ComponentSetNode,
-  indexes: FrameNode
+  indexes: FrameNode,
+  isRem: boolean = false,
+  rootValue: number = 16,
+  unit: string = "px"
 ) {
   const indexWithLabelComponent = tagComponent.findOne(
     (node) => node.name === "type=size" && node.type === "COMPONENT"
@@ -258,7 +299,17 @@ function addMinWidthIndex(
 
   setVariantProps(indexWithLabel, "type", "size");
   if (minSize) {
-    setTextContent(indexWithLabel, "Text", `Minimal width - ${minSize}px`);
+    isRem
+      ? setTextContent(
+          indexWithLabel,
+          "Text",
+          `Minimal width - ${(minSize / rootValue).toFixed(3)}${unit}`
+        )
+      : setTextContent(
+          indexWithLabel,
+          "Text",
+          `Minimal width - ${minSize}${unit}`
+        );
   } else {
     setTextContent(indexWithLabel, "Text", `Minimal width - Not determined`);
   }
@@ -294,7 +345,10 @@ function addEffectsInfo(
 function addBorderRadius(
   frame: any,
   tagComponent: ComponentSetNode,
-  indexes: FrameNode
+  indexes: FrameNode,
+  isRem: boolean = false,
+  rootValue: number = 16,
+  unit: string = "px"
 ) {
   if (frame.cornerRadius !== 0) {
     const tag = tagComponent.findOne(
@@ -306,7 +360,11 @@ function addBorderRadius(
       indexInfo.name = ".corner-radius";
       const cornerRadius = frame.cornerRadius;
       if (indexInfo.children[1].type === "TEXT") {
-        indexInfo.children[1].characters = `Border radius - ${cornerRadius}px`;
+        isRem
+          ? (indexInfo.children[1].characters = `Corner radius - ${(
+              cornerRadius / rootValue
+            ).toFixed(3)}${unit}`)
+          : (indexInfo.children[1].characters = `Border radius - ${cornerRadius}${unit}`);
         indexes.appendChild(indexInfo);
       }
       return;
@@ -316,14 +374,27 @@ function addBorderRadius(
       const rbRadiusIndex = tag.createInstance();
       const lbRadiusIndex = tag.createInstance();
 
+      const leftTopRadius = isRem
+        ? frame.topLeftRadius.toFixed(2)
+        : frame.topLeftRadius;
+      const rightTopRadius = isRem
+        ? frame.topRightRadius.toFixed(2)
+        : frame.topRightRadius;
+      const rightBottomRadius = isRem
+        ? frame.bottomRightRadius.toFixed(2)
+        : frame.bottomRightRadius;
+      const leftBottomRadius = isRem
+        ? frame.bottomLeftRadius.toFixed(2)
+        : frame.bottomLeftRadius;
+
       if (ltRadiusIndex.children[1].type === "TEXT")
-        ltRadiusIndex.children[1].characters = `Top left corner radius - ${frame.topLeftRadius}px`;
+        ltRadiusIndex.children[1].characters = `Top left corner radius - ${leftTopRadius}${unit}`;
       if (rtRadiusIndex.children[1].type === "TEXT")
-        rtRadiusIndex.children[1].characters = `Top right corner radius - ${frame.topRightRadius}px`;
+        rtRadiusIndex.children[1].characters = `Top right corner radius - ${rightTopRadius}${unit}`;
       if (rbRadiusIndex.children[1].type === "TEXT")
-        rbRadiusIndex.children[1].characters = `Bottom right corner radius - ${frame.bottomRightRadius}px`;
+        rbRadiusIndex.children[1].characters = `Bottom right corner radius - ${rightBottomRadius}${unit}`;
       if (lbRadiusIndex.children[1].type === "TEXT")
-        lbRadiusIndex.children[1].characters = `Bottom left corner radius - ${frame.bottomLeftRadius}px`;
+        lbRadiusIndex.children[1].characters = `Bottom left corner radius - ${leftBottomRadius}${unit}`;
 
       const cornerIndexes = [
         ltRadiusIndex,
@@ -344,7 +415,10 @@ function addMaxWidth(
   frame: any,
   tagComponent: ComponentSetNode,
   indexes: FrameNode,
-  maxWidth: number
+  maxWidth: number,
+  isRem: boolean = false,
+  rootValue: number = 16,
+  unit: string = "px"
 ) {
   if (maxWidth && maxWidth > 0) {
     const foundTagComponent = tagComponent.findOne(
@@ -353,7 +427,14 @@ function addMaxWidth(
     if (!foundTagComponent || foundTagComponent.type !== "COMPONENT") return;
     const tag = foundTagComponent.createInstance();
 
-    setTextContent(tag, "Text", `Maximal width - ${maxWidth}px`);
+    isRem
+      ? setTextContent(
+          tag,
+          "Text",
+          `Maximal width - ${(maxWidth / rootValue).toFixed(3)}${unit}`
+        )
+      : setTextContent(tag, "Text", `Maximal width - ${maxWidth}${unit}`);
+
     indexes.appendChild(tag);
   }
 }
@@ -361,7 +442,10 @@ function addMaxWidth(
 function addStrokeInfo(
   frame: any,
   tagComp: ComponentSetNode,
-  indexes: FrameNode
+  indexes: FrameNode,
+  isRem: boolean = false,
+  rootValue: number = 16,
+  unit: string = "px"
 ) {
   if (frame.strokes && frame.strokes.length > 0) {
     const strokeAlign = frame.strokeAlign;
@@ -383,7 +467,16 @@ function addStrokeInfo(
             return;
           const tag = foundTagComponent.createInstance();
           strokeWeight = result[res];
-          setStrokeProps(tag, strokeWeight, strokeAlign, indexes, res);
+          setStrokeProps(
+            tag,
+            strokeWeight,
+            strokeAlign,
+            indexes,
+            res,
+            isRem,
+            rootValue,
+            unit
+          );
         }
       }
     } else {
@@ -393,7 +486,16 @@ function addStrokeInfo(
       if (!foundTagComponent || foundTagComponent.type !== "COMPONENT") return;
       const tag = foundTagComponent.createInstance();
       strokeWeight = frame.strokeWeight;
-      setStrokeProps(tag, strokeWeight, strokeAlign, indexes, "Stroke");
+      setStrokeProps(
+        tag,
+        strokeWeight,
+        strokeAlign,
+        indexes,
+        "Stroke",
+        isRem,
+        rootValue,
+        unit
+      );
     }
   }
 }
@@ -403,13 +505,24 @@ function setStrokeProps(
   strokeWeight: string,
   strokeAlign: any,
   indexes: FrameNode,
-  strokeKind: string
+  strokeKind: string,
+  isRem: boolean = false,
+  rootValue: number = 16,
+  unit: string = "px"
 ) {
-  setTextContent(
-    tag,
-    "Text",
-    `${strokeKind} - ${strokeWeight}px, ${strokeAlign}`
-  );
+  isRem
+    ? setTextContent(
+        tag,
+        "Text",
+        `${strokeKind} - ${(parseFloat(strokeWeight) / rootValue).toFixed(
+          3
+        )}${unit}`
+      )
+    : setTextContent(
+        tag,
+        "Text",
+        `${strokeKind} - ${strokeWeight}px, ${strokeAlign}`
+      );
 
   const indexLink = tag.findOne((element: any) => element.name === "link");
   if (indexLink) indexLink.visible = false;

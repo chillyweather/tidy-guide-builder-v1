@@ -6,7 +6,10 @@ import { makeCollapsibleComponent } from "../utilityFunctions";
 export function buildIndexElementForText(
   parent: FrameNode,
   indexWithLabel: InstanceNode,
-  element: any
+  element: any,
+  isRem: boolean,
+  unit: string,
+  rootValue: number
 ) {
   setTextContent(indexWithLabel, "Text", `🆃 ${element.elementName}`);
 
@@ -35,7 +38,13 @@ export function buildIndexElementForText(
   );
 
   const textStyleFrame = buildTextStyleData(element, textStyleSection);
-  const textDataFrame = buildTextData(element, textDataSection);
+  const textDataFrame = buildTextData(
+    element,
+    textDataSection,
+    isRem,
+    unit,
+    rootValue
+  );
   const textColorFrame = buildTextColorSection(element, testColorSection);
 
   const data = buildAutoLayoutFrame("index-data", "VERTICAL", 0, 0, 12);
@@ -146,12 +155,23 @@ function buildTextStyleData(element: any, frame: FrameNode): FrameNode {
   return frame;
 }
 
-function buildTextData(element: any, frame: FrameNode): FrameNode {
+function buildTextData(
+  element: any,
+  frame: FrameNode,
+  isRem: boolean,
+  unit: string,
+  rootValue: number
+): FrameNode {
+  console.log("element!!!!!!!!!!!!!!!!!", element);
   const textData = `font-family: ${element.elementFontName.family};
-font-size: ${element.elementFontSize}px;
+font-size: ${
+    isRem
+      ? (parseInt(element.elementFontSize) / rootValue).toFixed(2)
+      : element.elementFontSize
+  }${unit};
 font-style: ${element.elementFontName.style};
 font-weight: ${element.elementFontWeight};
-line-height: ${element.elementLineHeight};
+line-height: ${element.elementLineHeight.value || "AUTO"};
 letter-spacing: ${element.elementLetterSpacing};
 text-decoration: ${element.elementTextDecoration};
 text-case: ${element.elementTextCase};`;

@@ -32,7 +32,7 @@ async function buildSection(
       break;
 
     case "spacing":
-      buildSpacingSection(currentNode, sectionFrame);
+      buildSpacingSection(currentNode, sectionFrame, appSettings);
       break;
 
     case "property":
