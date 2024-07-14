@@ -17,7 +17,8 @@ export async function buildAtomSpacings(
   buttonSizes: string[],
   variantProperties: any,
   sizeMarker: ComponentSetNode,
-  spacingMarker: ComponentSetNode
+  spacingMarker: ComponentSetNode,
+  pluginSettings?: any
 ) {
   turnAllBooleansOn(element, booleanProperties);
   const page = figma.currentPage;
@@ -29,23 +30,22 @@ export async function buildAtomSpacings(
       buttonSizes,
       variantProperties,
       element,
-      booleanProperties,
-      elementType,
       page,
       labelComponent,
       spacingGroups,
       sizeMarker,
-      spacingMarker
+      spacingMarker,
+      pluginSettings
     );
   } else {
     const spacingGroup = await buildOneSpacingGroup(
       element,
-      booleanProperties,
-      elementType,
       page,
       labelComponent,
       sizeMarker,
-      spacingMarker
+      spacingMarker,
+      undefined,
+      pluginSettings
     );
     spacingGroups.push(spacingGroup);
   }
@@ -57,13 +57,12 @@ async function buildForManySizes(
   buttonSizes: string[],
   variantProperties: any,
   element: InstanceNode,
-  booleanProperties: any,
-  elementType: string,
   page: PageNode,
   labelComponent: ComponentNode,
   spacingGroups: FrameNode[],
   sizeMarker: ComponentSetNode,
-  spacingMarker: ComponentSetNode
+  spacingMarker: ComponentSetNode,
+  settings?: any
 ) {
   for (const size of buttonSizes) {
     const propNames = Object.keys(variantProperties);
@@ -76,13 +75,12 @@ async function buildForManySizes(
 
     const spacingGroup = await buildOneSpacingGroup(
       element,
-      booleanProperties,
-      elementType,
       page,
       labelComponent,
       sizeMarker,
       spacingMarker,
-      size
+      size,
+      settings
     );
     spacingGroups.push(spacingGroup);
   }
@@ -92,13 +90,12 @@ async function buildForManySizes(
 
 function buildOneSpacingGroup(
   element: InstanceNode,
-  booleanProperties: any,
-  elementType: string,
   page: PageNode,
   labelComponent: ComponentNode,
   sizeMarker: ComponentSetNode,
   spacingMarker: ComponentSetNode,
-  size?: string
+  size?: string,
+  settings?: any
 ) {
   const elementSize = element.clone();
   const elementPadding = element.clone();
@@ -132,7 +129,8 @@ function buildOneSpacingGroup(
     paddings,
     spacings,
     labelComponent,
-    size
+    size,
+    settings
   );
 
   return sizingMarksFrame;
@@ -148,7 +146,8 @@ async function arrangeFrameContents(
   paddings: any[] | undefined,
   spacings: any[] | undefined,
   labelComponent: ComponentNode,
-  size: string | undefined
+  size: string | undefined,
+  settings: any
 ) {
   const {
     sizeGroup,
@@ -173,7 +172,8 @@ async function arrangeFrameContents(
   //! create labels
   const { sizeTitle, paddingsTitle, spacingsTitle } = await buildLabels(
     labelComponent,
-    page
+    page,
+    settings
   );
 
   //! place group and label into autolayout frame
@@ -289,7 +289,12 @@ function setTitlePosition(title: InstanceNode, frame: FrameNode) {
   title.y = 8;
 }
 
-async function buildLabels(labelComponent: ComponentNode, page: PageNode) {
+async function buildLabels(
+  labelComponent: ComponentNode,
+  page: PageNode,
+  settings?: any
+) {
+  const units = settings.units;
   const dsGray600 = await setColorStyle(
     ".TG-admin/spacing-block-label",
     "707070"
@@ -301,13 +306,13 @@ async function buildLabels(labelComponent: ComponentNode, page: PageNode) {
   page.appendChild(sizeTitle);
   setVariantProps(sizeTitle, "font", "regular");
   setVariantProps(sizeTitle, "size", "s");
-  setTextProps(sizeTitle, "text", "Element size (px)");
+  setTextProps(sizeTitle, "text", `Element size (${units})`);
 
   const paddingsTitle = sizeTitle.clone();
-  setTextProps(paddingsTitle, "text", "Paddings (px)");
+  setTextProps(paddingsTitle, "text", `Paddings (${units})`);
 
   const spacingsTitle = sizeTitle.clone();
-  setTextProps(spacingsTitle, "text", "Spacings (px)");
+  setTextProps(spacingsTitle, "text", `Spacings (${units})`);
   return { sizeTitle, paddingsTitle, spacingsTitle };
 }
 

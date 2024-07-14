@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import buildSizeMarkerComponentSet from "../figma_layout_components/buildSizeMarker";
 import buildSpacingMarkerComponentSet from "../figma_layout_components/buildSpacingMarker";
 import { buildLabelComponent } from "src/figma_layout_components/buildLabelComponent";
@@ -8,7 +9,8 @@ import { getElementSizes } from "src/figma_functions/utilityFunctions";
 
 export async function buildSpacingSection(
   node: InstanceNode,
-  frame: FrameNode
+  frame: FrameNode,
+  pluginSettings?: any
 ) {
   const sizeMarker = await buildSizeMarkerComponentSet();
   const spacingMarker = await buildSpacingMarkerComponentSet();
@@ -27,7 +29,8 @@ export async function buildSpacingSection(
     elementSizes,
     variantProps,
     sizeMarker,
-    spacingMarker
+    spacingMarker,
+    pluginSettings
   );
 
   atomSpacings.forEach((node) => {
