@@ -110,13 +110,15 @@ function buildOneSpacingGroup(
   const paddings = buildPaddingMarkers(
     elementPadding,
     sizeMarker,
-    spacingMarker
+    spacingMarker,
+    settings
   );
   const spacings = buildSpacingMarkers(
     elementHSpacing,
     // elementType,
     sizeMarker,
-    spacingMarker
+    spacingMarker,
+    settings
   );
 
   const sizingMarksFrame = arrangeFrameContents(
@@ -332,7 +334,8 @@ export function buildSizeMarkers(
       sameSpacingsColor: true,
     },
     sizeMarker,
-    spacingMarker
+    spacingMarker,
+    settings
   );
   if (!sizeMarkers) return;
   sizeMarkers.forEach((marker) => {
@@ -354,7 +357,8 @@ export function buildSizeMarkers(
 function buildPaddingMarkers(
   elementPadding: InstanceNode,
   sizeMarker: ComponentSetNode,
-  spacingMarker: ComponentSetNode
+  spacingMarker: ComponentSetNode,
+  settings?: any
 ) {
   const paddingMarkers = buildSpacingMarks(
     elementPadding,
@@ -366,7 +370,8 @@ function buildPaddingMarkers(
       isShallow: true,
     },
     sizeMarker,
-    spacingMarker
+    spacingMarker,
+    settings
   );
   paddingMarkers?.forEach((marker) => {
     if (marker) modifyMarkers(marker);
@@ -377,7 +382,8 @@ function buildPaddingMarkers(
 function buildSpacingMarkers(
   elementHSpacing: InstanceNode,
   sizeMarker: ComponentSetNode,
-  spacingMarker: ComponentSetNode
+  spacingMarker: ComponentSetNode,
+  settings?: any
 ) {
   const spacingMarkers = buildSpacingMarks(
     elementHSpacing,
@@ -389,7 +395,8 @@ function buildSpacingMarkers(
       isShallow: true,
     },
     sizeMarker,
-    spacingMarker
+    spacingMarker,
+    settings
   );
   spacingMarkers?.forEach((marker) => {
     if (marker) modifyMarkers(marker);

@@ -21,28 +21,14 @@ export default function getFrameMeasurements(
     "size"
   );
   if (rightMarker) {
-    setMarkerSizeProps(
-      rootElementSize,
-      frame.height,
-      rightMarker,
-      units,
-      "VERTICAL",
-      frame
-    );
+    setMarkerSizeProps(rootElementSize, frame.height, rightMarker, units);
     rightMarker.resize(rightMarker.width, frame.height);
     rightMarker.x = frame.x + frame.width;
     rightMarker.y = frame.y;
     rightMarker.name = ".frame-size_left";
   }
   if (bottomMarker) {
-    setMarkerSizeProps(
-      rootElementSize,
-      frame.width,
-      bottomMarker,
-      units,
-      "HORIZONTAL",
-      frame
-    );
+    setMarkerSizeProps(rootElementSize, frame.width, bottomMarker, units);
     bottomMarker.resize(frame.width, bottomMarker.height);
     bottomMarker.x = frame.x;
     bottomMarker.y = frame.y + frame.height;

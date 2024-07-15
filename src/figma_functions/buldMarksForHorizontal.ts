@@ -23,14 +23,7 @@ export function buildMarksForHorizontal(
         marker.resize(space, frame.height + markerHandLength + 21);
         marker.x = array[index][1];
         marker.y = yPos - markerHandLength - 21;
-        setMarkerSizeProps(
-          rootElementSize,
-          space,
-          marker,
-          units,
-          "HORIZONTAL",
-          frame
-        );
+        setMarkerSizeProps(rootElementSize, space, marker, units);
 
         marker.name = `.spacing-marker-${index + 1}_horizontal`;
         spacings.push(marker);
