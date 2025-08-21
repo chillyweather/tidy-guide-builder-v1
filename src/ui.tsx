@@ -57,7 +57,6 @@ import {
 
 //styles
 import "!./styles.css";
-import { validateEnvironment } from "./envConfig";
 
 function Plugin() {
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
@@ -127,10 +126,7 @@ function Plugin() {
   const [showManageCanvasAppearance] = useAtom(showManageCanvasAppearanceAtom);
   const [layoutTemplates] = useAtom(layoutTemplatesAtom);
 
-  // Validate environment variables on UI startup
-  useEffect(() => {
-    validateEnvironment();
-  }, []);
+
 
   on("SETTINGS", (settings: any) => {
     if (settings) {

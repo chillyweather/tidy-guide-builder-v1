@@ -70,8 +70,8 @@ function AddSectionPopupCard(card: any) {
       <div
         className={"addSectionCard"}
         id={card.title}
-        data-type={card.datatype}
-        data-disabled={
+        {...({type: card.datatype} as any)}
+        disabled={
           card.dataType === "tokens" ||
           (pdTypes.includes(card.datatype) && !selectedElement)
         }
@@ -85,7 +85,7 @@ function AddSectionPopupCard(card: any) {
           setIsHovering(true);
         }}
       >
-        <div className={"addSectionIcon"} data-type={card.datatype}>
+        <div className={"addSectionIcon"} {...({type: card.datatype} as any)}>
           <img
             src={isHovering ? DefinedAnatomyGif : DefinedAnatomy}
             className={"anatomy"}

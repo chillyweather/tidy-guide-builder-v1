@@ -423,7 +423,7 @@ export const ContentCard = (card: any, index: number) => {
               removeDraggable(event);
             }}
           />
-          <div className="addSectionIcon" data-type={cardType} data-alt={cardType}>
+          <div className="addSectionIcon" {...({type: cardType} as any)} {...({alt: cardType} as any)}>
             <img src={AnatomyIcon} className={"anatomy"} />
             <img src={SpacingIcon} className={"spacing"} />
             <img src={PropertyIcon} className={"property"} />
