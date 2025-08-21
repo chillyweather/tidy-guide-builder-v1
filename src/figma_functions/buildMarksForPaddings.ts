@@ -39,8 +39,10 @@ function findPaddings(frame: InstanceNode | FrameNode) {
   frameParameters.x = frame.absoluteBoundingBox?.x;
   frameParameters.y = frame.absoluteBoundingBox?.y;
 
-  if (frame.children) {
-    const children = figma.group(frame.children, frame);
+  if (frame.children && frame.children.length > 0) {
+    const validChildren = frame.children.filter((child: any) => child && child.parent);
+    if (validChildren.length === 0) return;
+    const children = figma.group(validChildren, frame);
     if (!frame.absoluteBoundingBox || !children.absoluteBoundingBox) return;
 
     elementPaddings.topPadding.y = frame.absoluteBoundingBox.y;

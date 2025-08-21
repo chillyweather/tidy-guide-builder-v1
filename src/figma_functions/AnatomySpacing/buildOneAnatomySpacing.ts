@@ -93,7 +93,7 @@ export async function buildOneSizeAnatomySpacings(
           changeSizingMarkerCharacters(mark)
         );
         const groupContent =
-          spacingMarks && spacingMarks.length > 0
+          spacingMarks.length > 0
             ? [
                 clonedFrame,
                 dataElement.currentElement,
@@ -102,7 +102,11 @@ export async function buildOneSizeAnatomySpacings(
               ]
             : [clonedFrame, dataElement.currentElement, background];
 
-        const anatomyGroup = figma.group(groupContent, figma.currentPage);
+        // Filter out invalid elements and ensure we have valid elements to group
+        const validGroupContent = groupContent.filter(el => el && el.parent);
+        if (validGroupContent.length === 0) continue;
+        
+        const anatomyGroup = figma.group(validGroupContent, figma.currentPage);
         const anatomyAl = buildAutoLayoutFrame(
           "anatomySizesFrame",
           "VERTICAL",

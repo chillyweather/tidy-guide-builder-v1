@@ -235,14 +235,23 @@ function buildSpacingsGroups(
   let paddingsGroup: any = elementPadding;
   let spacingsGroup: any = elementHSpacing;
 
-  if (sizes) {
-    sizeGroup = figma.group([elementSize, ...sizes], page);
+  if (sizes && sizes.length > 0) {
+    const sizeElements = [elementSize, ...sizes].filter(el => el && el.parent);
+    if (sizeElements.length > 0) {
+      sizeGroup = figma.group(sizeElements, page);
+    }
   }
-  if (paddings) {
-    paddingsGroup = figma.group([elementPadding, ...paddings], page);
+  if (paddings && paddings.length > 0) {
+    const paddingElements = [elementPadding, ...paddings].filter(el => el && el.parent);
+    if (paddingElements.length > 0) {
+      paddingsGroup = figma.group(paddingElements, page);
+    }
   }
-  if (spacings) {
-    spacingsGroup = figma.group([elementHSpacing, ...spacings], page);
+  if (spacings && spacings.length > 0) {
+    const spacingElements = [elementHSpacing, ...spacings].filter(el => el && el.parent);
+    if (spacingElements.length > 0) {
+      spacingsGroup = figma.group(spacingElements, page);
+    }
   }
   return { sizeGroup, paddingsGroup, spacingsGroup };
 }

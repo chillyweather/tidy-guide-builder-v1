@@ -143,8 +143,13 @@ async function buildElementTags(
   if (!tagBuildResults) return currentAtom;
   const tagElements = tagBuildResults.tagElements;
   const indexes = tagBuildResults.indexes;
+  
+  // Ensure we have valid elements to group
+  const elementsToGroup = [currentAtom, ...tagElements].filter(element => element && element.parent);
+  if (elementsToGroup.length === 0) return currentAtom;
+  
   const tagGroup = figma.group(
-    [currentAtom, ...tagElements],
+    elementsToGroup,
     figma.currentPage
   );
   tagGroup.name = `${element.name}-with-tags`;

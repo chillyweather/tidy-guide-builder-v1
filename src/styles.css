@@ -122,7 +122,7 @@ a {
 
 body {
   background-color: var(--tidy-background);
-  --figma-color-text: var(--tidy-background);
+  --figma-color-text: var(--tidy-text);
 }
 
 body:has(.login) {
