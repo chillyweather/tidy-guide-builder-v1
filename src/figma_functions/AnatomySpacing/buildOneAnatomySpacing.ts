@@ -56,7 +56,7 @@ export async function buildOneSizeAnatomySpacings(
       dataElement.subElement.name
     );
 
-    if (found) {
+    if (found && found.absoluteTransform) {
       const absX = found.absoluteTransform[0][2];
       const absY = found.absoluteTransform[1][2];
       const clonedFrame = found.clone();

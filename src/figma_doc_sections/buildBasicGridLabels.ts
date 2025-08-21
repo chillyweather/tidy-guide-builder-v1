@@ -8,6 +8,12 @@ export function buildBasicGridLabels(frame: FrameNode, variantProps: any) {
   console.log("%c frame", "color: lime", frame.name);
   const defaultElement = frame.findOne((node) => node.type === "INSTANCE");
   if (!defaultElement) return;
+  
+  // Validate frame has children before proceeding
+  if (!frame.children || !Array.isArray(frame.children) || frame.children.length === 0) {
+    console.warn("Frame has no children, cannot build grid labels");
+    return;
+  }
 
   const topLabels: InstanceNode[] = [];
   const leftLabels: InstanceNode[] = [];
@@ -69,9 +75,14 @@ function buildFirstLevelLabels(
         leftLabels.push(label);
       }
       if (firstLevelLayoutMode === "HORIZONTAL") {
+        const child = firstLevelFrame.children[index];
+        if (!child) {
+          console.warn(`Child at index ${index} is undefined`);
+          return;
+        }
         label.x =
           xPosition(index, firstLevelFrame) +
-          firstLevelFrame.children[index].width / 2 -
+          child.width / 2 -
           label.width / 2;
         label.y = yPosition(index, firstLevelFrame) - 60;
         topLabels.push(label);
@@ -125,20 +136,35 @@ function placeVerticalLabel(
   shift: number,
   labelsArray: any[] = []
 ) {
+  const child = frame.children[index];
+  if (!child) {
+    console.warn(`Child at index ${index} is undefined`);
+    return;
+  }
   label.x = xPosition(index, frame) - (label.width + shift);
   label.y =
     yPosition(index, frame) +
-    frame.children[index].height / 2 -
+    child.height / 2 -
     label.height / 2;
   labelsArray.push(label);
 }
 
 function xPosition(index: number, frame: FrameNode) {
-  return frame.children[index].absoluteTransform[0][2];
+  const child = frame.children[index];
+  if (!child || !child.absoluteTransform) {
+    console.warn(`Child at index ${index} is undefined or missing absoluteTransform`);
+    return 0;
+  }
+  return child.absoluteTransform[0][2];
 }
 
 function yPosition(index: number, frame: FrameNode) {
-  return frame.children[index].absoluteTransform[1][2];
+  const child = frame.children[index];
+  if (!child || !child.absoluteTransform) {
+    console.warn(`Child at index ${index} is undefined or missing absoluteTransform`);
+    return 0;
+  }
+  return child.absoluteTransform[1][2];
 }
 
 function placeHorizontalLabel(
@@ -148,8 +174,13 @@ function placeHorizontalLabel(
   shift: number,
   labelsArray: any[] = []
 ) {
+  const child = frame.children[index];
+  if (!child) {
+    console.warn(`Child at index ${index} is undefined`);
+    return;
+  }
   label.x =
-    xPosition(index, frame) + frame.children[index].width / 2 - label.width / 2;
+    xPosition(index, frame) + child.width / 2 - label.width / 2;
   label.y = yPosition(index, frame) - shift;
   labelsArray.push(label);
 }
