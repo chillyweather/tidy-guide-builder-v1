@@ -44,6 +44,7 @@ export function buildVariantFrames(
     if (variantKeys.length > 2) {
       workingArrays.forEach((arr) => {
         const secondLevelFrame = buildSecondLevelFrame(variantKeys);
+
         arr.forEach((subArr: any) => {
           const thirdLevelFrame = buildThirdLevelFrame(
             variantKeys,
@@ -59,8 +60,6 @@ export function buildVariantFrames(
               missedItemsArray
             );
           }
-          // setBackgroundPadding(thirdLevelFrame);
-          // thirdLevelFrame.primaryAxisSizingMode = "FIXED";
           secondLevelFrame.appendChild(thirdLevelFrame);
           secondLevelFrame.layoutSizingHorizontal = "HUG";
           thirdLevelFrame.layoutSizingHorizontal = "HUG";
@@ -70,9 +69,6 @@ export function buildVariantFrames(
             secondLevelFrame.remove();
           } else {
             baseFrameCollector.push(secondLevelFrame);
-            // setBackgroundPadding(secondLevelFrame);
-            // secondLevelFrame.layoutAlign = "STRETCH";
-
             allElementsFrame.appendChild(secondLevelFrame);
           }
         }
@@ -92,8 +88,6 @@ export function buildVariantFrames(
       );
     }
     baseFrameCollector.push(thirdLevelFrame);
-    // setBackgroundPadding(thirdLevelFrame);
-    // thirdLevelFrame.layoutAlign = "STRETCH";
     thirdLevelFrame.layoutSizingHorizontal = "HUG";
     allElementsFrame.appendChild(thirdLevelFrame);
   }

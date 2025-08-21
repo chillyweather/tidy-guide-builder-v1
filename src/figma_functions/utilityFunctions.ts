@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { computeMaximumBounds } from "@create-figma-plugin/utilities";
 //!--------BUILD----------//
 /**
  * Creates a new auto-layout frame with the specified properties.
@@ -103,6 +104,20 @@ export async function getDefaultElement(node: SceneNode) {
   }
 }
 
+export async function getAllSiblings(node: ComponentNode) {
+  const parent = node.parent;
+  if (parent && parent.type === "COMPONENT_SET") {
+    const siblingsNames = [];
+    for (const sibling of parent.children) {
+      if (sibling.type === "COMPONENT") {
+        siblingsNames.push(sibling.name);
+      }
+    }
+    return siblingsNames;
+  }
+  return [];
+}
+
 export async function getDefaultVariant(node: InstanceNode) {
   const mainComponent = await node.getMainComponentAsync();
   if (mainComponent?.parent?.type === "COMPONENT_SET") {
@@ -145,12 +160,10 @@ export function setVariantProps(
   for (const property in propList) {
     if (property.includes(`${name}`) && propList[property].type === "VARIANT") {
       try {
-        const newProps = {};
-        //@ts-ignore
+        const newProps: { [key: string]: string } = {};
         newProps[property] = value;
         node.setProperties(newProps);
       } catch (error) {
-        // node.opacity = 0;
         console.log(
           `error :>> node with property ${property} and value ${value} doesn't exist on node ${node}`
         );
@@ -158,7 +171,6 @@ export function setVariantProps(
     }
   }
 }
-
 /**
  * Sets a boolean property on an instance node.
  * @param element - The instance node to set the property on.
@@ -291,22 +303,22 @@ export function setTextContent(
       textNode.characters = text;
     }
   } catch (error) {
-    console.log("error", error);
+    // console.log("error", error);
   }
 }
 
 /*
- * Finds the master page of a given node.
- * @param node - The node to find the master page of.
- * @returns The master page of the given node, or null if no master page was found.
+ * Finds the current page of a given node.
+ * @param node - The node to find the current page of.
+ * @returns The current page of the given node, or null if no master page was found.
  */
-export function findMasterPage(node: any): PageNode | null {
+export function findCurrentPage(node: any): PageNode | null {
   if (node.type === "PAGE") {
     return node;
   } else {
     if (node.parent) {
       const newNode = node.parent;
-      return findMasterPage(newNode);
+      return findCurrentPage(newNode);
     } else {
       return null;
     }
@@ -321,7 +333,7 @@ export function findMasterPage(node: any): PageNode | null {
 export async function findDocFrame(node: InstanceNode) {
   const master = await node.getMainComponentAsync();
   if (master) {
-    const masterPage = findMasterPage(master);
+    const masterPage = findCurrentPage(master);
     if (masterPage) {
       const docFrame = masterPage.children.find((node) =>
         /(\.)?documentation/i.test(node.name)
@@ -359,21 +371,41 @@ export function cloneFrame(frame: FrameNode | InstanceNode) {
 //!--------NEW----------//
 
 /**
- * Retrieves the color of a TextNode.
+ * Retrieves the color of a node with fills.
+ *
  * @param {object} options - The options for retrieving the color.
- * @param {TextNode} options.node - The TextNode to retrieve the color from.
- * @returns {string | null} The color of the TextNode in hexadecimal format, or null if no color is found.
+ * @param {SceneNode} options.node - The node to retrieve the color from.
+ * @returns {string | null} The color of the node in hexadecimal format, or null if no color is found.
  */
-export function getTextNodeColor({ node }: { node: TextNode }): string | null {
-  //@ts-ignore
-  const fills: ReadonlyArray<Paint> | figma.mixed = node.fills;
+export type NodeWithFills =
+  | RectangleNode
+  | EllipseNode
+  | PolygonNode
+  | StarNode
+  | VectorNode
+  | TextNode
+  | FrameNode
+  | ComponentNode
+  | ComponentSetNode
+  | InstanceNode;
 
-  if (fills.length === 0) {
+export function getNodeColor(node: NodeWithFills): string | null {
+  if (!("fills" in node)) return null;
+  const fills = node.fills ?? [];
+
+  if ((fills as readonly Paint[]).length === 0) {
     return null;
+  }
+
+  const firstFill = (fills as readonly Paint[])[0];
+
+  if ("color" in firstFill) {
+    const { r, g, b } = firstFill.color;
+    const hexColor = rgbToHex({ r, g, b });
+    return hexColor;
   } else {
-    const fill = fills[0].color;
-    const hexFill = rgbToHex({ r: fill.r, g: fill.g, b: fill.b });
-    return hexFill;
+    // Handle the case where firstFill is a GradientPaint or ImagePaint
+    return null;
   }
 }
 
@@ -483,4 +515,46 @@ function locateHiddenItems(
     });
   }
   return { foundHiddenInClosed, foundHiddenInOpen };
+}
+
+export function toTitleCase(str: string) {
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+}
+
+export function tempPropCheck(
+  node: InstanceNode,
+  color: string,
+  note?: string
+) {
+  console.log(
+    "%c tempPropCheck",
+    `color: ${color}`,
+    note,
+    node.componentProperties.size
+  );
+}
+
+export function positionDocumentationOnCanvas(
+  frame: FrameNode,
+  xShift: number,
+  yShift: number
+) {
+  const children = figma.currentPage.children;
+  const bounds = computeMaximumBounds(Array.from(children));
+  if (children && children.length) {
+    frame.x = bounds[1].x + xShift;
+    frame.y = bounds[0].y + yShift;
+  }
+}
+
+export function placeResultTopRight(resultFrame: FrameNode) {
+  const bounds = computeMaximumBounds(Array.from(figma.currentPage.children));
+  figma.currentPage.appendChild(resultFrame);
+  resultFrame.x = bounds[1].x + 100;
+  resultFrame.y = bounds[0].y;
+
+  figma.viewport.scrollAndZoomIntoView([resultFrame]);
 }

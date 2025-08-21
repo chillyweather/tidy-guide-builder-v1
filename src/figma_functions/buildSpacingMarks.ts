@@ -10,11 +10,10 @@ const elementsCoordinatesAndDimensionsX: any = [];
 const elementsCoordinatesAndDimensionsY: any = [];
 
 function buildSpacingMarks(
-  frame: InstanceNode,
+  frame: any,
   selectedCheckboxes: any,
   sizeMarker: ComponentSetNode,
-  spacingMarker: ComponentSetNode,
-  settings?: any
+  spacingMarker: ComponentSetNode
 ) {
   try {
     const spacingMarkers = [];
@@ -35,8 +34,7 @@ function buildSpacingMarks(
         selectedCheckboxes.rootElementSize,
         selectedCheckboxes.units,
         sizeMarker,
-        spacingMarker,
-        settings
+        spacingMarker
       );
       if (paddingMarkers) spacingMarkers.push(...paddingMarkers);
     }
@@ -50,8 +48,8 @@ function buildSpacingMarks(
           workingFrame,
           elementsCoordinatesAndDimensionsY,
           workingFrame.absoluteBoundingBox.x,
-          settings.rootValue,
-          settings.units,
+          selectedCheckboxes.rootElementSize,
+          selectedCheckboxes.units,
           sizeMarker,
           spacingMarker
         );
@@ -61,8 +59,8 @@ function buildSpacingMarks(
           workingFrame,
           elementsCoordinatesAndDimensionsX,
           workingFrame.absoluteBoundingBox.y,
-          settings.rootValue,
-          settings.units,
+          selectedCheckboxes.rootElementSize,
+          selectedCheckboxes.units,
           sizeMarker,
           spacingMarker
         );
@@ -73,8 +71,8 @@ function buildSpacingMarks(
     if (selectedCheckboxes.size) {
       const sizeMarkers = getFrameMeasurements(
         workingFrame,
-        settings.rootValue,
-        settings.units,
+        selectedCheckboxes.rootElementSize,
+        selectedCheckboxes.units,
         sizeMarker,
         spacingMarker
       );

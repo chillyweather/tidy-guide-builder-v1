@@ -17,7 +17,8 @@ export async function buildAtomTags(
   tagComponentSet: ComponentSetNode | undefined,
   indexPosition = "left",
   indexSpacing = "32",
-  pluginSettings?: any
+  pluginSettings: any,
+  tagFrameData: any
 ) {
   const tagGroups: FrameNode[] = [];
 
@@ -38,7 +39,8 @@ export async function buildAtomTags(
         indexSpacing,
         labelComponent,
         size,
-        pluginSettings
+        pluginSettings,
+        tagFrameData
       );
 
       tagGroups.push(tagGroup);
@@ -52,8 +54,10 @@ export async function buildAtomTags(
       indexSpacing,
       labelComponent,
       "",
-      pluginSettings
+      pluginSettings,
+      tagFrameData
     );
+    console.log("tagGroup", tagGroup);
     tagGroups.push(tagGroup);
   }
   return tagGroups;
@@ -67,15 +71,22 @@ async function buildOneTag(
   indexSpacing = "32",
   labelComponent?: ComponentNode,
   size?: string,
-  pluginSettings?: any
+  pluginSettings?: any,
+  tagFrameData?: any
 ) {
   const TGGray600 = await setColorStyle(
     ".TG-admin/anatomy-secondary",
     "707070"
   );
 
-  const resultFrame = buildAutoLayoutFrame("tagFrame", "HORIZONTAL", 20, 0);
-  const group = await buildElementTags(
+  const resultFrame = buildAutoLayoutFrame(
+    tagFrameData.name,
+    tagFrameData.direction,
+    0,
+    40
+  );
+
+  const oneSizeFrame = await buildElementTags(
     element,
     booleanProperties,
     tagComponentSet,
@@ -84,11 +95,11 @@ async function buildOneTag(
     pluginSettings
   );
 
-  resultFrame.appendChild(group);
-  resultFrame.paddingBottom = 40;
-  resultFrame.paddingTop = 40;
-  resultFrame.counterAxisAlignItems = "CENTER";
-  if (labelComponent) {
+  resultFrame.appendChild(oneSizeFrame);
+  // resultFrame.paddingBottom = 40;
+  // resultFrame.paddingTop = 40;
+  // resultFrame.counterAxisAlignItems = "CENTER";
+  if (labelComponent && size) {
     const title = setTitlePosition(
       labelComponent.createInstance(),
       resultFrame

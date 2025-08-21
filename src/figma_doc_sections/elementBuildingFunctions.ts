@@ -3,14 +3,17 @@ import { buildAutoLayoutFrame } from "../figma_functions/utilityFunctions";
 import {
   documentationWidth,
   documentationPadding,
-} from "../figma_functions/documentationBuilder";
+} from "../figma_functions/constants";
+import { doNetwork, dontNetwork } from "src/resources/vectors/vectorElements";
 
-export function buildTitle(title: string) {
+export function buildTitle(title: string, fontname?: FontName) {
   const titleFrame = buildAutoLayoutFrame("title", "HORIZONTAL", 0, 0, 0);
   const titleText = figma.createText();
   titleText.characters = title;
   titleText.fontSize = 40;
-  titleText.fontName = { family: "Inter", style: "Semi Bold" };
+  titleText.fontName = fontname
+    ? fontname
+    : { family: "Inter", style: "Semi Bold" };
   titleFrame.appendChild(titleText);
   return titleFrame;
 }
@@ -39,49 +42,105 @@ export function buildText(text: string) {
 }
 
 export function buildTwoColumns(element: any, parentFrame: FrameNode) {
-  if (
-    !element.content.subtitle1 ||
-    !element.content.subtitle2 ||
-    !element.content.text1 ||
-    !element.content.text2
-  ) {
-    return;
-  }
+  // if (
+  //   !element.content.subtitle1 ||
+  //   !element.content.subtitle2 ||
+  //   !element.content.leftItems ||
+  //   !element.content.rightItems
+  // ) {
+  //   return;
+  // }
   const columnSpacing = 20;
   const columnWidth =
     (documentationWidth - documentationPadding * 2 - columnSpacing) / 2;
-  const title1 = element.content.subtitle1;
-  const title2 = element.content.subtitle2;
-  const text1 = element.content.text1;
-  const text2 = element.content.text2;
-  const title1Frame = buildSubtitle(title1);
-  title1Frame.resize(columnWidth, title1Frame.height);
-  const title2Frame = buildSubtitle(title2);
-  title2Frame.resize(columnWidth, title2Frame.height);
-  const text1Frame = buildListText(text1, "unordered");
-  text1Frame.resize(columnWidth, text1Frame.height);
-  const text2Frame = buildListText(text2, "unordered");
-  text2Frame.resize(columnWidth, text2Frame.height);
-  const titleWrapper = buildAutoLayoutFrame(
-    "titleWrapper",
-    "HORIZONTAL",
+  const { subtitle1, subtitle2, rightItems, leftItems } = element.content;
+  const title1Frame = subtitle1 ? buildSubtitle(subtitle1) : null;
+  title1Frame?.resize(columnWidth, title1Frame.height);
+  const title2Frame = subtitle2 ? buildSubtitle(subtitle2) : null;
+  title2Frame?.resize(columnWidth, title2Frame.height);
+
+  const leftElements: FrameNode[] = [];
+  const rightElements: FrameNode[] = [];
+
+  if (leftItems.length) {
+    leftItems.forEach((item: string) => {
+      if (item === "") return;
+      const itemFrame = buildText(item);
+      itemFrame.resize(columnWidth, itemFrame.height);
+      const leftElementWrapper = buildAutoLayoutFrame(
+        "leftElementWrapper",
+        "HORIZONTAL",
+        0,
+        0,
+        12
+      );
+      const icon = figma.createVector();
+      icon.setVectorNetworkAsync(doNetwork as VectorNetwork);
+      icon.strokes = [];
+      leftElementWrapper.appendChild(icon);
+      leftElementWrapper.appendChild(itemFrame);
+      leftElements.push(leftElementWrapper);
+    });
+  }
+
+  if (rightItems.length) {
+    rightItems.forEach((item: string) => {
+      if (item === "") return;
+      const itemFrame = buildText(item);
+      itemFrame.resize(columnWidth, itemFrame.height);
+      const rightElementWrapper = buildAutoLayoutFrame(
+        "rightElementWrapper",
+        "HORIZONTAL",
+        0,
+        0,
+        12
+      );
+      const icon = figma.createVector();
+      icon.setVectorNetworkAsync(dontNetwork as VectorNetwork);
+      icon.strokes = [];
+      rightElementWrapper.appendChild(icon);
+      rightElementWrapper.appendChild(itemFrame);
+      rightElements.push(rightElementWrapper);
+    });
+  }
+
+  const textWrapper = buildAutoLayoutFrame("textWrapper", "VERTICAL", 0, 0, 20);
+  const leftWrapper = buildAutoLayoutFrame("leftWrapper", "VERTICAL", 0, 0, 20);
+  const rightWrapper = buildAutoLayoutFrame(
+    "rightWrapper",
+    "VERTICAL",
     0,
     0,
     20
   );
-  titleWrapper.appendChild(title1Frame);
-  titleWrapper.appendChild(title2Frame);
-  const textWrapper = buildAutoLayoutFrame(
-    "textWrapper",
-    "HORIZONTAL",
-    0,
-    0,
-    20
-  );
-  textWrapper.appendChild(text1Frame);
-  textWrapper.appendChild(text2Frame);
-  parentFrame.appendChild(titleWrapper);
+  if (title1Frame) {
+    leftWrapper.appendChild(title1Frame);
+  }
+  if (title2Frame) {
+    rightWrapper.appendChild(title2Frame);
+  }
+  if (leftElements.length) {
+    leftElements.forEach((item: FrameNode) => {
+      leftWrapper.appendChild(item);
+    });
+  }
+  if (rightElements.length) {
+    rightElements.forEach((item: FrameNode) => {
+      rightWrapper.appendChild(item);
+    });
+  }
+  checkAndAddWrappers(leftWrapper, textWrapper);
+  checkAndAddWrappers(rightWrapper, textWrapper);
+
   parentFrame.appendChild(textWrapper);
+}
+
+function checkAndAddWrappers(wrapper: FrameNode, parent: FrameNode) {
+  if (wrapper.children.length === 0) {
+    wrapper.remove();
+  } else {
+    parent.appendChild(wrapper);
+  }
 }
 
 const removeEmptyLines = (text: string) => {

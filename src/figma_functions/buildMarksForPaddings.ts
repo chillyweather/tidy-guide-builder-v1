@@ -88,8 +88,7 @@ function buildMarksForPaddings(
   rootSize: number,
   units: any,
   sizeMarker: ComponentSetNode,
-  spacingMarker: ComponentSetNode,
-  settings: any
+  spacingMarker: ComponentSetNode
 ) {
   const elementPaddings = findPaddings(node);
 
@@ -116,12 +115,12 @@ function buildMarksForPaddings(
       node.height + markerHandLength + 21
     );
     setMarkerSizeProps(
-      settings.rootValue,
+      rootSize,
       elementPaddings.leftPadding.size,
       leftPaddingMarker,
-      settings.units
-      // "HORIZONTAL",
-      // node
+      units,
+      "HORIZONTAL",
+      node
     );
 
     leftPaddingMarker.name = ".padding-marker_left";
@@ -148,12 +147,12 @@ function buildMarksForPaddings(
       node.height + markerHandLength + 21
     );
     setMarkerSizeProps(
-      settings.rootValue,
+      rootSize,
       elementPaddings.rightPadding.size,
       rightPaddingMarker,
-      settings.units
-      // "HORIZONTAL",
-      // node
+      units,
+      "HORIZONTAL",
+      node
     );
     rightPaddingMarker.name = ".padding-marker_right";
     paddingMarkers.push(rightPaddingMarker);
@@ -174,12 +173,12 @@ function buildMarksForPaddings(
       topPaddingMarker.x = node.absoluteBoundingBox.x;
 
     setMarkerSizeProps(
-      settings.rootValue,
+      rootSize,
       elementPaddings.topPadding.size,
       topPaddingMarker,
-      settings.units
-      // "VERTICAL",
-      // node
+      units,
+      "VERTICAL",
+      node
     );
 
     const shift = getMarkerShift(topPaddingMarker);
@@ -205,12 +204,12 @@ function buildMarksForPaddings(
     if (node.absoluteBoundingBox)
       bottomPaddingMarker.x = node.absoluteBoundingBox.x;
     setMarkerSizeProps(
-      settings.rootValue,
+      rootSize,
       elementPaddings.bottomPadding.size,
       bottomPaddingMarker,
-      settings.units
-      // "VERTICAL",
-      // node
+      units,
+      "VERTICAL",
+      node
     );
     const shift = getMarkerShift(bottomPaddingMarker);
     bottomPaddingMarker.resize(

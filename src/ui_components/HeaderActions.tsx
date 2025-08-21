@@ -5,7 +5,7 @@ import { useState } from "preact/hooks";
 import {
   IconChevronDown,
   IconColumns,
-  IconExposure,
+  // IconExposure,
   IconInfoCircle,
   IconLink,
   IconListDetails,
@@ -48,25 +48,30 @@ import {
 } from "src/state/atoms";
 import { deleteFileFromServer } from "./ui_functions/fileManagementFunctions";
 import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const cardsForPopup = sectionData;
 
 function AddSectionPopupCard(card: any) {
-  const [selectedNodeId] = useAtom(selectedNodeIdAtom);
-  const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
+  // const [selectedNodeId] = useAtom(selectedNodeIdAtom);
+  // const [selectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedElement] = useAtom(selectedElementAtom);
   const [isHovering, setIsHovering] = useState(false);
   const [selectedSections, setSelectedSections]: any =
     useAtom(selectedSectionsAtom);
   const pdTypes = ["anatomy", "spacing", "property", "variants"];
 
+  useEffect(() => {
+    console.log("selectedElement", selectedElement);
+  }, [selectedElement]);
+
   return (
     <div className={"addSection-outer"}>
       <div
         className={"addSectionCard"}
         id={card.title}
-        type={card.datatype}
-        disabled={
+        data-type={card.datatype}
+        data-disabled={
           card.dataType === "tokens" ||
           (pdTypes.includes(card.datatype) && !selectedElement)
         }
@@ -80,7 +85,7 @@ function AddSectionPopupCard(card: any) {
           setIsHovering(true);
         }}
       >
-        <div className={"addSectionIcon"} type={card.datatype}>
+        <div className={"addSectionIcon"} data-type={card.datatype}>
           <img
             src={isHovering ? DefinedAnatomyGif : DefinedAnatomy}
             className={"anatomy"}
@@ -108,7 +113,8 @@ function AddSectionPopupCard(card: any) {
           <IconPilcrow className={"paragraph"} />
           <IconVideo className={"video"} />
           <IconColumns className={"twoColumns"} />
-          <IconExposure className={"dosDonts"} stroke-width="1.5" />
+          {/* <IconExposure className={"twoColumns"} /> */}
+          {/* <IconExposure className={"dosDonts"} stroke-width="1.5" /> */}
           <IconListDetails className={"list"} />
           <IconLink className={"link"} />
           <IconPhoto className={"image"} />
@@ -122,7 +128,7 @@ function AddSectionPopupCard(card: any) {
             e.stopPropagation();
           }}
           className={"tooltipIcon"}
-          alt={"This element is already in use and can be selected only once."}
+          data-alt={"This element is already in use and can be selected only once."}
         >
           <IconInfoCircle />
         </div>
@@ -131,16 +137,16 @@ function AddSectionPopupCard(card: any) {
   );
 
   async function addSection() {
-    const type = card.datatype;
-
-    if (pdTypes.includes(card.datatype)) {
-      if (!selectedElement) return;
-      emit("PIC_FROM_FIGMA", {
-        type,
-        nodeId: selectedNodeId,
-        key: selectedNodeKey,
-      });
-    }
+    // const type = card.datatype;
+    //
+    //     if (pdTypes.includes(card.datatype)) {
+    //       if (!selectedElement) return;
+    //       emit("PIC_FROM_FIGMA", {
+    //         type,
+    //         nodeId: selectedNodeId,
+    //         key: selectedNodeKey,
+    //       });
+    //     }
 
     const newCard = {
       ...card,
@@ -164,12 +170,10 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
         {/* {selectedElementName && ( */}
         <div className="cards predefined">
           <div
-            class=""
-            for={"elementsMenu"}
             className={"flex-label"}
+            data-for={"elementsMenu"}
             onClick={() => setIsPdSectionOpen(!isPdSectionOpen)}
-            //@ts-ignore
-            pd={!isPdSectionOpen}
+            data-pd={!isPdSectionOpen}
           >
             <h2>Predefined Elements</h2>
             <IconChevronDown />
@@ -191,15 +195,13 @@ function AddSectionPopup(pdcards: any[], cards: any[], cardElement: any) {
 }
 
 function HeaderActions() {
-  const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
-  const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
+  const [, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
+  const [, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
   const [selectedComponentPic, setSelectedComponentPic] = useAtom(
     selectedComponentPicAtom
   );
   const [selectionData] = useAtom(selectionDataAtom);
-  const [isToBuildComponentPic, setIsToBuildComponentPic] = useAtom(
-    isToBuildComponentPicAtom
-  );
+  const [, setIsToBuildComponentPic] = useAtom(isToBuildComponentPicAtom);
   const [selectedElementName, setSelectedElementName] = useAtom(
     selectedElementNameAtom
   );
@@ -210,16 +212,9 @@ function HeaderActions() {
   const [documentationTitle] = useAtom(documentationTitleAtom);
   const [isScroll] = useAtom(isScrollAtom);
 
-  useEffect(() => {
-    if (isToBuildComponentPic && selectedNodeKey && selectedNodeId) {
-      emit("GET_COMPONENT_PIC", selectedNodeKey, selectedNodeId);
-    }
-  }, [
-    isToBuildComponentPic,
-    setIsToBuildComponentPic,
-    selectedNodeKey,
-    selectedNodeId,
-  ]);
+  // useEffect(() => {
+  //   console.log("selectedElementName>>>>>>>>>>>>>", selectedElementName);
+  // }, [selectedElementName]);
 
   return (
     <div

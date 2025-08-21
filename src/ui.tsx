@@ -4,64 +4,27 @@ import { render } from "@create-figma-plugin/ui";
 
 import { emit, on } from "@create-figma-plugin/utilities";
 import { h } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useState, useCallback, useMemo } from "preact/hooks";
 
-import FeedbackPopup from "./ui_components/popups/feedbackPopup";
-import ResetPopup from "./ui_components/popups/resetPopup";
 import DeletePopup from "./ui_components/popups/deletePopup";
-import EmptyIndex from "./ui_components/EmptyIndex";
 import DeleteSectionPopup from "./ui_components/popups/deleteSectionPopup";
-import PasswordResetPopup from "./ui_components/popups/passwordResetPopup";
-import DeleteAccountPopup from "./ui_components/popups/deleteAccountPopup";
-import CrashLogoutPopup from "./ui_components/popups/crashLogoutPopup";
-import NoDeleteCollectionPopup from "./ui_components/popups/noDeleteCollectionPopup";
 import Toast from "./ui_components/Toast";
-import { sendRaster } from "./ui_components/ui_functions/sendRaster";
-import fetchAndUpdateData from "./ui_components/ui_functions/fetchAndUpdateData";
 import ContentFromServer from "./ui_components/ContentFromServer";
-import DetailsPage from "./ui_components/ViewModeElements/DetailsPage";
 import Footer from "./ui_components/Footer";
 import Header from "./ui_components/Header";
 import IndexPage from "./ui_components/IndexPage";
-import LoaderPage from "./ui_components/LoadingPage";
-import LoggedIn from "./ui_components/LoggedInPage";
-import Login from "./ui_components/LoginPage";
-import SignIn from "./ui_components/SigninPage";
-import Settings from "./ui_components/SettingsPage";
+// import Settings from "./ui_components/SettingsPage";
+import CanvasAppearance from "./ui_components/appearance_settings/settings/CanvasAppearance";
 import MainContent from "./ui_components/MainContent";
-import {
-  updateDocumentation,
-  createDocumentation,
-} from "./ui_components/ui_functions/documentationHandlers";
-import {
-  getCollections,
-  getCollectionDocs,
-} from "./ui_components/ui_functions/collectionHandlers";
-import { getUsers } from "./ui_components/ui_functions/authentication";
 
 import { useAtom } from "jotai";
 import {
   appSettingsAtom,
-  collectionDocsTriggerAtom,
-  collectionsAtom,
-  currentCompanyAtom,
-  currentDocumentationsAtom,
-  currentFigmaUserAtom,
-  currentUserCollectionsAtom,
-  currentUserIdAtom,
-  currentUserNameAtom,
-  currentUserRoleAtom,
   dataForUpdateAtom,
-  isCollectionSwitchingAtom,
   isDetailsPageOpenAtom,
   isFromSavedDataAtom,
-  isPublishAndViewAtom,
-  isResetAtom,
-  isViewModeOpenAtom,
   isBuildingAtom,
   isBuildingOnCanvasAtom,
-  selectedCollectionAtom,
-  selectedComponentPicAtom,
   selectedElementAtom,
   selectedElementNameAtom,
   selectedMasterIdAtom,
@@ -70,105 +33,53 @@ import {
   selectedSectionsAtom,
   selectionDataAtom,
   showContentFromServerAtom,
-  showCrashLogoutPopupAtom,
-  showDeleteAccountPopupAtom,
   showDeletePopupAtom,
   showDeleteSectionPopupAtom,
-  showFeedbackPopupAtom,
+  showManageCanvasAppearanceAtom,
   showIndexPageAtom,
-  showLoginPageAtom,
   showMainContentAtom,
-  showNonEmptyCollectionPopupAtom,
-  showPasswordResetPopupAtom,
   showSettingsPageAtom,
-  showSignupPageAtom,
-  tokenAtom,
   toastMessageAtom,
   toastTypeAtom,
-  usersAtom,
-  userRankAtom,
   isPdSectionOpenAtom,
   documentationTitleAtom,
   isScrollAtom,
-  isDraftAtom,
-  showResetPopupAtom,
   isCurrentNameValidAtom,
   isWipAtom,
   documentationDataAtom,
-  loggedInUserAtom,
-  selectedCardAtom,
-  currentFigmaFileAtom,
-  currentFigmaPageAtom,
   isFirstTimeAtom,
+  checkExistingDocumentAtom,
+  selectedVariantAtom,
+  allVariantsAtom,
+  appFontsAtom,
+  layoutTemplatesAtom,
 } from "./state/atoms";
 
 //styles
 import "!./styles.css";
+import { validateEnvironment } from "./envConfig";
 
 function Plugin() {
-  //!Jotai states
   const [selectedNodeId, setSelectedNodeId] = useAtom(selectedNodeIdAtom);
   const [selectedNodeKey, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
-  const [selectedComponentPic, setSelectedComponentPic] = useAtom(
-    selectedComponentPicAtom
-  );
-  const [isViewModeOpen, setIsViewModeOpen] = useAtom(isViewModeOpenAtom);
-  const [, setCurrentCompany] = useAtom(currentCompanyAtom);
-  const [, setCurrentUserName] = useAtom(currentUserNameAtom);
-  const [currentUserId, setCurrentUserId] = useAtom(currentUserIdAtom);
-  const [collections, setCollections] = useAtom(collectionsAtom);
-  const [selectedCollection, setSelectedCollection]: any = useAtom(
-    selectedCollectionAtom
-  );
-  const [collectionDocsTrigger] = useAtom(collectionDocsTriggerAtom);
-  const [currentUserRole] = useAtom(currentUserRoleAtom);
-  const [, setCurrentDocumentations] = useAtom(currentDocumentationsAtom);
-  const [isPublishAndView, setIsPublishAndView] = useAtom(isPublishAndViewAtom);
   const [, setSelectionData] = useAtom(selectionDataAtom);
-  const [, setCurrentUserCollections] = useAtom(currentUserCollectionsAtom);
-  const [isCollectionSwitching, setIsCollectionSwitching] = useAtom(
-    isCollectionSwitchingAtom
-  );
-  const [showCrashLogoutPopup] = useAtom(showCrashLogoutPopupAtom);
-  const [isDetailsPageOpen, setIsDetailsPageOpen] = useAtom(
-    isDetailsPageOpenAtom
-  );
-  const [, setUsers] = useAtom(usersAtom);
+  const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
   const [appSettings, setAppSettings] = useAtom(appSettingsAtom);
-
-  const [isLoading, setIsLoading] = useState(true);
-  const [token, setToken] = useAtom(tokenAtom);
-  const [loggedInUser, setLoggedInUser] = useAtom(loggedInUserAtom);
-  const [, setFigmaCurrentUser] = useAtom(currentFigmaUserAtom);
-  const [, setCurrentDocument] = useAtom(currentFigmaFileAtom);
-  const [, setCurrentPage] = useAtom(currentFigmaPageAtom);
-
-  const [showLoginPage, setShowLoginPage] = useAtom(showLoginPageAtom);
-  const [showSigninPage] = useAtom(showSignupPageAtom);
   const [showIndexPage, setShowIndexPage] = useAtom(showIndexPageAtom);
-  const [showMainContent, setShowMainContent] = useAtom(showMainContentAtom);
+  const [showMainContent] = useAtom(showMainContentAtom);
   const [showContentFromServer, setShowContentFromServer] = useAtom(
     showContentFromServerAtom
   );
   const [showSettingsPage] = useAtom(showSettingsPageAtom);
 
-  //navigation-popups
   const [showDeleteSectionPopup] = useAtom(showDeleteSectionPopupAtom);
-  const [showFeedbackPopup] = useAtom(showFeedbackPopupAtom);
-  const [showResetPopup, setShowResetPopup] = useAtom(showResetPopupAtom);
   const [showDeletePopup, setShowDeletePopup] = useAtom(showDeletePopupAtom);
-  const [showPasswordResetPopup] = useAtom(showPasswordResetPopupAtom);
-  const [showDeleteAccountPopup, setShowDeleteAccountPopup] = useAtom(
-    showDeleteAccountPopupAtom
-  );
-  const [showNonEmptyCollectionPopup] = useAtom(
-    showNonEmptyCollectionPopupAtom
-  );
+  const [, setAppFonts] = useAtom(appFontsAtom);
 
   //data from server
   const [dataForUpdate, setDataForUpdate]: any = useAtom(dataForUpdateAtom);
 
-  const [isBuilding, setIsBuilding] = useAtom(isBuildingAtom);
+  const [isBuilding] = useAtom(isBuildingAtom);
   const [isBuildingOnCanvas, setIsBuildingOnCanvas] = useAtom(
     isBuildingOnCanvasAtom
   );
@@ -180,23 +91,16 @@ function Plugin() {
   const [toastMessage, setToastMessage] = useAtom(toastMessageAtom);
   const [, setToastType] = useAtom(toastTypeAtom);
 
-  //!TODO: documentatation level states
   //documentation title
-  const [documentationTitle, setDocumentationTitle] = useAtom(
-    documentationTitleAtom
-  );
+  const [documentationTitle] = useAtom(documentationTitleAtom);
   //work in progress
-  const [isWip, setIsWip] = useAtom(isWipAtom);
+  const [isWip] = useAtom(isWipAtom);
   //selected element
   const [selectedElement, setSelectedElement] = useAtom(selectedElementAtom);
   const [selectedElementName, setSelectedElementName] = useAtom(
     selectedElementNameAtom
   );
-  const [, setSelectedCard] = useAtom(selectedCardAtom);
-  //selected cards
-  const [selectedSections, setSelectedSections] = useAtom(selectedSectionsAtom);
-  //element to delete
-  //documentation
+  const [selectedSections] = useAtom(selectedSectionsAtom);
   const [documentationData, setDocumentationData] = useAtom(
     documentationDataAtom
   );
@@ -211,35 +115,22 @@ function Plugin() {
   const [, setIsFromSavedData] = useAtom(isFromSavedDataAtom);
   //found existing documentation
   const [, setFoundDocumentation]: any = useState(null);
-  //reset documentation
-  const [isReset, setIsReset] = useAtom(isResetAtom);
   //is draft
-  const [isDraft] = useAtom(isDraftAtom);
-  //is pd section open
   const [, setIsPdSectionOpen] = useAtom(isPdSectionOpenAtom);
-  //user rank
-  const [, setUserRank] = useAtom(userRankAtom);
-
-  //current image array
-  const [currentImageArray, setCurrentImageArray] = useState<Uint8Array | null>(
-    null
-  );
 
   const [, setIsCurrentNameValid] = useAtom(isCurrentNameValidAtom);
+  const [checkExistingDocument, setCheckExistingDocument] = useAtom(
+    checkExistingDocumentAtom
+  );
+  const [, setSelectedVariant] = useAtom(selectedVariantAtom);
+  const [, setAllVariants] = useAtom(allVariantsAtom);
+  const [showManageCanvasAppearance] = useAtom(showManageCanvasAppearanceAtom);
+  const [layoutTemplates] = useAtom(layoutTemplatesAtom);
 
-  on("AUTH_CHANGE", async (token, email, rank, userName, companyName, id) => {
-    if (token) {
-      setToken(token);
-      setLoggedInUser(email);
-      setUserRank(rank);
-      setCurrentCompany(companyName);
-      setCurrentUserName(userName);
-      setCurrentUserId(id);
-    } else {
-      setShowLoginPage(true);
-      setIsLoading(false);
-    }
-  });
+  // Validate environment variables on UI startup
+  useEffect(() => {
+    validateEnvironment();
+  }, []);
 
   on("SETTINGS", (settings: any) => {
     if (settings) {
@@ -247,21 +138,21 @@ function Plugin() {
     }
   });
 
-  useEffect(() => {
-    console.log("showIndexPage", showIndexPage);
-  }, [showIndexPage]);
+  // useEffect(() => {
+  //   emit("GET_FONTS");
+  // }, []);
+
+  on("FONTS", (fontsArray) => {
+    if (fontsArray && fontsArray.length) {
+      setAppFonts(fontsArray);
+    }
+  });
 
   useEffect(() => {
-    if (showLoginPage || showSigninPage || showSettingsPage || showIndexPage) {
+    if (showSettingsPage || showIndexPage) {
       setIsDetailsPageOpen(false);
     }
-  }, [
-    setIsDetailsPageOpen,
-    showLoginPage,
-    showSigninPage,
-    showIndexPage,
-    showSettingsPage,
-  ]);
+  }, [setIsDetailsPageOpen, showIndexPage, showSettingsPage]);
 
   useEffect(() => {
     if (selectedElement) {
@@ -271,62 +162,6 @@ function Plugin() {
     }
   }, [selectedElement]);
 
-  useEffect(() => {
-    if (collections && collections.length && !selectedCollection) {
-      const userCollections = collections.filter(
-        (collection: any) => collection.owner === currentUserId
-      );
-      setSelectedCollection(userCollections[0]);
-    }
-  }, [collections, selectedCollection, setSelectedCollection, token]);
-
-  async function collectionDocsHandler(token: string, collectionId: string) {
-    const data = await getCollectionDocs(token, collectionId);
-    if (data && data.length) {
-      setDataForUpdate(data);
-      setCurrentDocumentations(data);
-    } else {
-      setDataForUpdate([]);
-    }
-    setIsCollectionSwitching(false);
-    setIsLoading(false);
-  }
-
-  useEffect(() => {
-    if (collections && currentUserId) {
-      const userCollections = collections.filter(
-        (collection: any) => collection.owner === currentUserId
-      );
-      setCurrentUserCollections(userCollections);
-    }
-  }, [collections, currentUserId]);
-
-  useEffect(() => {
-    if (selectedCollection) {
-      collectionDocsHandler(token, selectedCollection._id);
-    }
-  }, [selectedCollection, collectionDocsTrigger]);
-
-  useEffect(() => {
-    if (token && currentUserId) {
-      getUserCollections(token, currentUserId);
-    }
-  }, [token, currentUserId, collectionDocsTrigger]);
-
-  useEffect(() => {
-    if (token) {
-      setCurrentUsers(token);
-    }
-  }, [token]);
-
-  useEffect(() => {
-    if (currentUserRole && currentUserRole === "Viewer") {
-      setIsViewModeOpen(true);
-    } else {
-      setIsViewModeOpen(false);
-    }
-  }, [currentUserRole]);
-
   on("CHANGED_SELECTION", (data) => {
     setSelectionData(data);
   });
@@ -335,7 +170,10 @@ function Plugin() {
     if (!data) {
       return;
     }
-    const { defaultNode, name, key } = data;
+    const { defaultNode, name, key, siblingsNames, defaultNodeName } = data;
+
+    setAllVariants(siblingsNames);
+    setSelectedVariant(defaultNodeName);
 
     setSelectedElement(defaultNode);
     setSelectedNodeId(defaultNode.id);
@@ -344,18 +182,16 @@ function Plugin() {
     setDocumentationData((prevDocumentation: any) => {
       return {
         ...prevDocumentation,
-        // ["_id"]: documentationId,
         ["componentKey"]: selectedNodeKey,
         ["nodeId"]: selectedNodeId || "",
         ["docs"]: [],
         ["title"]: documentationTitle,
-        ["draft"]: isDraft,
         ["inProgress"]: isWip,
       };
     });
+    setCheckExistingDocument(true);
   });
 
-  //MARK: Auto open details page
   useEffect(() => {
     if (
       isFirstTime &&
@@ -386,12 +222,6 @@ function Plugin() {
     });
   }, [selectedSections]);
 
-  on("SESSION", ({ user, document, page }) => {
-    setFigmaCurrentUser(user);
-    setCurrentDocument(document);
-    setCurrentPage(page);
-  });
-
   on("FOUND_ELEMENT", (foundElement, foundElementName, key) => {
     setIsNewElementFound(true);
     setSelectedElement(foundElement);
@@ -399,72 +229,31 @@ function Plugin() {
     setSelectedNodeKey(key);
   });
 
-  on("COMPONENT_PIC_FOR_UPLOAD", async ({ bytes }) => {
-    // console.log("bytes", bytes);
-    setCurrentImageArray(bytes);
-  });
-
-  function checkIfDocumentationExists(docs: any[], id: string) {
-    if (docs.length && id) {
-      return docs.find((doc) => doc._id === id);
-    }
-  }
-
-  async function uploadComponentPic(bytes: Uint8Array, loggedInUser: string) {
-    const url = await sendRaster(bytes, loggedInUser, "componentPic");
-    if (url) {
-      setSelectedComponentPic(url);
-    }
-  }
-
-  async function getUserCollections(token: string, userId: string) {
-    let collections = await getCollections(token, userId);
-
-    collections = collections.sort((a: any, b: any) => {
-      const aIsOwnedByUser = a.owner === userId;
-      const bIsOwnedByUser = b.owner === userId;
-
-      if (aIsOwnedByUser && !bIsOwnedByUser) {
-        return -1;
+  const checkIfDocumentationExists = useMemo(
+    () => (docs: any[], id: string) => {
+      if (docs.length && id) {
+        return docs.find((doc) => doc.nodeId === id);
       }
-      if (!aIsOwnedByUser && bIsOwnedByUser) {
-        return 1;
-      }
-      return 0;
-    });
-
-    setCollections(collections);
-  }
-
-  async function setCurrentUsers(token: string) {
-    const users = await getUsers(token);
-    setUsers(users);
-  }
+    },
+    []
+  );
 
   useEffect(() => {
-    if (
-      currentImageArray &&
-      currentImageArray.length &&
-      !selectedComponentPic &&
-      (showMainContent || isDetailsPageOpen)
-    ) {
-      uploadComponentPic(currentImageArray, loggedInUser);
+    if (checkExistingDocument) {
+      const found = checkIfDocumentationExists(dataForUpdate, selectedNodeId);
+      if (found && showMainContent && selectedElementName.length) {
+        setFoundDocumentation(found);
+        setIsToastOpen(true);
+        setToastType("idle");
+        setToastMessage(
+          `Documentations must be unique, this element already have one in: \n${found.title}`
+        );
+        setSelectedElement(null);
+        setSelectedElementName("");
+      }
+      setCheckExistingDocument(false);
     }
-  }, [currentImageArray, selectedComponentPic]);
-
-  useEffect(() => {
-    const found = checkIfDocumentationExists(dataForUpdate, selectedNodeKey);
-    if (found && showMainContent && selectedElementName.length) {
-      setFoundDocumentation(found);
-      setIsToastOpen(true);
-      setToastType("idle");
-      setToastMessage(
-        `Documentations must be unique, this element already have one in: \n${found.title}`
-      );
-      setSelectedElement(null);
-      setSelectedElementName("");
-    }
-  }, [selectedNodeKey, selectedElement]);
+  }, [checkExistingDocument]);
 
   useEffect(() => {
     if (
@@ -501,32 +290,16 @@ function Plugin() {
   }, [showMainContent, showContentFromServer]);
 
   useEffect(() => {
-    if (isReset) {
-      setDocumentationTitle("");
-      setIsWip(false);
-      setSelectedElement(null);
-      setSelectedElementName("");
-      setSelectedCard("");
-      setSelectedNodeKey("");
-      setSelectedSections([]);
-      setDocumentationData({ docs: [] });
-      setIsReset(false);
-    }
-  }, [isReset]);
-
-  useEffect(() => {
     if (documentationTitle) {
       setDocumentationData((prevDocumentation: any) => {
         return {
           ...prevDocumentation,
           ["title"]: documentationTitle,
           ["inProgress"]: isWip,
-          ["draft"]: isDraft,
-          ["collection"]: selectedCollection?._id,
         };
       });
     }
-  }, [documentationTitle, isWip, isDraft, selectedCollection]);
+  }, [documentationTitle, isWip]);
 
   useEffect(() => {
     if (selectedNodeKey) {
@@ -548,36 +321,16 @@ function Plugin() {
     }
   }, [selectedNodeKey, selectedNodeId]);
 
-  useEffect(() => {
-    if (selectedComponentPic) {
-      setDocumentationData((prevDocumentation: any) => {
-        return {
-          ...prevDocumentation,
-          ["componentPic"]: selectedComponentPic,
-        };
-      });
-    } else {
-      setDocumentationData((prevDocumentation: any) => {
-        return {
-          ...prevDocumentation,
-          ["componentPic"]: "",
-        };
-      });
-    }
-  }, [selectedComponentPic]);
-
-  function closePopup() {
+  function closeToast() {
     setIsToastOpen(false);
   }
 
+  on("SAVED_DATA", (data) => {
+    setDataForUpdate(data);
+  });
+
   useEffect(() => {
-    // console.log("dataForUpdate", dataForUpdate);
-    // console.log("documentationData", documentationData);
-    if (
-      documentationTitle
-      // &&
-      // (dataForUpdate.length || documentationData.docs.length)
-    ) {
+    if (documentationTitle) {
       const foundDoc = dataForUpdate.find(
         (doc: any) =>
           doc.title.toLowerCase() === documentationTitle.toLowerCase()
@@ -595,94 +348,20 @@ function Plugin() {
     }
   }, [documentationTitle]);
 
-  //MARK: Add/update documentation
-  async function handleAddDocumentation(token: string, data: any) {
-    setIsLoading(true);
-    try {
-      const result = await getCollectionDocs(token, selectedCollection._id);
-      const isDocumented = result.some((doc: any) => doc._id === data._id);
-
-      if (isDocumented) {
-        const response = await updateDocumentation(token, data._id, data);
-        if (isBuildingOnCanvas) emit("BUILD", response, appSettings);
-        await fetchAndUpdateData(
-          token,
-          setDataForUpdate,
-          selectedCollection._id
-        );
-      } else {
-        console.log("data", data);
-        const response = await createDocumentation(token, data);
-        setSelectedMasterId(response._id);
-        if (isBuildingOnCanvas) emit("BUILD", response, appSettings);
-        await fetchAndUpdateData(
-          token,
-          setDataForUpdate,
-          selectedCollection._id
-        );
-        setDocumentationData((prevDocumentation: any) => {
-          return {
-            ...prevDocumentation,
-            ["_id"]: response._id,
-          };
-        });
-      }
-    } catch (error) {
-      console.log("error", error);
-    }
-    setIsLoading(false);
-    setIsBuilding(false);
-    setIsBuildingOnCanvas(false);
-    if (isPublishAndView) {
-      setIsPublishAndView(false);
-      setTimeout(() => {
-        setShowMainContent(false);
-        setShowContentFromServer(true);
-        setIsFromSavedData(true);
-        setIsViewModeOpen(true);
-      }, 600);
-    }
-  }
+  const handleAddDocumentation = useCallback(
+    async (data: any) => {
+      if (isBuildingOnCanvas)
+        emit("BUILD", data, appSettings, layoutTemplates.default);
+      setIsBuildingOnCanvas(false);
+    },
+    [isBuildingOnCanvas, appSettings]
+  );
 
   useEffect(() => {
-    console.log("dataForUpdate", dataForUpdate);
-  }, [dataForUpdate]);
-
-  useEffect(() => {
-    if (Object.keys(documentationData).length > 0 && isBuilding && token) {
-      handleAddDocumentation(token, documentationData);
+    if (Object.keys(documentationData).length > 0 && isBuilding) {
+      handleAddDocumentation(documentationData);
     }
-  }, [documentationData, isBuilding, token]);
-
-  useEffect(() => {
-    if (isViewModeOpen && selectedMasterId && dataForUpdate) {
-      const foundData = dataForUpdate.find(
-        (item: any) => item._id === selectedMasterId
-      );
-      setSelectedSections(foundData.docs);
-    }
-  }, [selectedMasterId, isViewModeOpen, dataForUpdate]);
-
-  //! Logout after 10 seconds of inactivity - IMPORTANT
-  useEffect(() => {
-    let timeoutId: any;
-    if (isLoading) {
-      timeoutId = setTimeout(() => {
-        // emit("LOGOUT");
-        setIsLoading(false);
-        // setShowCrashLogoutPopup(true);
-      }, 10000); // 10 seconds
-    }
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
-  }, [isLoading]);
-
-  useEffect(() => {
-    console.log("showNonEmptyCollectionPopup", showNonEmptyCollectionPopup);
-  }, [showNonEmptyCollectionPopup]);
+  }, [documentationData, isBuilding]);
 
   return (
     <div
@@ -697,50 +376,21 @@ function Plugin() {
       }}
       onKeyDown={(e) => {
         if (e.key === "Escape") {
-          setShowResetPopup(false);
           setShowDeletePopup(false);
-          setShowDeleteAccountPopup(false);
         }
       }}
     >
-      {showFeedbackPopup && <FeedbackPopup />}
-      {isLoading && <LoaderPage />}
-      {showResetPopup && <ResetPopup />}
       {showDeletePopup && <DeletePopup />}
       {showDeleteSectionPopup && <DeleteSectionPopup />}
-      {showDeleteAccountPopup && <DeleteAccountPopup />}
-      {showPasswordResetPopup && <PasswordResetPopup />}
-      {showCrashLogoutPopup && <CrashLogoutPopup />}
-      {showNonEmptyCollectionPopup && <NoDeleteCollectionPopup />}
-
-      {isToastOpen && toastMessage && <Toast onClose={closePopup} />}
-
-      {!token && showSigninPage && <SignIn />}
-      {showLoginPage && (token ? <LoggedIn /> : <Login />)}
-
+      {isToastOpen && toastMessage && <Toast onClose={closeToast} />}
       <Header />
-
-      {showIndexPage && !showLoginPage && !showSigninPage && <IndexPage />}
-      {/* {(isFirstTime || showIndexPage) && <IndexPage />} */}
-
-      {!isCollectionSwitching && showIndexPage && <EmptyIndex />}
-
-      {showMainContent && !isViewModeOpen && <MainContent />}
-
-      {/* content in Edit mode */}
-      {selectedMasterId &&
-        showContentFromServer &&
-        !showMainContent &&
-        !isViewModeOpen && <ContentFromServer />}
-
-      {/* //MARK: View mode content */}
-      {selectedMasterId &&
-        showContentFromServer &&
-        !showMainContent &&
-        isViewModeOpen && <DetailsPage />}
-
-      {showSettingsPage && <Settings />}
-
+      {showIndexPage && <IndexPage />}
+      {showMainContent && <MainContent />}
+      {selectedMasterId && showContentFromServer && !showMainContent && (
+        <ContentFromServer />
+      )}
+      {/* {showSettingsPage && <Settings />} */}
+      {showManageCanvasAppearance && <CanvasAppearance />}
       {(showContentFromServer || showMainContent) && <Footer />}
     </div>
   );

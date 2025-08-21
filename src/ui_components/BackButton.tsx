@@ -1,31 +1,33 @@
 import { h } from "preact";
 import { useAtom } from "jotai";
-import { useEffect } from "preact/hooks";
+// import { useEffect } from "preact/hooks";
 import {
   currentPageAtom,
+  documentationTitleAtom,
   isDetailsPageOpenAtom,
+  isDocJustOpenedAtom,
+  isResetAtom,
   isToBuildComponentPicAtom,
-  selectedNodeKeyAtom,
-  selectedNodeIdAtom,
   selectedComponentPicAtom,
   selectedElementAtom,
   selectedElementNameAtom,
+  selectedSectionsAtom,
+  selectedNodeIdAtom,
+  selectedNodeKeyAtom,
+  showContentFromServerAtom,
+  showEditUserFormAtom,
   showIndexPageAtom,
   showMainContentAtom,
-  showContentFromServerAtom,
-  showSettingsPageAtom,
-  isDocJustOpenedAtom,
-  isResetAtom,
-  showSettingsContentAtom,
-  showManageUsersPageAtom,
-  showManageCollectionsPageAtom,
-  showEditUserFormAtom,
   showManageCanvasAppearanceAtom,
+  showManageCollectionsPageAtom,
+  showManageUsersPageAtom,
+  showSettingsContentAtom,
+  showSettingsPageAtom,
 } from "../state/atoms";
 import { IconArrowLeft } from "@tabler/icons-react";
 
 export default function BackButton() {
-  const [currentPage, setCurrentPage] = useAtom(currentPageAtom);
+  const [currentPage] = useAtom(currentPageAtom);
   const [, setIsDetailsPageOpen] = useAtom(isDetailsPageOpenAtom);
   const [, setIsToBuildComponentPic] = useAtom(isToBuildComponentPicAtom);
   const [, setSelectedNodeKey] = useAtom(selectedNodeKeyAtom);
@@ -48,10 +50,12 @@ export default function BackButton() {
   const [, setShowManageCanvasAppearance] = useAtom(
     showManageCanvasAppearanceAtom
   );
+  const [, setSelectedSections] = useAtom(selectedSectionsAtom);
+  const [, setDocumentationTitle] = useAtom(documentationTitleAtom);
 
-  useEffect(() => {
-    console.log("currentPage", currentPage);
-  }, [currentPage]);
+  // useEffect(() => {
+  //   console.log("currentPage", currentPage);
+  // }, [currentPage]);
 
   function backToIndex() {
     setIsContenFromServerOpen(false);
@@ -73,39 +77,41 @@ export default function BackButton() {
     setShowSettingsContent(false);
     setShowManageCollectionsPage(false);
     setShowEditUserForm(false);
+    setSelectedSections([]);
+    setDocumentationTitle("");
   }
 
-  function backToSettings() {
-    setShowManageCanvasAppearance(false);
-    setShowManageCollectionsPage(false);
-    setShowManageUsersPage(false);
-    setShowSettingsContent(true);
-  }
+  // function backToSettings() {
+  //   setShowManageCanvasAppearance(false);
+  //   setShowManageCollectionsPage(false);
+  //   setShowManageUsersPage(false);
+  //   setShowSettingsContent(true);
+  // }
 
   return (
     <button
       onClick={() => {
         switch (currentPage) {
-          case "details":
-            backToIndex();
-            break;
-          case "new-documnent":
-            backToIndex();
-            break;
-          case "settings":
-            backToIndex();
-            break;
-          case "settings-section":
-            backToIndex();
-            setCurrentPage("index");
-            break;
-          case "canvas-appearance":
-            backToSettings();
-            setCurrentPage("settings");
-            break;
-          case "logout":
-            backToIndex();
-            break;
+          // case "details":
+          //   backToIndex();
+          //   break;
+          // case "new-documnent":
+          //   backToIndex();
+          //   break;
+          // case "settings":
+          //   backToIndex();
+          //   break;
+          // case "settings-section":
+          //   backToIndex();
+          //   setCurrentPage("index");
+          //   break;
+          // case "canvas-appearance":
+          //   backToSettings();
+          //   setCurrentPage("settings");
+          //   break;
+          // case "logout":
+          //   backToIndex();
+          //   break;
           default:
             backToIndex();
             break;

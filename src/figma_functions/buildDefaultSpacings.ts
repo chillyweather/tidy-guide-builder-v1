@@ -110,15 +110,13 @@ function buildOneSpacingGroup(
   const paddings = buildPaddingMarkers(
     elementPadding,
     sizeMarker,
-    spacingMarker,
-    settings
+    spacingMarker
   );
   const spacings = buildSpacingMarkers(
     elementHSpacing,
     // elementType,
     sizeMarker,
-    spacingMarker,
-    settings
+    spacingMarker
   );
 
   const sizingMarksFrame = arrangeFrameContents(
@@ -210,7 +208,7 @@ function arrangeResultFrame(
   size?: string | undefined
 ) {
   const sizingMarksFrame = buildAutoLayoutFrame(
-    size ? `Size ${size}` : " ",
+    size ? `Size - ${size.toUpperCase()}` : " ",
     "VERTICAL",
     0,
     24
@@ -284,19 +282,19 @@ async function placeLabels(
   return { sizeAl, paddingsAl, spacingsAl };
 }
 
-function setTitlePosition(title: InstanceNode, frame: FrameNode) {
+export function setTitlePosition(title: InstanceNode, frame: FrameNode) {
   frame.appendChild(title);
   title.layoutPositioning = "ABSOLUTE";
   title.x = 16;
   title.y = 8;
 }
 
-async function buildLabels(
+export async function buildLabels(
   labelComponent: ComponentNode,
   page: PageNode,
   settings?: any
 ) {
-  const units = settings.units;
+  const units = settings.units || "px";
   const dsGray600 = await setColorStyle(
     ".TG-admin/spacing-block-label",
     "707070"
@@ -334,8 +332,7 @@ export function buildSizeMarkers(
       sameSpacingsColor: true,
     },
     sizeMarker,
-    spacingMarker,
-    settings
+    spacingMarker
   );
   if (!sizeMarkers) return;
   sizeMarkers.forEach((marker) => {
@@ -357,8 +354,7 @@ export function buildSizeMarkers(
 function buildPaddingMarkers(
   elementPadding: InstanceNode,
   sizeMarker: ComponentSetNode,
-  spacingMarker: ComponentSetNode,
-  settings?: any
+  spacingMarker: ComponentSetNode
 ) {
   const paddingMarkers = buildSpacingMarks(
     elementPadding,
@@ -370,8 +366,7 @@ function buildPaddingMarkers(
       isShallow: true,
     },
     sizeMarker,
-    spacingMarker,
-    settings
+    spacingMarker
   );
   paddingMarkers?.forEach((marker) => {
     if (marker) modifyMarkers(marker);
@@ -382,8 +377,7 @@ function buildPaddingMarkers(
 function buildSpacingMarkers(
   elementHSpacing: InstanceNode,
   sizeMarker: ComponentSetNode,
-  spacingMarker: ComponentSetNode,
-  settings?: any
+  spacingMarker: ComponentSetNode
 ) {
   const spacingMarkers = buildSpacingMarks(
     elementHSpacing,
@@ -395,8 +389,7 @@ function buildSpacingMarkers(
       isShallow: true,
     },
     sizeMarker,
-    spacingMarker,
-    settings
+    spacingMarker
   );
   spacingMarkers?.forEach((marker) => {
     if (marker) modifyMarkers(marker);

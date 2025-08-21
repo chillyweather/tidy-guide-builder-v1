@@ -1,4 +1,5 @@
 import { getVariantsArray } from "./getVariantsArray";
+import { deleteInvalidProps } from "./deleteInvalidProps";
 import {
   buildAutoLayoutFrame,
   findAllVariantProps,
@@ -15,6 +16,8 @@ export async function buildVarSection(
   parentFrame: FrameNode
 ) {
   const variantProps = await findAllVariantProps(node);
+  deleteInvalidProps(variantProps);
+
   if (Object.keys(variantProps).length === 0) return;
   const variantKeys = Object.keys(variantProps).filter(
     (key) => key.toLocaleLowerCase() !== "size"
@@ -33,7 +36,6 @@ export async function buildVarSection(
   if (variantFrames.type !== "FRAME") return;
   const labels = buildBasicGridLabels(variantFrames, variantProps);
   if (!labels) return;
-  // buildTopLevelLabels(variantFrames, labels, node);
   const varsWithLabels = figma.group(
     [variantFrames, ...(labels as GroupNode[])],
     parentFrame
@@ -64,6 +66,6 @@ export async function buildVarSection(
   parentFrame.appendChild(resultFrame);
   resultFrame.layoutSizingHorizontal = "HUG";
   resultFrame.counterAxisAlignItems = "CENTER";
-  parentFrame.name = parentFrame.name + "- Variants";
+  // parentFrame.name = parentFrame.name + "- Variants";
   return parentFrame;
 }

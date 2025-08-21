@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.57.0",
     "@aws-sdk/client-s3": "^3.472.0",
     "@create-figma-plugin/ui": "^3.0.2",
     "@create-figma-plugin/utilities": "^3.0.2",
@@ -10,6 +11,7 @@
     "jotai": "^2.6.4",
     "markdown-it": "^14.0.0",
     "obj-str": "^1.1.0",
+    "openai": "^5.10.2",
     "preact": ">=10",
     "preact-feather": "^4.2.1",
     "prismjs": "^1.28.0",
@@ -32,8 +34,10 @@
     "typescript": "^5.3.3"
   },
   "scripts": {
-    "build": "build-figma-plugin --typecheck --minify",
+    "build": "build-figma-plugin --typecheck --minify && npm run security-check",
+    "build:unsafe": "build-figma-plugin --typecheck --minify",
     "watch": "build-figma-plugin --typecheck --watch",
+    "security-check": "node scripts/check-build-security.js",
     "knip": "knip"
   },
   "figma-plugin": {

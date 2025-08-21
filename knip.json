@@ -1,9 +1,0 @@
-{
-  "entry": [
-    "src/main.ts",
-    "src/ui.tsx"
-  ],
-  "project": [
-    "**/*.{js,ts,jsx,tsx}"
-  ]
-}

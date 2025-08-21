@@ -1,6 +1,8 @@
 import { atom } from "jotai";
 import { Screens } from "./navigationTypes";
 import { CurrenPage } from "./atomTypes";
+import { DropdownOption } from "src/ui_components/appearance_settings/settings/Dropdown";
+import { templates } from "src/layout_templates";
 
 //navigation
 export const historyAtom = atom<Screens[]>([Screens.HOME]);
@@ -11,10 +13,18 @@ export const currentPageAtom = atom<CurrenPage>("login");
 export const currentFigmaPageAtom = atom("");
 export const currentFigmaFileAtom = atom("");
 
+export const checkExistingDocumentAtom = atom(false);
+
+export const selectedVariantAtom = atom("");
+export const allVariantsAtom = atom([]);
+
 //settings
 export const appSettingsAtom = atom({});
 export const settingsUnitsAtom = atom("px");
 export const settingsRemRootAtom = atom(16);
+export const appFontsAtom = atom([]);
+export const documentationFontAtom = atom<DropdownOption | null>(null);
+
 // export const settingsStrokeStyleAtom = atom("solid");
 
 //page states
@@ -54,7 +64,6 @@ export const currentUserIdAtom = atom("");
 export const currentUserRoleAtom = atom("");
 export const currentDocumentationsAtom = atom(null);
 export const documentationDataAtom = atom({ docs: [] });
-// export const documentationDataAtom = atom({ docs: [] });
 export const userRankAtom = atom("");
 export const loggedInUserAtom = atom("");
 
@@ -78,6 +87,7 @@ export const isDraftAtom = atom(false);
 export const isWipAtom = atom(false);
 
 export const isScrollAtom = atom(false);
+export const isInternalSpacingAtom = atom(true);
 
 //collections
 export const collectionsAtom = atom([]);
@@ -96,7 +106,6 @@ export const isCollectionSwitchingAtom = atom(false);
 
 //show forms
 export const showEditUserFormAtom = atom(false);
-// export const showEditCollectionFormAtom = atom(false);
 
 //popup trigger states
 export const showCrashLogoutPopupAtom = atom(false);
@@ -111,10 +120,6 @@ export const showResetPopupAtom = atom(false);
 export const toastMessageAtom = atom("");
 export const toastTypeAtom = atom("idle");
 
-//add user/collection (settings)
-// export const errorMessageAtom = atom("");
-// export const isAddErrorAtom = atom(false);
-
 //show non empty collection
 export const showNonEmptyCollectionPopupAtom = atom(false);
 
@@ -122,5 +127,8 @@ export const showNonEmptyCollectionPopupAtom = atom(false);
 export const elementToDeleteAtom = atom("");
 
 //small interface elements
-export const isPdSectionOpenAtom = atom(false);
+export const isPdSectionOpenAtom = atom(true);
 export const isCurrentNameValidAtom = atom(false);
+
+//layout on canvas
+export const layoutTemplatesAtom = atom(templates);

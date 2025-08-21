@@ -8,10 +8,11 @@ import {
 } from "./tagBuilgingFunctions";
 import { buildTagElements } from "./buildTagElements";
 import { buildAutoLayoutFrame, setVariantProps } from "../utilityFunctions";
-import { getEffects } from "../getEffects";
 import { setTextContent } from "../utilityFunctions";
 import { buildIndexElementForText } from "./buildIndexElementForText";
-// import main from 'token2css';
+import { addBorderInfo } from "./addBorderInfo";
+import { addBackgroundInfo } from "./addBackgroundInfo";
+// import { addEffectsInfo } from "./anatomyData/addEffectsInfo";
 
 export default async function buildTags(
   tagComponent: ComponentSetNode | undefined,
@@ -41,9 +42,6 @@ export default async function buildTags(
   await findAllNodes(frame, instances, textElements);
 
   const indexes = buildIndexesFrame(frame);
-
-  //! sort by elementX value
-  //! need to implement better sorting
 
   //data for tag placement
   interface FrameData {
@@ -225,7 +223,7 @@ export default async function buildTags(
         : setTextContent(
             indexWithLabel,
             "Text",
-            `⭐ Icon - ${elementWidth}${unit}`
+            `⭐ Icon - ${elementWidth.toFixed()}${unit}`
           );
     }
     tag.name = `.tag`;
@@ -245,20 +243,14 @@ export default async function buildTags(
     );
 
   if (elementMaxWidth && elementMaxWidth > 0) {
-    addMaxWidth(
-      frame,
-      tagComponent,
-      indexes,
-      elementMaxWidth,
-      isRem,
-      rootValue,
-      unit
-    );
+    addMaxWidth(tagComponent, indexes, elementMaxWidth, isRem, rootValue, unit);
   }
-  addBorderRadius(frame, tagComponent, indexes, isRem, rootValue, unit);
-  addEffectsInfo(frame, tagComponent, indexes);
+
+  await addBackgroundInfo(frame, tagComponent, indexes);
+  await addBorderInfo(frame, tagComponent, indexes, isRem, rootValue, unit);
+
+  // await addEffectsInfo(frame, tagComponent, indexes);
   //! error here
-  addStrokeInfo(frame, tagComponent, indexes, isRem, rootValue, unit);
 
   //! find size of all tags (and frame) together
   const tagBounds = computeMaximumBounds(tagElements);
@@ -270,13 +262,6 @@ export default async function buildTags(
   indexes.y = yLimit + 52;
 
   tagElements.push(indexes);
-
-  // indexes.children.forEach((child) => {
-  //   if (child.type === "INSTANCE") {
-  //     makeLabelTextFlow(child);
-  //   }
-  // });
-
   return { tagElements, indexes };
 }
 
@@ -315,104 +300,7 @@ function addMinWidthIndex(
   }
 }
 
-function addEffectsInfo(
-  frame: any,
-  tagComponent: ComponentSetNode,
-  indexes: FrameNode
-) {
-  const effects: any = getEffects(frame);
-  if (!effects) return;
-
-  const tag = tagComponent.findOne((node) => node.name === "type=info");
-  if (!(tag && tag.type === "COMPONENT")) return;
-  const effectNames = Object.keys(effects);
-  effectNames.forEach((effectName) => {
-    const indexInfo = tag.createInstance();
-    indexInfo.name = `.${effectName}`;
-    setTextContent(indexInfo, "Text", `${effects[effectName]}`);
-    const indexLink = indexInfo.findOne((node) => node.name === "link");
-    if (indexLink) indexLink.visible = false;
-    if (effectName === "innerShadow" || effectName === "dropShadow") {
-      indexInfo.counterAxisAlignItems = "MIN";
-      const indexText = indexInfo.findOne((node) => node.name === "Text");
-      if (!(indexText && indexText.type === "TEXT")) return;
-      indexText.paragraphSpacing = 3;
-    }
-    indexes.appendChild(indexInfo);
-  });
-}
-
-function addBorderRadius(
-  frame: any,
-  tagComponent: ComponentSetNode,
-  indexes: FrameNode,
-  isRem: boolean = false,
-  rootValue: number = 16,
-  unit: string = "px"
-) {
-  if (frame.cornerRadius !== 0) {
-    const tag = tagComponent.findOne(
-      (node) => node.name === "type=cornerRadius"
-    );
-    if (!(tag && tag.type === "COMPONENT")) return;
-    if (frame.cornerRadius !== figma.mixed) {
-      const indexInfo = tag.createInstance();
-      indexInfo.name = ".corner-radius";
-      const cornerRadius = frame.cornerRadius;
-      if (indexInfo.children[1].type === "TEXT") {
-        isRem
-          ? (indexInfo.children[1].characters = `Corner radius - ${(
-              cornerRadius / rootValue
-            ).toFixed(3)}${unit}`)
-          : (indexInfo.children[1].characters = `Border radius - ${cornerRadius}${unit}`);
-        indexes.appendChild(indexInfo);
-      }
-      return;
-    } else if (frame.cornerRadius === figma.mixed) {
-      const ltRadiusIndex = tag.createInstance();
-      const rtRadiusIndex = tag.createInstance();
-      const rbRadiusIndex = tag.createInstance();
-      const lbRadiusIndex = tag.createInstance();
-
-      const leftTopRadius = isRem
-        ? frame.topLeftRadius.toFixed(2)
-        : frame.topLeftRadius;
-      const rightTopRadius = isRem
-        ? frame.topRightRadius.toFixed(2)
-        : frame.topRightRadius;
-      const rightBottomRadius = isRem
-        ? frame.bottomRightRadius.toFixed(2)
-        : frame.bottomRightRadius;
-      const leftBottomRadius = isRem
-        ? frame.bottomLeftRadius.toFixed(2)
-        : frame.bottomLeftRadius;
-
-      if (ltRadiusIndex.children[1].type === "TEXT")
-        ltRadiusIndex.children[1].characters = `Top left corner radius - ${leftTopRadius}${unit}`;
-      if (rtRadiusIndex.children[1].type === "TEXT")
-        rtRadiusIndex.children[1].characters = `Top right corner radius - ${rightTopRadius}${unit}`;
-      if (rbRadiusIndex.children[1].type === "TEXT")
-        rbRadiusIndex.children[1].characters = `Bottom right corner radius - ${rightBottomRadius}${unit}`;
-      if (lbRadiusIndex.children[1].type === "TEXT")
-        lbRadiusIndex.children[1].characters = `Bottom left corner radius - ${leftBottomRadius}${unit}`;
-
-      const cornerIndexes = [
-        ltRadiusIndex,
-        rtRadiusIndex,
-        rbRadiusIndex,
-        lbRadiusIndex,
-      ];
-
-      cornerIndexes.forEach((node) => {
-        indexes.appendChild(node);
-      });
-      return;
-    }
-  }
-}
-
 function addMaxWidth(
-  frame: any,
   tagComponent: ComponentSetNode,
   indexes: FrameNode,
   maxWidth: number,
@@ -437,96 +325,6 @@ function addMaxWidth(
 
     indexes.appendChild(tag);
   }
-}
-
-function addStrokeInfo(
-  frame: any,
-  tagComp: ComponentSetNode,
-  indexes: FrameNode,
-  isRem: boolean = false,
-  rootValue: number = 16,
-  unit: string = "px"
-) {
-  if (frame.strokes && frame.strokes.length > 0) {
-    const strokeAlign = frame.strokeAlign;
-    let strokeWeight = "";
-
-    if (frame.strokeWeight === figma.mixed) {
-      const result: any = {};
-      result["Left stroke"] = frame.strokeLeftWeight;
-      result["Right stroke"] = frame.strokeRightWeight;
-      result["Top stroke"] = frame.strokeTopWeight;
-      result["Bottom stroke"] = frame.strokeBottomWeight;
-
-      for (const res in result) {
-        if (result[res] > 0) {
-          const foundTagComponent = tagComp.findOne(
-            (node) => node.name === "type=info" && node.type === "COMPONENT"
-          );
-          if (!foundTagComponent || foundTagComponent.type !== "COMPONENT")
-            return;
-          const tag = foundTagComponent.createInstance();
-          strokeWeight = result[res];
-          setStrokeProps(
-            tag,
-            strokeWeight,
-            strokeAlign,
-            indexes,
-            res,
-            isRem,
-            rootValue,
-            unit
-          );
-        }
-      }
-    } else {
-      const foundTagComponent = tagComp.findOne(
-        (node) => node.name === "type=info" && node.type === "COMPONENT"
-      );
-      if (!foundTagComponent || foundTagComponent.type !== "COMPONENT") return;
-      const tag = foundTagComponent.createInstance();
-      strokeWeight = frame.strokeWeight;
-      setStrokeProps(
-        tag,
-        strokeWeight,
-        strokeAlign,
-        indexes,
-        "Stroke",
-        isRem,
-        rootValue,
-        unit
-      );
-    }
-  }
-}
-
-function setStrokeProps(
-  tag: any,
-  strokeWeight: string,
-  strokeAlign: any,
-  indexes: FrameNode,
-  strokeKind: string,
-  isRem: boolean = false,
-  rootValue: number = 16,
-  unit: string = "px"
-) {
-  isRem
-    ? setTextContent(
-        tag,
-        "Text",
-        `${strokeKind} - ${(parseFloat(strokeWeight) / rootValue).toFixed(
-          3
-        )}${unit}`
-      )
-    : setTextContent(
-        tag,
-        "Text",
-        `${strokeKind} - ${strokeWeight}px, ${strokeAlign}`
-      );
-
-  const indexLink = tag.findOne((element: any) => element.name === "link");
-  if (indexLink) indexLink.visible = false;
-  indexes.appendChild(tag);
 }
 
 export function makeLabelTextFlow(labelInstance: InstanceNode) {

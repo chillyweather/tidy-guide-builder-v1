@@ -6,18 +6,21 @@ import { buildPropSection } from "src/figma_doc_sections/buildPropSection";
 import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
 import { buildTitle } from "src/figma_doc_sections/elementBuildingFunctions";
 import { getNode } from "./getNode";
-import { computeMaximumBounds } from "@create-figma-plugin/utilities";
+import { buildAnatomySpacings } from "./AnatomySpacing/buildAnatomySpacings";
+import { placeResultTopRight } from "./utilityFunctions";
 
 export async function buildOneSection(
-  loadFonts: () => Promise<void>,
+  // loadFonts: (font?: any) => Promise<void>,
   nodeId: any,
   nodeKey: any,
   type: string,
   indexPosition?: string,
   indexSpacing?: string,
-  pluginSettings?: any
+  appSettings?: any,
+  isInternalSpacing?: boolean,
+  template?: any
 ) {
-  await loadFonts();
+  // await loadFonts(appSettings.documentationFonts.title);
   const foundNode = await getNodeAndDefaultElement(nodeId, nodeKey);
   const instance = foundNode.createInstance();
 
@@ -28,7 +31,9 @@ export async function buildOneSection(
     instance,
     indexPosition,
     indexSpacing,
-    pluginSettings
+    appSettings,
+    isInternalSpacing,
+    template
   );
 
   instance.remove();
@@ -40,35 +45,39 @@ async function buildSectionContent(
   node: InstanceNode,
   indexPosition?: string,
   indexSpacing?: string,
-  pluginSettings?: any
+  appSettings?: any,
+  isInternalSpacing?: boolean,
+  template?: any
 ) {
   const frame = buildResultFrame();
 
   if (type === "anatomy") {
-    const title = buildTitle("Anatomy");
+    const title = buildTitle("Anatomy", appSettings.documentationFont);
     frame.appendChild(title);
     await buildAnatomySection(
       node,
       frame,
       indexPosition,
       indexSpacing,
-      pluginSettings
+      appSettings,
+      template
     );
   } else if (type === "variants") {
     const title = buildTitle("Variants");
     frame.appendChild(title);
     await buildVarSection(node, frame);
   } else if (type === "spacing") {
-    const title = buildTitle("Spacing");
+    const title = buildTitle("Size & spacing");
     frame.appendChild(title);
-    await buildSpacingSection(node, frame, pluginSettings);
+    await buildSpacingSection(node, frame, appSettings);
     adjustSpacingFrame(frame);
+    //! here be anatomy spacing
+    if (isInternalSpacing) await buildAnatomySpacings(node, frame);
   } else if (type === "property") {
     const title = buildTitle("Property");
     frame.appendChild(title);
     const propSection = await buildPropSection(node, frame);
     if (propSection) adjustPropFrame(propSection);
-    //? how to indicate that there are no properties???
   } else {
     frame.remove();
     return;
@@ -136,13 +145,4 @@ async function getNodeAndDefaultElement(
 
   const defaultElement = await getDefaultElement(node);
   if (defaultElement) return defaultElement;
-}
-
-function placeResultTopRight(resultFrame: FrameNode) {
-  const bounds = computeMaximumBounds(Array.from(figma.currentPage.children));
-  figma.currentPage.appendChild(resultFrame);
-  resultFrame.x = bounds[1].x + 100;
-  resultFrame.y = bounds[0].y;
-
-  figma.viewport.scrollAndZoomIntoView([resultFrame]);
 }

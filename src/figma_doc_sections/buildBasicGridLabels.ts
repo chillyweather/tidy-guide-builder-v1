@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const BACKGROUND_PADDING = 10;
+// let BACKGROUND_PADDING = 10;
 const DEFAULT_FONT = { family: "Inter", style: "Regular" };
 const DEFAULT_FONT_SIZE = 12;
-
+const BOOLEAN_VARIANT_NAMES = ["on", "off", "true", "false"];
 export function buildBasicGridLabels(frame: FrameNode, variantProps: any) {
+  console.log("%c frame", "color: lime", frame.name);
   const defaultElement = frame.findOne((node) => node.type === "INSTANCE");
   if (!defaultElement) return;
 
@@ -12,14 +13,9 @@ export function buildBasicGridLabels(frame: FrameNode, variantProps: any) {
   const leftLabels: InstanceNode[] = [];
 
   const isOnlyFrames = frame.children.every((node) => node.type === "FRAME");
+
   if (isOnlyFrames) {
-    buildSecondLevelLabels(
-      frame,
-      variantProps,
-      topLabels,
-      defaultElement,
-      leftLabels
-    );
+    buildSecondLevelLabels(frame, variantProps, topLabels, leftLabels);
   }
 
   buildFirstLevelLabels(
@@ -62,36 +58,22 @@ function buildFirstLevelLabels(
     const firstProp = firstLevelFrame.name.split("-")[0];
     const firstPropVariants = variantProps[firstProp].variantOptions;
     firstPropVariants.forEach((prop: string, index: number) => {
-      const label = figma.createText();
-      figma.currentPage.appendChild(label);
-      label.characters = prop;
-      label.fontSize = DEFAULT_FONT_SIZE;
-      label.fontName = DEFAULT_FONT;
+      const label = createLabel(prop, firstProp);
 
       if (firstLevelLayoutMode === "VERTICAL") {
-        label.x =
-          //@ts-ignore
-          firstLevelFrame.children[index].absoluteBoundingBox.x -
-          (label.width + 60);
-        // allLeftSideLabels.push(label);
+        label.x = xPosition(index, firstLevelFrame) - (label.width + 60);
         label.y =
-          //@ts-ignore
-          firstLevelFrame.children[index].absoluteBoundingBox.y +
+          yPosition(index, firstLevelFrame) +
           defaultElement?.height / 2 -
           label.height / 2;
         leftLabels.push(label);
       }
       if (firstLevelLayoutMode === "HORIZONTAL") {
         label.x =
-          //@ts-ignore
-          firstLevelFrame.children[index].absoluteBoundingBox.x +
+          xPosition(index, firstLevelFrame) +
           firstLevelFrame.children[index].width / 2 -
           label.width / 2;
-        // -
-        // BACKGROUND_PADDING;
-        label.y = label.y =
-          //@ts-ignore
-          firstLevelFrame.children[index].absoluteBoundingBox.y - 60;
+        label.y = yPosition(index, firstLevelFrame) - 60;
         topLabels.push(label);
       }
     });
@@ -102,40 +84,72 @@ function buildSecondLevelLabels(
   frame: FrameNode,
   variantProps: any,
   topLabels: any[],
-  defaultElement: SceneNode,
   leftLabels: any[]
 ) {
   const secondLevelLayoutMode = frame.layoutMode;
   const secondProp = frame.name.split("-")[0];
   const secondPropVariants = variantProps[secondProp].variantOptions;
   secondPropVariants.forEach((variant: string, index: number) => {
-    const label = figma.createText();
-    label.fontSize = DEFAULT_FONT_SIZE;
-    label.fontName = DEFAULT_FONT;
-    figma.currentPage.appendChild(label);
-    label.characters = variant;
-    if (secondLevelLayoutMode === "HORIZONTAL") {
-      label.x =
-        //@ts-ignore
-        frame.children[index].absoluteBoundingBox.x +
-        frame.children[index].width / 2 -
-        label.width / 2;
-      //@ts-ignore
-      label.y = frame.children[index].absoluteBoundingBox.y - 60;
-      // label.y = frame.children[index].absoluteBoundingBox.y - 60;
-      topLabels.push(label);
-    }
-    if (secondLevelLayoutMode === "VERTICAL") {
-      label.x =
-        //@ts-ignore
-        frame.children[index].absoluteBoundingBox.x - (label.width + 60);
-      label.y =
-        //@ts-ignore
-        frame.children[index].absoluteBoundingBox.y +
-        defaultElement?.height / 2 -
-        label.height / 2 +
-        BACKGROUND_PADDING;
-      leftLabels.push(label);
+    const label = createLabel(variant, secondProp);
+    try {
+      if (secondLevelLayoutMode === "HORIZONTAL") {
+        placeHorizontalLabel(frame, label, index, 60, topLabels);
+      }
+      if (secondLevelLayoutMode === "VERTICAL") {
+        placeVerticalLabel(frame, label, index, 60, leftLabels);
+      }
+    } catch (e) {
+      console.log(e);
     }
   });
+}
+
+function createLabel(prop: string, firstProp: string) {
+  const label = figma.createText();
+  figma.currentPage.appendChild(label);
+  label.characters = fixBooleanLabelText(prop, firstProp);
+  label.fontSize = DEFAULT_FONT_SIZE;
+  label.fontName = DEFAULT_FONT;
+  return label;
+}
+
+function fixBooleanLabelText(text: string, propName: string) {
+  if (!BOOLEAN_VARIANT_NAMES.includes(text)) return text;
+  return `${propName}  /  ${text}`;
+}
+
+function placeVerticalLabel(
+  frame: FrameNode,
+  label: TextNode,
+  index: number,
+  shift: number,
+  labelsArray: any[] = []
+) {
+  label.x = xPosition(index, frame) - (label.width + shift);
+  label.y =
+    yPosition(index, frame) +
+    frame.children[index].height / 2 -
+    label.height / 2;
+  labelsArray.push(label);
+}
+
+function xPosition(index: number, frame: FrameNode) {
+  return frame.children[index].absoluteTransform[0][2];
+}
+
+function yPosition(index: number, frame: FrameNode) {
+  return frame.children[index].absoluteTransform[1][2];
+}
+
+function placeHorizontalLabel(
+  frame: FrameNode,
+  label: TextNode,
+  index: number,
+  shift: number,
+  labelsArray: any[] = []
+) {
+  label.x =
+    xPosition(index, frame) + frame.children[index].width / 2 - label.width / 2;
+  label.y = yPosition(index, frame) - shift;
+  labelsArray.push(label);
 }

@@ -4,21 +4,31 @@ import { findAllVariantProps } from "../figma_functions/utilityFunctions";
 import { getElementSizes } from "../figma_functions/utilityFunctions";
 import { buildLabelComponent } from "../figma_layout_components/buildLabelComponent";
 import { buildAtomTags } from "../figma_functions/Anatomy/buildAtomTags";
-import buildAllTags from "../figma_layout_components/buildTagComponent";
+import buildTagComponentSet from "../figma_layout_components/anatomy tag/buildTagComponentSet";
+import { deleteInvalidProps } from "./deleteInvalidProps";
 
 export async function buildAnatomySection(
   node: InstanceNode,
   parentFrame: FrameNode,
   indexPosition: string = "left",
   indexSpacing: string = "32",
-  pluginSettings?: any
+  pluginSettings: any,
+  sectionData: any
 ) {
+  const isTagFrame = "tagFrame" in sectionData.elements;
+
+  const { tagFrame } = isTagFrame
+    ? sectionData.elements
+    : sectionData.elements.anatomy.elements;
+
   const booleanProperties = await findAllBooleanProps(node);
   const variantProperties = await findAllVariantProps(node);
   const elementSizes = await getElementSizes(node);
 
+  deleteInvalidProps(variantProperties);
+
   const labelComponent = buildLabelComponent();
-  const tagComponent = await buildAllTags(pluginSettings);
+  const tagComponent = await buildTagComponentSet(pluginSettings);
 
   const tags = await buildAtomTags(
     node,
@@ -29,7 +39,8 @@ export async function buildAnatomySection(
     tagComponent,
     indexPosition,
     indexSpacing,
-    pluginSettings
+    pluginSettings,
+    tagFrame
   );
 
   tags.forEach((tag) => {
@@ -38,8 +49,6 @@ export async function buildAnatomySection(
 
   labelComponent.remove();
   tagComponent!.remove();
-
-  parentFrame.name = parentFrame.name + "- Anatomy";
 
   return parentFrame;
 }

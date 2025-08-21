@@ -1,11 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { getTextNodeColor } from "../utilityFunctions";
+import { getNodeColor } from "../utilityFunctions";
 
-//^ here we collect all the info on instances
 export const elementsCoordinatesAndDimensions = [];
-//^ find style applied to text element
 async function findFontStyleName(textNode: TextNode) {
   if (textNode.textStyleId === "") {
     return "Style not determined";
@@ -13,11 +11,7 @@ async function findFontStyleName(textNode: TextNode) {
     const foundStyle = await figma.getStyleByIdAsync(
       textNode.textStyleId as string
     );
-    if (foundStyle?.remote === false) {
-      return foundStyle.name;
-    } else {
-      return "no style";
-    }
+    if (foundStyle) return foundStyle.name;
   }
 }
 
@@ -41,12 +35,22 @@ async function addInstancesToArray(node: any, array: any[]) {
   });
 }
 
+async function addVectorToArray(node: any, array: any[]) {
+  array.push({
+    elementX: node.absoluteBoundingBox.x,
+    elementY: node.absoluteBoundingBox.y,
+    elementWidth: node.absoluteRenderBounds.width,
+    elementHeight: node.absoluteRenderBounds.height,
+    elementName: node.name,
+    elementMain: null,
+  });
+}
+
 export async function addTextNodesToArray(
   node: any,
   array: any[]
 ): Promise<void> {
-  console.log("node", node);
-  const nodeFillColor = getTextNodeColor({ node });
+  const nodeFillColor = getNodeColor(node);
   const variable = await getFillColorVariable(node);
   const styleName = await findFontStyleName(node);
   const letterSpacing = getLetterSpacing(node);
@@ -121,16 +125,33 @@ async function getFillColorVariable(node: TextNode) {
   return found;
 }
 
+export async function getStrokeColorVariable(node: SceneNode) {
+  // @ts-ignore
+  const strokes: ReadonlyArray<Paint> | figma.mixed = node.strokes;
+  if (!strokes || strokes.length === 0) {
+    return null;
+  }
+  const boundVariable = strokes[0].boundVariables.color;
+  if (!boundVariable) {
+    return null;
+  }
+  const found = await figma.variables.getVariableByIdAsync(boundVariable.id);
+  return found;
+}
+
 export async function findAllNodes(
   frame: FrameNode | GroupNode,
-  instances: any,
-  textElements: any
+  instances: boolean,
+  textElements: boolean
 ): Promise<void> {
   figma.skipInvisibleInstanceChildren = true;
   for (const node of frame.children) {
     if (node.absoluteBoundingBox && node.width > 0.01) {
       if (node.type === "INSTANCE" && instances && !node.name.startsWith("_")) {
         await addInstancesToArray(node, elementsCoordinatesAndDimensions);
+      }
+      if (node.type === "VECTOR" && !node.name.startsWith("_")) {
+        await addVectorToArray(node, elementsCoordinatesAndDimensions);
       }
       if (node.type === "TEXT" && textElements && !node.name.startsWith("_")) {
         await addTextNodesToArray(node, elementsCoordinatesAndDimensions);

@@ -1,35 +1,47 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { buildTitle } from "../figma_doc_sections/elementBuildingFunctions";
 import buildSectionContent from "./sectionBuilder";
-import { buildAutoLayoutFrame, getDefaultElement } from "./utilityFunctions";
+import {
+  buildAutoLayoutFrame,
+  getDefaultElement,
+  positionDocumentationOnCanvas,
+} from "./utilityFunctions";
 import { getNode } from "./getNode";
-import { emit, computeMaximumBounds } from "@create-figma-plugin/utilities";
+import { emit } from "@create-figma-plugin/utilities";
 
-export const documentationWidth = 1200;
-export const documentationPadding = 20;
-
-const sectionCornerRadius = 8;
-const documentationCornerRadius = 12;
+import {
+  documentationWidth,
+  documentationCornerRadius,
+  sectionCornerRadius,
+  documentationFrameFills,
+  predefinedSections,
+} from "./constants";
 
 export default async function documentationBuilder(
   data: any,
-  loadFonts: () => Promise<void>,
-  appSettings: any
+  loadFonts: (font?: any) => Promise<void>,
+  appSettings: any,
+  template: any
 ) {
-  await loadFonts();
+  //may be changed depending on our decisions on design
 
-  const bounds = computeMaximumBounds(Array.from(figma.currentPage.children));
+  const documentationFrame = buildDocumentationFrame(
+    template.name,
+    template.direction
+  );
 
-  const documentationFrame = buildDocumentationFrame();
-  figma.currentPage.appendChild(documentationFrame);
-  documentationFrame.x = bounds[1].x + 100;
-  documentationFrame.y = bounds[0].y;
+  positionDocumentationOnCanvas(documentationFrame, 100, 0);
 
-  const headerSectionFrame = buildSectionFrame();
+  const { name, direction } = template.elements.header;
+  const headerSectionFrame = buildSectionFrame(name, direction);
+
   documentationFrame.appendChild(headerSectionFrame);
   headerSectionFrame.layoutSizingHorizontal = "FILL";
 
-  const title = buildTitle(data.title);
+  const title = buildTitle(data.title, {
+    family: "Inter",
+    style: "Semi Bold",
+  });
   const divider = buildDivider();
 
   const defaultElement = await getNodeAndDefaultElement(data);
@@ -43,19 +55,28 @@ export default async function documentationBuilder(
     headerSectionFrame.appendChild(title);
   }
 
-  const predefinedSections = ["anatomy", "spacing", "property", "variants"];
-
+  const allSectonsData = template.elements;
   for (const element of data.docs) {
+    const sectionData = allSectonsData[element.datatype];
     if (element.hidden) continue;
 
     const isPredefined = predefinedSections.includes(element.datatype);
     if (isPredefined && !currentNode) continue;
 
-    const sectionFrame = buildSectionFrame();
+    const sectionFrame = buildSectionFrame(
+      sectionData.name,
+      sectionData.direction
+    );
 
     addSectionToDocFrame(sectionFrame, element);
 
-    buildSectionContent(element, sectionFrame, currentNode, appSettings);
+    buildSectionContent(
+      element,
+      sectionFrame,
+      currentNode,
+      appSettings,
+      sectionData
+    );
 
     documentationFrame.layoutSizingHorizontal = "HUG";
   }
@@ -69,7 +90,10 @@ export default async function documentationBuilder(
     documentationFrame.appendChild(divider.clone());
     const title = element.title;
     if (title) {
-      const titleFrame = buildTitle(title);
+      const titleFrame = buildTitle(title, {
+        family: "Inter",
+        style: "Semi Bold",
+      });
       sectionFrame.appendChild(titleFrame);
     }
   }
@@ -83,53 +107,39 @@ export default async function documentationBuilder(
     if (defaultElement) return defaultElement;
   }
 
-  function buildDocumentationFrame(): FrameNode {
+  function buildDocumentationFrame(
+    name: string,
+    direction: "NONE" | "HORIZONTAL" | "VERTICAL" = "VERTICAL"
+  ): FrameNode {
     const documentationFrame = buildAutoLayoutFrame(
-      "Documentation",
-      "VERTICAL",
+      name,
+      direction,
       50,
       60,
       40
     );
 
     documentationFrame.resize(documentationWidth, documentationFrame.height);
-    documentationFrame.fills = [
-      {
-        type: "SOLID",
-        visible: true,
-        opacity: 1,
-        blendMode: "NORMAL",
-        color: {
-          r: 1,
-          g: 1,
-          b: 1,
-        },
-        boundVariables: {},
-      },
-    ];
-    documentationFrame.topLeftRadius = documentationCornerRadius;
-    documentationFrame.topRightRadius = documentationCornerRadius;
-    documentationFrame.bottomLeftRadius = documentationCornerRadius;
-    documentationFrame.bottomRightRadius = documentationCornerRadius;
+    documentationFrame.fills = documentationFrameFills;
+    setSectionCornerRadius(documentationFrame, documentationCornerRadius);
     return documentationFrame;
   }
 
-  function buildSectionFrame() {
-    const sectionFrame = buildAutoLayoutFrame(
-      "sectionFrame",
-      "VERTICAL",
-      20,
-      20,
-      24
-    );
-
-    sectionFrame.topLeftRadius = sectionCornerRadius;
-    sectionFrame.topRightRadius = sectionCornerRadius;
-    sectionFrame.bottomLeftRadius = sectionCornerRadius;
-    sectionFrame.bottomRightRadius = sectionCornerRadius;
+  function buildSectionFrame(
+    name: string,
+    direction: "NONE" | "HORIZONTAL" | "VERTICAL" = "VERTICAL"
+  ): FrameNode {
+    const sectionFrame = buildAutoLayoutFrame(name, direction, 20, 20, 24);
+    setSectionCornerRadius(sectionFrame, sectionCornerRadius);
     return sectionFrame;
   }
 
+  function setSectionCornerRadius(frame: FrameNode, radius: number) {
+    const corners = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
+    corners.forEach((corner) => {
+      (frame as any)[`${corner}Radius`] = radius;
+    });
+  }
   function adjustTitle() {
     const docTitle = documentationFrame.findOne(
       (node) => node.name === "title"
@@ -157,5 +167,6 @@ export default async function documentationBuilder(
     });
     divider.remove();
   }
+
   figma.viewport.scrollAndZoomIntoView([documentationFrame]);
 }

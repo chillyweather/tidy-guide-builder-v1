@@ -1855,6 +1855,8 @@ body:has(.delete-flex) #userMenu {
   gap: 24px;
 }
 
+
+
 .tag-preview-frame {
   width: 240px;
   display: flex;
@@ -3056,7 +3058,7 @@ summary button {
   color: #ffffff;
   min-height: 16px;
   min-width: 16px;
-  padding: 8px;
+  /* padding: 8px; */
   border-radius: 6px;
 }
 
@@ -4085,10 +4087,9 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   opacity: 1;
 }
 
-.sectionCard .cardHeader .hoverButton:focus,
-.sectionCard .cardHeader .hoverButton:focus-within {
+/* .sectionCard .cardHeader .hoverButton:focus-within {
   opacity: 1;
-}
+} */
 
 .sectionCard .cardHeader .hoverButton:focus-within .tooltiptext {
   visibility: visible !important;
@@ -4227,8 +4228,8 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  gap: 48px;
+  align-items: flex-start;
+  gap: 32px;
   width: 100%;
   margin-bottom: 18px;
 }
@@ -4237,6 +4238,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   position: relative;
   width: 100%;
   height: 100%;
+  margin-right: 26px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -4284,6 +4286,19 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
   margin: 0;
 }
 
+.twoColumnCardBodyContent .listButtonStyle {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
+
+.twoColumnCardBodyContent .closeButton {
+  position: absolute;
+  right: -32px;
+}
+
 /* list card */
 .listCardContentStyle {
   display: flex;
@@ -4313,6 +4328,7 @@ body:has(.addSectionIcon[alt="release-notes"]) .addSectionPopup .addSectionCard:
 }
 
 .inputInputRowStyle {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -5247,6 +5263,14 @@ body:has(.navigation-button.true) .nav-wrapper .nav-container>* {
 
 .web-link:hover {
   text-decoration: none !important;
+}
+
+.font-block {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: baseline;
 }
 
 /* -------------------------------------------- */

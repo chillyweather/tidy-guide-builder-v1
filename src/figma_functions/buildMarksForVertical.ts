@@ -21,7 +21,14 @@ function buildMarksForVertical(
         if (!marker) return;
         marker.x = xPos;
         marker.y = array[index][1];
-        setMarkerSizeProps(rootElementSize, space, marker, units);
+        setMarkerSizeProps(
+          rootElementSize,
+          space,
+          marker,
+          units,
+          "VERTICAL",
+          frame
+        );
         const shift = getMarkerShift(marker);
         marker.resize(frame.width + shift, space);
         marker.name = `.spacing-marker-${index + 1}_vertical`;

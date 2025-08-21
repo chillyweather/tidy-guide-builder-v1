@@ -56,6 +56,7 @@ declare const styles: {
   readonly "cards": string;
   readonly "checkBoxElement": string;
   readonly "chevIcon": string;
+  readonly "closeButton": string;
   readonly "closePopupButton": string;
   readonly "collection-card": string;
   readonly "color-picker-input": string;
@@ -124,6 +125,7 @@ declare const styles: {
   readonly "flex-container": string;
   readonly "flex-label": string;
   readonly "flex-link": string;
+  readonly "font-block": string;
   readonly "footer": string;
   readonly "fullscreen": string;
   readonly "green": string;

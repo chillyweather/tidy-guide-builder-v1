@@ -12,27 +12,35 @@ import { buildReleaseNotes } from "src/figma_doc_sections/buildReleaseNotes";
 import { buildSpacingSection } from "src/figma_doc_sections/buildSpacingSection";
 import { buildPropSection } from "src/figma_doc_sections/buildPropSection";
 import { buildVarSection } from "src/figma_doc_sections/buildVarSection";
+import { buildAnatomySpacings } from "./AnatomySpacing/buildAnatomySpacings";
 
 async function buildSection(
   element: any,
   sectionFrame: any,
   currentNode: any = null,
-  appSettings: any
+  appSettings: any,
+  sectionData: any
 ) {
   const content = element.content;
   switch (element.datatype) {
     case "anatomy":
+      console.log("sectionData in anatomy", sectionData);
       buildAnatomySection(
         currentNode,
         sectionFrame,
         element.content.anatomyIndexPosition,
         element.content.anatomyIndexSpacing,
-        appSettings
+        appSettings,
+        sectionData
       );
       break;
 
     case "spacing":
-      buildSpacingSection(currentNode, sectionFrame, appSettings);
+      await buildSpacingSection(currentNode, sectionFrame, appSettings);
+      const isInternalSpacing = element.content.isInternalSpacing;
+      if (isInternalSpacing) {
+        await buildAnatomySpacings(currentNode, sectionFrame);
+      }
       break;
 
     case "property":

@@ -4,33 +4,21 @@ import { useAtom } from "jotai";
 import {
   currentPageAtom,
   showSettingsContentAtom,
-  showManageUsersPageAtom,
-  showManageCollectionsPageAtom,
   showManageCanvasAppearanceAtom,
-  showDeleteAccountPopupAtom,
 } from "src/state/atoms";
 import {
-  IconAlertCircleFilled,
   IconArrowRight,
   IconUser,
   IconChevronRight,
 } from "@tabler/icons-react";
-import manageUsersPage from "./manageUsersPage";
-import manageCollectionsPage from "./manageCollectionsPage";
-import manageCanvasAppearance from "./manageCanvasAppearance";
+import CanvasAppearance from "./appearance_settings/settings/CanvasAppearance";
 import { useEffect } from "react";
 
 const Settings = () => {
-  const [, setShowDeleteAccountPopup] = useAtom(showDeleteAccountPopupAtom);
   const [showSettingsContent, setShowSettingsContent] = useAtom(
     showSettingsContentAtom
   );
-  const [showManageUsersPage, setShowManageUsersPage] = useAtom(
-    showManageUsersPageAtom
-  );
-  const [showManageCollectionsPage, setShowManageCollectionsPage] = useAtom(
-    showManageCollectionsPageAtom
-  );
+
   const [showManageCanvasAppearance, setShowManageCanvasAppearance] = useAtom(
     showManageCanvasAppearanceAtom
   );
@@ -40,24 +28,10 @@ const Settings = () => {
     setCurrentPage("settings");
   }, []);
 
-  useEffect(() => {
-    console.log("showSettingsContent", showSettingsContent);
-    console.log("showManageUsersPage", showManageUsersPage);
-    console.log("showManageCollectionsPage", showManageCollectionsPage);
-  }, [showSettingsContent, showManageUsersPage, showManageCollectionsPage]);
+  useEffect(() => {}, [showSettingsContent]);
 
   function handleSections(sectionName: string) {
     switch (sectionName) {
-      case "users":
-        setCurrentPage("settings-section");
-        setShowManageUsersPage(true);
-        setShowSettingsContent(false);
-        break;
-      case "collections":
-        setCurrentPage("settings-section");
-        setShowManageCollectionsPage(true);
-        setShowSettingsContent(false);
-        break;
       case "canvas":
         setCurrentPage("canvas-appearance");
         setShowManageCanvasAppearance(true);
@@ -70,7 +44,6 @@ const Settings = () => {
 
   const SettingsContent = (
     <div className={"settings-wrapper"}>
-      {/* appearance on canavas */}
       <SettingsSection
         props={{
           icon: IconUser,
@@ -81,53 +54,14 @@ const Settings = () => {
           },
         }}
       />
-      {/* users */}
-      <SettingsSection
-        props={{
-          icon: IconUser,
-          title: "Manage users",
-          description: "Show all users in your company",
-          onClick: () => {
-            handleSections("users");
-          },
-        }}
-      />
-      {/* collections */}
-      <SettingsSection
-        props={{
-          icon: IconUser,
-          title: "Manage collections",
-          description: "Show all collections in your company",
-          onClick: () => {
-            handleSections("collections");
-          },
-        }}
-      />
-      <div className="delete-flex">
-        <div className="delete-content">
-          <div className="title-flex">
-            <IconAlertCircleFilled className={"red-icon icon-16"} />
-            <h4>Delete Account</h4>
-          </div>
-          <p>Permanently delete the account and remove access to all users.</p>
-        </div>
-        <button
-          id={"delete-button"}
-          className={"button primary"}
-          onClick={() => setShowDeleteAccountPopup(true)}
-        >
-          Delete this account
-        </button>
-      </div>
     </div>
   );
 
   return (
     <div style={{ width: "100%" }}>
-      {showSettingsContent && SettingsContent}
-      {showManageUsersPage && manageUsersPage()}
-      {showManageCollectionsPage && manageCollectionsPage()}
-      {showManageCanvasAppearance && manageCanvasAppearance()}
+      {/* {showSettingsContent && SettingsContent} */}
+
+      {showManageCanvasAppearance && CanvasAppearance()}
     </div>
   );
 };
